@@ -1,0 +1,17 @@
+platform :ios, '8.0'
+ 
+use_frameworks!
+inhibit_all_warnings!
+
+workspace 'ToPay'
+
+target 'ToPay' do 
+
+pod 'SDWebImage'
+pod 'Masonry'
+pod 'MJExtension'
+pod 'SVProgressHUD'
+pod 'SGPagingView', '~> 1.5.5'
+
+
+end  

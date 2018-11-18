@@ -1,0 +1,1144 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DD0243FA2196C968006A1390 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0243F92196C968006A1390 /* AppDelegate.m */; };
+		DD0243FD2196C968006A1390 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0243FC2196C968006A1390 /* ViewController.m */; };
+		DD0244002196C969006A1390 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD0243FE2196C969006A1390 /* Main.storyboard */; };
+		DD0244022196C96B006A1390 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD0244012196C96B006A1390 /* Assets.xcassets */; };
+		DD0244052196C96B006A1390 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD0244032196C96B006A1390 /* LaunchScreen.storyboard */; };
+		DD0244082196C96B006A1390 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0244072196C96B006A1390 /* main.m */; };
+		DD0244122196C96C006A1390 /* ToPayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0244112196C96C006A1390 /* ToPayTests.m */; };
+		DD02441D2196C96C006A1390 /* ToPayUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DD02441C2196C96C006A1390 /* ToPayUITests.m */; };
+		DD0244412196DD23006A1390 /* TPCapitalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0244402196DD23006A1390 /* TPCapitalViewController.m */; };
+		DD0244442196DD39006A1390 /* TPTransactionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0244432196DD39006A1390 /* TPTransactionViewController.m */; };
+		DD0244472196DD4E006A1390 /* TPCrowdfundingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0244462196DD4E006A1390 /* TPCrowdfundingViewController.m */; };
+		DD02444A2196DD57006A1390 /* TPMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0244492196DD57006A1390 /* TPMeViewController.m */; };
+		DD02444F21992F09006A1390 /* UIColor+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = DD02444D21992F09006A1390 /* UIColor+Additions.m */; };
+		DD1083D3219D67480087F244 /* TPTokenKindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1083D2219D67480087F244 /* TPTokenKindViewController.m */; };
+		DD1083D6219D67800087F244 /* TPTokenHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1083D5219D67800087F244 /* TPTokenHeaderView.m */; };
+		DD1083D9219D71410087F244 /* TPTokenCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1083D8219D71410087F244 /* TPTokenCell.m */; };
+		DD1083DC219D76560087F244 /* TPTokenTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1083DB219D76560087F244 /* TPTokenTopicViewController.m */; };
+		DD1083DF219D7AD10087F244 /* TPNotiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1083DE219D7AD10087F244 /* TPNotiViewController.m */; };
+		DD1083E2219D83C20087F244 /* TPNotiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1083E1219D83C20087F244 /* TPNotiCell.m */; };
+		DD108421219E9EC70087F244 /* TPMeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD108420219E9EC70087F244 /* TPMeCell.m */; };
+		DD108424219EA5570087F244 /* TPMeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD108423219EA5570087F244 /* TPMeHeaderView.m */; };
+		DD108427219EAEB80087F244 /* TPLanguageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD108426219EAEB80087F244 /* TPLanguageViewController.m */; };
+		DD10842A219EB2280087F244 /* TPLangUageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD108429219EB2280087F244 /* TPLangUageCell.m */; };
+		DD10842D219EB60F0087F244 /* TPAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD10842C219EB60F0087F244 /* TPAboutViewController.m */; };
+		DD10844021A001030087F244 /* BCScanQR4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD10842F21A001030087F244 /* BCScanQR4@2x.png */; };
+		DD10844121A001030087F244 /* QRCodeScanLine@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD10843121A001030087F244 /* QRCodeScanLine@2x.png */; };
+		DD10844221A001030087F244 /* BCScanQR2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD10843221A001030087F244 /* BCScanQR2@2x.png */; };
+		DD10844321A001030087F244 /* NIMScanerCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD10843521A001030087F244 /* NIMScanerCardViewController.m */; };
+		DD10844421A001030087F244 /* NIMScannerBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = DD10843821A001030087F244 /* NIMScannerBorder.m */; };
+		DD10844521A001030087F244 /* NIMScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = DD10843921A001030087F244 /* NIMScanner.m */; };
+		DD10844621A001030087F244 /* NIMScannerMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD10843A21A001030087F244 /* NIMScannerMaskView.m */; };
+		DD10844721A001030087F244 /* BCScanQR3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD10843B21A001030087F244 /* BCScanQR3@2x.png */; };
+		DD10844821A001030087F244 /* NIMScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD10843C21A001030087F244 /* NIMScannerViewController.m */; };
+		DD10844921A001030087F244 /* BCScanQR1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD10843D21A001030087F244 /* BCScanQR1@2x.png */; };
+		DD72F4262199606E004C0DAF /* RDVTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = DD72F4202199606E004C0DAF /* RDVTabBar.m */; };
+		DD72F4272199606E004C0DAF /* RDVTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD72F4242199606E004C0DAF /* RDVTabBarController.m */; };
+		DD72F4282199606E004C0DAF /* RDVTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DD72F4252199606E004C0DAF /* RDVTabBarItem.m */; };
+		DD72F42B21998491004C0DAF /* TPNavigationBarTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD72F42A21998491004C0DAF /* TPNavigationBarTitleView.m */; };
+		DD72F42E219A7D7A004C0DAF /* TPVRTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD72F42D219A7D7A004C0DAF /* TPVRTViewController.m */; };
+		DD72F431219A7DA7004C0DAF /* TPBalanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD72F430219A7DA7004C0DAF /* TPBalanceViewController.m */; };
+		DD72F435219A7F12004C0DAF /* TPBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD72F434219A7F12004C0DAF /* TPBaseViewController.m */; };
+		DDDDFB7B219AB5560056FC57 /* TPVRPLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFB7A219AB5560056FC57 /* TPVRPLabelCell.m */; };
+		DDDDFB81219AB7350056FC57 /* TPVRTCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFB80219AB7350056FC57 /* TPVRTCell.m */; };
+		DDDDFB84219AB8C40056FC57 /* YFactoryUI.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFB83219AB8C40056FC57 /* YFactoryUI.m */; };
+		DDDDFB87219ACC310056FC57 /* TPCrowdfundCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFB86219ACC310056FC57 /* TPCrowdfundCell.m */; };
+		DDDDFB8A219AD0550056FC57 /* UIView+TPExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFB89219AD0550056FC57 /* UIView+TPExtension.m */; };
+		DDDDFB8D219AD92F0056FC57 /* TPCFTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFB8C219AD92F0056FC57 /* TPCFTopicViewController.m */; };
+		DDDDFB90219BE1820056FC57 /* TPHeaderComView.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFB8F219BE1820056FC57 /* TPHeaderComView.m */; };
+		DDDDFB93219BE19B0056FC57 /* TPHeaderRecordView.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFB92219BE19B0056FC57 /* TPHeaderRecordView.m */; };
+		DDDDFB97219C1A440056FC57 /* TPReservationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFB96219C1A440056FC57 /* TPReservationViewController.m */; };
+		DDDDFB9D219C1AC00056FC57 /* TPComingSoonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFB9C219C1AC00056FC57 /* TPComingSoonViewController.m */; };
+		DDDDFBA0219C1AE90056FC57 /* TPEndViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFB9F219C1AE90056FC57 /* TPEndViewController.m */; };
+		DDDDFBA3219C1EBE0056FC57 /* UIBarButtonItem+SXCreate.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFBA1219C1EBE0056FC57 /* UIBarButtonItem+SXCreate.m */; };
+		DDDDFBA6219C1FA40056FC57 /* TPRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFBA5219C1FA40056FC57 /* TPRecordViewController.m */; };
+		DDDDFBA9219C27BF0056FC57 /* TPCapitalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFBA8219C27BF0056FC57 /* TPCapitalCell.m */; };
+		DDDDFBAC219D5A110056FC57 /* TPCapitalHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFBAB219D5A110056FC57 /* TPCapitalHeaderView.m */; };
+		DDDDFBAF219D60BC0056FC57 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFBAE219D60BC0056FC57 /* UIViewExt.m */; };
+		F5E7B5DA88A0AD0247016986 /* Pods_ToPay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD9ADC3B99E8C7306FF2F4F /* Pods_ToPay.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DD02440E2196C96C006A1390 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD0243ED2196C968006A1390 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD0243F42196C968006A1390;
+			remoteInfo = ToPay;
+		};
+		DD0244192196C96C006A1390 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD0243ED2196C968006A1390 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD0243F42196C968006A1390;
+			remoteInfo = ToPay;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		18586FC0E9AAE81AAD612899 /* Pods-ToPay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToPay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToPay/Pods-ToPay.debug.xcconfig"; sourceTree = "<group>"; };
+		5BD9ADC3B99E8C7306FF2F4F /* Pods_ToPay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToPay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A295F59DB5E2234F6FC0E762 /* Pods-ToPay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToPay.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToPay/Pods-ToPay.release.xcconfig"; sourceTree = "<group>"; };
+		DD0243F52196C968006A1390 /* ToPay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToPay.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD0243F82196C968006A1390 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DD0243F92196C968006A1390 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DD0243FB2196C968006A1390 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		DD0243FC2196C968006A1390 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		DD0243FF2196C969006A1390 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DD0244012196C96B006A1390 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DD0244042196C96B006A1390 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DD0244062196C96B006A1390 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD0244072196C96B006A1390 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DD02440D2196C96C006A1390 /* ToPayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToPayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD0244112196C96C006A1390 /* ToPayTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToPayTests.m; sourceTree = "<group>"; };
+		DD0244132196C96C006A1390 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD0244182196C96C006A1390 /* ToPayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToPayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD02441C2196C96C006A1390 /* ToPayUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToPayUITests.m; sourceTree = "<group>"; };
+		DD02441E2196C96C006A1390 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD02443F2196DD23006A1390 /* TPCapitalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPCapitalViewController.h; sourceTree = "<group>"; };
+		DD0244402196DD23006A1390 /* TPCapitalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPCapitalViewController.m; sourceTree = "<group>"; };
+		DD0244422196DD39006A1390 /* TPTransactionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTransactionViewController.h; sourceTree = "<group>"; };
+		DD0244432196DD39006A1390 /* TPTransactionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTransactionViewController.m; sourceTree = "<group>"; };
+		DD0244452196DD4E006A1390 /* TPCrowdfundingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPCrowdfundingViewController.h; sourceTree = "<group>"; };
+		DD0244462196DD4E006A1390 /* TPCrowdfundingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPCrowdfundingViewController.m; sourceTree = "<group>"; };
+		DD0244482196DD57006A1390 /* TPMeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPMeViewController.h; sourceTree = "<group>"; };
+		DD0244492196DD57006A1390 /* TPMeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPMeViewController.m; sourceTree = "<group>"; };
+		DD02444B219928DF006A1390 /* TP.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TP.pch; sourceTree = "<group>"; };
+		DD02444C21992EE0006A1390 /* TPGlobalMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPGlobalMacro.h; sourceTree = "<group>"; };
+		DD02444D21992F09006A1390 /* UIColor+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Additions.m"; sourceTree = "<group>"; };
+		DD02444E21992F09006A1390 /* UIColor+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Additions.h"; sourceTree = "<group>"; };
+		DD1083D1219D67480087F244 /* TPTokenKindViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTokenKindViewController.h; sourceTree = "<group>"; };
+		DD1083D2219D67480087F244 /* TPTokenKindViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTokenKindViewController.m; sourceTree = "<group>"; };
+		DD1083D4219D67800087F244 /* TPTokenHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTokenHeaderView.h; sourceTree = "<group>"; };
+		DD1083D5219D67800087F244 /* TPTokenHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTokenHeaderView.m; sourceTree = "<group>"; };
+		DD1083D7219D71410087F244 /* TPTokenCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTokenCell.h; sourceTree = "<group>"; };
+		DD1083D8219D71410087F244 /* TPTokenCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTokenCell.m; sourceTree = "<group>"; };
+		DD1083DA219D76560087F244 /* TPTokenTopicViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTokenTopicViewController.h; sourceTree = "<group>"; };
+		DD1083DB219D76560087F244 /* TPTokenTopicViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTokenTopicViewController.m; sourceTree = "<group>"; };
+		DD1083DD219D7AD10087F244 /* TPNotiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPNotiViewController.h; sourceTree = "<group>"; };
+		DD1083DE219D7AD10087F244 /* TPNotiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPNotiViewController.m; sourceTree = "<group>"; };
+		DD1083E0219D83C20087F244 /* TPNotiCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPNotiCell.h; sourceTree = "<group>"; };
+		DD1083E1219D83C20087F244 /* TPNotiCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPNotiCell.m; sourceTree = "<group>"; };
+		DD10841F219E9EC70087F244 /* TPMeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPMeCell.h; sourceTree = "<group>"; };
+		DD108420219E9EC70087F244 /* TPMeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPMeCell.m; sourceTree = "<group>"; };
+		DD108422219EA5570087F244 /* TPMeHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPMeHeaderView.h; sourceTree = "<group>"; };
+		DD108423219EA5570087F244 /* TPMeHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPMeHeaderView.m; sourceTree = "<group>"; };
+		DD108425219EAEB80087F244 /* TPLanguageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPLanguageViewController.h; sourceTree = "<group>"; };
+		DD108426219EAEB80087F244 /* TPLanguageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPLanguageViewController.m; sourceTree = "<group>"; };
+		DD108428219EB2280087F244 /* TPLangUageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPLangUageCell.h; sourceTree = "<group>"; };
+		DD108429219EB2280087F244 /* TPLangUageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPLangUageCell.m; sourceTree = "<group>"; };
+		DD10842B219EB60F0087F244 /* TPAboutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAboutViewController.h; sourceTree = "<group>"; };
+		DD10842C219EB60F0087F244 /* TPAboutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAboutViewController.m; sourceTree = "<group>"; };
+		DD10842F21A001030087F244 /* BCScanQR4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BCScanQR4@2x.png"; sourceTree = "<group>"; };
+		DD10843021A001030087F244 /* NIMScannerBorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIMScannerBorder.h; sourceTree = "<group>"; };
+		DD10843121A001030087F244 /* QRCodeScanLine@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "QRCodeScanLine@2x.png"; sourceTree = "<group>"; };
+		DD10843221A001030087F244 /* BCScanQR2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BCScanQR2@2x.png"; sourceTree = "<group>"; };
+		DD10843321A001030087F244 /* NIMScannerMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIMScannerMaskView.h; sourceTree = "<group>"; };
+		DD10843421A001030087F244 /* NIMScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIMScanner.h; sourceTree = "<group>"; };
+		DD10843521A001030087F244 /* NIMScanerCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIMScanerCardViewController.m; sourceTree = "<group>"; };
+		DD10843721A001030087F244 /* NIMScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIMScannerViewController.h; sourceTree = "<group>"; };
+		DD10843821A001030087F244 /* NIMScannerBorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIMScannerBorder.m; sourceTree = "<group>"; };
+		DD10843921A001030087F244 /* NIMScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIMScanner.m; sourceTree = "<group>"; };
+		DD10843A21A001030087F244 /* NIMScannerMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIMScannerMaskView.m; sourceTree = "<group>"; };
+		DD10843B21A001030087F244 /* BCScanQR3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BCScanQR3@2x.png"; sourceTree = "<group>"; };
+		DD10843C21A001030087F244 /* NIMScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIMScannerViewController.m; sourceTree = "<group>"; };
+		DD10843D21A001030087F244 /* BCScanQR1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BCScanQR1@2x.png"; sourceTree = "<group>"; };
+		DD10843F21A001030087F244 /* NIMScanerCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIMScanerCardViewController.h; sourceTree = "<group>"; };
+		DD72F4202199606E004C0DAF /* RDVTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVTabBar.m; sourceTree = "<group>"; };
+		DD72F4212199606E004C0DAF /* RDVTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVTabBarController.h; sourceTree = "<group>"; };
+		DD72F4222199606E004C0DAF /* RDVTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVTabBarItem.h; sourceTree = "<group>"; };
+		DD72F4232199606E004C0DAF /* RDVTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVTabBar.h; sourceTree = "<group>"; };
+		DD72F4242199606E004C0DAF /* RDVTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVTabBarController.m; sourceTree = "<group>"; };
+		DD72F4252199606E004C0DAF /* RDVTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVTabBarItem.m; sourceTree = "<group>"; };
+		DD72F42921998491004C0DAF /* TPNavigationBarTitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPNavigationBarTitleView.h; sourceTree = "<group>"; };
+		DD72F42A21998491004C0DAF /* TPNavigationBarTitleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPNavigationBarTitleView.m; sourceTree = "<group>"; };
+		DD72F42C219A7D7A004C0DAF /* TPVRTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPVRTViewController.h; sourceTree = "<group>"; };
+		DD72F42D219A7D7A004C0DAF /* TPVRTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPVRTViewController.m; sourceTree = "<group>"; };
+		DD72F42F219A7DA7004C0DAF /* TPBalanceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPBalanceViewController.h; sourceTree = "<group>"; };
+		DD72F430219A7DA7004C0DAF /* TPBalanceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPBalanceViewController.m; sourceTree = "<group>"; };
+		DD72F433219A7F12004C0DAF /* TPBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPBaseViewController.h; sourceTree = "<group>"; };
+		DD72F434219A7F12004C0DAF /* TPBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPBaseViewController.m; sourceTree = "<group>"; };
+		DDDDFB79219AB5560056FC57 /* TPVRPLabelCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPVRPLabelCell.h; sourceTree = "<group>"; };
+		DDDDFB7A219AB5560056FC57 /* TPVRPLabelCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPVRPLabelCell.m; sourceTree = "<group>"; };
+		DDDDFB7F219AB7350056FC57 /* TPVRTCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPVRTCell.h; sourceTree = "<group>"; };
+		DDDDFB80219AB7350056FC57 /* TPVRTCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPVRTCell.m; sourceTree = "<group>"; };
+		DDDDFB82219AB8C40056FC57 /* YFactoryUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YFactoryUI.h; sourceTree = "<group>"; };
+		DDDDFB83219AB8C40056FC57 /* YFactoryUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YFactoryUI.m; sourceTree = "<group>"; };
+		DDDDFB85219ACC310056FC57 /* TPCrowdfundCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPCrowdfundCell.h; sourceTree = "<group>"; };
+		DDDDFB86219ACC310056FC57 /* TPCrowdfundCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPCrowdfundCell.m; sourceTree = "<group>"; };
+		DDDDFB88219AD0550056FC57 /* UIView+TPExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+TPExtension.h"; sourceTree = "<group>"; };
+		DDDDFB89219AD0550056FC57 /* UIView+TPExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+TPExtension.m"; sourceTree = "<group>"; };
+		DDDDFB8B219AD92F0056FC57 /* TPCFTopicViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPCFTopicViewController.h; sourceTree = "<group>"; };
+		DDDDFB8C219AD92F0056FC57 /* TPCFTopicViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPCFTopicViewController.m; sourceTree = "<group>"; };
+		DDDDFB8E219BE1820056FC57 /* TPHeaderComView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPHeaderComView.h; sourceTree = "<group>"; };
+		DDDDFB8F219BE1820056FC57 /* TPHeaderComView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPHeaderComView.m; sourceTree = "<group>"; };
+		DDDDFB91219BE19B0056FC57 /* TPHeaderRecordView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPHeaderRecordView.h; sourceTree = "<group>"; };
+		DDDDFB92219BE19B0056FC57 /* TPHeaderRecordView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPHeaderRecordView.m; sourceTree = "<group>"; };
+		DDDDFB94219BF6F10056FC57 /* TPCrowdConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPCrowdConfig.h; sourceTree = "<group>"; };
+		DDDDFB95219C1A440056FC57 /* TPReservationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPReservationViewController.h; sourceTree = "<group>"; };
+		DDDDFB96219C1A440056FC57 /* TPReservationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPReservationViewController.m; sourceTree = "<group>"; };
+		DDDDFB9B219C1AC00056FC57 /* TPComingSoonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPComingSoonViewController.h; sourceTree = "<group>"; };
+		DDDDFB9C219C1AC00056FC57 /* TPComingSoonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPComingSoonViewController.m; sourceTree = "<group>"; };
+		DDDDFB9E219C1AE90056FC57 /* TPEndViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPEndViewController.h; sourceTree = "<group>"; };
+		DDDDFB9F219C1AE90056FC57 /* TPEndViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPEndViewController.m; sourceTree = "<group>"; };
+		DDDDFBA1219C1EBE0056FC57 /* UIBarButtonItem+SXCreate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+SXCreate.m"; sourceTree = "<group>"; };
+		DDDDFBA2219C1EBE0056FC57 /* UIBarButtonItem+SXCreate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+SXCreate.h"; sourceTree = "<group>"; };
+		DDDDFBA4219C1FA40056FC57 /* TPRecordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPRecordViewController.h; sourceTree = "<group>"; };
+		DDDDFBA5219C1FA40056FC57 /* TPRecordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPRecordViewController.m; sourceTree = "<group>"; };
+		DDDDFBA7219C27BF0056FC57 /* TPCapitalCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPCapitalCell.h; sourceTree = "<group>"; };
+		DDDDFBA8219C27BF0056FC57 /* TPCapitalCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPCapitalCell.m; sourceTree = "<group>"; };
+		DDDDFBAA219D5A110056FC57 /* TPCapitalHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPCapitalHeaderView.h; sourceTree = "<group>"; };
+		DDDDFBAB219D5A110056FC57 /* TPCapitalHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPCapitalHeaderView.m; sourceTree = "<group>"; };
+		DDDDFBAD219D60BC0056FC57 /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
+		DDDDFBAE219D60BC0056FC57 /* UIViewExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExt.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DD0243F22196C968006A1390 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5E7B5DA88A0AD0247016986 /* Pods_ToPay.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD02440A2196C96C006A1390 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD0244152196C96C006A1390 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C7021BC94920BE5C99FF3627 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				18586FC0E9AAE81AAD612899 /* Pods-ToPay.debug.xcconfig */,
+				A295F59DB5E2234F6FC0E762 /* Pods-ToPay.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D947F3557A9197E172AF67EA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5BD9ADC3B99E8C7306FF2F4F /* Pods_ToPay.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DD0243EC2196C968006A1390 = {
+			isa = PBXGroup;
+			children = (
+				DD0243F72196C968006A1390 /* ToPay */,
+				DD0244102196C96C006A1390 /* ToPayTests */,
+				DD02441B2196C96C006A1390 /* ToPayUITests */,
+				DD0243F62196C968006A1390 /* Products */,
+				C7021BC94920BE5C99FF3627 /* Pods */,
+				D947F3557A9197E172AF67EA /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		DD0243F62196C968006A1390 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DD0243F52196C968006A1390 /* ToPay.app */,
+				DD02440D2196C96C006A1390 /* ToPayTests.xctest */,
+				DD0244182196C96C006A1390 /* ToPayUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DD0243F72196C968006A1390 /* ToPay */ = {
+			isa = PBXGroup;
+			children = (
+				DD02442A2196D1B8006A1390 /* Classes */,
+				DD0243F82196C968006A1390 /* AppDelegate.h */,
+				DD0243F92196C968006A1390 /* AppDelegate.m */,
+				DD0243FB2196C968006A1390 /* ViewController.h */,
+				DD0243FC2196C968006A1390 /* ViewController.m */,
+				DD02444B219928DF006A1390 /* TP.pch */,
+				DD02444C21992EE0006A1390 /* TPGlobalMacro.h */,
+				DD0243FE2196C969006A1390 /* Main.storyboard */,
+				DD0244012196C96B006A1390 /* Assets.xcassets */,
+				DD0244032196C96B006A1390 /* LaunchScreen.storyboard */,
+				DD0244062196C96B006A1390 /* Info.plist */,
+				DD0244072196C96B006A1390 /* main.m */,
+			);
+			path = ToPay;
+			sourceTree = "<group>";
+		};
+		DD0244102196C96C006A1390 /* ToPayTests */ = {
+			isa = PBXGroup;
+			children = (
+				DD0244112196C96C006A1390 /* ToPayTests.m */,
+				DD0244132196C96C006A1390 /* Info.plist */,
+			);
+			path = ToPayTests;
+			sourceTree = "<group>";
+		};
+		DD02441B2196C96C006A1390 /* ToPayUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DD02441C2196C96C006A1390 /* ToPayUITests.m */,
+				DD02441E2196C96C006A1390 /* Info.plist */,
+			);
+			path = ToPayUITests;
+			sourceTree = "<group>";
+		};
+		DD02442A2196D1B8006A1390 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				DD72F432219A7EF2004C0DAF /* common */,
+				DD02442B2196D1B8006A1390 /* Vendors */,
+				DD02442C2196D1B8006A1390 /* Section */,
+				DD02443D2196D1B8006A1390 /* Category */,
+				DD02443E2196D1B8006A1390 /* Util */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		DD02442B2196D1B8006A1390 /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				DD10842E21A001030087F244 /* QRCode */,
+				DD72F41F2199606E004C0DAF /* RDVTabBarController */,
+			);
+			path = Vendors;
+			sourceTree = "<group>";
+		};
+		DD02442C2196D1B8006A1390 /* Section */ = {
+			isa = PBXGroup;
+			children = (
+				DD0244312196D1B8006A1390 /* capital */,
+				DD02442D2196D1B8006A1390 /* transaction */,
+				DD0244392196D1B8006A1390 /* Crowdfunding */,
+				DD0244352196D1B8006A1390 /* Me */,
+			);
+			path = Section;
+			sourceTree = "<group>";
+		};
+		DD02442D2196D1B8006A1390 /* transaction */ = {
+			isa = PBXGroup;
+			children = (
+				DD02442E2196D1B8006A1390 /* Controller */,
+				DD02442F2196D1B8006A1390 /* Model */,
+				DD0244302196D1B8006A1390 /* View */,
+			);
+			path = transaction;
+			sourceTree = "<group>";
+		};
+		DD02442E2196D1B8006A1390 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DD0244422196DD39006A1390 /* TPTransactionViewController.h */,
+				DD0244432196DD39006A1390 /* TPTransactionViewController.m */,
+				DD72F42C219A7D7A004C0DAF /* TPVRTViewController.h */,
+				DD72F42D219A7D7A004C0DAF /* TPVRTViewController.m */,
+				DD72F42F219A7DA7004C0DAF /* TPBalanceViewController.h */,
+				DD72F430219A7DA7004C0DAF /* TPBalanceViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DD02442F2196D1B8006A1390 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DD0244302196D1B8006A1390 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DD72F42921998491004C0DAF /* TPNavigationBarTitleView.h */,
+				DD72F42A21998491004C0DAF /* TPNavigationBarTitleView.m */,
+				DDDDFB79219AB5560056FC57 /* TPVRPLabelCell.h */,
+				DDDDFB7A219AB5560056FC57 /* TPVRPLabelCell.m */,
+				DDDDFB7F219AB7350056FC57 /* TPVRTCell.h */,
+				DDDDFB80219AB7350056FC57 /* TPVRTCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DD0244312196D1B8006A1390 /* capital */ = {
+			isa = PBXGroup;
+			children = (
+				DD0244322196D1B8006A1390 /* Controller */,
+				DD0244332196D1B8006A1390 /* Model */,
+				DD0244342196D1B8006A1390 /* View */,
+			);
+			path = capital;
+			sourceTree = "<group>";
+		};
+		DD0244322196D1B8006A1390 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DD02443F2196DD23006A1390 /* TPCapitalViewController.h */,
+				DD0244402196DD23006A1390 /* TPCapitalViewController.m */,
+				DD1083DD219D7AD10087F244 /* TPNotiViewController.h */,
+				DD1083DE219D7AD10087F244 /* TPNotiViewController.m */,
+				DD1083D1219D67480087F244 /* TPTokenKindViewController.h */,
+				DD1083D2219D67480087F244 /* TPTokenKindViewController.m */,
+				DD1083DA219D76560087F244 /* TPTokenTopicViewController.h */,
+				DD1083DB219D76560087F244 /* TPTokenTopicViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DD0244332196D1B8006A1390 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DD0244342196D1B8006A1390 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DDDDFBA7219C27BF0056FC57 /* TPCapitalCell.h */,
+				DDDDFBA8219C27BF0056FC57 /* TPCapitalCell.m */,
+				DDDDFBAA219D5A110056FC57 /* TPCapitalHeaderView.h */,
+				DDDDFBAB219D5A110056FC57 /* TPCapitalHeaderView.m */,
+				DD1083D4219D67800087F244 /* TPTokenHeaderView.h */,
+				DD1083D5219D67800087F244 /* TPTokenHeaderView.m */,
+				DD1083D7219D71410087F244 /* TPTokenCell.h */,
+				DD1083D8219D71410087F244 /* TPTokenCell.m */,
+				DD1083E0219D83C20087F244 /* TPNotiCell.h */,
+				DD1083E1219D83C20087F244 /* TPNotiCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DD0244352196D1B8006A1390 /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				DD0244362196D1B8006A1390 /* Controller */,
+				DD0244372196D1B8006A1390 /* Model */,
+				DD0244382196D1B8006A1390 /* View */,
+			);
+			path = Me;
+			sourceTree = "<group>";
+		};
+		DD0244362196D1B8006A1390 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DD0244482196DD57006A1390 /* TPMeViewController.h */,
+				DD0244492196DD57006A1390 /* TPMeViewController.m */,
+				DD108425219EAEB80087F244 /* TPLanguageViewController.h */,
+				DD108426219EAEB80087F244 /* TPLanguageViewController.m */,
+				DD10842B219EB60F0087F244 /* TPAboutViewController.h */,
+				DD10842C219EB60F0087F244 /* TPAboutViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DD0244372196D1B8006A1390 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DD0244382196D1B8006A1390 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DD108422219EA5570087F244 /* TPMeHeaderView.h */,
+				DD108423219EA5570087F244 /* TPMeHeaderView.m */,
+				DD10841F219E9EC70087F244 /* TPMeCell.h */,
+				DD108420219E9EC70087F244 /* TPMeCell.m */,
+				DD108428219EB2280087F244 /* TPLangUageCell.h */,
+				DD108429219EB2280087F244 /* TPLangUageCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DD0244392196D1B8006A1390 /* Crowdfunding */ = {
+			isa = PBXGroup;
+			children = (
+				DD02443A2196D1B8006A1390 /* Controller */,
+				DD02443B2196D1B8006A1390 /* Model */,
+				DD02443C2196D1B8006A1390 /* View */,
+				DDDDFB94219BF6F10056FC57 /* TPCrowdConfig.h */,
+			);
+			path = Crowdfunding;
+			sourceTree = "<group>";
+		};
+		DD02443A2196D1B8006A1390 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DD0244452196DD4E006A1390 /* TPCrowdfundingViewController.h */,
+				DD0244462196DD4E006A1390 /* TPCrowdfundingViewController.m */,
+				DDDDFB8B219AD92F0056FC57 /* TPCFTopicViewController.h */,
+				DDDDFB8C219AD92F0056FC57 /* TPCFTopicViewController.m */,
+				DDDDFB95219C1A440056FC57 /* TPReservationViewController.h */,
+				DDDDFB96219C1A440056FC57 /* TPReservationViewController.m */,
+				DDDDFB9B219C1AC00056FC57 /* TPComingSoonViewController.h */,
+				DDDDFB9C219C1AC00056FC57 /* TPComingSoonViewController.m */,
+				DDDDFB9E219C1AE90056FC57 /* TPEndViewController.h */,
+				DDDDFB9F219C1AE90056FC57 /* TPEndViewController.m */,
+				DDDDFBA4219C1FA40056FC57 /* TPRecordViewController.h */,
+				DDDDFBA5219C1FA40056FC57 /* TPRecordViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DD02443B2196D1B8006A1390 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DD02443C2196D1B8006A1390 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DDDDFB85219ACC310056FC57 /* TPCrowdfundCell.h */,
+				DDDDFB86219ACC310056FC57 /* TPCrowdfundCell.m */,
+				DDDDFB8E219BE1820056FC57 /* TPHeaderComView.h */,
+				DDDDFB8F219BE1820056FC57 /* TPHeaderComView.m */,
+				DDDDFB91219BE19B0056FC57 /* TPHeaderRecordView.h */,
+				DDDDFB92219BE19B0056FC57 /* TPHeaderRecordView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DD02443D2196D1B8006A1390 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				DD02444E21992F09006A1390 /* UIColor+Additions.h */,
+				DD02444D21992F09006A1390 /* UIColor+Additions.m */,
+				DDDDFB88219AD0550056FC57 /* UIView+TPExtension.h */,
+				DDDDFB89219AD0550056FC57 /* UIView+TPExtension.m */,
+				DDDDFBA2219C1EBE0056FC57 /* UIBarButtonItem+SXCreate.h */,
+				DDDDFBA1219C1EBE0056FC57 /* UIBarButtonItem+SXCreate.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		DD02443E2196D1B8006A1390 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				DDDDFBAD219D60BC0056FC57 /* UIViewExt.h */,
+				DDDDFBAE219D60BC0056FC57 /* UIViewExt.m */,
+				DDDDFB82219AB8C40056FC57 /* YFactoryUI.h */,
+				DDDDFB83219AB8C40056FC57 /* YFactoryUI.m */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		DD10842E21A001030087F244 /* QRCode */ = {
+			isa = PBXGroup;
+			children = (
+				DD10843121A001030087F244 /* QRCodeScanLine@2x.png */,
+				DD10843221A001030087F244 /* BCScanQR2@2x.png */,
+				DD10843D21A001030087F244 /* BCScanQR1@2x.png */,
+				DD10843B21A001030087F244 /* BCScanQR3@2x.png */,
+				DD10842F21A001030087F244 /* BCScanQR4@2x.png */,
+				DD10843421A001030087F244 /* NIMScanner.h */,
+				DD10843921A001030087F244 /* NIMScanner.m */,
+				DD10843021A001030087F244 /* NIMScannerBorder.h */,
+				DD10843821A001030087F244 /* NIMScannerBorder.m */,
+				DD10843321A001030087F244 /* NIMScannerMaskView.h */,
+				DD10843A21A001030087F244 /* NIMScannerMaskView.m */,
+				DD10843C21A001030087F244 /* NIMScannerViewController.m */,
+				DD10843721A001030087F244 /* NIMScannerViewController.h */,
+				DD10843F21A001030087F244 /* NIMScanerCardViewController.h */,
+				DD10843521A001030087F244 /* NIMScanerCardViewController.m */,
+			);
+			path = QRCode;
+			sourceTree = "<group>";
+		};
+		DD72F41F2199606E004C0DAF /* RDVTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				DD72F4222199606E004C0DAF /* RDVTabBarItem.h */,
+				DD72F4252199606E004C0DAF /* RDVTabBarItem.m */,
+				DD72F4232199606E004C0DAF /* RDVTabBar.h */,
+				DD72F4202199606E004C0DAF /* RDVTabBar.m */,
+				DD72F4212199606E004C0DAF /* RDVTabBarController.h */,
+				DD72F4242199606E004C0DAF /* RDVTabBarController.m */,
+			);
+			path = RDVTabBarController;
+			sourceTree = "<group>";
+		};
+		DD72F432219A7EF2004C0DAF /* common */ = {
+			isa = PBXGroup;
+			children = (
+				DD72F433219A7F12004C0DAF /* TPBaseViewController.h */,
+				DD72F434219A7F12004C0DAF /* TPBaseViewController.m */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DD0243F42196C968006A1390 /* ToPay */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD0244212196C96C006A1390 /* Build configuration list for PBXNativeTarget "ToPay" */;
+			buildPhases = (
+				C05E2E5552709001A9AF335A /* [CP] Check Pods Manifest.lock */,
+				DD0243F12196C968006A1390 /* Sources */,
+				DD0243F22196C968006A1390 /* Frameworks */,
+				DD0243F32196C968006A1390 /* Resources */,
+				6D583708732D01269518249B /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ToPay;
+			productName = ToPay;
+			productReference = DD0243F52196C968006A1390 /* ToPay.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DD02440C2196C96C006A1390 /* ToPayTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD0244242196C96C006A1390 /* Build configuration list for PBXNativeTarget "ToPayTests" */;
+			buildPhases = (
+				DD0244092196C96C006A1390 /* Sources */,
+				DD02440A2196C96C006A1390 /* Frameworks */,
+				DD02440B2196C96C006A1390 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD02440F2196C96C006A1390 /* PBXTargetDependency */,
+			);
+			name = ToPayTests;
+			productName = ToPayTests;
+			productReference = DD02440D2196C96C006A1390 /* ToPayTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DD0244172196C96C006A1390 /* ToPayUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD0244272196C96C006A1390 /* Build configuration list for PBXNativeTarget "ToPayUITests" */;
+			buildPhases = (
+				DD0244142196C96C006A1390 /* Sources */,
+				DD0244152196C96C006A1390 /* Frameworks */,
+				DD0244162196C96C006A1390 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD02441A2196C96C006A1390 /* PBXTargetDependency */,
+			);
+			name = ToPayUITests;
+			productName = ToPayUITests;
+			productReference = DD0244182196C96C006A1390 /* ToPayUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DD0243ED2196C968006A1390 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = TP;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "蒲公英";
+				TargetAttributes = {
+					DD0243F42196C968006A1390 = {
+						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
+					};
+					DD02440C2196C96C006A1390 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = DD0243F42196C968006A1390;
+					};
+					DD0244172196C96C006A1390 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = DD0243F42196C968006A1390;
+					};
+				};
+			};
+			buildConfigurationList = DD0243F02196C968006A1390 /* Build configuration list for PBXProject "ToPay" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DD0243EC2196C968006A1390;
+			productRefGroup = DD0243F62196C968006A1390 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DD0243F42196C968006A1390 /* ToPay */,
+				DD02440C2196C96C006A1390 /* ToPayTests */,
+				DD0244172196C96C006A1390 /* ToPayUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DD0243F32196C968006A1390 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD10844221A001030087F244 /* BCScanQR2@2x.png in Resources */,
+				DD0244052196C96B006A1390 /* LaunchScreen.storyboard in Resources */,
+				DD0244022196C96B006A1390 /* Assets.xcassets in Resources */,
+				DD10844921A001030087F244 /* BCScanQR1@2x.png in Resources */,
+				DD10844121A001030087F244 /* QRCodeScanLine@2x.png in Resources */,
+				DD10844021A001030087F244 /* BCScanQR4@2x.png in Resources */,
+				DD10844721A001030087F244 /* BCScanQR3@2x.png in Resources */,
+				DD0244002196C969006A1390 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD02440B2196C96C006A1390 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD0244162196C96C006A1390 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6D583708732D01269518249B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ToPay/Pods-ToPay-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SGPagingView/SGPagingView.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SGPagingView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ToPay/Pods-ToPay-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C05E2E5552709001A9AF335A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ToPay-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DD0243F12196C968006A1390 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD1083D3219D67480087F244 /* TPTokenKindViewController.m in Sources */,
+				DD72F42E219A7D7A004C0DAF /* TPVRTViewController.m in Sources */,
+				DDDDFBA6219C1FA40056FC57 /* TPRecordViewController.m in Sources */,
+				DD0243FD2196C968006A1390 /* ViewController.m in Sources */,
+				DDDDFBA0219C1AE90056FC57 /* TPEndViewController.m in Sources */,
+				DD02444A2196DD57006A1390 /* TPMeViewController.m in Sources */,
+				DD10842A219EB2280087F244 /* TPLangUageCell.m in Sources */,
+				DD0244412196DD23006A1390 /* TPCapitalViewController.m in Sources */,
+				DD10844621A001030087F244 /* NIMScannerMaskView.m in Sources */,
+				DD72F42B21998491004C0DAF /* TPNavigationBarTitleView.m in Sources */,
+				DD10844421A001030087F244 /* NIMScannerBorder.m in Sources */,
+				DD0244082196C96B006A1390 /* main.m in Sources */,
+				DDDDFBAC219D5A110056FC57 /* TPCapitalHeaderView.m in Sources */,
+				DD1083E2219D83C20087F244 /* TPNotiCell.m in Sources */,
+				DD0243FA2196C968006A1390 /* AppDelegate.m in Sources */,
+				DDDDFBAF219D60BC0056FC57 /* UIViewExt.m in Sources */,
+				DD108424219EA5570087F244 /* TPMeHeaderView.m in Sources */,
+				DDDDFB9D219C1AC00056FC57 /* TPComingSoonViewController.m in Sources */,
+				DDDDFB87219ACC310056FC57 /* TPCrowdfundCell.m in Sources */,
+				DDDDFB7B219AB5560056FC57 /* TPVRPLabelCell.m in Sources */,
+				DD02444F21992F09006A1390 /* UIColor+Additions.m in Sources */,
+				DD108421219E9EC70087F244 /* TPMeCell.m in Sources */,
+				DD72F4272199606E004C0DAF /* RDVTabBarController.m in Sources */,
+				DDDDFB90219BE1820056FC57 /* TPHeaderComView.m in Sources */,
+				DD10842D219EB60F0087F244 /* TPAboutViewController.m in Sources */,
+				DD72F435219A7F12004C0DAF /* TPBaseViewController.m in Sources */,
+				DDDDFB8A219AD0550056FC57 /* UIView+TPExtension.m in Sources */,
+				DD72F4282199606E004C0DAF /* RDVTabBarItem.m in Sources */,
+				DDDDFB84219AB8C40056FC57 /* YFactoryUI.m in Sources */,
+				DD0244472196DD4E006A1390 /* TPCrowdfundingViewController.m in Sources */,
+				DD72F431219A7DA7004C0DAF /* TPBalanceViewController.m in Sources */,
+				DD1083DC219D76560087F244 /* TPTokenTopicViewController.m in Sources */,
+				DD108427219EAEB80087F244 /* TPLanguageViewController.m in Sources */,
+				DD0244442196DD39006A1390 /* TPTransactionViewController.m in Sources */,
+				DD1083DF219D7AD10087F244 /* TPNotiViewController.m in Sources */,
+				DD1083D6219D67800087F244 /* TPTokenHeaderView.m in Sources */,
+				DD10844821A001030087F244 /* NIMScannerViewController.m in Sources */,
+				DDDDFB8D219AD92F0056FC57 /* TPCFTopicViewController.m in Sources */,
+				DD1083D9219D71410087F244 /* TPTokenCell.m in Sources */,
+				DDDDFB93219BE19B0056FC57 /* TPHeaderRecordView.m in Sources */,
+				DDDDFB97219C1A440056FC57 /* TPReservationViewController.m in Sources */,
+				DD10844521A001030087F244 /* NIMScanner.m in Sources */,
+				DDDDFB81219AB7350056FC57 /* TPVRTCell.m in Sources */,
+				DDDDFBA3219C1EBE0056FC57 /* UIBarButtonItem+SXCreate.m in Sources */,
+				DDDDFBA9219C27BF0056FC57 /* TPCapitalCell.m in Sources */,
+				DD10844321A001030087F244 /* NIMScanerCardViewController.m in Sources */,
+				DD72F4262199606E004C0DAF /* RDVTabBar.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD0244092196C96C006A1390 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD0244122196C96C006A1390 /* ToPayTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD0244142196C96C006A1390 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD02441D2196C96C006A1390 /* ToPayUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DD02440F2196C96C006A1390 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD0243F42196C968006A1390 /* ToPay */;
+			targetProxy = DD02440E2196C96C006A1390 /* PBXContainerItemProxy */;
+		};
+		DD02441A2196C96C006A1390 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD0243F42196C968006A1390 /* ToPay */;
+			targetProxy = DD0244192196C96C006A1390 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DD0243FE2196C969006A1390 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD0243FF2196C969006A1390 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DD0244032196C96B006A1390 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD0244042196C96B006A1390 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DD02441F2196C96C006A1390 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		DD0244202196C96C006A1390 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DD0244222196C96C006A1390 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18586FC0E9AAE81AAD612899 /* Pods-ToPay.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/ToPay/TP.pch";
+				INFOPLIST_FILE = ToPay/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "N-NSTechnology.ToPay";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DD0244232196C96C006A1390 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A295F59DB5E2234F6FC0E762 /* Pods-ToPay.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/ToPay/TP.pch";
+				INFOPLIST_FILE = ToPay/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "N-NSTechnology.ToPay";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DD0244252196C96C006A1390 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ToPayTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "N-NSTechnology.ToPayTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ToPay.app/ToPay";
+			};
+			name = Debug;
+		};
+		DD0244262196C96C006A1390 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ToPayTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "N-NSTechnology.ToPayTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ToPay.app/ToPay";
+			};
+			name = Release;
+		};
+		DD0244282196C96C006A1390 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ToPayUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "N-NSTechnology.ToPayUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ToPay;
+			};
+			name = Debug;
+		};
+		DD0244292196C96C006A1390 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ToPayUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "N-NSTechnology.ToPayUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ToPay;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DD0243F02196C968006A1390 /* Build configuration list for PBXProject "ToPay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD02441F2196C96C006A1390 /* Debug */,
+				DD0244202196C96C006A1390 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD0244212196C96C006A1390 /* Build configuration list for PBXNativeTarget "ToPay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD0244222196C96C006A1390 /* Debug */,
+				DD0244232196C96C006A1390 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD0244242196C96C006A1390 /* Build configuration list for PBXNativeTarget "ToPayTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD0244252196C96C006A1390 /* Debug */,
+				DD0244262196C96C006A1390 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD0244272196C96C006A1390 /* Build configuration list for PBXNativeTarget "ToPayUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD0244282196C96C006A1390 /* Debug */,
+				DD0244292196C96C006A1390 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DD0243ED2196C968006A1390 /* Project object */;
+}

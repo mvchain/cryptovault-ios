@@ -1,0 +1,34 @@
+PODS:
+  - Masonry (1.1.0)
+  - MJExtension (3.0.15.1)
+  - SDWebImage (4.4.2):
+    - SDWebImage/Core (= 4.4.2)
+  - SDWebImage/Core (4.4.2)
+  - SGPagingView (1.5.5)
+  - SVProgressHUD (2.2.5)
+
+DEPENDENCIES:
+  - Masonry
+  - MJExtension
+  - SDWebImage
+  - SGPagingView (~> 1.5.5)
+  - SVProgressHUD
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Masonry
+    - MJExtension
+    - SDWebImage
+    - SGPagingView
+    - SVProgressHUD
+
+SPEC CHECKSUMS:
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJExtension: 19bc33ce2eee2d319760f5622562cf581a6ff756
+  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
+  SGPagingView: 8054435c0149cf907ad3d515bc75e0ee9575216c
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+
+PODFILE CHECKSUM: 65cb3c3a83826699c79f58546b326199e6f474d2
+
+COCOAPODS: 1.5.3
