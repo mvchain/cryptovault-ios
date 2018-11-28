@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface TPAboutViewController : UIViewController
+#import "TPStartViewController.h"
+@interface TPAboutViewController : TPStartViewController
 
 @end

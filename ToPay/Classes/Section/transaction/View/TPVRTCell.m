@@ -33,8 +33,11 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self)
     {
-        _iconImgV = [YFactoryUI YImageViewWithimage:nil];
-        _iconImgV.backgroundColor = YRandomColor;
+        
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        _iconImgV = [YFactoryUI YImageViewWithimage:[UIImage imageNamed:@"btc_icon"]];
+//        _iconImgV.backgroundColor = YRandomColor;
         [self addSubview:_iconImgV];
         
         _nickLab = [YFactoryUI YLableWithText:@"BTC" color:TP59Color font:FONT(16)];

@@ -7,6 +7,7 @@
 //
 
 #import "TPCFTopicViewController.h"
+#import "TPBuyTokenViewController.h"
 #import "TPCrowdConfig.h"
 #import "TPCrowdfundCell.h"
 @interface TPCFTopicViewController ()
@@ -50,6 +51,13 @@ static NSString  *TPReservationCellCellId = @"ReservationCell";
     TPCrowdfundCell *cell = [tableView dequeueReusableCellWithIdentifier:TPReservationCellCellId];
     if (!cell)
         cell = [[TPCrowdfundCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TPReservationCellCellId WithStyle:self.type];
+    
+    cell.comView.participateBlock = ^{
+        TPBuyTokenViewController *buyTokenVC = [[TPBuyTokenViewController alloc] init];
+        [self.navigationController pushViewController:buyTokenVC animated:YES];
+    };
+    
+    
     return cell;
 }
 
@@ -63,6 +71,12 @@ static NSString  *TPReservationCellCellId = @"ReservationCell";
     {
         return  220;
     }
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+//    TPBuyTokenViewController *buyTokenVC = [[TPBuyTokenViewController alloc] init];
+//    [self.navigationController pushViewController:buyTokenVC animated:YES];
 }
 
 

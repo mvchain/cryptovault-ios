@@ -1,0 +1,121 @@
+//
+//  TPTokenBottomView.m
+//  ToPay
+//
+//  Created by 蒲公英 on 2018/11/19.
+//  Copyright © 2018年 蒲公英. All rights reserved.
+//
+
+#import "TPTokenBottomView.h"
+
+@interface TPTokenBottomView ()
+@property (nonatomic) TPChainStyle style;
+
+@property (nonatomic) UIButton * takeOutBtn;
+//@property (nonatomic) UIButton * transferBtn;
+//@property (nonatomic) UIButton * receiptBtn;
+@end
+
+@implementation TPTokenBottomView
+
+- (instancetype)initWithStyle:(TPChainStyle)style
+{
+    self = [super init];
+    if (self)
+    {
+        _style = style;
+        self.backgroundColor = [UIColor whiteColor];
+        [self createUI];
+    }
+    return self;
+}
+
+-(void)createUI
+{
+    if (_style == TPChainStyleDown)
+    {
+        UIButton *takeOutBtn = [YFactoryUI YButtonWithTitle:@"取出VP余额" Titcolor:[UIColor whiteColor] font:FONT(15) Image:nil target:self action:@selector(takeOutClcik)];
+        
+        [takeOutBtn setLayer:22 WithBackColor:TPMainColor];
+        
+        [self addSubview:takeOutBtn];
+        self.takeOutBtn = takeOutBtn;
+        
+    }
+        else
+    {
+        UIButton *transferBtn = [YFactoryUI YButtonWithTitle:@"转账" Titcolor:TPMainColor font:FONT(15) Image:nil target:self action:@selector(transferClcik)];
+        [transferBtn setLayerCornerRadius:22 WithColor:TPMainColor WithBorderWidth:1];
+        [self addSubview:transferBtn];
+        self.transferBtn = transferBtn;
+        
+        UIButton *receiptBtn = [YFactoryUI YButtonWithTitle:@"收款" Titcolor:[UIColor whiteColor] font:FONT(15) Image:nil target:self action:@selector(receiptClcik)];
+        [receiptBtn setLayer:22 WithBackColor:TPMainColor];
+        [self addSubview:receiptBtn];
+        self.receiptBtn = receiptBtn;
+    }
+}
+
+-(void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    if (_style == TPChainStyleDown)
+    {
+        [self.takeOutBtn mas_makeConstraints:^(MASConstraintMaker *make)
+        {
+            make.left.equalTo(@16);
+            make.right.equalTo(@(-16));
+            make.top.equalTo(@3);
+            make.height.equalTo(@44);
+        }];
+    }
+        else
+    {
+        NSMutableArray *array = [NSMutableArray array];
+        [array addObject:self.transferBtn];
+        [array addObject:self.receiptBtn];
+        [array mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:11 leadSpacing:16 tailSpacing:16];
+        [array mas_makeConstraints:^(MASConstraintMaker *make)
+        {
+            make.top.equalTo(@3);
+            make.height.equalTo(@44);
+        }];
+        
+        
+    }
+}
+
+- (void)setTitleArray:(NSArray *)titleArray
+{
+    _titleArray = titleArray;
+    
+    [self.transferBtn setTitle:titleArray[0] forState:UIControlStateNormal];
+    [self.receiptBtn setTitle:titleArray[1] forState:UIControlStateNormal];
+}
+
+-(void)takeOutClcik
+{    
+    if (self.chainTakeBlock)
+    {
+        self.chainTakeBlock();
+    }
+}
+
+-(void)transferClcik
+{
+    if (self.chainTransferBlock)
+    {
+        self.chainTransferBlock();
+    }
+}
+
+-(void)receiptClcik
+{
+    if (self.chainReceiptBlock)
+    {
+        self.chainReceiptBlock();
+    }
+}
+
+@end

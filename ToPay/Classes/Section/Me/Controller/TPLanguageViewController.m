@@ -19,11 +19,15 @@ static NSString  *TPLangUageCellCellId = @"languageCell";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationItem.title = @"语言";
+//    self.navigationItem.title = @"语言";
+    self.customNavBar.title = @"语言";
+    [self.view sendSubviewToBack:self.baseTableView];
     _dataSource = @[@"中文",@"英文",@"韩文",@"日文"];
+    [self showSystemNavgation:NO];
     [self.baseTableView mas_makeConstraints:^(MASConstraintMaker *make)
      {
-         make.left.top.equalTo(@0);
+         make.left.equalTo(@0);
+         make.top.equalTo(@(StatusBarAndNavigationBarHeight + 12));
          make.width.equalTo(@(KWidth));
          make.height.equalTo(self.view.mas_height);
      }];

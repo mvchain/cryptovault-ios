@@ -8,7 +8,8 @@
 
 
 #import "NIMScanerCardViewController.h"
-@interface NIMScannerViewController : UIViewController
+#import "TPStartViewController.h"
+@interface NIMScannerViewController : TPStartViewController
 
 /// 实例化扫描控制器
 ///

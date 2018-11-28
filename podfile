@@ -12,6 +12,7 @@ pod 'Masonry'
 pod 'MJExtension'
 pod 'SVProgressHUD'
 pod 'SGPagingView', '~> 1.5.5'
-
+pod 'WRNavigationBar','~>1.2.0’
+pod 'IQKeyboardManager'
 
 end  

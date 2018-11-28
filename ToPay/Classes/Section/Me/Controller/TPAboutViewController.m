@@ -19,7 +19,7 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = TPF6Color;
-    
+    [self showSystemNavgation:NO];
     [self setUpViews];
 }
 
@@ -47,7 +47,7 @@
      }];
     
     UIButton *quitBtn = [YFactoryUI YButtonWithTitle:@"退出登录" Titcolor:[UIColor whiteColor] font:FONT(15) Image:nil target:self action:@selector(quitClcik)];
-    [quitBtn setLayer:23 WithBackColor:[UIColor colorWithHex:@"#007AFF"]];
+    [quitBtn setLayer:23 WithBackColor:TPMainColor];
     [self.view addSubview:quitBtn];
     
     [quitBtn mas_makeConstraints:^(MASConstraintMaker *make)

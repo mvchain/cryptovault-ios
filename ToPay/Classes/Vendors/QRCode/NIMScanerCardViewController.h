@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 //#import "NIMBaseViewController.h"
 
+#import "TPStartViewController.h"
 
-
-@interface NIMScanerCardViewController : UIViewController
+@interface NIMScanerCardViewController : TPStartViewController
 
 
 - (instancetype)initWithCardName:(NSString *)cardName avatar:(UIImage *)avatar;

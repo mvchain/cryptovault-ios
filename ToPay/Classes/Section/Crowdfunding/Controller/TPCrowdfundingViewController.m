@@ -26,8 +26,9 @@
 {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"众筹";
-    
+
+    self.customNavBar.title = @"众筹";
+    [self showSystemNavgation:NO];
     [self setupPageView];
     
     [self setNavItem];
@@ -36,15 +37,15 @@
 
 -(void)setNavItem
 {
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(recordClcik) image:[UIImage imageNamed:@"list_icon_1"]];
+    [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"list_icon_1"]];
+    TPWeakSelf;
+    
+    [self.customNavBar setOnClickRightButton:^{
+        TPRecordViewController *recordVC = [[TPRecordViewController alloc] init];
+        [weakSelf.navigationController pushViewController:recordVC animated:YES];
+    }];
 }
 
--(void)recordClcik
-{
-//    NSLog(@"点击事件");
-    TPRecordViewController *recordVC = [[TPRecordViewController alloc] init];
-    [self.navigationController pushViewController:recordVC animated:YES];
-}
 
 -(void)setupPageView
 {

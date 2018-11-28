@@ -20,7 +20,7 @@
 {
     if (self = [super init])
     {
-        
+//        self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return  self;
 }

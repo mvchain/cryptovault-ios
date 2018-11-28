@@ -33,6 +33,8 @@
     if (self)
     {
         self.backgroundColor = [UIColor clearColor];
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        
         
         _iconImgV = [YFactoryUI YImageViewWithimage:nil];
         _iconImgV.backgroundColor = YRandomColor;

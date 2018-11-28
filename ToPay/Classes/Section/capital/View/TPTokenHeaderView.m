@@ -24,7 +24,7 @@
     self = [super init];
     if (self)
     {
-        self.backgroundColor = YRandomColor;
+        self.backgroundColor = [UIColor clearColor];
         
         _totalLab = [YFactoryUI YLableWithText:@"1234567.12" color:[UIColor whiteColor] font:FONT(34)];
         [self addSubview:_totalLab];

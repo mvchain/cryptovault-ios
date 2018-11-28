@@ -7,6 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD02391521A50A0A00333446 /* TPAddTokenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD02391421A50A0A00333446 /* TPAddTokenViewController.m */; };
+		DD02391821A50AC100333446 /* TPAddTokenCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD02391721A50AC100333446 /* TPAddTokenCell.m */; };
+		DD02391B21A5328500333446 /* TPBuyTokenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD02391A21A5328500333446 /* TPBuyTokenViewController.m */; };
+		DD02391E21A5570B00333446 /* TPTranDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD02391D21A5570B00333446 /* TPTranDetailViewController.m */; };
+		DD02392121A6B42100333446 /* TPUSDTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD02392021A6B42100333446 /* TPUSDTViewController.m */; };
+		DD02392421A6B83D00333446 /* TPUSDTCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD02392321A6B83D00333446 /* TPUSDTCell.m */; };
+		DD02392721A7AC8400333446 /* TPBuyRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD02392621A7AC8400333446 /* TPBuyRecordViewController.m */; };
+		DD02392A21A7B1AC00333446 /* TPProcessingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD02392921A7B1AC00333446 /* TPProcessingCell.m */; };
+		DD02392D21A7D6CA00333446 /* TPBuyTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD02392C21A7D6CA00333446 /* TPBuyTopicViewController.m */; };
+		DD02393121ABCE8200333446 /* GBTagListView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD02392F21ABCE8100333446 /* GBTagListView.m */; };
+		DD02393421ABD80600333446 /* TPFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD02393321ABD80600333446 /* TPFilterViewController.m */; };
+		DD02393721ABECD100333446 /* TPSellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD02393621ABECD100333446 /* TPSellViewController.m */; };
+		DD02393A21AC055E00333446 /* TPTransDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD02393921AC055E00333446 /* TPTransDetailViewController.m */; };
+		DD02393E21ACEBDA00333446 /* TPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD02393D21ACEBDA00333446 /* TPLoginViewController.m */; };
+		DD02394121ACF53E00333446 /* TPTransDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD02394021ACF53E00333446 /* TPTransDetailCell.m */; };
+		DD02394421AD2F4B00333446 /* UILabel+WLAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = DD02394221AD2F4B00333446 /* UILabel+WLAttributedString.m */; };
+		DD02394A21AE408000333446 /* TPTransView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD02394921AE408000333446 /* TPTransView.m */; };
+		DD02395421AE84CB00333446 /* SYPasswordView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD02395321AE84CB00333446 /* SYPasswordView.m */; };
 		DD0243FA2196C968006A1390 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0243F92196C968006A1390 /* AppDelegate.m */; };
 		DD0243FD2196C968006A1390 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0243FC2196C968006A1390 /* ViewController.m */; };
 		DD0244002196C969006A1390 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD0243FE2196C969006A1390 /* Main.storyboard */; };
@@ -41,6 +59,12 @@
 		DD10844721A001030087F244 /* BCScanQR3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD10843B21A001030087F244 /* BCScanQR3@2x.png */; };
 		DD10844821A001030087F244 /* NIMScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD10843C21A001030087F244 /* NIMScannerViewController.m */; };
 		DD10844921A001030087F244 /* BCScanQR1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD10843D21A001030087F244 /* BCScanQR1@2x.png */; };
+		DD10844D21A28E3C0087F244 /* TPStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD10844C21A28E3C0087F244 /* TPStartViewController.m */; };
+		DD10845021A2B4B60087F244 /* TPTokenBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD10844F21A2B4B60087F244 /* TPTokenBottomView.m */; };
+		DD10845321A3EC6A0087F244 /* TPChainTakeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD10845221A3EC6A0087F244 /* TPChainTakeViewController.m */; };
+		DD10845621A3EC7E0087F244 /* TPChainTransferViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD10845521A3EC7E0087F244 /* TPChainTransferViewController.m */; };
+		DD10845921A3EC900087F244 /* TPChainReceiptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD10845821A3EC900087F244 /* TPChainReceiptViewController.m */; };
+		DD10845C21A401560087F244 /* TPComTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD10845B21A401560087F244 /* TPComTextView.m */; };
 		DD72F4262199606E004C0DAF /* RDVTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = DD72F4202199606E004C0DAF /* RDVTabBar.m */; };
 		DD72F4272199606E004C0DAF /* RDVTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD72F4242199606E004C0DAF /* RDVTabBarController.m */; };
 		DD72F4282199606E004C0DAF /* RDVTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DD72F4252199606E004C0DAF /* RDVTabBarItem.m */; };
@@ -88,6 +112,42 @@
 		18586FC0E9AAE81AAD612899 /* Pods-ToPay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToPay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToPay/Pods-ToPay.debug.xcconfig"; sourceTree = "<group>"; };
 		5BD9ADC3B99E8C7306FF2F4F /* Pods_ToPay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToPay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A295F59DB5E2234F6FC0E762 /* Pods-ToPay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToPay.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToPay/Pods-ToPay.release.xcconfig"; sourceTree = "<group>"; };
+		DD02391321A50A0A00333446 /* TPAddTokenViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAddTokenViewController.h; sourceTree = "<group>"; };
+		DD02391421A50A0A00333446 /* TPAddTokenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAddTokenViewController.m; sourceTree = "<group>"; };
+		DD02391621A50AC100333446 /* TPAddTokenCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAddTokenCell.h; sourceTree = "<group>"; };
+		DD02391721A50AC100333446 /* TPAddTokenCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAddTokenCell.m; sourceTree = "<group>"; };
+		DD02391921A5328500333446 /* TPBuyTokenViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPBuyTokenViewController.h; sourceTree = "<group>"; };
+		DD02391A21A5328500333446 /* TPBuyTokenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPBuyTokenViewController.m; sourceTree = "<group>"; };
+		DD02391C21A5570B00333446 /* TPTranDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTranDetailViewController.h; sourceTree = "<group>"; };
+		DD02391D21A5570B00333446 /* TPTranDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTranDetailViewController.m; sourceTree = "<group>"; };
+		DD02391F21A6B42100333446 /* TPUSDTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPUSDTViewController.h; sourceTree = "<group>"; };
+		DD02392021A6B42100333446 /* TPUSDTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPUSDTViewController.m; sourceTree = "<group>"; };
+		DD02392221A6B83D00333446 /* TPUSDTCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPUSDTCell.h; sourceTree = "<group>"; };
+		DD02392321A6B83D00333446 /* TPUSDTCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPUSDTCell.m; sourceTree = "<group>"; };
+		DD02392521A7AC8400333446 /* TPBuyRecordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPBuyRecordViewController.h; sourceTree = "<group>"; };
+		DD02392621A7AC8400333446 /* TPBuyRecordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPBuyRecordViewController.m; sourceTree = "<group>"; };
+		DD02392821A7B1AC00333446 /* TPProcessingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPProcessingCell.h; sourceTree = "<group>"; };
+		DD02392921A7B1AC00333446 /* TPProcessingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPProcessingCell.m; sourceTree = "<group>"; };
+		DD02392B21A7D6CA00333446 /* TPBuyTopicViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPBuyTopicViewController.h; sourceTree = "<group>"; };
+		DD02392C21A7D6CA00333446 /* TPBuyTopicViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPBuyTopicViewController.m; sourceTree = "<group>"; };
+		DD02392F21ABCE8100333446 /* GBTagListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBTagListView.m; sourceTree = "<group>"; };
+		DD02393021ABCE8100333446 /* GBTagListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBTagListView.h; sourceTree = "<group>"; };
+		DD02393221ABD80600333446 /* TPFilterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPFilterViewController.h; sourceTree = "<group>"; };
+		DD02393321ABD80600333446 /* TPFilterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPFilterViewController.m; sourceTree = "<group>"; };
+		DD02393521ABECD100333446 /* TPSellViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPSellViewController.h; sourceTree = "<group>"; };
+		DD02393621ABECD100333446 /* TPSellViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPSellViewController.m; sourceTree = "<group>"; };
+		DD02393821AC055E00333446 /* TPTransDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTransDetailViewController.h; sourceTree = "<group>"; };
+		DD02393921AC055E00333446 /* TPTransDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTransDetailViewController.m; sourceTree = "<group>"; };
+		DD02393C21ACEBDA00333446 /* TPLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPLoginViewController.h; sourceTree = "<group>"; };
+		DD02393D21ACEBDA00333446 /* TPLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPLoginViewController.m; sourceTree = "<group>"; };
+		DD02393F21ACF53E00333446 /* TPTransDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTransDetailCell.h; sourceTree = "<group>"; };
+		DD02394021ACF53E00333446 /* TPTransDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTransDetailCell.m; sourceTree = "<group>"; };
+		DD02394221AD2F4B00333446 /* UILabel+WLAttributedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+WLAttributedString.m"; sourceTree = "<group>"; };
+		DD02394321AD2F4B00333446 /* UILabel+WLAttributedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+WLAttributedString.h"; sourceTree = "<group>"; };
+		DD02394821AE408000333446 /* TPTransView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTransView.h; sourceTree = "<group>"; };
+		DD02394921AE408000333446 /* TPTransView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTransView.m; sourceTree = "<group>"; };
+		DD02395221AE84CB00333446 /* SYPasswordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYPasswordView.h; sourceTree = "<group>"; };
+		DD02395321AE84CB00333446 /* SYPasswordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYPasswordView.m; sourceTree = "<group>"; };
 		DD0243F52196C968006A1390 /* ToPay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToPay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD0243F82196C968006A1390 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DD0243F92196C968006A1390 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -153,6 +213,18 @@
 		DD10843C21A001030087F244 /* NIMScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIMScannerViewController.m; sourceTree = "<group>"; };
 		DD10843D21A001030087F244 /* BCScanQR1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BCScanQR1@2x.png"; sourceTree = "<group>"; };
 		DD10843F21A001030087F244 /* NIMScanerCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIMScanerCardViewController.h; sourceTree = "<group>"; };
+		DD10844B21A28E3C0087F244 /* TPStartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPStartViewController.h; sourceTree = "<group>"; };
+		DD10844C21A28E3C0087F244 /* TPStartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPStartViewController.m; sourceTree = "<group>"; };
+		DD10844E21A2B4B60087F244 /* TPTokenBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTokenBottomView.h; sourceTree = "<group>"; };
+		DD10844F21A2B4B60087F244 /* TPTokenBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTokenBottomView.m; sourceTree = "<group>"; };
+		DD10845121A3EC6A0087F244 /* TPChainTakeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPChainTakeViewController.h; sourceTree = "<group>"; };
+		DD10845221A3EC6A0087F244 /* TPChainTakeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPChainTakeViewController.m; sourceTree = "<group>"; };
+		DD10845421A3EC7E0087F244 /* TPChainTransferViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPChainTransferViewController.h; sourceTree = "<group>"; };
+		DD10845521A3EC7E0087F244 /* TPChainTransferViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPChainTransferViewController.m; sourceTree = "<group>"; };
+		DD10845721A3EC900087F244 /* TPChainReceiptViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPChainReceiptViewController.h; sourceTree = "<group>"; };
+		DD10845821A3EC900087F244 /* TPChainReceiptViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPChainReceiptViewController.m; sourceTree = "<group>"; };
+		DD10845A21A401560087F244 /* TPComTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPComTextView.h; sourceTree = "<group>"; };
+		DD10845B21A401560087F244 /* TPComTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPComTextView.m; sourceTree = "<group>"; };
 		DD72F4202199606E004C0DAF /* RDVTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVTabBar.m; sourceTree = "<group>"; };
 		DD72F4212199606E004C0DAF /* RDVTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVTabBarController.h; sourceTree = "<group>"; };
 		DD72F4222199606E004C0DAF /* RDVTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVTabBarItem.h; sourceTree = "<group>"; };
@@ -245,6 +317,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DD02392E21ABCE8100333446 /* GBTagListView2.0 */ = {
+			isa = PBXGroup;
+			children = (
+				DD02392F21ABCE8100333446 /* GBTagListView.m */,
+				DD02393021ABCE8100333446 /* GBTagListView.h */,
+			);
+			path = GBTagListView2.0;
+			sourceTree = "<group>";
+		};
+		DD02393B21ACEBA700333446 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				DD02393C21ACEBDA00333446 /* TPLoginViewController.h */,
+				DD02393D21ACEBDA00333446 /* TPLoginViewController.m */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		DD0243EC2196C968006A1390 = {
 			isa = PBXGroup;
 			children = (
@@ -319,6 +409,7 @@
 		DD02442B2196D1B8006A1390 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				DD02392E21ABCE8100333446 /* GBTagListView2.0 */,
 				DD10842E21A001030087F244 /* QRCode */,
 				DD72F41F2199606E004C0DAF /* RDVTabBarController */,
 			);
@@ -355,6 +446,18 @@
 				DD72F42D219A7D7A004C0DAF /* TPVRTViewController.m */,
 				DD72F42F219A7DA7004C0DAF /* TPBalanceViewController.h */,
 				DD72F430219A7DA7004C0DAF /* TPBalanceViewController.m */,
+				DD02391C21A5570B00333446 /* TPTranDetailViewController.h */,
+				DD02391D21A5570B00333446 /* TPTranDetailViewController.m */,
+				DD02393521ABECD100333446 /* TPSellViewController.h */,
+				DD02393621ABECD100333446 /* TPSellViewController.m */,
+				DD02391F21A6B42100333446 /* TPUSDTViewController.h */,
+				DD02392021A6B42100333446 /* TPUSDTViewController.m */,
+				DD02392521A7AC8400333446 /* TPBuyRecordViewController.h */,
+				DD02392621A7AC8400333446 /* TPBuyRecordViewController.m */,
+				DD02392B21A7D6CA00333446 /* TPBuyTopicViewController.h */,
+				DD02392C21A7D6CA00333446 /* TPBuyTopicViewController.m */,
+				DD02393221ABD80600333446 /* TPFilterViewController.h */,
+				DD02393321ABD80600333446 /* TPFilterViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -375,6 +478,10 @@
 				DDDDFB7A219AB5560056FC57 /* TPVRPLabelCell.m */,
 				DDDDFB7F219AB7350056FC57 /* TPVRTCell.h */,
 				DDDDFB80219AB7350056FC57 /* TPVRTCell.m */,
+				DD02392221A6B83D00333446 /* TPUSDTCell.h */,
+				DD02392321A6B83D00333446 /* TPUSDTCell.m */,
+				DD02392821A7B1AC00333446 /* TPProcessingCell.h */,
+				DD02392921A7B1AC00333446 /* TPProcessingCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -400,6 +507,14 @@
 				DD1083D2219D67480087F244 /* TPTokenKindViewController.m */,
 				DD1083DA219D76560087F244 /* TPTokenTopicViewController.h */,
 				DD1083DB219D76560087F244 /* TPTokenTopicViewController.m */,
+				DD10845121A3EC6A0087F244 /* TPChainTakeViewController.h */,
+				DD10845221A3EC6A0087F244 /* TPChainTakeViewController.m */,
+				DD10845421A3EC7E0087F244 /* TPChainTransferViewController.h */,
+				DD10845521A3EC7E0087F244 /* TPChainTransferViewController.m */,
+				DD10845721A3EC900087F244 /* TPChainReceiptViewController.h */,
+				DD10845821A3EC900087F244 /* TPChainReceiptViewController.m */,
+				DD02391321A50A0A00333446 /* TPAddTokenViewController.h */,
+				DD02391421A50A0A00333446 /* TPAddTokenViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -420,10 +535,20 @@
 				DDDDFBAB219D5A110056FC57 /* TPCapitalHeaderView.m */,
 				DD1083D4219D67800087F244 /* TPTokenHeaderView.h */,
 				DD1083D5219D67800087F244 /* TPTokenHeaderView.m */,
+				DD10844E21A2B4B60087F244 /* TPTokenBottomView.h */,
+				DD10844F21A2B4B60087F244 /* TPTokenBottomView.m */,
 				DD1083D7219D71410087F244 /* TPTokenCell.h */,
 				DD1083D8219D71410087F244 /* TPTokenCell.m */,
 				DD1083E0219D83C20087F244 /* TPNotiCell.h */,
 				DD1083E1219D83C20087F244 /* TPNotiCell.m */,
+				DD10845A21A401560087F244 /* TPComTextView.h */,
+				DD10845B21A401560087F244 /* TPComTextView.m */,
+				DD02391621A50AC100333446 /* TPAddTokenCell.h */,
+				DD02391721A50AC100333446 /* TPAddTokenCell.m */,
+				DD02394821AE408000333446 /* TPTransView.h */,
+				DD02394921AE408000333446 /* TPTransView.m */,
+				DD02395221AE84CB00333446 /* SYPasswordView.h */,
+				DD02395321AE84CB00333446 /* SYPasswordView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -441,12 +566,17 @@
 		DD0244362196D1B8006A1390 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DD02393B21ACEBA700333446 /* Login */,
 				DD0244482196DD57006A1390 /* TPMeViewController.h */,
 				DD0244492196DD57006A1390 /* TPMeViewController.m */,
 				DD108425219EAEB80087F244 /* TPLanguageViewController.h */,
 				DD108426219EAEB80087F244 /* TPLanguageViewController.m */,
 				DD10842B219EB60F0087F244 /* TPAboutViewController.h */,
 				DD10842C219EB60F0087F244 /* TPAboutViewController.m */,
+				DD02393821AC055E00333446 /* TPTransDetailViewController.h */,
+				DD02393921AC055E00333446 /* TPTransDetailViewController.m */,
+				DD02393F21ACF53E00333446 /* TPTransDetailCell.h */,
+				DD02394021ACF53E00333446 /* TPTransDetailCell.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -497,6 +627,8 @@
 				DDDDFB9F219C1AE90056FC57 /* TPEndViewController.m */,
 				DDDDFBA4219C1FA40056FC57 /* TPRecordViewController.h */,
 				DDDDFBA5219C1FA40056FC57 /* TPRecordViewController.m */,
+				DD02391921A5328500333446 /* TPBuyTokenViewController.h */,
+				DD02391A21A5328500333446 /* TPBuyTokenViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -530,6 +662,8 @@
 				DDDDFB89219AD0550056FC57 /* UIView+TPExtension.m */,
 				DDDDFBA2219C1EBE0056FC57 /* UIBarButtonItem+SXCreate.h */,
 				DDDDFBA1219C1EBE0056FC57 /* UIBarButtonItem+SXCreate.m */,
+				DD02394321AD2F4B00333446 /* UILabel+WLAttributedString.h */,
+				DD02394221AD2F4B00333446 /* UILabel+WLAttributedString.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -585,6 +719,8 @@
 			children = (
 				DD72F433219A7F12004C0DAF /* TPBaseViewController.h */,
 				DD72F434219A7F12004C0DAF /* TPBaseViewController.m */,
+				DD10844B21A28E3C0087F244 /* TPStartViewController.h */,
+				DD10844C21A28E3C0087F244 /* TPStartViewController.m */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -731,19 +867,23 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ToPay/Pods-ToPay-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SGPagingView/SGPagingView.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/WRNavigationBar/WRNavigationBar.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SGPagingView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WRNavigationBar.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -776,6 +916,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD1083D3219D67480087F244 /* TPTokenKindViewController.m in Sources */,
+				DD02394421AD2F4B00333446 /* UILabel+WLAttributedString.m in Sources */,
 				DD72F42E219A7D7A004C0DAF /* TPVRTViewController.m in Sources */,
 				DDDDFBA6219C1FA40056FC57 /* TPRecordViewController.m in Sources */,
 				DD0243FD2196C968006A1390 /* ViewController.m in Sources */,
@@ -783,6 +924,7 @@
 				DD02444A2196DD57006A1390 /* TPMeViewController.m in Sources */,
 				DD10842A219EB2280087F244 /* TPLangUageCell.m in Sources */,
 				DD0244412196DD23006A1390 /* TPCapitalViewController.m in Sources */,
+				DD02392721A7AC8400333446 /* TPBuyRecordViewController.m in Sources */,
 				DD10844621A001030087F244 /* NIMScannerMaskView.m in Sources */,
 				DD72F42B21998491004C0DAF /* TPNavigationBarTitleView.m in Sources */,
 				DD10844421A001030087F244 /* NIMScannerBorder.m in Sources */,
@@ -790,12 +932,16 @@
 				DDDDFBAC219D5A110056FC57 /* TPCapitalHeaderView.m in Sources */,
 				DD1083E2219D83C20087F244 /* TPNotiCell.m in Sources */,
 				DD0243FA2196C968006A1390 /* AppDelegate.m in Sources */,
+				DD02391821A50AC100333446 /* TPAddTokenCell.m in Sources */,
 				DDDDFBAF219D60BC0056FC57 /* UIViewExt.m in Sources */,
+				DD02391B21A5328500333446 /* TPBuyTokenViewController.m in Sources */,
 				DD108424219EA5570087F244 /* TPMeHeaderView.m in Sources */,
 				DDDDFB9D219C1AC00056FC57 /* TPComingSoonViewController.m in Sources */,
 				DDDDFB87219ACC310056FC57 /* TPCrowdfundCell.m in Sources */,
 				DDDDFB7B219AB5560056FC57 /* TPVRPLabelCell.m in Sources */,
+				DD02392121A6B42100333446 /* TPUSDTViewController.m in Sources */,
 				DD02444F21992F09006A1390 /* UIColor+Additions.m in Sources */,
+				DD10845321A3EC6A0087F244 /* TPChainTakeViewController.m in Sources */,
 				DD108421219E9EC70087F244 /* TPMeCell.m in Sources */,
 				DD72F4272199606E004C0DAF /* RDVTabBarController.m in Sources */,
 				DDDDFB90219BE1820056FC57 /* TPHeaderComView.m in Sources */,
@@ -805,22 +951,40 @@
 				DD72F4282199606E004C0DAF /* RDVTabBarItem.m in Sources */,
 				DDDDFB84219AB8C40056FC57 /* YFactoryUI.m in Sources */,
 				DD0244472196DD4E006A1390 /* TPCrowdfundingViewController.m in Sources */,
+				DD02392D21A7D6CA00333446 /* TPBuyTopicViewController.m in Sources */,
 				DD72F431219A7DA7004C0DAF /* TPBalanceViewController.m in Sources */,
+				DD02392A21A7B1AC00333446 /* TPProcessingCell.m in Sources */,
 				DD1083DC219D76560087F244 /* TPTokenTopicViewController.m in Sources */,
 				DD108427219EAEB80087F244 /* TPLanguageViewController.m in Sources */,
+				DD02391E21A5570B00333446 /* TPTranDetailViewController.m in Sources */,
+				DD10845C21A401560087F244 /* TPComTextView.m in Sources */,
 				DD0244442196DD39006A1390 /* TPTransactionViewController.m in Sources */,
+				DD02393E21ACEBDA00333446 /* TPLoginViewController.m in Sources */,
 				DD1083DF219D7AD10087F244 /* TPNotiViewController.m in Sources */,
+				DD02392421A6B83D00333446 /* TPUSDTCell.m in Sources */,
+				DD10844D21A28E3C0087F244 /* TPStartViewController.m in Sources */,
+				DD02393A21AC055E00333446 /* TPTransDetailViewController.m in Sources */,
+				DD02391521A50A0A00333446 /* TPAddTokenViewController.m in Sources */,
 				DD1083D6219D67800087F244 /* TPTokenHeaderView.m in Sources */,
 				DD10844821A001030087F244 /* NIMScannerViewController.m in Sources */,
+				DD10845921A3EC900087F244 /* TPChainReceiptViewController.m in Sources */,
+				DD02393721ABECD100333446 /* TPSellViewController.m in Sources */,
+				DD10845021A2B4B60087F244 /* TPTokenBottomView.m in Sources */,
 				DDDDFB8D219AD92F0056FC57 /* TPCFTopicViewController.m in Sources */,
+				DD02395421AE84CB00333446 /* SYPasswordView.m in Sources */,
 				DD1083D9219D71410087F244 /* TPTokenCell.m in Sources */,
+				DD10845621A3EC7E0087F244 /* TPChainTransferViewController.m in Sources */,
 				DDDDFB93219BE19B0056FC57 /* TPHeaderRecordView.m in Sources */,
 				DDDDFB97219C1A440056FC57 /* TPReservationViewController.m in Sources */,
 				DD10844521A001030087F244 /* NIMScanner.m in Sources */,
 				DDDDFB81219AB7350056FC57 /* TPVRTCell.m in Sources */,
+				DD02394121ACF53E00333446 /* TPTransDetailCell.m in Sources */,
 				DDDDFBA3219C1EBE0056FC57 /* UIBarButtonItem+SXCreate.m in Sources */,
 				DDDDFBA9219C27BF0056FC57 /* TPCapitalCell.m in Sources */,
+				DD02393421ABD80600333446 /* TPFilterViewController.m in Sources */,
 				DD10844321A001030087F244 /* NIMScanerCardViewController.m in Sources */,
+				DD02394A21AE408000333446 /* TPTransView.m in Sources */,
+				DD02393121ABCE8200333446 /* GBTagListView.m in Sources */,
 				DD72F4262199606E004C0DAF /* RDVTabBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

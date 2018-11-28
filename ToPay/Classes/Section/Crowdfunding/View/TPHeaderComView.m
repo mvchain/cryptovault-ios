@@ -31,8 +31,8 @@
     {
         _crowdStyle = crowdStyle;
         
-        _iconImgV = [YFactoryUI YImageViewWithimage:nil];
-        _iconImgV.backgroundColor = YRandomColor;
+        _iconImgV = [YFactoryUI YImageViewWithimage:[UIImage imageNamed:@"btc_icon"]];
+//        _iconImgV.backgroundColor = YRandomColor;
         [self addSubview:_iconImgV];
         
         _nickLab = [YFactoryUI YLableWithText:@"VRT" color:TP59Color font:FONT(16)];
@@ -49,7 +49,7 @@
             BOOL  isCrowd = _crowdStyle == TPCrowdfundStyleReservation;
             
             _participateBtn = [YFactoryUI YButtonWithTitle:isCrowd ? @"立即参与": @"已结束" Titcolor:isCrowd ? [UIColor whiteColor]:[UIColor colorWithHex:@"#D5D7E6"] font:FONT(13) Image:nil target:self action:@selector(participateClick)];
-            [_participateBtn setLayer:18 WithBackColor:isCrowd ? [UIColor colorWithHex:@"#007AFF"]:[UIColor colorWithHex:@"#ECEEF1"]];
+            [_participateBtn setLayer:18 WithBackColor:isCrowd ? TPMainColor:[UIColor colorWithHex:@"#ECEEF1"]];
             [self addSubview:_participateBtn];
         }
         
@@ -59,7 +59,10 @@
 
 -(void)participateClick
 {
-    NSLog(@"立即参与");
+    if(self.participateBlock)
+    {
+        self.participateBlock();
+    }
 }
 
 -(void)layoutSubviews

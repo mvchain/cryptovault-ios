@@ -34,10 +34,11 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self)
     {
-        self.backgroundColor = [UIColor clearColor];
+        self.backgroundColor = [UIColor whiteColor];
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
         
         _backView = [[UIView alloc] init];
-//        _backView.backgroundColor = YRandomColor;
+
         [_backView setLayer:5 WithBackColor: [UIColor whiteColor]];
         _backView.layer.shadowColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.15].CGColor;
         _backView.layer.shadowOffset = CGSizeMake(0,3);

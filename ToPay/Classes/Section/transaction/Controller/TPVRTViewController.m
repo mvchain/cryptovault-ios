@@ -9,6 +9,8 @@
 
 #import "TPVRTViewController.h"
 #import "TPVRTCell.h"
+
+#import "TPTranDetailViewController.h"
 @interface TPVRTViewController ()
 
 @end
@@ -49,9 +51,15 @@ static NSString  *TPVRTCellId = @"VRTCell";
     return 64;
 }
 
-- (void)didReceiveMemoryWarning {
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    TPTranDetailViewController *tranDetailVC = [[TPTranDetailViewController alloc] init];
+    [self.navigationController pushViewController:tranDetailVC animated:YES];
+}
+
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 /*

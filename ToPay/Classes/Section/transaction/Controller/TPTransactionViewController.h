@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface TPTransactionViewController : UIViewController
+#import "TPBaseViewController.h"
+@interface TPTransactionViewController : TPBaseViewController
 
 @end

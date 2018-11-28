@@ -19,9 +19,34 @@
     return TPCrowdfundStyleRecord;
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.customNavBar.title = @"众筹记录";
+    [self showSystemNavgation:NO];
+
+    [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"serch_icon_1"]];
+    [self.customNavBar setOnClickRightButton:^{
+        NSLog(@"搜做");
+    }];
+    [self.view sendSubviewToBack:self.baseTableView];
+    
+    [self.baseTableView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(@(StatusBarAndNavigationBarHeight));
+    }];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [[self rdv_tabBarController] setTabBarHidden:NO animated:YES];
+    
+    [super viewWillDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning {

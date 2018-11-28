@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TPBaseViewController.h"
-@interface TPLanguageViewController : TPBaseViewController
+//#import "TPBaseViewController.h"
+#import "TPStartViewController.h"
+@interface TPLanguageViewController : TPStartViewController
 
 @end

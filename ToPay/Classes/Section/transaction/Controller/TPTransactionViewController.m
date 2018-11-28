@@ -18,10 +18,18 @@
 
 @implementation TPTransactionViewController
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    [self showSystemNavgation:YES];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    self.customNavBar = nil;
+    [self showSystemNavgation:YES];
     
     [self setNavTitleView];
     
@@ -29,6 +37,8 @@
     
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(recordClcik) image:[UIImage imageNamed:@"list_icon_1"]];
 }
+
+
 
 -(void)recordClcik
 {
@@ -39,7 +49,7 @@
 {
     TPVRTViewController *VRTVC = [[TPVRTViewController alloc] init];
     TPVRTViewController *balanceVC = [[TPVRTViewController alloc] init];
-//    TPBalanceViewController
+
     NSArray *childArr = @[VRTVC, balanceVC];
     
     CGFloat contentViewHeight = KHeight - StatusBarAndNavigationBarHeight - TAB_BAR_HEIGHT;
@@ -65,6 +75,7 @@
     
     self.pageTitleView = [SGPageTitleView pageTitleViewWithFrame:CGRectMake(0, 0, titleVW, 44) delegate:self titleNames:titleArr configure:configure];
     TPNavigationBarTitleView *view = [[TPNavigationBarTitleView alloc] initWithFrame:CGRectMake(0, 0, titleVW, 44)];
+
     self.navigationItem.titleView = view;
     [view addSubview:_pageTitleView];
 }
@@ -80,19 +91,10 @@
     [self.pageTitleView setPageTitleViewWithProgress:progress originalIndex:originalIndex targetIndex:targetIndex];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
 }
-*/
 
 @end

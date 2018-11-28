@@ -11,5 +11,5 @@
 @interface TPHeaderComView : UIView
 
 - (instancetype)initWithStyle:(TPCrowdfundStyle)crowdStyle;
-
+@property(nonatomic,copy)void (^participateBlock)(void);
 @end

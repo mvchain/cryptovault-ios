@@ -27,8 +27,8 @@
     self = [super init];
     if (self)
     {
-        _iconImgV = [YFactoryUI YImageViewWithimage:nil];
-        _iconImgV.backgroundColor = YRandomColor;
+        _iconImgV = [YFactoryUI YImageViewWithimage:[UIImage imageNamed:@"success_icon_1"]];
+//        _iconImgV.backgroundColor = YRandomColor;
         [self addSubview:_iconImgV];
         
         _nickLab = [YFactoryUI YLableWithText:@"VRT" color:TP59Color font:FONT(15)];
@@ -55,7 +55,7 @@
      {
          make.left.equalTo(@12);
          make.top.equalTo(@22);
-         make.size.equalTo(@16);
+         make.size.equalTo(@24);
      }];
     
     [self.nickLab mas_makeConstraints:^(MASConstraintMaker *make)

@@ -6,8 +6,8 @@
 //  Copyright © 2018年 蒲公英. All rights reserved.
 //
 
-#import "TPBaseViewController.h"
 
-@interface TPNotiViewController : TPBaseViewController
+#import "TPStartViewController.h"
+@interface TPNotiViewController : TPStartViewController
 
 @end

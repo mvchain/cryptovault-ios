@@ -11,8 +11,9 @@
 #import "TPCapitalViewController.h"
 #import "TPTransactionViewController.h"
 #import "TPCrowdfundingViewController.h"
-#import "TPMeViewController.h"
 
+#import "TPMeViewController.h"
+#import <WRNavigationBar/WRNavigationBar.h>
 
 
 
@@ -31,7 +32,8 @@
     [self.window makeKeyAndVisible];
     
     [self customizeInterface];
-    
+    [self setNavBarAppearence];
+    [self setUpIQKeyBoardManager];
     return YES;
 }
 
@@ -109,6 +111,39 @@
 -(void)customizeInterface
 {
 //     UINavigationBar *navigationBarAppearance = [UINavigationBar appearance];
+}
+
+-(void)setNavBarAppearence
+{
+    [WRNavigationBar wr_widely];
+    
+//    [WRNavigationBar wr_setBlacklist:@[@"TPTransactionViewController"]];
+    
+    // 导航栏默认背景颜色
+    [WRNavigationBar wr_setDefaultNavBarTintColor:[UIColor redColor]];
+    
+    // 导航栏所有按钮的默认颜色
+    [WRNavigationBar wr_setDefaultNavBarTintColor:[UIColor clearColor]];
+    
+    // 设置导航栏标题默认颜色
+    [WRNavigationBar wr_setDefaultNavBarTitleColor:[UIColor greenColor]];
+    
+    //统一设置状态
+    [WRNavigationBar wr_setDefaultStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    //导航栏底部分割线隐藏
+    [WRNavigationBar wr_setDefaultNavBarShadowImageHidden:YES];
+}
+
+-(void)setUpIQKeyBoardManager
+{
+    IQKeyboardManager *keyboardManager = [IQKeyboardManager sharedManager];
+    
+    keyboardManager.enable = YES;
+    
+    keyboardManager.shouldResignOnTouchOutside = YES;
+    
+    keyboardManager.keyboardDistanceFromTextField = 10.0f;
 }
 
 

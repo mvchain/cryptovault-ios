@@ -26,7 +26,7 @@
     if (self)
     {
         
-        self.backgroundColor = [[UIColor redColor]colorWithAlphaComponent:0.2];
+//        self.backgroundColor = [[UIColor redColor]colorWithAlphaComponent:0.2];
         
         _totalLab = [YFactoryUI YLableWithText:@"总资产" color:[UIColor whiteColor] font:FONT(12)];
         [self addSubview:_totalLab];

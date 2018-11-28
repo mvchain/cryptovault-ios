@@ -8,14 +8,14 @@
 
 #import "TPCrowdfundCell.h"
 
-#import "TPHeaderComView.h"
+
 #import "TPHeaderRecordView.h"
 
 @interface TPCrowdfundCell ()
 
 @property (nonatomic, strong) UIView * backView;
 
-@property (nonatomic, strong) TPHeaderComView *comView;
+
 @property (nonatomic, strong) TPHeaderRecordView *recView;
 
 @property (nonatomic, strong) UIView  * sepV;
@@ -42,6 +42,9 @@
     if (self)
     {
         self.backgroundColor = TPF6Color;
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        
         _crowdStyle = crowdStyle;
         _nameArray = [NSMutableArray array];
         _valueArray = [NSMutableArray array];

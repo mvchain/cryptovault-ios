@@ -6,8 +6,13 @@
 //  Copyright © 2018年 蒲公英. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 
-@interface TPTokenKindViewController : UIViewController
+#import "TPStartViewController.h"
+#import "TPTokenBottomView.h"
+
+
+@interface TPTokenKindViewController : TPStartViewController
+
+- (instancetype) initWithChainStyle:(TPChainStyle)chainStyle;
 
 @end

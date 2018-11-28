@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <WRNavigationBar/WRCustomNavigationBar.h>
 @interface TPBaseViewController : UIViewController <UITableViewDelegate,UITableViewDataSource>
 
 /** base_tableView */
 @property (nonatomic, strong) UITableView  *baseTableView;
 
+@property (nonatomic, strong) WRCustomNavigationBar *customNavBar;
+
+
+-(void)showSystemNavgation:(BOOL)isShow;
 @end

@@ -22,15 +22,16 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self)
     {
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        
         _iconImgV = [YFactoryUI YImageViewWithimage:nil];
-        _iconImgV.backgroundColor = YRandomColor;
         [self addSubview:_iconImgV];
      
         _descLab = [YFactoryUI YLableWithText:@"语言" color:TP59Color font:FONT(14)];
         [self addSubview:_descLab];
         
-        _arrowImgV = [YFactoryUI YImageViewWithimage:nil];
-        _arrowImgV.backgroundColor = YRandomColor;
+        _arrowImgV = [YFactoryUI YImageViewWithimage:[UIImage imageNamed:@"next_icon_black"]];
+//        _arrowImgV.backgroundColor = YRandomColor;
         [self addSubview:_arrowImgV];
     }
     return self;
@@ -64,7 +65,7 @@
     {
         make.right.equalTo(@(-26));
         make.centerY.equalTo(self);
-        make.size.equalTo(@12);
+        make.size.equalTo(@24);
     }];
 }
 

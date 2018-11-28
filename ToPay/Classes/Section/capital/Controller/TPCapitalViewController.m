@@ -11,7 +11,14 @@
 #import "TPNotiViewController.h"
 #import "TPCapitalCell.h"
 #import "TPCapitalHeaderView.h"
+#import "TPAddTokenViewController.h"
+#import <WRNavigationBar/WRCustomNavigationBar.h>
+#define NAVBAR_COLORCHANGE_POINT (-IMAGE_HEIGHT + StatusBarAndNavigationBarHeight*2)
+//#define NAV_HEIGHT 64
+#define IMAGE_HEIGHT 260
+
 @interface TPCapitalViewController ()
+
 
 @end
 
@@ -19,20 +26,31 @@
 
 static NSString  *TPCapitalCellCellId = @"CapitalCell";
 
+
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setNavgation];
     
-    self.navigationItem.title = @"VP Wallet";
-  
-    [self setNavItem];
     
+    UIImageView *navBack = [YFactoryUI YImageViewWithimage:[UIImage imageNamed:@"bg_nav_1"]];
+    [self.view addSubview:navBack];
+    [navBack mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.equalTo(@0);
+        make.width.equalTo(@(KWidth));
+        make.height.equalTo(@198);
+    }];
+    [self.view sendSubviewToBack:navBack];
     
     TPCapitalHeaderView *headerView = [[TPCapitalHeaderView alloc] init];
+    headerView.backgroundColor = [UIColor clearColor];
     headerView.height = 142;
     self.baseTableView.tableHeaderView = headerView;
-    
+    self.baseTableView.backgroundColor = [UIColor clearColor];
     self.baseTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.baseTableView.bounces = NO;
     [self.baseTableView mas_makeConstraints:^(MASConstraintMaker *make)
     {
         make.top.equalTo(@(StatusBarAndNavigationBarHeight));
@@ -42,10 +60,30 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
     }];
 }
 
--(void)setNavItem
+-(void)setNavgation
 {
-    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(notiClick) image:[UIImage imageNamed:@"note_icon_1"]];
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(addClick) image:[UIImage imageNamed:@"add_icon_black"]];
+    [self showSystemNavgation:NO];
+    self.customNavBar.title = @"个人中心";
+    self.customNavBar.titleLabelColor = [UIColor whiteColor];
+    self.customNavBar.barBackgroundColor = TPMainColor;
+    [self.customNavBar wr_setBottomLineHidden:YES];
+    [self.customNavBar wr_setBackgroundAlpha:0];
+    
+    
+    [self.customNavBar wr_setLeftButtonWithImage:[UIImage imageNamed:@"note_icon_1"]];
+    [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"add_icon_white"]];
+    
+    TPWeakSelf;
+    [self.customNavBar setOnClickLeftButton:^
+    {
+        TPNotiViewController *notiVC = [[TPNotiViewController alloc] init];
+        [weakSelf.navigationController pushViewController:notiVC animated:YES];
+    }];
+    
+    [self.customNavBar setOnClickRightButton:^{
+        TPAddTokenViewController *tokenVC = [[TPAddTokenViewController alloc] init];
+        [weakSelf.navigationController pushViewController:tokenVC animated:YES];
+    }];
 }
 
 
@@ -75,18 +113,20 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
     [self.navigationController pushViewController:kindVC animated:YES];
 }
 
-
-#pragma mark - 点击事件
--(void)notiClick
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-//    NSLog(@"通知");
-    TPNotiViewController *notiVC = [[TPNotiViewController alloc] init];
-    [self.navigationController pushViewController:notiVC animated:YES];
+    CGFloat offsetY = scrollView.contentOffset.y;
     
+    if (offsetY > NAVBAR_COLORCHANGE_POINT)
+    {
+        CGFloat alpha =  offsetY /100;
+
+        [self.customNavBar wr_setBackgroundAlpha:alpha];
+    }
+    else
+    {
+        [self.customNavBar wr_setBackgroundAlpha:0];
+    }
 }
 
--(void)addClick
-{
-    NSLog(@"添加");
-}
 @end

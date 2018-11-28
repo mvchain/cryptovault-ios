@@ -29,6 +29,8 @@ static NSString * typeRoomID = @"evn:r:";
 @property (nonatomic) UIImage *avatar;
 /// 完成回调
 @property (nonatomic, copy) void (^completionCallBack)(NSString * );
+
+
 @end
 
 @implementation NIMScannerViewController {
@@ -107,13 +109,6 @@ static NSString * typeRoomID = @"evn:r:";
     [self showDetailViewController:picker sender:nil];
 }
 
-/// 点击名片按钮
-- (void)clickCardButton
-{
-    NIMScanerCardViewController *vc = [[NIMScanerCardViewController alloc]initWithCardName:self.cardName avatar:self.avatar];
-    
-    [self showViewController:vc sender:nil];
-}
 
 #pragma mark - UIImagePickerControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
@@ -192,8 +187,8 @@ static NSString * typeRoomID = @"evn:r:";
 }
 
 /// 准备提示标签和名片按钮
-- (void)prepareOtherControls {
-    
+- (void)prepareOtherControls
+{
     // 1> 提示标签
     tipLabel = [[UILabel alloc] init];
     
@@ -207,22 +202,28 @@ static NSString * typeRoomID = @"evn:r:";
     tipLabel.top = scannerBorder.bottom + 12;
     [self.view addSubview:tipLabel];
     
-    // 2> 名片按钮
-    UIButton *cardButton = [[UIButton alloc] init];
+    UIView *bottomView = [[UIView alloc] init];
+    bottomView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.4];
+    [self.view addSubview:bottomView];
     
-    [cardButton setTitle:@"我的二维码 " forState:UIControlStateNormal];
-    [cardButton setImage:[UIImage imageNamed:@"qrcode-yellow"] forState:UIControlStateNormal];
-    [cardButton setImage:[UIImage imageNamed:@"qrcode-yellow"] forState:UIControlStateHighlighted];
-    cardButton.titleLabel.font = [UIFont systemFontOfSize:16];
-    [cardButton setTitleColor:self.navigationController.navigationBar.tintColor forState:UIControlStateNormal];
-    cardButton.imageEdgeInsets = UIEdgeInsetsMake(0, 85, 0, 0);
-    cardButton.titleEdgeInsets = UIEdgeInsetsMake(0, -35, 0, 0);
-    [cardButton sizeToFit];
-    cardButton.center = CGPointMake(tipLabel.center.x, CGRectGetMaxY(tipLabel.frame) + kControlMargin);
+    bottomView.bottom = self.view.bottom - 62 - HOME_INDICATOR_HEIGHT;
+    bottomView.width = self.view.width;
+    bottomView.left = 0;
+    bottomView.height = 62 + HOME_INDICATOR_HEIGHT;
+ 
+    UIButton *photoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [photoBtn setTitle:@"从相册选择" forState:UIControlStateNormal];
+    [photoBtn setTitleColor:[UIColor colorWithHex:@"#AAAAAA"] forState:UIControlStateNormal];
+    photoBtn.titleLabel.font = FONT(15);
+    [photoBtn addTarget:self action:@selector(clickAlbumButton) forControlEvents:UIControlEventTouchUpInside];
+    [photoBtn setLayer:23 WithBackColor:[UIColor colorWithHex:@"#5E5E60"]] ;
+    [bottomView addSubview:photoBtn];
     
-    [self.view addSubview:cardButton];
+    photoBtn.left = bottomView.width/2 - 127/2;
+    photoBtn.top = 62/2 - 44/2;
+    photoBtn.size = CGSizeMake(127, 44);
     
-    [cardButton addTarget:self action:@selector(clickCardButton) forControlEvents:UIControlEventTouchUpInside];
+    
 }
 
 /// 准备扫描框
@@ -244,9 +245,6 @@ static NSString * typeRoomID = @"evn:r:";
 - (void)prepareNavigationBar
 {   // 2> 标题
     self.title = @"扫一扫";
-    
-    // 3> 左右按钮
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"相册" style:UIBarButtonItemStylePlain target:self action:@selector(clickAlbumButton)];
 }
 
 - (BOOL)navigationShouldPopOnBackButton

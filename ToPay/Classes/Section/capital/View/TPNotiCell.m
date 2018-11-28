@@ -34,6 +34,7 @@
     if (self)
     {
         self.backgroundColor = [UIColor clearColor];
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
         
         _backView = [[UIView alloc] init];
         [_backView setLayer:5 WithBackColor:[UIColor whiteColor]];

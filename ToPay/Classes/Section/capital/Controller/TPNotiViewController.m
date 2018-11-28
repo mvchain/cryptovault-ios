@@ -19,6 +19,8 @@ static NSString  *TPNotiCellCellId = @"notiCell";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.customNavBar.title = @"通知";
     self.baseTableView.backgroundColor = TPF6Color;
     self.baseTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.baseTableView mas_makeConstraints:^(MASConstraintMaker *make)
@@ -28,6 +30,8 @@ static NSString  *TPNotiCellCellId = @"notiCell";
         make.width.equalTo(@(KWidth));
         make.height.equalTo(self.view.mas_height);
     }];
+    
+    
     
 }
 

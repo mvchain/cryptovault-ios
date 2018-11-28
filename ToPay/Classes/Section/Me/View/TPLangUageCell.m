@@ -20,11 +20,13 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self)
     {
+        self.selectionStyle = UITableViewCellSelectionStyleNone; 
+        
         _langLab = [YFactoryUI YLableWithText:@"" color:[UIColor colorWithHex:@"#7A7A7C"] font:FONT(14)];
         [self addSubview:_langLab];
         
-        _selctImgV = [YFactoryUI YImageViewWithimage:nil];
-        _selctImgV.backgroundColor = YRandomColor;
+        _selctImgV = [YFactoryUI YImageViewWithimage:[UIImage imageNamed:@"disselected_icon"]];
+//        _selctImgV.backgroundColor = YRandomColor;
         [self addSubview:_selctImgV];
     }
     return self;

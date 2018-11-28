@@ -26,5 +26,6 @@
 #import <SGPagingView/SGPagingView.h>
 #import <SGPagingView/SGPageTitleView.h>
 #import <Masonry/Masonry.h>
+#import <IQKeyboardManager/IQKeyboardManager.h>
 
 #endif /* TP_pch */

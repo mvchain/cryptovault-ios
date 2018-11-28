@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface TPCrowdfundingViewController : UIViewController
+#import "TPBaseViewController.h"
+//#import "TPStartViewController.h"
+@interface TPCrowdfundingViewController : TPBaseViewController
 
 @end

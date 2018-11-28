@@ -20,7 +20,8 @@
     return maskView;
 }
 
-- (void)setCropRect:(CGRect)cropRect {
+- (void)setCropRect:(CGRect)cropRect
+{
     _cropRect = cropRect;
     
     [self setNeedsDisplay];
