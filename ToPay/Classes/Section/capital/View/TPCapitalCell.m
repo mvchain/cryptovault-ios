@@ -7,6 +7,7 @@
 //
 
 #import "TPCapitalCell.h"
+#import "TPCurrencyList.h"
 
 @interface TPCapitalCell ()
 @property (nonatomic, strong) UIView *backView;
@@ -19,6 +20,7 @@
 
 @property (nonatomic, strong) UILabel *numLab;
 
+@property (nonatomic, strong) YYCache *listCache;
 @end
 
 @implementation TPCapitalCell
@@ -59,6 +61,11 @@
         _numLab = [YFactoryUI YLableWithText:@"123.4567" color:TP8EColor font:FONT(12)];
         [_backView addSubview:_numLab];
         
+        
+        _listCache = [YYCache cacheWithName:TPCacheName];
+        
+//       TPCurrencyList *currencyList = (TPCurrencyList *)[listCache objectForKey:TPCurrencyListKey];
+//        NSLog(@"%@",currencyList);
     }
     return self;
 }
@@ -66,8 +73,31 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-    
 }
+
+-(void)setAssetModel:(TPAssetModel *)assetModel
+{
+    _assetModel = assetModel;
+    
+    self.nickLab.text = assetModel.tokenName;
+    self.valueLab.text = TPString(@"%.2f",assetModel.ratio * assetModel.value);
+    self.numLab.text = TPString(@"%.4f",assetModel.value);
+    
+    
+   CLData *clData = (CLData *)[self.listCache objectForKey:assetModel.tokenId];
+    NSLog(@"tokenImage:%@",clData.tokenImage);
+    
+    [self.iconImgV  sd_setImageWithURL:[NSURL URLWithString:clData.tokenImage]];
+//    assetModel.ratio * assetModel.value / 0.1492537313432836
+}
+
+-(void)setRatio:(CGFloat)ratio
+{
+    _ratio = ratio;
+    
+    self.valueLab.text = TPString(@"%.2f",self.assetModel.ratio * self.assetModel.value /ratio);
+}
+
 
 -(void)layoutSubviews
 {

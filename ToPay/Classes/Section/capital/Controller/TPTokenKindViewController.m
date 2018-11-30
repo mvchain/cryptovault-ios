@@ -43,7 +43,7 @@
     self.customNavBar.title = @"VP余额";
     self.customNavBar.titleLabelColor = [UIColor whiteColor];
     [self.customNavBar wr_setLeftButtonWithImage:[UIImage imageNamed:@"back_icon_white"]];
-    [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"code_icon_1"]];
+    [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"code_icon_white"]];
     [self.customNavBar wr_setBackgroundAlpha:0];
 
     TPWeakSelf;

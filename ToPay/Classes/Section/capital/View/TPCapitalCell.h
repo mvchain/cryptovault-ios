@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "TPAssetModel.h"
 @interface TPCapitalCell : UITableViewCell
 
+@property (nonatomic, strong) TPAssetModel *assetModel;
+
+@property (nonatomic) CGFloat  ratio;
 @end

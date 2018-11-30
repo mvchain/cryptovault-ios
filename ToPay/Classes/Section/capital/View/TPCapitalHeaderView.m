@@ -40,10 +40,33 @@
     return self;
 }
 
+-(void)setTotal:(NSString *)total
+{
+    _total = total;
+    _numLab.text = TPString(@"%.4f",[total floatValue]);
+}
+
+-(void)setRatio:(CGFloat)ratio
+{
+    _ratio = ratio;
+    
+    _numLab.text = TPString(@"%.4f",[_total floatValue] / ratio);
+}
+
+-(void)setNickName:(NSString *)nickName
+{
+    _nickName = nickName;
+    
+    [_chooseBtn setTitle:nickName forState:UIControlStateNormal];
+}
 
 -(void)chooseToken
 {
     NSLog(@"选择token");
+    if (self.chooseCurrencyBlock) {
+        self.chooseCurrencyBlock();
+    }
+    [TPLoginUtil setRequestTokenBase];
 }
 
 -(void)layoutSubviews

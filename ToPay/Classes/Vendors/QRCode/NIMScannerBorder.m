@@ -56,8 +56,8 @@
     [self addSubview:scannerLine];
     
     // 加载边框图像
-    for (NSInteger i = 1; i < 5; i++) {
-        
+    for (NSInteger i = 1; i < 5; i++)
+    {
         UIImageView *img = [[UIImageView alloc]initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"BCScanQR%zd",i]]];
         
         [self addSubview:img];
@@ -65,7 +65,8 @@
         CGFloat offsetX = self.bounds.size.width - img.bounds.size.width;
         CGFloat offsetY = self.bounds.size.height - img.bounds.size.height;
         
-        switch (i) {
+        switch (i)
+        {
             case 2:
                 img.frame = CGRectOffset(img.frame, offsetX, 0);
                 break;

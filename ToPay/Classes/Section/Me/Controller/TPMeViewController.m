@@ -13,6 +13,7 @@
 #import "TPLoginViewController.h"
 #import "TPMeCell.h"
 #import "TPMeHeaderView.h"
+#import "TPCurrencyList.h"
 @interface TPMeViewController ()
 @property (nonatomic, strong) NSArray *dataSource;
 @property (nonatomic, strong) NSArray *dataSourceImg;
@@ -25,6 +26,12 @@ static NSString  *TPMeCellCellId = @"meCell";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+//    YYCache *yyCache = [YYCache cacheWithName:TPCacheName];
+//    
+//    TPCurrencyList *newList = (TPCurrencyList *)[yyCache objectForKey:TPCurrencyListKey];
+//    
+//    NSLog(@"newList:%@",newList);
     
     self.customNavBar.title = @"我的";
     [self showSystemNavgation:NO];

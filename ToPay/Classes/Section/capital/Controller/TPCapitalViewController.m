@@ -9,32 +9,142 @@
 #import "TPCapitalViewController.h"
 #import "TPTokenKindViewController.h"
 #import "TPNotiViewController.h"
-#import "TPCapitalCell.h"
-#import "TPCapitalHeaderView.h"
 #import "TPAddTokenViewController.h"
 #import <WRNavigationBar/WRCustomNavigationBar.h>
+#import "BCQMView.h"
+#import "TPCurrencyRatio.h"
+
+#import "TPAssetModel.h"
+#import "TPCapitalCell.h"
+#import "TPCapitalHeaderView.h"
+
 #define NAVBAR_COLORCHANGE_POINT (-IMAGE_HEIGHT + StatusBarAndNavigationBarHeight*2)
-//#define NAV_HEIGHT 64
+
 #define IMAGE_HEIGHT 260
 
 @interface TPCapitalViewController ()
+@property (nonatomic, strong)  NSMutableArray<TPAssetModel *> *assetTopic;
+@property (nonatomic, strong) TPCapitalHeaderView * headerView;
 
-
+@property (nonatomic,strong) BCQMView *qmView;
+@property (nonatomic) CGFloat ratio;
 @end
 
 @implementation TPCapitalViewController
 
 static NSString  *TPCapitalCellCellId = @"CapitalCell";
 
-
+-(BCQMView *)qmView
+{
+    if (!_qmView)
+    {
+        YYCache *listCache = [YYCache cacheWithName:TPCacheName];
+        NSArray *listArr = (NSArray *)[listCache objectForKey:TPCurrencyRatioKey];
+        
+        _qmView = [[BCQMView alloc]initWithFrame:CGRectMake(KWidth /2 - 100/2,StatusBarAndNavigationBarHeight+ 60, 100, listArr.count * 36) style:UITableViewStylePlain];
+        _qmView.layer.cornerRadius = 6;
+        _qmView.layer.borderWidth = 1;
+        _qmView.layer.borderColor = TPMainColor.CGColor;
+        NSMutableArray *titArray = [NSMutableArray array];
+        
+        for (int i = 0 ; i <listArr.count ; i++)
+        {
+            TPCurrencyRatio *ratio = listArr[i];
+            [titArray addObject:ratio.tokenName];
+        }
+        _qmView.titArr = titArray;
+        
+        TPWeakSelf;
+        [self.qmView setShowMenuBlock:^(NSInteger currentIndex)
+        {
+            TPCurrencyRatio *ratioM = listArr[currentIndex];
+            weakSelf.headerView.ratio = ratioM.ratio;
+            weakSelf.headerView.nickName = ratioM.tokenName;
+            weakSelf.ratio = ratioM.ratio;
+            [weakSelf.baseTableView reloadData];
+        }];
+    }
+    return _qmView;
+}
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     [self setNavgation];
     
+    [self setNavBackImage];
     
+    [self setUpTableView];
+    
+    [self balanceRequest];
+    [self assetRequest];
+}
+
+
+-(void)assetRequest
+{
+    [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"asset" success:^(id responseObject, BOOL isCacheObject)
+    {
+        if ([responseObject[@"code"] isEqual:@200])
+        {
+            self.assetTopic = [TPAssetModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+            [self.baseTableView reloadData];
+//            NSLog(@"self.assetTopic:%@",self.assetTopic);
+        }
+    }
+        failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
+    {
+        NSLog(@"error = %@", error);
+    }];
+}
+
+-(void)balanceRequest
+{
+    [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"asset/balance" success:^(id responseObject, BOOL isCacheObject)
+    {
+        if ([responseObject[@"code"] isEqual:@200])
+        {
+//            NSLog(@"responseObject:%@",responseObject[@"data"]);
+            [USER_DEFAULT setObject:responseObject[@"data"] forKey:TPBalanceDefaultKey];
+            self.headerView.total = TPString(@"%@",responseObject[@"data"]);
+        }
+    }
+        failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
+    {
+        NSLog(@"error = %@", error);
+    }];
+}
+
+
+-(void)setUpTableView
+{
+    TPCapitalHeaderView *headerView = [[TPCapitalHeaderView alloc] init];
+    headerView.backgroundColor = [UIColor clearColor];
+    headerView.height = 142;
+    self.headerView = headerView;
+    self.baseTableView.tableHeaderView = headerView;
+    self.baseTableView.backgroundColor = [UIColor clearColor];
+    self.baseTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.baseTableView.bounces = NO;
+    [self.baseTableView mas_makeConstraints:^(MASConstraintMaker *make)
+     {
+         make.top.equalTo(@(StatusBarAndNavigationBarHeight));
+         make.left.equalTo(@0);
+         make.width.equalTo(@(KWidth));
+         make.height.equalTo(@(KHeight - StatusBarAndNavigationBarHeight - TAB_BAR_HEIGHT));
+     }];
+    
+    headerView.chooseCurrencyBlock = ^{
+        [self.qmView showMenuWithAnimation:YES];
+    };
+    
+    
+}
+
+-(void)setNavBackImage
+{
     UIImageView *navBack = [YFactoryUI YImageViewWithimage:[UIImage imageNamed:@"bg_nav_1"]];
     [self.view addSubview:navBack];
     [navBack mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -43,22 +153,8 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
         make.height.equalTo(@198);
     }];
     [self.view sendSubviewToBack:navBack];
-    
-    TPCapitalHeaderView *headerView = [[TPCapitalHeaderView alloc] init];
-    headerView.backgroundColor = [UIColor clearColor];
-    headerView.height = 142;
-    self.baseTableView.tableHeaderView = headerView;
-    self.baseTableView.backgroundColor = [UIColor clearColor];
-    self.baseTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.baseTableView.bounces = NO;
-    [self.baseTableView mas_makeConstraints:^(MASConstraintMaker *make)
-    {
-        make.top.equalTo(@(StatusBarAndNavigationBarHeight));
-        make.left.equalTo(@0);
-        make.width.equalTo(@(KWidth));
-        make.height.equalTo(self.view.mas_height);
-    }];
 }
+
 
 -(void)setNavgation
 {
@@ -90,7 +186,7 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
 #pragma mark - UITableViewDelegate,UITableViewDataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return self.assetTopic.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -98,6 +194,13 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
     TPCapitalCell *cell = [tableView dequeueReusableCellWithIdentifier:TPCapitalCellCellId];
     if (!cell)
         cell = [[TPCapitalCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TPCapitalCellCellId];
+    cell.assetModel = self.assetTopic[indexPath.row];
+    
+    if (self.ratio)
+    {
+        cell.ratio = self.ratio;
+    }
+    
     return cell;
 }
 

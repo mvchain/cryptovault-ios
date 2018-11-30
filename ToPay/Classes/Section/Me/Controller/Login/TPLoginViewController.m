@@ -7,6 +7,7 @@
 //
 
 #import "TPLoginViewController.h"
+#import "TPLoginModel.h"
 
 @interface TPLoginViewController ()
 
@@ -85,7 +86,31 @@
 
 -(void)loginClcik
 {
-    NSLog(@"登录事件");
+    [[WYNetworkManager sharedManager] sendPostRequest:WYJSONRequestSerializer url:@"user/login" parameters:@{@"username":@"18888888888",@"password":@"123456"} success:^(id responseObject, BOOL isCacheObject)
+    {
+        if ([responseObject[@"code"] isEqual:@200])
+        {
+            NSLog(@"responseObject:%@",responseObject[@"data"]);
+            
+            TPLoginModel *loginM = [TPLoginModel mj_objectWithKeyValues:responseObject[@"data"]];
+            
+            // set Request token
+            [[WYNetworkConfig sharedConfig] addCustomHeader:@{@"Authorization":loginM.token}];
+        
+            // Store user information
+            [TPLoginUtil saveUserInfo:loginM];
+        
+            // Get currency list
+            [TPLoginUtil setRequestToken];
+            
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }
+        failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
+    {
+        NSLog(@"error = %@", error);
+    }];
+    
 }
 
 @end
@@ -115,15 +140,15 @@
     [self.comTitleLabel mas_makeConstraints:^(MASConstraintMaker *make)
      {
          make.top.equalTo(@0);
-         make.left.equalTo(@16);
+         make.left.equalTo(@32);
          make.height.equalTo(@17);
      }];
     
     [self.comTextField mas_makeConstraints:^(MASConstraintMaker *make)
      {
-         make.left.equalTo(self.comTitleLabel);
+         make.left.equalTo(@16);
          make.top.equalTo(self.comTitleLabel.mas_bottom).with.offset(10);
-         make.width.equalTo(@323);
+         make.width.equalTo(@(KWidth - 16*2));
          make.height.equalTo(@44);
      }];
 }

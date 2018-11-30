@@ -36,8 +36,8 @@
     CGContextFillRect(ctx, rect);
     
     CGContextClearRect(ctx, self.cropRect);
-    
-    [[UIColor colorWithHex:@"#ffdc17"] setStroke];
+//    [UIColor colorWithHex:@"#ffdc17"]
+    [[UIColor clearColor] setStroke];
     CGContextStrokeRectWithWidth(ctx, CGRectInset(_cropRect, 1, 1), 1);
 }
 

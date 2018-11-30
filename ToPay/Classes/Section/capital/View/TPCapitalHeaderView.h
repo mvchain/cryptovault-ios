@@ -10,4 +10,11 @@
 
 @interface TPCapitalHeaderView : UIView
 
+@property (nonatomic, copy) NSString  *total;
+@property (nonatomic, copy) NSString  *nickName;
+@property (nonatomic) CGFloat  ratio;
+
+@property (nullable, copy) void (^chooseCurrencyBlock)(void);
+
+
 @end

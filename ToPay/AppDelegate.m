@@ -34,6 +34,7 @@
     [self customizeInterface];
     [self setNavBarAppearence];
     [self setUpIQKeyBoardManager];
+    [self setUpNetWorkManager];
     return YES;
 }
 
@@ -54,6 +55,7 @@
     UIViewController *meNav = [[UINavigationController alloc] initWithRootViewController:meVC];
     
     RDVTabBarController *tabBarController = [[RDVTabBarController alloc] init];
+    [tabBarController.tabBar setHeight:20];
     tabBarController.tabBar.backgroundView.backgroundColor = [UIColor whiteColor];
 
     
@@ -147,7 +149,22 @@
 }
 
 
-- (void)applicationWillResignActive:(UIApplication *)application {
+-(void)setUpNetWorkManager
+{
+    [WYNetworkConfig sharedConfig].baseUrl = @"http://192.168.15.31:10086/";
+    [WYNetworkConfig sharedConfig].timeoutSeconds = 30;
+    
+    if ([TPLoginUtil userInfo].token)
+    {
+        [[WYNetworkConfig sharedConfig] addCustomHeader:@{
+                                                          @"Authorization":[TPLoginUtil userInfo].token,
+                                                          @"Accept-Language":@"zh-cn"
+                                                          }];
+    }
+}
+
+- (void)applicationWillResignActive:(UIApplication *)application
+{
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
 }

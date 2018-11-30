@@ -28,11 +28,17 @@
 #define TPD5Color [UIColor colorWithHex:@"#D5D7E6"]
 #define TPC1Color [UIColor colorWithHex:@"#C1C2CC"]
 
+//字符串转换
+#define TPString(FORMAT, ...) [NSString stringWithFormat:FORMAT,##__VA_ARGS__]
+
 //设置字体大小
 #define FONT(F) [UIFont systemFontOfSize:F]
 
 // 弱引用
 #define TPWeakSelf __weak typeof(self) weakSelf = self;
+
+//USER-DEFAULT
+#define USER_DEFAULT [NSUserDefaults standardUserDefaults]
 
 // 判断是否是iPhone X
 #define iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
