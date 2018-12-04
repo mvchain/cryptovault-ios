@@ -8,8 +8,10 @@
 
 #import "TPAddTokenViewController.h"
 #import "TPAddTokenCell.h"
+#import "TPCurrencyList.h"
 @interface TPAddTokenViewController ()
-
+@property (nonatomic, strong)TPCurrencyList *currencyList;
+@property (nonatomic, strong) NSMutableArray *assetNameArr;
 @end
 
 @implementation TPAddTokenViewController
@@ -20,9 +22,23 @@ static NSString  *TPAddTokenCellId = @"addTokenCell";
 {
     [super viewDidLoad];
     
+    self.assetNameArr = [NSMutableArray array];
+    
+    for (int i = 0 ; i < self.assetTopic.count; i++)
+    {
+        TPAssetModel *asset = self.assetTopic[i];
+        [self.assetNameArr addObject:asset.tokenName];
+    }
+    
+    YYCache *listCache = [YYCache cacheWithName:TPCacheName];
+    
+    self.currencyList = (TPCurrencyList *)[listCache objectForKey:TPCurrencyListKey];
+    
+    
     self.customNavBar.title = @"添加币种";
     [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"serch_icon_1"]];
-    [self.customNavBar setOnClickRightButton:^{
+    [self.customNavBar setOnClickRightButton:^
+    {
         NSLog(@"搜索");
     }];
     
@@ -33,7 +49,7 @@ static NSString  *TPAddTokenCellId = @"addTokenCell";
          make.top.equalTo(@(StatusBarAndNavigationBarHeight));
          make.left.equalTo(@0);
          make.width.equalTo(@(KWidth));
-         make.height.equalTo(self.view.mas_height);
+         make.height.equalTo(@(KHeight - StatusBarAndNavigationBarHeight));
      }];
     
 }
@@ -41,14 +57,15 @@ static NSString  *TPAddTokenCellId = @"addTokenCell";
 #pragma mark - UITableViewDelegate,UITableViewDataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return self.currencyList.data.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TPAddTokenCell *cell = [tableView dequeueReusableCellWithIdentifier:TPAddTokenCellId];
     if (!cell)
-        cell = [[TPAddTokenCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TPAddTokenCellId];
+        cell = [[TPAddTokenCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TPAddTokenCellId withfilterData:self.assetNameArr];
+    cell.clData = self.currencyList.data[indexPath.row];
     return cell;
 }
 
@@ -60,19 +77,7 @@ static NSString  *TPAddTokenCellId = @"addTokenCell";
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    
 }
 
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

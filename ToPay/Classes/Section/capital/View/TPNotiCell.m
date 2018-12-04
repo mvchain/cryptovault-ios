@@ -41,7 +41,7 @@
         [self addSubview:_backView];
         
         _pageV = [[UIView alloc] init];
-//        [UIColor colorWithHex:@"F33636"]
+
         [_pageV setLayer:2 WithBackColor:[UIColor redColor]];
         [_backView addSubview:_pageV];
         
@@ -52,6 +52,20 @@
         [_backView addSubview:_timeLab];
     }
     return self;
+}
+
+-(void)setNotiModel:(TPNotificationModel *)notiModel
+{
+    _notiModel = notiModel;
+    
+    if ([notiModel.read isEqualToString:@"1"])
+    {
+        _pageV.hidden = YES;
+    }
+    
+    _timeLab.text = [notiModel.createdAt conversionTimeStamp];
+    
+    _clickLab.text = notiModel.message;
 }
 
 -(void)layoutSubviews

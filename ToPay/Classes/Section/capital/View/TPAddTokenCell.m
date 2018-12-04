@@ -18,6 +18,8 @@
 @property (nonatomic, strong) UILabel *moneyLab;
 
 @property (nonatomic, strong) UIButton *operatingBtn;
+
+@property (nonatomic, strong) NSArray *filters;
 @end
 
 @implementation TPAddTokenCell
@@ -27,13 +29,13 @@
     
 }
 
--(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier withfilterData:(NSArray *)filters
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self)
     {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        
+        self.filters = filters;
         _iconImgV = [YFactoryUI YImageViewWithimage:nil];
         _iconImgV.backgroundColor = YRandomColor;
         [self addSubview:_iconImgV];
@@ -42,11 +44,8 @@
         [self addSubview:_nickLab];
         
         
-        _numLab = [YFactoryUI YLableWithText:@"1234567.1234 VRT" color:TP59Color font:FONT(14)];
+        _numLab = [YFactoryUI YLableWithText:@"1234567.1234 VRT" color:TP8EColor font:FONT(12)];
         [self addSubview:_numLab];
-        
-        _moneyLab = [YFactoryUI YLableWithText:@"￥ 123.4567" color:TP59Color font:FONT(12)];
-        [self addSubview:_moneyLab];
     
         _operatingBtn = [YFactoryUI YButtonWithTitle:@"添加" Titcolor:[UIColor whiteColor] font:FONT(12) Image:nil target:self action:@selector(operatingClick)];
         [_operatingBtn setLayer:15 WithBackColor:[UIColor colorWithHex:@"#0AA8A5"]];
@@ -54,6 +53,37 @@
     }
     return self;
 }
+
+-(void)setClData:(CLData *)clData
+{
+    _clData = clData;
+    
+    [_iconImgV sd_setImageWithURL:[NSURL URLWithString:clData.tokenImage]];
+    
+    _nickLab.text = clData.tokenName;
+    
+    if ([clData.tokenName isEqualToString:@"VRT"] | [clData.tokenName isEqualToString:@"余额"])
+    self.operatingBtn.hidden = YES;
+    else
+    self.operatingBtn.hidden = NO;
+    
+    
+    
+    if ([self.filters containsObject:clData.tokenName])
+    {
+        [_operatingBtn setTitle:@"移除" forState:UIControlStateNormal];
+        _operatingBtn.backgroundColor = [UIColor colorWithHex:@"#0AA8A5"];
+    }
+        else
+    {
+        [_operatingBtn setTitle:@"添加" forState:UIControlStateNormal];
+        _operatingBtn.backgroundColor = [UIColor colorWithHex:@"#E86636"];
+    }
+
+    _numLab.text = TPString(@"%@/%@",clData.tokenCnName,clData.tokenEnName);
+}
+
+
 
 -(void)operatingClick
 {
@@ -72,24 +102,17 @@
     
     [_nickLab mas_makeConstraints:^(MASConstraintMaker *make)
     {
-        make.left.equalTo(_iconImgV.mas_right).with.offset(12);
-        make.centerY.equalTo(self);
+        make.left.equalTo(self.iconImgV.mas_right).with.offset(12);
+        make.top.equalTo(@11);
         make.height.equalTo(@21);
     }];
     
     [_numLab mas_makeConstraints:^(MASConstraintMaker *make)
      {
-         make.right.equalTo(self).with.offset(-101);
-         make.top.equalTo(@13);
-         make.height.equalTo(@19);
+         make.left.equalTo(self.iconImgV.mas_right).with.offset(12);
+         make.top.equalTo(self.nickLab.mas_bottom).with.offset(4);
+         make.height.equalTo(@16);
      }];
-    
-    [_moneyLab mas_makeConstraints:^(MASConstraintMaker *make)
-    {
-        make.right.equalTo(self).with.offset(-101);
-        make.top.equalTo(self.numLab.mas_bottom).with.offset(4);
-        make.height.equalTo(@16);
-    }];
     
     [_operatingBtn mas_makeConstraints:^(MASConstraintMaker *make)
     {

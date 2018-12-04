@@ -15,24 +15,16 @@
 #import "TPChainReceiptViewController.h"
 #import "TPTokenHeaderView.h"
 #import "TPTokenBottomView.h"
+
+#import "TPCurrencyList.h"
 @interface TPTokenKindViewController ()<SGPageTitleViewDelegate, SGPageContentScrollViewDelegate>
 
 @property (nonatomic, strong) SGPageTitleView *pageTitleView;
 @property (nonatomic, strong) SGPageContentScrollView *pageContentScrollView;
-@property (nonatomic) TPChainStyle style;
+
 @end
 
 @implementation TPTokenKindViewController
-
-- (instancetype) initWithChainStyle:(TPChainStyle)chainStyle
-{
-    self = [super initWithNibName:nil bundle:nil];
-    if (self)
-    {
-        _style = chainStyle;
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -40,16 +32,7 @@
     
     self.view.backgroundColor = TPF6Color;
 
-    self.customNavBar.title = @"VP余额";
-    self.customNavBar.titleLabelColor = [UIColor whiteColor];
-    [self.customNavBar wr_setLeftButtonWithImage:[UIImage imageNamed:@"back_icon_white"]];
-    [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"code_icon_white"]];
-    [self.customNavBar wr_setBackgroundAlpha:0];
-
-    TPWeakSelf;
-    [self.customNavBar setOnClickRightButton:^{
-        [weakSelf QRClick];
-    }];
+    [self setupNavigationBar];
     
     [self setUpHeaderView];
     
@@ -58,6 +41,20 @@
     [self setUpBottomView];
 }
 
+
+-(void)setupNavigationBar
+{
+    self.customNavBar.title = self.assetModel.tokenName;//@"VP余额";
+    self.customNavBar.titleLabelColor = [UIColor whiteColor];
+    [self.customNavBar wr_setLeftButtonWithImage:[UIImage imageNamed:@"back_icon_white"]];
+    [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"code_icon_white"]];
+    [self.customNavBar wr_setBackgroundAlpha:0];
+    
+    TPWeakSelf;
+    [self.customNavBar setOnClickRightButton:^{
+        [weakSelf QRClick];
+    }];
+}
 
 -(void)QRClick
 {
@@ -124,7 +121,17 @@
 
 -(void)setUpBottomView
 {
-    TPTokenBottomView *bottomView = [[TPTokenBottomView alloc] initWithStyle:TPChainStyleUp];
+    YYCache *listCache = [YYCache cacheWithName:TPCacheName];
+    CLData *clData =  (CLData *)[listCache objectForKey:self.assetModel.tokenId];
+    
+    if ([clData.tokenType isEqualToString:@"1"])
+    {
+        return ;
+    }
+
+    NSLog(@"tokenType:%@",clData.tokenType);
+    
+    TPTokenBottomView * bottomView = [[TPTokenBottomView alloc] initWithStyle:[clData.tokenType isEqualToString:@"0"] ? TPChainStyleUp : TPChainStyleDown];
     [self.view addSubview:bottomView];
     
     [bottomView mas_makeConstraints:^(MASConstraintMaker *make)

@@ -8,7 +8,10 @@
 
 #import "TPNotiViewController.h"
 #import "TPNotiCell.h"
+#import "TPNotificationModel.h"
 @interface TPNotiViewController ()
+
+@property (nonatomic, strong) NSArray<TPNotificationModel *> *notiTopic;
 
 @end
 
@@ -20,6 +23,9 @@ static NSString  *TPNotiCellCellId = @"notiCell";
 {
     [super viewDidLoad];
     
+    [self setupRequestNotification];
+    
+    
     self.customNavBar.title = @"通知";
     self.baseTableView.backgroundColor = TPF6Color;
     self.baseTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -30,14 +36,32 @@ static NSString  *TPNotiCellCellId = @"notiCell";
         make.width.equalTo(@(KWidth));
         make.height.equalTo(self.view.mas_height);
     }];
-    
-    
-    
 }
+
+#pragma mark - 请求
+-(void)setupRequestNotification
+{
+    
+    [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"message" parameters:@{@"pageSize":@10,@"type":@0,@"timestamp":[self getNowTimeTimestamp]} success:^(id responseObject, BOOL isCacheObject)
+    {
+        NSLog(@"%@",responseObject);
+        if ([responseObject[@"code"] isEqual:@200])
+        {
+            self.notiTopic = [TPNotificationModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+            [self.baseTableView reloadData];
+        }
+        
+    }
+        failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
+    {
+        NSLog(@"%@",error);
+    }];
+}
+
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return self.notiTopic.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -45,6 +69,7 @@ static NSString  *TPNotiCellCellId = @"notiCell";
     TPNotiCell *cell = [tableView dequeueReusableCellWithIdentifier:TPNotiCellCellId];
     if (!cell)
         cell = [[TPNotiCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TPNotiCellCellId];
+    cell.notiModel = self.notiTopic[indexPath.row];
     return cell;
 }
 

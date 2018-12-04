@@ -16,8 +16,11 @@
 
 static NSString  *TPTokenCellCellId = @"tokenCell";
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
+    
+    [self setupRequestTransactions];
     
     
     [self.baseTableView mas_makeConstraints:^(MASConstraintMaker *make)
@@ -29,6 +32,21 @@ static NSString  *TPTokenCellCellId = @"tokenCell";
     }];
 }
 
+-(void)setupRequestTransactions
+{
+    [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"asset/transactions" parameters:@{@"tokenId":@"",@"transactionType":@"",@"type":@""} success:^(id responseObject, BOOL isCacheObject)
+    {
+        if ([responseObject[@"code"] isEqual:@200])
+        {
+//            self.assetTopic = [TPAssetModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+//            [self.baseTableView reloadData];
+        }
+    }
+        failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
+    {
+        <#code#>
+    }];
+}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

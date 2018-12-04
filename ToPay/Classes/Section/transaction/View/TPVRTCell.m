@@ -37,7 +37,7 @@
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
         _iconImgV = [YFactoryUI YImageViewWithimage:[UIImage imageNamed:@"btc_icon"]];
-//        _iconImgV.backgroundColor = YRandomColor;
+        _iconImgV.backgroundColor = YRandomColor;
         [self addSubview:_iconImgV];
         
         _nickLab = [YFactoryUI YLableWithText:@"BTC" color:TP59Color font:FONT(16)];
@@ -56,6 +56,25 @@
         [self addSubview:_floatLab];
     }
     return  self;
+}
+
+-(void)setVRTModel:(TPVRTModel *)VRTModel
+{
+    _VRTModel = VRTModel;
+    
+    [_iconImgV sd_setImageWithURL:[NSURL URLWithString:VRTModel.tokenImage]];
+    
+    _nickLab.text = VRTModel.tokenName;
+
+    _floatLab.text = VRTModel.ratio;
+    
+    if ([VRTModel.transactionStatus isEqualToString:@"0"])
+    {
+        _floatLab.backgroundColor = [UIColor colorWithHex:@"#BDBDBF"];
+        _floatLab.text = @"-";
+    }
+    
+    
 }
 
 

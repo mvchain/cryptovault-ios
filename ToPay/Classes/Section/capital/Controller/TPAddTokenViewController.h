@@ -7,7 +7,9 @@
 //
 
 #import "TPStartViewController.h"
-
+#import "TPAssetModel.h"
 @interface TPAddTokenViewController : TPStartViewController
+
+@property (nonatomic, strong) NSArray<TPAssetModel *> *assetTopic;
 
 @end

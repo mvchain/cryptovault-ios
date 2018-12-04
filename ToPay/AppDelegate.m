@@ -35,6 +35,7 @@
     [self setNavBarAppearence];
     [self setUpIQKeyBoardManager];
     [self setUpNetWorkManager];
+    [self setUpRefreshToken];
     return YES;
 }
 
@@ -59,7 +60,6 @@
     tabBarController.tabBar.backgroundView.backgroundColor = [UIColor whiteColor];
 
     
-//    tabBarController.tabBar.backgroundView.layer.cornerRadius = 10;
     tabBarController.tabBar.backgroundView.layer.shadowColor = [UIColor blackColor].CGColor;
     tabBarController.tabBar.backgroundView.layer.shadowOffset = CGSizeMake(2, 5);
     tabBarController.tabBar.backgroundView.layer.shadowOpacity = 0.5;
@@ -162,6 +162,29 @@
                                                           }];
     }
 }
+
+-(void)setUpRefreshToken
+{
+    if ([TPLoginUtil isLogin] == NO)
+    {
+        return ;
+    }
+    
+    [[WYNetworkManager sharedManager] sendPostRequest:WYJSONRequestSerializer url:@"user/refresh" parameters:nil success:^(id responseObject, BOOL isCacheObject)
+    {
+        if ([responseObject[@"code"] isEqual:@200])
+        {
+           TPLoginModel *loginM = [TPLoginUtil userInfo];
+            loginM.token = responseObject[@"data"];
+            [TPLoginUtil saveUserInfo:loginM];
+        }
+    }
+        failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
+    {
+        NSLog(@"刷新token失败");
+    }];
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

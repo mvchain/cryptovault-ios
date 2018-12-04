@@ -46,7 +46,7 @@
         
         YYCache *listCache = [YYCache cacheWithName:TPCacheName];
        
-        
+        [listCache setObject:currencyList forKey:TPCurrencyListKey];
         for (int i = 0 ; i <currencyList.data.count ; i++)
         {
             CLData *clData = currencyList.data[i];

@@ -109,6 +109,8 @@
 		DDDDFBA9219C27BF0056FC57 /* TPCapitalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFBA8219C27BF0056FC57 /* TPCapitalCell.m */; };
 		DDDDFBAC219D5A110056FC57 /* TPCapitalHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFBAB219D5A110056FC57 /* TPCapitalHeaderView.m */; };
 		DDDDFBAF219D60BC0056FC57 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFBAE219D60BC0056FC57 /* UIViewExt.m */; };
+		DDFBBA3D21B5317100BA09DE /* TPNotificationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFBBA3C21B5317100BA09DE /* TPNotificationModel.m */; };
+		DDFD5EC821B291CF00D64283 /* TPVRTModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFD5EC721B291CF00D64283 /* TPVRTModel.m */; };
 		F5E7B5DA88A0AD0247016986 /* Pods_ToPay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD9ADC3B99E8C7306FF2F4F /* Pods_ToPay.framework */; };
 /* End PBXBuildFile section */
 
@@ -338,6 +340,10 @@
 		DDDDFBAB219D5A110056FC57 /* TPCapitalHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPCapitalHeaderView.m; sourceTree = "<group>"; };
 		DDDDFBAD219D60BC0056FC57 /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
 		DDDDFBAE219D60BC0056FC57 /* UIViewExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExt.m; sourceTree = "<group>"; };
+		DDFBBA3B21B5317100BA09DE /* TPNotificationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPNotificationModel.h; sourceTree = "<group>"; };
+		DDFBBA3C21B5317100BA09DE /* TPNotificationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPNotificationModel.m; sourceTree = "<group>"; };
+		DDFD5EC621B291CF00D64283 /* TPVRTModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPVRTModel.h; sourceTree = "<group>"; };
+		DDFD5EC721B291CF00D64283 /* TPVRTModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPVRTModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -568,6 +574,8 @@
 		DD02442F2196D1B8006A1390 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DDFD5EC621B291CF00D64283 /* TPVRTModel.h */,
+				DDFD5EC721B291CF00D64283 /* TPVRTModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -627,6 +635,8 @@
 			children = (
 				DD0239B021B10AC700333446 /* TPAssetModel.h */,
 				DD0239B121B10AC700333446 /* TPAssetModel.m */,
+				DDFBBA3B21B5317100BA09DE /* TPNotificationModel.h */,
+				DDFBBA3C21B5317100BA09DE /* TPNotificationModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1041,6 +1051,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD1083D3219D67480087F244 /* TPTokenKindViewController.m in Sources */,
+				DDFD5EC821B291CF00D64283 /* TPVRTModel.m in Sources */,
 				DD02394421AD2F4B00333446 /* UILabel+WLAttributedString.m in Sources */,
 				DD72F42E219A7D7A004C0DAF /* TPVRTViewController.m in Sources */,
 				DD0239B821B1336000333446 /* BCQMView.m in Sources */,
@@ -1115,6 +1126,7 @@
 				DD0239B521B1269E00333446 /* TPCurrencyRatio.m in Sources */,
 				DD10845021A2B4B60087F244 /* TPTokenBottomView.m in Sources */,
 				DDDDFB8D219AD92F0056FC57 /* TPCFTopicViewController.m in Sources */,
+				DDFBBA3D21B5317100BA09DE /* TPNotificationModel.m in Sources */,
 				DD02395421AE84CB00333446 /* SYPasswordView.m in Sources */,
 				DD1083D9219D71410087F244 /* TPTokenCell.m in Sources */,
 				DD10845621A3EC7E0087F244 /* TPChainTransferViewController.m in Sources */,

@@ -9,9 +9,13 @@
 
 #import "TPVRTViewController.h"
 #import "TPVRTCell.h"
-
+#import "TPVRTModel.h"
 #import "TPTranDetailViewController.h"
 @interface TPVRTViewController ()
+
+@property (nonatomic, strong) NSArray <TPVRTModel *> *VRTTopic;
+
+@property (nonatomic) TPTransactionStyle transactionStyle;
 
 @end
 
@@ -19,9 +23,38 @@
 
 static NSString  *TPVRTCellId = @"VRTCell";
 
+- (instancetype) initWithChainStyle:( TPTransactionStyle )transactionStyle;
+{
+    self = [super initWithNibName:nil bundle:nil];
+    if (self)
+    {
+        _transactionStyle = transactionStyle;
+    }
+    return self;
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"transaction/pair" parameters:@{@"pairType":_transactionStyle == TPTransactionStyleVRT ? @1:@2} success:^(id responseObject, BOOL isCacheObject)
+    {
+        NSLog(@"responseObject = %@", responseObject);
+        if ([responseObject[@"code"] isEqual:@200])
+        {
+            self.VRTTopic = [TPVRTModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+            
+            
+            [self.baseTableView reloadData];
+        }
+        
+    }
+        failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
+    {
+        NSLog(@"error = %@", error);
+    }];
     
     [self.baseTableView mas_makeConstraints:^(MASConstraintMaker *make)
     {
@@ -35,7 +68,7 @@ static NSString  *TPVRTCellId = @"VRTCell";
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return self.VRTTopic.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -43,6 +76,8 @@ static NSString  *TPVRTCellId = @"VRTCell";
     TPVRTCell *cell = [tableView dequeueReusableCellWithIdentifier:TPVRTCellId];
     if (!cell)
         cell = [[TPVRTCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TPVRTCellId];
+    
+    cell.VRTModel = self.VRTTopic[indexPath.row];
     return cell;
 }
 

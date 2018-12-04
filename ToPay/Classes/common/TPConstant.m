@@ -11,6 +11,8 @@ NSString * const TPCacheName = @"TPCacheName";
 
 NSString * const TPCurrencyListKey = @"MHCurrencyListKey";
 
+//NSString * const TPCurrencyListTotal = @"TPCurrencyListTotal";
+
 NSString * const TPCurrencyRatioKey = @"MHCurrencyRatioKey";
 
 NSString * const TPBalanceDefaultKey = @"TPBalanceDefaultKey";

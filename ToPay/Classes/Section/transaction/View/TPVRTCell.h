@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "TPVRTModel.h"
 @interface TPVRTCell : UITableViewCell
+
+@property (nonatomic, strong) TPVRTModel *VRTModel;
+
 
 @end

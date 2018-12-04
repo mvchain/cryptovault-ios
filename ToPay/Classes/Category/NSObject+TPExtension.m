@@ -10,7 +10,7 @@
 
 @implementation NSObject (TPExtension)
 
-+(NSString *)getNowTimeTimestamp
+-(NSString *)getNowTimeTimestamp
 {
     NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
     
@@ -19,6 +19,19 @@
     NSString*timeString = [NSString stringWithFormat:@"%0.f",a];
     
     return timeString;
+}
+
+
+-(NSString *)conversionTimeStamp
+{
+    NSTimeInterval interval    =[(NSString *)self doubleValue] / 1000.0;
+    NSDate *date               = [NSDate dateWithTimeIntervalSince1970:interval];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *dateString       = [formatter stringFromDate: date];
+    return dateString;
+//    NSLog(@"服务器返回的时间戳对应的时间是:%@",dateString);
 }
 
 

@@ -47,8 +47,8 @@
 
 -(void)setNavConView
 {
-    TPVRTViewController *VRTVC = [[TPVRTViewController alloc] init];
-    TPVRTViewController *balanceVC = [[TPVRTViewController alloc] init];
+    TPVRTViewController *VRTVC = [[TPVRTViewController alloc] initWithChainStyle:TPTransactionStyleVRT];
+    TPVRTViewController *balanceVC = [[TPVRTViewController alloc] initWithChainStyle:TPTransactionStyleBalance];
 
     NSArray *childArr = @[VRTVC, balanceVC];
     

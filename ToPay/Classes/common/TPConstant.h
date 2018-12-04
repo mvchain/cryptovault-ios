@@ -21,6 +21,13 @@ UIKIT_EXTERN NSString * const TPCacheName;
  */
 UIKIT_EXTERN NSString * const TPCurrencyListKey;
 
+
+/*
+ * <#描述#>
+ */
+//UIKIT_EXTERN NSString * const TPCurrencyListTotal;
+
+
 /*
  * 币种比值
  */

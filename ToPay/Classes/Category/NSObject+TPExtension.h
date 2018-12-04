@@ -10,6 +10,8 @@
 
 @interface NSObject (TPExtension)
 
-+(NSString *)getNowTimeTimestamp;
+-(NSString *)getNowTimeTimestamp;
+
+-(NSString *)conversionTimeStamp;
 
 @end

@@ -85,7 +85,7 @@
     
     
    CLData *clData = (CLData *)[self.listCache objectForKey:assetModel.tokenId];
-    NSLog(@"tokenImage:%@",clData.tokenImage);
+//    NSLog(@"tokenImage:%@",clData.tokenImage);
     
     [self.iconImgV  sd_setImageWithURL:[NSURL URLWithString:clData.tokenImage]];
 //    assetModel.ratio * assetModel.value / 0.1492537313432836

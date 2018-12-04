@@ -91,7 +91,6 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
         {
             self.assetTopic = [TPAssetModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
             [self.baseTableView reloadData];
-//            NSLog(@"self.assetTopic:%@",self.assetTopic);
         }
     }
         failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
@@ -106,7 +105,6 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
     {
         if ([responseObject[@"code"] isEqual:@200])
         {
-//            NSLog(@"responseObject:%@",responseObject[@"data"]);
             [USER_DEFAULT setObject:responseObject[@"data"] forKey:TPBalanceDefaultKey];
             self.headerView.total = TPString(@"%@",responseObject[@"data"]);
         }
@@ -133,7 +131,7 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
          make.top.equalTo(@(StatusBarAndNavigationBarHeight));
          make.left.equalTo(@0);
          make.width.equalTo(@(KWidth));
-         make.height.equalTo(@(KHeight - StatusBarAndNavigationBarHeight - TAB_BAR_HEIGHT));
+         make.height.equalTo(@(KHeight - StatusBarAndNavigationBarHeight - TAB_BAR_HEIGHT + (iPhoneX ? 10:0)));
      }];
     
     headerView.chooseCurrencyBlock = ^{
@@ -178,6 +176,7 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
     
     [self.customNavBar setOnClickRightButton:^{
         TPAddTokenViewController *tokenVC = [[TPAddTokenViewController alloc] init];
+        tokenVC.assetTopic = weakSelf.assetTopic;
         [weakSelf.navigationController pushViewController:tokenVC animated:YES];
     }];
 }
@@ -213,6 +212,7 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     TPTokenKindViewController *kindVC = [[TPTokenKindViewController alloc] init];
+    kindVC.assetModel = self.assetTopic[indexPath.row];
     [self.navigationController pushViewController:kindVC animated:YES];
 }
 

@@ -7,6 +7,17 @@
 //
 
 #import "TPBaseViewController.h"
+
+
+typedef NS_ENUM(NSInteger, TPTransactionStyle)
+{
+    TPTransactionStyleVRT,
+    TPTransactionStyleBalance,
+};
+
+
 @interface TPVRTViewController : TPBaseViewController
+
+- (instancetype) initWithChainStyle:( TPTransactionStyle )transactionStyle;
 
 @end

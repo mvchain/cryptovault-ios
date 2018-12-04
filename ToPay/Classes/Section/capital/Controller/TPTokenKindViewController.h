@@ -9,10 +9,12 @@
 
 #import "TPStartViewController.h"
 #import "TPTokenBottomView.h"
-
+#import "TPAssetModel.h"
 
 @interface TPTokenKindViewController : TPStartViewController
 
-- (instancetype) initWithChainStyle:(TPChainStyle)chainStyle;
+//- (instancetype) initWithChainStyle:(TPChainStyle)chainStyle;
+@property (nonatomic, strong) TPAssetModel *assetModel;
+
 
 @end

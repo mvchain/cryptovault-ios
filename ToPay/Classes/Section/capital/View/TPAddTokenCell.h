@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "TPCurrencyList.h"
+#import "TPAssetModel.h"
 @interface TPAddTokenCell : UITableViewCell
+
+@property (nonatomic, strong) CLData *clData;
+
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier withfilterData:(NSArray *)filters;
 
 @end
