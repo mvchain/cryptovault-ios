@@ -15,6 +15,10 @@
 
 @property (nonatomic, strong) WRCustomNavigationBar *customNavBar;
 
+@property (nonatomic, strong) UIImageView *noDataView;
+
+-(void)showNoDataView:(BOOL)isShow;
+
 
 -(void)showSystemNavgation:(BOOL)isShow;
 @end

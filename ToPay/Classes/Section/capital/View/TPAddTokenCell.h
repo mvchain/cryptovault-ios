@@ -15,4 +15,6 @@
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier withfilterData:(NSArray *)filters;
 
+@property (nullable, copy) void (^operatingBlock)(BOOL isAdd,NSString *tokenId);
+
 @end

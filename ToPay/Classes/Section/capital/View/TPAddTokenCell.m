@@ -47,7 +47,7 @@
         _numLab = [YFactoryUI YLableWithText:@"1234567.1234 VRT" color:TP8EColor font:FONT(12)];
         [self addSubview:_numLab];
     
-        _operatingBtn = [YFactoryUI YButtonWithTitle:@"添加" Titcolor:[UIColor whiteColor] font:FONT(12) Image:nil target:self action:@selector(operatingClick)];
+        _operatingBtn = [YFactoryUI YButtonWithTitle:@"添加" Titcolor:[UIColor whiteColor] font:FONT(12) Image:nil target:self action:@selector(operatingClick:)];
         [_operatingBtn setLayer:15 WithBackColor:[UIColor colorWithHex:@"#0AA8A5"]];
         [self addSubview:_operatingBtn];
     }
@@ -72,11 +72,13 @@
     if ([self.filters containsObject:clData.tokenName])
     {
         [_operatingBtn setTitle:@"移除" forState:UIControlStateNormal];
+        _operatingBtn.selected = NO;
         _operatingBtn.backgroundColor = [UIColor colorWithHex:@"#0AA8A5"];
     }
         else
     {
         [_operatingBtn setTitle:@"添加" forState:UIControlStateNormal];
+        _operatingBtn.selected = YES;
         _operatingBtn.backgroundColor = [UIColor colorWithHex:@"#E86636"];
     }
 
@@ -85,9 +87,25 @@
 
 
 
--(void)operatingClick
+-(void)operatingClick:(UIButton *)sender
 {
     NSLog(@"操作事件");
+    sender.selected = !sender.selected;
+    
+    if (sender.selected == YES)
+    {
+        [sender setTitle:@"添加" forState:UIControlStateNormal];
+        sender.backgroundColor = [UIColor colorWithHex:@"#E86636"];
+    }
+        else
+    {
+        [sender setTitle:@"移除" forState:UIControlStateNormal];
+        sender.backgroundColor = [UIColor colorWithHex:@"#0AA8A5"];
+    }
+    
+    if (self.operatingBlock) {
+        self.operatingBlock(sender.selected, _clData.tokenId);
+    }
 }
 
 -(void)layoutSubviews

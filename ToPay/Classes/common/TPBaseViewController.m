@@ -28,6 +28,12 @@
    self.navigationController.navigationBar.hidden = !isShow;
 }
 
+-(void)showNoDataView:(BOOL)isShow
+{
+    self.noDataView.hidden = !isShow;
+    self.baseTableView.hidden = isShow;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -55,6 +61,22 @@
     }];
 }
 
+
+-(UIImageView *)noDataView
+{
+    if (_noDataView == nil) {
+        _noDataView = [YFactoryUI YImageViewWithimage:[UIImage imageNamed:@"kongkongruye"]];
+        [self.view addSubview:_noDataView];
+        
+        [_noDataView mas_makeConstraints:^(MASConstraintMaker *make)
+        {
+            make.centerX.equalTo(self.view);
+            make.centerY.equalTo(self.view).with.offset(-70);
+            make.size.equalTo(@180);
+        }];
+    }
+    return _noDataView;
+}
 
 
 

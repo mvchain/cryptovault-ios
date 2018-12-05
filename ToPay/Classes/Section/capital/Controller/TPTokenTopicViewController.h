@@ -8,6 +8,17 @@
 
 
 #import "TPStartViewController.h"
+
+typedef NS_ENUM(NSInteger, TPTransactionType)
+{
+    TPTransactionTypeAll,
+    TPTransactionTypeTransfer,
+    TPTransactionTypeTransferOut,
+};
+
+
 @interface TPTokenTopicViewController : TPStartViewController
+
+- (instancetype)initWithTokenId:(NSString *)tokenId WithTransactionType:(TPTransactionType)type;
 
 @end

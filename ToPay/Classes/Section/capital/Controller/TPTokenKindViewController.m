@@ -68,14 +68,14 @@
 
 -(void)setUpHeaderView
 {
-    UIImageView *headImgV = [YFactoryUI YImageViewWithimage:[UIImage imageNamed:@"bg_otherpage"]];
+    UIImageView *headImgV = [YFactoryUI YImageViewWithimage:[UIImage imageNamed:iPhoneX ?@"X_nextpage_bg":@"bg_otherpage"]];
     [self.view addSubview:headImgV];
     [self.view sendSubviewToBack:headImgV];
     [headImgV mas_makeConstraints:^(MASConstraintMaker *make)
     {
         make.left.top.equalTo(@0);
         make.width.equalTo(@(KWidth));
-        make.height.equalTo(@174);
+        make.height.equalTo(iPhoneX ? @198:@174);
     }];
     
     TPTokenHeaderView *headerView = [[TPTokenHeaderView alloc] init];
@@ -86,7 +86,7 @@
         make.left.equalTo(@0);
         make.top.equalTo(@(StatusBarAndNavigationBarHeight));
         make.width.equalTo(@(KWidth));
-        make.height.equalTo(@110);
+        make.height.equalTo(@(110));
     }];
 }
 
@@ -106,9 +106,14 @@
     self.pageTitleView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_pageTitleView];
     
-    TPTokenTopicViewController *allVC = [[TPTokenTopicViewController alloc] init];
-    TPTokenTopicViewController *transferVC = [[TPTokenTopicViewController alloc] init];
-    TPTokenTopicViewController *transfer2VC = [[TPTokenTopicViewController alloc] init];
+    CGFloat VCH = KHeight - 172 - StatusBarAndNavigationBarHeight - 100;
+    
+    TPTokenTopicViewController *allVC = [[TPTokenTopicViewController alloc] initWithTokenId:self.assetModel.tokenId WithTransactionType:TPTransactionTypeAll];
+//    allVC.view.frame = CGRectMake(0, 0, KWidth, VCH);
+    TPTokenTopicViewController *transferVC = [[TPTokenTopicViewController alloc] initWithTokenId:self.assetModel.tokenId WithTransactionType:TPTransactionTypeTransferOut];
+//    transferVC.view.frame = CGRectMake(0, 0, KWidth, VCH);
+    TPTokenTopicViewController *transfer2VC = [[TPTokenTopicViewController alloc] initWithTokenId:self.assetModel.tokenId WithTransactionType:TPTransactionTypeTransfer];
+//    transfer2VC.view.frame = CGRectMake(0, 0, KWidth, VCH);
 
     NSArray *childArr = @[allVC,transferVC,transfer2VC];
     

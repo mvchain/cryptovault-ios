@@ -37,16 +37,16 @@
         
         
         _iconImgV = [YFactoryUI YImageViewWithimage:nil];
-        _iconImgV.backgroundColor = YRandomColor;
+//        _iconImgV.backgroundColor = YRandomColor;
         [self addSubview:_iconImgV];
-        
-        _nickLab = [YFactoryUI YLableWithText:@"项目名称众筹" color:TP59Color font:FONT(15)];
+//        项目名称众筹
+        _nickLab = [YFactoryUI YLableWithText:@"" color:TP59Color font:FONT(15)];
         [self addSubview:_nickLab];
-        
-        _timeLab = [YFactoryUI YLableWithText:@"2018-10-21 10:24:45" color:TP59Color font:FONT(12)];
+//        2018-10-21 10:24:45
+        _timeLab = [YFactoryUI YLableWithText:@"" color:TP59Color font:FONT(12)];
         [self addSubview:_timeLab];
-        
-        _valueLab = [YFactoryUI YLableWithText:@"+123.4567" color:TP8EColor font:FONT(17)];
+//        +123.4567
+        _valueLab = [YFactoryUI YLableWithText:@"" color:TP8EColor font:FONT(17)];
         [self addSubview:_valueLab];
     }
     return self;

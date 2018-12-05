@@ -8,17 +8,35 @@
 
 #import "TPTokenTopicViewController.h"
 #import "TPTokenCell.h"
+#import "TPTokenTopic.h"
 @interface TPTokenTopicViewController ()
 
+@property (nonatomic, copy) NSString *tokenId;
+@property (nonatomic) TPTransactionType transType;
+
+@property (nonatomic, strong) NSArray <TPTokenTopic *> *tokenTopics;
 @end
 
 @implementation TPTokenTopicViewController
 
 static NSString  *TPTokenCellCellId = @"tokenCell";
 
+- (instancetype)initWithTokenId:(NSString *)tokenId WithTransactionType:(TPTransactionType)type
+{
+    self = [super initWithNibName:nil bundle:nil];
+    if (self)
+    {
+        _tokenId = tokenId;
+        _transType = type;
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.customNavBar.hidden = YES;
     
     [self setupRequestTransactions];
     
@@ -34,17 +52,29 @@ static NSString  *TPTokenCellCellId = @"tokenCell";
 
 -(void)setupRequestTransactions
 {
-    [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"asset/transactions" parameters:@{@"tokenId":@"",@"transactionType":@"",@"type":@""} success:^(id responseObject, BOOL isCacheObject)
+    [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"asset/transactions" parameters:@{@"tokenId":_tokenId,@"transactionType":@1,
+        //_transType == TPTransactionTypeTransfer ? @1 : (_transType == TPTransactionTypeTransferOut ? @2:nil)
+                     @"type":@"1"} success:^(id responseObject, BOOL isCacheObject)
     {
         if ([responseObject[@"code"] isEqual:@200])
         {
-//            self.assetTopic = [TPAssetModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
-//            [self.baseTableView reloadData];
+            
+//            NSLog(@"<<<<  %@  >>>>",responseObject[@"data"]);
+            self.tokenTopics = [TPTokenTopic mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+            
+            if (self.tokenTopics.count == 0)
+            {
+                [self showNoDataView:YES];
+            }
+                else
+            {
+                [self.baseTableView reloadData];
+            }
         }
     }
         failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
     {
-        <#code#>
+        NSLog(@"error:%@",error);
     }];
 }
 

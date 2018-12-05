@@ -170,6 +170,11 @@
         return ;
     }
     
+    [[WYNetworkConfig sharedConfig] addCustomHeader:@{
+                                                      @"Authorization":[TPLoginUtil userInfo].refreshToken,
+                                                      @"Accept-Language":@"zh-cn"
+                                                      }];
+    
     [[WYNetworkManager sharedManager] sendPostRequest:WYJSONRequestSerializer url:@"user/refresh" parameters:nil success:^(id responseObject, BOOL isCacheObject)
     {
         if ([responseObject[@"code"] isEqual:@200])
@@ -177,6 +182,11 @@
            TPLoginModel *loginM = [TPLoginUtil userInfo];
             loginM.token = responseObject[@"data"];
             [TPLoginUtil saveUserInfo:loginM];
+            
+            [[WYNetworkConfig sharedConfig] addCustomHeader:@{
+                                                              @"Authorization":[TPLoginUtil userInfo].token,
+                                                              @"Accept-Language":@"zh-cn"
+                                                              }];
         }
     }
         failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
