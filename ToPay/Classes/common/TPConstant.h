@@ -15,17 +15,15 @@
  */
 UIKIT_EXTERN NSString * const TPCacheName;
 
+/*
+ * 基本信息
+ */
+UIKIT_EXTERN NSString * const TPUserInfoKey;
 
 /*
  * 币种列表数据
  */
 UIKIT_EXTERN NSString * const TPCurrencyListKey;
-
-
-/*
- * <#描述#>
- */
-//UIKIT_EXTERN NSString * const TPCurrencyListTotal;
 
 
 /*
@@ -43,3 +41,14 @@ UIKIT_EXTERN NSString * const TPBalanceDefaultKey;
  *  全局细线高度 .75f
  */
 UIKIT_EXTERN CGFloat const MHGlobalBottomLineHeight;
+
+
+/*
+ * 币种修改成功通知
+ */
+UIKIT_EXTERN NSString * const TPPutCurrencyNotification ;
+
+/*
+ * 余额取出成功通知
+ */
+UIKIT_EXTERN NSString * const TPTakeOutSuccessNotification ;

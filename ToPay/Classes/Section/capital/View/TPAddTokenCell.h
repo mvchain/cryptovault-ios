@@ -13,8 +13,12 @@
 
 @property (nonatomic, strong) CLData *clData;
 
+@property (nonatomic, strong) UIButton *operatingBtn;
+
+@property (nonatomic) BOOL isRemoveToken;
+
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier withfilterData:(NSArray *)filters;
 
-@property (nullable, copy) void (^operatingBlock)(BOOL isAdd,NSString *tokenId);
+@property (nullable, copy) void (^operatingBlock)(BOOL isAdd,NSString *tokenId, NSString *tokenName);
 
 @end

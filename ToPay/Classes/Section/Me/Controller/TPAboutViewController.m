@@ -7,7 +7,7 @@
 //
 
 #import "TPAboutViewController.h"
-
+#import "TPLoginViewController.h"
 @interface TPAboutViewController ()
 
 @end
@@ -62,12 +62,30 @@
 
 -(void)quitClcik
 {
-    NSLog(@"退出登录");
+//    NSLog(@"退出登录");
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"退出登录" message:@"您确定要退出ToPay吗？"preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *resetAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action)
+    {
+        if ([TPLoginUtil quitWithRemoveUserInfo])
+        {
+            UIApplication *app = [UIApplication sharedApplication];
+            AppDelegate *dele = (AppDelegate*)app.delegate;
+            dele.window.rootViewController = [TPLoginViewController new];
+        }
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    
+    //添加顺序和显示顺序相同
+    [alertController addAction:cancelAction];
+    [alertController addAction:resetAction];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
 
 /*

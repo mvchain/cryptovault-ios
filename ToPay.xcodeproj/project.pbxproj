@@ -109,6 +109,9 @@
 		DDDDFBA9219C27BF0056FC57 /* TPCapitalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFBA8219C27BF0056FC57 /* TPCapitalCell.m */; };
 		DDDDFBAC219D5A110056FC57 /* TPCapitalHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFBAB219D5A110056FC57 /* TPCapitalHeaderView.m */; };
 		DDDDFBAF219D60BC0056FC57 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFBAE219D60BC0056FC57 /* UIViewExt.m */; };
+		DDF7B9AD21BA4DA100BE35D6 /* TPUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF7B9AC21BA4DA100BE35D6 /* TPUserInfo.m */; };
+		DDF7B9B221BA65E200BE35D6 /* UIImage+YUExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF7B9AF21BA65E100BE35D6 /* UIImage+YUExtension.m */; };
+		DDF7B9B321BA65E200BE35D6 /* UIImageView+YUExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF7B9B021BA65E200BE35D6 /* UIImageView+YUExtension.m */; };
 		DDFBBA3D21B5317100BA09DE /* TPNotificationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFBBA3C21B5317100BA09DE /* TPNotificationModel.m */; };
 		DDFBBA4021B7997200BA09DE /* TPTokenTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFBBA3F21B7997200BA09DE /* TPTokenTopic.m */; };
 		DDFD5EC821B291CF00D64283 /* TPVRTModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFD5EC721B291CF00D64283 /* TPVRTModel.m */; };
@@ -341,6 +344,12 @@
 		DDDDFBAB219D5A110056FC57 /* TPCapitalHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPCapitalHeaderView.m; sourceTree = "<group>"; };
 		DDDDFBAD219D60BC0056FC57 /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
 		DDDDFBAE219D60BC0056FC57 /* UIViewExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExt.m; sourceTree = "<group>"; };
+		DDF7B9AB21BA4DA100BE35D6 /* TPUserInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPUserInfo.h; sourceTree = "<group>"; };
+		DDF7B9AC21BA4DA100BE35D6 /* TPUserInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPUserInfo.m; sourceTree = "<group>"; };
+		DDF7B9AE21BA65E100BE35D6 /* UIImageView+YUExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+YUExtension.h"; sourceTree = "<group>"; };
+		DDF7B9AF21BA65E100BE35D6 /* UIImage+YUExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+YUExtension.m"; sourceTree = "<group>"; };
+		DDF7B9B021BA65E200BE35D6 /* UIImageView+YUExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+YUExtension.m"; sourceTree = "<group>"; };
+		DDF7B9B121BA65E200BE35D6 /* UIImage+YUExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+YUExtension.h"; sourceTree = "<group>"; };
 		DDFBBA3B21B5317100BA09DE /* TPNotificationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPNotificationModel.h; sourceTree = "<group>"; };
 		DDFBBA3C21B5317100BA09DE /* TPNotificationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPNotificationModel.m; sourceTree = "<group>"; };
 		DDFBBA3E21B7997200BA09DE /* TPTokenTopic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTokenTopic.h; sourceTree = "<group>"; };
@@ -708,6 +717,8 @@
 			children = (
 				DD0239A121AFD9CA00333446 /* TPLoginModel.h */,
 				DD0239A221AFD9CA00333446 /* TPLoginModel.m */,
+				DDF7B9AB21BA4DA100BE35D6 /* TPUserInfo.h */,
+				DDF7B9AC21BA4DA100BE35D6 /* TPUserInfo.m */,
 				DD0239AD21AFF6ED00333446 /* TPCurrencyList.h */,
 				DD0239AE21AFF6ED00333446 /* TPCurrencyList.m */,
 				DD0239B321B1269E00333446 /* TPCurrencyRatio.h */,
@@ -794,6 +805,10 @@
 				DD02394221AD2F4B00333446 /* UILabel+WLAttributedString.m */,
 				DD0239A721AFECEB00333446 /* NSObject+TPExtension.h */,
 				DD0239A821AFECEB00333446 /* NSObject+TPExtension.m */,
+				DDF7B9B121BA65E200BE35D6 /* UIImage+YUExtension.h */,
+				DDF7B9AF21BA65E100BE35D6 /* UIImage+YUExtension.m */,
+				DDF7B9AE21BA65E100BE35D6 /* UIImageView+YUExtension.h */,
+				DDF7B9B021BA65E200BE35D6 /* UIImageView+YUExtension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1064,8 +1079,10 @@
 				DD0243FD2196C968006A1390 /* ViewController.m in Sources */,
 				DD02399421AF968E00333446 /* WYNetworkManager.m in Sources */,
 				DDDDFBA0219C1AE90056FC57 /* TPEndViewController.m in Sources */,
+				DDF7B9B221BA65E200BE35D6 /* UIImage+YUExtension.m in Sources */,
 				DD02444A2196DD57006A1390 /* TPMeViewController.m in Sources */,
 				DD02399221AF968E00333446 /* WYNetworkConfig.m in Sources */,
+				DDF7B9B321BA65E200BE35D6 /* UIImageView+YUExtension.m in Sources */,
 				DD0239A021AFD6E800333446 /* TPLoginUtil.m in Sources */,
 				DD10842A219EB2280087F244 /* TPLangUageCell.m in Sources */,
 				DD0244412196DD23006A1390 /* TPCapitalViewController.m in Sources */,
@@ -1141,6 +1158,7 @@
 				DDDDFB97219C1A440056FC57 /* TPReservationViewController.m in Sources */,
 				DD10844521A001030087F244 /* NIMScanner.m in Sources */,
 				DDDDFB81219AB7350056FC57 /* TPVRTCell.m in Sources */,
+				DDF7B9AD21BA4DA100BE35D6 /* TPUserInfo.m in Sources */,
 				DD02394121ACF53E00333446 /* TPTransDetailCell.m in Sources */,
 				DDDDFBA3219C1EBE0056FC57 /* UIBarButtonItem+SXCreate.m in Sources */,
 				DDDDFBA9219C27BF0056FC57 /* TPCapitalCell.m in Sources */,
@@ -1321,9 +1339,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SXV4N6YG2P;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/ToPay/TP.pch";
 				INFOPLIST_FILE = ToPay/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1343,9 +1363,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SXV4N6YG2P;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/ToPay/TP.pch";
 				INFOPLIST_FILE = ToPay/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

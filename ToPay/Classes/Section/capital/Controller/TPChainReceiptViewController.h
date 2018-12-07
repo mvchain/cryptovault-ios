@@ -7,7 +7,9 @@
 //
 
 #import "TPStartViewController.h"
-
+#import "TPAssetModel.h"
 @interface TPChainReceiptViewController : TPStartViewController
+
+@property (nonatomic, strong) TPAssetModel * assetModel;
 
 @end

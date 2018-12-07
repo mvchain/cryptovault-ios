@@ -7,8 +7,12 @@
 //
 
 #import "TPChainReceiptViewController.h"
-
+#import "TPUserInfo.h"
+#import "NIMScanner.h"
 @interface TPChainReceiptViewController ()
+@property (nonatomic, strong) UIImageView * iconImgV;
+@property (nonatomic, strong) UILabel * addressLab;
+@property (nonatomic, strong) UIImageView * QRView;
 
 @end
 
@@ -18,10 +22,44 @@
 {
     [super viewDidLoad];
     
-
     self.customNavBar.title = @"BTC收款";
+    [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"share_icon_black"]];
+    [self.customNavBar setOnClickRightButton:^
+    {
+        
+    }];
+    
+    
     [self createUI];
+    
+    YYCache *listCache = [YYCache cacheWithName:TPCacheName];
+    TPUserInfo *userInfo = (TPUserInfo *)[listCache objectForKey:TPUserInfoKey];
+    [self.iconImgV setHeader:userInfo.headImage];
+    
+    
+    [self setUpQRimgView];
 }
+
+-(void)setUpQRimgView
+{
+    [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"asset/address" parameters:@{@"tokenId":self.assetModel.tokenId} success:^(id responseObject, BOOL isCacheObject)
+     {
+         if ([responseObject[@"code"] isEqual:@200])
+         {
+             NSLog(@"收款地址：%@",responseObject[@"data"]);
+             self.addressLab.text = responseObject[@"data"];
+             [NIMScanner qrImageWithString:responseObject[@"data"] avatar:nil completion:^(UIImage *image)
+              {
+                  self.QRView.image = image;
+              }];
+         }
+     }
+                                             failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
+     {
+         NSLog(@"获取币种收款地址----失败");
+     }];
+}
+
 
 -(void)createUI
 {
@@ -38,7 +76,7 @@
     }];
     
     UIImageView *iconImgV = [YFactoryUI YImageViewWithimage:nil];
-    iconImgV.backgroundColor = YRandomColor;
+    self.iconImgV = iconImgV;
     [self.view addSubview:iconImgV];
     [iconImgV mas_makeConstraints:^(MASConstraintMaker *make)
     {
@@ -58,6 +96,7 @@
     }];
     
     UILabel *addressLab = [YFactoryUI YLableWithText:@"0x2051dd2b...a196ccc2448" color:TP8EColor font:FONT(13)];
+    self.addressLab = addressLab;
     [self.view addSubview:addressLab];
     
     [addressLab mas_makeConstraints:^(MASConstraintMaker *make)
@@ -65,9 +104,11 @@
          make.centerX.equalTo(backView);
          make.top.equalTo(descLab.mas_bottom).with.offset(6);
          make.height.equalTo(@19);
+         make.width.equalTo(@153);
      }];
     
     UIImageView *QRView = [YFactoryUI YImageViewWithimage:nil];
+    self.QRView = QRView;
     QRView.backgroundColor = YRandomColor;
     [self.view addSubview:QRView];
    

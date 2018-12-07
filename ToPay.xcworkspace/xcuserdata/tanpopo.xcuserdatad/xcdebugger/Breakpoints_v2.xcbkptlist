@@ -4,28 +4,34 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            scope = "0"
-            stopOnStyle = "0">
+            filePath = "ToPay/Classes/Section/capital/Controller/TPChainTakeViewController.m"
+            timestampString = "565866624.318731"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ToPay/Classes/Section/Crowdfunding/View/TPCrowdfundCell.m"
-            timestampString = "565093003.5836329"
+            filePath = "ToPay/Classes/Section/capital/Controller/TPTokenTopicViewController.m"
+            timestampString = "565866624.31883"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "-initWithStyle:reuseIdentifier:WithStyle:"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "-takeOutSuccessNoti"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -35,13 +41,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ToPay/Classes/Section/Crowdfunding/Controller/TPBuyTokenViewController.m"
-            timestampString = "565093003.583789"
+            filePath = "ToPay/Classes/Section/capital/Controller/TPCapitalViewController.m"
+            timestampString = "565866624.318899"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "-assetRequest"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -51,13 +57,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ToPay/Classes/Section/Crowdfunding/Controller/TPBuyTokenViewController.m"
-            timestampString = "565093003.583894"
+            filePath = "ToPay/Classes/Section/capital/Controller/TPCapitalViewController.m"
+            timestampString = "565866624.318958"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "-assetRequest"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -68,44 +74,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ToPay/Classes/Util/TPLoginUtil.m"
-            timestampString = "565693327.6657979"
+            timestampString = "565866624.319015"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
-            landmarkName = "+setRequestTokenBase"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ToPay/Classes/Vendors/RDVTabBarController/RDVTabBarController.m"
-            timestampString = "565352729.574013"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "-viewDidLayoutSubviews"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ToPay/Classes/Vendors/RDVTabBarController/RDVTabBarController.m"
-            timestampString = "565352729.574114"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
-            landmarkName = "-viewDidLayoutSubviews"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "+setRequestInfo"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -115,13 +89,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ToPay/AppDelegate.m"
-            timestampString = "565693327.665979"
+            filePath = "ToPay/Classes/Util/TPLoginUtil.m"
+            timestampString = "565866624.3190759"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "194"
-            endingLineNumber = "194"
-            landmarkName = "-setUpRefreshToken"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "+setRequestToken"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -131,13 +105,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ToPay/Classes/Section/capital/Controller/TPAddTokenViewController.m"
-            timestampString = "565693327.666046"
+            filePath = "ToPay/Classes/Util/TPLoginUtil.m"
+            timestampString = "565866624.319128"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "-setupNavigation"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "+setRequestToken"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

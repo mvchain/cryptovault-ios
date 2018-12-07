@@ -21,6 +21,11 @@
 +(void)setRequestTokenBase;
 
 /*
+ * 请求信息获取
+ */
++(void)setRequestInfo;
+
+/*
  *  保存-用户-信息
  */
 +(void)saveUserInfo:(TPLoginModel *)userInfo;

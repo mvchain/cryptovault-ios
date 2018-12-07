@@ -15,6 +15,7 @@
 
 @property (nonatomic, strong) UILabel *numLab;
 
+@property (nonatomic, strong) UIImageView *bgImgV;
 
 @end
 
@@ -25,13 +26,16 @@
     self = [super init];
     if (self)
     {
+        _bgImgV = [YFactoryUI YImageViewWithimage:[UIImage imageNamed:@"X_homepage_bg"]];
+        [self addSubview:_bgImgV];
         
-//        self.backgroundColor = [[UIColor redColor]colorWithAlphaComponent:0.2];
         
         _totalLab = [YFactoryUI YLableWithText:@"总资产" color:[UIColor whiteColor] font:FONT(12)];
         [self addSubview:_totalLab];
         
-        _chooseBtn = [YFactoryUI YButtonWithTitle:@"CNY" Titcolor:[UIColor whiteColor] font:FONT(14) Image:nil target:self action:@selector(chooseToken)];
+        _chooseBtn = [YFactoryUI YButtonWithTitle:@"CNY" Titcolor:[UIColor whiteColor] font:FONT(14) Image:[UIImage imageNamed:@"down_icon_3"] target:self action:@selector(chooseToken)];
+        _chooseBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0);
+        _chooseBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 32, 0, 0);
         [self addSubview:_chooseBtn];
         
         _numLab = [YFactoryUI YLableWithText:@"123.4567" color:[UIColor whiteColor] font:FONT(36)];
@@ -43,14 +47,14 @@
 -(void)setTotal:(NSString *)total
 {
     _total = total;
-    _numLab.text = TPString(@"%.4f",[total floatValue]);
+    _numLab.text = TPString(@"%.2f",[total floatValue]);
 }
 
 -(void)setRatio:(CGFloat)ratio
 {
     _ratio = ratio;
     
-    _numLab.text = TPString(@"%.4f",[_total floatValue] / ratio);
+    _numLab.text = TPString(@"%.2f",[_total floatValue] / ratio);
 }
 
 -(void)setNickName:(NSString *)nickName
@@ -72,6 +76,13 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
+    
+    [_bgImgV mas_makeConstraints:^(MASConstraintMaker *make)
+    {
+        make.left.top.equalTo(@0);
+        make.width.equalTo(@(KWidth));
+        make.height.equalTo(self.mas_height);
+    }];
     
     [_totalLab mas_makeConstraints:^(MASConstraintMaker *make)
     {

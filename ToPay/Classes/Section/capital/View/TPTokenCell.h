@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "TPTokenTopic.h"
 @interface TPTokenCell : UITableViewCell
+
+@property (nonatomic, strong) TPTokenTopic *tokenTopic;
 
 @end

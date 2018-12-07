@@ -28,22 +28,7 @@ static NSString  *TPAddTokenCellId = @"addTokenCell";
     
     self.addTokenIdArr = [NSMutableArray array];
     self.removeTokenIdArr = [NSMutableArray array];
-//    self.addToken = [[NSMutableString alloc] init];
-//    self.removeToken = [[NSMutableString alloc] init];
-//    [[WYNetworkManager sharedManager] sendPutRequest:WYJSONRequestSerializer url:@"asset" parameters:@{@"addTokenIdArr":@"",@"removeTokenIdArr":@""} success:^(id responseObject, BOOL isCacheObject)
-//    {
-//        if ([responseObject[@"code"] isEqual:@200])
-//        {
-////            NSLog(@"%@");
-//
-////            self.assetTopic = [TPAssetModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
-////            [self.baseTableView reloadData];
-//        }
-//    }
-//        failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
-//    {
-//        NSLog(@"修改币种失败");
-//    }];
+    
     
     self.assetNameArr = [NSMutableArray array];
     for (int i = 0 ; i < self.assetTopic.count; i++)
@@ -80,38 +65,41 @@ static NSString  *TPAddTokenCellId = @"addTokenCell";
     
     TPWeakSelf
     
-//    NSString *printStr2 = @"321321";//[[NSString alloc] init];
-//    [printStr2 stringByAppendingString:@"hhhhh"];
-//    NSLog(@"<<<<<<<<<<<<<%@>\n<>>>>>>>>>>>>>>",printStr2);
-    
-//    NSArray *array = [NSArray arrayWithObjects:@"Hello",@" ",@"world", @"!", nil];
-//    NSString *printStr = @"";
-//    for(int i = 0; i < [array count]; i++){
-//        printStr = [printStr stringByAppendingFormat:@"%@", [array objectAtIndex:i]];
-//    }
-//    NSLog(@"第一种方法%@", printStr);
-    NSString *printStr2 = @"";
     
     [self.customNavBar setOnClickLeftButton:^
      {
+         NSString *removeToken = @"";
+         NSString *addToken = @"";
          
-
-         
-//         for (int i = 0 ; i < self.addTokenIdArr.count; i++)
-//         {
-////             [weakSelf.addToken stringByAppendingFormat:@"%@",[weakSelf.addTokenIdArr objectAtIndex:i]];
-//             NSLog(@"addTokenIdArr：%@",[weakSelf.addTokenIdArr objectAtIndex:i]);
-//         }
+         for (int i = 0 ; i < self.addTokenIdArr.count; i++)
+         {
+             addToken  = [addToken stringByAppendingFormat:i >= 1 ? @",%@":@"%@",[weakSelf.addTokenIdArr objectAtIndex:i]];
+         }
          
          for (int a = 0 ; a < self.removeTokenIdArr.count; a++)
          {
-//             [weakSelf.removeToken stringByAppendingFormat:@"%@",[weakSelf.removeTokenIdArr objectAtIndex:a]];
-             NSLog(@"%@",weakSelf.removeTokenIdArr[a]);
-             
+             removeToken = [removeToken stringByAppendingFormat:a >= 1 ? @",%@":@"%@",[weakSelf.removeTokenIdArr objectAtIndex:a]];
          }
-//         weakSelf.removeToken
-         [printStr2 stringByAppendingString:@"hhhhh"];
-//         NSLog(@"<<<<<<<<<<<<<%@>\n<>>>>>>>>>>>>>>",printStr2);
+         
+         if ([addToken isEqualToString:@""] && [removeToken isEqualToString:@""])
+         {
+             [weakSelf.navigationController popViewControllerAnimated:YES];
+             return ;
+         }
+
+         [[WYNetworkManager sharedManager] sendPutRequest:WYJSONRequestSerializer url:@"asset" parameters:@{@"addTokenIdArr":addToken,@"removeTokenIdArr":removeToken} success:^(id responseObject, BOOL isCacheObject)
+              {
+                  if ([responseObject[@"code"] isEqual:@200])
+                  {
+                      [TPNotificationCenter postNotificationName:TPPutCurrencyNotification object:nil];
+                      
+                      NSLog(@"修改币种成功");
+                  }
+              }
+                  failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
+              {
+                  NSLog(@"修改币种失败");
+              }];
          
          [weakSelf.navigationController popViewControllerAnimated:YES];
      }];
@@ -130,26 +118,11 @@ static NSString  *TPAddTokenCellId = @"addTokenCell";
         cell = [[TPAddTokenCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TPAddTokenCellId withfilterData:self.assetNameArr];
     cell.clData = self.currencyList.data[indexPath.row];
     
-    cell.operatingBlock = ^(BOOL isAdd, NSString *tokenId)
+    __block TPAddTokenCell *addTokenCell = cell;
+    
+    cell.operatingBlock = ^(BOOL isAdd, NSString *tokenId, NSString * tokenName)
     {
-        if (isAdd == YES)
-        {
-            if ([self.addTokenIdArr containsObject:tokenId])
-            {
-                [self.addTokenIdArr removeObject:tokenId];
-            }
-            
-            [self.removeTokenIdArr addObject:tokenId];
-        }
-            else
-        {
-            if ([self.removeTokenIdArr containsObject:tokenId])
-            {
-                [self.removeTokenIdArr removeObject:tokenId];
-            }
-            
-            [self.addTokenIdArr addObject:tokenId];
-        }
+        [self operatingCurrencyIsAdd:isAdd WithTokenId:tokenId WithName:tokenName WithSelectCell:addTokenCell];
     };
     return cell;
 }
@@ -159,9 +132,46 @@ static NSString  *TPAddTokenCellId = @"addTokenCell";
     return 64;
 }
 
-- (void)didReceiveMemoryWarning
+#pragma mark - 添加 移除 币种事件
+-(void)operatingCurrencyIsAdd:(BOOL)isAdd WithTokenId:(NSString *)tokenId WithName:(NSString *)tokenName WithSelectCell:(TPAddTokenCell *)cell
 {
-    [super didReceiveMemoryWarning];
+    if (isAdd == NO)
+    {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"温馨提示" message:TPString(@"确定移除%@?",tokenName) preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *resetAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action)
+          {
+              cell.isRemoveToken = YES;
+              
+              if ([self.addTokenIdArr containsObject:tokenId])
+              {
+                  [self.addTokenIdArr removeObject:tokenId];
+              }
+
+              [self.removeTokenIdArr addObject:tokenId];
+          }];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+        
+        //添加顺序和显示顺序相同
+        [alertController addAction:cancelAction];
+        [alertController addAction:resetAction];
+        [self presentViewController:alertController animated:YES completion:nil];
+        return ; 
+    }
+    
+        
+        if ([self.removeTokenIdArr containsObject:tokenId])
+        {
+            [self.removeTokenIdArr removeObject:tokenId];
+        }
+        
+        [self.addTokenIdArr addObject:tokenId];
+    
+}
+
+
+-(void)dealloc
+{
+    [TPNotificationCenter removeObserver:self];
 }
 
 

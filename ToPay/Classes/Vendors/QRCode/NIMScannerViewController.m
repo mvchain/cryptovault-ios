@@ -192,7 +192,7 @@ static NSString * typeRoomID = @"evn:r:";
     // 1> 提示标签
     tipLabel = [[UILabel alloc] init];
     
-    tipLabel.text = @"将二维码放在上面的框内，即可快速识别";
+    tipLabel.text = @"将二维码置于取景框即可自动扫描";
     tipLabel.font = [UIFont systemFontOfSize:14];
     tipLabel.textColor = [UIColor colorWithHex:@"#b1b1bc"];//NIMKit_UIColorFromRGB(0xb1b1bc);
     tipLabel.textAlignment = NSTextAlignmentCenter;
@@ -213,15 +213,17 @@ static NSString * typeRoomID = @"evn:r:";
  
     UIButton *photoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [photoBtn setTitle:@"从相册选择" forState:UIControlStateNormal];
+    [photoBtn setImage:[UIImage imageNamed:@"pohoto_icon"] forState:UIControlStateNormal];
     [photoBtn setTitleColor:[UIColor colorWithHex:@"#AAAAAA"] forState:UIControlStateNormal];
+    [photoBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, 10, 0, 0)];
     photoBtn.titleLabel.font = FONT(15);
     [photoBtn addTarget:self action:@selector(clickAlbumButton) forControlEvents:UIControlEventTouchUpInside];
-    [photoBtn setLayer:23 WithBackColor:[UIColor colorWithHex:@"#5E5E60"]] ;
+//    [photoBtn setLayer:23 WithBackColor:[UIColor colorWithHex:@"#5E5E60"]] ;
     [bottomView addSubview:photoBtn];
     
     photoBtn.left = bottomView.width/2 - 127/2;
     photoBtn.top = 62/2 - 44/2;
-    photoBtn.size = CGSizeMake(127, 44);
+    photoBtn.size = CGSizeMake(147, 44);
     
     
 }
@@ -244,7 +246,8 @@ static NSString * typeRoomID = @"evn:r:";
 /// 准备导航栏
 - (void)prepareNavigationBar
 {   // 2> 标题
-    self.title = @"扫一扫";
+//    self.title = @"扫一扫";
+    self.customNavBar.title = @"扫码转账";
 }
 
 - (BOOL)navigationShouldPopOnBackButton

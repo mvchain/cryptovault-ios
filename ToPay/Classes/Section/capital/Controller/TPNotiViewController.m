@@ -48,9 +48,15 @@ static NSString  *TPNotiCellCellId = @"notiCell";
         if ([responseObject[@"code"] isEqual:@200])
         {
             self.notiTopic = [TPNotificationModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
-            [self.baseTableView reloadData];
+            if (self.notiTopic.count == 0)
+            {
+                [self showNoDataView:YES];
+            }
+            else
+            {
+                [self.baseTableView reloadData];
+            }
         }
-        
     }
         failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
     {

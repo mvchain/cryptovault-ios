@@ -37,24 +37,48 @@
         
         
         _iconImgV = [YFactoryUI YImageViewWithimage:nil];
-//        _iconImgV.backgroundColor = YRandomColor;
         [self addSubview:_iconImgV];
-//        项目名称众筹
+
         _nickLab = [YFactoryUI YLableWithText:@"" color:TP59Color font:FONT(15)];
         [self addSubview:_nickLab];
-//        2018-10-21 10:24:45
+
         _timeLab = [YFactoryUI YLableWithText:@"" color:TP59Color font:FONT(12)];
         [self addSubview:_timeLab];
-//        +123.4567
+
         _valueLab = [YFactoryUI YLableWithText:@"" color:TP8EColor font:FONT(17)];
         [self addSubview:_valueLab];
     }
     return self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+-(void)setTokenTopic:(TPTokenTopic *)tokenTopic
 {
-    [super setSelected:selected animated:animated];
+    _tokenTopic = tokenTopic;
+    
+    if ([tokenTopic.classify isEqualToString:@"0"] || [tokenTopic.classify isEqual:@"3"])
+    {
+        if ([tokenTopic.transactionType isEqualToString:@"1"])
+        {
+            _iconImgV.image = [UIImage imageNamed:@"receive_icon"];
+        }
+        if ([tokenTopic.transactionType isEqualToString:@"2"])
+        {
+            _iconImgV.image = [UIImage imageNamed:@"sent_icon"];
+        }
+    }
+        else if ([tokenTopic.classify isEqualToString:@"2"])
+    {
+        _iconImgV.image = [UIImage imageNamed:@"Crowdfunding_icon_2"];
+    }
+        else if ([tokenTopic.classify isEqualToString:@"1"])
+    {
+        _iconImgV.image = [UIImage imageNamed:@"trand_icon_2"];
+    }
+    _nickLab.text = tokenTopic.tokenName;
+    
+    _timeLab.text = [tokenTopic.createdAt conversionTimeStamp];
+    
+    _valueLab.text = tokenTopic.value;
 }
 
 -(void)layoutSubviews

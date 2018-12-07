@@ -36,8 +36,8 @@ static NSString  *TPMeCellCellId = @"meCell";
     self.customNavBar.title = @"我的";
     [self showSystemNavgation:NO];
     
-    _dataSource = @[@"语言",@"关于",@"状态详情",@"登录"];
-    _dataSourceImg = @[@"language_icon",@"about_icon",@"about_icon",@"about_icon"];
+    _dataSource = @[@"语言",@"关于",@"状态详情"];
+    _dataSourceImg = @[@"language_icon",@"about_icon",@"about_icon"];
 
     TPMeHeaderView *headerView = [[TPMeHeaderView alloc] init];
     headerView.height = 176;
@@ -91,12 +91,7 @@ static NSString  *TPMeCellCellId = @"meCell";
         TPTransDetailViewController *aboutVC = [[TPTransDetailViewController alloc] init];
         [self.navigationController pushViewController:aboutVC animated:YES];
     }
-        else
-    {
-        
-        TPLoginViewController *aboutVC = [[TPLoginViewController alloc] init];
-        [self.navigationController pushViewController:aboutVC animated:YES];
-    }
+
 }
 
 - (void)didReceiveMemoryWarning {

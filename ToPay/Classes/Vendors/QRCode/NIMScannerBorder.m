@@ -48,7 +48,7 @@
     self.clipsToBounds = YES;
     
     // 冲击波图像
-    scannerLine = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"QRCodeScanLine"]];
+    scannerLine = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"qcode_line"]];
     
     scannerLine.frame = CGRectMake(0,0, self.bounds.size.width, scannerLine.bounds.size.height);
     scannerLine.center = CGPointMake(self.bounds.size.width * 0.5 , 0);

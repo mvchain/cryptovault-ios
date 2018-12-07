@@ -9,6 +9,7 @@
 #import "TPLoginUtil.h"
 #import "TPCurrencyList.h"
 #import "TPCurrencyRatio.h"
+#import "TPUserInfo.h"
 #define loginFileName @"loginUser.plist"
 #define TPFilePathWithName(fileName) [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:fileName]
 #define loginFilePath TPFilePathWithName(loginFileName)
@@ -74,6 +75,22 @@
         failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
     {
         NSLog(@"error = %@", error);
+    }];
+}
+
++(void)setRequestInfo
+{
+    [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"user/info" success:^(id responseObject, BOOL isCacheObject)
+    {
+        NSLog(@"data:%@",responseObject[@"data"]);
+        TPUserInfo *TPInfo = [TPUserInfo mj_objectWithKeyValues:responseObject[@"data"]];
+//        TPInfo
+        YYCache *listCache = [YYCache cacheWithName:TPCacheName];
+        [listCache setObject:TPInfo forKey:TPUserInfoKey];
+    }
+        failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
+    {
+        NSLog(@"获取用户信息失败：error = %@", error);
     }];
 }
 

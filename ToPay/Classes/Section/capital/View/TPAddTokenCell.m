@@ -17,7 +17,7 @@
 
 @property (nonatomic, strong) UILabel *moneyLab;
 
-@property (nonatomic, strong) UIButton *operatingBtn;
+
 
 @property (nonatomic, strong) NSArray *filters;
 @end
@@ -89,24 +89,29 @@
 
 -(void)operatingClick:(UIButton *)sender
 {
-    NSLog(@"操作事件");
-    sender.selected = !sender.selected;
-    
-    if (sender.selected == YES)
+    if (self.operatingBlock)
     {
-        [sender setTitle:@"添加" forState:UIControlStateNormal];
-        sender.backgroundColor = [UIColor colorWithHex:@"#E86636"];
+        self.operatingBlock(sender.selected, _clData.tokenId, _clData.tokenName);
     }
-        else
+    
+    
+    sender.selected = !sender.selected;
+    if (sender.selected == NO)
     {
         [sender setTitle:@"移除" forState:UIControlStateNormal];
         sender.backgroundColor = [UIColor colorWithHex:@"#0AA8A5"];
     }
-    
-    if (self.operatingBlock) {
-        self.operatingBlock(sender.selected, _clData.tokenId);
-    }
 }
+
+-(void)setIsRemoveToken:(BOOL)isRemoveToken
+{
+    _isRemoveToken = isRemoveToken;
+    
+    self.operatingBtn.selected = YES;
+    [self.operatingBtn setTitle:@"添加" forState:UIControlStateNormal];
+    self.operatingBtn.backgroundColor = [UIColor colorWithHex:@"#E86636"];
+}
+
 
 -(void)layoutSubviews
 {
@@ -141,10 +146,9 @@
     }];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
+    [super setSelected:selected animated:animated];    
 }
 
 @end

@@ -10,7 +10,7 @@
 
 @interface TPTokenTopic : NSObject
 
-@property (nonatomic) NSInteger classify;
+@property (nonatomic, copy) NSString *classify;
 
 @property (nonatomic, copy) NSString *createdAt;
 

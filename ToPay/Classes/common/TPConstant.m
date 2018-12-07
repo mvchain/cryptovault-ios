@@ -9,6 +9,8 @@
 
 NSString * const TPCacheName = @"TPCacheName";
 
+NSString * const TPUserInfoKey = @"TPUserInfoKey";
+
 NSString * const TPCurrencyListKey = @"MHCurrencyListKey";
 
 //NSString * const TPCurrencyListTotal = @"TPCurrencyListTotal";
@@ -19,3 +21,6 @@ NSString * const TPBalanceDefaultKey = @"TPBalanceDefaultKey";
 
 CGFloat const MHGlobalBottomLineHeight = .55f;
 
+NSString * const TPPutCurrencyNotification = @"TPPutCurrencyNotification";
+
+NSString * const TPTakeOutSuccessNotification = @"TPTakeOutSuccessNotification";

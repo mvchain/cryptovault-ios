@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "TPAssetModel.h"
 @interface TPTokenHeaderView : UIView
+
+@property (nonatomic, strong) TPAssetModel *assetModel;
 
 @end

@@ -13,6 +13,7 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 #import "RDVTabBarController.h"
 #import "RDVTabBarItem.h"
+#import "AppDelegate.h"
 
 #import "TPGlobalMacro.h"
 #import "TPConstant.h"
@@ -24,6 +25,7 @@
 #import "NSObject+TPExtension.h"
 #import "UIBarButtonItem+SXCreate.h"
 #import "YFactoryUI.h"
+#import "UIImageView+YUExtension.h"
 #import "UIViewExt.h"
 
 #import "WYNetwork.h"

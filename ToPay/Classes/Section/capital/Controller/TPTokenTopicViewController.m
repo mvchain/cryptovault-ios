@@ -48,18 +48,28 @@ static NSString  *TPTokenCellCellId = @"tokenCell";
         make.width.equalTo(@(KWidth));
         make.height.equalTo(self.view.mas_height);
     }];
+    
+    [TPNotificationCenter addObserver:self selector:@selector(takeOutSuccessNoti) name:TPTakeOutSuccessNotification object:nil];
+    
 }
+
+-(void)takeOutSuccessNoti
+{
+    [self setupRequestTransactions];
+}
+
 
 -(void)setupRequestTransactions
 {
-    [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"asset/transactions" parameters:@{@"tokenId":_tokenId,@"transactionType":@1,
-        //_transType == TPTransactionTypeTransfer ? @1 : (_transType == TPTransactionTypeTransferOut ? @2:nil)
-                     @"type":@"1"} success:^(id responseObject, BOOL isCacheObject)
+    [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"asset/transactions" parameters:@{
+                    @"tokenId":_tokenId,
+                    @"transactionType":_transType == TPTransactionTypeTransfer ? @1 : (_transType == TPTransactionTypeTransferOut ? @2:@0),
+                    @"type":@"1"} success:^(id responseObject, BOOL isCacheObject)
     {
         if ([responseObject[@"code"] isEqual:@200])
         {
             
-//            NSLog(@"<<<<  %@  >>>>",responseObject[@"data"]);
+            NSLog(@"<<<<  %@  >>>>",responseObject[@"data"]);
             self.tokenTopics = [TPTokenTopic mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
             
             if (self.tokenTopics.count == 0)
@@ -80,7 +90,7 @@ static NSString  *TPTokenCellCellId = @"tokenCell";
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return self.tokenTopics.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -88,6 +98,7 @@ static NSString  *TPTokenCellCellId = @"tokenCell";
     TPTokenCell *cell = [tableView dequeueReusableCellWithIdentifier:TPTokenCellCellId];
     if (!cell)
         cell = [[TPTokenCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TPTokenCellCellId];
+    cell.tokenTopic = self.tokenTopics[indexPath.row];
     return cell;
 }
 

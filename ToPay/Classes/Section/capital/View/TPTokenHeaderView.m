@@ -26,10 +26,15 @@
     {
         self.backgroundColor = [UIColor clearColor];
         
+        
+        
+        
         _totalLab = [YFactoryUI YLableWithText:@"1234567.12" color:[UIColor whiteColor] font:FONT(34)];
         [self addSubview:_totalLab];
         
-        _chooseBtn = [YFactoryUI YButtonWithTitle:@"CNY" Titcolor:[UIColor whiteColor] font:FONT(12) Image:nil target:self action:@selector(chooseToken)];
+        _chooseBtn = [YFactoryUI YButtonWithTitle:@"CNY" Titcolor:[UIColor whiteColor] font:FONT(12) Image:[UIImage imageNamed:@"down_icon_3"] target:self action:@selector(chooseToken)];
+        _chooseBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0);
+        _chooseBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 27, 0, 0);
         [self addSubview:_chooseBtn];
         
         _numLab = [YFactoryUI YLableWithText:@"123.4567 VRT" color:[UIColor whiteColor] font:FONT(12)];
@@ -42,6 +47,16 @@
 {
     NSLog(@"chooseToken");
 }
+
+-(void)setAssetModel:(TPAssetModel *)assetModel
+{
+    _assetModel = assetModel;
+    
+    _totalLab.text = TPString(@"%.2f",self.assetModel.ratio * self.assetModel.value);
+    
+    _numLab.text = TPString(@"%.4f %@",assetModel.value,assetModel.tokenName);
+}
+
 
 -(void)layoutSubviews
 {

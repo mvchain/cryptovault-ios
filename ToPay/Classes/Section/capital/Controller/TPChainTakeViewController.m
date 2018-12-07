@@ -8,8 +8,15 @@
 
 #import "TPChainTakeViewController.h"
 #import "TPComTextView.h"
+#import "TPTransView.h"
 @interface TPChainTakeViewController ()
+@property (nonatomic, assign) NSDecimalNumber *balanceNum;
 
+@property (nonatomic, strong) UILabel *balanceLab;
+
+@property (nonatomic, strong) TPComTextView *takeText;
+
+@property (nonatomic, strong) UIButton *confirmBtn;
 @end
 
 @implementation TPChainTakeViewController
@@ -20,7 +27,25 @@
     
     
     self.customNavBar.title = @"余额取出";
+    
     [self createUI];
+    
+    [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"asset/debit" success:^(id responseObject, BOOL isCacheObject)
+    {
+        if ([responseObject[@"code"] isEqual:@200])
+        {
+            self.balanceNum = responseObject[@"data"];
+            self.balanceLab.text = TPString(@"余额：%@",self.balanceNum);
+        }
+    }
+        failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
+    {
+        NSLog(@"获取余额失败");
+    }];
+    
+    
+    
+    
 }
 
 -(void)createUI
@@ -38,8 +63,11 @@
      }];
     
     TPComTextView *takeText = [[TPComTextView alloc] initWithTitle:@"取出余额" WithDesc:@"输入取出余额"];
-    [backView addSubview:takeText];
+    [takeText.comTextField addTarget:self action:@selector(didChangeText:) forControlEvents:UIControlEventEditingChanged];
     
+    takeText.comTextField.keyboardType = UIKeyboardTypeNumberPad;
+    [backView addSubview:takeText];
+    self.takeText = takeText;
     [takeText mas_makeConstraints:^(MASConstraintMaker *make)
      {
          make.left.equalTo(@0);
@@ -50,7 +78,7 @@
     
     UILabel *balanceLab = [YFactoryUI YLableWithText:@"余额：1235.1234" color:TP8EColor font:FONT(12)];
     [takeText addSubview:balanceLab];
-    
+    self.balanceLab = balanceLab;
     [balanceLab mas_makeConstraints:^(MASConstraintMaker *make)
     {
         make.right.equalTo(takeText.comTextField);
@@ -68,8 +96,12 @@
          make.top.equalTo(takeText.mas_bottom).with.offset(2);
      }];
     
-    UIButton *confirmBtn = [YFactoryUI YButtonWithTitle:@"确认" Titcolor:[UIColor whiteColor] font:FONT(15) Image:nil target:self action:@selector(confirClcik)];
-    [confirmBtn setLayer:22 WithBackColor:TPMainColor];
+    UIButton *confirmBtn = [YFactoryUI YButtonWithTitle:@"确认" Titcolor:TPD5Color font:FONT(15) Image:nil target:self action:@selector(confirClcik)];
+    confirmBtn.userInteractionEnabled = NO;
+//
+    [confirmBtn setLayer:22 WithBackColor:TPEBColor];
+    
+    self.confirmBtn = confirmBtn;
     [self.view addSubview:confirmBtn];
     [confirmBtn mas_makeConstraints:^(MASConstraintMaker *make)
      {
@@ -86,9 +118,57 @@
     
 }
 
+-(void)didChangeText:(UITextField *)textF
+{
+    if (textF.text.length >0)
+    {
+        self.confirmBtn.userInteractionEnabled = YES;
+        [self.confirmBtn setLayer:22 WithBackColor:TPMainColor];
+        [self.confirmBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    }
+}
+
+
 -(void)confirClcik
 {
-    NSLog(@"确认");
+    TPTransView *transV = [TPTransView createTransferView];
+ 
+    [transV showMenuWithAlpha:YES];
+    __block TPTransView *TPTransV = transV;
+    [transV.pasView setEndEditBlock:^(NSString *text)
+    {
+        NSLog(@"text:%@",text);
+        if (text.length == 6)
+        {
+        [[WYNetworkManager sharedManager] sendPostRequest:WYJSONRequestSerializer url:@"asset/debit" parameters:@{@"password":text,
+                                            @"value":self.takeText.comTextField.text}
+            success:^(id responseObject, BOOL isCacheObject)
+         {
+             if ([responseObject[@"code"] isEqual:@200])
+             {
+                 
+                 [TPTransV showMenuWithAlpha:NO];
+                 
+                 [TPNotificationCenter postNotificationName:TPTakeOutSuccessNotification object:nil];
+                 [self.navigationController popViewControllerAnimated:YES];
+             }
+         }
+            failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
+         {
+             NSLog(@"划账失败 %@",error);
+         }];
+
+        }
+        
+    }];
+    
+}
+
+
+-(void)dealloc
+{
+    
+    [TPNotificationCenter removeObserver:self];
 }
 
 @end

@@ -8,8 +8,10 @@
 
 #import "TPLoginViewController.h"
 #import "TPLoginModel.h"
-
+#import "AppDelegate.h"
 @interface TPLoginViewController ()
+
+@property (nonatomic, strong) NSMutableArray<UITextField *> *textArr;
 
 @end
 
@@ -19,11 +21,13 @@
 {
     [super viewDidLoad];
     
+    self.textArr = [NSMutableArray<UITextField *> array];
+    
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self setUpUI];
     
-    
+    self.customNavBar.hidden = YES;
     
     
     UIButton *quitBtn = [YFactoryUI YButtonWithTitle:@"登录" Titcolor:[UIColor whiteColor] font:FONT(15) Image:nil target:self action:@selector(loginClcik)];
@@ -57,8 +61,14 @@
     for (int i = 0; i < titleArr.count ; i++ )
     {
         loginTextView = [[TPLoginTextView alloc] initWithTitle:titleArr[i] WithDesc:descArr[i]];
-        [self.view addSubview:loginTextView];
         
+        if (i == 0)
+        {
+            loginTextView.comTextField.secureTextEntry = NO;
+        }
+        [loginTextView.comTextField addTarget:self action:@selector(changeTextField:) forControlEvents:UIControlEventEditingChanged];
+        [self.view addSubview:loginTextView];
+        [self.textArr addObject:loginTextView.comTextField];
         [loginTextView mas_makeConstraints:^(MASConstraintMaker *make)
          {
              make.left.equalTo(@0);
@@ -78,32 +88,47 @@
     }];
 }
 
-- (void)didReceiveMemoryWarning
+
+-(void)changeTextField:(UITextField *)textField
 {
-    [super didReceiveMemoryWarning];
+    if (self.textArr[0] == textField) {
+        NSLog(@"账号：%@",textField.text);
+    }
     
+    if (self.textArr[1] == textField) {
+        NSLog(@"m密码：%@",textField.text);
+    }
 }
 
 -(void)loginClcik
 {
-    [[WYNetworkManager sharedManager] sendPostRequest:WYJSONRequestSerializer url:@"user/login" parameters:@{@"username":@"18888888888",@"password":@"123456"} success:^(id responseObject, BOOL isCacheObject)
+    
+    
+    [[WYNetworkManager sharedManager] sendPostRequest:WYJSONRequestSerializer url:@"user/login" parameters:@{@"username":self.textArr[0].text,@"password":self.textArr[1].text} success:^(id responseObject, BOOL isCacheObject)
     {
         if ([responseObject[@"code"] isEqual:@200])
         {
             NSLog(@"responseObject:%@",responseObject[@"data"]);
-            
+    
             TPLoginModel *loginM = [TPLoginModel mj_objectWithKeyValues:responseObject[@"data"]];
-            
+
             // set Request token
             [[WYNetworkConfig sharedConfig] addCustomHeader:@{@"Authorization":loginM.token}];
-        
+
             // Store user information
             [TPLoginUtil saveUserInfo:loginM];
-        
+
+            // Basic user information
+            [TPLoginUtil setRequestInfo];
+            
             // Get currency list
             [TPLoginUtil setRequestToken];
             
-            [self.navigationController popViewControllerAnimated:YES];
+//            [self.navigationController popViewControllerAnimated:YES];
+            
+            UIApplication *app = [UIApplication sharedApplication];
+            AppDelegate *dele = (AppDelegate*)app.delegate;
+            dele.window.rootViewController = dele.viewController;
         }
     }
         failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
@@ -126,7 +151,11 @@
         [self addSubview:_comTitleLabel];
         
         
-        _comTextField = [YFactoryUI YTextFieldWithPlaceholder:[NSString stringWithFormat:@"   %@",desc] color:TP8EColor font:FONT(15) secureTextEntry:YES delegate:nil];
+        _comTextField = [YFactoryUI YTextFieldWithPlaceholder:[NSString stringWithFormat:@"%@",desc] color:TP8EColor font:FONT(15) secureTextEntry:YES delegate:nil];
+        _comTextField.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 18, 0)];
+        _comTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+        _comTextField.leftView.userInteractionEnabled = NO;
+        _comTextField.leftViewMode = UITextFieldViewModeAlways;
         [_comTextField setLayerCornerRadius:22 WithColor:TP59Color WithBorderWidth:1];
         [self addSubview:_comTextField];
     }

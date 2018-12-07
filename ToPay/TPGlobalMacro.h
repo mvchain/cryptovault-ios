@@ -27,6 +27,8 @@
 #define TPA7Color [UIColor colorWithHex:@"#A7A9B8"]
 #define TPD5Color [UIColor colorWithHex:@"#D5D7E6"]
 #define TPC1Color [UIColor colorWithHex:@"#C1C2CC"]
+#define TPEBColor [UIColor colorWithHex:@"#EBF1FB"]
+#define TPD5Color [UIColor colorWithHex:@"#D5D7E6"]
 
 //字符串转换
 #define TPString(FORMAT, ...) [NSString stringWithFormat:FORMAT,##__VA_ARGS__]
@@ -39,6 +41,9 @@
 
 //USER-DEFAULT
 #define USER_DEFAULT [NSUserDefaults standardUserDefaults]
+
+
+#define TPNotificationCenter [NSNotificationCenter defaultCenter]
 
 // 判断是否是iPhone X
 #define iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)

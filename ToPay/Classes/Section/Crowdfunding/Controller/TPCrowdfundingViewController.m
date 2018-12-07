@@ -37,7 +37,7 @@
 
 -(void)setNavItem
 {
-    [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"list_icon_1"]];
+    [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"list_icon_black"]];
     TPWeakSelf;
     
     [self.customNavBar setOnClickRightButton:^{

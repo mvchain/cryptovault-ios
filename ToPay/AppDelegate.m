@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+#import "TPLoginViewController.h"
+
 #import "TPCapitalViewController.h"
 #import "TPTransactionViewController.h"
 #import "TPCrowdfundingViewController.h"
@@ -26,17 +28,32 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    [self setUpViewController];
-    [self.window setRootViewController:self.viewController];
-    [self.window makeKeyAndVisible];
-    
-    [self customizeInterface];
-    [self setNavBarAppearence];
-    [self setUpIQKeyBoardManager];
     [self setUpNetWorkManager];
     [self setUpRefreshToken];
+    
+    
+    [self setUpWindow];
+    
+    [self customizeInterface];
+    
+    [self setNavBarAppearence];
+    
+    
+    [self setUpIQKeyBoardManager];
+    
+    
     return YES;
+}
+
+-(void)setUpWindow
+{
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [self setUpViewController];
+    if ([TPLoginUtil isLogin] == NO)
+        [self.window setRootViewController:[[TPLoginViewController alloc] init]];
+    else
+        [self.window setRootViewController:self.viewController];
+    [self.window makeKeyAndVisible];
 }
 
 -(void)setUpViewController
@@ -75,18 +92,25 @@
 
 -(void)customizeTabBarForCOntroller:(RDVTabBarController *)tabBarController
 {
-    NSArray *tabBarItemImages = @[@"main", @"together", @"trand", @"wallet"];
+    NSArray *tabBarItemImages = @[@"assets", @"trand", @"Crowdfunding", @"mine"];
     NSArray *tabBarItemTitle = @[@"资产", @"交易", @"众筹", @"我的"];
     NSInteger index = 0;
-    
+//    assets_Selected_icon
+//    assets_unSelected_icon
+//    trand_selected_icon
+//    trand_unselected_icon
+//    Crowdfunding_selected_icon
+//    Crowdfunding_unselected_icon
+//    mine_selected_icon
+//    mine_unselected_icon
     for (RDVTabBarItem *item in [[tabBarController tabBar] items])
     {
         
 
         item.title = [tabBarItemTitle objectAtIndex:index];
-        UIImage *selectedImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_icon_sel",[tabBarItemImages objectAtIndex:index]]];
+        UIImage *selectedImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_selected_icon",[tabBarItemImages objectAtIndex:index]]];
         
-        UIImage *unselectedimage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_icon_normal",[tabBarItemImages objectAtIndex:index]]];
+        UIImage *unselectedimage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_unselected_icon",[tabBarItemImages objectAtIndex:index]]];
         
         [item setFinishedSelectedImage:selectedImage withFinishedUnselectedImage:unselectedimage];
         
@@ -119,7 +143,7 @@
 {
     [WRNavigationBar wr_widely];
     
-//    [WRNavigationBar wr_setBlacklist:@[@"TPTransactionViewController"]];
+    [WRNavigationBar wr_setBlacklist:@[@"UIImagePickerController"]];
     
     // 导航栏默认背景颜色
     [WRNavigationBar wr_setDefaultNavBarTintColor:[UIColor redColor]];
@@ -152,7 +176,7 @@
 -(void)setUpNetWorkManager
 {
     [WYNetworkConfig sharedConfig].baseUrl = @"http://192.168.15.31:10086/";
-    [WYNetworkConfig sharedConfig].timeoutSeconds = 30;
+    [WYNetworkConfig sharedConfig].timeoutSeconds = 10;
     
     if ([TPLoginUtil userInfo].token)
     {
@@ -170,10 +194,7 @@
         return ;
     }
     
-    [[WYNetworkConfig sharedConfig] addCustomHeader:@{
-                                                      @"Authorization":[TPLoginUtil userInfo].refreshToken,
-                                                      @"Accept-Language":@"zh-cn"
-                                                      }];
+    [[WYNetworkConfig sharedConfig] addCustomHeader:@{@"Authorization":[TPLoginUtil userInfo].refreshToken}];
     
     [[WYNetworkManager sharedManager] sendPostRequest:WYJSONRequestSerializer url:@"user/refresh" parameters:nil success:^(id responseObject, BOOL isCacheObject)
     {
@@ -187,6 +208,8 @@
                                                               @"Authorization":[TPLoginUtil userInfo].token,
                                                               @"Accept-Language":@"zh-cn"
                                                               }];
+            
+            
         }
     }
         failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)

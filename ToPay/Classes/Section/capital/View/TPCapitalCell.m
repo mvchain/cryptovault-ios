@@ -81,14 +81,12 @@
     
     self.nickLab.text = assetModel.tokenName;
     self.valueLab.text = TPString(@"%.2f",assetModel.ratio * assetModel.value);
-    self.numLab.text = TPString(@"%.4f",assetModel.value);
+    self.numLab.text = TPString(@"%.4f %@",assetModel.value,assetModel.tokenName);
+
     
-    
-   CLData *clData = (CLData *)[self.listCache objectForKey:assetModel.tokenId];
-//    NSLog(@"tokenImage:%@",clData.tokenImage);
+    CLData *clData = (CLData *)[self.listCache objectForKey:assetModel.tokenId];
     
     [self.iconImgV  sd_setImageWithURL:[NSURL URLWithString:clData.tokenImage]];
-//    assetModel.ratio * assetModel.value / 0.1492537313432836
 }
 
 -(void)setRatio:(CGFloat)ratio

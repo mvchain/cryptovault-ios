@@ -30,8 +30,8 @@
         _backView = [[UIView alloc] init];
         _backView.backgroundColor = [UIColor whiteColor];
         [self addSubview:_backView];
-        
-        UIButton *cancelBtn = [YFactoryUI YButtonWithTitle:@"" Titcolor:nil font:nil Image:[UIImage imageNamed:@"del_icon_black"] target:self action:@selector(hiddenMenuView)];
+//
+        UIButton *cancelBtn = [YFactoryUI YButtonWithTitle:@"" Titcolor:nil font:nil Image:[UIImage imageNamed:@"cancel_icon_black"] target:self action:@selector(hiddenMenuView)];
         [_backView addSubview:cancelBtn];
         
         [cancelBtn mas_makeConstraints:^(MASConstraintMaker *make)

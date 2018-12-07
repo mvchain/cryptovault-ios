@@ -22,6 +22,8 @@
 @property (nonatomic, strong) SGPageTitleView *pageTitleView;
 @property (nonatomic, strong) SGPageContentScrollView *pageContentScrollView;
 
+@property (nonatomic, strong) CLData *clData;
+
 @end
 
 @implementation TPTokenKindViewController
@@ -32,6 +34,10 @@
     
     self.view.backgroundColor = TPF6Color;
 
+    YYCache *listCache = [YYCache cacheWithName:TPCacheName];
+    self.clData =  (CLData *)[listCache objectForKey:self.assetModel.tokenId];
+    
+    
     [self setupNavigationBar];
     
     [self setUpHeaderView];
@@ -44,16 +50,25 @@
 
 -(void)setupNavigationBar
 {
-    self.customNavBar.title = self.assetModel.tokenName;//@"VP余额";
+    self.customNavBar.title = self.assetModel.tokenName;
     self.customNavBar.titleLabelColor = [UIColor whiteColor];
     [self.customNavBar wr_setLeftButtonWithImage:[UIImage imageNamed:@"back_icon_white"]];
-    [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"code_icon_white"]];
+    
+    if ([self.clData.tokenType isEqualToString:@"2"])
+    {
+        [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"code_icon_white"]];
+        
+        TPWeakSelf;
+        [self.customNavBar setOnClickRightButton:^{
+            [weakSelf QRClick];
+        }];
+    }
+    
+    
+    
     [self.customNavBar wr_setBackgroundAlpha:0];
     
-    TPWeakSelf;
-    [self.customNavBar setOnClickRightButton:^{
-        [weakSelf QRClick];
-    }];
+    
 }
 
 -(void)QRClick
@@ -68,7 +83,7 @@
 
 -(void)setUpHeaderView
 {
-    UIImageView *headImgV = [YFactoryUI YImageViewWithimage:[UIImage imageNamed:iPhoneX ?@"X_nextpage_bg":@"bg_otherpage"]];
+    UIImageView *headImgV = [YFactoryUI YImageViewWithimage:[UIImage imageNamed:@"X_nextpage_bg"]];
     [self.view addSubview:headImgV];
     [self.view sendSubviewToBack:headImgV];
     [headImgV mas_makeConstraints:^(MASConstraintMaker *make)
@@ -79,6 +94,7 @@
     }];
     
     TPTokenHeaderView *headerView = [[TPTokenHeaderView alloc] init];
+    headerView.assetModel = self.assetModel;
     [self.view addSubview:headerView];
     
     [headerView mas_makeConstraints:^(MASConstraintMaker *make)
@@ -106,14 +122,11 @@
     self.pageTitleView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_pageTitleView];
     
-    CGFloat VCH = KHeight - 172 - StatusBarAndNavigationBarHeight - 100;
+    
     
     TPTokenTopicViewController *allVC = [[TPTokenTopicViewController alloc] initWithTokenId:self.assetModel.tokenId WithTransactionType:TPTransactionTypeAll];
-//    allVC.view.frame = CGRectMake(0, 0, KWidth, VCH);
     TPTokenTopicViewController *transferVC = [[TPTokenTopicViewController alloc] initWithTokenId:self.assetModel.tokenId WithTransactionType:TPTransactionTypeTransferOut];
-//    transferVC.view.frame = CGRectMake(0, 0, KWidth, VCH);
     TPTokenTopicViewController *transfer2VC = [[TPTokenTopicViewController alloc] initWithTokenId:self.assetModel.tokenId WithTransactionType:TPTransactionTypeTransfer];
-//    transfer2VC.view.frame = CGRectMake(0, 0, KWidth, VCH);
 
     NSArray *childArr = @[allVC,transferVC,transfer2VC];
     
@@ -126,17 +139,12 @@
 
 -(void)setUpBottomView
 {
-    YYCache *listCache = [YYCache cacheWithName:TPCacheName];
-    CLData *clData =  (CLData *)[listCache objectForKey:self.assetModel.tokenId];
-    
-    if ([clData.tokenType isEqualToString:@"1"])
+    if ([self.clData.tokenType isEqualToString:@"1"])
     {
         return ;
     }
-
-    NSLog(@"tokenType:%@",clData.tokenType);
     
-    TPTokenBottomView * bottomView = [[TPTokenBottomView alloc] initWithStyle:[clData.tokenType isEqualToString:@"0"] ? TPChainStyleUp : TPChainStyleDown];
+    TPTokenBottomView * bottomView = [[TPTokenBottomView alloc] initWithStyle:[self.clData.tokenType isEqualToString:@"0"] ? TPChainStyleDown : TPChainStyleUp];
     [self.view addSubview:bottomView];
     
     [bottomView mas_makeConstraints:^(MASConstraintMaker *make)
@@ -156,12 +164,14 @@
     [bottomView setChainTransferBlock:^
      {
          TPChainTransferViewController *transferVC = [[TPChainTransferViewController alloc] init];
+         transferVC.assetModel = self.assetModel;
          [self.navigationController pushViewController:transferVC animated:YES];
      }];
     
     [bottomView setChainReceiptBlock:^
      {
          TPChainReceiptViewController *receiptVC = [[TPChainReceiptViewController alloc] init];
+         receiptVC.assetModel = self.assetModel;
          [self.navigationController pushViewController:receiptVC animated:YES];
      }];
 }

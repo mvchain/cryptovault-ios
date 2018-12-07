@@ -79,6 +79,14 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
     [self setUpTableView];
     
     [self balanceRequest];
+    
+    [self assetRequest];
+    
+    [TPNotificationCenter addObserver:self selector:@selector(currencyNotification) name:TPPutCurrencyNotification object:nil];
+}
+
+-(void)currencyNotification
+{
     [self assetRequest];
 }
 
@@ -125,7 +133,6 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
     self.baseTableView.tableHeaderView = headerView;
     self.baseTableView.backgroundColor = [UIColor clearColor];
     self.baseTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.baseTableView.bounces = NO;
     [self.baseTableView mas_makeConstraints:^(MASConstraintMaker *make)
      {
          make.top.equalTo(@(StatusBarAndNavigationBarHeight));
@@ -143,12 +150,12 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
 
 -(void)setNavBackImage
 {
-    UIImageView *navBack = [YFactoryUI YImageViewWithimage:[UIImage imageNamed:@"bg_nav_1"]];
+    UIImageView *navBack = [YFactoryUI YImageViewWithimage:[UIImage imageNamed:@"X_sta_nav_bg"]];
     [self.view addSubview:navBack];
     [navBack mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.equalTo(@0);
         make.width.equalTo(@(KWidth));
-        make.height.equalTo(@198);
+        make.height.equalTo(@(StatusBarAndNavigationBarHeight));
     }];
     [self.view sendSubviewToBack:navBack];
 }
@@ -157,14 +164,14 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
 -(void)setNavgation
 {
     [self showSystemNavgation:NO];
-    self.customNavBar.title = @"个人中心";
+    self.customNavBar.title = @"VP Wallet";
     self.customNavBar.titleLabelColor = [UIColor whiteColor];
     self.customNavBar.barBackgroundColor = TPMainColor;
     [self.customNavBar wr_setBottomLineHidden:YES];
     [self.customNavBar wr_setBackgroundAlpha:0];
     
     
-    [self.customNavBar wr_setLeftButtonWithImage:[UIImage imageNamed:@"note_icon_1"]];
+    [self.customNavBar wr_setLeftButtonWithImage:[UIImage imageNamed:@"note_icon"]];
     [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"add_icon_white"]];
     
     TPWeakSelf;
