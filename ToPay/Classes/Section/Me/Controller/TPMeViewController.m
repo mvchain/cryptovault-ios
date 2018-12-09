@@ -27,12 +27,6 @@ static NSString  *TPMeCellCellId = @"meCell";
 {
     [super viewDidLoad];
     
-//    YYCache *yyCache = [YYCache cacheWithName:TPCacheName];
-//    
-//    TPCurrencyList *newList = (TPCurrencyList *)[yyCache objectForKey:TPCurrencyListKey];
-//    
-//    NSLog(@"newList:%@",newList);
-    
     self.customNavBar.title = @"我的";
     [self showSystemNavgation:NO];
     

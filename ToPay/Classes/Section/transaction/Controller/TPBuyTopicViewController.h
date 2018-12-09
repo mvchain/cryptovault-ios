@@ -10,6 +10,8 @@
 #import "TPProcessingCell.h"
 @interface TPBuyTopicViewController : TPStartViewController
 
+@property (nonatomic, strong) NSString *pairId;
+
 - (instancetype) initWithChainStyle:(TPStatusStyle)statusStyle;
 
 @end

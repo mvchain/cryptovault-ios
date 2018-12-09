@@ -11,4 +11,6 @@
 
 @interface TPBuyRecordViewController : TPStartViewController
 
+@property (nonatomic, strong) NSString *pairId;
+
 @end

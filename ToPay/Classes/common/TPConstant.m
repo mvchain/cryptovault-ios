@@ -13,7 +13,9 @@ NSString * const TPUserInfoKey = @"TPUserInfoKey";
 
 NSString * const TPCurrencyListKey = @"MHCurrencyListKey";
 
-//NSString * const TPCurrencyListTotal = @"TPCurrencyListTotal";
+NSString * const TPLegalCurrencyListKey = @"TPLegalCurrencyListKey";
+
+NSString * const TPNowLegalCurrencyKey = @"TPNowLegalCurrencyKey";
 
 NSString * const TPCurrencyRatioKey = @"MHCurrencyRatioKey";
 

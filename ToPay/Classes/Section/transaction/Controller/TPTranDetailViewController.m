@@ -11,6 +11,7 @@
 #import "TPUSDTViewController.h"
 #import "TPBuyRecordViewController.h"
 #import "TPSellViewController.h"
+#import "TPCurrencyList.h"
 @interface TPTranDetailViewController ()<SGPageContentScrollViewDelegate>
 @property (nonatomic, strong) UIView  *headerView;
 @property (nonatomic, strong) UISegmentedControl *segment;
@@ -31,16 +32,20 @@
 {
     [super viewDidLoad];
     
-//    self.navigationItem.title = @"BTC";
+    YYCache *listCache = [YYCache cacheWithName:TPCacheName];
+    CLData *cData = (CLData *)[listCache objectForKey:self.vrtTopic.tokenId];
+    
+    self.customNavBar.title = cData.tokenName;
     [self showSystemNavgation:NO];
     
     
-    self.customNavBar.title = @"BTC";
+      //@"BTC";
     [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"list_icon_1"]];
     TPWeakSelf;
     [self.customNavBar setOnClickRightButton:^
     {
         TPBuyRecordViewController *buyRecordVC = [[TPBuyRecordViewController alloc] init];
+        buyRecordVC.pairId = self.vrtTopic.pairId;
         [weakSelf.navigationController pushViewController:buyRecordVC animated:YES];
     }];
 
@@ -87,12 +92,13 @@
 
 -(void)setUpPageContentView
 {
-    TPUSDTViewController *VRTVC = [[TPUSDTViewController alloc] init];
+    TPUSDTViewController *VRTVC = [[TPUSDTViewController alloc] initWithPairId:self.vrtTopic.pairId WithTransactionType:@"1"];
     VRTVC.view.frame = CGRectMake(0, 0, KWidth, self.contentViewHeight);
-//    VRTVC.view.backgroundColor = YRandomColor;
-    TPUSDTViewController *balanceVC = [[TPUSDTViewController alloc] init];
+
+    TPUSDTViewController *balanceVC = [[TPUSDTViewController alloc] initWithPairId:self.vrtTopic.pairId WithTransactionType:@"2"];
     balanceVC.view.frame = CGRectMake(0, 0, KWidth, self.contentViewHeight);
-//    balanceVC.view.backgroundColor = YRandomColor;
+
+    
     NSArray *childArr = @[VRTVC, balanceVC];
     
     self.contentViewY = StatusBarAndNavigationBarHeight + 12 + 240 + 48 + 2;

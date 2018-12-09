@@ -41,12 +41,10 @@ static NSString  *TPVRTCellId = @"VRTCell";
     
     [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"transaction/pair" parameters:@{@"pairType":_transactionStyle == TPTransactionStyleVRT ? @1:@2} success:^(id responseObject, BOOL isCacheObject)
     {
-        NSLog(@"responseObject = %@", responseObject);
+//        NSLog(@"responseObject = %@", responseObject);
         if ([responseObject[@"code"] isEqual:@200])
         {
-            self.VRTTopic = [TPVRTModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
-            
-            
+            self.VRTTopic = [TPVRTModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];            
             [self.baseTableView reloadData];
         }
         
@@ -89,6 +87,7 @@ static NSString  *TPVRTCellId = @"VRTCell";
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TPTranDetailViewController *tranDetailVC = [[TPTranDetailViewController alloc] init];
+    tranDetailVC.vrtTopic = self.VRTTopic[indexPath.row];
     [self.navigationController pushViewController:tranDetailVC animated:YES];
 }
 

@@ -10,4 +10,6 @@
 
 @interface TPUSDTViewController : TPStartViewController
 
+- (instancetype)initWithPairId:(NSString *)pairId WithTransactionType:(NSString *)transactionType;
+
 @end

@@ -27,6 +27,18 @@ UIKIT_EXTERN NSString * const TPCurrencyListKey;
 
 
 /*
+ * 法币汇率数据
+ */
+UIKIT_EXTERN NSString * const TPLegalCurrencyListKey;
+
+
+/*
+ * 当前使用的法币汇率
+ */
+UIKIT_EXTERN NSString * const TPNowLegalCurrencyKey;
+
+
+/*
  * 币种比值
  */
 UIKIT_EXTERN NSString * const TPCurrencyRatioKey;

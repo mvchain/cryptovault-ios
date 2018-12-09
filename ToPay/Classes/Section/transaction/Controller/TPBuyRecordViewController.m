@@ -49,7 +49,9 @@
     [self.view addSubview:_pageTitleView];
     
     TPBuyTopicViewController *oneVC = [[TPBuyTopicViewController alloc] initWithChainStyle:TPStatusStyleProcessing];
+    oneVC.pairId = self.pairId;
     TPBuyTopicViewController *twoVC = [[TPBuyTopicViewController alloc] initWithChainStyle:TPStatusStylecarryOut];
+    twoVC.pairId = self.pairId;
     NSArray *childArr = @[oneVC,twoVC];
     
     CGFloat height = KHeight - StatusBarAndNavigationBarHeight - TAB_BAR_HEIGHT;

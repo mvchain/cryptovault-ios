@@ -109,9 +109,12 @@
 		DDDDFBA9219C27BF0056FC57 /* TPCapitalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFBA8219C27BF0056FC57 /* TPCapitalCell.m */; };
 		DDDDFBAC219D5A110056FC57 /* TPCapitalHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFBAB219D5A110056FC57 /* TPCapitalHeaderView.m */; };
 		DDDDFBAF219D60BC0056FC57 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFBAE219D60BC0056FC57 /* UIViewExt.m */; };
+		DDE1769221BBCFAA00167EB1 /* TPTransactionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE1769121BBCFAA00167EB1 /* TPTransactionModel.m */; };
+		DDE1769521BD1EED00167EB1 /* TPRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE1769421BD1EED00167EB1 /* TPRecordModel.m */; };
 		DDF7B9AD21BA4DA100BE35D6 /* TPUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF7B9AC21BA4DA100BE35D6 /* TPUserInfo.m */; };
 		DDF7B9B221BA65E200BE35D6 /* UIImage+YUExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF7B9AF21BA65E100BE35D6 /* UIImage+YUExtension.m */; };
 		DDF7B9B321BA65E200BE35D6 /* UIImageView+YUExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF7B9B021BA65E200BE35D6 /* UIImageView+YUExtension.m */; };
+		DDF7B9B621BBA25000BE35D6 /* TPExchangeRate.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF7B9B521BBA25000BE35D6 /* TPExchangeRate.m */; };
 		DDFBBA3D21B5317100BA09DE /* TPNotificationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFBBA3C21B5317100BA09DE /* TPNotificationModel.m */; };
 		DDFBBA4021B7997200BA09DE /* TPTokenTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFBBA3F21B7997200BA09DE /* TPTokenTopic.m */; };
 		DDFD5EC821B291CF00D64283 /* TPVRTModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFD5EC721B291CF00D64283 /* TPVRTModel.m */; };
@@ -344,12 +347,18 @@
 		DDDDFBAB219D5A110056FC57 /* TPCapitalHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPCapitalHeaderView.m; sourceTree = "<group>"; };
 		DDDDFBAD219D60BC0056FC57 /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
 		DDDDFBAE219D60BC0056FC57 /* UIViewExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExt.m; sourceTree = "<group>"; };
+		DDE1769021BBCFAA00167EB1 /* TPTransactionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTransactionModel.h; sourceTree = "<group>"; };
+		DDE1769121BBCFAA00167EB1 /* TPTransactionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTransactionModel.m; sourceTree = "<group>"; };
+		DDE1769321BD1EED00167EB1 /* TPRecordModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPRecordModel.h; sourceTree = "<group>"; };
+		DDE1769421BD1EED00167EB1 /* TPRecordModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPRecordModel.m; sourceTree = "<group>"; };
 		DDF7B9AB21BA4DA100BE35D6 /* TPUserInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPUserInfo.h; sourceTree = "<group>"; };
 		DDF7B9AC21BA4DA100BE35D6 /* TPUserInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPUserInfo.m; sourceTree = "<group>"; };
 		DDF7B9AE21BA65E100BE35D6 /* UIImageView+YUExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+YUExtension.h"; sourceTree = "<group>"; };
 		DDF7B9AF21BA65E100BE35D6 /* UIImage+YUExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+YUExtension.m"; sourceTree = "<group>"; };
 		DDF7B9B021BA65E200BE35D6 /* UIImageView+YUExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+YUExtension.m"; sourceTree = "<group>"; };
 		DDF7B9B121BA65E200BE35D6 /* UIImage+YUExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+YUExtension.h"; sourceTree = "<group>"; };
+		DDF7B9B421BBA25000BE35D6 /* TPExchangeRate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPExchangeRate.h; sourceTree = "<group>"; };
+		DDF7B9B521BBA25000BE35D6 /* TPExchangeRate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPExchangeRate.m; sourceTree = "<group>"; };
 		DDFBBA3B21B5317100BA09DE /* TPNotificationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPNotificationModel.h; sourceTree = "<group>"; };
 		DDFBBA3C21B5317100BA09DE /* TPNotificationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPNotificationModel.m; sourceTree = "<group>"; };
 		DDFBBA3E21B7997200BA09DE /* TPTokenTopic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTokenTopic.h; sourceTree = "<group>"; };
@@ -588,6 +597,10 @@
 			children = (
 				DDFD5EC621B291CF00D64283 /* TPVRTModel.h */,
 				DDFD5EC721B291CF00D64283 /* TPVRTModel.m */,
+				DDE1769021BBCFAA00167EB1 /* TPTransactionModel.h */,
+				DDE1769121BBCFAA00167EB1 /* TPTransactionModel.m */,
+				DDE1769321BD1EED00167EB1 /* TPRecordModel.h */,
+				DDE1769421BD1EED00167EB1 /* TPRecordModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -723,6 +736,8 @@
 				DD0239AE21AFF6ED00333446 /* TPCurrencyList.m */,
 				DD0239B321B1269E00333446 /* TPCurrencyRatio.h */,
 				DD0239B421B1269E00333446 /* TPCurrencyRatio.m */,
+				DDF7B9B421BBA25000BE35D6 /* TPExchangeRate.h */,
+				DDF7B9B521BBA25000BE35D6 /* TPExchangeRate.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1094,6 +1109,7 @@
 				DD02399B21AF968E00333446 /* WYNetworkUtils.m in Sources */,
 				DD10844421A001030087F244 /* NIMScannerBorder.m in Sources */,
 				DD0244082196C96B006A1390 /* main.m in Sources */,
+				DDE1769521BD1EED00167EB1 /* TPRecordModel.m in Sources */,
 				DDDDFBAC219D5A110056FC57 /* TPCapitalHeaderView.m in Sources */,
 				DD02399821AF968E00333446 /* WYNetworkCacheManager.m in Sources */,
 				DD1083E2219D83C20087F244 /* TPNotiCell.m in Sources */,
@@ -1153,8 +1169,10 @@
 				DDFBBA4021B7997200BA09DE /* TPTokenTopic.m in Sources */,
 				DD1083D9219D71410087F244 /* TPTokenCell.m in Sources */,
 				DD10845621A3EC7E0087F244 /* TPChainTransferViewController.m in Sources */,
+				DDF7B9B621BBA25000BE35D6 /* TPExchangeRate.m in Sources */,
 				DDDDFB93219BE19B0056FC57 /* TPHeaderRecordView.m in Sources */,
 				DD0239A321AFD9CA00333446 /* TPLoginModel.m in Sources */,
+				DDE1769221BBCFAA00167EB1 /* TPTransactionModel.m in Sources */,
 				DDDDFB97219C1A440056FC57 /* TPReservationViewController.m in Sources */,
 				DD10844521A001030087F244 /* NIMScanner.m in Sources */,
 				DDDDFB81219AB7350056FC57 /* TPVRTCell.m in Sources */,
@@ -1343,7 +1361,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/ToPay/TP.pch";
 				INFOPLIST_FILE = ToPay/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1367,7 +1385,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/ToPay/TP.pch";
 				INFOPLIST_FILE = ToPay/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -7,9 +7,12 @@
 //
 
 #import "TPBuyTopicViewController.h"
-
+#import "TPRecordModel.h"
 @interface TPBuyTopicViewController ()
 @property (nonatomic) TPStatusStyle statusStyle;
+
+@property (nonatomic, strong) NSArray <TPRecordModel *> *recordTopic;
+
 @end
 
 @implementation TPBuyTopicViewController
@@ -30,6 +33,26 @@ static NSString  *TPBuyTopicCellId = @"buyTopicCell";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"transaction/partake" parameters:@{@"pageSize":@"10",
+                     @"pairId":self.pairId,
+                     @"status":@(self.statusStyle),
+                     @"type":@"0"} success:^(id responseObject, BOOL isCacheObject)
+    {
+        if ([responseObject[@"code"] isEqual:@200])
+        {
+            NSLog(@"responseObject:%@",responseObject[@"data"]);
+            
+            self.recordTopic = [TPRecordModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+            [self.baseTableView reloadData];
+//            self.VRTTopic = [TPVRTModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+//            [self.baseTableView reloadData];
+        }
+    } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
+        NSLog(@" 筛选已参与订单失败：error = %@", error);
+    }];
+    
     self.baseTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.baseTableView mas_makeConstraints:^(MASConstraintMaker *make)
     {
@@ -43,7 +66,7 @@ static NSString  *TPBuyTopicCellId = @"buyTopicCell";
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return self.recordTopic.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -51,6 +74,8 @@ static NSString  *TPBuyTopicCellId = @"buyTopicCell";
     TPProcessingCell *cell = [tableView dequeueReusableCellWithIdentifier:TPBuyTopicCellId];
     if (!cell)
         cell = [[TPProcessingCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TPBuyTopicCellId WithStyle:_statusStyle];
+   
+    cell.record = self.recordTopic[indexPath.row];
     return cell;
 }
 

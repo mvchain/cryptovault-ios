@@ -70,7 +70,7 @@
     if (self.chooseCurrencyBlock) {
         self.chooseCurrencyBlock();
     }
-    [TPLoginUtil setRequestTokenBase];
+//    [TPLoginUtil setRequestTokenBase];
 }
 
 -(void)layoutSubviews

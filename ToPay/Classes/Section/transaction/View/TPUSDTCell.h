@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "TPTransactionModel.h"
 @interface TPUSDTCell : UITableViewCell
-
+@property (nonatomic, strong) TPTransactionModel *transModel;
 @end

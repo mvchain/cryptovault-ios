@@ -32,8 +32,8 @@
         
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        _titleArray = [NSMutableArray array];
-        _conArray = [NSMutableArray array];
+        _titleArray = [NSMutableArray<UILabel *> array];
+        _conArray = [NSMutableArray<UILabel *> array];
         
         self.backgroundColor = TPF6Color;
         
@@ -73,6 +73,27 @@
         [_backView addSubview:_timeLab];
     }
     return self;
+}
+
+-(void)setRecord:(TPRecordModel *)record
+{
+    _record = record;
+    
+    if (self.isProcessing == YES)
+    {
+        self.conArray[0].text = record.deal;
+        self.conArray[1].text = record.price;
+    }
+        else
+    {
+        self.conArray[0].text = record.orderNumber;
+        self.conArray[1].text = record.nickname;
+        self.conArray[2].text = record.deal;
+        self.conArray[3].text = record.price;
+    }
+    
+    
+    _timeLab.text = [record.createdAt conversionTimeStamp];
 }
 
 -(void)layoutSubviews

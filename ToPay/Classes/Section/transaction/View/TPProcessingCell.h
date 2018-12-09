@@ -7,14 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "TPRecordModel.h"
 typedef NS_ENUM(NSUInteger, TPStatusStyle)
 {
-    TPStatusStyleProcessing,  // 进行中
-    TPStatusStylecarryOut,   // 完成
+    TPStatusStyleProcessing = 0,  // 进行中
+    TPStatusStylecarryOut = 1,   // 完成
 };
 
 @interface TPProcessingCell : UITableViewCell
+
+@property (nonatomic, strong) TPRecordModel *record;
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithStyle:(TPStatusStyle)statusStyle;
 

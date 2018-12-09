@@ -26,6 +26,12 @@
 +(void)setRequestInfo;
 
 /*
+ * 请求法币汇率
+ */
++(void)requestExchangeRate;
+
+
+/*
  *  保存-用户-信息
  */
 +(void)saveUserInfo:(TPLoginModel *)userInfo;
@@ -37,6 +43,9 @@
 
 +(BOOL)quitWithRemoveUserInfo;
 
+/*
+ * NO 未登录  YES 已登录
+ */
 +(BOOL)isLogin;
 
 @end

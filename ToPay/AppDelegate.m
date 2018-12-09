@@ -29,8 +29,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self setUpNetWorkManager];
-    [self setUpRefreshToken];
-    
+    [self refreshToken];
+
     
     [self setUpWindow];
     
@@ -95,14 +95,7 @@
     NSArray *tabBarItemImages = @[@"assets", @"trand", @"Crowdfunding", @"mine"];
     NSArray *tabBarItemTitle = @[@"资产", @"交易", @"众筹", @"我的"];
     NSInteger index = 0;
-//    assets_Selected_icon
-//    assets_unSelected_icon
-//    trand_selected_icon
-//    trand_unselected_icon
-//    Crowdfunding_selected_icon
-//    Crowdfunding_unselected_icon
-//    mine_selected_icon
-//    mine_unselected_icon
+
     for (RDVTabBarItem *item in [[tabBarController tabBar] items])
     {
         
@@ -187,10 +180,11 @@
     }
 }
 
--(void)setUpRefreshToken
+-(void)refreshToken
 {
     if ([TPLoginUtil isLogin] == NO)
     {
+        [USER_DEFAULT setObject:@"1" forKey:TPNowLegalCurrencyKey];
         return ;
     }
     
@@ -208,8 +202,7 @@
                                                               @"Authorization":[TPLoginUtil userInfo].token,
                                                               @"Accept-Language":@"zh-cn"
                                                               }];
-            
-            
+            [TPLoginUtil requestExchangeRate];
         }
     }
         failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)

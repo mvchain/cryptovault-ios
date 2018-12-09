@@ -12,7 +12,7 @@
 #import "TPAddTokenViewController.h"
 #import <WRNavigationBar/WRCustomNavigationBar.h>
 #import "BCQMView.h"
-#import "TPCurrencyRatio.h"
+#import "TPExchangeRate.h"
 
 #import "TPAssetModel.h"
 #import "TPCapitalCell.h"
@@ -39,9 +39,9 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
     if (!_qmView)
     {
         YYCache *listCache = [YYCache cacheWithName:TPCacheName];
-        NSArray *listArr = (NSArray *)[listCache objectForKey:TPCurrencyRatioKey];
+        NSArray <TPExchangeRate *>*listArr = (NSArray<TPExchangeRate *> *)[listCache objectForKey:TPLegalCurrencyListKey];
         
-        _qmView = [[BCQMView alloc]initWithFrame:CGRectMake(KWidth /2 - 100/2,StatusBarAndNavigationBarHeight+ 60, 100, listArr.count * 36) style:UITableViewStylePlain];
+        _qmView = [[BCQMView alloc]initWithFrame:CGRectMake(KWidth / 2 - 100 / 2,StatusBarAndNavigationBarHeight+ 60, 100, listArr.count * 36) style:UITableViewStylePlain];
         _qmView.layer.cornerRadius = 6;
         _qmView.layer.borderWidth = 1;
         _qmView.layer.borderColor = TPMainColor.CGColor;
@@ -49,19 +49,21 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
         
         for (int i = 0 ; i <listArr.count ; i++)
         {
-            TPCurrencyRatio *ratio = listArr[i];
-            [titArray addObject:ratio.tokenName];
+            TPExchangeRate *ratio = listArr[i];
+            [titArray addObject:ratio.name];
         }
         _qmView.titArr = titArray;
         
         TPWeakSelf;
         [self.qmView setShowMenuBlock:^(NSInteger currentIndex)
         {
-            TPCurrencyRatio *ratioM = listArr[currentIndex];
-            weakSelf.headerView.ratio = ratioM.ratio;
-            weakSelf.headerView.nickName = ratioM.tokenName;
-            weakSelf.ratio = ratioM.ratio;
+            TPExchangeRate *ratioM = listArr[currentIndex];
+            weakSelf.headerView.ratio = [ratioM.value floatValue];
+            weakSelf.headerView.nickName = ratioM.name;
+            weakSelf.ratio = [ratioM.value floatValue];
             [weakSelf.baseTableView reloadData];
+            
+            [USER_DEFAULT setObject:ratioM.value forKey:TPNowLegalCurrencyKey];
         }];
     }
     return _qmView;

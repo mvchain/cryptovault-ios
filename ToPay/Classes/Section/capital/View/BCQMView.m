@@ -21,7 +21,7 @@
     if (!_backView)
     {
         _backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KWidth, KHeight)];
-//        _backView.backgroundColor = [[UIColor blackColor]colorWithAlphaComponent:0.3];
+        _backView.backgroundColor = [[UIColor blackColor]colorWithAlphaComponent:0.3];
         
         _backView.userInteractionEnabled = YES;
         
@@ -38,6 +38,7 @@
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
         self.scrollEnabled = NO;
         [self setLayer:4 WithBackColor:[UIColor blackColor]];
+//        self.backgroundColor = [UIColor orangeColor];
         self.alpha = 0.0f;
 
 //        if ([state isEqualToString:@"state"])
@@ -53,10 +54,10 @@
     }
     return self;
 }
+
 #pragma mark -- UITapGestureRecognizer
 -(void)dianji:(UITapGestureRecognizer *)sender
 {
-//    self.showMenuBlock(10);/
     [self showMenuWithAnimation:NO];
 }
 
@@ -125,10 +126,10 @@
         }
             else
         {
-            
+
             self.alpha = 0;
             self.transform = CGAffineTransformMakeScale(0.01, 0.01);
-            
+
         }
     } completion:^(BOOL finished) {
 

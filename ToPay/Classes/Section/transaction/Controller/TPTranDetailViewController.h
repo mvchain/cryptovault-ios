@@ -7,7 +7,9 @@
 //
 
 #import "TPStartViewController.h"
-
+#import "TPVRTModel.h"
 @interface TPTranDetailViewController : TPStartViewController
+
+@property (nonatomic, strong) TPVRTModel *vrtTopic;
 
 @end

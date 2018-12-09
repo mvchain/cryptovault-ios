@@ -10,6 +10,7 @@
 #import "TPCurrencyList.h"
 #import "TPCurrencyRatio.h"
 #import "TPUserInfo.h"
+#import "TPExchangeRate.h"
 #define loginFileName @"loginUser.plist"
 #define TPFilePathWithName(fileName) [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:fileName]
 #define loginFilePath TPFilePathWithName(loginFileName)
@@ -51,9 +52,9 @@
         for (int i = 0 ; i <currencyList.data.count ; i++)
         {
             CLData *clData = currencyList.data[i];
+            
             [listCache setObject:clData forKey:currencyList.data[i].tokenId];
         }
-        
     }
         failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
     {
@@ -84,7 +85,7 @@
     {
         NSLog(@"data:%@",responseObject[@"data"]);
         TPUserInfo *TPInfo = [TPUserInfo mj_objectWithKeyValues:responseObject[@"data"]];
-//        TPInfo
+
         YYCache *listCache = [YYCache cacheWithName:TPCacheName];
         [listCache setObject:TPInfo forKey:TPUserInfoKey];
     }
@@ -92,6 +93,33 @@
     {
         NSLog(@"获取用户信息失败：error = %@", error);
     }];
+}
+
++(void)requestExchangeRate
+{
+    [[WYNetworkManager  sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"token/exchange/rate" success:^(id responseObject, BOOL isCacheObject)
+     {
+         if ([responseObject[@"code"] isEqual:@200])
+         {
+             NSArray<TPExchangeRate *> *exchanges = [TPExchangeRate mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+             
+             
+             NSLog(@"%@",responseObject[@"data"]);
+             
+             YYCache *listCache = [YYCache cacheWithName:TPCacheName];
+             [listCache setObject:exchanges forKey:TPLegalCurrencyListKey];
+             
+             for (int i = 0 ; i <exchanges.count ; i++)
+             {
+                 TPExchangeRate *exRate = exchanges[i];
+                 [listCache setObject:exRate.value forKey:exRate.name];
+             }
+         }
+     }
+        failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
+     {
+         NSLog(@"获取法币汇率失败 %@",error);
+     }];
 }
 
 

@@ -61,11 +61,7 @@
         _numLab = [YFactoryUI YLableWithText:@"123.4567" color:TP8EColor font:FONT(12)];
         [_backView addSubview:_numLab];
         
-        
         _listCache = [YYCache cacheWithName:TPCacheName];
-        
-//       TPCurrencyList *currencyList = (TPCurrencyList *)[listCache objectForKey:TPCurrencyListKey];
-//        NSLog(@"%@",currencyList);
     }
     return self;
 }

@@ -66,7 +66,12 @@
     
     _nickLab.text = VRTModel.tokenName;
 
-    _floatLab.text = VRTModel.ratio;
+    _VRTpriceLab.text = TPString(@"%.4f %@",[VRTModel.ratio floatValue],[self getTokenName:VRTModel.tokenName WithPair:VRTModel.pair]);
+    
+    _priceLab.text =  TPString(@"%.4f",[VRTModel.ratio floatValue] / [[USER_DEFAULT objectForKey:TPNowLegalCurrencyKey] floatValue]);
+    
+    //percentage
+    _floatLab.text = TPString(@"%@%%",VRTModel.increase);
     
     if ([VRTModel.transactionStatus isEqualToString:@"0"])
     {
@@ -74,8 +79,18 @@
         _floatLab.text = @"-";
     }
     
-    
 }
+
+-(NSString *)getTokenName:(NSString *)tokenName WithPair:(NSString *)pair
+{
+    //match string
+    NSRange range = [pair rangeOfString:tokenName];
+    
+    NSRange newRange = NSMakeRange(0,pair.length - range.length-1);
+    //Intercept Range of strings
+    return [pair substringWithRange:newRange];
+}
+
 
 
 -(void)layoutSubviews

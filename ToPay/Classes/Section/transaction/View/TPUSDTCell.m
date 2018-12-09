@@ -31,7 +31,7 @@
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
         _iconImgV = [YFactoryUI YImageViewWithimage:nil];
-        _iconImgV.backgroundColor = YRandomColor;
+        
         [self addSubview:_iconImgV];
         
         _nickLab = [YFactoryUI YLableWithText:@"阿三" color:TP59Color font:FONT(14)];
@@ -44,6 +44,19 @@
         [self addSubview:_priceLab];
     }
     return self;
+}
+
+-(void)setTransModel:(TPTransactionModel *)transModel
+{
+    _transModel = transModel;
+    
+    [_iconImgV setHeader:transModel.headImage];
+    
+    _nickLab.text =  transModel.nickname;
+    
+    _limitLab.text = TPString(@"购买限额：%@",transModel.limitValue);
+    
+    _priceLab.text = transModel.total;
 }
 
 -(void)layoutSubviews
