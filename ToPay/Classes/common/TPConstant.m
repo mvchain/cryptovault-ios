@@ -17,6 +17,10 @@ NSString * const TPLegalCurrencyListKey = @"TPLegalCurrencyListKey";
 
 NSString * const TPNowLegalCurrencyKey = @"TPNowLegalCurrencyKey";
 
+NSString * const TPPairBalanceKey = @"TPPairBalanceKey";
+NSString * const TPPairVRTKey = @"TPPairVRTKey";
+
+
 NSString * const TPCurrencyRatioKey = @"MHCurrencyRatioKey";
 
 NSString * const TPBalanceDefaultKey = @"TPBalanceDefaultKey";

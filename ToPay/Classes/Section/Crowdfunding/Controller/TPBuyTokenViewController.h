@@ -7,7 +7,9 @@
 //
 
 #import "TPStartViewController.h"
-
+#import "TPCrowdfundingModel.h"
 @interface TPBuyTokenViewController : TPStartViewController
+
+@property (nonatomic, strong) TPCrowdfundingModel *croModel;
 
 @end

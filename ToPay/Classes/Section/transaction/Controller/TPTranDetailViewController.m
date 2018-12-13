@@ -18,6 +18,8 @@
 @property (nonatomic, strong) SGPageContentScrollView *pageContentScrollView;
 @property (nonatomic) CGFloat contentViewY;
 @property (nonatomic) CGFloat contentViewHeight;
+
+@property (nonatomic, strong) CLData *cData;
 @end
 
 @implementation TPTranDetailViewController
@@ -33,19 +35,20 @@
     [super viewDidLoad];
     
     YYCache *listCache = [YYCache cacheWithName:TPCacheName];
-    CLData *cData = (CLData *)[listCache objectForKey:self.vrtTopic.tokenId];
+    self.cData = (CLData *)[listCache objectForKey:self.vrtTopic.tokenId];
     
-    self.customNavBar.title = cData.tokenName;
+    self.customNavBar.title = self.cData.tokenName;
     [self showSystemNavgation:NO];
     
     
-      //@"BTC";
-    [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"list_icon_1"]];
+      
     TPWeakSelf;
+    [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"list_icon_black"]];
+    
     [self.customNavBar setOnClickRightButton:^
     {
         TPBuyRecordViewController *buyRecordVC = [[TPBuyRecordViewController alloc] init];
-        buyRecordVC.pairId = self.vrtTopic.pairId;
+        buyRecordVC.pairId = weakSelf.vrtTopic.pairId;
         [weakSelf.navigationController pushViewController:buyRecordVC animated:YES];
     }];
 
@@ -78,14 +81,16 @@
     [bottomView setChainTransferBlock:^
     {
         NSLog(@"发布出售订单");
-        TPSellViewController *SellVC = [[TPSellViewController alloc]init];
+        TPSellViewController *SellVC = [[TPSellViewController alloc]initWithPairId:self.vrtTopic.pairId WithTransType:TPTransactionTypeTransferOut];
+        SellVC.customNavBar.title = TPString(@"出售%@",self.cData.tokenName);
         [self.navigationController pushViewController:SellVC animated:YES];
     }];
     
     [bottomView setChainReceiptBlock:^
     {
         NSLog(@"发布购买订单");
-        TPSellViewController *SellVC = [[TPSellViewController alloc]init];
+        TPSellViewController *SellVC = [[TPSellViewController alloc]initWithPairId:self.vrtTopic.pairId WithTransType:TPTransactionTypeTransfer];
+        SellVC.customNavBar.title = TPString(@"购买%@",self.cData.tokenName);
         [self.navigationController pushViewController:SellVC animated:YES];
     }];
 }
@@ -112,7 +117,7 @@
 
 -(void)setUpSegment
 {
-    UISegmentedControl *segment = [[UISegmentedControl alloc] initWithItems:@[@"购买USDT",@"出售USDT"]];
+    UISegmentedControl *segment = [[UISegmentedControl alloc] initWithItems:@[TPString(@"购买%@",self.cData.tokenName),TPString(@"出售%@",self.cData.tokenName)]];
     segment.selectedSegmentIndex = 0;
     segment.tintColor = TPMainColor;
     [segment addTarget:self action:@selector(change:) forControlEvents:UIControlEventValueChanged];

@@ -111,6 +111,14 @@
 		DDDDFBAF219D60BC0056FC57 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFBAE219D60BC0056FC57 /* UIViewExt.m */; };
 		DDE1769221BBCFAA00167EB1 /* TPTransactionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE1769121BBCFAA00167EB1 /* TPTransactionModel.m */; };
 		DDE1769521BD1EED00167EB1 /* TPRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE1769421BD1EED00167EB1 /* TPRecordModel.m */; };
+		DDE1769F21BE5C9500167EB1 /* SJLabelSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE1769721BE5C9500167EB1 /* SJLabelSlider.m */; };
+		DDE176A021BE5C9500167EB1 /* SJSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE1769A21BE5C9500167EB1 /* SJSlider.m */; };
+		DDE176A121BE5C9500167EB1 /* SJCommonSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE1769B21BE5C9500167EB1 /* SJCommonSlider.m */; };
+		DDE176A221BE5C9500167EB1 /* SJButtonSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE1769D21BE5C9500167EB1 /* SJButtonSlider.m */; };
+		DDE176A521BE74D700167EB1 /* TPTransInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE176A421BE74D700167EB1 /* TPTransInfoModel.m */; };
+		DDE176A821C0B63C00167EB1 /* TPCrowdfundingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE176A721C0B63C00167EB1 /* TPCrowdfundingModel.m */; };
+		DDF69FB521C0F42C006EE7A4 /* CountDown.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF69FB321C0F42C006EE7A4 /* CountDown.m */; };
+		DDF69FB821C12A35006EE7A4 /* TPCroRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF69FB721C12A35006EE7A4 /* TPCroRecordModel.m */; };
 		DDF7B9AD21BA4DA100BE35D6 /* TPUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF7B9AC21BA4DA100BE35D6 /* TPUserInfo.m */; };
 		DDF7B9B221BA65E200BE35D6 /* UIImage+YUExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF7B9AF21BA65E100BE35D6 /* UIImage+YUExtension.m */; };
 		DDF7B9B321BA65E200BE35D6 /* UIImageView+YUExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF7B9B021BA65E200BE35D6 /* UIImageView+YUExtension.m */; };
@@ -351,6 +359,22 @@
 		DDE1769121BBCFAA00167EB1 /* TPTransactionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTransactionModel.m; sourceTree = "<group>"; };
 		DDE1769321BD1EED00167EB1 /* TPRecordModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPRecordModel.h; sourceTree = "<group>"; };
 		DDE1769421BD1EED00167EB1 /* TPRecordModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPRecordModel.m; sourceTree = "<group>"; };
+		DDE1769721BE5C9500167EB1 /* SJLabelSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJLabelSlider.m; sourceTree = "<group>"; };
+		DDE1769821BE5C9500167EB1 /* SJCommonSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJCommonSlider.h; sourceTree = "<group>"; };
+		DDE1769921BE5C9500167EB1 /* SJButtonSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJButtonSlider.h; sourceTree = "<group>"; };
+		DDE1769A21BE5C9500167EB1 /* SJSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJSlider.m; sourceTree = "<group>"; };
+		DDE1769B21BE5C9500167EB1 /* SJCommonSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJCommonSlider.m; sourceTree = "<group>"; };
+		DDE1769C21BE5C9500167EB1 /* SJLabelSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJLabelSlider.h; sourceTree = "<group>"; };
+		DDE1769D21BE5C9500167EB1 /* SJButtonSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJButtonSlider.m; sourceTree = "<group>"; };
+		DDE1769E21BE5C9500167EB1 /* SJSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJSlider.h; sourceTree = "<group>"; };
+		DDE176A321BE74D700167EB1 /* TPTransInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTransInfoModel.h; sourceTree = "<group>"; };
+		DDE176A421BE74D700167EB1 /* TPTransInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTransInfoModel.m; sourceTree = "<group>"; };
+		DDE176A621C0B63C00167EB1 /* TPCrowdfundingModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPCrowdfundingModel.h; sourceTree = "<group>"; };
+		DDE176A721C0B63C00167EB1 /* TPCrowdfundingModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPCrowdfundingModel.m; sourceTree = "<group>"; };
+		DDF69FB321C0F42C006EE7A4 /* CountDown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountDown.m; sourceTree = "<group>"; };
+		DDF69FB421C0F42C006EE7A4 /* CountDown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountDown.h; sourceTree = "<group>"; };
+		DDF69FB621C12A35006EE7A4 /* TPCroRecordModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPCroRecordModel.h; sourceTree = "<group>"; };
+		DDF69FB721C12A35006EE7A4 /* TPCroRecordModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPCroRecordModel.m; sourceTree = "<group>"; };
 		DDF7B9AB21BA4DA100BE35D6 /* TPUserInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPUserInfo.h; sourceTree = "<group>"; };
 		DDF7B9AC21BA4DA100BE35D6 /* TPUserInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPUserInfo.m; sourceTree = "<group>"; };
 		DDF7B9AE21BA65E100BE35D6 /* UIImageView+YUExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+YUExtension.h"; sourceTree = "<group>"; };
@@ -538,6 +562,7 @@
 		DD02442B2196D1B8006A1390 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				DDE1769621BE5C9500167EB1 /* SJSlider */,
 				DD02397321AF968E00333446 /* WYNetwork */,
 				DD02392E21ABCE8100333446 /* GBTagListView2.0 */,
 				DD10842E21A001030087F244 /* QRCode */,
@@ -601,6 +626,8 @@
 				DDE1769121BBCFAA00167EB1 /* TPTransactionModel.m */,
 				DDE1769321BD1EED00167EB1 /* TPRecordModel.h */,
 				DDE1769421BD1EED00167EB1 /* TPRecordModel.m */,
+				DDE176A321BE74D700167EB1 /* TPTransInfoModel.h */,
+				DDE176A421BE74D700167EB1 /* TPTransInfoModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -790,6 +817,10 @@
 		DD02443B2196D1B8006A1390 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DDE176A621C0B63C00167EB1 /* TPCrowdfundingModel.h */,
+				DDE176A721C0B63C00167EB1 /* TPCrowdfundingModel.m */,
+				DDF69FB621C12A35006EE7A4 /* TPCroRecordModel.h */,
+				DDF69FB721C12A35006EE7A4 /* TPCroRecordModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -831,6 +862,8 @@
 		DD02443E2196D1B8006A1390 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				DDF69FB421C0F42C006EE7A4 /* CountDown.h */,
+				DDF69FB321C0F42C006EE7A4 /* CountDown.m */,
 				DDDDFBAD219D60BC0056FC57 /* UIViewExt.h */,
 				DDDDFBAE219D60BC0056FC57 /* UIViewExt.m */,
 				DDDDFB82219AB8C40056FC57 /* YFactoryUI.h */,
@@ -887,6 +920,21 @@
 				DD10844C21A28E3C0087F244 /* TPStartViewController.m */,
 			);
 			path = common;
+			sourceTree = "<group>";
+		};
+		DDE1769621BE5C9500167EB1 /* SJSlider */ = {
+			isa = PBXGroup;
+			children = (
+				DDE1769E21BE5C9500167EB1 /* SJSlider.h */,
+				DDE1769A21BE5C9500167EB1 /* SJSlider.m */,
+				DDE1769C21BE5C9500167EB1 /* SJLabelSlider.h */,
+				DDE1769721BE5C9500167EB1 /* SJLabelSlider.m */,
+				DDE1769921BE5C9500167EB1 /* SJButtonSlider.h */,
+				DDE1769D21BE5C9500167EB1 /* SJButtonSlider.m */,
+				DDE1769821BE5C9500167EB1 /* SJCommonSlider.h */,
+				DDE1769B21BE5C9500167EB1 /* SJCommonSlider.m */,
+			);
+			path = SJSlider;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1097,18 +1145,22 @@
 				DDF7B9B221BA65E200BE35D6 /* UIImage+YUExtension.m in Sources */,
 				DD02444A2196DD57006A1390 /* TPMeViewController.m in Sources */,
 				DD02399221AF968E00333446 /* WYNetworkConfig.m in Sources */,
+				DDE176A121BE5C9500167EB1 /* SJCommonSlider.m in Sources */,
 				DDF7B9B321BA65E200BE35D6 /* UIImageView+YUExtension.m in Sources */,
 				DD0239A021AFD6E800333446 /* TPLoginUtil.m in Sources */,
 				DD10842A219EB2280087F244 /* TPLangUageCell.m in Sources */,
 				DD0244412196DD23006A1390 /* TPCapitalViewController.m in Sources */,
 				DD0239AF21AFF6ED00333446 /* TPCurrencyList.m in Sources */,
+				DDE176A221BE5C9500167EB1 /* SJButtonSlider.m in Sources */,
 				DD02392721A7AC8400333446 /* TPBuyRecordViewController.m in Sources */,
 				DD0239AC21AFF2F500333446 /* TPConstant.m in Sources */,
+				DDE176A021BE5C9500167EB1 /* SJSlider.m in Sources */,
 				DD10844621A001030087F244 /* NIMScannerMaskView.m in Sources */,
 				DD72F42B21998491004C0DAF /* TPNavigationBarTitleView.m in Sources */,
 				DD02399B21AF968E00333446 /* WYNetworkUtils.m in Sources */,
 				DD10844421A001030087F244 /* NIMScannerBorder.m in Sources */,
 				DD0244082196C96B006A1390 /* main.m in Sources */,
+				DDE1769F21BE5C9500167EB1 /* SJLabelSlider.m in Sources */,
 				DDE1769521BD1EED00167EB1 /* TPRecordModel.m in Sources */,
 				DDDDFBAC219D5A110056FC57 /* TPCapitalHeaderView.m in Sources */,
 				DD02399821AF968E00333446 /* WYNetworkCacheManager.m in Sources */,
@@ -1117,6 +1169,7 @@
 				DD02391821A50AC100333446 /* TPAddTokenCell.m in Sources */,
 				DD02399D21AF968E00333446 /* WYImageScaleTool.m in Sources */,
 				DDDDFBAF219D60BC0056FC57 /* UIViewExt.m in Sources */,
+				DDE176A521BE74D700167EB1 /* TPTransInfoModel.m in Sources */,
 				DD02391B21A5328500333446 /* TPBuyTokenViewController.m in Sources */,
 				DD02399621AF968E00333446 /* WYNetworkUploadEngine.m in Sources */,
 				DD108424219EA5570087F244 /* TPMeHeaderView.m in Sources */,
@@ -1142,6 +1195,7 @@
 				DD0244472196DD4E006A1390 /* TPCrowdfundingViewController.m in Sources */,
 				DD02392D21A7D6CA00333446 /* TPBuyTopicViewController.m in Sources */,
 				DD72F431219A7DA7004C0DAF /* TPBalanceViewController.m in Sources */,
+				DDF69FB821C12A35006EE7A4 /* TPCroRecordModel.m in Sources */,
 				DD02392A21A7B1AC00333446 /* TPProcessingCell.m in Sources */,
 				DD02399321AF968E00333446 /* WYNetworkRequestPool.m in Sources */,
 				DD1083DC219D76560087F244 /* TPTokenTopicViewController.m in Sources */,
@@ -1163,6 +1217,7 @@
 				DD02393721ABECD100333446 /* TPSellViewController.m in Sources */,
 				DD0239B521B1269E00333446 /* TPCurrencyRatio.m in Sources */,
 				DD10845021A2B4B60087F244 /* TPTokenBottomView.m in Sources */,
+				DDF69FB521C0F42C006EE7A4 /* CountDown.m in Sources */,
 				DDDDFB8D219AD92F0056FC57 /* TPCFTopicViewController.m in Sources */,
 				DDFBBA3D21B5317100BA09DE /* TPNotificationModel.m in Sources */,
 				DD02395421AE84CB00333446 /* SYPasswordView.m in Sources */,
@@ -1172,6 +1227,7 @@
 				DDF7B9B621BBA25000BE35D6 /* TPExchangeRate.m in Sources */,
 				DDDDFB93219BE19B0056FC57 /* TPHeaderRecordView.m in Sources */,
 				DD0239A321AFD9CA00333446 /* TPLoginModel.m in Sources */,
+				DDE176A821C0B63C00167EB1 /* TPCrowdfundingModel.m in Sources */,
 				DDE1769221BBCFAA00167EB1 /* TPTransactionModel.m in Sources */,
 				DDDDFB97219C1A440056FC57 /* TPReservationViewController.m in Sources */,
 				DD10844521A001030087F244 /* NIMScanner.m in Sources */,

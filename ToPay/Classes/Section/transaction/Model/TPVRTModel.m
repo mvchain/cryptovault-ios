@@ -10,4 +10,6 @@
 
 @implementation TPVRTModel
 
+MJCodingImplementation
+
 @end

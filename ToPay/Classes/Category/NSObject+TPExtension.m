@@ -35,4 +35,10 @@
 }
 
 
+-(long long)longLongFromDate
+{
+    NSDate * dat = [NSDate date];
+    return [dat timeIntervalSinceDate:dat] * 1000;
+}
+
 @end

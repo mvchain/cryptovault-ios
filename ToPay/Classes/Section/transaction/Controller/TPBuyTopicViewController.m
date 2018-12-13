@@ -11,7 +11,7 @@
 @interface TPBuyTopicViewController ()
 @property (nonatomic) TPStatusStyle statusStyle;
 
-@property (nonatomic, strong) NSArray <TPRecordModel *> *recordTopic;
+@property (nonatomic, strong) NSMutableArray <TPRecordModel *> *recordTopic;
 
 @end
 
@@ -46,10 +46,10 @@ static NSString  *TPBuyTopicCellId = @"buyTopicCell";
             
             self.recordTopic = [TPRecordModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
             [self.baseTableView reloadData];
-//            self.VRTTopic = [TPVRTModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
-//            [self.baseTableView reloadData];
         }
-    } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
+    }
+        failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
+    {
         NSLog(@" 筛选已参与订单失败：error = %@", error);
     }];
     
@@ -76,6 +76,24 @@ static NSString  *TPBuyTopicCellId = @"buyTopicCell";
         cell = [[TPProcessingCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TPBuyTopicCellId WithStyle:_statusStyle];
    
     cell.record = self.recordTopic[indexPath.row];
+    __block TPProcessingCell *proCell = cell;
+    cell.withdrawalBlock = ^
+    {
+        
+        [[WYNetworkManager sharedManager]sendDeleteRequest:WYJSONRequestSerializer url:TPString(@"transaction/%@",proCell.record.id) parameters:@{@"id":proCell.record.id} success:^(id responseObject, BOOL isCacheObject)
+        {
+            if ([responseObject[@"code"] isEqual:@200])
+            {
+                NSLog(@"撤单成功");
+                [self.recordTopic removeObjectAtIndex:indexPath.row];
+                [self.baseTableView reloadData];
+            }
+        }
+            failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
+        {
+            NSLog(@"撤单失败 %@",error);
+        }];
+    };
     return cell;
 }
 

@@ -8,11 +8,19 @@
 
 #import "TPBuyTokenViewController.h"
 #import "TPComTextView.h"
+#import "TPTransView.h"
 @interface TPBuyTokenViewController ()
 
 @property (nonatomic, strong) UIView *headerView;
 @property (nonatomic, strong) UIView *bottomView;
 
+@property (nonatomic, strong) UILabel *mostlimitLab;
+@property (nonatomic, strong) UILabel *leastlimitLab;
+@property (nonatomic, strong) UILabel *availableLab;
+@property (nonatomic, strong) UILabel *proportionLab;
+@property (nonatomic, strong) TPComTextView *buyTextView;
+
+@property (nonatomic, strong) UIButton *reservationBtn;
 @end
 
 @implementation TPBuyTokenViewController
@@ -21,23 +29,35 @@
 {
     [super viewDidLoad];
     
+    self.customNavBar.title = @"项目名称";
+    
     [self createheaderView];
     [self createBottomView];
+    [self createBtn];
     
-    UIButton *reservationBtn = [YFactoryUI YButtonWithTitle:@"立即预约" Titcolor:[UIColor colorWithHex:@"#D5D7D6"] font:FONT(15) Image:nil target:self action:@selector(reservationClick)];
-    [reservationBtn setLayer:22 WithBackColor:[UIColor colorWithHex:@"#EBF1FB"]];
-    [self.view addSubview:reservationBtn];
-    
-    [reservationBtn mas_makeConstraints:^(MASConstraintMaker *make)
-    {
-        make.centerX.equalTo(self.view);
-        make.bottom.equalTo(self.view.mas_bottom).with.offset(-(56 + HOME_INDICATOR_HEIGHT));
-        make.width.equalTo(@343);
-        make.height.equalTo(@44);
-    }];
-    
+}
 
-    self.customNavBar.title = @"预约 POT";
+-(void)setCroModel:(TPCrowdfundingModel *)croModel
+{
+    _croModel = croModel;
+    
+    self.proportionLab.text = TPString(@"兑换比例 1%@ = %@%@",croModel.tokenName,croModel.ratio,croModel.baseTokenName);
+    
+    NSLog(@"projectId:%@",self.croModel.projectId);
+    [[WYNetworkManager sharedManager]sendGetRequest:WYJSONRequestSerializer url:TPString(@"project/%@/purchase",self.croModel.projectId) parameters:@{@"id":self.croModel.projectId} success:^(id responseObject, BOOL isCacheObject)
+     {
+         if ([responseObject[@"code"] isEqual:@200])
+         {
+//             NSLog(@"%@",responseObject[@"data"]);
+             self.mostlimitLab.text = TPString(@"最多预约：%@",responseObject[@"data"][@"limitValue"]);
+             self.leastlimitLab.text = TPString(@"最少预约：%@",responseObject[@"data"][@"projectMin"]);
+             self.availableLab.text = TPString(@"可用VRT：%@",responseObject[@"data"][@"balance"]);
+         }
+     }
+        failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
+     {
+         NSLog(@"获取项目购买信息失败");
+     }];
 }
 
 -(void)createheaderView
@@ -70,12 +90,13 @@
     [nickLab mas_makeConstraints:^(MASConstraintMaker *make)
      {
          make.left.equalTo(iconV.mas_right).with.offset(12);
-         make.top.equalTo(@16);
+         make.top.equalTo(@8);
          make.height.equalTo(@22);
      }];
     
     UILabel *mostlimitLab = [YFactoryUI YLableWithText:@"最多预约：15000" color:TP8EColor font:FONT(11)];
     [headerView addSubview:mostlimitLab];
+    self.mostlimitLab = mostlimitLab;
     [mostlimitLab mas_makeConstraints:^(MASConstraintMaker *make)
      {
          make.left.equalTo(iconV.mas_right).with.offset(12);
@@ -84,6 +105,7 @@
      }];
     
     UILabel *leastlimitLab = [YFactoryUI YLableWithText:@"最少预约：100" color:TP8EColor font:FONT(11)];
+    self.leastlimitLab = leastlimitLab;
     [headerView addSubview:leastlimitLab];
     [leastlimitLab mas_makeConstraints:^(MASConstraintMaker *make)
      {
@@ -92,8 +114,9 @@
          make.height.equalTo(@15);
      }];
     
-    UILabel *proportionLab = [YFactoryUI YLableWithText:@"兑换比例 1 PTO=500 VRT" color:TP8EColor font:FONT(11)];
+    UILabel *proportionLab = [YFactoryUI YLableWithText:@"兑换比例 1PTO = 500 VRT" color:TP8EColor font:FONT(11)];
     [headerView addSubview:proportionLab];
+    self.proportionLab = proportionLab;
     [proportionLab mas_makeConstraints:^(MASConstraintMaker *make)
      {
          make.right.equalTo(headerView.mas_right).with.offset(-16);
@@ -101,14 +124,7 @@
          make.height.equalTo(@15);
      }];
     
-    UILabel *timeLab = [YFactoryUI YLableWithText:@"发币时间：2018-11-21" color:TP8EColor font:FONT(11)];
-    [headerView addSubview:timeLab];
-    [timeLab mas_makeConstraints:^(MASConstraintMaker *make)
-     {
-         make.right.equalTo(proportionLab);
-         make.top.equalTo(leastlimitLab.mas_top);
-         make.height.equalTo(@15);
-     }];
+    
 }
 
 -(void)createBottomView
@@ -121,10 +137,13 @@
     {
         make.top.equalTo(self.headerView.mas_bottom).with.offset(12);
         make.left.right.equalTo(self.headerView);
-        make.height.equalTo(@154);
+        make.height.equalTo(@191);
     }];
     
-    TPComTextView *buyTextView = [[TPComTextView alloc] initWithTitle:@"购买数量" WithDesc:@"输入购买数量"];
+    TPComTextView *buyTextView = [[TPComTextView alloc] initWithTitle:@"购买数量" WithDesc:@"输入预约数量"];
+    [buyTextView.comTextField addTarget:self action:@selector(didChange:)
+                       forControlEvents:UIControlEventEditingChanged];
+    self.buyTextView = buyTextView;
     [bottomView addSubview:buyTextView];
     [buyTextView mas_makeConstraints:^(MASConstraintMaker *make)
     {
@@ -151,11 +170,74 @@
          make.top.equalTo(totalLab.mas_bottom).with.offset(10);
          make.height.equalTo(@22);
      }];
+    
+    
+    UILabel *availableLab = [YFactoryUI YLableWithText:@"可用VRT：1200" color:TP8EColor font:FONT(13)];
+    [bottomView addSubview:availableLab];
+    self.availableLab = availableLab;
+    [availableLab mas_makeConstraints:^(MASConstraintMaker *make)
+     {
+         make.left.equalTo(buyTextView.comTextField.mas_left);
+         make.top.equalTo(VRTLab.mas_bottom).with.offset(10);
+         make.height.equalTo(@17);
+     }];
+}
+
+-(void)createBtn
+{
+    UIButton *reservationBtn = [YFactoryUI YButtonWithTitle:@"立即预约" Titcolor:[UIColor colorWithHex:@"#D5D7D6"] font:FONT(15) Image:nil target:self action:@selector(reservationClick)];
+    reservationBtn.userInteractionEnabled = NO;
+    [reservationBtn setLayer:22 WithBackColor:[UIColor colorWithHex:@"#EBF1FB"]];
+    self.reservationBtn = reservationBtn;
+    
+    [self.view addSubview:reservationBtn];
+    
+    [reservationBtn mas_makeConstraints:^(MASConstraintMaker *make)
+     {
+         make.centerX.equalTo(self.view);
+         make.bottom.equalTo(self.view.mas_bottom).with.offset(-(56 + HOME_INDICATOR_HEIGHT));
+         make.width.equalTo(@343);
+         make.height.equalTo(@44);
+     }];
+}
+
+-(void)didChange:(UITextField *)comText
+{
+    if (comText.text.length > 0)
+    {
+        self.reservationBtn.userInteractionEnabled = YES;
+        self.reservationBtn.backgroundColor = TPMainColor;
+        [self.reservationBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    }
 }
 
 -(void)reservationClick
 {
-    NSLog(@"立即预约");
+//    NSLog(@"立即预约");
+    TPTransView *transView = [TPTransView createTransferView];
+    [transView showMenuWithAlpha:YES];
+    
+    __block TPTransView *TPTransV = transView;
+    [transView.pasView setEndEditBlock:^(NSString *text)
+     {
+         if (text.length == 6)
+         {
+             [[WYNetworkManager sharedManager] sendPostRequest:WYJSONRequestSerializer url:TPString(@"project/%@/purchase",self.croModel.projectId) parameters:@{@"password":text,@"value":self.buyTextView.comTextField.text} success:^(id responseObject, BOOL isCacheObject)
+             {
+                 if ([responseObject[@"code"] isEqual:@200])
+                 {
+                     NSLog(@"%@",responseObject[@"data"]);
+                     NSLog(@"购买项目成功");
+                     [TPTransV showMenuWithAlpha:NO];
+                 }
+             }
+                failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
+             {
+                 NSLog(@"购买项目失败");
+             }];
+         }
+     }];
+    
 }
 
 - (void)didReceiveMemoryWarning {

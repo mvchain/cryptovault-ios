@@ -28,7 +28,7 @@
 
     [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"serch_icon_1"]];
     [self.customNavBar setOnClickRightButton:^{
-        NSLog(@"搜做");
+        NSLog(@"搜索");
     }];
     [self.view sendSubviewToBack:self.baseTableView];
     

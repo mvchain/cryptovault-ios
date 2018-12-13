@@ -162,6 +162,11 @@
 -(void)transClick
 {
     NSLog(@"已成交");
+    if (self.withdrawalBlock)
+    {
+        self.withdrawalBlock();
+    }
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

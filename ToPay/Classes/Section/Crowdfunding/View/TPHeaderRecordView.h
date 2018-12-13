@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "TPCroRecordModel.h"
 @interface TPHeaderRecordView : UIView
+
+@property (nonatomic, strong) TPCroRecordModel *croRecordModel;
 
 @end

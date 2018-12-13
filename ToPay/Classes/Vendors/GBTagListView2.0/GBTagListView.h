@@ -31,11 +31,11 @@
 /**
  * 整个view的背景色
  */
-@property(nonatomic,retain)UIColor*GBbackgroundColor;
+@property(nonatomic,retain)UIColor * GBbackgroundColor;
 /**
  *  设置单一颜色
  */
-@property(nonatomic)UIColor*signalTagColor;
+@property(nonatomic)UIColor * signalTagColor;
 /**
  *  回调统计选中tag
  */
@@ -66,5 +66,8 @@
  *  @param Margin
  */
 -(void)setMarginBetweenTagLabel:(CGFloat)Margin AndBottomMargin:(CGFloat)BottomMargin;
+
+
+-(void)setDidSelectIndex;
 
 @end

@@ -44,7 +44,19 @@ static NSString  *TPVRTCellId = @"VRTCell";
 //        NSLog(@"responseObject = %@", responseObject);
         if ([responseObject[@"code"] isEqual:@200])
         {
-            self.VRTTopic = [TPVRTModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];            
+            self.VRTTopic = [TPVRTModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+            
+            YYCache *listCache = [YYCache cacheWithName:TPCacheName];
+            
+            if (self.transactionStyle == TPTransactionStyleVRT)
+            {
+                [listCache setObject:self.VRTTopic forKey:TPPairBalanceKey];
+            }
+                else
+            {
+                [listCache setObject:self.VRTTopic forKey:TPPairVRTKey];
+            }
+            
             [self.baseTableView reloadData];
         }
         

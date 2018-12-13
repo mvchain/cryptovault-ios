@@ -9,9 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "TPCrowdConfig.h"
 #import "TPHeaderComView.h"
-
+#import "TPCrowdfundingModel.h"
+#import "TPCroRecordModel.h"
+#import "CountDown.h"
 @interface TPCrowdfundCell : UITableViewCell
 @property (nonatomic, strong) TPHeaderComView *comView;
--(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithStyle:(TPCrowdfundStyle)crowdStyle;
+
+@property (nonatomic, strong) TPCrowdfundingModel *croModel;
+
+@property (nonatomic, strong) TPCroRecordModel *croRecordModel;
+
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithStyle:(TPCrowdfundStyle)crowdStyle countD:(CountDown *)countD;
 
 @end

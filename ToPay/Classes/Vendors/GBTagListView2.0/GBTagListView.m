@@ -26,6 +26,8 @@ alpha:1.0]
     UIButton*_tempBtn;//临时保存对象
 
 }
+@property (nonatomic, strong)  UIButton*tagBtn;
+
 @end
 @implementation GBTagListView
 -(id)initWithFrame:(CGRect)frame{
@@ -52,18 +54,25 @@ alpha:1.0]
         UIButton*tagBtn=[UIButton buttonWithType:UIButtonTypeCustom];
         tagBtn.frame=CGRectZero;
         
-        if(_signalTagColor){
+        if (idx == 0)
+        {
+            self.tagBtn = tagBtn;
+        }
+        
+        if(_signalTagColor)
+        {
             //可以单一设置tag的颜色
             tagBtn.backgroundColor=_signalTagColor;
         }else{
             //tag颜色多样
             tagBtn.backgroundColor=[UIColor colorWithRed:random()%255/255.0 green:random()%255/255.0 blue:random()%255/255.0 alpha:1];
         }
-        if(_canTouch){
+        if(_canTouch)
+        {
             tagBtn.userInteractionEnabled=YES;
-            
-        }else{
-            
+        }
+            else
+        {
             tagBtn.userInteractionEnabled=NO;
         }
         [tagBtn setTitleColor:TP8EColor forState:UIControlStateNormal];
@@ -82,7 +91,8 @@ alpha:1.0]
         Size_str.height += VERTICAL_PADDING*3;
         CGRect newRect = CGRectZero;
 
-        if(_KTagMargin&&_KBottomMargin){
+        if(_KTagMargin&&_KBottomMargin)
+        {
             
             if (previousFrame.origin.x + previousFrame.size.width + Size_str.width + _KTagMargin > self.bounds.size.width) {
                 
@@ -135,6 +145,7 @@ alpha:1.0]
     tempFrame.size.height = hight;
     view.frame = tempFrame;
 }
+
 -(void)tagBtnClick:(UIButton*)button{
     if(_isSingleSelect)
     {
@@ -145,9 +156,9 @@ alpha:1.0]
             else
         {
             _tempBtn.selected=NO;
-            _tempBtn.backgroundColor=[UIColor whiteColor];
+            _tempBtn.backgroundColor=self.signalTagColor;
              button.selected=YES;
-            _tempBtn=button;
+            _tempBtn = button;
         }
     }
         else
@@ -200,14 +211,19 @@ alpha:1.0]
     }
     }
     self.didselectItemBlock(arr);
-    
-    
 }
--(void)setMarginBetweenTagLabel:(CGFloat)Margin AndBottomMargin:(CGFloat)BottomMargin{
-    
+
+
+-(void)setMarginBetweenTagLabel:(CGFloat)Margin AndBottomMargin:(CGFloat)BottomMargin
+{
     _KTagMargin=Margin;
     _KBottomMargin=BottomMargin;
+}
 
+-(void)setDidSelectIndex
+{
+    [self tagBtnClick:self.tagBtn];
+    [self didSelectItems];
 }
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "TPMeHeaderView.h"
-
+#import "TPUserInfo.h"
 @interface TPMeHeaderView ()
 @property (nonatomic, strong) UIImageView *iconImgV;
 @property (nonatomic, strong) UILabel *nickLab;
@@ -23,6 +23,7 @@
     if (self)
     {
         self.backgroundColor = YRandomColor;
+        
         _iconImgV = [YFactoryUI YImageViewWithimage:nil];
         _iconImgV.backgroundColor = YRandomColor;
         [self addSubview:_iconImgV];
@@ -32,6 +33,18 @@
         
         _mobLab = [YFactoryUI YLableWithText:@"手机号：12345678901" color:[UIColor whiteColor] font:FONT(13)];
         [self addSubview:_mobLab];
+        
+        YYCache *listCache = [YYCache cacheWithName:TPCacheName];
+        
+        TPUserInfo *userInfo = (TPUserInfo *)[listCache objectForKey:TPUserInfoKey];
+        
+        if (userInfo)
+        {
+            [_iconImgV setRectHeader:userInfo.headImage];
+            _nickLab.text = userInfo.nickname;
+            _mobLab.text = userInfo.username;
+        }
+        
     }
     return self;
 }

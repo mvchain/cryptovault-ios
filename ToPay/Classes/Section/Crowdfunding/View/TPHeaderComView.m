@@ -32,7 +32,7 @@
         _crowdStyle = crowdStyle;
         
         _iconImgV = [YFactoryUI YImageViewWithimage:[UIImage imageNamed:@"btc_icon"]];
-//        _iconImgV.backgroundColor = YRandomColor;
+        [_iconImgV setLayer:5 WithBackColor:[UIColor clearColor]];
         [self addSubview:_iconImgV];
         
         _nickLab = [YFactoryUI YLableWithText:@"VRT" color:TP59Color font:FONT(16)];
@@ -64,6 +64,17 @@
         self.participateBlock();
     }
 }
+
+-(void)setCroModel:(TPCrowdfundingModel *)croModel
+{
+    _croModel = croModel;
+
+    [_iconImgV setRectHeader:croModel.projectImage];
+    
+    _nickLab.text = croModel.projectName;
+    _timeLab.text = [croModel.createdAt conversionTimeStamp];
+}
+
 
 -(void)layoutSubviews
 {

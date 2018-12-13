@@ -18,6 +18,9 @@ typedef NS_ENUM(NSUInteger, TPStatusStyle)
 
 @property (nonatomic, strong) TPRecordModel *record;
 
+
+@property (nullable, copy) void (^withdrawalBlock)(void);
+
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithStyle:(TPStatusStyle)statusStyle;
 
 

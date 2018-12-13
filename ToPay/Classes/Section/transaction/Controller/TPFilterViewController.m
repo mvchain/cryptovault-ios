@@ -8,6 +8,7 @@
 
 #import "TPFilterViewController.h"
 #import "GBTagListView.h"
+#import "TPVRTModel.h"
 @interface TPFilterViewController ()
 @property (nonatomic, strong) GBTagListView *tagListCate;
 @property (nonatomic, strong) GBTagListView *tagListVRT;
@@ -23,15 +24,36 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.customNavBar.title = @"筛选";
     
-    [self createFilterView];
+    YYCache *listCache = [YYCache cacheWithName:TPCacheName];
+    
+
+    NSArray *balanceArr = (NSArray *)[listCache objectForKey:TPPairBalanceKey];
+    NSArray *VRTArr = (NSArray *)[listCache objectForKey:TPPairVRTKey];
+    
+    
+    NSMutableArray *balanceTitle = [NSMutableArray array];
+    for (int i = 0 ; i < balanceArr.count; i++)
+    {
+        TPVRTModel *VRTM = balanceArr[i];
+        [balanceTitle addObject:VRTM.tokenName];
+    }
+    
+    NSMutableArray *VRTTitle = [NSMutableArray array];
+    for (int i = 0 ; i < VRTArr.count; i++)
+    {
+        TPVRTModel *VRTM = VRTArr[i];
+        [VRTTitle addObject:VRTM.tokenName];
+    }
+    
+    [self createFilterViewWithBalance:balanceTitle WithVRT:VRTTitle];
     [self createBottomBtn];
 }
 
 
 -(void)createBottomBtn
 {
-    UIButton *reservationBtn = [YFactoryUI YButtonWithTitle:@"确认" Titcolor:[UIColor colorWithHex:@"#D5D7D6"] font:FONT(15) Image:nil target:self action:@selector(reservationClick)];
-    [reservationBtn setLayer:22 WithBackColor:[UIColor colorWithHex:@"#EBF1FB"]];
+    UIButton *reservationBtn = [YFactoryUI YButtonWithTitle:@"确认" Titcolor:[UIColor whiteColor] font:FONT(15) Image:nil target:self action:@selector(reservationClick)];
+    [reservationBtn setLayer:22 WithBackColor:TPMainColor];
     [self.view addSubview:reservationBtn];
     
     [reservationBtn mas_makeConstraints:^(MASConstraintMaker *make)
@@ -43,19 +65,22 @@
      }];
 }
 
--(void)createFilterView
+-(void)createFilterViewWithBalance:(NSArray *)balanceArr WithVRT:(NSArray *)VRTArr
 {
     UILabel *cateLab = [self createLabelWithTitle:@"类型" WithTop:16 + StatusBarAndNavigationBarHeight];
     CGFloat margin = 5;
     _tagListCate = [self createTagListViewWithContent:@[@"全部",@"买入",@"卖出"] WithFrame:CGRectMake(margin, cateLab.bottom + 11, KWidth, 100)];
+    
     [_tagListCate setDidselectItemBlock:^(NSArray *arr)
      {
          NSLog(@"arr1:%@",arr);
      }];
+    [_tagListCate setDidSelectIndex];
     
-    UILabel *VRTLab = [self createLabelWithTitle:@"VER交易" WithTop:_tagListCate.bottom + 13];
     
-    _tagListVRT = [self createTagListViewWithContent:@[@"ETHG/BCHS",@"ETH/VRT",@"ETH/VRT",@"ETH/VRT",@"ETH/VRT",@"ETH/VRT",@"ETH/VRT",@"ETH/VRT"] WithFrame:CGRectMake(margin, VRTLab.bottom + 11, KWidth, 100)];
+    UILabel *VRTLab = [self createLabelWithTitle:@"VRT交易" WithTop:_tagListCate.bottom + 13];
+    
+    _tagListVRT = [self createTagListViewWithContent:balanceArr WithFrame:CGRectMake(margin, VRTLab.bottom + 11, KWidth, 100)];
     [_tagListVRT setDidselectItemBlock:^(NSArray *arr)
      {
          NSLog(@"arr2:%@",arr);
@@ -63,7 +88,7 @@
     
     UILabel *balanceLab = [self createLabelWithTitle:@"余额交易" WithTop:_tagListVRT.bottom + 13];
     
-    _tagListBalance = [self createTagListViewWithContent:@[@"ETHG/余额",@"ETH/VRT",@"ETH/VRT",@"ETH/VRT",@"ETH/VRT",@"ETH/VRT",@"ETH/VRT",@"ETH/VRT"] WithFrame:CGRectMake(margin, balanceLab.bottom + 11, KWidth, 100)];
+    _tagListBalance = [self createTagListViewWithContent:VRTArr WithFrame:CGRectMake(margin, balanceLab.bottom + 11, KWidth, 100)];
     [_tagListBalance setDidselectItemBlock:^(NSArray *arr)
      {
          NSLog(@"arr3:%@",arr);
@@ -78,7 +103,7 @@
     /**控制允许点击的标签数 */
     tagListView.canTouchNum = 0;
     /**控制是否是单选模式 */
-    tagListView.isSingleSelect = NO;
+    tagListView.isSingleSelect = YES;
     [tagListView setMarginBetweenTagLabel:8 AndBottomMargin:13];
     tagListView.signalTagColor = [UIColor colorWithHex:@"#EBF1FB"];
     [tagListView setTagWithTagArray:conArray];
@@ -100,6 +125,19 @@
 -(void)reservationClick
 {
     NSLog(@"确认");
+    [[WYNetworkManager sharedManager] sendPostRequest:WYJSONRequestSerializer url:@"transaction/partake" parameters:@{@"id":@"0",
+                      @"pageSize":@"10",
+                      @"pairId":@"",
+                      @"status":@"",
+                      @"transactionType":@"",
+                      @"type":@""} success:^(id responseObject, BOOL isCacheObject)
+    {
+        
+    }
+        failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
+    {
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning

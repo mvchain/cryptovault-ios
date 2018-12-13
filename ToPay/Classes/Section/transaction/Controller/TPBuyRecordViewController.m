@@ -21,7 +21,7 @@
     [super viewDidLoad];
     
     self.customNavBar.title = @"购买记录";
-    [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"serch_icon_2"]];
+    [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"filter_icon_black"]];
     TPWeakSelf;
     [self.customNavBar setOnClickRightButton:^
     {

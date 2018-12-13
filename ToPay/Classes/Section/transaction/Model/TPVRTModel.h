@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TPVRTModel : NSObject
+@interface TPVRTModel : NSObject <NSCoding>
 
 @property (nonatomic , copy) NSString              * pairId;
 @property (nonatomic , copy) NSString              * increase;

@@ -14,4 +14,6 @@
 
 -(NSString *)conversionTimeStamp;
 
+-(long long)longLongFromDate;
+
 @end

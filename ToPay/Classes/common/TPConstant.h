@@ -37,6 +37,11 @@ UIKIT_EXTERN NSString * const TPLegalCurrencyListKey;
  */
 UIKIT_EXTERN NSString * const TPNowLegalCurrencyKey;
 
+/*
+ * 交易对信息存储  VRT  余额
+ */
+UIKIT_EXTERN NSString * const TPPairBalanceKey;
+UIKIT_EXTERN NSString * const TPPairVRTKey;
 
 /*
  * 币种比值
