@@ -9,12 +9,14 @@
 #import "TPTokenTopicViewController.h"
 #import "TPTokenCell.h"
 #import "TPTokenTopic.h"
+#import "TPTransDetailViewController.h"
 @interface TPTokenTopicViewController ()
 
 @property (nonatomic, copy) NSString *tokenId;
 @property (nonatomic) TPTransactionType transType;
 
 @property (nonatomic, strong) NSArray <TPTokenTopic *> *tokenTopics;
+
 @end
 
 @implementation TPTokenTopicViewController
@@ -38,7 +40,7 @@ static NSString  *TPTokenCellCellId = @"tokenCell";
     
     self.customNavBar.hidden = YES;
     
-    [self setupRequestTransactions];
+//    [self setupRequestTransactions];
     
     
     [self.baseTableView mas_makeConstraints:^(MASConstraintMaker *make)
@@ -46,20 +48,20 @@ static NSString  *TPTokenCellCellId = @"tokenCell";
         make.left.equalTo(@0);
         make.top.equalTo(@0);
         make.width.equalTo(@(KWidth));
-        make.height.equalTo(self.view.mas_height);
+        make.height.equalTo(@(KHeight - 174 - 44));
     }];
     
     [TPNotificationCenter addObserver:self selector:@selector(takeOutSuccessNoti) name:TPTakeOutSuccessNotification object:nil];
-    
+    [self setupRefreshWithShowFooter:YES];
 }
 
 -(void)takeOutSuccessNoti
 {
-    [self setupRequestTransactions];
+    [self loadNewTopics];
 }
 
 
--(void)setupRequestTransactions
+-(void)loadNewTopics
 {
     [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"asset/transactions" parameters:@{
                     @"tokenId":_tokenId,
@@ -69,7 +71,7 @@ static NSString  *TPTokenCellCellId = @"tokenCell";
         if ([responseObject[@"code"] isEqual:@200])
         {
             
-            NSLog(@"<<<<  %@  >>>>",responseObject[@"data"]);
+//            NSLog(@"<<<<  %@  >>>>",responseObject[@"data"]);
             self.tokenTopics = [TPTokenTopic mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
             
             if (self.tokenTopics.count == 0)
@@ -80,11 +82,13 @@ static NSString  *TPTokenCellCellId = @"tokenCell";
             {
                 [self.baseTableView reloadData];
             }
+            RefreshEndHeader
         }
     }
         failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
     {
         NSLog(@"error:%@",error);
+        RefreshEndHeader
     }];
 }
 
@@ -105,6 +109,13 @@ static NSString  *TPTokenCellCellId = @"tokenCell";
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return  64;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    TPTransDetailViewController *transDetailVC = [[TPTransDetailViewController alloc] init];
+    transDetailVC.tokenTopic = self.tokenTopics[indexPath.row];
+    [self.navigationController pushViewController:transDetailVC animated:YES];
 }
 
 

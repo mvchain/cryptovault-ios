@@ -26,18 +26,13 @@
     {
         self.backgroundColor = [UIColor clearColor];
         
-        
-        
-        
-        _totalLab = [YFactoryUI YLableWithText:@"1234567.12" color:[UIColor whiteColor] font:FONT(34)];
+        _totalLab = [YFactoryUI YLableWithText:@"" color:[UIColor whiteColor] font:FONT(34)];
         [self addSubview:_totalLab];
         
-        _chooseBtn = [YFactoryUI YButtonWithTitle:@"CNY" Titcolor:[UIColor whiteColor] font:FONT(12) Image:[UIImage imageNamed:@"down_icon_3"] target:self action:@selector(chooseToken)];
-        _chooseBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0);
-        _chooseBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 27, 0, 0);
+        _chooseBtn = [YFactoryUI YButtonWithTitle:[USER_DEFAULT objectForKey:TPNowLegalNameKey] Titcolor:[UIColor whiteColor] font:FONT(12) Image:nil target:self action:@selector(chooseToken)];
         [self addSubview:_chooseBtn];
         
-        _numLab = [YFactoryUI YLableWithText:@"123.4567 VRT" color:[UIColor whiteColor] font:FONT(12)];
+        _numLab = [YFactoryUI YLableWithText:@"" color:[UIColor whiteColor] font:FONT(12)];
         [self addSubview:_numLab];
     }
     return self;
@@ -64,7 +59,7 @@
     
     [_totalLab mas_makeConstraints:^(MASConstraintMaker *make)
      {
-         make.left.equalTo(@11);
+         make.left.equalTo(@24);
          make.top.equalTo(@16);
          make.height.equalTo(@46);
      }];
@@ -78,8 +73,8 @@
     
     [_numLab mas_makeConstraints:^(MASConstraintMaker *make)
      {
-         make.left.equalTo(@16);
-         make.top.equalTo(self.totalLab.mas_bottom).with.offset(16);
+         make.left.equalTo(self.totalLab);
+         make.top.equalTo(self.totalLab.mas_bottom).with.offset(2);
          make.height.equalTo(@16);
      }];
 }

@@ -16,17 +16,23 @@ NSString * const TPCurrencyListKey = @"MHCurrencyListKey";
 NSString * const TPLegalCurrencyListKey = @"TPLegalCurrencyListKey";
 
 NSString * const TPNowLegalCurrencyKey = @"TPNowLegalCurrencyKey";
+NSString * const TPNowLegalSymbolKey = @"TPNowLegalSymbolKey";
+NSString * const TPNowLegalNameKey = @"TPNowLegalNameKey";
+
 
 NSString * const TPPairBalanceKey = @"TPPairBalanceKey";
 NSString * const TPPairVRTKey = @"TPPairVRTKey";
-
 
 NSString * const TPCurrencyRatioKey = @"MHCurrencyRatioKey";
 
 NSString * const TPBalanceDefaultKey = @"TPBalanceDefaultKey";
 
-CGFloat const MHGlobalBottomLineHeight = .55f;
+NSString * const TPNotificationTimeStampKey = @"TPNotificationTimeStampKey";
 
 NSString * const TPPutCurrencyNotification = @"TPPutCurrencyNotification";
 
 NSString * const TPTakeOutSuccessNotification = @"TPTakeOutSuccessNotification";
+
+NSString * const TPLegalSwitchNotification = @"TPLegalSwitchNotification";
+
+CGFloat const MHGlobalBottomLineHeight = .55f;

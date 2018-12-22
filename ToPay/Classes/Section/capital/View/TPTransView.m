@@ -10,27 +10,36 @@
 
 @interface TPTransView ()<UIGestureRecognizerDelegate>
 @property (nonatomic, strong) UIView  *backView;
+
+@property (nonatomic, strong) UILabel *descLab;
+
+@property (nonatomic, strong) UILabel *msLab;
+
+@property (nonatomic, strong) UILabel *numLab;
+
+@property (nonatomic, strong) UILabel *conLab1;
+@property (nonatomic, strong) UILabel *conLab2;
 @end
 
 @implementation TPTransView
 
-+(TPTransView *)createTransferView
++(TPTransView *)createTransferViewStyle:(TPTransStyle)style
 {
-    TPTransView *transView = [[TPTransView alloc] initWithFrame:CGRectMake(0, 0, KWidth, KHeight)];
+    TPTransView *transView = [[TPTransView alloc] initWithFrame:CGRectMake(0, 0, KWidth, KHeight) style:style];
     return transView;
 }
 
--(instancetype)initWithFrame:(CGRect)frame
+-(instancetype)initWithFrame:(CGRect)frame style:(TPTransStyle)style
 {
     if (self = [super initWithFrame:frame])
     {
         self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
-    
+        
         
         _backView = [[UIView alloc] init];
         _backView.backgroundColor = [UIColor whiteColor];
         [self addSubview:_backView];
-//
+
         UIButton *cancelBtn = [YFactoryUI YButtonWithTitle:@"" Titcolor:nil font:nil Image:[UIImage imageNamed:@"cancel_icon_black"] target:self action:@selector(hiddenMenuView)];
         [_backView addSubview:cancelBtn];
         
@@ -42,7 +51,7 @@
         
         UILabel *descLab = [YFactoryUI YLableWithText:@"确认转账" color:TP59Color font:FONT(15)];
         [_backView addSubview:descLab];
-        
+        self.descLab = descLab;
         [descLab mas_makeConstraints:^(MASConstraintMaker *make)
         {
             make.centerX.equalTo(self.backView);
@@ -64,7 +73,7 @@
         
         UILabel *msLab = [YFactoryUI YLableWithText:@"需支付" color:TP8EColor font:FONT(12)];
         [_backView addSubview:msLab];
-        
+        self.msLab = msLab;
         [msLab mas_makeConstraints:^(MASConstraintMaker *make)
         {
             make.centerX.equalTo(self.backView);
@@ -74,7 +83,7 @@
         
         UILabel *numLab = [YFactoryUI YLableWithText:@"12.1424 BTC" color:TP59Color font:FONT(27)];
         [_backView addSubview:numLab];
-        
+        self.numLab = numLab;
         [numLab mas_makeConstraints:^(MASConstraintMaker *make)
          {
              make.centerX.equalTo(self.backView);
@@ -82,20 +91,50 @@
              make.height.equalTo(@36);
          }];
         
-        NSArray *titArray = @[@"收款地址",@"交易手续费"];
-        NSArray *conArray = @[@"0x2051dd2bab0ds24ae43e5ffa196ccc2448",@"0.01BTC"];
+        NSArray *titArray;
+
+        
+        if (style == TPTransStyleReservation)
+        {
+            titArray = @[@"预约数量"];
+        }
+            else if (style == TPTransStyleTransfer)
+        {
+            titArray = @[@"收款地址",@"交易手续费"];
+        }
+            else if (style == TPTransStyleTakeOut)
+        {
+            titArray = @[@""];
+        }
+            else if (style == TPTransStyleReleaseSell)
+        {
+            titArray = @[@"总价",@"出售单价"];
+        }
+            else if  (style == TPTransStyleReleaseBuy)
+        {
+            titArray = @[@"购买数量",@"购买单价"];
+        }
+        
+        
         TransTextView *transTextView;
         for (int i = 0 ; i < titArray.count; i++)
         {
-            transTextView = [[TransTextView alloc] initWithTitle:titArray[i] WithCon:conArray[i]];
+            transTextView = [[TransTextView alloc] initWithTitle:titArray[i] WithCon:@""];
             [_backView addSubview:transTextView];
+            
+            if (i == 0) {
+                self.conLab1 = transTextView.conLab;
+            }else if (i == 1)
+            {
+                self.conLab2 = transTextView.conLab;
+            }
             
             [transTextView mas_makeConstraints:^(MASConstraintMaker *make)
             {
                 make.left.equalTo(@0);
-                make.top.equalTo(numLab.mas_bottom).with.offset(i * 44);
+                make.top.equalTo(numLab.mas_bottom).with.offset(i *  44);
                 make.width.equalTo(@(KWidth));
-                make.height.equalTo(@44);
+                make.height.equalTo(style == TPTransStyleTakeOut?@10:@44);
             }];
         }
         CGFloat pasW = self.frame.size.width - 32;
@@ -120,6 +159,36 @@
         }];
     }
     return self;
+}
+
+-(void)setTitle:(NSString *)title
+{
+    _title = title;
+    self.descLab.text = title;
+}
+
+-(void)setDesc:(NSString *)desc
+{
+    _desc = desc;
+    self.msLab.text = desc;
+}
+
+-(void)setTotal:(NSString *)Total
+{
+    _Total = Total;
+    self.numLab.text = Total;
+}
+
+-(void)setCon1:(NSString *)con1
+{
+    _con1 = con1;
+    self.conLab1.text = con1;
+}
+
+-(void)setCon2:(NSString *)con2
+{
+    _con2 = con2;
+    self.conLab2.text = con2;
 }
 
 -(void)showMenuWithAlpha:(BOOL)isShow
@@ -165,11 +234,11 @@
             make.height.equalTo(@19);
         }];
         
-        UILabel *conLab = [YFactoryUI YLableWithText:con color:TP8EColor font:FONT(14)];
-        conLab.textAlignment = NSTextAlignmentRight;
-        [self addSubview:conLab];
+        self.conLab = [YFactoryUI YLableWithText:con color:TP8EColor font:FONT(14)];
+        self.conLab.textAlignment = NSTextAlignmentRight;
+        [self addSubview:self.conLab];
         
-        [conLab mas_makeConstraints:^(MASConstraintMaker *make)
+        [self.conLab mas_makeConstraints:^(MASConstraintMaker *make)
          {
              make.right.equalTo(@(-16));
              make.centerY.equalTo(self);

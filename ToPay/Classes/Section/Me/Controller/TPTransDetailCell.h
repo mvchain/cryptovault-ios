@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface TPTransDetailCell : UITableViewCell
+
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier isCopy:(BOOL)isCopy;
 @property (nonatomic, strong) UILabel * titleLab;
 @property (nonatomic, strong) UILabel * conLab;
 @end

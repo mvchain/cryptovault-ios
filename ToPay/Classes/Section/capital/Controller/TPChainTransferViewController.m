@@ -9,6 +9,9 @@
 #import "TPChainTransferViewController.h"
 #import "TPComTextView.h"
 #import "TPTransView.h"
+#import "TPTransferModel.h"
+#import "TPTokenKindViewController.h"
+#import "NIMScannerViewController.h"
 @interface TPChainTransferViewController ()
 
 @property (nonatomic, strong) UILabel *formalitiesLab;
@@ -20,37 +23,55 @@
 
 @implementation TPChainTransferViewController
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    //       [TPTransV showMenuWithAlpha:NO];
-    //       [TPNotificationCenter postNotificationName:TPTakeOutSuccessNotification object:nil];
-    //       [self.navigationController popViewControllerAnimated:YES];
     self.textArray = [NSMutableArray<TPComTextView *> array];
+
+    [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = NO;
     
     self.customNavBar.title = TPString(@"%@转账",self.assetModel.tokenName);
+    [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"code_icon_black"]];
+    TPWeakSelf;
+    [self.customNavBar setOnClickRightButton:^
+    {
+        NIMScannerViewController * scannerVC = [[NIMScannerViewController alloc] initWithCardName:@"hahaha" avatar:nil completion:^(NSString *stringValue)
+        {
+            weakSelf.textArray[0].comTextField.text = stringValue;
+            [weakSelf.navigationController popViewControllerAnimated:YES];
+        }];
+        
+        [weakSelf.navigationController pushViewController:scannerVC animated:YES];
+    }];
+    
     
     [self createUI];
     
-    
-    
-    [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"asset/transaction" parameters:@{@"tokenId":self.assetModel.tokenId} success:^(id responseObject, BOOL isCacheObject)
-    {
-        if ([responseObject[@"code"] isEqual:@200])
-        {
-            self.DataSources = responseObject[@"data"];
-            self.balanceLab.text = TPString(@"余额：%@",self.DataSources[@"balance"]);
-            self.formalitiesLab.text = TPString(@"%@ %@",self.DataSources[@"fee"],self.DataSources[@"feeTokenName"]);
-        }
-    }
-        failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
-    {
-        NSLog(@"划账失败 %@",error);
-    }];
+    [self RequestTransaction];
 }
 
-
+-(void)RequestTransaction
+{
+    [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"asset/transaction" parameters:@{@"tokenId":self.assetModel.tokenId} success:^(id responseObject, BOOL isCacheObject)
+     {
+         if ([responseObject[@"code"] isEqual:@200])
+         {
+             NSLog(@"%@",responseObject[@"data"]);
+             
+             TPTransferModel *transfer = [TPTransferModel mj_objectWithKeyValues:responseObject[@"data"]];
+             
+             self.DataSources = responseObject[@"data"];
+             self.balanceLab.text = TPString(@"余额：%@",self.DataSources[@"balance"]);
+             self.formalitiesLab.text = TPString(@"%.5f %@",transfer.fee,self.DataSources[@"feeTokenName"]);
+         }
+     }
+        failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
+     {
+         NSLog(@"划账失败 %@",error);
+     }];
+}
 
 -(void)createUI
 {
@@ -72,9 +93,17 @@
     TPComTextView *textView;
     for (int i = 0; i <titArray.count ; i++)
     {
+        
         textView = [[TPComTextView alloc] initWithTitle:titArray[i] WithDesc:descArray[i]];
         [backView addSubview:textView];
+        textView.comTextField.secureTextEntry = NO;
         [textView.comTextField addTarget:self action:@selector(didChangeText:) forControlEvents:UIControlEventEditingChanged];
+        if (i == 0)
+        {
+             textView.comTextField.clearButtonMode = UITextFieldViewModeAlways;
+            if (self.address) textView.comTextField.text = self.address;
+        }
+        
         [self.textArray addObject:textView];
         
         [textView mas_makeConstraints:^(MASConstraintMaker *make)
@@ -86,7 +115,7 @@
         }];
         
         if (i == 1) {
-            textView.comTextField.keyboardType = UIKeyboardTypeNumberPad;
+            textView.comTextField.keyboardType = UIKeyboardTypeDecimalPad;
         }
     }
     UILabel *balanceLab = [YFactoryUI YLableWithText:@"余额：1236.1234" color:TP8EColor font:FONT(13)];
@@ -148,12 +177,35 @@
     }
 }
 
-
-
 -(void)confirClcik
 {
-//    NSLog(@"确认");
-    TPTransView *transView = [TPTransView createTransferView];
+//    3 ETH
+//    4 BTC
+    
+    if ([self.assetModel.tokenId isEqualToString:@"4"])
+    {
+        if ([self isBTC:self.textArray[0].comTextField.text] == NO)
+        {
+            [self showInfoText:TPString(@"请输入正确的%@地址",self.assetModel.tokenName)];
+
+            return ;
+        }
+    }
+        else if(![self.assetModel.tokenId isEqualToString:@"4"])
+    {
+        if ([self isETH:self.textArray[0].comTextField.text] == NO)
+        {
+            [self showInfoText:TPString(@"请输入正确的%@地址",self.assetModel.tokenName)];
+            return ;
+        }
+    }
+    
+    TPTransView *transView = [TPTransView createTransferViewStyle:TPTransStyleTransfer];
+    transView.title = @"确认转账";
+    transView.desc = @"转账金额";
+    transView.Total = TPString(@"%@ %@",self.textArray[1].comTextField.text,self.assetModel.tokenName);
+    transView.con1 = self.textArray[0].comTextField.text;
+    transView.con2 = self.formalitiesLab.text;
     [transView showMenuWithAlpha:YES];
     
     __block TPTransView *TPTransV = transView;
@@ -161,22 +213,47 @@
     {
         if (text.length == 6)
         {
-            [[WYNetworkManager sharedManager] sendPostRequest:WYJSONRequestSerializer url:@"asset/transaction" parameters:@{@"address":self.textArray[0].comTextField.text,
+            [SVProgressHUD show];
+            
+            NSLog(@"%@",self.textArray[0].comTextField.text);
+            NSLog(@"%@",text);
+            NSLog(@"%@",self.self.assetModel.tokenId);
+            NSLog(@"%@",self.textArray[1].comTextField.text);
+            
+            [[WYNetworkManager sharedManager] sendPostRequest:WYJSONRequestSerializer url:@"asset/transaction" parameters:@{
+                            @"address":self.textArray[0].comTextField.text,
                             @"password":text,
                             @"tokenId":self.assetModel.tokenId,
-                            @"value":self.textArray[1].comTextField.text} success:^(id responseObject, BOOL isCacheObject)
+                            @"value":@([self.textArray[1].comTextField.text integerValue])}
+                success:^(id responseObject, BOOL isCacheObject)
             {
                 if ([responseObject[@"code"] isEqual:@200])
                 {
-                    NSLog(@"转账成功");
+//                    [self showSuccessText:@"转账成功"];
                     [TPTransV showMenuWithAlpha:NO];
                     
                     [TPNotificationCenter postNotificationName:TPTakeOutSuccessNotification object:nil];
-                    [self.navigationController popViewControllerAnimated:YES];
+                    
+                    
+                    for (UIViewController *controller in self.navigationController.viewControllers)
+                    {
+                        if ([controller isKindOfClass:[TPTokenKindViewController class]])
+                        {
+                            TPTokenKindViewController *vc = (TPTokenKindViewController *)controller;
+                            [self.navigationController popToViewController:vc animated:YES];
+                        }
+                        
+                    }
+                }
+                else
+                {
+                    [self showErrorText:responseObject[@"message"]];
                 }
             }
                 failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
             {
+                [self showErrorText:@"转账失败"];
+                [TPTransV showMenuWithAlpha:NO];
                 NSLog(@"转账失败");
             }];
         }

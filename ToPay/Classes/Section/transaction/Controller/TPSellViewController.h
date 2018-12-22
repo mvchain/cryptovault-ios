@@ -8,13 +8,17 @@
 
 #import "TPStartViewController.h"
 #import "TPTokenTopicViewController.h"
+#import "TPCurrencyList.h"
+#import "TPTransactionModel.h"
+
 @class BalanceHeaderView;
 @interface TPSellViewController : TPStartViewController
 
+@property (nonatomic, strong) CLData *cData;
+@property (nonatomic, strong) NSString *currName;
+@property (nonatomic, strong) TPTransactionModel *transModel;
 
-@property (nonatomic, strong) NSString *orderId;
-
-- (instancetype)initWithPairId:(NSString *)pairId WithTransType:(TPTransactionType)transType;
+- (instancetype)initWithPairId:(NSString *)pairId WithTransType:(TPTransactionType)transType publish:(BOOL)isPublish;
 
 
 

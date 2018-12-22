@@ -10,14 +10,14 @@
 
 #import "TPLoginViewController.h"
 
-#import "TPCapitalViewController.h"
-#import "TPTransactionViewController.h"
-#import "TPCrowdfundingViewController.h"
+//#import "TPCapitalViewController.h"
+//#import "TPTransactionViewController.h"
+//#import "TPCrowdfundingViewController.h"
+//
+//#import "TPMeViewController.h"
+#import "YUTabBarController.h"
 
-#import "TPMeViewController.h"
 #import <WRNavigationBar/WRNavigationBar.h>
-
-
 
 @interface AppDelegate ()
 
@@ -29,18 +29,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self setUpNetWorkManager];
+    
     [self refreshToken];
 
-    
     [self setUpWindow];
-    
-    [self customizeInterface];
     
     [self setNavBarAppearence];
     
-    
     [self setUpIQKeyBoardManager];
-    
     
     return YES;
 }
@@ -48,107 +44,37 @@
 -(void)setUpWindow
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    [self setUpViewController];
+    
     if ([TPLoginUtil isLogin] == NO)
         [self.window setRootViewController:[[TPLoginViewController alloc] init]];
     else
-        [self.window setRootViewController:self.viewController];
+        [self.window setRootViewController:[[YUTabBarController alloc] config]];
+    
     [self.window makeKeyAndVisible];
-}
-
--(void)setUpViewController
-{
-    TPCapitalViewController *capitalVC = [[TPCapitalViewController alloc] init];
-    UIViewController *capitalNav = [[UINavigationController alloc] initWithRootViewController:capitalVC];
-    
-    
-    TPTransactionViewController *transationVC = [[TPTransactionViewController alloc] init];
-    UIViewController *transationNav = [[UINavigationController alloc] initWithRootViewController:transationVC];
-    
-    
-    TPCrowdfundingViewController *crowdfundingVC = [[TPCrowdfundingViewController alloc] init];
-    UIViewController *crowdfundingNav = [[UINavigationController alloc] initWithRootViewController:crowdfundingVC];
-    
-    TPMeViewController *meVC = [[TPMeViewController alloc] init];
-    UIViewController *meNav = [[UINavigationController alloc] initWithRootViewController:meVC];
-    
-    RDVTabBarController *tabBarController = [[RDVTabBarController alloc] init];
-    [tabBarController.tabBar setHeight:20];
-    tabBarController.tabBar.backgroundView.backgroundColor = [UIColor whiteColor];
-
-    
-    tabBarController.tabBar.backgroundView.layer.shadowColor = [UIColor blackColor].CGColor;
-    tabBarController.tabBar.backgroundView.layer.shadowOffset = CGSizeMake(2, 5);
-    tabBarController.tabBar.backgroundView.layer.shadowOpacity = 0.5;
-    tabBarController.tabBar.backgroundView.layer.shadowRadius = 5;
-    
-    [tabBarController.tabBar setHeight:49];
-    [tabBarController setViewControllers:@[capitalNav,transationNav,crowdfundingNav,meNav]];
-    
-    self.viewController = tabBarController;
-    
-    [self  customizeTabBarForCOntroller:tabBarController];
-}
-
--(void)customizeTabBarForCOntroller:(RDVTabBarController *)tabBarController
-{
-    NSArray *tabBarItemImages = @[@"assets", @"trand", @"Crowdfunding", @"mine"];
-    NSArray *tabBarItemTitle = @[@"资产", @"交易", @"众筹", @"我的"];
-    NSInteger index = 0;
-
-    for (RDVTabBarItem *item in [[tabBarController tabBar] items])
-    {
-        
-
-        item.title = [tabBarItemTitle objectAtIndex:index];
-        UIImage *selectedImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_selected_icon",[tabBarItemImages objectAtIndex:index]]];
-        
-        UIImage *unselectedimage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_unselected_icon",[tabBarItemImages objectAtIndex:index]]];
-        
-        [item setFinishedSelectedImage:selectedImage withFinishedUnselectedImage:unselectedimage];
-        
-        NSDictionary *tabBarTitleUnselectedDic = @{NSForegroundColorAttributeName:TP59Color,NSFontAttributeName:[UIFont systemFontOfSize:10]};
-        
-        NSDictionary *tabBarTitleSelectedDic = @{NSForegroundColorAttributeName:TPMainColor,NSFontAttributeName:[UIFont systemFontOfSize:10]};
-        
-        item.unselectedTitleAttributes = tabBarTitleUnselectedDic;
-        item.selectedTitleAttributes = tabBarTitleSelectedDic;
-        
-        if (iPhoneX)
-        {
-            item.imagePositionAdjustment = UIOffsetMake(0, -10);
-            item.titlePositionAdjustment = UIOffsetMake(0, -5);
-        }
-            else
-        {
-            item.titlePositionAdjustment = UIOffsetMake(0, 3);
-        }
-        index ++;
-    }
-}
-
--(void)customizeInterface
-{
-//     UINavigationBar *navigationBarAppearance = [UINavigationBar appearance];
 }
 
 -(void)setNavBarAppearence
 {
     [WRNavigationBar wr_widely];
-    
-    [WRNavigationBar wr_setBlacklist:@[@"UIImagePickerController"]];
+//    @"NIMScannerViewController",
+    [WRNavigationBar wr_setBlacklist:@[@"TPAddTokenViewController",
+                                       @"TZPhotoPickerController",
+                                       @"TZGifPhotoPreviewController",
+                                       @"TZAlbumPickerController",
+                                       @"TZPhotoPreviewController",
+                                       @"TZVideoPlayerController"]];
     
     // 导航栏默认背景颜色
-    [WRNavigationBar wr_setDefaultNavBarTintColor:[UIColor redColor]];
+//    [WRNavigationBar wr_setDefaultNavBarTintColor:[UIColor redColor]];
     
     // 导航栏所有按钮的默认颜色
-    [WRNavigationBar wr_setDefaultNavBarTintColor:[UIColor clearColor]];
+//    [WRNavigationBar wr_setDefaultNavBarTintColor:[UIColor redColor]];
     
     // 设置导航栏标题默认颜色
-    [WRNavigationBar wr_setDefaultNavBarTitleColor:[UIColor greenColor]];
+//    [WRNavigationBar wr_setDefaultNavBarTitleColor:[UIColor redColor]];
     
     //统一设置状态
-    [WRNavigationBar wr_setDefaultStatusBarStyle:UIStatusBarStyleLightContent];
+//    [WRNavigationBar wr_setDefaultStatusBarStyle:UIStatusBarStyleLightContent];
     
     //导航栏底部分割线隐藏
     [WRNavigationBar wr_setDefaultNavBarShadowImageHidden:YES];
@@ -168,7 +94,9 @@
 
 -(void)setUpNetWorkManager
 {
-    [WYNetworkConfig sharedConfig].baseUrl = @"http://192.168.15.31:10086/";
+// 192.168.15.21
+//    47.110.234.233
+    [WYNetworkConfig sharedConfig].baseUrl = @"http://47.110.234.233:10086/";
     [WYNetworkConfig sharedConfig].timeoutSeconds = 10;
     
     if ([TPLoginUtil userInfo].token)
@@ -185,6 +113,7 @@
     if ([TPLoginUtil isLogin] == NO)
     {
         [USER_DEFAULT setObject:@"1" forKey:TPNowLegalCurrencyKey];
+        [USER_DEFAULT setObject:@"￥" forKey:TPNowLegalSymbolKey]; 
         return ;
     }
     

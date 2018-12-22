@@ -9,6 +9,7 @@
 #import "TPTransactionViewController.h"
 #import "TPVRTViewController.h"
 #import "TPBalanceViewController.h"
+#import "TPBuyRecordViewController.h"
 
 #import "TPNavigationBarTitleView.h"
 @interface TPTransactionViewController ()<SGPageContentScrollViewDelegate,SGPageTitleViewDelegate>
@@ -24,25 +25,34 @@
     [self showSystemNavgation:YES];
 }
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    self.customNavBar = nil;
+
+    [self.customNavBar wr_setBottomLineHidden:YES];
+    
+
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(transRecord) image:[UIImage imageNamed:@"list_icon_black"] imageEdgeInsets:UIEdgeInsetsMake(0, 15, 0, -15)];
+    
+    
+    
     [self showSystemNavgation:YES];
     
     [self setNavTitleView];
     
     [self setNavConView];
-    
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(recordClcik) image:[UIImage imageNamed:@"list_icon_1"]];
 }
 
-
-
--(void)recordClcik
+-(void)transRecord
 {
-    NSLog(@"众筹记录");
+    TPBuyRecordViewController *recordVC = [[TPBuyRecordViewController alloc] init];
+    [self.navigationController pushViewController:recordVC animated:YES];
 }
 
 -(void)setNavConView
@@ -52,7 +62,7 @@
 
     NSArray *childArr = @[VRTVC, balanceVC];
     
-    CGFloat contentViewHeight = KHeight - StatusBarAndNavigationBarHeight - TAB_BAR_HEIGHT;
+    CGFloat contentViewHeight = KHeight - StatusBarAndNavigationBarHeight - TAB_BAR_HEIGHT + (iPhoneX ? 10:0);
 
     self.pageContentScrollView = [[SGPageContentScrollView alloc] initWithFrame:CGRectMake(0, StatusBarAndNavigationBarHeight, self.view.frame.size.width, contentViewHeight) parentVC:self childVCs:childArr];
     _pageContentScrollView.delegatePageContentScrollView = self;

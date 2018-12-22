@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "TPTransactionModel.h"
 @interface TPUSDTCell : UITableViewCell
+
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier transType:(NSString *)transType tokenName:(NSString *)tokenName;
+
 @property (nonatomic, strong) TPTransactionModel *transModel;
 @end

@@ -37,12 +37,10 @@ static NSString  *TPAddTokenCellId = @"addTokenCell";
         [self.assetNameArr addObject:asset.tokenName];
     }
     
-    
     YYCache *listCache = [YYCache cacheWithName:TPCacheName];
     self.currencyList = (TPCurrencyList *)[listCache objectForKey:TPCurrencyListKey];
 
     [self setupNavigation];
-    
     
     [self.baseTableView mas_makeConstraints:^(MASConstraintMaker *make)
      {
@@ -51,59 +49,28 @@ static NSString  *TPAddTokenCellId = @"addTokenCell";
          make.width.equalTo(@(KWidth));
          make.height.equalTo(@(KHeight - StatusBarAndNavigationBarHeight));
      }];
-    
 }
 
 -(void)setupNavigation
 {
-    self.customNavBar.title = @"添加币种";
-    [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"serch_icon_1"]];
-    [self.customNavBar setOnClickRightButton:^
-     {
-         NSLog(@"搜索");
-     }];
-    
-    TPWeakSelf
-    
-    
-    [self.customNavBar setOnClickLeftButton:^
-     {
-         NSString *removeToken = @"";
-         NSString *addToken = @"";
-         
-         for (int i = 0 ; i < self.addTokenIdArr.count; i++)
-         {
-             addToken  = [addToken stringByAppendingFormat:i >= 1 ? @",%@":@"%@",[weakSelf.addTokenIdArr objectAtIndex:i]];
-         }
-         
-         for (int a = 0 ; a < self.removeTokenIdArr.count; a++)
-         {
-             removeToken = [removeToken stringByAppendingFormat:a >= 1 ? @",%@":@"%@",[weakSelf.removeTokenIdArr objectAtIndex:a]];
-         }
-         
-         if ([addToken isEqualToString:@""] && [removeToken isEqualToString:@""])
-         {
-             [weakSelf.navigationController popViewControllerAnimated:YES];
-             return ;
-         }
 
-         [[WYNetworkManager sharedManager] sendPutRequest:WYJSONRequestSerializer url:@"asset" parameters:@{@"addTokenIdArr":addToken,@"removeTokenIdArr":removeToken} success:^(id responseObject, BOOL isCacheObject)
-              {
-                  if ([responseObject[@"code"] isEqual:@200])
-                  {
-                      [TPNotificationCenter postNotificationName:TPPutCurrencyNotification object:nil];
-                      
-                      NSLog(@"修改币种成功");
-                  }
-              }
-                  failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
-              {
-                  NSLog(@"修改币种失败");
-              }];
-         
-         [weakSelf.navigationController popViewControllerAnimated:YES];
-     }];
+//    [self showSystemNavgation:YES];
+//    self.navigationItem.title = @"添加币种";
+    self.customNavBar.title = @"添加币种";
+//    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(rightClick) image:[UIImage imageNamed:@"serch_icon_black"]];
+    [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"serch_icon_black"]];
+    [self.customNavBar setOnClickRightButton:^
+    {
+         NSLog(@"搜索");
+    }];
 }
+
+
+-(void)rightClick
+{
+    NSLog(@"搜索");
+}
+
 
 #pragma mark - UITableViewDelegate,UITableViewDataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -142,12 +109,7 @@ static NSString  *TPAddTokenCellId = @"addTokenCell";
           {
               cell.isRemoveToken = YES;
               
-              if ([self.addTokenIdArr containsObject:tokenId])
-              {
-                  [self.addTokenIdArr removeObject:tokenId];
-              }
-
-              [self.removeTokenIdArr addObject:tokenId];
+              [self sendTokenClcikAdd:@"" removeToken:tokenId];
           }];
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
         
@@ -157,16 +119,37 @@ static NSString  *TPAddTokenCellId = @"addTokenCell";
         [self presentViewController:alertController animated:YES completion:nil];
         return ; 
     }
-    
-        
-        if ([self.removeTokenIdArr containsObject:tokenId])
-        {
-            [self.removeTokenIdArr removeObject:tokenId];
-        }
-        
-        [self.addTokenIdArr addObject:tokenId];
-    
+        else
+    {
+        [self sendTokenClcikAdd:tokenId removeToken:@""];
+    }
 }
+
+
+-(void)sendTokenClcikAdd:(NSString *)addToken removeToken:(NSString *)removeToken
+{
+    [[WYNetworkManager sharedManager] sendPutRequest:WYJSONRequestSerializer url:@"asset" parameters:@{@"addTokenIdArr":addToken,@"removeTokenIdArr":removeToken} success:^(id responseObject, BOOL isCacheObject)
+       {
+           if ([responseObject[@"code"] isEqual:@200])
+           {
+               
+               [TPNotificationCenter postNotificationName:TPPutCurrencyNotification object:nil];
+
+               NSLog(@"修改币种成功");
+           }
+       }
+           failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
+       {
+//           NSLog(@"修改币种失败");
+           [SVProgressHUD showErrorWithStatus:@"修改币种操作失败,请稍后尝试"];
+       }];
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+}
+
 
 
 -(void)dealloc

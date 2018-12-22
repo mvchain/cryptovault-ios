@@ -23,7 +23,7 @@ static NSString  *TPNotiCellCellId = @"notiCell";
 {
     [super viewDidLoad];
     
-    [self setupRequestNotification];
+//    [self setupRequestNotification];
     
     
     self.customNavBar.title = @"通知";
@@ -36,12 +36,14 @@ static NSString  *TPNotiCellCellId = @"notiCell";
         make.width.equalTo(@(KWidth));
         make.height.equalTo(self.view.mas_height);
     }];
+    
+    
+    [self setupRefreshWithShowFooter:YES];
 }
 
 #pragma mark - 请求
--(void)setupRequestNotification
+-(void)loadNewTopics
 {
-    
     [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"message" parameters:@{@"pageSize":@10,@"type":@0,@"timestamp":[self getNowTimeTimestamp]} success:^(id responseObject, BOOL isCacheObject)
     {
         NSLog(@"%@",responseObject);
@@ -56,11 +58,14 @@ static NSString  *TPNotiCellCellId = @"notiCell";
             {
                 [self.baseTableView reloadData];
             }
+            
+            RefreshEndHeader
         }
     }
         failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
     {
         NSLog(@"%@",error);
+        RefreshEndHeader
     }];
 }
 

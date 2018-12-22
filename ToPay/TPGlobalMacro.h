@@ -57,4 +57,9 @@
 #define HOME_INDICATOR_HEIGHT (iPhoneX ? 34.f : 0.f)
 
 #define StatusBarAndNavigationBarHeight  (iPhoneX ? 88.f : 64.f)
+
+
+#define RefreshEndHeader [self.baseTableView.mj_header endRefreshing];
+#define RefreshEndFooter [self.baseTableView.mj_footer endRefreshing];
+
 #endif /* TPGlobalMacro_h */

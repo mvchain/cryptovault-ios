@@ -7,7 +7,8 @@
 //
 
 #import "TPBaseViewController.h"
-
+#import "TPRefreshHeader.h"
+#import "TPRefreshFooter.h"
 @interface TPBaseViewController ()
 
 @end
@@ -39,9 +40,8 @@
     [super viewDidLoad];
 
 //    self.navigationController.navigationBar.hidden = YES;
-    
+    self.view.backgroundColor = [UIColor whiteColor];
     [self setupNavBar];
-    
 }
 
 
@@ -65,7 +65,7 @@
 -(UIImageView *)noDataView
 {
     if (_noDataView == nil) {
-        _noDataView = [YFactoryUI YImageViewWithimage:[UIImage imageNamed:@"kongkongruye"]];
+        _noDataView = [YFactoryUI YImageViewWithimage:[UIImage imageNamed:@"defeat_icon"]];
         [self.view addSubview:_noDataView];
         
         [_noDataView mas_makeConstraints:^(MASConstraintMaker *make)
@@ -92,8 +92,37 @@
         _baseTableView.tableFooterView = [[UIView alloc]init];
         
         [self.view addSubview:_baseTableView];
+        
     }
     return _baseTableView;
+}
+
+-(void)beginRefresh
+{
+//    [self.baseTableView.mj_header beginRefreshing];
+}
+
+- (void)setupRefreshWithShowFooter:(BOOL)isShowFooter
+{
+    self.baseTableView.mj_header = [TPRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewTopics)];
+    [self.baseTableView.mj_header beginRefreshing];
+    if (isShowFooter == YES)
+    {
+        self.baseTableView.mj_footer = [TPRefreshFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
+    }
+}
+
+-(void)loadNewTopics
+{
+    NSLog(@"加载新数据");
+    
+//    [self.baseTableView.mj_header endRefreshing];
+}
+
+-(void)loadMoreTopics
+{
+    NSLog(@"加载更多数据");
+    [self.baseTableView.mj_footer endRefreshing];
 }
 
 @end

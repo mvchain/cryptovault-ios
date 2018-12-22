@@ -9,10 +9,13 @@
 #import "TPChainReceiptViewController.h"
 #import "TPUserInfo.h"
 #import "NIMScanner.h"
+#import <Social/Social.h>
 @interface TPChainReceiptViewController ()
 @property (nonatomic, strong) UIImageView * iconImgV;
-@property (nonatomic, strong) UILabel * addressLab;
+@property (nonatomic, strong) UIButton * addressBtn;
+@property (nonatomic, strong) UILabel *descLab;
 @property (nonatomic, strong) UIImageView * QRView;
+@property (nonatomic, strong) UIButton *cpBtn;
 
 @end
 
@@ -22,11 +25,14 @@
 {
     [super viewDidLoad];
     
-    self.customNavBar.title = @"BTC收款";
+    self.customNavBar.title = TPString(@"%@收款",self.assetModel.tokenName);
     [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"share_icon_black"]];
+    
+    
     [self.customNavBar setOnClickRightButton:^
     {
-        
+        [SVProgressHUD showInfoWithStatus:@"此功能玩命完善中...请先手动截屏"];
+        [SVProgressHUD dismissWithDelay:1];
     }];
     
     
@@ -47,14 +53,15 @@
          if ([responseObject[@"code"] isEqual:@200])
          {
              NSLog(@"收款地址：%@",responseObject[@"data"]);
-             self.addressLab.text = responseObject[@"data"];
+             [self.addressBtn setTitle:responseObject[@"data"] forState:UIControlStateNormal];
+             
              [NIMScanner qrImageWithString:responseObject[@"data"] avatar:nil completion:^(UIImage *image)
               {
                   self.QRView.image = image;
               }];
          }
      }
-                                             failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
+         failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
      {
          NSLog(@"获取币种收款地址----失败");
      }];
@@ -86,7 +93,8 @@
     }];
     
     
-    UILabel *descLab = [YFactoryUI YLableWithText:@"BTC收款地址" color:TP59Color font:FONT(14)];
+    UILabel *descLab = [YFactoryUI YLableWithText:TPString(@"%@收款地址",self.assetModel.tokenName) color:TP59Color font:FONT(14)];
+    self.descLab = descLab;
     [self.view addSubview:descLab];
     [descLab mas_makeConstraints:^(MASConstraintMaker *make)
     {
@@ -95,17 +103,29 @@
         make.height.equalTo(@19);
     }];
     
-    UILabel *addressLab = [YFactoryUI YLableWithText:@"0x2051dd2b...a196ccc2448" color:TP8EColor font:FONT(13)];
-    self.addressLab = addressLab;
-    [self.view addSubview:addressLab];
+    UIButton *addressBtn = [YFactoryUI YButtonWithTitle:@"0x2051dd2b...a196ccc2448" Titcolor:TP8EColor font:FONT(13) Image:nil target:self action:@selector(copyClick)];
+    //[YFactoryUI YLableWithText:@"0x2051dd2b...a196ccc2448" color:TP8EColor font:FONT(13)];
+    self.addressBtn = addressBtn;
+    [self.view addSubview:addressBtn];
     
-    [addressLab mas_makeConstraints:^(MASConstraintMaker *make)
+    [addressBtn mas_makeConstraints:^(MASConstraintMaker *make)
      {
          make.centerX.equalTo(backView);
          make.top.equalTo(descLab.mas_bottom).with.offset(6);
          make.height.equalTo(@19);
          make.width.equalTo(@153);
      }];
+    
+    UIButton *copyBtn = [YFactoryUI YButtonWithTitle:@"" Titcolor:nil font:nil Image:[UIImage imageNamed:@"copy_icon"] target:self action:@selector(copyClick)];
+    self.cpBtn = copyBtn;
+    [self.view addSubview:copyBtn];
+    
+    [copyBtn mas_makeConstraints:^(MASConstraintMaker *make)
+    {
+        make.left.equalTo(addressBtn.mas_right).with.offset(6);
+        make.size.equalTo(@15);
+        make.centerY.equalTo(addressBtn);
+    }];
     
     UIImageView *QRView = [YFactoryUI YImageViewWithimage:nil];
     self.QRView = QRView;
@@ -115,7 +135,7 @@
     [QRView mas_makeConstraints:^(MASConstraintMaker *make)
      {
          make.centerX.equalTo(backView);
-         make.top.equalTo(addressLab.mas_bottom).with.offset(19);
+         make.top.equalTo(addressBtn.mas_bottom).with.offset(19);
          make.size.equalTo(@245);
      }];
     
@@ -131,20 +151,12 @@
     }];
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)copyClick
+{
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    pasteboard.string = self.addressBtn.titleLabel.text;
+    [SVProgressHUD showSuccessWithStatus:@"已复制"];
+    [SVProgressHUD dismissWithDelay:1.0];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

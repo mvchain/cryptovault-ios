@@ -7,9 +7,12 @@
 //
 
 #import "TPStartViewController.h"
-
+#import "TPCurrencyList.h"
 @interface TPUSDTViewController : TPStartViewController
 
+@property (nonatomic, strong) CLData *cData;
+@property (nonatomic, copy) NSString * tokenName;
+@property (nonatomic, copy) NSString * currName;
 - (instancetype)initWithPairId:(NSString *)pairId WithTransactionType:(NSString *)transactionType;
 
 @end

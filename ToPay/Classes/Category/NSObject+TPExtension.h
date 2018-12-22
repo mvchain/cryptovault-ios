@@ -16,4 +16,10 @@
 
 -(long long)longLongFromDate;
 
+- (BOOL)isMobileNumber:(NSString *)mobileNum;
+
+-(BOOL)isETH:(NSString *)ethString;
+//^(0x)?[0-9a-fA-F]{40}$
+-(BOOL)isBTC:(NSString *)btcString;
+
 @end

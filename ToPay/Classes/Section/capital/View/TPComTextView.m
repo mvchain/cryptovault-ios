@@ -23,6 +23,7 @@
         _comTextField.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 8, 0)];
         _comTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         _comTextField.leftView.userInteractionEnabled = NO;
+//        _comTextField.clearButtonMode = UITextFieldViewModeAlways;
         _comTextField.leftViewMode = UITextFieldViewModeAlways;
         [_comTextField setLayer:5 WithBackColor:TPF6Color];
         [self addSubview:_comTextField];

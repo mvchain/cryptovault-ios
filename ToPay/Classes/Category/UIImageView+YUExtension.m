@@ -18,7 +18,7 @@
 
 -(void)setCircleHeader:(NSString *)url
 {
-    UIImage *placeholder = [UIImage circleImage:@"Default avatar_icon"];
+    UIImage *placeholder = [UIImage circleImage:@"portrait_icon"];
     
     [self sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:placeholder completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         if (image == nil) return ;
@@ -29,8 +29,13 @@
 
 -(void)setRectHeader:(NSString *)url
 {
-    UIImage *placeholder = [UIImage imageNamed:@"Default avatar_icon"];
+    UIImage *placeholder = [UIImage imageNamed:@"portrait_icon"];
     [self sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:placeholder];
+}
+
+-(void)setIconHeader:(NSString *)url placeholderImage:(NSString *)placeholderImage
+{
+    [self sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:placeholderImage]];
 }
 
 @end

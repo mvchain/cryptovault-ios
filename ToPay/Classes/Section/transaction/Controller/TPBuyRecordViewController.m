@@ -20,15 +20,19 @@
 {
     [super viewDidLoad];
     
-    self.customNavBar.title = @"购买记录";
+    self.customNavBar.title = @"交易记录";
+    [self showSystemNavgation:NO];
     [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"filter_icon_black"]];
+    
+    NSLog(@"%@",[WYNetworkManager sharedManager].customHeaders);
+    
     TPWeakSelf;
     [self.customNavBar setOnClickRightButton:^
     {
         TPFilterViewController *filterVC = [[TPFilterViewController alloc] init];
         [weakSelf.navigationController pushViewController:filterVC animated:YES];
     }];
-//    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(recordClcik) image:[UIImage imageNamed:@"list_icon_1"]];
+
     
     [self setupPageView];
 }

@@ -14,4 +14,6 @@
 
 -(void)setRectHeader:(NSString *)url;
 
+-(void)setIconHeader:(NSString *)url placeholderImage:(NSString *)placeholderImage;
+
 @end

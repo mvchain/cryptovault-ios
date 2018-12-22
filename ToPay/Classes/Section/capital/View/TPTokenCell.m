@@ -17,6 +17,8 @@
 @property (nonatomic, strong) UILabel *timeLab;
 
 @property (nonatomic, strong) UILabel *valueLab;
+
+@property (nonatomic, strong) UILabel *proLab;
 @end
 
 @implementation TPTokenCell
@@ -47,6 +49,9 @@
 
         _valueLab = [YFactoryUI YLableWithText:@"" color:TP8EColor font:FONT(17)];
         [self addSubview:_valueLab];
+        
+        _proLab = [YFactoryUI YLableWithText:@"" color:[UIColor clearColor] font:FONT(12)];
+        [self addSubview:_proLab];
     }
     return self;
 }
@@ -55,31 +60,74 @@
 {
     _tokenTopic = tokenTopic;
     
+    _nickLab.text = tokenTopic.tokenName;
+    _timeLab.text = [tokenTopic.createdAt conversionTimeStamp];
+    
     if ([tokenTopic.classify isEqualToString:@"0"] || [tokenTopic.classify isEqual:@"3"])
     {
-        if ([tokenTopic.transactionType isEqualToString:@"1"])
-        {
-            _iconImgV.image = [UIImage imageNamed:@"receive_icon"];
-        }
-        if ([tokenTopic.transactionType isEqualToString:@"2"])
-        {
-            _iconImgV.image = [UIImage imageNamed:@"sent_icon"];
-        }
+        _iconImgV.image = [UIImage imageNamed:[tokenTopic.transactionType isEqualToString:@"1"] ? @"receive_icon": @"sent_icon"];
+        
+        [self statusLab];
+        
+        [_valueLab mas_updateConstraints:^(MASConstraintMaker *make)
+         {
+             make.top.equalTo(@10);
+         }];
     }
         else if ([tokenTopic.classify isEqualToString:@"2"])
     {
         _iconImgV.image = [UIImage imageNamed:@"Crowdfunding_icon_2"];
+        [_valueLab mas_updateConstraints:^(MASConstraintMaker *make)
+         {
+             make.centerY.equalTo(self);
+         }];
     }
         else if ([tokenTopic.classify isEqualToString:@"1"])
     {
         _iconImgV.image = [UIImage imageNamed:@"trand_icon_2"];
+        [_valueLab mas_updateConstraints:^(MASConstraintMaker *make)
+         {
+             make.centerY.equalTo(self);
+         }];
     }
-    _nickLab.text = tokenTopic.tokenName;
     
-    _timeLab.text = [tokenTopic.createdAt conversionTimeStamp];
     
-    _valueLab.text = tokenTopic.value;
+    if ([tokenTopic.transactionType isEqualToString:@"1"])
+    {
+        _valueLab.text = TPString(@"+%.2f",[tokenTopic.value floatValue]);
+    }
+        else if([tokenTopic.transactionType isEqualToString:@"2"])
+    {
+        _valueLab.text = TPString(@"-%.2f",[tokenTopic.value floatValue]);
+    }
 }
+
+-(void)statusLab
+{
+    [_proLab mas_makeConstraints:^(MASConstraintMaker *make)
+    {
+        make.right.equalTo(self.valueLab.mas_right);
+        make.top.equalTo(self.valueLab.mas_bottom).with.offset(4);
+        make.height.equalTo(@16);
+    }];
+    
+    if ([_tokenTopic.status isEqualToString:@"0"] || [_tokenTopic.status isEqualToString:@"1"])
+    {
+        _proLab.textColor = TP59Color;
+        _proLab.text = @"转账中";
+    }
+        else if ([_tokenTopic.status isEqualToString:@"2"])
+    {
+        _proLab.textColor = TP8EColor;
+        _proLab.text = @"转账成功";
+    }
+        else
+    {
+        _proLab.textColor = [UIColor colorWithHex:@"#F33636"];
+        _proLab.text = @"转账失败";
+    }
+}
+
 
 -(void)layoutSubviews
 {
@@ -109,7 +157,6 @@
     [self.valueLab mas_makeConstraints:^(MASConstraintMaker *make)
      {
          make.right.equalTo(self).with.offset(-16);
-         make.centerY.equalTo(self);
          make.height.equalTo(@22);
      }];
     

@@ -58,7 +58,7 @@
     }
         failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
     {
-        NSLog(@"error = %@", error);
+        NSLog(@"请求币种列表失败：error = %@", error);
     }];
 }
 
@@ -101,6 +101,7 @@
      {
          if ([responseObject[@"code"] isEqual:@200])
          {
+             NSLog(@"%@",responseObject[@"data"]);
              NSArray<TPExchangeRate *> *exchanges = [TPExchangeRate mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
              
              

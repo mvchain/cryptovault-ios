@@ -38,6 +38,7 @@
 -(void)setNavItem
 {
     [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"list_icon_black"]];
+    [self.customNavBar wr_setBottomLineHidden:YES];
     TPWeakSelf;
     
     [self.customNavBar setOnClickRightButton:^{
@@ -57,7 +58,7 @@
     configure.titleSelectedColor = TP59Color;
     configure.indicatorColor = TP59Color;
     configure.showBottomSeparator = NO;
-
+    configure.needBounces = NO;
     // pageTitleView
     self.pageTitleView = [SGPageTitleView pageTitleViewWithFrame:CGRectMake(0, StatusBarAndNavigationBarHeight, self.view.frame.size.width, 40) delegate:self titleNames:titleArr configure:configure];
     [self.view addSubview:_pageTitleView];
@@ -70,7 +71,7 @@
     
     NSArray *childArr = @[oneVC,twoVC,threeVC];
     
-    CGFloat height = KHeight - StatusBarAndNavigationBarHeight - TAB_BAR_HEIGHT - 40;
+    CGFloat height = KHeight - StatusBarAndNavigationBarHeight - TAB_BAR_HEIGHT - 40 + (iPhoneX ? 10:0);
     
     self.pageContentScrollView = [[SGPageContentScrollView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_pageTitleView.frame), self.view.frame.size.width, height) parentVC:self childVCs:childArr];
     _pageContentScrollView.delegatePageContentScrollView = self;

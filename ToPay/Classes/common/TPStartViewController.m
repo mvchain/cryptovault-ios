@@ -22,11 +22,11 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
+//    [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    [[self rdv_tabBarController] setTabBarHidden:NO animated:YES];
+//    [[self rdv_tabBarController] setTabBarHidden:NO animated:YES];
     
     [super viewWillDisappear:animated];
 }

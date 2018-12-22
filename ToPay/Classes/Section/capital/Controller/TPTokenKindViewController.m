@@ -52,6 +52,7 @@
 {
     self.customNavBar.title = self.assetModel.tokenName;
     self.customNavBar.titleLabelColor = [UIColor whiteColor];
+    [self wr_setStatusBarStyle:UIStatusBarStyleLightContent];
     [self.customNavBar wr_setLeftButtonWithImage:[UIImage imageNamed:@"back_icon_white"]];
     
     if ([self.clData.tokenType isEqualToString:@"2"])
@@ -59,7 +60,8 @@
         [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"code_icon_white"]];
         
         TPWeakSelf;
-        [self.customNavBar setOnClickRightButton:^{
+        [self.customNavBar setOnClickRightButton:^
+        {
             [weakSelf QRClick];
         }];
     }
@@ -76,10 +78,45 @@
     NIMScannerViewController * scannerVC = [[NIMScannerViewController alloc] initWithCardName:@"hahaha" avatar:nil completion:^(NSString *stringValue)
     {
         NSLog(@"stringValue:%@",stringValue);
+        if ([self.assetModel.tokenId isEqualToString:@"4"])
+        {
+            //USDT BTC
+            if ([self isBTC:stringValue])
+            [self pushTransferClick:stringValue];
+            else
+            [self shwoErrorPopVC];
+        }
+            else if (![self.assetModel.tokenId isEqualToString:@"4"])
+        {
+            //ETH
+            if([self isETH:stringValue])
+            [self pushTransferClick:stringValue];
+            else
+            [self shwoErrorPopVC];
+        }
+            else
+        {
+            [self shwoErrorPopVC];
+        }
     }];
     
     [self.navigationController pushViewController:scannerVC animated:YES];
 }
+
+-(void)pushTransferClick:(NSString *)address
+{
+    TPChainTransferViewController *transferVC = [[TPChainTransferViewController alloc]init];
+    transferVC.assetModel = self.assetModel;
+    transferVC.address = address;
+    [self.navigationController pushViewController:transferVC animated:YES];
+}
+
+-(void)shwoErrorPopVC
+{
+    [self showErrorText:@"无效地址"];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 -(void)setUpHeaderView
 {
@@ -109,14 +146,14 @@
 
 -(void)setupPageView
 {
-    NSArray *titleArr = @[@"全部", @"转出", @"转入"];
+    NSArray *titleArr = @[@"全部", @"支出", @"收入"];
     SGPageTitleViewConfigure *configure = [SGPageTitleViewConfigure pageTitleViewConfigure];
     configure.titleGradientEffect = YES;
     configure.titleColor = TP8EColor;
     configure.titleSelectedColor = TP59Color;
     configure.indicatorColor = TP59Color;
     configure.showBottomSeparator = NO;
-    
+    configure.needBounces = NO;
     // pageTitleView
     self.pageTitleView = [SGPageTitleView pageTitleViewWithFrame:CGRectMake(0, StatusBarAndNavigationBarHeight + 110 + 12, self.view.frame.size.width, 44) delegate:self titleNames:titleArr configure:configure];
     self.pageTitleView.backgroundColor = [UIColor whiteColor];
@@ -125,6 +162,9 @@
     
     
     TPTokenTopicViewController *allVC = [[TPTokenTopicViewController alloc] initWithTokenId:self.assetModel.tokenId WithTransactionType:TPTransactionTypeAll];
+    
+    
+    
     TPTokenTopicViewController *transferVC = [[TPTokenTopicViewController alloc] initWithTokenId:self.assetModel.tokenId WithTransactionType:TPTransactionTypeTransferOut];
     TPTokenTopicViewController *transfer2VC = [[TPTokenTopicViewController alloc] initWithTokenId:self.assetModel.tokenId WithTransactionType:TPTransactionTypeTransfer];
 

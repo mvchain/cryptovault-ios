@@ -37,7 +37,7 @@
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
         _iconImgV = [YFactoryUI YImageViewWithimage:[UIImage imageNamed:@"btc_icon"]];
-        _iconImgV.backgroundColor = YRandomColor;
+//        _iconImgV.backgroundColor = YRandomColor;
         [self addSubview:_iconImgV];
         
         _nickLab = [YFactoryUI YLableWithText:@"BTC" color:TP59Color font:FONT(16)];
@@ -62,21 +62,21 @@
 {
     _VRTModel = VRTModel;
     
-    [_iconImgV sd_setImageWithURL:[NSURL URLWithString:VRTModel.tokenImage]];
+    [_iconImgV setIconHeader:VRTModel.tokenImage placeholderImage:@"default_coin"];
     
     _nickLab.text = VRTModel.tokenName;
 
     _VRTpriceLab.text = TPString(@"%.4f %@",[VRTModel.ratio floatValue],[self getTokenName:VRTModel.tokenName WithPair:VRTModel.pair]);
     
-    _priceLab.text =  TPString(@"%.4f",[VRTModel.ratio floatValue] / [[USER_DEFAULT objectForKey:TPNowLegalCurrencyKey] floatValue]);
+    _priceLab.text =  TPString(@"%@ %.2f",[USER_DEFAULT objectForKey:TPNowLegalSymbolKey],[VRTModel.ratio floatValue] / [[USER_DEFAULT objectForKey:TPNowLegalCurrencyKey] floatValue]);
     
-    //percentage
-    _floatLab.text = TPString(@"%@%%",VRTModel.increase);
+    _floatLab.text = TPString(@"%.2f%%",[VRTModel.increase floatValue]);
     
     if ([VRTModel.transactionStatus isEqualToString:@"0"])
     {
         _floatLab.backgroundColor = [UIColor colorWithHex:@"#BDBDBF"];
-        _floatLab.text = @"-";
+        _floatLab.textColor = TP8EColor;
+        _floatLab.text = @"不可交易";
     }
     
 }

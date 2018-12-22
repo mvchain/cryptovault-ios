@@ -11,5 +11,6 @@
 @interface TPTranDetailViewController : TPStartViewController
 
 @property (nonatomic, strong) TPVRTModel *vrtTopic;
+@property (nonatomic, copy) NSString  *currName;
 
 @end

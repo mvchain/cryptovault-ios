@@ -49,16 +49,16 @@
         [self addSubview:_backView];
         
         _iconImgV = [YFactoryUI YImageViewWithimage:nil];
-        _iconImgV.backgroundColor = YRandomColor;
+        [_iconImgV setLayer:5 WithBackColor:[UIColor clearColor]];
         [_backView addSubview:_iconImgV];
         
-        _nickLab = [YFactoryUI YLableWithText:@"BTC" color:TP59Color font:FONT(17)];
+        _nickLab = [YFactoryUI YLableWithText:@"" color:TP59Color font:FONT(17)];
         [_backView addSubview:_nickLab];
         
-        _valueLab = [YFactoryUI YLableWithText:@"￥ 1234567.12" color:TP59Color font:FONT(17)];
+        _valueLab = [YFactoryUI YLableWithText:@"" color:TP59Color font:FONT(17)];
         [_backView addSubview:_valueLab];
         
-        _numLab = [YFactoryUI YLableWithText:@"123.4567" color:TP8EColor font:FONT(12)];
+        _numLab = [YFactoryUI YLableWithText:@"" color:TP8EColor font:FONT(12)];
         [_backView addSubview:_numLab];
         
         _listCache = [YYCache cacheWithName:TPCacheName];
@@ -76,20 +76,24 @@
     _assetModel = assetModel;
     
     self.nickLab.text = assetModel.tokenName;
-    self.valueLab.text = TPString(@"%.2f",assetModel.ratio * assetModel.value);
+    
+    
+    NSLog(@"法币符号%@",[USER_DEFAULT objectForKey:TPNowLegalSymbolKey]);
+    
+    self.valueLab.text = TPString(@"%@ %.2f",[USER_DEFAULT objectForKey:TPNowLegalSymbolKey],assetModel.ratio * assetModel.value);
     self.numLab.text = TPString(@"%.4f %@",assetModel.value,assetModel.tokenName);
 
     
     CLData *clData = (CLData *)[self.listCache objectForKey:assetModel.tokenId];
     
-    [self.iconImgV  sd_setImageWithURL:[NSURL URLWithString:clData.tokenImage]];
+    [self.iconImgV  setIconHeader:clData.tokenImage placeholderImage:@"default_coin"];
 }
 
 -(void)setRatio:(CGFloat)ratio
 {
     _ratio = ratio;
     
-    self.valueLab.text = TPString(@"%.2f",self.assetModel.ratio * self.assetModel.value /ratio);
+    self.valueLab.text = TPString(@"%@ %.2f",[USER_DEFAULT objectForKey:TPNowLegalSymbolKey],self.assetModel.ratio * self.assetModel.value /ratio);
 }
 
 

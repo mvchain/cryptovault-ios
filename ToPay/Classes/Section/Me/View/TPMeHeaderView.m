@@ -8,7 +8,9 @@
 
 #import "TPMeHeaderView.h"
 #import "TPUserInfo.h"
+
 @interface TPMeHeaderView ()
+@property (nonatomic, strong) UIImageView *backImgV;
 @property (nonatomic, strong) UIImageView *iconImgV;
 @property (nonatomic, strong) UILabel *nickLab;
 @property (nonatomic, strong) UILabel *mobLab;
@@ -22,29 +24,19 @@
     self = [super init];
     if (self)
     {
-        self.backgroundColor = YRandomColor;
+        self.backgroundColor = TPF6Color;//[UIColor redColor];
+        _backImgV = [YFactoryUI YImageViewWithimage:  [UIImage imageNamed:iPhoneX ? @"X_bg_nav_1": @"minepage_bg"]];
+        [self addSubview:_backImgV];
         
         _iconImgV = [YFactoryUI YImageViewWithimage:nil];
-        _iconImgV.backgroundColor = YRandomColor;
+        [_iconImgV setLayer:56/2 WithBackColor:[UIColor clearColor]];
         [self addSubview:_iconImgV];
         
-        _nickLab = [YFactoryUI YLableWithText:@"LCF666" color:[UIColor whiteColor] font:FONT(17)];
+        _nickLab = [YFactoryUI YLableWithText:@"" color:[UIColor whiteColor] font:FONT(17)];
         [self addSubview:_nickLab];
         
-        _mobLab = [YFactoryUI YLableWithText:@"手机号：12345678901" color:[UIColor whiteColor] font:FONT(13)];
+        _mobLab = [YFactoryUI YLableWithText:@"" color:[UIColor whiteColor] font:FONT(13)];
         [self addSubview:_mobLab];
-        
-        YYCache *listCache = [YYCache cacheWithName:TPCacheName];
-        
-        TPUserInfo *userInfo = (TPUserInfo *)[listCache objectForKey:TPUserInfoKey];
-        
-        if (userInfo)
-        {
-            [_iconImgV setRectHeader:userInfo.headImage];
-            _nickLab.text = userInfo.nickname;
-            _mobLab.text = userInfo.username;
-        }
-        
     }
     return self;
 }
@@ -53,11 +45,30 @@
 {
     [super layoutSubviews];
     
+    YYCache *listCache = [YYCache cacheWithName:TPCacheName];
+    
+    TPUserInfo *userInfo = (TPUserInfo *)[listCache objectForKey:TPUserInfoKey];
+    
+    if (userInfo)
+    {
+        NSLog(@"headImage:%@",userInfo.headImage);
+        [self.iconImgV setRectHeader:userInfo.headImage];
+        self.nickLab.text = userInfo.nickname;
+        self.mobLab.text = TPString(@"手机号：%@",userInfo.username);
+    }
+    
+    [_backImgV mas_makeConstraints:^(MASConstraintMaker *make)
+    {
+       make.left.top.equalTo(@0);
+        make.width.equalTo(self);
+        make.height.equalTo(@(156 + STATUS_BAR_HEIGHT));
+    }];
+    
     [_iconImgV mas_makeConstraints:^(MASConstraintMaker *make)
     {
         make.centerX.equalTo(self);
-        make.top.equalTo(@32);
-        make.size.equalTo(@64);
+        make.top.equalTo(@(24 + STATUS_BAR_HEIGHT ));
+        make.size.equalTo(@56);
     }];
     
     [_nickLab mas_makeConstraints:^(MASConstraintMaker *make)

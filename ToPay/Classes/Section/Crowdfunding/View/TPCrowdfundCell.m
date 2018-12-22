@@ -19,7 +19,7 @@
 
 @property (nonatomic, strong) UIView  * sepV;
 
-@property (nonatomic, strong) UILabel *timeLab;
+//@property (nonatomic, strong) UILabel *timeLab;
 
 @property (nonatomic, strong) NSMutableArray<UILabel *> *nameArray;
 
@@ -109,12 +109,12 @@
     if (_crowdStyle != TPCrowdfundStyleRecord)
     {
         _comView.croModel = _croModel;
-        _valueArray[0].text = _croModel.total;
-        _valueArray[1].text = _croModel.projectLimit;
-        _valueArray[2].text = TPString(@"1%@ = %@%@",croModel.tokenName,croModel.ratio,croModel.baseTokenName);
+        _valueArray[0].text = TPString(@"%@ %@",_croModel.total,_croModel.tokenName) ;
+        _valueArray[1].text = TPString(@"%@ %@",_croModel.projectLimit,_croModel.tokenName);
+        _valueArray[2].text = TPString(@"1 %@ = %@ %@",croModel.tokenName,croModel.ratio,croModel.baseTokenName);
         _valueArray[3].text = TPString(@"%@%%",_croModel.releaseValue);
         
-        self.timeLab.text = @"dsadasdas";
+//        self.timeLab.text = @"dsadasdas";
         
 
         long long startLongLong = 1467713971000;
@@ -123,7 +123,7 @@
         [self.countD countDownWithStratTimeStamp:startLongLong finishTimeStamp:finishLongLong completeBlock:^(NSInteger day, NSInteger hour, NSInteger minute, NSInteger second)
         {
 //            NSLog(@"%ld天%ld小时%ld分",(long)day,(long)hour,(long)minute);
-            self.timeLab.text = TPString(@"%ld天%ld小时%ld分",(long)day,(long)hour,(long)minute);
+//            self.timeLab.text = TPString(@"%ld天%ld小时%ld分",(long)day,(long)hour,(long)minute);
         }];
     }
 }

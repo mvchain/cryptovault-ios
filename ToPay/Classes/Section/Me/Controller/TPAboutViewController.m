@@ -25,8 +25,7 @@
 
 -(void)setUpViews
 {
-    UIImageView *iconImgV = [YFactoryUI YImageViewWithimage:nil];
-    iconImgV.backgroundColor = YRandomColor;
+    UIImageView *iconImgV = [YFactoryUI YImageViewWithimage:[UIImage imageNamed:@"vp_Start icon"]];
     [self.view addSubview:iconImgV];
     
     [iconImgV mas_makeConstraints:^(MASConstraintMaker *make)
@@ -69,6 +68,8 @@
     {
         if ([TPLoginUtil quitWithRemoveUserInfo])
         {
+            [TPLoginUtil  quitWithRemoveUserInfo];
+            
             UIApplication *app = [UIApplication sharedApplication];
             AppDelegate *dele = (AppDelegate*)app.delegate;
             dele.window.rootViewController = [TPLoginViewController new];

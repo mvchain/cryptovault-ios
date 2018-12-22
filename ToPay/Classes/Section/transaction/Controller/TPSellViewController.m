@@ -12,35 +12,40 @@
 #import "SJButtonSlider.h"
 #import "TPTransInfoModel.h"
 #import "TPTransView.h"
-//#import "TPComTextView.h"
+
+#import "TPPublish.h"
+#import "TPNonPublish.h"
+
 
 @interface TPSellViewController ()<SJSliderDelegate>
 @property (nonatomic, strong) UIView *headerView;
 @property (nonatomic, strong) UIView *bottomView;
 
-@property (nonatomic, strong) UILabel *currentLab;
-@property (nonatomic, strong) UILabel *percentageLab;
-@property (nonatomic, strong) UILabel *numLab;
-@property (nonatomic, strong) SJButtonSlider *comSlider;
 @property (nonatomic, strong) NSMutableArray <UILabel *> *sellLabs;
+@property (nonatomic, strong) TPNonPublish * nonPublish;
+@property (nonatomic, strong) TPPublish * publishView;
+@property (nonatomic, strong) UIButton * reservationBtn;
+@property (nonatomic, strong) UILabel * conLab;
+@property (nonatomic, strong) TPComTextView *comText;
 
 @property (nonatomic, strong) TPTransInfoModel *transInfo;
-@property (nonatomic, strong) UILabel *conLab;
 
-@property (nonatomic, strong) TPComTextView *comText;
 @property (nonatomic) TPTransactionType transType;
 @property (nonatomic, copy)   NSString *pairId;
+@property (nonatomic, copy)  NSString   * tokenName;
+@property (nonatomic) BOOL isPublish;
 @end
 
 @implementation TPSellViewController
 
-- (instancetype)initWithPairId:(NSString *)pairId WithTransType:(TPTransactionType)transType
+- (instancetype)initWithPairId:(NSString *)pairId WithTransType:(TPTransactionType)transType publish:(BOOL)isPublish
 {
     self = [super initWithNibName:nil bundle:nil];
     if (self)
     {
         _pairId = pairId;
         _transType = transType;
+        _isPublish = isPublish;
     }
     return self;
 }
@@ -52,6 +57,8 @@
 
     self.sellLabs = [NSMutableArray<UILabel *> array];
     
+    self.tokenName = self.cData.tokenName;
+    self.customNavBar.title = TPString(@"%@%@",self.transType == TPTransactionTypeTransferOut? @"出售":@"购买",self.tokenName);
     [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"list_icon_1"]];
     TPWeakSelf;
     [self.customNavBar setOnClickRightButton:^
@@ -66,14 +73,16 @@
         {
 //            NSLog(@"挂单信息：%@",responseObject[@"data"]);
             self.transInfo = [TPTransInfoModel mj_objectWithKeyValues:responseObject[@"data"]];
-            self.sellLabs[0].text = self.transInfo.tokenBalance;
-            self.sellLabs[1].text = self.transInfo.balance;
-            self.currentLab.text = TPString(@"当前价格：%@",self.transInfo.price);
-            self.numLab.text = TPString(@"%@ VRT",self.transInfo.price);
-
-            self.comSlider.slider.maxValue = 100 + [self.transInfo.max floatValue];
-            self.comSlider.slider.minValue = 100 + [self.transInfo.min floatValue];
-            self.comSlider.slider.value = 100;
+            self.sellLabs[0].text = TPString(@"%.4f",[self.transInfo.tokenBalance floatValue]);
+            self.sellLabs[1].text = TPString(@"%.4f",[self.transInfo.balance floatValue]);;
+            
+//            self.currentLab.text = TPString(@"%@:%@%@",self.transType == TPTransactionTypeTransferOut ? @"出售单价":@"购买单价",self.transInfo.price,self.currName);
+//            self.isPublish ?  TPString(@"当前价格：%@ VRT",self.transInfo.price):TPString(@"%@ %@",self.transInfo.price,self.currName);
+//            self.numLab.text = TPString(@"%@ %@",self.transInfo.price,self.currName);
+//
+//            self.comSlider.slider.maxValue = 100 + [self.transInfo.max floatValue];
+//            self.comSlider.slider.minValue = 100 + [self.transInfo.min floatValue];
+//            self.comSlider.slider.value = 100;
         }
     }
         failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
@@ -84,11 +93,10 @@
     
     
     [self setUpheaderView];
+    
     [self setUpContentView];
     
     [self setUpbBottomBtn];
-    
-    
 }
 
 -(void)setUpheaderView
@@ -105,7 +113,7 @@
          make.width.equalTo(@355);
      }];
     
-    NSArray *titArr = @[@"USDT余额",@"VRT余额"];
+    NSArray *titArr = @[TPString(@"%@余额",self.tokenName),@"可用VRT"];
     NSMutableArray *balanceArr = [NSMutableArray array];
     for (int i = 0; i <titArr.count ; i++)
     {
@@ -147,84 +155,51 @@
      {
          make.centerX.equalTo(self.view);
          make.top.equalTo(self.headerView.mas_bottom).with.offset(12);
-         make.height.equalTo(@317);
+         make.height.equalTo(self.isPublish ? @303:@262);
          make.width.equalTo(@355);
      }];
     
-    UILabel *msLab = [YFactoryUI YLableWithText:@"出售价" color:TP8EColor font:FONT(13)];
-    [_bottomView addSubview:msLab];
-    
-    [msLab mas_makeConstraints:^(MASConstraintMaker *make)
+    TPNonPublish * nonPublish;
+    TPPublish * publishView;
+
+    if (!self.isPublish)
     {
-        make.left.equalTo(@20);
-        make.top.equalTo(@12);
-        make.height.equalTo(@17);
-    }];
-    
-    
-    UILabel *currentLab = [YFactoryUI YLableWithText:@"当前价格 100 VRT" color:TPC1Color font:FONT(11)];
-    [_bottomView addSubview:currentLab];
-    self.currentLab = currentLab;
-    [currentLab mas_makeConstraints:^(MASConstraintMaker *make)
+        nonPublish = [[TPNonPublish alloc] initWithTransType:self.transType];
+        [_bottomView addSubview:nonPublish];
+        
+        [nonPublish mas_makeConstraints:^(MASConstraintMaker *make)
+        {
+            make.top.left.equalTo(@0);
+            make.width.equalTo(self.bottomView.mas_width);
+            make.height.equalTo(@100);
+        }];
+    }
+        else
     {
-        make.right.equalTo(self.bottomView).with.offset(-20);
-        make.top.equalTo(@14);
-        make.height.equalTo(@15);
-    }];
+        publishView = [[TPPublish alloc]initWithTransType:self.transType];
+        [_bottomView addSubview:publishView];
+        [publishView mas_makeConstraints:^(MASConstraintMaker *make)
+        {
+            make.left.top.equalTo(@0);
+            make.width.equalTo(self.bottomView.mas_width);
+            make.height.equalTo(@153);
+        }];
+    }
     
-    UILabel *numLab = [YFactoryUI YLableWithText:@"123456.21 VRT" color:TP8EColor font:FONT(15)];
-    [_bottomView addSubview:numLab];
-    self.numLab = numLab;
-    [numLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(msLab.mas_left);
-        make.top.equalTo(msLab.mas_bottom).with.offset(8);
-        make.height.equalTo(@20);
-    }];
     
-    UIView *sliderView = [[UIView alloc] init];
-    [sliderView setLayer:5 WithBackColor:[UIColor colorWithHex:@"#ECEEF1"]];
-    [_bottomView  addSubview:sliderView];
-    
-    [sliderView mas_makeConstraints:^(MASConstraintMaker *make)
+    NSArray *titleArr; //= @[@"出售量"];
+    NSArray *placeArr; //= @[@"输出卖出USDT数量"];
+    if (self.transType == TPTransactionTypeTransferOut)
     {
-        make.left.equalTo(@16);
-        make.right.equalTo(@(-14));
-        make.height.equalTo(@66);
-        make.top.equalTo(numLab.mas_bottom).with.offset(12);
-    }];
-    
-    
-    SJButtonSlider *comSlider = [SJButtonSlider new];
-    comSlider.rightText = @"＋";
-    comSlider.leftText = @"－";
-    
-    [comSlider.slider setThumbCornerRadius:8 size:CGSizeMake(16, 16) thumbBackgroundColor:[UIColor whiteColor]];
-    comSlider.slider.trackImageView.backgroundColor = TPC1Color;
-    comSlider.slider.traceImageView.backgroundColor = TP59Color;
-    comSlider.slider.delegate = self;
-    self.comSlider = comSlider;
-    [sliderView addSubview:comSlider];
-    
-    [comSlider mas_makeConstraints:^(MASConstraintMaker *make)
+        titleArr = @[@"出售数量"];
+        placeArr = @[@"输入出售数量"];
+    }
+        else
     {
-        make.left.equalTo(@20);
-        make.height.equalTo(@20);
-        make.centerY.equalTo(sliderView);
-        make.width.equalTo(sliderView.mas_width).with.offset(-100);
-    }];
+        titleArr = @[@"购买数量"];
+        placeArr = @[@"输入购买数量"];
+    }
     
-    UILabel *percentageLab = [YFactoryUI YLableWithText:@"100%" color:TP59Color font:FONT(15)];
-    [sliderView addSubview:percentageLab];
-    self.percentageLab = percentageLab;
-    [percentageLab mas_makeConstraints:^(MASConstraintMaker *make)
-    {
-        make.centerY.equalTo(sliderView);
-        make.right.equalTo(@(-19));
-        make.height.equalTo(@20);
-    }];
-    
-    NSArray *titleArr = @[@"出售量"];
-    NSArray *placeArr = @[@"输出卖出USDT数量"];
     TPComTextView *takeText;
     for (int i = 0 ; i < titleArr.count ; i++)
     {
@@ -235,25 +210,42 @@
         [takeText.comTextField addTarget:self action:@selector(changeText:) forControlEvents:UIControlEventEditingChanged];
         [_bottomView addSubview:takeText];
         self.comText = takeText;
+        
         [takeText mas_makeConstraints:^(MASConstraintMaker *make)
          {
              make.left.equalTo(@0);
-             make.top.equalTo(sliderView.mas_bottom).with.offset( 19 + i * 85);
+             make.top.equalTo(self.isPublish ? publishView.mas_bottom:nonPublish.mas_bottom).with.offset(self.isPublish?0:12);
              make.width.equalTo(self.bottomView.mas_width);
              make.height.equalTo(@71);
          }];
     }
     
-    UILabel *proLab = [YFactoryUI YLableWithText:@"总计需支付：" color:TP8EColor font:FONT(13)];
+    
+//    if (!self.isPublish)
+//    {
+//        /** 剩余可 购买/出售 数量 */
+////        @"剩余可xxx量"
+//        UILabel *remainLab = [YFactoryUI YLableWithText:TPString(@"剩余可%@量:%@",self.transType == TPTransactionTypeTransferOut ? @"出售":@"购买",self.transModel.limitValue) color:TPA7Color font:FONT(12)];
+//        [_bottomView addSubview:remainLab];
+//
+//        [remainLab  mas_makeConstraints:^(MASConstraintMaker *make)
+//        {
+//            make.left.equalTo(takeText.comTextField.mas_left);
+//            make.top.equalTo(takeText.mas_bottom).with.offset(5);
+//            make.height.equalTo(@16);
+//        }];
+//    }
+    
+    UILabel *proLab = [YFactoryUI YLableWithText:@"总价格：" color:TP8EColor font:FONT(13)];
     [_bottomView addSubview:proLab];
     [proLab mas_makeConstraints:^(MASConstraintMaker *make)
     {
         make.left.equalTo(takeText.comTitleLabel.mas_left);
         make.height.equalTo(@17);
-        make.top.equalTo(takeText.mas_bottom).with.offset(23);
+        make.top.equalTo(takeText.mas_bottom).with.offset(24);
     }];
-    
-    UILabel *conLab = [YFactoryUI YLableWithText:@"VRT 0.00" color:TPC1Color font:FONT(17)];
+
+    UILabel *conLab = [YFactoryUI YLableWithText:TPString(@"%@ 0.00",self.tokenName) color:TPC1Color font:FONT(17)];
     [_bottomView addSubview:conLab];
     self.conLab = conLab;
     [conLab mas_makeConstraints:^(MASConstraintMaker *make)
@@ -268,6 +260,7 @@
 {
     UIButton *reservationBtn = [YFactoryUI YButtonWithTitle:@"发布" Titcolor:[UIColor colorWithHex:@"#D5D7D6"] font:FONT(15) Image:nil target:self action:@selector(reservationClick)];
     [reservationBtn setLayer:22 WithBackColor:TPMainColor];
+    self.reservationBtn = reservationBtn;
     [self.view addSubview:reservationBtn];
     
     [reservationBtn mas_makeConstraints:^(MASConstraintMaker *make)
@@ -277,32 +270,64 @@
          make.width.equalTo(@343);
          make.height.equalTo(@44);
      }];
+    [self reservationBtnUerEnabled:NO];
 }
 
 
 #pragma mark - SJSliderDelegate
 -(void)sliderDidDrag:(SJSlider *)slider
 {
-    self.percentageLab.text = TPString(@"%.2f",slider.value);
-    self.numLab.text = TPString(@"%.2f VRT",slider.value/100 * [self.transInfo.price floatValue]);
+//    self.percentageLab.text = TPString(@"%.2f%%",slider.value);
+//    self.numLab.text = TPString(@"%.2f VRT",slider.value/100 * [self.transInfo.price floatValue]);
     
     if (self.comText.comTextField.text.length > 0)
     {
-        self.conLab.text = TPString(@"VRT %.2f",[self.comText.comTextField.text floatValue] * [self.numLab.text floatValue]);
+//        self.conLab.text = TPString(@"VRT %.2f",[self.comText.comTextField.text floatValue] * [self.numLab.text floatValue]);
+        
     }
+}
+
+-(void)reservationBtnUerEnabled:(BOOL)enabled
+{
+    self.reservationBtn.userInteractionEnabled = enabled ? YES:NO;
+    self.reservationBtn.backgroundColor = enabled ? TPMainColor:[UIColor colorWithHex:@"#EBF1FB"];
+    [self.reservationBtn setTitleColor:enabled ? [UIColor whiteColor]:TPD5Color  forState:UIControlStateNormal];
 }
 
 
 -(void)changeText:(UITextField *)comText
 {
-    self.conLab.text = TPString(@"VRT %.2f",[comText.text floatValue] * [self.numLab.text floatValue]);
+    if (comText.text.length > 0)
+    {
+        [self reservationBtnUerEnabled:YES];
+    }
+        else
+    {
+        [self reservationBtnUerEnabled:NO];
+    }
+    
+    if (self.isPublish)
+    {
+//        self.conLab.text = TPString(@"%@ %.2f",self.tokenName,[comText.text floatValue] * [self.numLab.text floatValue]);
+    }
+        else
+    {
+        self.conLab.text = TPString(@"%@ %.2f",self.tokenName,[comText.text floatValue] * [self.transInfo.price floatValue]);
+    }
 }
 
 
 -(void)reservationClick
 {
     NSLog(@"发布");
-    TPTransView *transView = [TPTransView createTransferView];
+    TPTransView *transView = [TPTransView createTransferViewStyle:self.transType == TPTransactionTypeTransferOut ? TPTransStyleReleaseSell : TPTransStyleReleaseBuy];
+    
+    transView.title = @"确认发布";
+    transView.desc = @"总计需支付";
+    transView.Total = self.conLab.text;
+    transView.con1 = TPString(@"%.2f %@",[self.comText.comTextField.text floatValue] * [self.transInfo.price floatValue],self.currName);
+    transView.con2 = TPString(@"%@ %@",self.transInfo.price,self.currName);
+    
     [transView showMenuWithAlpha:YES];
     
     __block TPTransView *TPTransV = transView;
@@ -310,28 +335,33 @@
     {
         if (text.length == 6)
         {
-            [[WYNetworkManager sharedManager] sendPostRequest:WYJSONRequestSerializer url:@"transaction" parameters:@{ @"id":self.orderId ? self.orderId:@"0",
+
+            [[WYNetworkManager sharedManager] sendPostRequest:WYJSONRequestSerializer url:@"transaction" parameters:@{ @"id":self.transModel ? self.transModel.id:@"0",
                               @"pairId":self.pairId,
                               @"password":text,
-                              @"price":self.numLab.text,
+                              @"price":self.transInfo.price,
                               @"transactionType":self.transType == TPTransactionTypeTransferOut ? @"2":@"1",
                               @"value":self.comText.comTextField.text} success:^(id responseObject, BOOL isCacheObject)
             {
                 if ([responseObject[@"code"] isEqual:@200])
                 {
-//                    self.assetTopic = [TPAssetModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
-//                    [self.baseTableView reloadData];
-                    
-                    NSLog(@"发起挂单成功");
+                    [self showSuccessText:@"挂单成功"];
                     [TPTransV showMenuWithAlpha:NO];
                     
-//                    [TPNotificationCenter postNotificationName:TPTakeOutSuccessNotification object:nil];
+                    [TPNotificationCenter postNotificationName:TPTakeOutSuccessNotification object:nil];
                     [self.navigationController popViewControllerAnimated:YES];
+                }
+                    else
+                {
+                    [self showErrorText:responseObject[@"message"]];
+                    [TPTransV showMenuWithAlpha:NO];
                 }
             }
                 failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
             {
-                NSLog(@"发起挂单失败");
+                NSLog(@"发起挂单失败 %@",error.userInfo);
+                [self showErrorText:@"挂单失败"];
+                [TPTransV showMenuWithAlpha:NO];
             }];
             
         }
@@ -355,7 +385,6 @@
     self = [super init];
     if (self)
     {
-        
         self.titLab = [YFactoryUI YLableWithText:title color:TPC1Color font:FONT(12)];
         [self addSubview:self.titLab];
         [self.titLab mas_makeConstraints:^(MASConstraintMaker *make)

@@ -10,6 +10,6 @@
 #import "TPCrowdfundingModel.h"
 @interface TPBuyTokenViewController : TPStartViewController
 
-@property (nonatomic, strong) TPCrowdfundingModel *croModel;
+- (instancetype)initWithCroModel:(TPCrowdfundingModel *)croModel;
 
 @end

@@ -48,9 +48,13 @@
         {
             BOOL  isCrowd = _crowdStyle == TPCrowdfundStyleReservation;
             
-            _participateBtn = [YFactoryUI YButtonWithTitle:isCrowd ? @"立即参与": @"已结束" Titcolor:isCrowd ? [UIColor whiteColor]:[UIColor colorWithHex:@"#D5D7E6"] font:FONT(13) Image:nil target:self action:@selector(participateClick)];
+            _participateBtn = [YFactoryUI YButtonWithTitle:isCrowd ? @"立即预约": @"已结束" Titcolor:isCrowd ? [UIColor whiteColor]:[UIColor colorWithHex:@"#D5D7E6"] font:FONT(13) Image:nil target:self action:@selector(participateClick)];
             [_participateBtn setLayer:18 WithBackColor:isCrowd ? TPMainColor:[UIColor colorWithHex:@"#ECEEF1"]];
             [self addSubview:_participateBtn];
+            if (_crowdStyle == TPCrowdfundStyleEnd) {
+                _participateBtn.userInteractionEnabled = NO;
+            }
+            
         }
         
     }
@@ -69,10 +73,13 @@
 {
     _croModel = croModel;
 
-    [_iconImgV setRectHeader:croModel.projectImage];
+    NSLog(@"%@",croModel.projectImage);
     
+    [_iconImgV setIconHeader:croModel.projectImage placeholderImage:@"default_project"];
+    
+    _cateLab.text = TPString(@"接受币种:%@",croModel.baseTokenName);
     _nickLab.text = croModel.projectName;
-    _timeLab.text = [croModel.createdAt conversionTimeStamp];
+    _timeLab.text = TPString(@"预约时间:%@",[croModel.startedAt conversionTimeStamp]);
 }
 
 

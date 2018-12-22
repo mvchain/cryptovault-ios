@@ -10,6 +10,7 @@
 #import "NIMScannerBorder.h"
 #import "NIMScannerMaskView.h"
 #import "NIMScanner.h"
+#import "TZImagePickerController.h"
 //#import "NIMGlobalMacro.h"
 //#import "UIView+NIM.h"
 //#import "UIViewController+BackButtonHandler.h"
@@ -92,21 +93,46 @@ static NSString * typeRoomID = @"evn:r:";
 }
 
 /// 点击相册按钮
-- (void)clickAlbumButton {
-    
-    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
+- (void)clickAlbumButton
+{
+    TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc] initWithMaxImagesCount:1 delegate:nil];
+    [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto)
     {
-        tipLabel.text = @"无法访问相册";
+        UIImage *image = [self resizeImage:photos[0]];
         
-        return;
-    }
+        [NIMScanner scaneImage:image completion:^(NSArray *values) {
+            NSLog(@"values.firstObject:%@",values.firstObject);
+            if (values.count > 0)
+            {
+//                [self selectNTESType:values.firstObject];
+                
+                [self dismissViewControllerAnimated:NO completion:^{
+                    [self clickCloseButton];
+                }];
+            } else {
+                tipLabel.text = @"没有识别到二维码，请选择其他照片";
+                
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }
+        }];
+    }];
     
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     
-    picker.view.backgroundColor = [UIColor whiteColor];
-    picker.delegate = self;
     
-    [self showDetailViewController:picker sender:nil];
+    [self presentViewController:imagePickerVc animated:YES completion:nil];
+//    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
+//    {
+//        tipLabel.text = @"无法访问相册";
+//
+//        return;
+//    }
+//
+//    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+//
+//    picker.view.backgroundColor = [UIColor whiteColor];
+//    picker.delegate = self;
+//
+//    [self showDetailViewController:picker sender:nil];
 }
 
 
@@ -221,9 +247,11 @@ static NSString * typeRoomID = @"evn:r:";
 //    [photoBtn setLayer:23 WithBackColor:[UIColor colorWithHex:@"#5E5E60"]] ;
     [bottomView addSubview:photoBtn];
     
-    photoBtn.left = bottomView.width/2 - 127/2;
+    CGFloat pW = 147;
+    
+    photoBtn.left = bottomView.width/2 - pW/2;
     photoBtn.top = 62/2 - 44/2;
-    photoBtn.size = CGSizeMake(147, 44);
+    photoBtn.size = CGSizeMake(pW, 44);
     
     
 }
@@ -246,7 +274,7 @@ static NSString * typeRoomID = @"evn:r:";
 /// 准备导航栏
 - (void)prepareNavigationBar
 {   // 2> 标题
-//    self.title = @"扫一扫";
+//    self.title = @"扫码转账";
     self.customNavBar.title = @"扫码转账";
 }
 

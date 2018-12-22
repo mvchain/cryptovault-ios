@@ -28,20 +28,28 @@ static NSString  *TPMeCellCellId = @"meCell";
     [super viewDidLoad];
     
     self.customNavBar.title = @"我的";
+    self.customNavBar.hidden = YES;
     [self showSystemNavgation:NO];
     
-    _dataSource = @[@"语言",@"关于",@"状态详情"];
-    _dataSourceImg = @[@"language_icon",@"about_icon",@"about_icon"];
+    _dataSource = @[@"语言",@"关于"];
+    _dataSourceImg = @[@"language_icon",@"about_icon"];
 
     TPMeHeaderView *headerView = [[TPMeHeaderView alloc] init];
-    headerView.height = 176;
-    self.baseTableView.tableHeaderView = headerView;
 
-    self.baseTableView.left = 0;
-    self.baseTableView.top = StatusBarAndNavigationBarHeight + 10;
-    self.baseTableView.width = KWidth;
-    self.baseTableView.height = self.view.height;
-    
+    [self.view addSubview:headerView];
+    [headerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.equalTo(@0);
+        make.width.equalTo(@(KWidth));
+        make.height.equalTo(@(156+12+STATUS_BAR_HEIGHT));
+    }];
+
+    [self.baseTableView mas_makeConstraints:^(MASConstraintMaker *make)
+     {
+        make.left.equalTo(@0);
+         make.top.equalTo(headerView.mas_bottom).with.offset(0);
+        make.width.equalTo(@(KWidth));
+        make.height.equalTo(self.view);
+    }];
     
     
     [self.view sendSubviewToBack:self.baseTableView];
@@ -80,12 +88,6 @@ static NSString  *TPMeCellCellId = @"meCell";
         TPAboutViewController *aboutVC = [[TPAboutViewController alloc] init];
         [self.navigationController pushViewController:aboutVC animated:YES];
     }
-        else if (indexPath.row == 2)
-    {
-        TPTransDetailViewController *aboutVC = [[TPTransDetailViewController alloc] init];
-        [self.navigationController pushViewController:aboutVC animated:YES];
-    }
-
 }
 
 - (void)didReceiveMemoryWarning {

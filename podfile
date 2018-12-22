@@ -17,4 +17,6 @@ pod 'IQKeyboardManager'
 pod 'AFNetworking'
 pod 'MJRefresh'
 pod 'YYCache'
+# pod 'TZImagePickerController' 
+
 end  

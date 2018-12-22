@@ -9,6 +9,8 @@
 #import "TPLoginViewController.h"
 #import "TPLoginModel.h"
 #import "AppDelegate.h"
+#import "YUTabBarController.h"
+#import "JKCountDownButton.h"
 @interface TPLoginViewController ()
 
 @property (nonatomic, strong) NSMutableArray<UITextField *> *textArr;
@@ -28,19 +30,6 @@
     [self setUpUI];
     
     self.customNavBar.hidden = YES;
-    
-    
-    UIButton *quitBtn = [YFactoryUI YButtonWithTitle:@"登录" Titcolor:[UIColor whiteColor] font:FONT(15) Image:nil target:self action:@selector(loginClcik)];
-    [quitBtn setLayer:23 WithBackColor:TPMainColor];
-    [self.view addSubview:quitBtn];
-    
-    [quitBtn mas_makeConstraints:^(MASConstraintMaker *make)
-     {
-         make.centerX.equalTo(self.view);
-         make.bottom.equalTo(@(-54));
-         make.height.equalTo(@44);
-         make.width.equalTo(@343);
-     }];
 }
 
 -(void)setUpUI
@@ -55,17 +44,40 @@
          make.height.equalTo(@46);
      }];
     
-    NSArray *titleArr = @[@"手机号",@"密码"];
-    NSArray *descArr = @[@"请输入手机号",@"请输入密码"];
+    NSArray *titleArr = @[@"手机号",@"密码",@"验证码"];
+    NSArray *descArr = @[@"请输入手机号",@"请输入密码",@"请输入验证码"];
     TPLoginTextView *loginTextView;
     for (int i = 0; i < titleArr.count ; i++ )
     {
         loginTextView = [[TPLoginTextView alloc] initWithTitle:titleArr[i] WithDesc:descArr[i]];
         
-        if (i == 0)
+        if (i == 0 || i == 2)
         {
             loginTextView.comTextField.secureTextEntry = NO;
+            loginTextView.comTextField.keyboardType = UIKeyboardTypeNumberPad;
         }
+        
+        if (i == 2)
+        {
+            
+            JKCountDownButton *countDown = [[JKCountDownButton alloc] init];
+            [countDown setTitle:@"获取验证码" forState:UIControlStateNormal];
+            [countDown setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            countDown.titleLabel.font = FONT(15);
+            countDown.backgroundColor = TP59Color;
+            [countDown addTarget:self action:@selector(countDownClick:) forControlEvents:UIControlEventTouchUpInside];
+
+            [loginTextView.comTextField addSubview:countDown];
+            
+            [countDown mas_makeConstraints:^(MASConstraintMaker *make)
+            {
+                make.right.height.equalTo(loginTextView.comTextField);
+                make.top.equalTo(@0);
+                make.width.equalTo(@134);
+            }];
+        }
+        
+        
         [loginTextView.comTextField addTarget:self action:@selector(changeTextField:) forControlEvents:UIControlEventEditingChanged];
         [self.view addSubview:loginTextView];
         [self.textArr addObject:loginTextView.comTextField];
@@ -78,33 +90,101 @@
          }];
     }
     
-    UILabel *forgetLab = [YFactoryUI YLableWithText:@"忘记密码 ?" color:TP59Color font:FONT(12)];
-    [self.view addSubview:forgetLab];
-    [forgetLab mas_makeConstraints:^(MASConstraintMaker *make)
+    UIButton *quitBtn = [YFactoryUI YButtonWithTitle:@"登录" Titcolor:[UIColor whiteColor] font:FONT(15) Image:nil target:self action:@selector(loginClcik)];
+    [quitBtn setLayer:23 WithBackColor:TPMainColor];
+    [self.view addSubview:quitBtn];
+    
+    [quitBtn mas_makeConstraints:^(MASConstraintMaker *make)
+     {
+         make.centerX.equalTo(self.view);
+         make.bottom.equalTo(@(-54));
+         make.height.equalTo(@44);
+         make.width.equalTo(@343);
+     }];
+    
+    
+    UIButton *forgetBtn = [YFactoryUI YButtonWithTitle:@"忘记密码 ?" Titcolor:TP59Color font:FONT(12) Image:nil target:self action:@selector(forgetClick)];
+    [self.view addSubview:forgetBtn];
+    [forgetBtn mas_makeConstraints:^(MASConstraintMaker *make)
     {
-        make.top.equalTo(loginTextView.mas_bottom).with.offset(15);
-        make.right.equalTo(self.view.mas_right).with.offset(-32);
+        make.bottom.equalTo(quitBtn.mas_top).with.offset(-31);
+        make.centerX.equalTo(self.view);
         make.height.equalTo(@16);
     }];
 }
+
+-(void)forgetClick
+{
+    [SVProgressHUD showInfoWithStatus:@"请前往VP应用内修改账号密码"];
+}
+
+-(void)countDownClick:(JKCountDownButton *)btn
+{
+    if (![self isMobileNumber:self.textArr[0].text] )
+    {
+        [self showInfoText:@"请输入正确的手机号"];
+    }
+    
+    
+    [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"user/sms" parameters:@{@"cellphone":self.textArr[0].text} success:^(id responseObject, BOOL isCacheObject)
+    {
+        if ([responseObject[@"code"] isEqual:@200])
+        {
+            [self showSuccessText:@"已发送"];
+            [btn startCountDownWithSecond:60];
+            btn.backgroundColor = TPA7Color;
+        }
+            else
+        {
+            [self showErrorText:responseObject[@"message"]];
+        }
+    }
+        failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
+    {
+        [self showErrorText:@"获取验证码失败"];
+    }];
+    
+
+    [btn countDownFinished:^NSString *(JKCountDownButton *countDownButton, NSUInteger second)
+    {
+        btn.backgroundColor = TP59Color;
+        return @"重新发送";
+    }];
+}
+
 
 
 -(void)changeTextField:(UITextField *)textField
 {
     if (self.textArr[0] == textField) {
-        NSLog(@"账号：%@",textField.text);
+//        NSLog(@"账号：%@",textField.text);
     }
     
     if (self.textArr[1] == textField) {
-        NSLog(@"m密码：%@",textField.text);
+//        NSLog(@"m密码：%@",textField.text);
     }
 }
 
 -(void)loginClcik
 {
+    [SVProgressHUD show];
     
+    if (self.textArr[1].text.length == 0)
+    {
+        [self showInfoText:@"密码不能为空"];
+        return ;
+    }
     
-    [[WYNetworkManager sharedManager] sendPostRequest:WYJSONRequestSerializer url:@"user/login" parameters:@{@"username":self.textArr[0].text,@"password":self.textArr[1].text} success:^(id responseObject, BOOL isCacheObject)
+    if (self.textArr[2].text.length <= 0)
+    {
+        [self showInfoText:@"请输入正确的验证码"];
+        return ;
+    }
+    
+    [[WYNetworkManager sharedManager] sendPostRequest:WYJSONRequestSerializer url:@"user/login" parameters:@{@"username":self.textArr[0].text,
+                     @"password":self.textArr[1].text,
+                     @"validCode":self.textArr[2].text,
+     } success:^(id responseObject, BOOL isCacheObject)
     {
         if ([responseObject[@"code"] isEqual:@200])
         {
@@ -113,7 +193,7 @@
             TPLoginModel *loginM = [TPLoginModel mj_objectWithKeyValues:responseObject[@"data"]];
 
             // set Request token
-            [[WYNetworkConfig sharedConfig] addCustomHeader:@{@"Authorization":loginM.token}];
+            [[WYNetworkConfig sharedConfig] addCustomHeader:@{@"Authorization":loginM.token,@"Accept-Language":@"zh-cn"}];
 
             // Store user information
             [TPLoginUtil saveUserInfo:loginM];
@@ -124,16 +204,25 @@
             // Get currency list
             [TPLoginUtil setRequestToken];
             
-//            [self.navigationController popViewControllerAnimated:YES];
+            [TPLoginUtil requestExchangeRate];
             
+            [self showSuccessText:@"登录成功"];
+
+            [SVProgressHUD showSuccessWithStatus:@"登录成功"];
             UIApplication *app = [UIApplication sharedApplication];
             AppDelegate *dele = (AppDelegate*)app.delegate;
-            dele.window.rootViewController = dele.viewController;
+            dele.window.rootViewController = [[YUTabBarController alloc] config];
+
+        }
+            else
+        {
+            [self showErrorText:responseObject[@"message"]];
         }
     }
         failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
     {
         NSLog(@"error = %@", error);
+        [SVProgressHUD showSuccessWithStatus:@"登录失败"];
     }];
     
 }

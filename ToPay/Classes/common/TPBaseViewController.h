@@ -17,8 +17,27 @@
 
 @property (nonatomic, strong) UIImageView *noDataView;
 
+/*
+ * 显示空数据界面
+ */
 -(void)showNoDataView:(BOOL)isShow;
 
 
 -(void)showSystemNavgation:(BOOL)isShow;
+
+// 添加
+-(void)setupRefreshWithShowFooter:(BOOL)isShowFooter;
+
+/*
+ * 加载新数据
+ */
+-(void)loadNewTopics;
+
+
+/*
+ * 加载更多数据
+ */
+-(void)loadMoreTopics;
+
+
 @end

@@ -10,4 +10,7 @@
 #import "TPAssetModel.h"
 @interface TPChainTransferViewController : TPStartViewController
 @property (nonatomic, strong) TPAssetModel *assetModel;
+
+@property (nonatomic, copy) NSString *address;
+
 @end

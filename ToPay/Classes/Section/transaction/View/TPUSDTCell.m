@@ -13,6 +13,9 @@
 @property (nonatomic, strong) UILabel *nickLab;
 @property (nonatomic, strong) UILabel *limitLab;
 @property (nonatomic, strong) UILabel *priceLab;
+
+@property (nonatomic, strong) NSString *transType;
+@property (nonatomic, strong) NSString *tokenName;
 @end
 
 @implementation TPUSDTCell
@@ -23,13 +26,14 @@
     
 }
 
--(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier transType:(NSString *)transType tokenName:(NSString *)tokenName
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self)
     {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        
+        self.tokenName = tokenName;
+        self.transType = transType;
         _iconImgV = [YFactoryUI YImageViewWithimage:nil];
         
         [self addSubview:_iconImgV];
@@ -54,9 +58,16 @@
     
     _nickLab.text =  transModel.nickname;
     
-    _limitLab.text = TPString(@"购买限额：%@",transModel.limitValue);
+    if ([self.transType  isEqualToString: @"1"])
+    {
+        _limitLab.text = TPString(@"剩余可购买量：%.1f",[transModel.limitValue floatValue]);
+    }
+        else
+    {
+        _limitLab.text = TPString(@"剩余可出售量：%.1f",[transModel.limitValue floatValue]);
+    }
     
-    _priceLab.text = transModel.total;
+    _priceLab.text = TPString(@"%.4f %@",[transModel.total floatValue],self.tokenName);
 }
 
 -(void)layoutSubviews

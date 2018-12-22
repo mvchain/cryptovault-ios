@@ -7,7 +7,7 @@
 //
 
 #import "TPCapitalHeaderView.h"
-
+#import "TPExchangeRate.h"
 @interface TPCapitalHeaderView ()
 @property (nonatomic, strong) UILabel *totalLab;
 
@@ -30,16 +30,37 @@
         [self addSubview:_bgImgV];
         
         
-        _totalLab = [YFactoryUI YLableWithText:@"总资产" color:[UIColor whiteColor] font:FONT(12)];
+        _totalLab = [YFactoryUI YLableWithText:@"总资产" color:[UIColor whiteColor] font:FONT(14)];
         [self addSubview:_totalLab];
         
-        _chooseBtn = [YFactoryUI YButtonWithTitle:@"CNY" Titcolor:[UIColor whiteColor] font:FONT(14) Image:[UIImage imageNamed:@"down_icon_3"] target:self action:@selector(chooseToken)];
-        _chooseBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0);
-        _chooseBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 32, 0, 0);
+        
+        _chooseBtn = [YFactoryUI YButtonWithTitle:@"" Titcolor:[UIColor whiteColor] font:FONT(12) Image:[UIImage imageNamed:@"down_icon_3"] target:self action:@selector(chooseToken)];
+        _chooseBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -30, 0, 0);
+        _chooseBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 61, 0, 0);
         [self addSubview:_chooseBtn];
         
-        _numLab = [YFactoryUI YLableWithText:@"123.4567" color:[UIColor whiteColor] font:FONT(36)];
+        _numLab = [YFactoryUI YLableWithText:@"" color:[UIColor whiteColor] font:FONT(36)];
         [self addSubview:_numLab];
+        
+        
+        dispatch_queue_t queen = dispatch_get_global_queue(0, 0);
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), queen, ^
+       {
+           dispatch_sync(dispatch_get_main_queue(), ^
+             {
+                 
+                 if ([USER_DEFAULT objectForKey:TPNowLegalNameKey])
+                 {
+                     [self.chooseBtn setTitle:[USER_DEFAULT objectForKey:TPNowLegalNameKey] forState:UIControlStateNormal];
+                 }
+                    else
+                 {
+                     YYCache *listCache = [YYCache cacheWithName:TPCacheName];
+                     NSArray <TPExchangeRate *>*listArr = (NSArray<TPExchangeRate *> *)[listCache objectForKey:TPLegalCurrencyListKey];
+                     [self.chooseBtn setTitle:listArr[0].name forState:UIControlStateNormal];
+                 }
+             });
+       });
     }
     return self;
 }
@@ -66,11 +87,10 @@
 
 -(void)chooseToken
 {
-    NSLog(@"选择token");
+//    NSLog(@"选择token");
     if (self.chooseCurrencyBlock) {
         self.chooseCurrencyBlock();
     }
-//    [TPLoginUtil setRequestTokenBase];
 }
 
 -(void)layoutSubviews
@@ -81,7 +101,7 @@
     {
         make.left.top.equalTo(@0);
         make.width.equalTo(@(KWidth));
-        make.height.equalTo(self.mas_height);
+        make.height.equalTo(self.mas_height).with.offset(-6);
     }];
     
     [_totalLab mas_makeConstraints:^(MASConstraintMaker *make)
@@ -96,6 +116,7 @@
         make.centerX.equalTo(self);
         make.top.equalTo(self.totalLab.mas_bottom).with.offset(11);
         make.height.equalTo(@19);
+        make.width.equalTo(@100);
     }];
     
     [_numLab mas_makeConstraints:^(MASConstraintMaker *make)

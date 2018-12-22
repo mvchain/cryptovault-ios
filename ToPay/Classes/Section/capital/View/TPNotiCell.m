@@ -58,10 +58,9 @@
 {
     _notiModel = notiModel;
     
-    if ([notiModel.read isEqualToString:@"1"])
-    {
-        _pageV.hidden = YES;
-    }
+   
+    _pageV.hidden = YES;
+    
     
     _timeLab.text = [notiModel.createdAt conversionTimeStamp];
     
