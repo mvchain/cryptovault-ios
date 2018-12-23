@@ -111,6 +111,8 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
     [self notificationRequest];
     
     [TPNotificationCenter addObserver:self selector:@selector(currencyNotification) name:TPPutCurrencyNotification object:nil];
+    [TPNotificationCenter addObserver:self selector:@selector(notificationRequest) name:TPAssetRedNotification object:nil];
+    
     
     [self setupRefreshWithShowFooter:NO];
 }

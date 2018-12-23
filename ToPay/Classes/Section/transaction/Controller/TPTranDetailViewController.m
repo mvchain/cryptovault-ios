@@ -129,7 +129,7 @@
 
 -(void)setUpSegment
 {
-    UISegmentedControl *segment = [[UISegmentedControl alloc] initWithItems:@[TPString(@"购买%@",self.cData.tokenName),TPString(@"出售%@",self.cData.tokenName)]];
+    UISegmentedControl *segment = [[UISegmentedControl alloc] initWithItems:@[@"出售订单",@"购买订单"]];
     segment.selectedSegmentIndex = 0;
     segment.tintColor = TPMainColor;
     [segment addTarget:self action:@selector(change:) forControlEvents:UIControlEventValueChanged];

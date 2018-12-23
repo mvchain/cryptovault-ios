@@ -14,7 +14,7 @@
 
 @property (nonatomic) NSInteger pairId;
 @property (nonatomic, copy) NSString *transactionType;
-@property (nonatomic, strong) NSArray <TPTransactionModel *> *transactionTopic;
+@property (nonatomic, strong) NSMutableArray <TPTransactionModel *> *transactionTopic;
 @end
 
 @implementation TPUSDTViewController
@@ -35,6 +35,8 @@ static NSString  *TPUSDTCellId = @"USDTCell";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.transactionTopic = [NSMutableArray<TPTransactionModel *> array];
     
     [self.baseTableView mas_makeConstraints:^(MASConstraintMaker *make)
      {
@@ -88,6 +90,44 @@ static NSString  *TPUSDTCellId = @"USDTCell";
      }];
 }
 
+-(void)loadMoreTopics
+{
+    TPTransactionModel *transM =  self.transactionTopic[self.transactionTopic.count-1];
+    [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"transaction" parameters:
+     @{@"id":transM.id,
+       @"pageSize":@(10),
+       @"pairId":@(self.pairId),
+       @"transactionType":self.transactionType,
+       @"type":@"1"} success:^(id responseObject, BOOL isCacheObject)
+     {
+         if ([responseObject[@"code"] isEqual:@200])
+         {
+             NSLog(@"%@",responseObject[@"data"]);
+             
+             NSMutableArray<TPTransactionModel *> *moreTopic = [NSMutableArray<TPTransactionModel *> array];
+             
+             moreTopic = [TPTransactionModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+             
+             if (moreTopic.count == 0)
+             {
+                 [self showInfoText:@"数据已经拉到底了"];
+             }
+                else
+             {
+                 [self.transactionTopic addObjectsFromArray:moreTopic];
+                 [self.baseTableView reloadData];
+             }
+             RefreshEndFooter
+         }
+     }
+         failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
+     {
+         NSLog(@" 获取挂单列表失败：error = %@", error);
+         RefreshEndFooter
+     }];
+}
+
+
 
 #pragma mark - UITableViewDelegate,UITableViewDataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -111,7 +151,7 @@ static NSString  *TPUSDTCellId = @"USDTCell";
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TPSellViewController *sellVC = [[TPSellViewController alloc] initWithPairId:TPString(@"%ld",(long)self.pairId)  WithTransType:self.transactionType ?  TPTransactionTypeTransferOut:TPTransactionTypeTransfer publish:NO];
+    TPSellViewController *sellVC = [[TPSellViewController alloc] initWithPairId:TPString(@"%ld",(long)self.pairId)  WithTransType:[self.transactionType  isEqualToString: @"1"] ?  TPTransactionTypeTransferOut:TPTransactionTypeTransfer publish:NO];
     sellVC.currName = self.currName;
     sellVC.cData = self.cData;
     sellVC.transModel = self.transactionTopic[indexPath.row];

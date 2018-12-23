@@ -304,7 +304,6 @@
 
 -(void)reservationClick
 {
-//    NSLog(@"立即预约");
     TPTransView *transView = [TPTransView createTransferViewStyle:TPTransStyleReservation];
     transView.title = @"确认预约";
     transView.desc = @"总计需支付";
@@ -331,6 +330,7 @@
                      [self showSuccessText:@"购买成功"];
                      
                      [TPTransV showMenuWithAlpha:NO];
+                     [TPNotificationCenter postNotificationName:TPAssetRedNotification object:nil];
                      [self.navigationController popViewControllerAnimated:YES];
                  }
                     else
@@ -338,8 +338,6 @@
                      [TPTransV showMenuWithAlpha:NO];
                      [self showInfoText:responseObject[@"message"]];
                  }
-                 
-                 
              }
                 failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
              {
@@ -348,7 +346,11 @@
              }];
          }
      }];
-    
+}
+
+-(void)dealloc
+{
+    [TPNotificationCenter removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {

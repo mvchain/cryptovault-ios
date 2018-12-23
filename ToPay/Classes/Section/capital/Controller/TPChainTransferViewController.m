@@ -229,7 +229,7 @@
             {
                 if ([responseObject[@"code"] isEqual:@200])
                 {
-//                    [self showSuccessText:@"转账成功"];
+                    [self showSuccessText:@"操作成功"];
                     [TPTransV showMenuWithAlpha:NO];
                     
                     [TPNotificationCenter postNotificationName:TPTakeOutSuccessNotification object:nil];

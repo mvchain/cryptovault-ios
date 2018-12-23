@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "TPTransactionModel.h"
+//#import "TPTransInfoModel.h"
 @interface TPNonPublish : UIView
 
-- (instancetype)initWithTransType:(TPTransactionType)transType;
+- (instancetype)initWithTransType:(TPTransactionType)transType tokenName:(NSString *)tokenName currName:(NSString *)currName;
+
+@property (nonatomic, strong) TPTransactionModel *transModel;
+
 
 @end

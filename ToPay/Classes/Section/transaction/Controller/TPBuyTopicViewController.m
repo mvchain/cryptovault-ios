@@ -8,6 +8,7 @@
 
 #import "TPBuyTopicViewController.h"
 #import "TPRecordModel.h"
+#import "TPVRTModel.h"
 @interface TPBuyTopicViewController ()
 @property (nonatomic) TPStatusStyle statusStyle;
 
@@ -15,6 +16,7 @@
 
 @property (nonatomic, strong) NSMutableDictionary *param;
 
+@property (nonatomic, strong) NSMutableArray <TPVRTModel *> *pairTopic;
 @end
 
 @implementation TPBuyTopicViewController
@@ -47,6 +49,16 @@ static NSString  *TPBuyTopicCellId = @"buyTopicCell";
          make.height.equalTo(self.view.mas_height);
      }];
     
+    
+    YYCache *listCache = [YYCache cacheWithName:TPCacheName];
+    
+    
+    NSArray *balanceArr = (NSArray *)[listCache objectForKey:TPPairBalanceKey];
+    NSArray *VRTArr = (NSArray *)[listCache objectForKey:TPPairVRTKey];
+    self.pairTopic = [NSMutableArray array];
+    [self.pairTopic addObjectsFromArray:balanceArr];
+    [self.pairTopic addObjectsFromArray:VRTArr];
+    
     [self setupRefreshWithShowFooter:YES];
     
     [self loadNewTopics];
@@ -60,10 +72,10 @@ static NSString  *TPBuyTopicCellId = @"buyTopicCell";
     self.param[@"status"] = @(self.statusStyle);
     self.param[@"type"] = @"0";
     
-    if (self.pairId) {
+    if (self.pairId)
+    {
         self.param[@"pairId"] = self.pairId;
     }
-    
     
     [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"transaction/partake" parameters:self.param success:^(id responseObject, BOOL isCacheObject)
      {
@@ -87,9 +99,53 @@ static NSString  *TPBuyTopicCellId = @"buyTopicCell";
      }
         failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
      {
-         NSLog(@" 筛选已参与订单失败：error = %@", error);
+
          [self showErrorText:@"筛选参与订单失败"];
          RefreshEndHeader
+     }];
+}
+
+-(void)loadMoreTopics
+{
+    self.param[@"pageSize"] = @"10";
+    self.param[@"status"] = @(self.statusStyle);
+    self.param[@"type"] = @"1";
+    
+    TPRecordModel *recordM = self.recordTopic[self.recordTopic.count - 1];
+    self.param[@"id"] = recordM.id;
+    if (self.pairId)
+    {
+        self.param[@"pairId"] = self.pairId;
+    }
+    
+    
+    [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"transaction/partake" parameters:self.param success:^(id responseObject, BOOL isCacheObject)
+     {
+         if ([responseObject[@"code"] isEqual:@200])
+         {
+             NSLog(@"responseObject:%@",responseObject[@"data"]);
+             
+             NSArray *recordTop;
+             
+             recordTop = [TPRecordModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+             if (recordTop.count == 0)
+             {
+                 [self showInfoText:@"数据已经拉到底了"];
+             }
+             else
+             {
+                 [self.recordTopic addObjectsFromArray:recordTop];
+                 [self.baseTableView reloadData];
+             }
+             RefreshEndFooter
+         }
+         else
+             [self showErrorText:responseObject[@"message"]];
+     }
+                                             failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
+     {
+         [self showErrorText:@"筛选参与订单失败"];
+         RefreshEndFooter
      }];
 }
 
@@ -102,7 +158,7 @@ static NSString  *TPBuyTopicCellId = @"buyTopicCell";
 {
     TPProcessingCell *cell = [tableView dequeueReusableCellWithIdentifier:TPBuyTopicCellId];
     if (!cell)
-        cell = [[TPProcessingCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TPBuyTopicCellId WithStyle:_statusStyle];
+        cell = [[TPProcessingCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TPBuyTopicCellId WithStyle:_statusStyle pairArr:self.pairTopic];
    
     cell.record = self.recordTopic[indexPath.row];
     __block TPProcessingCell *proCell = cell;

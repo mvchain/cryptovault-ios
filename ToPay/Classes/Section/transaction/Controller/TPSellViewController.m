@@ -26,6 +26,7 @@
 @property (nonatomic, strong) TPPublish * publishView;
 @property (nonatomic, strong) UIButton * reservationBtn;
 @property (nonatomic, strong) UILabel * conLab;
+@property (nonatomic, strong) UILabel * tsLab;
 @property (nonatomic, strong) TPComTextView *comText;
 
 @property (nonatomic, strong) TPTransInfoModel *transInfo;
@@ -34,6 +35,7 @@
 @property (nonatomic, copy)   NSString *pairId;
 @property (nonatomic, copy)  NSString   * tokenName;
 @property (nonatomic) BOOL isPublish;
+@property (nonatomic) CGFloat currentPrice;
 @end
 
 @implementation TPSellViewController
@@ -56,9 +58,9 @@
     [super viewDidLoad];
 
     self.sellLabs = [NSMutableArray<UILabel *> array];
-    
+    self.currentPrice = 1.0f;
     self.tokenName = self.cData.tokenName;
-    self.customNavBar.title = TPString(@"%@%@",self.transType == TPTransactionTypeTransferOut? @"出售":@"购买",self.tokenName);
+    self.customNavBar.title = TPString(@"%@%@",self.transType == TPTransactionTypeTransfer ? @"购买":@"出售",self.tokenName);
     [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"list_icon_1"]];
     TPWeakSelf;
     [self.customNavBar setOnClickRightButton:^
@@ -67,7 +69,7 @@
         [weakSelf.navigationController pushViewController:VC animated:YES];
     }];
     
-    [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"transaction/info" parameters:@{@"pairId":self.pairId,@"transactionType":_transType == TPTransactionTypeTransferOut ? @"2":@"1"} success:^(id responseObject, BOOL isCacheObject)
+    [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"transaction/info" parameters:@{@"pairId":self.pairId,@"transactionType":_transType == TPTransactionTypeTransferOut ? @"1":@"2"} success:^(id responseObject, BOOL isCacheObject)
     {
         if ([responseObject[@"code"] isEqual:@200])
         {
@@ -76,13 +78,14 @@
             self.sellLabs[0].text = TPString(@"%.4f",[self.transInfo.tokenBalance floatValue]);
             self.sellLabs[1].text = TPString(@"%.4f",[self.transInfo.balance floatValue]);;
             
-//            self.currentLab.text = TPString(@"%@:%@%@",self.transType == TPTransactionTypeTransferOut ? @"出售单价":@"购买单价",self.transInfo.price,self.currName);
-//            self.isPublish ?  TPString(@"当前价格：%@ VRT",self.transInfo.price):TPString(@"%@ %@",self.transInfo.price,self.currName);
-//            self.numLab.text = TPString(@"%@ %@",self.transInfo.price,self.currName);
-//
-//            self.comSlider.slider.maxValue = 100 + [self.transInfo.max floatValue];
-//            self.comSlider.slider.minValue = 100 + [self.transInfo.min floatValue];
-//            self.comSlider.slider.value = 100;
+            if (self.isPublish)
+            {
+                self.publishView.transModel = self.transInfo;
+            }
+
+            self.publishView.comSlider.slider.maxValue = 100 + [self.transInfo.max floatValue];
+            self.publishView.comSlider.slider.minValue = 100 + [self.transInfo.min floatValue];
+            self.publishView.comSlider.slider.value = 100;
         }
     }
         failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
@@ -113,7 +116,7 @@
          make.width.equalTo(@355);
      }];
     
-    NSArray *titArr = @[TPString(@"%@余额",self.tokenName),@"可用VRT"];
+    NSArray *titArr = @[TPString(@"可用%@",self.tokenName),TPString(@"可用%@",self.currName)];
     NSMutableArray *balanceArr = [NSMutableArray array];
     for (int i = 0; i <titArr.count ; i++)
     {
@@ -164,9 +167,10 @@
 
     if (!self.isPublish)
     {
-        nonPublish = [[TPNonPublish alloc] initWithTransType:self.transType];
+        nonPublish = [[TPNonPublish alloc] initWithTransType:self.transType tokenName:self.cData.tokenName currName:self.currName];
+        nonPublish.transModel = self.transModel;
         [_bottomView addSubview:nonPublish];
-        
+        self.nonPublish = nonPublish;
         [nonPublish mas_makeConstraints:^(MASConstraintMaker *make)
         {
             make.top.left.equalTo(@0);
@@ -176,19 +180,32 @@
     }
         else
     {
-        publishView = [[TPPublish alloc]initWithTransType:self.transType];
+        publishView = [[TPPublish alloc]initWithTransType:self.transType tokenName:self.cData.tokenName currName:self.currName];
+
         [_bottomView addSubview:publishView];
+        self.publishView = publishView;
         [publishView mas_makeConstraints:^(MASConstraintMaker *make)
         {
             make.left.top.equalTo(@0);
             make.width.equalTo(self.bottomView.mas_width);
             make.height.equalTo(@153);
         }];
+        
+        publishView.sliderBlock = ^(SJSlider * _Nonnull slider)
+        {
+            self.currentPrice = slider.value / 100;
+        
+            if (self.comText.comTextField.text.length > 0)
+            {
+                self.conLab.text = TPString(@"%.4f %@",[self.comText.comTextField.text floatValue] * [self.transInfo.price floatValue] * slider.value/100 , self.currName);
+              
+            }
+        };
     }
     
     
-    NSArray *titleArr; //= @[@"出售量"];
-    NSArray *placeArr; //= @[@"输出卖出USDT数量"];
+    NSArray *titleArr;
+    NSArray *placeArr;
     if (self.transType == TPTransactionTypeTransferOut)
     {
         titleArr = @[@"出售数量"];
@@ -220,21 +237,16 @@
          }];
     }
     
+    self.tsLab = [YFactoryUI YLableWithText:@"" color:[UIColor colorWithHex:@"#F33636"] font:FONT(13)];
+    [_bottomView addSubview:self.tsLab];
     
-//    if (!self.isPublish)
-//    {
-//        /** 剩余可 购买/出售 数量 */
-////        @"剩余可xxx量"
-//        UILabel *remainLab = [YFactoryUI YLableWithText:TPString(@"剩余可%@量:%@",self.transType == TPTransactionTypeTransferOut ? @"出售":@"购买",self.transModel.limitValue) color:TPA7Color font:FONT(12)];
-//        [_bottomView addSubview:remainLab];
-//
-//        [remainLab  mas_makeConstraints:^(MASConstraintMaker *make)
-//        {
-//            make.left.equalTo(takeText.comTextField.mas_left);
-//            make.top.equalTo(takeText.mas_bottom).with.offset(5);
-//            make.height.equalTo(@16);
-//        }];
-//    }
+    [self.tsLab mas_makeConstraints:^(MASConstraintMaker *make)
+     {
+         make.left.equalTo(takeText.comTitleLabel.mas_left);
+         make.top.equalTo(takeText.mas_bottom).with.offset(4);
+         make.height.equalTo(@17);
+     }];
+    
     
     UILabel *proLab = [YFactoryUI YLableWithText:@"总价格：" color:TP8EColor font:FONT(13)];
     [_bottomView addSubview:proLab];
@@ -245,7 +257,7 @@
         make.top.equalTo(takeText.mas_bottom).with.offset(24);
     }];
 
-    UILabel *conLab = [YFactoryUI YLableWithText:TPString(@"%@ 0.00",self.tokenName) color:TPC1Color font:FONT(17)];
+    UILabel *conLab = [YFactoryUI YLableWithText:TPString(@"0 %@",self.currName) color:TPC1Color font:FONT(17)];
     [_bottomView addSubview:conLab];
     self.conLab = conLab;
     [conLab mas_makeConstraints:^(MASConstraintMaker *make)
@@ -273,20 +285,6 @@
     [self reservationBtnUerEnabled:NO];
 }
 
-
-#pragma mark - SJSliderDelegate
--(void)sliderDidDrag:(SJSlider *)slider
-{
-//    self.percentageLab.text = TPString(@"%.2f%%",slider.value);
-//    self.numLab.text = TPString(@"%.2f VRT",slider.value/100 * [self.transInfo.price floatValue]);
-    
-    if (self.comText.comTextField.text.length > 0)
-    {
-//        self.conLab.text = TPString(@"VRT %.2f",[self.comText.comTextField.text floatValue] * [self.numLab.text floatValue]);
-        
-    }
-}
-
 -(void)reservationBtnUerEnabled:(BOOL)enabled
 {
     self.reservationBtn.userInteractionEnabled = enabled ? YES:NO;
@@ -306,13 +304,28 @@
         [self reservationBtnUerEnabled:NO];
     }
     
+    if (!self.isPublish)
+    {
+        if ([comText.text floatValue]  > [self.transModel.limitValue floatValue])
+        {
+            self.tsLab.text = @"不能超出剩余数量";
+            self.tsLab.hidden = NO;
+            [self reservationBtnUerEnabled:NO];
+        }
+        else
+        {
+            self.tsLab.hidden = YES;
+            [self reservationBtnUerEnabled:YES];
+        }
+    }
+
     if (self.isPublish)
     {
-//        self.conLab.text = TPString(@"%@ %.2f",self.tokenName,[comText.text floatValue] * [self.numLab.text floatValue]);
+        self.conLab.text = TPString(@"%.4f %@",[comText.text floatValue] * [self.transInfo.price floatValue] * self.currentPrice,self.currName);
     }
         else
     {
-        self.conLab.text = TPString(@"%@ %.2f",self.tokenName,[comText.text floatValue] * [self.transInfo.price floatValue]);
+        self.conLab.text = TPString(@"%.4f %@",[comText.text floatValue] * [self.transModel.price floatValue],self.currName);
     }
 }
 
@@ -324,9 +337,31 @@
     
     transView.title = @"确认发布";
     transView.desc = @"总计需支付";
+    
+    if (self.isPublish)
+    transView.Total = TPString(@"%.4f %@",[self.comText.comTextField.text floatValue],self.tokenName);
+    else
     transView.Total = self.conLab.text;
-    transView.con1 = TPString(@"%.2f %@",[self.comText.comTextField.text floatValue] * [self.transInfo.price floatValue],self.currName);
-    transView.con2 = TPString(@"%@ %@",self.transInfo.price,self.currName);
+    
+    
+    /*
+     * 数量
+     */
+    if (self.isPublish)
+    transView.con1 = TPString(@"%.4f %@",[self.comText.comTextField.text floatValue] * [self.transInfo.price floatValue] * self.currentPrice,self.currName);
+    else
+    transView.con1 = TPString(@"%.2f %@",[self.comText.comTextField.text floatValue],self.tokenName);
+    
+    
+    /*
+     * 单价
+     */
+    if (self.isPublish)
+    transView.con2 =  TPString(@"%.4f %@",[self.transInfo.price floatValue] *self.currentPrice,self.currName);
+    else
+    transView.con2 = TPString(@"%.4f %@",[self.transModel.price floatValue],self.currName);
+    
+   
     
     [transView showMenuWithAlpha:YES];
     
@@ -335,17 +370,23 @@
     {
         if (text.length == 6)
         {
+            CGFloat price = 0.0;
+            if (self.isPublish)
+            price = [self.transInfo.price floatValue] * self.currentPrice;
+            
 
             [[WYNetworkManager sharedManager] sendPostRequest:WYJSONRequestSerializer url:@"transaction" parameters:@{ @"id":self.transModel ? self.transModel.id:@"0",
                               @"pairId":self.pairId,
                               @"password":text,
-                              @"price":self.transInfo.price,
-                              @"transactionType":self.transType == TPTransactionTypeTransferOut ? @"2":@"1",
+                              @"price":self.isPublish ? @(price):self.transModel.price,
+                              @"transactionType":self.transType == TPTransactionTypeTransfer ? @"1":@"2",
                               @"value":self.comText.comTextField.text} success:^(id responseObject, BOOL isCacheObject)
             {
                 if ([responseObject[@"code"] isEqual:@200])
                 {
+                    if (self.isPublish)
                     [self showSuccessText:@"挂单成功"];
+                    
                     [TPTransV showMenuWithAlpha:NO];
                     
                     [TPNotificationCenter postNotificationName:TPTakeOutSuccessNotification object:nil];
@@ -367,11 +408,6 @@
         }
     }];
     
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
 }
 
 

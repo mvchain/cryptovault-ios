@@ -14,9 +14,10 @@
 
 @property (nonatomic , copy) NSString              * headImage;
 @property (nonatomic , copy) NSString              * id;
-@property (nonatomic , copy) NSString              * limitValue;
+@property (nonatomic , copy) NSDecimalNumber              * limitValue;
 @property (nonatomic , copy) NSString              * nickname;
-@property (nonatomic , copy) NSString              * total;
+@property (nonatomic) NSDecimalNumber     *          total;
+@property (nonatomic) NSDecimalNumber     *         price;
 
 @end
 

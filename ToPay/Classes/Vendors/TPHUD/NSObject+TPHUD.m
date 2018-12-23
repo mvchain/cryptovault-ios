@@ -13,26 +13,26 @@
 - (void)showText:(NSString *)aText
 {
     [TProgressHUD showWithStatus:aText];
-    [TProgressHUD dismissWithDelay:2];
+    [TProgressHUD dismissWithDelay:1];
 }
 
 
 - (void)showErrorText:(NSString *)aText
 {
     [TProgressHUD showErrorWithStatus:aText];
-    [TProgressHUD dismissWithDelay:2];
+    [TProgressHUD dismissWithDelay:1];
 }
 
 - (void)showSuccessText:(NSString *)aText
 {
     [TProgressHUD showSuccessWithStatus:aText];
-    [TProgressHUD dismissWithDelay:2];
+    [TProgressHUD dismissWithDelay:1];
 }
 
 - (void)showInfoText:(NSString *)aText
 {
     [TProgressHUD showInfoWithStatus:aText];
-    [TProgressHUD dismissWithDelay:2];
+    [TProgressHUD dismissWithDelay:1];
 }
 
 - (void)showLoading

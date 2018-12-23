@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "TPTransInfoModel.h"
 #import "SJButtonSlider.h"
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,8 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) SJButtonSlider *comSlider;
 
+@property (nonatomic, strong) TPTransInfoModel *transModel;
 
-- (instancetype)initWithTransType:(TPTransactionType)transType;
+- (instancetype)initWithTransType:(TPTransactionType)transType tokenName:(NSString *)tokenName currName:(NSString *)currName;
 
 @end
 

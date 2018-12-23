@@ -8,13 +8,22 @@
 
 #import "TPNonPublish.h"
 
+@interface TPNonPublish ()
+@property (nonatomic, strong) NSMutableArray<UILabel *> *publishArr;
+@property (nonatomic, copy) NSString *tokenName;
+@property (nonatomic, copy) NSString *currName;
+@end
+
 @implementation TPNonPublish
 
-- (instancetype)initWithTransType:(TPTransactionType)transType
+- (instancetype)initWithTransType:(TPTransactionType)transType tokenName:(NSString *)tokenName currName:(NSString *)currName
 {
     self = [super init];
     if (self)
     {
+        self.currName = currName;
+        self.tokenName = tokenName;
+        self.publishArr = [NSMutableArray<UILabel *> array];
         BOOL isOut = transType == TPTransactionTypeTransferOut ? YES:NO;
         
         NSArray *titleArr = @[isOut ? @"买家:":@"卖家:",TPString(@"剩余%@量:",isOut ? @"购买":@"出售"),TPString(@"%@价格:",isOut ? @"购买":@"出售")];
@@ -22,6 +31,7 @@
         for (int i = 0; i < titleArr.count; i++)
         {
             titLab = [YFactoryUI YLableWithText:titleArr[i] color:TP59Color font:FONT(13)];
+            titLab.textAlignment = NSTextAlignmentRight;
             [self addSubview:titLab];
             
             [titLab mas_makeConstraints:^(MASConstraintMaker *make)
@@ -31,9 +41,9 @@
                 make.height.equalTo(@17);
             }];
             
-            UILabel *conLab = [YFactoryUI YLableWithText:@"大萨达撒" color:TP59Color font:FONT(13)];
+            UILabel *conLab = [YFactoryUI YLableWithText:@"" color:TP59Color font:FONT(13)];
             [self addSubview:conLab];
-            conLab.backgroundColor = [[UIColor redColor]colorWithAlphaComponent:0.3];
+            [self.publishArr addObject:conLab];
             [conLab mas_makeConstraints:^(MASConstraintMaker *make)
             {
                 make.right.equalTo(@(-15));
@@ -57,5 +67,16 @@
     }
     return self;
 }
+
+-(void)setTransModel:(TPTransactionModel *)transModel
+{
+    _transModel = transModel;
+    
+    self.publishArr[0].text = transModel.nickname;
+    self.publishArr[1].text = TPString(@"%.2f %@",[transModel.limitValue floatValue],self.tokenName);
+    self.publishArr[2].text = TPString(@"%.4f %@",[transModel.price floatValue],self.currName);
+
+}
+
 
 @end

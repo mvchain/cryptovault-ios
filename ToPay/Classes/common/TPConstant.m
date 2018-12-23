@@ -35,4 +35,6 @@ NSString * const TPTakeOutSuccessNotification = @"TPTakeOutSuccessNotification";
 
 NSString * const TPLegalSwitchNotification = @"TPLegalSwitchNotification";
 
+NSString * const TPAssetRedNotification = @"TPAssetRedNotification";
+
 CGFloat const MHGlobalBottomLineHeight = .55f;

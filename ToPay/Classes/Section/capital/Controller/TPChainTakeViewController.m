@@ -160,6 +160,8 @@
                  [self showSuccessText:@"取出余额成功"];
                  [TPTransV showMenuWithAlpha:NO];
                  
+
+                 [TPNotificationCenter postNotificationName:TPAssetRedNotification object:nil];
                  [TPNotificationCenter postNotificationName:TPTakeOutSuccessNotification object:nil];
                  [self.navigationController popViewControllerAnimated:YES];
              }

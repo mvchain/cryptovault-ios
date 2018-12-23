@@ -67,7 +67,7 @@
         _limitLab.text = TPString(@"剩余可出售量：%.1f",[transModel.limitValue floatValue]);
     }
     
-    _priceLab.text = TPString(@"%.4f %@",[transModel.total floatValue],self.tokenName);
+    _priceLab.text = TPString(@"%.4f %@",[transModel.price floatValue],self.tokenName);
 }
 
 -(void)layoutSubviews

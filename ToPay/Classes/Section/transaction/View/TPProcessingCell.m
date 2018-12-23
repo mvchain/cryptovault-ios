@@ -18,16 +18,18 @@
 @property (nonatomic, strong) UILabel  * timeLab;
 @property (nonatomic)  TPStatusStyle statusStyle;
 @property (nonatomic)  BOOL isProcessing;
+
+@property (nonatomic ,strong) NSArray <TPVRTModel *> *pairArr;
 @end
 
 @implementation TPProcessingCell
 
--(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithStyle:(TPStatusStyle)statusStyle
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithStyle:(TPStatusStyle)statusStyle pairArr:(NSMutableArray<TPVRTModel *>*)pairArr
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self)
     {
-        
+        self.pairArr = pairArr;
         _statusStyle = statusStyle;
         
         self.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -79,17 +81,28 @@
 {
     _record = record;
     
+    for (int i = 0; i < self.pairArr.count; i++)
+    {
+        
+        if (self.pairArr[i].pairId == record.pairId)
+        {
+            _nickLab.text = TPString(@"%@ %@",[record.transactionType isEqualToString:@"1"] ? @"购买":@"出售",self.pairArr[i].pair);
+        }
+    }
+    
+    
+    
     if (self.isProcessing == YES)
     {
         self.conArray[0].text = record.deal;
-        self.conArray[1].text = record.price;
+        self.conArray[1].text = TPString(@"%.4f",[record.price floatValue]);
     }
         else
     {
         self.conArray[0].text = record.orderNumber;
         self.conArray[1].text = record.nickname;
         self.conArray[2].text = record.deal;
-        self.conArray[3].text = record.price;
+        self.conArray[3].text = TPString(@"%.4f",[record.price floatValue]);
     }
     
     

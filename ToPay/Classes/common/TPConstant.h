@@ -79,4 +79,8 @@ UIKIT_EXTERN NSString * const TPTakeOutSuccessNotification ;
  */
 UIKIT_EXTERN NSString * const TPLegalSwitchNotification ;
 
+/*
+ * 刷新资产小红点通知
+ */
+UIKIT_EXTERN NSString * const TPAssetRedNotification ;
 

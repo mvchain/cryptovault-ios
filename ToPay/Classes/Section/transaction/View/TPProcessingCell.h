@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TPRecordModel.h"
+#import "TPVRTModel.h"
 typedef NS_ENUM(NSUInteger, TPStatusStyle)
 {
     TPStatusStyleProcessing = 0,  // 进行中
@@ -21,7 +22,7 @@ typedef NS_ENUM(NSUInteger, TPStatusStyle)
 
 @property (nullable, copy) void (^withdrawalBlock)(void);
 
--(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithStyle:(TPStatusStyle)statusStyle;
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithStyle:(TPStatusStyle)statusStyle pairArr:(NSMutableArray<TPVRTModel *>*)pairArr;
 
 
 @end
