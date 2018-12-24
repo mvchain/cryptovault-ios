@@ -10,7 +10,7 @@
 #import "TPComTextView.h"
 #import "TPTransView.h"
 @interface TPChainTakeViewController ()
-@property (nonatomic, assign) NSString * balanceNum;
+@property (nonatomic) NSDecimalNumber * balanceNum;
 
 @property (nonatomic, strong) UILabel *promptLab;
 
@@ -34,8 +34,8 @@
     {
         if ([responseObject[@"code"] isEqual:@200])
         {
-            self.balanceNum = TPString(@"%@",responseObject[@"data"]);
-            self.promptLab.text = TPString(@"余额：%@",self.balanceNum);
+            self.balanceNum = responseObject[@"data"];
+            self.promptLab.text = TPString(@"余额：%.4f",[self.balanceNum floatValue]);
         }
     }
         failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
@@ -109,7 +109,7 @@
 {
     if (textF.text.length > 0)
     {
-        NSComparisonResult r = [@([textF.text integerValue]) compare:@([self.balanceNum integerValue])];
+        NSComparisonResult r = [@([textF.text floatValue]) compare:@([self.balanceNum floatValue])];
         
             if (r == NSOrderedDescending)
             {

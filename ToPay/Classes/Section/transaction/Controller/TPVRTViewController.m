@@ -125,6 +125,8 @@ static NSString  *TPMSCellId = @"MSCell";
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.row == 0)   return;
+    
     TPTranDetailViewController *tranDetailVC = [[TPTranDetailViewController alloc] init];
     tranDetailVC.vrtTopic = self.VRTTopic[indexPath.row - 1];
     tranDetailVC.currName = self.transactionStyle == TPTransactionStyleVRT ? @"VRT":@"余额";

@@ -13,15 +13,32 @@
 #import "TPSellViewController.h"
 #import "TPCurrencyList.h"
 #import "TPDetailTitleView.h"
+#import "TPKLineModel.h"
 
-#import "AAChartKit.h"
 
-@interface TPTranDetailViewController ()<SGPageContentScrollViewDelegate,AAChartViewDidFinishLoadDelegate>
+
+#import <Charts/Charts-Swift.h>
+
+
+@interface CubicLineSampleFillFormatter : NSObject <IChartValueFormatter>
+
+@end
+
+@implementation CubicLineSampleFillFormatter
+
+-(CGFloat)getFillLinePositionWithDataSet:(LineChartDataSet *)dataSet dataProvider:(id<LineChartDataProvider>)dataProvider
+{
+    return -10.f;
+}
+
+@end
+
+
+
+@interface TPTranDetailViewController ()<SGPageContentScrollViewDelegate,ChartViewDelegate>
 @property (nonatomic, strong) UIView  *headerView;
 
-@property (nonatomic, strong) AAChartModel *aaChartModel;
-@property (nonatomic, strong) AAChartView  *aaChartView;
-
+@property (nonatomic, strong) LineChartView *chartView;
 
 @property (nonatomic, strong) UISegmentedControl *segment;
 @property (nonatomic, strong) SGPageContentScrollView *pageContentScrollView;
@@ -29,6 +46,7 @@
 @property (nonatomic) CGFloat contentViewHeight;
 
 @property (nonatomic, strong) CLData *cData;
+@property (nonatomic, strong) TPKLineModel *KLineModel;
 @end
 
 @implementation TPTranDetailViewController
@@ -43,6 +61,8 @@
 {
     [super viewDidLoad];
     
+    
+    NSLog(@"%@",[WYNetworkManager sharedManager].customHeaders);
     YYCache *listCache = [YYCache cacheWithName:TPCacheName];
     self.cData = (CLData *)[listCache objectForKey:self.vrtTopic.tokenId];
     
@@ -58,9 +78,7 @@
         [weakSelf.navigationController pushViewController:buyRecordVC animated:YES];
     }];
     
-    
-    
-    
+
     [self setUpHeaderView];
     [self setUpSegment];
     [self setUpPageContentView];
@@ -182,6 +200,9 @@
     [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"transaction/pair/kline" parameters:@{@"pairId":self.vrtTopic.pairId} success:^(id responseObject, BOOL isCacheObject)
     {
         NSLog(@"%@",responseObject[@"data"]);
+        
+        self.KLineModel = [TPKLineModel mj_objectWithKeyValues:responseObject[@"data"]];
+        [self setGraph];
     }
         failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
     {
@@ -189,59 +210,112 @@
     }];
     
     
-    [self setGraph];
+    
 }
 
 #pragma mark - 曲线填充图
 
 -(void)setGraph
 {
-    self.aaChartView = [[AAChartView alloc] init];
-    
-    [self.headerView addSubview:self.aaChartView];
-    
-    [self.aaChartView mas_makeConstraints:^(MASConstraintMaker *make)
-     {
-         make.left.equalTo(@0);
-         make.top.equalTo(@59);
-         make.width.equalTo(@(KWidth));
-         make.height.equalTo(@180);
-     }];
-    //    self.aaChartView.delegate = self;
-    self.aaChartView.scrollEnabled = NO;
-    self.aaChartView.isClearBackgroundColor = YES;
+    _chartView = [[LineChartView alloc] init];
+    [self.headerView addSubview:_chartView];
+    [_chartView mas_makeConstraints:^(MASConstraintMaker *make)
+    {
+        make.left.equalTo(@0);
+        make.top.equalTo(@59);
+        make.width.equalTo(@(KWidth));
+        make.height.equalTo(@180);
+    }];
     
     
-    self.aaChartModel = AAChartModel.new
-    .chartTypeSet(AAChartTypeAreaspline) //.titleSet(@"主标题")
-    .yAxisLineWidthSet(@0)
-    .colorsThemeSet(@[@"#fe117c",@"#ffc069",@"#06caf4",@"#7dffc0"])//设置主体颜色数组
-    .yAxisTitleSet(@"")//设置 Y 轴标题
-    .tooltipValueSuffixSet(@"℃")//设置浮动提示框单位后缀
-    .backgroundColorSet(@"#4b2b7f")
-    .yAxisGridLineWidthSet(@0)//y轴横向分割线宽度为0(即是隐藏分割线)
-    .seriesSet(@[AASeriesElement.new
-                 .dataSet(@[@7.0, @6.9, @9.5, @14.5, @18.2, @21.5, @25.2, @26.5, @23.3, @18.3, @13.9, @9.6])]
-               );
+    _chartView.delegate = self;
+    
+    [_chartView setViewPortOffsetsWithLeft:0.f top:20.f right:0.f bottom:0.f];
+    
+    _chartView.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.3];
+    //[UIColor colorWithRed:104/255.f green:241/255.f blue:175/255.f alpha:1.f];
+    
+    _chartView.chartDescription.enabled = NO;
+    
+    _chartView.dragEnabled = YES;
+    [_chartView setScaleEnabled:YES];
+    _chartView.pinchZoomEnabled = NO;
+    _chartView.drawGridBackgroundEnabled = NO;
+    _chartView.maxHighlightDistance = 300.0;
+    
+//    _chartView.drawFilledEnabled
+//    _chartView.data.dataSets
+//    _chartView.xAxis.enabled = YES;
+    
+    ChartYAxis *yAxis = _chartView.leftAxis;
+    yAxis.labelFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:12.f];
+    [yAxis setLabelCount:6 force:NO];
+    yAxis.labelTextColor = UIColor.whiteColor;
+    yAxis.labelPosition = YAxisLabelPositionInsideChart;
+    yAxis.drawGridLinesEnabled = NO;
+    yAxis.axisLineColor = UIColor.whiteColor;
+    
+//    ChartXAxis *xAxis = _chartView.xAxis;
+//    xAxis.labelPosition = XAxisLabelPositionBottom;
+//    xAxis.labelTextColor =[UIColor blackColor];
+//    xAxis.drawGridLinesEnabled = NO;
+//    xAxis.labelCount = 5;
     
     
-    [self configureTheStyleForDifferentTypeChart]; //为不同类型图表设置样式
+    _chartView.rightAxis.enabled = NO;
+    _chartView.legend.enabled = NO;
+    [self updateChartData];
     
-    
-    [self.aaChartView aa_drawChartWithChartModel:_aaChartModel];
+    [_chartView animateWithXAxisDuration:2.0 yAxisDuration:2.0];
 }
 
-
--(void)configureTheStyleForDifferentTypeChart
+-(void)updateChartData
 {
-    _aaChartModel.markerSymbolStyle = AAChartSymbolStyleTypeInnerBlank;//设置折线连接点样式为:内部白色
-    _aaChartModel.gradientColorsThemeEnabled = true;//启用渐变色
-    _aaChartModel.animationType = AAChartAnimationEaseOutQuart;//图形的渲染动画为 EaseOutQuart 动画
-    _aaChartModel.xAxisCrosshairWidth = @0.9;//Zero width to disable crosshair by default
-    _aaChartModel.xAxisCrosshairColor = @"#FFE4C4";//(浓汤)乳脂,番茄色准星线
-    _aaChartModel.xAxisCrosshairDashStyleType = AALineDashSyleTypeLongDashDot;
+    [self setDataCount:(int)self.KLineModel.valueY.count  range:100.0];
 }
 
+- (void)setDataCount:(int)count range:(double)range
+{
+    NSMutableArray *yVals1 = [[NSMutableArray alloc] init];
+    
+    for (int i = 0 ; i < count; i++)
+    {
+        [yVals1 addObject:[[ChartDataEntry alloc] initWithX:i y:[self.KLineModel.valueY[i] doubleValue]]];
+    }
+    
+    LineChartDataSet *set1 = nil;
+    
+    if (_chartView.data.dataSetCount > 0)
+    {
+        set1 = (LineChartDataSet *)_chartView.data.dataSets[0];
+        set1.values = yVals1;
+        [_chartView.data notifyDataChanged];
+        [_chartView notifyDataSetChanged];
+    }
+    else
+    {
+        set1 = [[LineChartDataSet alloc] initWithValues:yVals1 label:@"DataSet 1"];
+        set1.drawFilledEnabled = YES;
+        set1.mode = LineChartModeCubicBezier;
+        set1.cubicIntensity = 0.2;
+        set1.drawCirclesEnabled = NO;
+        set1.lineWidth = 1.8;
+        set1.circleRadius = 4.0;
+        [set1 setCircleColor:UIColor.whiteColor];
+        set1.highlightColor = [UIColor colorWithRed:244/255.f green:117/255.f blue:117/255.f alpha:1.f];
+        [set1 setColor:UIColor.whiteColor];
+        set1.fillColor = [TPMainColor colorWithAlphaComponent:0.3];
+        set1.fillAlpha = 1.f;
+        set1.drawHorizontalHighlightIndicatorEnabled = NO;
+        set1.fillFormatter = [[CubicLineSampleFillFormatter alloc] init];
+        
+        LineChartData *data = [[LineChartData alloc] initWithDataSet:set1];
+        [data setValueFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:9.f]];
+        [data setDrawValues:NO];
+        
+        _chartView.data = data;
+    }
+}
 
 #pragma mark - action
 
@@ -256,10 +330,16 @@
     self.segment.selectedSegmentIndex = targetIndex;
 }
 
+#pragma mark - ChartViewDelegate
 
-- (void)didReceiveMemoryWarning
+- (void)chartValueSelected:(ChartViewBase * __nonnull)chartView entry:(ChartDataEntry * __nonnull)entry highlight:(ChartHighlight * __nonnull)highlight
 {
-    [super didReceiveMemoryWarning];
+    NSLog(@"chartValueSelected");
+}
+
+- (void)chartValueNothingSelected:(ChartViewBase * __nonnull)chartView
+{
+    NSLog(@"chartValueNothingSelected");
 }
 
 -(void)recordClick

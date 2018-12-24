@@ -162,27 +162,10 @@ static NSString  *TPBuyTopicCellId = @"buyTopicCell";
    
     cell.record = self.recordTopic[indexPath.row];
     __block TPProcessingCell *proCell = cell;
+    
     cell.withdrawalBlock = ^
     {
-        
-        [[WYNetworkManager sharedManager]sendDeleteRequest:WYJSONRequestSerializer url:TPString(@"transaction/%@",proCell.record.id) parameters:@{@"id":proCell.record.id} success:^(id responseObject, BOOL isCacheObject)
-        {
-            if ([responseObject[@"code"] isEqual:@200])
-            {
-                NSLog(@"撤单成功");
-                [self.recordTopic removeObjectAtIndex:indexPath.row];
-                [self.baseTableView reloadData];
-            }else
-            {
-                [self showErrorText:responseObject[@"message"]];
-            }
-            
-        }
-            failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
-        {
-            NSLog(@"撤单失败 %@",error);
-            [self showErrorText:@"撤单失败，稍后尝试"];
-        }];
+        [self withdrawalAlert:proCell index:indexPath tableView:tableView];
     };
     return cell;
 }
@@ -204,7 +187,46 @@ static NSString  *TPBuyTopicCellId = @"buyTopicCell";
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    
 }
+
+-(void)withdrawalAlert:(TPProcessingCell *)proCell index:(NSIndexPath *)indexPath tableView:(UITableView *)tableView
+{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"撤单" message:@"您确定要撤销该单？" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *resetAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action)
+    {
+        [self postWithdrawalRequest:proCell index:indexPath tableView:tableView];
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    
+    //添加顺序和显示顺序相同
+    [alertController addAction:cancelAction];
+    [alertController addAction:resetAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+
+-(void)postWithdrawalRequest:(TPProcessingCell *)proCell index:(NSIndexPath *)indexPath tableView:(UITableView *)tableView
+{
+    [[WYNetworkManager sharedManager]sendDeleteRequest:WYJSONRequestSerializer url:TPString(@"transaction/%@",proCell.record.id) parameters:@{@"id":proCell.record.id} success:^(id responseObject, BOOL isCacheObject)
+     {
+         if ([responseObject[@"code"] isEqual:@200])
+         {
+             NSLog(@"撤单成功");
+             [self showSuccessText:@"已经撤单"];
+             [self.recordTopic removeObjectAtIndex:indexPath.row];
+             [tableView deleteRowsAtIndexPaths:[NSMutableArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic]; //删除对应数据的cell
+         }
+            else
+         {
+             [self showErrorText:responseObject[@"message"]];
+         }
+     }
+        failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
+     {
+         NSLog(@"撤单失败 %@",error);
+         [self showErrorText:@"撤单失败，稍后尝试"];
+     }];
+}
+
 
 @end

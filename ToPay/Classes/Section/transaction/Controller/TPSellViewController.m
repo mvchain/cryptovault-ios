@@ -248,6 +248,8 @@
      }];
     
     
+    
+    
     UILabel *proLab = [YFactoryUI YLableWithText:@"总价格：" color:TP8EColor font:FONT(13)];
     [_bottomView addSubview:proLab];
     [proLab mas_makeConstraints:^(MASConstraintMaker *make)
@@ -270,7 +272,7 @@
 
 -(void)setUpbBottomBtn
 {
-    UIButton *reservationBtn = [YFactoryUI YButtonWithTitle:@"发布" Titcolor:[UIColor colorWithHex:@"#D5D7D6"] font:FONT(15) Image:nil target:self action:@selector(reservationClick)];
+    UIButton *reservationBtn = [YFactoryUI YButtonWithTitle:TPString(@"立即%@",self.transType == TPTransactionTypeTransfer ? @"购买":@"出售") Titcolor:[UIColor colorWithHex:@"#D5D7D6"] font:FONT(15) Image:nil target:self action:@selector(reservationClick)];
     [reservationBtn setLayer:22 WithBackColor:TPMainColor];
     self.reservationBtn = reservationBtn;
     [self.view addSubview:reservationBtn];

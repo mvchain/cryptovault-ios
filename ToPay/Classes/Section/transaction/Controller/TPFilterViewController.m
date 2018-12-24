@@ -130,30 +130,27 @@
                       @"pairId":@"",
                       @"status":@"",
                       @"transactionType":@"",
-                      @"type":@""} success:^(id responseObject, BOOL isCacheObject)
+                      @"type":@"0"} success:^(id responseObject, BOOL isCacheObject)
     {
-        
+        if ([responseObject[@"code"] isEqual:@200])
+        {
+            
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+            else
+        {
+            [self showErrorText:responseObject[@"data"]];
+        }
     }
         failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
     {
-        
+        [self showErrorText:@"筛选失败"];
     }];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

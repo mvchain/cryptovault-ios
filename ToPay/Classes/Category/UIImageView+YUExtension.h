@@ -16,4 +16,8 @@
 
 -(void)setIconHeader:(NSString *)url placeholderImage:(NSString *)placeholderImage;
 
+-(void)setRefreshIconHeader:(NSString *)url placeholderImage:(NSString *)placeholderImage;
+
+//
+
 @end

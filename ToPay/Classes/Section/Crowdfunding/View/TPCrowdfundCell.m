@@ -195,8 +195,8 @@
     [_sepV mas_makeConstraints:^(MASConstraintMaker *make)
     {
         make.top.equalTo( self.crowdStyle == TPCrowdfundStyleRecord ?self.recView.mas_bottom:self.comView.mas_bottom);
-        make.left.equalTo(@19);
-        make.right.equalTo(self.backView).with.offset(-17);
+        make.centerX.equalTo(self);
+        make.width.equalTo(self.backView.mas_width).with.offset(-(17*2));
         make.height.equalTo(@1);
     }];
 

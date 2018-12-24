@@ -30,6 +30,8 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self)
     {
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        
         _lab1 = [YFactoryUI YLableWithText:@"币种" color:TP8EColor font:FONT(14)];
         [self addSubview:_lab1];
         

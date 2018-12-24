@@ -143,6 +143,7 @@
 		DD72F42E219A7D7A004C0DAF /* TPVRTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD72F42D219A7D7A004C0DAF /* TPVRTViewController.m */; };
 		DD72F431219A7DA7004C0DAF /* TPBalanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD72F430219A7DA7004C0DAF /* TPBalanceViewController.m */; };
 		DD72F435219A7F12004C0DAF /* TPBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD72F434219A7F12004C0DAF /* TPBaseViewController.m */; };
+		DDC5927F21D0B44C00CE8D3C /* TPKLineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DDC5927E21D0B44C00CE8D3C /* TPKLineModel.m */; };
 		DDDDFB7B219AB5560056FC57 /* TPVRPLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFB7A219AB5560056FC57 /* TPVRPLabelCell.m */; };
 		DDDDFB81219AB7350056FC57 /* TPVRTCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFB80219AB7350056FC57 /* TPVRTCell.m */; };
 		DDDDFB84219AB8C40056FC57 /* YFactoryUI.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFB83219AB8C40056FC57 /* YFactoryUI.m */; };
@@ -490,6 +491,8 @@
 		DD72F430219A7DA7004C0DAF /* TPBalanceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPBalanceViewController.m; sourceTree = "<group>"; };
 		DD72F433219A7F12004C0DAF /* TPBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPBaseViewController.h; sourceTree = "<group>"; };
 		DD72F434219A7F12004C0DAF /* TPBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPBaseViewController.m; sourceTree = "<group>"; };
+		DDC5927D21D0B44C00CE8D3C /* TPKLineModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPKLineModel.h; sourceTree = "<group>"; };
+		DDC5927E21D0B44C00CE8D3C /* TPKLineModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPKLineModel.m; sourceTree = "<group>"; };
 		DDDDFB79219AB5560056FC57 /* TPVRPLabelCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPVRPLabelCell.h; sourceTree = "<group>"; };
 		DDDDFB7A219AB5560056FC57 /* TPVRPLabelCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPVRPLabelCell.m; sourceTree = "<group>"; };
 		DDDDFB7F219AB7350056FC57 /* TPVRTCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPVRTCell.h; sourceTree = "<group>"; };
@@ -825,6 +828,8 @@
 				DDE1769421BD1EED00167EB1 /* TPRecordModel.m */,
 				DDE176A321BE74D700167EB1 /* TPTransInfoModel.h */,
 				DDE176A421BE74D700167EB1 /* TPTransInfoModel.m */,
+				DDC5927D21D0B44C00CE8D3C /* TPKLineModel.h */,
+				DDC5927E21D0B44C00CE8D3C /* TPKLineModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1458,6 +1463,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ToPay/Pods-ToPay-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
@@ -1471,6 +1477,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
@@ -1550,6 +1557,7 @@
 				DD374DAF21C5228100093A0F /* AAYAxis.m in Sources */,
 				DD374D5421C3B41100093A0F /* TZVideoPlayerController.m in Sources */,
 				DDE176A221BE5C9500167EB1 /* SJButtonSlider.m in Sources */,
+				DDC5927F21D0B44C00CE8D3C /* TPKLineModel.m in Sources */,
 				DD2FD6C621C7AD3000A28F78 /* TPNavigationController.m in Sources */,
 				DD02392721A7AC8400333446 /* TPBuyRecordViewController.m in Sources */,
 				DDFE5DA921CA30D5005D6D48 /* JKCountDownButton.m in Sources */,

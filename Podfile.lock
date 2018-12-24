@@ -14,6 +14,9 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - Charts (3.2.0):
+    - Charts/Core (= 3.2.0)
+  - Charts/Core (3.2.0)
   - IQKeyboardManager (6.1.1)
   - Masonry (1.1.0)
   - MJExtension (3.0.15.1)
@@ -28,6 +31,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - Charts
   - IQKeyboardManager
   - Masonry
   - MJExtension
@@ -41,6 +45,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
+    - Charts
     - IQKeyboardManager
     - Masonry
     - MJExtension
@@ -53,6 +58,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  Charts: 680c8328bd5e90cb14f67e00d2176f3113d19141
   IQKeyboardManager: 79c57795f5c2408d259d37b9da2ed07efcbb5225
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 19bc33ce2eee2d319760f5622562cf581a6ff756
@@ -63,6 +69,6 @@ SPEC CHECKSUMS:
   WRNavigationBar: dc952230effbb646785f962587caaac06c60f229
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: 6bb3f6daa65f599458f2d746ca65aa7c131664cd
+PODFILE CHECKSUM: 41c3e2605ebbf8586976c530fa914974e0a78d15
 
 COCOAPODS: 1.5.3

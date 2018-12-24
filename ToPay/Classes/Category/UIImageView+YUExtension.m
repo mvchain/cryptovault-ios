@@ -38,4 +38,9 @@
     [self sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:placeholderImage]];
 }
 
+-(void)setRefreshIconHeader:(NSString *)url placeholderImage:(NSString *)placeholderImage
+{
+    [self sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:placeholderImage] options:SDWebImageRefreshCached];
+}
+
 @end

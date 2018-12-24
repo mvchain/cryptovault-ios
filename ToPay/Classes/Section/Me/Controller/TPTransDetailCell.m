@@ -57,7 +57,7 @@
              menuController.menuItems = @[copyItem];
             [menuController setTargetRect:gesture.view.frame inView:gesture.view.superview];
             [menuController setMenuVisible:YES animated:YES];
-            [UIMenuController sharedMenuController].menuItems=nil;
+            [UIMenuController sharedMenuController].menuItems = nil;
     }
 }
 
@@ -75,7 +75,7 @@
     [_titleLab mas_makeConstraints:^(MASConstraintMaker *make)
     {
         make.left.equalTo(@40);
-        make.top.equalTo(@13);
+        make.centerY.equalTo(self);
         make.height.equalTo(@19);
     }];
     
@@ -83,7 +83,8 @@
     {
         make.right.equalTo(@(-40));
         make.width.equalTo(@183);
-        make.top.equalTo(@12);
+//        make.top.equalTo(@12);
+        make.centerY.equalTo(self);
     }];
 }
 

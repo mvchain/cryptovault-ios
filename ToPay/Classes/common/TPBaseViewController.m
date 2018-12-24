@@ -97,11 +97,6 @@
     return _baseTableView;
 }
 
--(void)beginRefresh
-{
-//    [self.baseTableView.mj_header beginRefreshing];
-}
-
 - (void)setupRefreshWithShowFooter:(BOOL)isShowFooter
 {
     self.baseTableView.mj_header = [TPRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewTopics)];
@@ -124,5 +119,10 @@
     NSLog(@"加载更多数据");
     [self.baseTableView.mj_footer endRefreshing];
 }
+
+#pragma mark - Orientation
+//-(UIInterfaceOrientationMask)supportedInterfaceOrientations { return UIInterfaceOrientationMaskPortrait; }
+//- (BOOL)shouldAutorotate {return NO;}
+//-(UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {return UIInterfaceOrientationPortrait;}
 
 @end

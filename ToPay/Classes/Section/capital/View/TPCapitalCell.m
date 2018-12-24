@@ -86,7 +86,7 @@
     
     CLData *clData = (CLData *)[self.listCache objectForKey:assetModel.tokenId];
     
-    [self.iconImgV  setIconHeader:clData.tokenImage placeholderImage:@"default_coin"];
+    [self.iconImgV  setRefreshIconHeader:clData.tokenImage placeholderImage:@"default_coin"];
 }
 
 -(void)setRatio:(CGFloat)ratio

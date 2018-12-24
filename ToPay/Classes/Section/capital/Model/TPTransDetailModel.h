@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic , copy) NSString              * hashLink;
 @property (nonatomic , copy) NSString              * fee;
 @property (nonatomic , copy) NSString              * value;
+@property (nonatomic , copy) NSString              * orderRemark;
 @property (nonatomic , copy) NSString              * fromAddress;
 @property (nonatomic , copy) NSString              * feeTokenType;
 @property (nonatomic , copy) NSString              * toAddress;
