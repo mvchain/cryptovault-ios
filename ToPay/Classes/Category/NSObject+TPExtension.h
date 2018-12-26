@@ -14,6 +14,14 @@
 
 -(NSString *)conversionTimeStamp;
 
+/*
+ * 时间戳 转 NSDate
+ */
+- (NSDate *)getLocateTime:(double)timeStamp;
+-(NSString *)dateConversionTimeStamp:(NSDate *)date;
+
+-(NSString *)MDConversionTimeStamp;
+
 -(long long)longLongFromDate;
 
 - (BOOL)isMobileNumber:(NSString *)mobileNum;

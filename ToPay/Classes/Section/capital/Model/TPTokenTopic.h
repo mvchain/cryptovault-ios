@@ -30,4 +30,6 @@
 
 @property (nonatomic, copy) NSString *value;
 
+@property (nonatomic, copy) NSString *orderRemark;
+
 @end

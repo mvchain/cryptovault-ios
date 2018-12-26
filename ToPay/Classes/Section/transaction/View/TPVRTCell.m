@@ -19,6 +19,8 @@
 
 @property (nonatomic, strong) UILabel *floatLab;
 
+
+@property (nonatomic, copy) NSString *currName;
 @end
 
 @implementation TPVRTCell
@@ -28,12 +30,12 @@
     
 }
 
--(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier currName:(NSString *)currName
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self)
     {
-        
+        self.currName = currName;
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
         _iconImgV = [YFactoryUI YImageViewWithimage:[UIImage imageNamed:@"btc_icon"]];
@@ -66,7 +68,7 @@
     
     _nickLab.text = VRTModel.tokenName;
 
-    _VRTpriceLab.text = TPString(@"%.4f %@",[VRTModel.ratio floatValue],[self getTokenName:VRTModel.tokenName WithPair:VRTModel.pair]);
+    _VRTpriceLab.text = TPString(@"%.4f %@",[VRTModel.ratio floatValue],self.currName);
     
     _priceLab.text =  TPString(@"%@ %.2f",[USER_DEFAULT objectForKey:TPNowLegalSymbolKey],[VRTModel.ratio floatValue] / [[USER_DEFAULT objectForKey:TPNowLegalCurrencyKey] floatValue]);
     

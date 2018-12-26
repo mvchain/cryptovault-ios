@@ -12,5 +12,5 @@
 
 @property (nonatomic, strong) TPVRTModel *VRTModel;
 
-
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier currName:(NSString *)currName;
 @end

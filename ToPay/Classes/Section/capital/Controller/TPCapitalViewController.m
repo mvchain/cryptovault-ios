@@ -151,8 +151,6 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
          {
              if ([responseObject[@"code"] isEqual:@200])
              {
-                 
-                 
                  [USER_DEFAULT setObject:responseObject[@"data"] forKey:TPBalanceDefaultKey];
                  self.headerView.total = TPString(@"%@",responseObject[@"data"]);
              }

@@ -26,6 +26,11 @@ UIKIT_EXTERN NSString * const TPUserInfoKey;
 UIKIT_EXTERN NSString * const TPCurrencyListKey;
 
 /*
+ * 当前币种名
+ */
+UIKIT_EXTERN NSString * const TPCurrencyNameKey;
+
+/*
  * 法币汇率数据
  */
 UIKIT_EXTERN NSString * const TPLegalCurrencyListKey;
@@ -66,21 +71,21 @@ UIKIT_EXTERN CGFloat const MHGlobalBottomLineHeight;
 /*
  * 币种修改成功通知
  */
-UIKIT_EXTERN NSString * const TPPutCurrencyNotification ;
+UIKIT_EXTERN NSString * const TPPutCurrencyNotification;
 
 /*
  * 余额取出成功通知
  */
-UIKIT_EXTERN NSString * const TPTakeOutSuccessNotification ;
+UIKIT_EXTERN NSString * const TPTakeOutSuccessNotification;
 
 
 /*
  * 法币切换通知
  */
-UIKIT_EXTERN NSString * const TPLegalSwitchNotification ;
+UIKIT_EXTERN NSString * const TPLegalSwitchNotification;
 
 /*
  * 刷新资产小红点通知
  */
-UIKIT_EXTERN NSString * const TPAssetRedNotification ;
+UIKIT_EXTERN NSString * const TPAssetRedNotification;
 

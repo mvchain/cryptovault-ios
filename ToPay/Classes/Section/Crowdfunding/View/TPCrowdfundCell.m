@@ -76,13 +76,13 @@
         
         if (_crowdStyle != TPCrowdfundStyleRecord)
         {
-            names = @[@"众筹规模",@"每个用户限购",@"价格",@"每日释放比例",@"剩余时间"];
+            names = @[@"众筹规模",@"每个用户限购",@"兑换比例",@"每日释放比例",@"剩余时间"];
         }
             else
         {
             names = @[@"订单号",@"兑换比例",@"每日释放比例",@"支付金额/预约金额",@"成功数量/预约数量",@"预约结束时间"];
         }
-        NSArray *values = @[@"20.000.000 BTC",@"20.000.000 BTC",@"1BTC=10.000.000 VRT",@"0.01%",@"2天12小时60分",@""];
+        NSArray *values = @[@"",@"",@"",@"",@"",@""];
         
         for (NSUInteger i = 0; i < names.count; i ++)
         {
@@ -141,7 +141,7 @@
     _valueArray[1].text = @"1 BTC = 10.000.000 POT";
     //TPString(@"1%@ = %@%@",croRecordModel.projectName,croRecordModel.ratio,croRecordModel.baseTokenName);
     _valueArray[2].text = TPString(@"%@%%",croRecordModel.releaseValue);
-    _valueArray[3].text = TPString(@"%@/%@ %@",croRecordModel.successPayed,croRecordModel.price,croRecordModel.baseTokenName);
+    _valueArray[3].text = TPString(@"%.4f/%.4f %@",[croRecordModel.successPayed floatValue],[croRecordModel.price floatValue],croRecordModel.baseTokenName);
     _valueArray[4].text = TPString(@"%@/%@ %@",croRecordModel.value,croRecordModel.successValue,croRecordModel.tokenName);
     
     _valueArray[5].text = [croRecordModel.stopAt conversionTimeStamp];

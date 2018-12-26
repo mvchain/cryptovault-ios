@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface TPKLineModel : NSObject
 
 @property (nonatomic , copy) NSArray<NSString *>              * timeX;
-@property (nonatomic , copy) NSArray<NSString *>              * valueY;
+@property (nonatomic , copy) NSArray<NSDecimalNumber *>              * valueY;
 
 @end
 

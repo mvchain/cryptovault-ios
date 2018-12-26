@@ -64,15 +64,16 @@
             [countDown setTitle:@"获取验证码" forState:UIControlStateNormal];
             [countDown setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             countDown.titleLabel.font = FONT(15);
-            countDown.backgroundColor = TP59Color;
+            
             [countDown addTarget:self action:@selector(countDownClick:) forControlEvents:UIControlEventTouchUpInside];
 
-            [loginTextView.comTextField addSubview:countDown];
+            [countDown setLayer:22 WithBackColor:TP59Color];
+            [loginTextView addSubview:countDown];
             
             [countDown mas_makeConstraints:^(MASConstraintMaker *make)
             {
                 make.right.height.equalTo(loginTextView.comTextField);
-                make.top.equalTo(@0);
+                make.centerY.equalTo(loginTextView.comTextField);
                 make.width.equalTo(@134);
             }];
         }

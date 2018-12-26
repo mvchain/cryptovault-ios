@@ -29,7 +29,7 @@
         self.tokenName = tokenName;
         
         self.transType = transType;
-        UILabel *msLab = [YFactoryUI YLableWithText:@"dsadsa" color:TP8EColor font:FONT(13)];
+        UILabel *msLab = [YFactoryUI YLableWithText:@"" color:TP8EColor font:FONT(13)];
         [self addSubview:msLab];
         self.msLab = msLab;
         [msLab mas_makeConstraints:^(MASConstraintMaker *make)
@@ -63,7 +63,7 @@
         [sliderView addSubview:comSlider];
         self.comSlider = comSlider;
         [comSlider mas_makeConstraints:^(MASConstraintMaker *make)
-         {
+        {
              make.left.equalTo(@20);
              make.height.equalTo(@20);
              make.centerY.equalTo(sliderView);

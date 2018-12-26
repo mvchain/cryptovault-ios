@@ -72,9 +72,9 @@
      {
          if ([responseObject[@"code"] isEqual:@200])
          {
-             self.mostlimitLab.text = TPString(@"最多预约：%@",responseObject[@"data"][@"limitValue"]);
-             self.leastlimitLab.text = TPString(@"最少预约：%@",responseObject[@"data"][@"projectMin"]);
-             self.availableLab.text = TPString(@"可用VRT：%@",responseObject[@"data"][@"balance"]);
+             self.mostlimitLab.text = TPString(@"限购额：%@/%@",responseObject[@"data"][@"projectMin"],responseObject[@"data"][@"limitValue"]);
+//             self.leastlimitLab.text = TPString(@"最少预约：%@",);
+             self.availableLab.text = TPString(@"可用%@：%.4f",croModel.baseTokenName,[responseObject[@"data"][@"balance"] floatValue]);
              self.mostlimit = responseObject[@"data"][@"limitValue"];
              self.leastlimit = responseObject[@"data"][@"projectMin"];
              self.available = TPString(@"%@",responseObject[@"data"][@"balance"]);
@@ -122,8 +122,9 @@
          make.top.equalTo(@8);
          make.height.equalTo(@22);
      }];
-    
-    UILabel *mostlimitLab = [YFactoryUI YLableWithText:@"最多预约：15000" color:TP8EColor font:FONT(11)];
+
+//    最多预约：15000
+    UILabel *mostlimitLab = [YFactoryUI YLableWithText:@"" color:TP8EColor font:FONT(11)];
     [headerView addSubview:mostlimitLab];
     self.mostlimitLab = mostlimitLab;
     [mostlimitLab mas_makeConstraints:^(MASConstraintMaker *make)
@@ -132,28 +133,26 @@
          make.top.equalTo(nickLab.mas_bottom).with.offset(6);
          make.height.equalTo(@15);
      }];
-    
-    UILabel *leastlimitLab = [YFactoryUI YLableWithText:@"最少预约：100" color:TP8EColor font:FONT(11)];
-    self.leastlimitLab = leastlimitLab;
-    [headerView addSubview:leastlimitLab];
-    [leastlimitLab mas_makeConstraints:^(MASConstraintMaker *make)
+//    最少预约：100
+    UILabel *proportionLab = [YFactoryUI YLableWithText:@"" color:TP8EColor font:FONT(11)];
+    self.proportionLab = proportionLab;
+    [headerView addSubview:proportionLab];
+    [proportionLab mas_makeConstraints:^(MASConstraintMaker *make)
      {
          make.left.equalTo(iconV.mas_right).with.offset(12);
          make.top.equalTo(mostlimitLab.mas_bottom).with.offset(4);
          make.height.equalTo(@15);
      }];
     
-    UILabel *proportionLab = [YFactoryUI YLableWithText:@"兑换比例 1PTO = 500 VRT" color:TP8EColor font:FONT(11)];
-    [headerView addSubview:proportionLab];
-    self.proportionLab = proportionLab;
-    [proportionLab mas_makeConstraints:^(MASConstraintMaker *make)
-     {
-         make.right.equalTo(headerView.mas_right).with.offset(-16);
-         make.top.equalTo(mostlimitLab.mas_top);
-         make.height.equalTo(@15);
-     }];
-    
-    
+//    UILabel *proportionLab = [YFactoryUI YLableWithText:@"兑换比例 1PTO = 500 VRT" color:TP8EColor font:FONT(11)];
+//    [headerView addSubview:proportionLab];
+//    self.proportionLab = proportionLab;
+//    [proportionLab mas_makeConstraints:^(MASConstraintMaker *make)
+//     {
+//         make.right.equalTo(headerView.mas_right).with.offset(-16);
+//         make.top.equalTo(mostlimitLab.mas_top);
+//         make.height.equalTo(@15);
+//     }];
 }
 
 -(void)createBottomView
@@ -208,7 +207,7 @@
         make.height.equalTo(@17);
     }];
     
-    UILabel *VRTLab = [YFactoryUI YLableWithText:@"VRT 0.00" color:TP59Color font:FONT(17)];
+    UILabel *VRTLab = [YFactoryUI YLableWithText:TPString(@"%@ 0.00",self.croModel.baseTokenName) color:TP59Color font:FONT(17)];
     [bottomView addSubview:VRTLab];
     self.VRTLab = VRTLab;
     [VRTLab mas_makeConstraints:^(MASConstraintMaker *make)

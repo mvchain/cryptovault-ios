@@ -111,7 +111,7 @@ static NSString  *TPMSCellId = @"MSCell";
     {
         TPVRTCell *cell = [tableView dequeueReusableCellWithIdentifier:TPVRTCellId];
         if (!cell)
-            cell = [[TPVRTCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TPVRTCellId];
+            cell = [[TPVRTCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TPVRTCellId currName:self.transactionStyle == TPTransactionStyleVRT ? @"VRT":@"余额"];
         
         cell.VRTModel = self.VRTTopic[indexPath.row - 1];
         return cell;

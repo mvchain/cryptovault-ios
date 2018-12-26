@@ -34,6 +34,18 @@
 //    NSLog(@"服务器返回的时间戳对应的时间是:%@",dateString);
 }
 
+-(NSString *)MDConversionTimeStamp
+{
+    NSTimeInterval interval    =[(NSString *)self doubleValue] / 1000.0;
+    NSDate *date               = [NSDate dateWithTimeIntervalSince1970:interval];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MM/dd"];
+    NSString *dateString       = [formatter stringFromDate: date];
+    return dateString;
+    //    NSLog(@"服务器返回的时间戳对应的时间是:%@",dateString);
+}
+
 
 -(long long)longLongFromDate
 {
@@ -76,5 +88,20 @@
     
     return [regextestmobile evaluateWithObject:btcString];
 }
+
+- (NSDate *)getLocateTime:(double)timeStamp
+{
+    timeStamp = timeStamp / 1000.0;
+    NSDate *confromTimesp = [NSDate dateWithTimeIntervalSince1970:timeStamp];
+    return confromTimesp;
+}
+
+-(NSString *)dateConversionTimeStamp:(NSDate *)date
+{
+    NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[date timeIntervalSince1970]*1000];
+    return timeSp;
+}
+
+
 
 @end
