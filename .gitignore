@@ -1,0 +1,6 @@
+.DS_Store
+Podfile.lock
+ToPay.xcodeproj/project.pbxproj
+Pods/
+ToPay.xcodeproj/xcuserdata/lcf.xcuserdatad/
+ToPay.xcworkspace/xcuserdata/lcf.xcuserdatad/
