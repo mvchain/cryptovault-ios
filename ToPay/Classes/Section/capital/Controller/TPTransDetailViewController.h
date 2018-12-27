@@ -7,7 +7,9 @@
 //
 
 #import "TPStartViewController.h"
-
+#import "TPTokenTopic.h"
 @interface TPTransDetailViewController : TPStartViewController
+
+@property (nonatomic, strong) TPTokenTopic *tokenTopic;
 
 @end

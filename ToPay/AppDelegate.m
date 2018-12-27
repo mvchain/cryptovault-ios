@@ -7,16 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
 #import "TPLoginViewController.h"
-
-//#import "TPCapitalViewController.h"
-//#import "TPTransactionViewController.h"
-//#import "TPCrowdfundingViewController.h"
-//
-//#import "TPMeViewController.h"
 #import "YUTabBarController.h"
-
 #import <WRNavigationBar/WRNavigationBar.h>
 
 @interface AppDelegate ()

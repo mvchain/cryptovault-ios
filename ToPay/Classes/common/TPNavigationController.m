@@ -33,17 +33,16 @@
 //        [backButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
 //        [backButton setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
         [backButton sizeToFit];
-        // 这句代码放在sizeToFit后面
+        
         backButton.contentEdgeInsets = UIEdgeInsetsMake(0, -30, 0, 0);
         
         [backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
         viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
         
-        // 隐藏底部的工具条
+        
         viewController.hidesBottomBarWhenPushed = YES;
     }
-    
-    //所有设置搞定后，在push控制器
+
     [super pushViewController:viewController animated:animated];
 }
 
