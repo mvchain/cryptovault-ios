@@ -72,6 +72,8 @@ static NSString  *TPTokenCellCellId = @"tokenCell";
         {
             
 //            NSLog(@"<<<<  %@  >>>>",responseObject[@"data"]);
+            
+            
             self.tokenTopics = [TPTokenTopic mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
             
             if (self.tokenTopics.count == 0)

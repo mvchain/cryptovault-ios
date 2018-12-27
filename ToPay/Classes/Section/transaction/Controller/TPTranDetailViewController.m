@@ -15,10 +15,8 @@
 #import "TPDetailTitleView.h"
 #import "TPKLineModel.h"
 
-
-
+#import "ToPay-Swift.h"
 #import <Charts/Charts-Swift.h>
-
 
 @interface CubicLineSampleFillFormatter : NSObject <IChartValueFormatter>
 
@@ -54,20 +52,23 @@
 -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    
-    NSLog(@"%@",[WYNetworkManager sharedManager].customHeaders);
+
     YYCache *listCache = [YYCache cacheWithName:TPCacheName];
     self.cData = (CLData *)[listCache objectForKey:self.vrtTopic.tokenId];
     
     self.customNavBar.title = TPString(@"%@/%@",self.cData.tokenName,self.currName);
     [self showSystemNavgation:NO];
+    
+    
+    [USER_DEFAULT setObject:self.currName forKey:TPCurrencyNameKey];
+    
+    
     TPWeakSelf;
     [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"list_icon_black"]];
     
@@ -181,40 +182,66 @@
         make.width.equalTo(self.view.mas_width);
     }];
     
-    
-    /** 设置标题试图 */
-    NSMutableArray *titleViews = [NSMutableArray array];
-    NSArray *tits = @[@"当前价格",@"24H最高",@"24H最低"];
-    for (int i = 0 ; i < tits.count ; i++)
-    {
-        TPDetailTitleView *deTitleView = [[TPDetailTitleView alloc] initWithTextAlignment:i == 0 ? NSTextAlignmentLeft : i == 1 ? NSTextAlignmentCenter:NSTextAlignmentRight];
-        deTitleView.timeLab.text = tits[i];
-        deTitleView.conLab.text = @"1234568.12 VRT";
-        [self.headerView addSubview:deTitleView];
-        [titleViews addObject:deTitleView];
-    }
-    [titleViews mas_makeConstraints:^(MASConstraintMaker *make) {make.height.equalTo(@59);}];
-    [titleViews mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:0 leadSpacing:16 tailSpacing:16];
-    
-    
     [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"transaction/pair/kline" parameters:@{@"pairId":self.vrtTopic.pairId} success:^(id responseObject, BOOL isCacheObject)
     {
         NSLog(@"%@",responseObject[@"data"]);
         
         self.KLineModel = [TPKLineModel mj_objectWithKeyValues:responseObject[@"data"]];
+        [self setPriceView];
         [self setGraph];
+        [self setDateView];
     }
         failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
     {
         NSLog(@"获取K线数据失败");
     }];
-    
-    
-    
 }
 
-#pragma mark - 曲线填充图
+-(void)setPriceView
+{
+    /** 设置标题试图 */
+    NSMutableArray *titleViews = [NSMutableArray array];
+    NSArray *tits = @[@"当前价格",@"24H最高",@"24H最低"];
+    
+    NSString *currPrice = TPString(@"%.4f",[self.KLineModel.valueY[self.KLineModel.valueY.count-1] floatValue]);
+    
+    double ts = [self.KLineModel.timeX[self.KLineModel.timeX.count-1] doubleValue];
+    
+    NSDate *lastDate = [self getLocateTime:ts];
+    NSDate *BeforeDay = [NSDate dateWithTimeInterval:-24 * 60 * 60 sinceDate:lastDate];
+    NSString *beforeTS = [self dateConversionTimeStamp:BeforeDay];
+    
+    NSMutableArray *beforeArr = [NSMutableArray array];
+    for (NSInteger i = self.KLineModel.valueY.count-1 ; i >= 0; i--)
+    {
+        if (beforeTS == self.KLineModel.timeX[i])
+        {
+            break;
+        }
+            else
+        {
+            [beforeArr addObject:self.KLineModel.valueY[i]];
+        }
+    }
+    
+    CGFloat max = [[beforeArr valueForKeyPath:@"@max.floatValue"] floatValue];//求最大值
+    CGFloat min = [[beforeArr valueForKeyPath:@"@min.floatValue"] floatValue];//求最小值
+    
+    
+    for (int i = 0 ; i < tits.count ; i++)
+    {
+        TPDetailTitleView *deTitleView = [[TPDetailTitleView alloc] initWithTextAlignment:i == 0 ? NSTextAlignmentLeft : i == 1 ? NSTextAlignmentCenter:NSTextAlignmentRight];
+        deTitleView.timeLab.text = tits[i];
+        deTitleView.conLab.text = i == 0 ? TPString(@"%@ %@",currPrice,self.currName)  : TPString(@"%.4f %@",i == 1 ? max:min,self.currName);
+        [self.headerView addSubview:deTitleView];
+        [titleViews addObject:deTitleView];
+    }
+    [titleViews mas_makeConstraints:^(MASConstraintMaker *make) {make.height.equalTo(@59);}];
+    [titleViews mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:0 leadSpacing:16 tailSpacing:16];
+}
 
+
+#pragma mark - 曲线填充图
 -(void)setGraph
 {
     _chartView = [[LineChartView alloc] init];
@@ -224,42 +251,37 @@
         make.left.equalTo(@0);
         make.top.equalTo(@59);
         make.width.equalTo(@(KWidth));
-        make.height.equalTo(@180);
+        make.height.equalTo(@160);
     }];
     
     
     _chartView.delegate = self;
-    
     [_chartView setViewPortOffsetsWithLeft:0.f top:20.f right:0.f bottom:0.f];
-    
-    _chartView.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.3];
-    //[UIColor colorWithRed:104/255.f green:241/255.f blue:175/255.f alpha:1.f];
-    
     _chartView.chartDescription.enabled = NO;
     
     _chartView.dragEnabled = YES;
-    [_chartView setScaleEnabled:YES];
+    [_chartView setScaleEnabled:NO];
     _chartView.pinchZoomEnabled = NO;
     _chartView.drawGridBackgroundEnabled = NO;
     _chartView.maxHighlightDistance = 300.0;
     
 //    _chartView.drawFilledEnabled
 //    _chartView.data.dataSets
-//    _chartView.xAxis.enabled = YES;
+    _chartView.xAxis.enabled = YES;
     
     ChartYAxis *yAxis = _chartView.leftAxis;
     yAxis.labelFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:12.f];
     [yAxis setLabelCount:6 force:NO];
-    yAxis.labelTextColor = UIColor.whiteColor;
+    yAxis.labelTextColor = TP8EColor;//UIColor.whiteColor;
     yAxis.labelPosition = YAxisLabelPositionInsideChart;
     yAxis.drawGridLinesEnabled = NO;
-    yAxis.axisLineColor = UIColor.whiteColor;
+    yAxis.axisLineColor = UIColor.blackColor;//UIColor.whiteColor;
     
-//    ChartXAxis *xAxis = _chartView.xAxis;
-//    xAxis.labelPosition = XAxisLabelPositionBottom;
-//    xAxis.labelTextColor =[UIColor blackColor];
-//    xAxis.drawGridLinesEnabled = NO;
-//    xAxis.labelCount = 5;
+    ChartXAxis *xAxis = _chartView.xAxis;
+    xAxis.labelPosition = XAxisLabelPositionBottom;
+    xAxis.labelTextColor =[UIColor blackColor];
+    xAxis.drawGridLinesEnabled = NO;
+    xAxis.labelCount = 5;
     
     
     _chartView.rightAxis.enabled = NO;
@@ -292,7 +314,7 @@
         [_chartView.data notifyDataChanged];
         [_chartView notifyDataSetChanged];
     }
-    else
+        else
     {
         set1 = [[LineChartDataSet alloc] initWithValues:yVals1 label:@"DataSet 1"];
         set1.drawFilledEnabled = YES;
@@ -309,6 +331,27 @@
         set1.drawHorizontalHighlightIndicatorEnabled = NO;
         set1.fillFormatter = [[CubicLineSampleFillFormatter alloc] init];
         
+        /*
+         * 渐变
+         */
+        NSArray *gradientColors = @[(id)[UIColor whiteColor].CGColor,
+                                    (id)[TPMainColor colorWithAlphaComponent:0.16].CGColor];
+        CGGradientRef gradient = CGGradientCreateWithColors(nil, (CFArrayRef)gradientColors, nil);
+        set1.fill = [ChartFill fillWithLinearGradient:gradient angle:90.f];
+        
+        
+
+        TPBalloonMarker *marker = [[TPBalloonMarker alloc]
+                                 initWithColor: [UIColor colorWithWhite:180/255. alpha:1.0]
+                                 font: [UIFont systemFontOfSize:12.0]
+                                 textColor: UIColor.whiteColor
+                                 insets: UIEdgeInsetsMake(8.0, 8.0, 20.0, 8.0)];
+        marker.chartView = _chartView;
+        marker.minimumSize = CGSizeMake(80.f, 40.f);
+        _chartView.marker = marker;
+        
+        
+        
         LineChartData *data = [[LineChartData alloc] initWithDataSet:set1];
         [data setValueFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:9.f]];
         [data setDrawValues:NO];
@@ -316,6 +359,37 @@
         _chartView.data = data;
     }
 }
+
+-(void)setDateView
+{
+    double ts = [self.KLineModel.timeX[self.KLineModel.timeX.count-1] doubleValue];
+    
+    NSDate *lastDate = [self getLocateTime:ts];
+
+    NSMutableArray *dates = [NSMutableArray array];
+    
+    for (int i = 7-1 ; i >= 0; i--)
+    {
+        NSDate *lastDay = [NSDate dateWithTimeInterval:-(24 * i) * 60 * 60 sinceDate:lastDate];
+
+        NSString *dateText = [[self dateConversionTimeStamp:lastDay]  MDConversionTimeStamp];
+        
+        UILabel *dateLab = [YFactoryUI YLableWithText:dateText color:[UIColor colorWithHex:@"#E1E1E1"] font:FONT(11)];
+        
+        dateLab.textAlignment = NSTextAlignmentCenter;
+        [self.headerView addSubview:dateLab];
+        [dates addObject:dateLab];
+        
+        [dateLab mas_makeConstraints:^(MASConstraintMaker *make)
+        {
+            make.height.equalTo(@20);
+            make.top.equalTo(self.chartView.mas_bottom);
+        }];
+    }
+    
+    [dates mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:0 leadSpacing:0 tailSpacing:0];
+}
+
 
 #pragma mark - action
 
@@ -344,7 +418,6 @@
 
 -(void)recordClick
 {
-//    NSLog(@"记录页面");
     
 }
 

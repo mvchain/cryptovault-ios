@@ -8,7 +8,6 @@
 
 #import "TPTransactionViewController.h"
 #import "TPVRTViewController.h"
-#import "TPBalanceViewController.h"
 #import "TPBuyRecordViewController.h"
 
 #import "TPNavigationBarTitleView.h"

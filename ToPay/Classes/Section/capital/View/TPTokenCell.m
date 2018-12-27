@@ -63,46 +63,50 @@
     _nickLab.text = tokenTopic.tokenName;
     _timeLab.text = [tokenTopic.createdAt conversionTimeStamp];
     
+    
+    
     if ([tokenTopic.classify isEqualToString:@"0"] || [tokenTopic.classify isEqual:@"3"])
     {
         _iconImgV.image = [UIImage imageNamed:[tokenTopic.transactionType isEqualToString:@"1"] ? @"receive_icon": @"sent_icon"];
+        if ([tokenTopic.tokenName isEqualToString:@"余额"])
+        {
+            [self setValueLabCenter];
+            
+        }
+            else
+        {
+            [self setStatus];
         
-        [self statusLab];
-        
-        [_valueLab mas_updateConstraints:^(MASConstraintMaker *make)
-         {
-             make.top.equalTo(@10);
-         }];
+            [_valueLab mas_updateConstraints:^(MASConstraintMaker *make)
+             {
+                 make.top.equalTo(@10);
+             }];
+        }
     }
         else if ([tokenTopic.classify isEqualToString:@"2"])
     {
+        _nickLab.text = [NSString stringWithFormat:@"%@众筹",tokenTopic.orderRemark];
         _iconImgV.image = [UIImage imageNamed:@"Crowdfunding_icon_2"];
-        [_valueLab mas_updateConstraints:^(MASConstraintMaker *make)
-         {
-             make.centerY.equalTo(self);
-         }];
+        [self setValueLabCenter];
     }
         else if ([tokenTopic.classify isEqualToString:@"1"])
     {
         _iconImgV.image = [UIImage imageNamed:@"trand_icon_2"];
-        [_valueLab mas_updateConstraints:^(MASConstraintMaker *make)
-         {
-             make.centerY.equalTo(self);
-         }];
+        [self setValueLabCenter];
     }
     
     
     if ([tokenTopic.transactionType isEqualToString:@"1"])
     {
-        _valueLab.text = TPString(@"+%.2f",[tokenTopic.value floatValue]);
+        _valueLab.text = TPString(@"+%.4f",[tokenTopic.value floatValue]);
     }
         else if([tokenTopic.transactionType isEqualToString:@"2"])
     {
-        _valueLab.text = TPString(@"-%.2f",[tokenTopic.value floatValue]);
+        _valueLab.text = TPString(@"-%.4f",[tokenTopic.value floatValue]);
     }
 }
 
--(void)statusLab
+-(void)setStatus
 {
     [_proLab mas_makeConstraints:^(MASConstraintMaker *make)
     {
@@ -128,6 +132,13 @@
     }
 }
 
+-(void)setValueLabCenter
+{
+    [_valueLab mas_updateConstraints:^(MASConstraintMaker *make)
+     {
+         make.centerY.equalTo(self);
+     }];
+}
 
 -(void)layoutSubviews
 {

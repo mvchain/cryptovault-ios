@@ -22,13 +22,20 @@
 
 @implementation TPCrowdfundingViewController
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self showSystemNavgation:NO];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
 
     self.customNavBar.title = @"众筹";
-    [self showSystemNavgation:NO];
+    
     [self setupPageView];
     
     [self setNavItem];
