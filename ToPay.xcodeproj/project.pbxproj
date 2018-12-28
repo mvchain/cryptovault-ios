@@ -194,6 +194,11 @@
 		DDFE5DB521CCA016005D6D48 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDFE5DB421CCA016005D6D48 /* Social.framework */; };
 		DDFE5DD421CDF22E005D6D48 /* TPPublish.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFE5DD321CDF22E005D6D48 /* TPPublish.m */; };
 		DDFE5DD721CDF273005D6D48 /* TPNonPublish.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFE5DD621CDF273005D6D48 /* TPNonPublish.m */; };
+		DDFED67221D4BBFF00F2F354 /* comTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFED67121D4BBFF00F2F354 /* comTest.swift */; };
+		DDFED67521D4C1F800F2F354 /* TPBalloonMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFED67321D4C1F800F2F354 /* TPBalloonMarker.swift */; };
+		DDFED67B21D4CF8F00F2F354 /* custom.png in Resources */ = {isa = PBXBuildFile; fileRef = DDFED67921D4CF8F00F2F354 /* custom.png */; };
+		DDFED67C21D4CF8F00F2F354 /* shareImage.png in Resources */ = {isa = PBXBuildFile; fileRef = DDFED67A21D4CF8F00F2F354 /* shareImage.png */; };
+		DDFED68221D5D1BF00F2F354 /* TPBalanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFED68121D5D1BF00F2F354 /* TPBalanceViewController.m */; };
 		F5E7B5DA88A0AD0247016986 /* Pods_ToPay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD9ADC3B99E8C7306FF2F4F /* Pods_ToPay.framework */; };
 /* End PBXBuildFile section */
 
@@ -487,7 +492,6 @@
 		DD72F42A21998491004C0DAF /* TPNavigationBarTitleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPNavigationBarTitleView.m; sourceTree = "<group>"; };
 		DD72F42C219A7D7A004C0DAF /* TPVRTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPVRTViewController.h; sourceTree = "<group>"; };
 		DD72F42D219A7D7A004C0DAF /* TPVRTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPVRTViewController.m; sourceTree = "<group>"; };
-		DD72F42F219A7DA7004C0DAF /* TPBalanceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPBalanceViewController.h; sourceTree = "<group>"; };
 		DD72F430219A7DA7004C0DAF /* TPBalanceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPBalanceViewController.m; sourceTree = "<group>"; };
 		DD72F433219A7F12004C0DAF /* TPBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPBaseViewController.h; sourceTree = "<group>"; };
 		DD72F434219A7F12004C0DAF /* TPBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPBaseViewController.m; sourceTree = "<group>"; };
@@ -585,6 +589,14 @@
 		DDFE5DD321CDF22E005D6D48 /* TPPublish.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPPublish.m; sourceTree = "<group>"; };
 		DDFE5DD521CDF273005D6D48 /* TPNonPublish.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPNonPublish.h; sourceTree = "<group>"; };
 		DDFE5DD621CDF273005D6D48 /* TPNonPublish.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPNonPublish.m; sourceTree = "<group>"; };
+		DDFED67021D4BBFE00F2F354 /* ToPay-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ToPay-Bridging-Header.h"; sourceTree = "<group>"; };
+		DDFED67121D4BBFF00F2F354 /* comTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = comTest.swift; sourceTree = "<group>"; };
+		DDFED67321D4C1F800F2F354 /* TPBalloonMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPBalloonMarker.swift; sourceTree = "<group>"; };
+		DDFED67421D4C1F800F2F354 /* ToPay-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ToPay-Bridging-Header.h"; sourceTree = "<group>"; };
+		DDFED67921D4CF8F00F2F354 /* custom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = custom.png; sourceTree = "<group>"; };
+		DDFED67A21D4CF8F00F2F354 /* shareImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shareImage.png; sourceTree = "<group>"; };
+		DDFED68121D5D1BF00F2F354 /* TPBalanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPBalanceViewController.m; sourceTree = "<group>"; };
+		DDFED68321D5D3D600F2F354 /* TPBalanceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPBalanceViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -695,6 +707,7 @@
 				DD0243F62196C968006A1390 /* Products */,
 				C7021BC94920BE5C99FF3627 /* Pods */,
 				D947F3557A9197E172AF67EA /* Frameworks */,
+				DDFED68021D5D0DF00F2F354 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -722,6 +735,8 @@
 				DD0244032196C96B006A1390 /* LaunchScreen.storyboard */,
 				DD0244062196C96B006A1390 /* Info.plist */,
 				DD0244072196C96B006A1390 /* main.m */,
+				DDFED67121D4BBFF00F2F354 /* comTest.swift */,
+				DDFED67021D4BBFE00F2F354 /* ToPay-Bridging-Header.h */,
 			);
 			path = ToPay;
 			sourceTree = "<group>";
@@ -799,12 +814,12 @@
 				DD0244432196DD39006A1390 /* TPTransactionViewController.m */,
 				DD72F42C219A7D7A004C0DAF /* TPVRTViewController.h */,
 				DD72F42D219A7D7A004C0DAF /* TPVRTViewController.m */,
-				DD72F42F219A7DA7004C0DAF /* TPBalanceViewController.h */,
-				DD72F430219A7DA7004C0DAF /* TPBalanceViewController.m */,
+				DDFED68321D5D3D600F2F354 /* TPBalanceViewController.h */,
+				DDFED68121D5D1BF00F2F354 /* TPBalanceViewController.m */,
+				DD02393621ABECD100333446 /* TPSellViewController.m */,
 				DD02391C21A5570B00333446 /* TPTranDetailViewController.h */,
 				DD02391D21A5570B00333446 /* TPTranDetailViewController.m */,
 				DD02393521ABECD100333446 /* TPSellViewController.h */,
-				DD02393621ABECD100333446 /* TPSellViewController.m */,
 				DD02391F21A6B42100333446 /* TPUSDTViewController.h */,
 				DD02392021A6B42100333446 /* TPUSDTViewController.m */,
 				DD02392521A7AC8400333446 /* TPBuyRecordViewController.h */,
@@ -837,6 +852,8 @@
 		DD0244302196D1B8006A1390 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DDFED67421D4C1F800F2F354 /* ToPay-Bridging-Header.h */,
+				DDFED67321D4C1F800F2F354 /* TPBalloonMarker.swift */,
 				DD72F42921998491004C0DAF /* TPNavigationBarTitleView.h */,
 				DD72F42A21998491004C0DAF /* TPNavigationBarTitleView.m */,
 				DDFE5DD221CDF22E005D6D48 /* TPPublish.h */,
@@ -1083,6 +1100,8 @@
 				DDF69FB321C0F42C006EE7A4 /* CountDown.m */,
 				DDDDFBAD219D60BC0056FC57 /* UIViewExt.h */,
 				DDDDFBAE219D60BC0056FC57 /* UIViewExt.m */,
+				DDFED67921D4CF8F00F2F354 /* custom.png */,
+				DDFED67A21D4CF8F00F2F354 /* shareImage.png */,
 				DDDDFB82219AB8C40056FC57 /* YFactoryUI.h */,
 				DDDDFB83219AB8C40056FC57 /* YFactoryUI.m */,
 				DD02399E21AFD6E800333446 /* TPLoginUtil.h */,
@@ -1310,6 +1329,14 @@
 			path = images;
 			sourceTree = "<group>";
 		};
+		DDFED68021D5D0DF00F2F354 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				DD72F430219A7DA7004C0DAF /* TPBalanceViewController.m */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1380,7 +1407,7 @@
 				TargetAttributes = {
 					DD0243F42196C968006A1390 = {
 						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 0940;
+						LastSwiftMigration = 1010;
 					};
 					DD02440C2196C96C006A1390 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -1418,6 +1445,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD10844221A001030087F244 /* BCScanQR2@2x.png in Resources */,
+				DDFED67B21D4CF8F00F2F354 /* custom.png in Resources */,
 				DDFE5DB121CC9FA0005D6D48 /* shareImage.png in Resources */,
 				DDFE5D9921CA1BC0005D6D48 /* HUD_success@3x.png in Resources */,
 				DDFE5D9821CA1BC0005D6D48 /* HUD_success@2x.png in Resources */,
@@ -1435,6 +1463,7 @@
 				DD10844721A001030087F244 /* BCScanQR3@2x.png in Resources */,
 				DD0244002196C969006A1390 /* Main.storyboard in Resources */,
 				DDFE5D9B21CA1BC0005D6D48 /* HUD_info@3x.png in Resources */,
+				DDFED67C21D4CF8F00F2F354 /* shareImage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1539,6 +1568,7 @@
 				DD374D5F21C3B41100093A0F /* TZLocationManager.m in Sources */,
 				DD374D5721C3B41100093A0F /* UIView+Layout.m in Sources */,
 				DDFE5DA021CA1BE9005D6D48 /* TProgressHUD.m in Sources */,
+				DDFED68221D5D1BF00F2F354 /* TPBalanceViewController.m in Sources */,
 				DD2FD6B721C7A17000A28F78 /* YUTabBarConfig.m in Sources */,
 				DD02399421AF968E00333446 /* WYNetworkManager.m in Sources */,
 				DDDDFBA0219C1AE90056FC57 /* TPEndViewController.m in Sources */,
@@ -1651,6 +1681,8 @@
 				DD02395421AE84CB00333446 /* SYPasswordView.m in Sources */,
 				DD374DA621C5228100093A0F /* AAAreaspline.m in Sources */,
 				DDFBBA4021B7997200BA09DE /* TPTokenTopic.m in Sources */,
+				DDFED67521D4C1F800F2F354 /* TPBalloonMarker.swift in Sources */,
+				DDFED67221D4BBFF00F2F354 /* comTest.swift in Sources */,
 				DD1083D9219D71410087F244 /* TPTokenCell.m in Sources */,
 				DD374DB921C5228100093A0F /* AAMarker.m in Sources */,
 				DD374D5621C3B41100093A0F /* NSBundle+TZImagePicker.m in Sources */,
@@ -1864,10 +1896,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "N-NSTechnology.ToPay";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ToPay/ToPay-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1888,9 +1922,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "N-NSTechnology.ToPay";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_OBJC_BRIDGING_HEADER = "ToPay/ToPay-Bridging-Header.h";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1898,6 +1934,7 @@
 		DD0244252196C96C006A1390 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ToPayTests/Info.plist;
@@ -1916,6 +1953,7 @@
 		DD0244262196C96C006A1390 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ToPayTests/Info.plist;
@@ -1934,6 +1972,7 @@
 		DD0244282196C96C006A1390 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ToPayUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1951,6 +1990,7 @@
 		DD0244292196C96C006A1390 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ToPayUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
