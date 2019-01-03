@@ -18,6 +18,8 @@ pod 'AFNetworking'
 pod 'MJRefresh'
 pod 'YYCache'
 pod 'Charts'
+pod 'FDFullscreenPopGesture'
+
 # pod 'ChartsRealm'
 # pod 'TZImagePickerController' 
 

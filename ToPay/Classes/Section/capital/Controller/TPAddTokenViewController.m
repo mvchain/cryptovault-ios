@@ -5,41 +5,57 @@
 //  Created by 蒲公英 on 2018/11/21.
 //  Copyright © 2018年 蒲公英. All rights reserved.
 //
-
+#import "YUSearchBarView.h"
 #import "TPAddTokenViewController.h"
 #import "TPAddTokenCell.h"
 #import "TPCurrencyList.h"
+#import "UIView+SGPagingView.h"
+#import "PHJTransformPinyin.h"
 @interface TPAddTokenViewController ()
-@property (nonatomic, strong)TPCurrencyList *currencyList;
+@property (nonatomic, strong) TPCurrencyList *currencyList;
+@property (nonatomic, strong) YUSearchBarView *searchbar;
 @property (nonatomic, strong) NSMutableArray *assetNameArr;
-
 @property (nonatomic, strong) NSMutableArray *addTokenIdArr;
 @property (nonatomic, strong) NSMutableArray *removeTokenIdArr;
+@property (nonatomic, strong) NSMutableArray *searchResult;
+
+@property (assign,nonatomic) BOOL isSearchState;
+
 //@property (nonatomic, copy) NSMutableString *addToken, *removeToken;
 @end
 
 @implementation TPAddTokenViewController
 
 static NSString  *TPAddTokenCellId = @"addTokenCell";
-
+#pragma mark lazy_load
+- (YUSearchBarView *)searchbar {
+    if( !_searchbar ) {
+        _searchbar = [YUSearchBarView SG_loadViewFromXib];
+        _searchbar.placeholder = @"搜索币种";
+    }
+    return _searchbar;
+}
+- (NSMutableArray *)searchResult {
+    if( !_searchResult ) {
+        _searchResult = [[NSMutableArray alloc]init];
+        
+    }
+    return _searchResult;
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     self.addTokenIdArr = [NSMutableArray array];
     self.removeTokenIdArr = [NSMutableArray array];
-    
-    
     self.assetNameArr = [NSMutableArray array];
+    self.isSearchState = NO;
     for (int i = 0 ; i < self.assetTopic.count; i++)
     {
         TPAssetModel *asset = self.assetTopic[i];
         [self.assetNameArr addObject:asset.tokenName];
     }
-    
     YYCache *listCache = [YYCache cacheWithName:TPCacheName];
     self.currencyList = (TPCurrencyList *)[listCache objectForKey:TPCurrencyListKey];
-
     [self setupNavigation];
     
     [self.baseTableView mas_makeConstraints:^(MASConstraintMaker *make)
@@ -49,22 +65,48 @@ static NSString  *TPAddTokenCellId = @"addTokenCell";
          make.width.equalTo(@(KWidth));
          make.height.equalTo(@(KHeight - StatusBarAndNavigationBarHeight));
      }];
+    
+    [self setEvent];
 }
 
 -(void)setupNavigation
 {
-
 //    [self showSystemNavgation:YES];
 //    self.navigationItem.title = @"添加币种";
     self.customNavBar.title = @"添加币种";
 //    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(rightClick) image:[UIImage imageNamed:@"serch_icon_black"]];
     [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"serch_icon_black"]];
+    __weak typeof (self) wsf = self;
     [self.customNavBar setOnClickRightButton:^
     {
-         NSLog(@"搜索");
+        [wsf reBackUpSearchResult] ; // 重置搜索
+        YUSearchBarView * search  = wsf.searchbar;
+        if( !wsf.isSearchState ) {
+            //当前非搜索状态，点击后变成搜索状态
+            [wsf.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"cancel_icon_black"]];
+            [wsf.customNavBar addSubview:search];
+            search.searchTextfield.text = @"";
+            [search setHeight:36.0];
+            [search setWidth:wsf.customNavBar.width - 90];
+            [search setCenterY:wsf.customNavBar.leftButton.centerY];
+            [search setCenterX:wsf.customNavBar.centerX];
+            [search tobeCircle]; // 圆角
+            [search.searchTextfield becomeFirstResponder];
+            [search fadeIn:^{
+                
+            }];
+        }else{
+            // 当前搜索状态，点击后变非搜索状态
+            [search.searchTextfield resignFirstResponder];
+            [search fadeOut:^{
+                [wsf.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"serch_icon_black"]];
+                [wsf.searchbar removeFromSuperview];
+            }];
+        }
+        wsf.isSearchState = !wsf.isSearchState; // 切换状态
+        [wsf.baseTableView reloadData];
     }];
 }
-
 
 -(void)rightClick
 {
@@ -75,7 +117,11 @@ static NSString  *TPAddTokenCellId = @"addTokenCell";
 #pragma mark - UITableViewDelegate,UITableViewDataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.currencyList.data.count;
+    if( _isSearchState ) {
+        return self.searchResult.count;
+    }else {
+        return self.currencyList.data.count;
+    }
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -83,8 +129,12 @@ static NSString  *TPAddTokenCellId = @"addTokenCell";
     TPAddTokenCell *cell = [tableView dequeueReusableCellWithIdentifier:TPAddTokenCellId];
     if (!cell)
         cell = [[TPAddTokenCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TPAddTokenCellId withfilterData:self.assetNameArr];
-    cell.clData = self.currencyList.data[indexPath.row];
-    
+    if( _isSearchState ) {
+        cell.clData =  self.searchResult[indexPath.row];
+        
+    }else {
+        cell.clData =  self.currencyList.data[indexPath.row];
+    }
     __block TPAddTokenCell *addTokenCell = cell;
     
     cell.operatingBlock = ^(BOOL isAdd, NSString *tokenId, NSString * tokenName)
@@ -112,7 +162,6 @@ static NSString  *TPAddTokenCellId = @"addTokenCell";
               [self sendTokenClcikAdd:@"" removeToken:tokenId];
           }];
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-        
         //添加顺序和显示顺序相同
         [alertController addAction:cancelAction];
         [alertController addAction:resetAction];
@@ -149,13 +198,51 @@ static NSString  *TPAddTokenCellId = @"addTokenCell";
 {
     [super viewDidDisappear:animated];
 }
-
-
-
+#pragma mark block event
+- (void)setEvent {
+    __weak typeof (self) wsf = self;
+    self.searchbar.onTextChange = ^(NSString *text) {
+        [wsf reBackUpSearchResult];
+        NSPredicate *pre = [NSPredicate predicateWithBlock:^BOOL(id  _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
+            CLData *data = (CLData *)evaluatedObject;
+            NSString *key =  [text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];            
+            key = [key uppercaseString];
+            key = [key stringByReplacingOccurrencesOfString:@" " withString:@""]; // remove space
+            if( [key isEqualToString:@""] ) return YES;
+            if( [data.tokenName containsString:key] ) {
+                return YES;
+            }
+            if( [data.tokenCnName containsString:key] ) {
+                return YES;
+            }
+            if( [data.tokenEnName containsString:key] ) {
+                return YES;
+            }
+            NSString *tkpinyin = [[data.tokenCnName transformToPinyin] uppercaseString];
+            tkpinyin = [tkpinyin stringByReplacingOccurrencesOfString:@" " withString:@""];
+            if( [tkpinyin  containsString:key] ) {
+                return YES;
+            }
+            return  NO;
+            
+        }];
+        [wsf.searchResult filterUsingPredicate:pre];
+        [wsf.baseTableView reloadData];
+    };
+    self.searchbar.onTextDidEndEditing = ^(id sender) {
+        wsf.customNavBar.onClickRightButton(); // end editing , end searching ...
+    };
+    
+}
+#pragma mark logic function
+- (void)reBackUpSearchResult {
+    self.searchResult = [[NSMutableArray alloc]init];
+    for( CLData *data in self.currencyList.data ) {
+        [self.searchResult addObject:data];
+    }
+}
 -(void)dealloc
 {
     [TPNotificationCenter removeObserver:self];
 }
-
-
 @end

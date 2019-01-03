@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="YUSearchBarView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="searching_icon" translatesAutoresizingMaskIntoConstraints="NO" id="7LI-gt-aPX">
+                    <rect key="frame" x="17" y="15" width="15" height="15"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="15" id="Aup-cR-pw9"/>
+                        <constraint firstAttribute="width" constant="15" id="dFd-Jg-rZo"/>
+                    </constraints>
+                </imageView>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="搜索众筹项目" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qbH-xq-5wV">
+                    <rect key="frame" x="42" y="13.5" width="313" height="18"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" red="0.96470588235294119" green="0.96862745098039216" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="7LI-gt-aPX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="17" id="5F0-Ha-GYc"/>
+                <constraint firstItem="qbH-xq-5wV" firstAttribute="centerY" secondItem="7LI-gt-aPX" secondAttribute="centerY" id="75q-T8-1Q1"/>
+                <constraint firstAttribute="trailing" secondItem="qbH-xq-5wV" secondAttribute="trailing" constant="20" id="BRN-qz-Opj"/>
+                <constraint firstItem="qbH-xq-5wV" firstAttribute="leading" secondItem="7LI-gt-aPX" secondAttribute="trailing" constant="10" id="UV7-6W-gTN"/>
+                <constraint firstItem="7LI-gt-aPX" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="f3k-c5-ChN"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="searchTextfield" destination="qbH-xq-5wV" id="70A-lK-wVy"/>
+            </connections>
+            <point key="canvasLocation" x="69.599999999999994" y="-156.97151424287858"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="searching_icon" width="15" height="15"/>
+    </resources>
+</document>

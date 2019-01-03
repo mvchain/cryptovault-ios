@@ -29,20 +29,15 @@
         _bgImgV = [YFactoryUI YImageViewWithimage:[UIImage imageNamed:@"X_homepage_bg"]];
         [self addSubview:_bgImgV];
         
-        
         _totalLab = [YFactoryUI YLableWithText:@"总资产" color:[UIColor whiteColor] font:FONT(14)];
         [self addSubview:_totalLab];
-        
-        
         _chooseBtn = [YFactoryUI YButtonWithTitle:@"" Titcolor:[UIColor whiteColor] font:FONT(12) Image:[UIImage imageNamed:@"down_icon_3"] target:self action:@selector(chooseToken)];
         _chooseBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -30, 0, 0);
         _chooseBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 61, 0, 0);
         [self addSubview:_chooseBtn];
-        
         _numLab = [YFactoryUI YLableWithText:@"" color:[UIColor whiteColor] font:FONT(36)];
         [self addSubview:_numLab];
-        
-        
+
         dispatch_queue_t queen = dispatch_get_global_queue(0, 0);
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), queen, ^
        {
@@ -96,21 +91,19 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
-    
     [_bgImgV mas_makeConstraints:^(MASConstraintMaker *make)
     {
         make.left.top.equalTo(@0);
         make.width.equalTo(@(KWidth));
         make.height.equalTo(self.mas_height).with.offset(-6);
     }];
-    
     [_totalLab mas_makeConstraints:^(MASConstraintMaker *make)
     {
         make.centerX.equalTo(self);
         make.top.equalTo(@12);
         make.height.equalTo(@15);
     }];
-    
+
     [_chooseBtn mas_makeConstraints:^(MASConstraintMaker *make)
     {
         make.centerX.equalTo(self);
@@ -126,5 +119,4 @@
         make.height.equalTo(@48);
     }];
 }
-
 @end

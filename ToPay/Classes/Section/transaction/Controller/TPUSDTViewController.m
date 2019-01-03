@@ -93,6 +93,12 @@ static NSString  *TPUSDTCellId = @"USDTCell";
 -(void)loadMoreTopics
 {
     TPTransactionModel *transM =  self.transactionTopic[self.transactionTopic.count-1];
+    NSDictionary *dict =  @{@"id":transM.id,
+                            @"pageSize":@(10),
+                            @"pairId":@(self.pairId),
+                            @"transactionType":self.transactionType,
+                            @"type":@"1"};
+    
     [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"transaction" parameters:
      @{@"id":transM.id,
        @"pageSize":@(10),
@@ -100,6 +106,8 @@ static NSString  *TPUSDTCellId = @"USDTCell";
        @"transactionType":self.transactionType,
        @"type":@"1"} success:^(id responseObject, BOOL isCacheObject)
      {
+         
+         
          if ([responseObject[@"code"] isEqual:@200])
          {
              NSLog(@"%@",responseObject[@"data"]);

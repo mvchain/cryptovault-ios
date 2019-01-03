@@ -25,5 +25,4 @@
 @property (nonatomic , copy) NSString              * tokenId;
 @property (nonatomic , copy) NSString              * tokenName;
 @property (nonatomic , copy) NSString              * tokenType;
-
 @end

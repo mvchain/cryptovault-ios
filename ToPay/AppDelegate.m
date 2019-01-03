@@ -90,13 +90,12 @@
 //    47.110.234.233
     [WYNetworkConfig sharedConfig].baseUrl = @"http://47.110.234.233:10086/";
     [WYNetworkConfig sharedConfig].timeoutSeconds = 10;
-    
     if ([TPLoginUtil userInfo].token)
     {
         [[WYNetworkConfig sharedConfig] addCustomHeader:@{
                                                           @"Authorization":[TPLoginUtil userInfo].token,
                                                           @"Accept-Language":@"zh-cn"
-                                                          }];
+                                                    }];
     }
 }
 

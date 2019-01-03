@@ -111,7 +111,7 @@
 {
     NSLog(@"加载新数据");
     
-//    [self.baseTableView.mj_header endRefreshing];
+   [self.baseTableView.mj_header endRefreshing];
 }
 
 -(void)loadMoreTopics
