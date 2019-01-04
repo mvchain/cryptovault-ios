@@ -200,6 +200,9 @@
 		DDFED68D21DC98DF00F2F354 /* YUSearchBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFED68C21DC98DF00F2F354 /* YUSearchBarView.m */; };
 		DDFED68F21DC992B00F2F354 /* YUSearchBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDFED68E21DC992B00F2F354 /* YUSearchBarView.xib */; };
 		DDFED69221DDA88500F2F354 /* PHJTransformPinyin.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFED69121DDA88500F2F354 /* PHJTransformPinyin.m */; };
+		DDFED69521DE045A00F2F354 /* JudegeCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFED69421DE045A00F2F354 /* JudegeCenter.m */; };
+		DDFED69821DEFC9800F2F354 /* QuickMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFED69721DEFC9800F2F354 /* QuickMaker.m */; };
+		DDFED69B21DEFDE500F2F354 /* QuickDo.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFED69A21DEFDE500F2F354 /* QuickDo.m */; };
 		F5E7B5DA88A0AD0247016986 /* Pods_ToPay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD9ADC3B99E8C7306FF2F4F /* Pods_ToPay.framework */; };
 /* End PBXBuildFile section */
 
@@ -600,6 +603,12 @@
 		DDFED68E21DC992B00F2F354 /* YUSearchBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YUSearchBarView.xib; sourceTree = "<group>"; };
 		DDFED69021DDA88500F2F354 /* PHJTransformPinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHJTransformPinyin.h; sourceTree = "<group>"; };
 		DDFED69121DDA88500F2F354 /* PHJTransformPinyin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHJTransformPinyin.m; sourceTree = "<group>"; };
+		DDFED69321DE045A00F2F354 /* JudegeCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JudegeCenter.h; sourceTree = "<group>"; };
+		DDFED69421DE045A00F2F354 /* JudegeCenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JudegeCenter.m; sourceTree = "<group>"; };
+		DDFED69621DEFC9800F2F354 /* QuickMaker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickMaker.h; sourceTree = "<group>"; };
+		DDFED69721DEFC9800F2F354 /* QuickMaker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickMaker.m; sourceTree = "<group>"; };
+		DDFED69921DEFDE500F2F354 /* QuickDo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickDo.h; sourceTree = "<group>"; };
+		DDFED69A21DEFDE500F2F354 /* QuickDo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickDo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1115,6 +1124,12 @@
 				DDFE5DB221CC9FA7005D6D48 /* custom.png */,
 				DDFE5DB021CC9FA0005D6D48 /* shareImage.png */,
 				DD2FD6C021C7A7E900A28F78 /* TPSwizzlingDefine.h */,
+				DDFED69321DE045A00F2F354 /* JudegeCenter.h */,
+				DDFED69421DE045A00F2F354 /* JudegeCenter.m */,
+				DDFED69621DEFC9800F2F354 /* QuickMaker.h */,
+				DDFED69721DEFC9800F2F354 /* QuickMaker.m */,
+				DDFED69921DEFDE500F2F354 /* QuickDo.h */,
+				DDFED69A21DEFDE500F2F354 /* QuickDo.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -1577,6 +1592,7 @@
 				DD374D5F21C3B41100093A0F /* TZLocationManager.m in Sources */,
 				DD374D5721C3B41100093A0F /* UIView+Layout.m in Sources */,
 				DDFE5DA021CA1BE9005D6D48 /* TProgressHUD.m in Sources */,
+				DDFED69521DE045A00F2F354 /* JudegeCenter.m in Sources */,
 				DD2FD6B721C7A17000A28F78 /* YUTabBarConfig.m in Sources */,
 				DD02399421AF968E00333446 /* WYNetworkManager.m in Sources */,
 				DDDDFBA0219C1AE90056FC57 /* TPEndViewController.m in Sources */,
@@ -1626,6 +1642,7 @@
 				DD374DAB21C5228100093A0F /* AADataLabels.m in Sources */,
 				DDDDFBAF219D60BC0056FC57 /* UIViewExt.m in Sources */,
 				DDE176A521BE74D700167EB1 /* TPTransInfoModel.m in Sources */,
+				DDFED69B21DEFDE500F2F354 /* QuickDo.m in Sources */,
 				DD374DC421C559AD00093A0F /* TPDetailTitleView.m in Sources */,
 				DD2FD6B821C7A17000A28F78 /* YUTabBarButton.m in Sources */,
 				DD02391B21A5328500333446 /* TPBuyTokenViewController.m in Sources */,
@@ -1650,6 +1667,7 @@
 				DD10842D219EB60F0087F244 /* TPAboutViewController.m in Sources */,
 				DD72F435219A7F12004C0DAF /* TPBaseViewController.m in Sources */,
 				DDDDFB8A219AD0550056FC57 /* UIView+TPExtension.m in Sources */,
+				DDFED69821DEFC9800F2F354 /* QuickMaker.m in Sources */,
 				DDDDFB84219AB8C40056FC57 /* YFactoryUI.m in Sources */,
 				DD0239A921AFECEB00333446 /* NSObject+TPExtension.m in Sources */,
 				DD02399521AF968E00333446 /* WYNetworkCacheInfo.m in Sources */,

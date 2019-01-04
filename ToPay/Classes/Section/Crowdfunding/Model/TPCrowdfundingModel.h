@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic , copy) NSString              * createdAt;
 @property (nonatomic , copy) NSString              * status;
 @property (nonatomic , copy) NSString              * tokenName;
-
+@property (nonatomic ,copy) NSString * displayType;
 @end
 
 NS_ASSUME_NONNULL_END

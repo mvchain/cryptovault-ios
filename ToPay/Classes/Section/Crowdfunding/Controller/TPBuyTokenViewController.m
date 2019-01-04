@@ -14,10 +14,8 @@
 @property (nonatomic, copy) NSString * available;
 @property (nonatomic, copy) NSString * mostlimit;
 @property (nonatomic, copy) NSString * leastlimit;
-
 @property (nonatomic, strong) UIView *headerView;
 @property (nonatomic, strong) UIView *bottomView;
-
 @property (nonatomic, strong) UILabel *mostlimitLab;
 @property (nonatomic, strong) UILabel *leastlimitLab;
 @property (nonatomic, strong) UILabel *availableLab;
@@ -25,7 +23,6 @@
 @property (nonatomic, strong) UILabel *nickLab;
 @property (nonatomic, strong) UILabel *VRTLab;
 @property (nonatomic, strong) UILabel *promptLab;
-
 @property (nonatomic, strong) TPComTextView *buyTextView;
 @property (nonatomic, strong) UIImageView *iconV;
 @property (nonatomic, strong) UIButton *reservationBtn;
@@ -59,23 +56,20 @@
 -(void)setCroModel:(TPCrowdfundingModel *)croModel
 {
     _croModel = croModel;
-    
     self.customNavBar.title = TPString(@"预约%@",self.croModel.projectName);
     self.nickLab.text = self.croModel.projectName;
-    
     [self.iconV setIconHeader:self.croModel.projectImage placeholderImage:@"default_project"];
-    
     self.proportionLab.text = TPString(@"兑换比例 1%@ = %@%@",croModel.tokenName,croModel.ratio,croModel.baseTokenName);
-    
-
     [[WYNetworkManager sharedManager]sendGetRequest:WYJSONRequestSerializer url:TPString(@"project/%@/purchase",self.croModel.projectId) parameters:@{@"id":self.croModel.projectId} success:^(id responseObject, BOOL isCacheObject)
      {
          if ([responseObject[@"code"] isEqual:@200])
          {
-             self.mostlimitLab.text = TPString(@"限购额：%@/%@",responseObject[@"data"][@"projectMin"],responseObject[@"data"][@"limitValue"]);
+             self.mostlimit = self->_croModel.projectLimit;
+             int rest = [ (NSString *)(responseObject[@"data"][@"limitValue"]) intValue] ;
+             int alreay = [self.mostlimit intValue] - rest;
+             self.mostlimitLab.text = TPString(@"限购额：%d/%@",alreay,self.mostlimit);
 //             self.leastlimitLab.text = TPString(@"最少预约：%@",);
              self.availableLab.text = TPString(@"可用%@：%.4f",croModel.baseTokenName,[responseObject[@"data"][@"balance"] floatValue]);
-             self.mostlimit = responseObject[@"data"][@"limitValue"];
              self.leastlimit = responseObject[@"data"][@"projectMin"];
              self.available = TPString(@"%@",responseObject[@"data"][@"balance"]);
          }
@@ -248,38 +242,41 @@
      }];
 }
 
--(void)didChange:(UITextField *)comText
-{
-    if (comText.text.length > 0)
+- (void)didChange:(UITextField *)comText
+{   BOOL vaild0 ,vaild1, vaild2,vaild3;
+    vaild0 = YES;vaild1 = YES;vaild2 = YES;vaild3 = YES;
+    if (comText.text.length >0)
     {
-        self.VRTLab.text = TPString(@"%.2f VRT",[comText.text floatValue] * [_croModel.ratio floatValue]);
-        
+        self.VRTLab.text = TPString(@"%.2f %@",[comText.text floatValue] * [_croModel.ratio floatValue],_croModel.baseTokenName);
         if ([self.VRTLab.text floatValue] > [self.available floatValue])
         {
-            self.availableLab.text = @"可用金额不足!";
+            self.availableLab.text = TPString(@"可用%@不足！",_croModel.baseTokenName) ;
             self.availableLab.textColor = [UIColor colorWithHex:@"#F33636"];
             [self reservationBtnUerEnabled:NO];
+            vaild0 = NO;
         }
             else
         {
             self.promptLab.hidden = YES;
-            self.availableLab.text = TPString(@"可用VRT %@",self.available);
+         //   self.availableLab.text = TPString(@"可用VRT %@",self.available);
+            NSString *adesc = TPString(@"可用%@：%.4f",_croModel.baseTokenName,[self.available floatValue]);
+            [self.availableLab setText:adesc];
             self.availableLab.textColor = TP8EColor;
             [self reservationBtnUerEnabled:YES];
         }
-        
-        
         if ([comText.text floatValue] < [self.leastlimit floatValue])
         {
             self.promptLab.text = @"低于最小的预约数量!";
             self.promptLab.hidden = NO;
             [self reservationBtnUerEnabled:NO];
+            vaild1 = NO ;
         }
             else if ([comText.text floatValue] > [self.mostlimit floatValue])
         {
             self.promptLab.text = @"超出最大的预约数量！";
             self.promptLab.hidden = NO;
             [self reservationBtnUerEnabled:NO];
+            vaild2 = NO;
         }
             else
         {
@@ -289,8 +286,17 @@
     }
         else
     {
+        vaild3 = NO;
         self.promptLab.hidden = YES;
         self.VRTLab.text = @"0.00 VRT";
+        self.availableLab.textColor = TP8EColor;
+        NSString *adesc = TPString(@"可用%@：%.4f",_croModel.baseTokenName,[self.available floatValue]);
+        [self.availableLab setText:adesc];
+    }
+    if( vaild0 && vaild1 && vaild2 && vaild3 ) {
+        [self reservationBtnUerEnabled:YES];
+    }else{
+        [self reservationBtnUerEnabled:NO];
     }
 }
 
@@ -301,7 +307,7 @@
     [self.reservationBtn setTitleColor:enabled ? [UIColor whiteColor]:TPD5Color  forState:UIControlStateNormal];
 }
 
--(void)reservationClick
+- (void)reservationClick
 {
     TPTransView *transView = [TPTransView createTransferViewStyle:TPTransStyleReservation];
     transView.title = @"确认预约";
@@ -309,25 +315,20 @@
     transView.Total = self.VRTLab.text;
     transView.con1 = TPString(@"%@%@",self.buyTextView.comTextField.text,self.croModel.projectName);
     [transView showMenuWithAlpha:YES];
-    
     __block TPTransView *TPTransV = transView;
-    
     [transView.pasView setEndEditBlock:^(NSString *text)
      {
          if (text.length == 6)
          {
              [SVProgressHUD show];
-             
              NSLog(@"<<<<<<<%@ %@>>>>>>",text,self.buyTextView.comTextField.text);
              WYNetworkManager *manage = [WYNetworkManager sharedManager];
              NSLog(@"%@",manage.customHeaders);
-             
              [[WYNetworkManager sharedManager] sendPostRequest:WYJSONRequestSerializer url:TPString(@"project/%@/purchase",self.croModel.projectId) parameters:@{@"password":text,@"value":self.buyTextView.comTextField.text} success:^(id responseObject, BOOL isCacheObject)
              {
                  if ([responseObject[@"code"] isEqual:@200])
                  {
                      [self showSuccessText:@"购买成功"];
-                     
                      [TPTransV showMenuWithAlpha:NO];
                      [TPNotificationCenter postNotificationName:TPAssetRedNotification object:nil];
                      [self.navigationController popViewControllerAnimated:YES];
@@ -346,17 +347,12 @@
          }
      }];
 }
-
 -(void)dealloc
 {
     [TPNotificationCenter removeObserver:self];
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
-
 @end

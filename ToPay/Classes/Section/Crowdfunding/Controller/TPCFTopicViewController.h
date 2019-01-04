@@ -11,6 +11,6 @@
 #import "TPCrowdConfig.h"
 @interface TPCFTopicViewController : TPBaseViewController
 
--(TPCrowdfundStyle)type;
+-( TPCrowdfundStyle )type;
 
 @end

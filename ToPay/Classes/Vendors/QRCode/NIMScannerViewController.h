@@ -10,6 +10,7 @@
 #import "NIMScanerCardViewController.h"
 #import "TPStartViewController.h"
 @interface NIMScannerViewController : TPStartViewController
+@property (copy,nonatomic) NSString *tokenid;
 
 /// 实例化扫描控制器
 ///

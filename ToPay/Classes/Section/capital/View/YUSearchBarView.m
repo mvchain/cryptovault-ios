@@ -33,8 +33,8 @@
     [UIView animateWithDuration:ana_dur animations:^{
         self.alpha = 0;
     } completion:^(BOOL finished) {
-        complete();
-        
+        if(finished)
+            complete();
     }];
 }
 - (void)fadeIn:(void(^)(void))complete {
@@ -42,8 +42,8 @@
     [UIView animateWithDuration:ana_dur animations:^{
         self.alpha = 1;
     } completion:^(BOOL finished) {
-        complete();
-        
+        if(finished)
+            complete();
     }];
 }
 - (void)tobeCircle{

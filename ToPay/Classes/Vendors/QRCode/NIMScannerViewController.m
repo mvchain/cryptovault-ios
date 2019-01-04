@@ -64,11 +64,15 @@ static NSString * typeRoomID = @"evn:r:";
     
     // 实例化扫描器
     __weak typeof(self) weakSelf = self;
+    __weak typeof (scannerBorder) wscanner = scannerBorder;
+
     scanner = [NIMScanner scanerWithView:self.view scanFrame:scannerBorder.frame completion:^(NSString *stringValue)
     {
-       [weakSelf selectNTESType:stringValue];
-       // 关闭
-       [weakSelf clickCloseButton];
+        if( [weakSelf selectNTESType:stringValue] ){
+            [weakSelf clickCloseButton];
+        }else{
+            [weakSelf startScan];
+        }
     }];
 }
 
@@ -78,7 +82,10 @@ static NSString * typeRoomID = @"evn:r:";
     [scannerBorder startScannerAnimating];
     [scanner startScan];
 }
-
+- (void)startScan {
+    [scannerBorder startScannerAnimating];
+    [scanner startScan];
+}
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
@@ -181,10 +188,24 @@ static NSString * typeRoomID = @"evn:r:";
     return result;
 }
 
--(void)selectNTESType:(NSString *)stringValue
+-(BOOL)selectNTESType:(NSString *)stringValue
 {
+    
+    if( ![JudegeCenter isVaildAddrWithTokenId:self.tokenid addr:stringValue] ) {
+        
+        if( [self.tokenid isEqualToString:@"4"]) {
+            [self showInfoText:@"请扫描正确的BTC地址！"];
+        }else {
+            [self showInfoText:@"请扫描正确的ETH地址！"];
+        }
+        return NO ;
+        
+    }
+    
     NSString *typeStr = [stringValue substringToIndex:6];
     NSString *conStr = [stringValue substringFromIndex:6];
+  
+    
     if ([typeStr isEqualToString:typeID])
     {
         // 完成回调
@@ -202,6 +223,8 @@ static NSString * typeRoomID = @"evn:r:";
     {
         self.completionCallBack(stringValue);
     }
+    return YES;
+    
 }
 
 #pragma mark - 设置界面

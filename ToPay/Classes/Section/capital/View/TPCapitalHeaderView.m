@@ -46,13 +46,18 @@
                  
                  if ([USER_DEFAULT objectForKey:TPNowLegalNameKey])
                  {
-                     [self.chooseBtn setTitle:[USER_DEFAULT objectForKey:TPNowLegalNameKey] forState:UIControlStateNormal];
+                     
+                     NSString *name = [USER_DEFAULT objectForKey:TPNowLegalNameKey];
+                     name = [name substringFromIndex:1];
+                     [self.chooseBtn setTitle:name forState:UIControlStateNormal];
                  }
                     else
                  {
                      YYCache *listCache = [YYCache cacheWithName:TPCacheName];
                      NSArray <TPExchangeRate *>*listArr = (NSArray<TPExchangeRate *> *)[listCache objectForKey:TPLegalCurrencyListKey];
-                     [self.chooseBtn setTitle:listArr[0].name forState:UIControlStateNormal];
+                     NSString *name = listArr[0].name;
+                     name = [name substringFromIndex:1];
+                     [self.chooseBtn setTitle:name forState:UIControlStateNormal];
                  }
              });
        });
@@ -76,8 +81,8 @@
 -(void)setNickName:(NSString *)nickName
 {
     _nickName = nickName;
-    
-    [_chooseBtn setTitle:nickName forState:UIControlStateNormal];
+    NSString *name = [_nickName substringFromIndex:1];
+    [_chooseBtn setTitle:name forState:UIControlStateNormal];
 }
 
 -(void)chooseToken

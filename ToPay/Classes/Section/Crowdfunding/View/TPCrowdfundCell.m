@@ -69,9 +69,6 @@
         _sepV.backgroundColor = TPF6Color;
         [_backView addSubview:_sepV];
         
-//        self.timeLab = [YFactoryUI YLableWithText:@"dasda" color:[UIColor redColor] font:FONT(15)];
-//        [_backView addSubview:self.timeLab];
-        
         NSArray *names;
         
         if (_crowdStyle != TPCrowdfundStyleRecord)
@@ -90,8 +87,6 @@
             [_backView addSubview:nameLab];
             
             [_nameArray addObject:nameLab];
-            
-           
             
             UILabel *valueLab = [YFactoryUI YLableWithText:values[i] color:TP8EColor font:FONT(12)];
             [_backView addSubview:valueLab];
@@ -113,19 +108,33 @@
         _valueArray[1].text = TPString(@"%@ %@",_croModel.projectLimit,_croModel.tokenName);
         _valueArray[2].text = TPString(@"1 %@ = %@ %@",croModel.tokenName,croModel.ratio,croModel.baseTokenName);
         _valueArray[3].text = TPString(@"%@%%",_croModel.releaseValue);
-        
 //        self.timeLab.text = @"dsadasdas";
-        
-
-        long long startLongLong = 1467713971000;
-        long long finishLongLong = 1467714322000;
-
+        long long startLongLong = [[NSDate date] timeIntervalSince1970];
+        long long finishLongLong = _croModel.stopAt / 1000;
+        NSString * timestr;
+        if ( [croModel.displayType isEqualToString:@"0"] ) {
+            timestr = [QuickMaker makeCnDayHourMinuteSecWithTimeCuo:finishLongLong - startLongLong ];
+        } else if ( [croModel.displayType isEqualToString:@"1"] ) {
+            timestr = @"未开始";
+        } else if ( [croModel.displayType isEqualToString:@"2"] ) {
+            timestr = @"已结束";
+        }
+        _valueArray[4].text = timestr;
         [self.countD countDownWithStratTimeStamp:startLongLong finishTimeStamp:finishLongLong completeBlock:^(NSInteger day, NSInteger hour, NSInteger minute, NSInteger second)
         {
-//            NSLog(@"%ld天%ld小时%ld分",(long)day,(long)hour,(long)minute);
-//            self.timeLab.text = TPString(@"%ld天%ld小时%ld分",(long)day,(long)hour,(long)minute);
+            
         }];
     }
+}
+- (UIViewController *)parentController
+{
+    for (UIView* next = [self superview]; next; next = next.superview) {
+        UIResponder* nextResponder = [next nextResponder];
+        if ([nextResponder isKindOfClass:[UIViewController class]]) {
+            return (UIViewController*)nextResponder;
+        }
+    }
+    return nil;
 }
 
 -(void)setCroRecordModel:(TPCroRecordModel *)croRecordModel
@@ -136,23 +145,20 @@
     {
         _recView.croRecordModel = croRecordModel;
     }
-    
     _valueArray[0].text = croRecordModel.projectOrderId;
     _valueArray[1].text = @"1 BTC = 10.000.000 POT";
     //TPString(@"1%@ = %@%@",croRecordModel.projectName,croRecordModel.ratio,croRecordModel.baseTokenName);
     _valueArray[2].text = TPString(@"%@%%",croRecordModel.releaseValue);
     _valueArray[3].text = TPString(@"%.4f/%.4f %@",[croRecordModel.successPayed floatValue],[croRecordModel.price floatValue],croRecordModel.baseTokenName);
-    _valueArray[4].text = TPString(@"%@/%@ %@",croRecordModel.value,croRecordModel.successValue,croRecordModel.tokenName);
-    
+    //croRecordModel.successValue
+    _valueArray[4].text = TPString(@"%@/%@ %@",croRecordModel.successValue,croRecordModel.value,croRecordModel.tokenName);
     _valueArray[5].text = [croRecordModel.stopAt conversionTimeStamp];
 }
-
 
 -(void)participateClick
 {
     NSLog(@"立即参与");
 }
-
 -(void)layoutSubviews
 {
     [super layoutSubviews];
@@ -164,15 +170,7 @@
         make.right.equalTo(self).with.equalTo(@(-10));
         make.bottom.equalTo(self);
     }];
-    
-//    self.timeLab.backgroundColor = [UIColor orangeColor];
-//    [self.timeLab mas_makeConstraints:^(MASConstraintMaker *make)
-//    {
-//        make.left.equalTo(@20);
-//        make.top.equalTo(@100);
-//        make.size.mas_equalTo(CGSizeMake(100, 30));
-//    }];
-    
+
     if (_crowdStyle == TPCrowdfundStyleRecord)
     {
         [self.recView mas_makeConstraints:^(MASConstraintMaker *make)

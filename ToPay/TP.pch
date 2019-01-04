@@ -37,6 +37,7 @@
 
 #import <WRNavigationBar/WRNavigationBar.h>
 #import "WYNetwork.h"
+#import "JudegeCenter.h"
 #import <SGPagingView/SGPagingView.h>
 #import <SGPagingView/SGPageTitleView.h>
 #import <Masonry/Masonry.h>
@@ -46,4 +47,6 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <IQKeyboardManager/IQKeyboardManager.h>
 #import <SVProgressHUD/SVProgressHUD.h>
+#import "QuickMaker.h"
+#import "QuickDo.h"
 #endif /* TP_pch */

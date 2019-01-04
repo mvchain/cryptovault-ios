@@ -118,17 +118,17 @@
     if ([_tokenTopic.status isEqualToString:@"0"] || [_tokenTopic.status isEqualToString:@"1"])
     {
         _proLab.textColor = TP59Color;
-        _proLab.text = @"转账中";
+        //_proLab.text = @"转账中";
     }
         else if ([_tokenTopic.status isEqualToString:@"2"])
     {
         _proLab.textColor = TP8EColor;
-        _proLab.text = @"转账成功";
+        //_proLab.text = @"转账成功";
     }
         else
     {
         _proLab.textColor = [UIColor colorWithHex:@"#F33636"];
-        _proLab.text = @"转账失败";
+        //_proLab.text = @"转账失败";
     }
 }
 

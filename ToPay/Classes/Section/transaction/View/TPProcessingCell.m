@@ -175,7 +175,7 @@
 -(void)transClick
 {
     NSLog(@"已成交");
-    if (self.withdrawalBlock)
+    if (self.withdrawalBlock && self.isProcessing  )
     {
         self.withdrawalBlock();
     }

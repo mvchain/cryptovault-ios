@@ -59,11 +59,11 @@ static NSString  *TPDetailCellId = @"detailCell";
                 }
                     else if ([transModel.status isEqualToString:@"2"])
                 {
-                    [self setStatuText:@"转账成功" WithImg:@"Details_succss_icon"];
+                     [self setStatuText:@"转账成功" WithImg:@"Details_succss_icon"];
                 }
                     else if ([transModel.status isEqualToString:@"3"])
                 {
-                    [self setStatuText:@"转账失败" WithImg:@"Details_failure_icon"];
+                     [self setStatuText:@"转账失败" WithImg:@"Details_failure_icon"];
                 }
             }
                 else if ([transModel.classify isEqualToString:@"1"])
@@ -138,8 +138,6 @@ static NSString  *TPDetailCellId = @"detailCell";
          make.top.equalTo(iconImgV.mas_bottom).with.offset(6);
          make.height.equalTo(@21);
      }];
-    
-    
     UILabel *timeLab = [YFactoryUI YLableWithText:@"2017年12月18日 16:23:56" color:TP8EColor font:FONT(12)];
     [self.view addSubview:timeLab];
     self.statusLab = statusLab;
@@ -159,6 +157,23 @@ static NSString  *TPDetailCellId = @"detailCell";
         make.height.equalTo(@320);
         make.width.equalTo(@(KWidth));
     }];
+    [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"share_icon_black"]];
+    __weak typeof (self ) wsf = self;
+    
+    [self.customNavBar setOnClickRightButton:^
+     {
+         UIImage *shot = [QuickMaker makeImageWithView:wsf.view withSize:wsf.view.bounds.size];
+         
+         UIImage *imageToShare =shot;
+         
+         
+        NSArray *items = @[imageToShare];
+         [QuickDo shareToSystem:items target:wsf  success:^(bool isok) {
+             
+         }];
+         
+  
+     }];
 }
 
 //-(void)

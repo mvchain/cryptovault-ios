@@ -78,8 +78,6 @@
     return _noDataView;
 }
 
-
-
 -(UITableView *)baseTableView
 {
     if (!_baseTableView)

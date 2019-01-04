@@ -272,7 +272,9 @@
 
 -(void)setUpbBottomBtn
 {
-    UIButton *reservationBtn = [YFactoryUI YButtonWithTitle:TPString(@"立即%@",self.transType == TPTransactionTypeTransfer ? @"购买":@"出售") Titcolor:[UIColor colorWithHex:@"#D5D7D6"] font:FONT(15) Image:nil target:self action:@selector(reservationClick)];
+    
+    //TPString(@"立即%@",self.transType == TPTransactionTypeTransfer ? @"购买":@"出售")
+    UIButton *reservationBtn = [YFactoryUI YButtonWithTitle:@"立即发布" Titcolor:[UIColor colorWithHex:@"#D5D7D6"] font:FONT(15) Image:nil target:self action:@selector(reservationClick)];
     [reservationBtn setLayer:22 WithBackColor:TPMainColor];
     self.reservationBtn = reservationBtn;
     [self.view addSubview:reservationBtn];

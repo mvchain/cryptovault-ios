@@ -15,12 +15,12 @@
 #import "TPChainReceiptViewController.h"
 #import "TPTokenHeaderView.h"
 #import "TPTokenBottomView.h"
-
 #import "TPCurrencyList.h"
 @interface TPTokenKindViewController ()<SGPageTitleViewDelegate, SGPageContentScrollViewDelegate>
 
 @property (nonatomic, strong) SGPageTitleView *pageTitleView;
 @property (nonatomic, strong) SGPageContentScrollView *pageContentScrollView;
+@property (nonatomic, strong) TPTokenHeaderView *headerView;
 
 @property (nonatomic, strong) CLData *clData;
 
@@ -45,8 +45,42 @@
     [self setupPageView];
     
     [self setUpBottomView];
+    
+    [self RequestTransaction];
+    
+}
+// bug fix
+-(void)RequestTransaction
+{
+    [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"asset/transaction" parameters:@{@"tokenId":self.assetModel.tokenId} success:^(id responseObject, BOOL isCacheObject)
+     {
+         if ([responseObject[@"code"] isEqual:@200])
+         {
+             NSLog(@"%@",responseObject[@"data"]);
+             NSDictionary *dic = responseObject[@"data"];
+//
+//             TPTransferModel *transfer = [TPTransferModel mj_objectWithKeyValues:responseObject[@"data"]];
+//             self.DataSources = responseObject[@"data"];
+//             self.balanceLab.text = TPString(@"可用 %@：%@",self.assetModel.tokenName,self.DataSources[@"balance"]);
+//             self.balance = self.DataSources[@"balance"];
+//             self.formalitiesLab.text = TPString(@"%.5f %@",transfer.fee,self.DataSources[@"feeTokenName"]);
+             TPAssetModel *assetmodel = self.headerView.assetModel;
+             assetmodel.value = [dic[@"balance"] floatValue];
+             
+             self.headerView.assetModel = assetmodel ;
+             
+         }
+     }
+                                             failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
+     {
+         NSLog(@"划账失败 %@",error);
+     }];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self RequestTransaction];
+}
 
 -(void)setupNavigationBar
 {
@@ -131,7 +165,9 @@
     }];
     
     TPTokenHeaderView *headerView = [[TPTokenHeaderView alloc] init];
+    self.headerView = headerView;
     headerView.assetModel = self.assetModel;
+    
     [self.view addSubview:headerView];
     
     [headerView mas_makeConstraints:^(MASConstraintMaker *make)

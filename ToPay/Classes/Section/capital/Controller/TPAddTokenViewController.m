@@ -205,7 +205,7 @@ static NSString  *TPAddTokenCellId = @"addTokenCell";
         [wsf reBackUpSearchResult];
         NSPredicate *pre = [NSPredicate predicateWithBlock:^BOOL(id  _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
             CLData *data = (CLData *)evaluatedObject;
-            NSString *key =  [text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];            
+            NSString *key =  [text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
             key = [key uppercaseString];
             key = [key stringByReplacingOccurrencesOfString:@" " withString:@""]; // remove space
             if( [key isEqualToString:@""] ) return YES;

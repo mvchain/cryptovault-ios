@@ -166,16 +166,23 @@ static NSString  *TPReservationCellCellId = @"ReservationCell";
     TPCrowdfundCell *cell = [tableView dequeueReusableCellWithIdentifier:TPReservationCellCellId];
     if (!cell)
         cell = [[TPCrowdfundCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TPReservationCellCellId WithStyle:self.type countD:self.countD];
-    
-    
-    
     if (self.croTopic.count)
     {
-        cell.croModel = self.croTopic[indexPath.row];
+        TPCrowdfundingModel *m = self.croTopic[indexPath.row];
+        if ( [self type] == TPCrowdfundStyleReservation ) {
+            m.displayType = @"0";
+        }else if ( [self type] == TPCrowdfundStyleComingSoon ) {
+            m.displayType = @"1";
+        } else if( [self type] == TPCrowdfundStyleEnd ) {
+            m.displayType = @"2";
+        }
+
+        cell.croModel = m;
     }
         else
     {
         cell.croRecordModel = self.croRecordTopic[indexPath.row];
+       
     }
     
     cell.comView.participateBlock =
@@ -188,7 +195,7 @@ static NSString  *TPReservationCellCellId = @"ReservationCell";
     return cell;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (self.type == TPCrowdfundStyleRecord)
     {

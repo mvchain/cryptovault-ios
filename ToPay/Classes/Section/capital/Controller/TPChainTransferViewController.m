@@ -19,6 +19,8 @@
 @property (nonatomic, strong) NSDictionary *DataSources;
 @property (nonatomic, strong) NSMutableArray <TPComTextView *> *textArray;
 @property (nonatomic, strong) UIButton *confirmBtn;
+@property (nonatomic, copy) NSString *balance ;
+
 @end
 
 @implementation TPChainTransferViewController
@@ -42,13 +44,10 @@
             weakSelf.textArray[0].comTextField.text = stringValue;
             [weakSelf.navigationController popViewControllerAnimated:YES];
         }];
-        
+        scannerVC.tokenid = weakSelf.assetModel.tokenId;
         [weakSelf.navigationController pushViewController:scannerVC animated:YES];
     }];
-    
-    
     [self createUI];
-    
     [self RequestTransaction];
 }
 
@@ -61,9 +60,9 @@
              NSLog(@"%@",responseObject[@"data"]);
              
              TPTransferModel *transfer = [TPTransferModel mj_objectWithKeyValues:responseObject[@"data"]];
-             
              self.DataSources = responseObject[@"data"];
-             self.balanceLab.text = TPString(@"余额：%@",self.DataSources[@"balance"]);
+             self.balanceLab.text = TPString(@"可用 %@：%@",self.assetModel.tokenName,self.DataSources[@"balance"]);
+             self.balance = self.DataSources[@"balance"];
              self.formalitiesLab.text = TPString(@"%.5f %@",transfer.fee,self.DataSources[@"feeTokenName"]);
          }
      }
@@ -169,11 +168,22 @@
 
 -(void)didChangeText:(UITextField *)textF
 {
-    if (self.textArray[0].comTextField.text.length > 0 && self.textArray[1].comTextField.text.length > 0)
+    if (self.textArray[0].comTextField.text.length > 0 &&
+        self.textArray[1].comTextField.text.length > 0 &&
+        [self.textArray[1].comTextField.text floatValue] <= [self.balance floatValue] )
     {
-        self.confirmBtn.userInteractionEnabled = YES;
-        [self.confirmBtn setLayer:22 WithBackColor:TPMainColor];
-        [self.confirmBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [self vaildButton];
+        self.balanceLab.textColor = TP8EColor;
+        self.balanceLab.text = TPString(@"可用 %@：%@",self.assetModel.tokenName,self.DataSources[@"balance"]);
+    }else {
+        [self invaildButton];
+        if(  [self.textArray[1].comTextField.text floatValue] > [self.balance floatValue] ) {
+            [self.balanceLab setText:TPString(@"可用 %@不足",self.assetModel.tokenName)];
+            self.balanceLab.textColor = [UIColor colorWithHex:@"#F33636"];
+        }else {
+            self.balanceLab.textColor = TP8EColor;
+             self.balanceLab.text = TPString(@"可用 %@：%@",self.assetModel.tokenName,self.DataSources[@"balance"]);
+        }
     }
 }
 
@@ -181,24 +191,27 @@
 {
 //    3 ETH
 //    4 BTC
-    
-    if ([self.assetModel.tokenId isEqualToString:@"4"])
-    {
-        if ([self isBTC:self.textArray[0].comTextField.text] == NO)
-        {
-            [self showInfoText:TPString(@"请输入正确的%@地址",self.assetModel.tokenName)];
-
-            return ;
-        }
+    if( ![JudegeCenter isVaildAddrWithTokenId:self.assetModel.tokenId addr:self.textArray[0].comTextField.text] ) {
+        return;
+        
     }
-        else if(![self.assetModel.tokenId isEqualToString:@"4"])
-    {
-        if ([self isETH:self.textArray[0].comTextField.text] == NO)
-        {
-            [self showInfoText:TPString(@"请输入正确的%@地址",self.assetModel.tokenName)];
-            return ;
-        }
-    }
+//    if ([self.assetModel.tokenId isEqualToString:@"4"])
+//    {
+//        if ([self isBTC:self.textArray[0].comTextField.text] == NO)
+//        {
+//            [self showInfoText:TPString(@"请输入正确的%@地址",self.assetModel.tokenName)];
+//
+//            return ;
+//        }
+//    }
+//        else if(![self.assetModel.tokenId isEqualToString:@"4"])
+//    {
+//        if ([self isETH:self.textArray[0].comTextField.text] == NO)
+//        {
+//            [self showInfoText:TPString(@"请输入正确的%@地址",self.assetModel.tokenName)];
+//            return ;
+//        }
+//    }
     
     TPTransView *transView = [TPTransView createTransferViewStyle:TPTransStyleTransfer];
     transView.title = @"确认转账";
@@ -259,5 +272,17 @@
         }
     }];
 }
+#pragma mark view logic
+- (void)vaildButton {
+    self.confirmBtn.userInteractionEnabled = YES;
+    [self.confirmBtn setLayer:22 WithBackColor:TPMainColor];
+    [self.confirmBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+}
 
+- (void)invaildButton {
+    self.confirmBtn.userInteractionEnabled = NO;
+    [self.confirmBtn setLayer:22 WithBackColor:TPEBColor];
+    [self.confirmBtn setTintColor:TPD5Color];
+    
+}
 @end

@@ -20,35 +20,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     self.view.backgroundColor = [UIColor whiteColor];
     self.customNavBar.title = @"筛选";
-    
     YYCache *listCache = [YYCache cacheWithName:TPCacheName];
-    
-
     NSArray *balanceArr = (NSArray *)[listCache objectForKey:TPPairBalanceKey];
     NSArray *VRTArr = (NSArray *)[listCache objectForKey:TPPairVRTKey];
-    
-    
     NSMutableArray *balanceTitle = [NSMutableArray array];
     for (int i = 0 ; i < balanceArr.count; i++)
     {
         TPVRTModel *VRTM = balanceArr[i];
-        [balanceTitle addObject:VRTM.tokenName];
+        [balanceTitle addObject:VRTM.pair];
     }
-    
     NSMutableArray *VRTTitle = [NSMutableArray array];
     for (int i = 0 ; i < VRTArr.count; i++)
     {
         TPVRTModel *VRTM = VRTArr[i];
-        [VRTTitle addObject:VRTM.tokenName];
+        [VRTTitle addObject:VRTM.pair];
     }
-    
     [self createFilterViewWithBalance:balanceTitle WithVRT:VRTTitle];
     [self createBottomBtn];
 }
-
 
 -(void)createBottomBtn
 {
@@ -81,6 +72,8 @@
     UILabel *VRTLab = [self createLabelWithTitle:@"VRT交易" WithTop:_tagListCate.bottom + 13];
     
     _tagListVRT = [self createTagListViewWithContent:balanceArr WithFrame:CGRectMake(margin, VRTLab.bottom + 11, KWidth, 100)];
+    [_tagListVRT setMarginBetweenTagLabel:10 AndBottomMargin:30];
+    
     [_tagListVRT setDidselectItemBlock:^(NSArray *arr)
      {
          NSLog(@"arr2:%@",arr);
