@@ -96,21 +96,31 @@
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
-        CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeQRCode context:nil options:@{CIDetectorAccuracy: CIDetectorAccuracyHigh}];
-        
-        CIImage *ciImage = [[CIImage alloc] initWithImage:image];
-        
-        
-        NSArray *features = [detector featuresInImage:ciImage];
-        
-        NSMutableArray *arrayM = [NSMutableArray arrayWithCapacity:features.count];
-        for (CIQRCodeFeature *feature in features) {
-            [arrayM addObject:feature.messageString];
-        }
+        CIDetector*detector = [CIDetector detectorOfType:CIDetectorTypeQRCode context:nil options:@{CIDetectorAccuracy:CIDetectorAccuracyHigh}];
+        NSData*imageData =UIImagePNGRepresentation(image);
+        CIImage*ciImage = [CIImage imageWithData:imageData];
+        NSArray*features = [detector featuresInImage:ciImage];
+        CIQRCodeFeature*feature = [features objectAtIndex:0];
+        NSString*scannedResult = feature.messageString;
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            completion(arrayM.copy);
+            completion(@[scannedResult]);
         });
+        
+        /*
+         CIDetector*detector = [CIDetectordetectorOfType:CIDetectorTypeQRCodecontext:niloptions:@{CIDetectorAccuracy:CIDetectorAccuracyHigh}];
+         NSData*imageData =UIImagePNGRepresentation(newImage);
+         CIImage*ciImage = [CIImageimageWithData:imageData];
+         NSArray*features = [detectorfeaturesInImage:ciImage];
+         CIQRCodeFeature*feature = [featuresobjectAtIndex:0];
+         NSString*scannedResult = feature.messageString;
+         [selfhandelStringValue:scannedResult];
+         
+         作者：Li_小龙
+         链接：https://www.jianshu.com/p/6d4615ad1a72
+         來源：简书
+         简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。
+         */
     });
 }
 
@@ -256,14 +266,10 @@
     
     // 绘制图层
     drawLayer = [CALayer layer];
-    
     drawLayer.frame = self.parentView.bounds;
-    
     [self.parentView.layer insertSublayer:drawLayer atIndex:0];
-    
     // 预览图层
     previewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:session];
-    
     previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
     previewLayer.frame = self.parentView.bounds;
     
@@ -281,35 +287,27 @@
         NSLog(@"创建输入设备失败");
         return;
     }
-    
     // 2> 数据输出
     AVCaptureMetadataOutput *dataOutput = [[AVCaptureMetadataOutput alloc] init];
-    
     // 3> 拍摄会话 - 判断能够添加设备
     session = [[AVCaptureSession alloc] init];
     if (![session canAddInput:videoInput]) {
         NSLog(@"无法添加输入设备");
         session = nil;
-        
         return;
     }
     if (![session canAddOutput:dataOutput]) {
         NSLog(@"无法添加输入设备");
         session = nil;
-        
         return;
     }
-    
     // 4> 添加输入／输出设备
     [session addInput:videoInput];
     [session addOutput:dataOutput];
-    
     // 5> 设置扫描类型
     dataOutput.metadataObjectTypes = dataOutput.availableMetadataObjectTypes;
     [dataOutput setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
-    
     // 6> 设置预览图层会话
     [self setupLayers];
 }
-
 @end

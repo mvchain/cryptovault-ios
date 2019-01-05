@@ -179,6 +179,51 @@ alpha:1.0]
     
     
 }
+-(void)tagBtnClick_no_recall:(UIButton*)button {
+    if(_isSingleSelect)
+    {
+        if(button.selected)
+        {
+            button.selected=!button.selected;
+        }
+        else
+        {
+            _tempBtn.selected=NO;
+            _tempBtn.backgroundColor=self.signalTagColor;
+            button.selected=YES;
+            _tempBtn = button;
+        }
+    }
+    else
+    {
+        button.selected=!button.selected;
+    }
+    
+    if(button.selected==YES)
+    {
+        button.backgroundColor = TPMainColor;
+    }
+    else
+    {
+        button.backgroundColor =_signalTagColor;
+    }
+    [self didSelectItems_no_recall];
+    
+}
+
+- (void)recover {
+    NSMutableArray*arr=[[NSMutableArray alloc]init];
+    
+    for(UIView*view in self.subviews){
+        
+        if([view isKindOfClass:[UIButton class]]){
+            UIButton *btn = (UIButton *)view;
+            if(btn.selected == YES ) {
+                [self tagBtnClick_no_recall:btn];
+            }
+        }
+    }
+}
 -(void)didSelectItems{
 
     NSMutableArray*arr=[[NSMutableArray alloc]init];
@@ -211,6 +256,39 @@ alpha:1.0]
     }
     }
     self.didselectItemBlock(arr);
+}
+-(void)didSelectItems_no_recall{
+    
+    NSMutableArray*arr=[[NSMutableArray alloc]init];
+    
+    for(UIView*view in self.subviews){
+        
+        if([view isKindOfClass:[UIButton class]]){
+            
+            UIButton*tempBtn=(UIButton*)view;
+            tempBtn.enabled=YES;
+            if (tempBtn.selected==YES) {
+                [arr addObject:_tagArr[tempBtn.tag-KBtnTag]];
+                _kSelectNum=arr.count;
+            }
+        }
+    }
+    if(_kSelectNum==self.canTouchNum){
+        
+        for(UIView*view in self.subviews){
+            
+            UIButton*tempBtn=(UIButton*)view;
+            
+            if (tempBtn.selected==YES) {
+                tempBtn.enabled=YES;
+                
+            }else{
+                tempBtn.enabled=NO;
+                
+            }
+        }
+    }
+   
 }
 
 

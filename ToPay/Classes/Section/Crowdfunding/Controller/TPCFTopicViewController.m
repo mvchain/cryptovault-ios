@@ -16,13 +16,9 @@
 @interface TPCFTopicViewController ()
 @property (nonatomic, strong) NSArray <TPCrowdfundingModel *> *croTopic;
 @property (nonatomic, strong) NSArray <TPCroRecordModel *> *croRecordTopic;
-
 @property (nonatomic, strong) CountDown *countD;
-
 @property (nonatomic)NSInteger proType;
-
 @end
-
 @implementation TPCFTopicViewController
 
 static NSString  *TPReservationCellCellId = @"ReservationCell";
@@ -31,10 +27,10 @@ static NSString  *TPReservationCellCellId = @"ReservationCell";
 {
     return 0;
 }
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _projectNmae =@"";
     
     self.countD = [CountDown new];
     self.customNavBar.hidden = YES;
@@ -75,7 +71,7 @@ static NSString  *TPReservationCellCellId = @"ReservationCell";
             break;
     }
     
-    [self setupRefreshWithShowFooter:NO];
+    [self setupRefreshWithShowFooter:YES];
 }
 
 -(void)loadNewTopics
@@ -102,12 +98,14 @@ static NSString  *TPReservationCellCellId = @"ReservationCell";
              self.croTopic = [TPCrowdfundingModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
              if (self.croTopic.count == 0)
              {
-                 [self showNoDataView:YES];
+                 self.isNomoreData = YES;
              }
                 else
              {
-                 [self.baseTableView reloadData];
+                  self.isNomoreData = NO;
+                
              }
+             [self.baseTableView reloadData];
              RefreshEndHeader
          }
      }
@@ -125,26 +123,24 @@ static NSString  *TPReservationCellCellId = @"ReservationCell";
 {
     self.customNavBar.hidden = NO;
     self.customNavBar.title = @"众筹记录";
-    
-    
-    [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"project/reservation" parameters:@{@"id":@"0",@"pageSize":@"10",@"type":@"0"} success:^(id responseObject, BOOL isCacheObject)
+    [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"project/reservation" parameters:@{@"id":@"0",@"pageSize":@"10",@"type":@"0",@"projectName":_projectNmae} success:^(id responseObject, BOOL isCacheObject)
     {
         if ([responseObject[@"code"] isEqual:@200])
         {
             NSLog(@"获取参与的项目：%@",responseObject[@"data"]);
-            
             self.croRecordTopic = [TPCroRecordModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
             if (self.croRecordTopic.count == 0)
-                [self showNoDataView:YES];
+                self.isNomoreData = YES;
             else
             {
-                [self.baseTableView reloadData];
+                self.isNomoreData = NO;
                 [self.baseTableView mas_updateConstraints:^(MASConstraintMaker *make)
                  {
                      make.height.mas_equalTo(KHeight - StatusBarAndNavigationBarHeight);
                  }];
             
             }
+            [self.baseTableView reloadData];
             RefreshEndHeader
             NSLog(@"获取参与的项目列表成功");
         }
@@ -158,11 +154,21 @@ static NSString  *TPReservationCellCellId = @"ReservationCell";
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if ( self.isNomoreData ) {
+        
+        return  1;
+        
+    }
     return self.croTopic.count ? self.croTopic.count:self.croRecordTopic.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ( self.isNomoreData ) {
+        
+        return  [tableView cellByIndexPath:indexPath dataArrays:self.noMoreDataArray];
+        
+    }
     TPCrowdfundCell *cell = [tableView dequeueReusableCellWithIdentifier:TPReservationCellCellId];
     if (!cell)
         cell = [[TPCrowdfundCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TPReservationCellCellId WithStyle:self.type countD:self.countD];

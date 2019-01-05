@@ -163,6 +163,8 @@ static NSString  *TPUSDTCellId = @"USDTCell";
     sellVC.currName = self.currName;
     sellVC.cData = self.cData;
     sellVC.transModel = self.transactionTopic[indexPath.row];
+    sellVC.isFromTableView = YES;
+    
     [self.navigationController pushViewController:sellVC animated:YES];
 }
 

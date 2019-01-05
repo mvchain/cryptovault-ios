@@ -70,4 +70,6 @@
 
 -(void)setDidSelectIndex;
 
+-(void)recover;
+
 @end

@@ -7,13 +7,21 @@
 //
 
 #import "TPRecordViewController.h"
-
+#import "YUSearchBarView.h"
+#import "UIView+SGPagingView.h"
 @interface TPRecordViewController ()
 @property (nonatomic) BOOL isSearch;
+@property (nonatomic, assign)BOOL isSearchState ;
+@property (nonatomic, strong)YUSearchBarView *searchbar;
 @end
-
 @implementation TPRecordViewController
-
+- (YUSearchBarView *)searchbar {
+    if( !_searchbar ) {
+        _searchbar = [YUSearchBarView SG_loadViewFromXib];
+        _searchbar.placeholder = @"搜索项目名称";
+    }
+    return _searchbar;
+}
 -(TPCrowdfundStyle)type
 {
     return TPCrowdfundStyleRecord;
@@ -23,22 +31,76 @@
 {
     [super viewDidLoad];
     self.isSearch = NO;
+    self.isSearchState = NO;
 //    self.customNavBar.title = @"众筹记录";
-    self.navigationItem.title = @"众筹记录";
-    [self showSystemNavgation:YES];
-
-    [self setRightItemImage:@"serch_icon_black"];
-    
-    
-    
-    
+//    self.navigationItem.title = @"众筹记录";
+    [self showSystemNavgation:NO];
+   // [self setRightItemImage:@"serch_icon_black"];
     [self.view sendSubviewToBack:self.baseTableView];
-    
     [self.baseTableView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(@(StatusBarAndNavigationBarHeight));
     }];
+    [self setupNavigation];
+    [self setEvent];
+    
+    
+}
+-(void)setupNavigation
+{
+    //    [self showSystemNavgation:YES];
+    //    self.navigationItem.title = @"添加币种";
+    self.customNavBar.title = @"添加币种";
+    //    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(rightClick) image:[UIImage imageNamed:@"serch_icon_black"]];
+    [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"serch_icon_black"]];
+    __weak typeof (self) wsf = self;
+    [self.customNavBar setOnClickRightButton:^
+     {
+        // [wsf reBackUpSearchResult] ; // 重置搜索
+         YUSearchBarView * search  = wsf.searchbar;
+         if( !wsf.isSearchState ) {
+             //当前非搜索状态，点击后变成搜索状态
+             [wsf.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"cancel_icon_black"]];
+             [wsf.customNavBar addSubview:search];
+             search.searchTextfield.text = @"";
+             [search setHeight:36.0];
+             [search setWidth:wsf.customNavBar.width - 90];
+             [search setCenterY:wsf.customNavBar.leftButton.centerY];
+             [search setCenterX:wsf.customNavBar.centerX];
+             [search tobeCircle]; // 圆角
+             [search.searchTextfield becomeFirstResponder];
+             [search fadeIn:^{
+
+             }];
+         }else{
+             // 当前搜索状态，点击后变非搜索状态
+             [search.searchTextfield resignFirstResponder];
+             [search fadeOut:^{
+                 [wsf.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"serch_icon_black"]];
+                 [wsf.searchbar removeFromSuperview];
+             }];
+         }
+         wsf.isSearchState = !wsf.isSearchState; // 切换状态
+         [wsf.baseTableView reloadData];
+     }];
 }
 
+- (void)setEvent {
+    __weak typeof (self) wsf = self;
+    self.searchbar.onTextChange = ^(NSString *text) {
+        wsf.projectNmae = text;
+    };
+    self.searchbar.onTextDidEndEditing = ^(id sender) {
+        wsf.customNavBar.onClickRightButton(); // end editing , end searching ...
+        wsf.projectNmae = @"";
+        
+    };
+    self.searchbar.onTextKeyboardReturn = ^(NSString *text) {
+        [wsf loadNewTopics];
+        
+    };
+    
+    
+}
 -(void)searchClick
 {
     self.isSearch = !self.isSearch;

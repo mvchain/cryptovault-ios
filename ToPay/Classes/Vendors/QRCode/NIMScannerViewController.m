@@ -111,7 +111,7 @@ static NSString * typeRoomID = @"evn:r:";
             NSLog(@"values.firstObject:%@",values.firstObject);
             if (values.count > 0)
             {
-//                [self selectNTESType:values.firstObject];
+                [self selectNTESType:values.firstObject];
                 
                 [self dismissViewControllerAnimated:NO completion:^{
                     [self clickCloseButton];
@@ -193,11 +193,12 @@ static NSString * typeRoomID = @"evn:r:";
     
     if( ![JudegeCenter isVaildAddrWithTokenId:self.tokenid addr:stringValue] ) {
         
-        if( [self.tokenid isEqualToString:@"4"]) {
-            [self showInfoText:@"请扫描正确的BTC地址！"];
-        }else {
-            [self showInfoText:@"请扫描正确的ETH地址！"];
-        }
+//        if( [self.tokenid isEqualToString:@"4"]) {
+//            [self showInfoText:@"请扫描正确的BTC地址！"];
+//        }else {
+//            [self showInfoText:@"请扫描正确的ETH地址！"];
+//        }
+        [self showInfoText:@"无效地址"];
         return NO ;
         
     }

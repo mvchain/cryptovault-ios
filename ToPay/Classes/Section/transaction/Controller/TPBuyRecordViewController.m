@@ -33,7 +33,6 @@
         [weakSelf.navigationController pushViewController:filterVC animated:YES];
     }];
 
-    
     [self setupPageView];
 }
 
@@ -47,19 +46,15 @@
     configure.titleSelectedColor = TP59Color;
     configure.indicatorColor = TP59Color;
     configure.showBottomSeparator = NO;
-    
     // pageTitleView
     self.pageTitleView = [SGPageTitleView pageTitleViewWithFrame:CGRectMake(0, StatusBarAndNavigationBarHeight, self.view.frame.size.width, 40) delegate:self titleNames:titleArr configure:configure];
     [self.view addSubview:_pageTitleView];
-    
     TPBuyTopicViewController *oneVC = [[TPBuyTopicViewController alloc] initWithChainStyle:TPStatusStyleProcessing];
     oneVC.pairId = self.pairId;
     TPBuyTopicViewController *twoVC = [[TPBuyTopicViewController alloc] initWithChainStyle:TPStatusStylecarryOut];
     twoVC.pairId = self.pairId;
     NSArray *childArr = @[oneVC,twoVC];
-    
     CGFloat height = KHeight - StatusBarAndNavigationBarHeight - TAB_BAR_HEIGHT;
-    
     self.pageContentScrollView = [[SGPageContentScrollView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_pageTitleView.frame), self.view.frame.size.width, height) parentVC:self childVCs:childArr];
     _pageContentScrollView.delegatePageContentScrollView = self;
     [self.view addSubview:_pageContentScrollView];

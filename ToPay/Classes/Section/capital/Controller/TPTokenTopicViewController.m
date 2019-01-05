@@ -78,12 +78,15 @@ static NSString  *TPTokenCellCellId = @"tokenCell";
             
             if (self.tokenTopics.count == 0)
             {
-                [self showNoDataView:YES];
+                self.isNomoreData = YES;
+                 
             }
                 else
             {
-                [self.baseTableView reloadData];
+                self.isNomoreData = NO;
+                
             }
+            [self.baseTableView reloadData];
             RefreshEndHeader
         }
     }
@@ -96,11 +99,19 @@ static NSString  *TPTokenCellCellId = @"tokenCell";
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if( self.isNomoreData ) {
+        return 1;
+    }
     return self.tokenTopics.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if( self.isNomoreData ) {
+        
+        return [tableView cellByIndexPath:indexPath dataArrays:self.noMoreDataArray];
+        
+    }
     TPTokenCell *cell = [tableView dequeueReusableCellWithIdentifier:TPTokenCellCellId];
     if (!cell)
         cell = [[TPTokenCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TPTokenCellCellId];
@@ -110,6 +121,9 @@ static NSString  *TPTokenCellCellId = @"tokenCell";
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if( self.isNomoreData ) {
+        return 200;
+    }
     return  64;
 }
 

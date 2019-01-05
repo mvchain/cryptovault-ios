@@ -17,6 +17,7 @@
 @property (nonatomic, strong) CLData *cData;
 @property (nonatomic, strong) NSString *currName;
 @property (nonatomic, strong) TPTransactionModel *transModel;
+@property (nonatomic ,assign) BOOL isFromTableView;
 
 - (instancetype)initWithPairId:(NSString *)pairId WithTransType:(TPTransactionType)transType publish:(BOOL)isPublish;
 

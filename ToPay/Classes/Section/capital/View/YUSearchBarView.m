@@ -27,6 +27,13 @@
     }
     
 }
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if( _onTextKeyboardReturn ) {
+        _onTextKeyboardReturn( textField.text );
+        
+    }
+    return YES;
+}
 #pragma mark  custom event
 - (void)fadeOut:(void(^)(void))complete {
     self.alpha = 1;

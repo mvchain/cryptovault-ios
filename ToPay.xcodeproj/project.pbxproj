@@ -203,6 +203,16 @@
 		DDFED69521DE045A00F2F354 /* JudegeCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFED69421DE045A00F2F354 /* JudegeCenter.m */; };
 		DDFED69821DEFC9800F2F354 /* QuickMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFED69721DEFC9800F2F354 /* QuickMaker.m */; };
 		DDFED69B21DEFDE500F2F354 /* QuickDo.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFED69A21DEFDE500F2F354 /* QuickDo.m */; };
+		DDFED69E21DF67A200F2F354 /* TPFliterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFED69D21DF67A200F2F354 /* TPFliterModel.m */; };
+		DDFED6A321E0605300F2F354 /* TPNoMoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFED6A121E0605300F2F354 /* TPNoMoreTableViewCell.m */; };
+		DDFED6A421E0605300F2F354 /* TPNoMoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDFED6A221E0605300F2F354 /* TPNoMoreTableViewCell.xib */; };
+		DDFED6B121E065F100F2F354 /* UITableView+YUTableViewAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFED6A521E065F000F2F354 /* UITableView+YUTableViewAddition.m */; };
+		DDFED6B221E065F100F2F354 /* YUTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFED6A821E065F000F2F354 /* YUTableViewCell.m */; };
+		DDFED6B321E065F100F2F354 /* UITableView+YUTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFED6A921E065F000F2F354 /* UITableView+YUTableView.m */; };
+		DDFED6B421E065F100F2F354 /* YUCellEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFED6AA21E065F000F2F354 /* YUCellEntity.m */; };
+		DDFED6B521E065F100F2F354 /* YUCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFED6AE21E065F100F2F354 /* YUCollectionViewCell.m */; };
+		DDFED6B621E065F100F2F354 /* YUCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDFED6B021E065F100F2F354 /* YUCollectionViewCell.xib */; };
+		DDFED6B921E067A100F2F354 /* TPNoMoreTableViewCellEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFED6B821E067A100F2F354 /* TPNoMoreTableViewCellEntity.m */; };
 		F5E7B5DA88A0AD0247016986 /* Pods_ToPay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD9ADC3B99E8C7306FF2F4F /* Pods_ToPay.framework */; };
 /* End PBXBuildFile section */
 
@@ -609,6 +619,25 @@
 		DDFED69721DEFC9800F2F354 /* QuickMaker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickMaker.m; sourceTree = "<group>"; };
 		DDFED69921DEFDE500F2F354 /* QuickDo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickDo.h; sourceTree = "<group>"; };
 		DDFED69A21DEFDE500F2F354 /* QuickDo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickDo.m; sourceTree = "<group>"; };
+		DDFED69C21DF67A200F2F354 /* TPFliterModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPFliterModel.h; sourceTree = "<group>"; };
+		DDFED69D21DF67A200F2F354 /* TPFliterModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPFliterModel.m; sourceTree = "<group>"; };
+		DDFED6A021E0605300F2F354 /* TPNoMoreTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPNoMoreTableViewCell.h; sourceTree = "<group>"; };
+		DDFED6A121E0605300F2F354 /* TPNoMoreTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPNoMoreTableViewCell.m; sourceTree = "<group>"; };
+		DDFED6A221E0605300F2F354 /* TPNoMoreTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPNoMoreTableViewCell.xib; sourceTree = "<group>"; };
+		DDFED6A521E065F000F2F354 /* UITableView+YUTableViewAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+YUTableViewAddition.m"; sourceTree = "<group>"; };
+		DDFED6A621E065F000F2F354 /* YUCellEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUCellEntity.h; sourceTree = "<group>"; };
+		DDFED6A721E065F000F2F354 /* YUTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUTableViewCell.h; sourceTree = "<group>"; };
+		DDFED6A821E065F000F2F354 /* YUTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUTableViewCell.m; sourceTree = "<group>"; };
+		DDFED6A921E065F000F2F354 /* UITableView+YUTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+YUTableView.m"; sourceTree = "<group>"; };
+		DDFED6AA21E065F000F2F354 /* YUCellEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUCellEntity.m; sourceTree = "<group>"; };
+		DDFED6AB21E065F100F2F354 /* YUCellDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUCellDelegate.h; sourceTree = "<group>"; };
+		DDFED6AC21E065F100F2F354 /* UITableView+YUTableViewAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+YUTableViewAddition.h"; sourceTree = "<group>"; };
+		DDFED6AD21E065F100F2F354 /* YUCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUCollectionViewCell.h; sourceTree = "<group>"; };
+		DDFED6AE21E065F100F2F354 /* YUCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUCollectionViewCell.m; sourceTree = "<group>"; };
+		DDFED6AF21E065F100F2F354 /* UITableView+YUTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+YUTableView.h"; sourceTree = "<group>"; };
+		DDFED6B021E065F100F2F354 /* YUCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YUCollectionViewCell.xib; sourceTree = "<group>"; };
+		DDFED6B721E067A100F2F354 /* TPNoMoreTableViewCellEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPNoMoreTableViewCellEntity.h; sourceTree = "<group>"; };
+		DDFED6B821E067A100F2F354 /* TPNoMoreTableViewCellEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPNoMoreTableViewCellEntity.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -774,7 +803,8 @@
 		DD02442A2196D1B8006A1390 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				DD72F432219A7EF2004C0DAF /* common */,
+				DDFED69F21E05C7A00F2F354 /* CommonView */,
+				DD72F432219A7EF2004C0DAF /* Common */,
 				DD02442B2196D1B8006A1390 /* Vendors */,
 				DD02442C2196D1B8006A1390 /* Section */,
 				DD02443D2196D1B8006A1390 /* Category */,
@@ -855,6 +885,8 @@
 				DDE176A421BE74D700167EB1 /* TPTransInfoModel.m */,
 				DDC5927D21D0B44C00CE8D3C /* TPKLineModel.h */,
 				DDC5927E21D0B44C00CE8D3C /* TPKLineModel.m */,
+				DDFED69C21DF67A200F2F354 /* TPFliterModel.h */,
+				DDFED69D21DF67A200F2F354 /* TPFliterModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1291,7 +1323,7 @@
 			path = AAChartConfiger;
 			sourceTree = "<group>";
 		};
-		DD72F432219A7EF2004C0DAF /* common */ = {
+		DD72F432219A7EF2004C0DAF /* Common */ = {
 			isa = PBXGroup;
 			children = (
 				DD0239AA21AFF2F500333446 /* TPConstant.h */,
@@ -1307,7 +1339,7 @@
 				DD374D6421C4B18F00093A0F /* TPRefreshFooter.h */,
 				DD374D6521C4B18F00093A0F /* TPRefreshFooter.m */,
 			);
-			path = common;
+			path = Common;
 			sourceTree = "<group>";
 		};
 		DDE1769621BE5C9500167EB1 /* SJSlider */ = {
@@ -1355,6 +1387,30 @@
 			children = (
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		DDFED69F21E05C7A00F2F354 /* CommonView */ = {
+			isa = PBXGroup;
+			children = (
+				DDFED6AF21E065F100F2F354 /* UITableView+YUTableView.h */,
+				DDFED6A921E065F000F2F354 /* UITableView+YUTableView.m */,
+				DDFED6AC21E065F100F2F354 /* UITableView+YUTableViewAddition.h */,
+				DDFED6A521E065F000F2F354 /* UITableView+YUTableViewAddition.m */,
+				DDFED6AB21E065F100F2F354 /* YUCellDelegate.h */,
+				DDFED6A621E065F000F2F354 /* YUCellEntity.h */,
+				DDFED6AA21E065F000F2F354 /* YUCellEntity.m */,
+				DDFED6AD21E065F100F2F354 /* YUCollectionViewCell.h */,
+				DDFED6AE21E065F100F2F354 /* YUCollectionViewCell.m */,
+				DDFED6B021E065F100F2F354 /* YUCollectionViewCell.xib */,
+				DDFED6A721E065F000F2F354 /* YUTableViewCell.h */,
+				DDFED6A821E065F000F2F354 /* YUTableViewCell.m */,
+				DDFED6A021E0605300F2F354 /* TPNoMoreTableViewCell.h */,
+				DDFED6A121E0605300F2F354 /* TPNoMoreTableViewCell.m */,
+				DDFED6A221E0605300F2F354 /* TPNoMoreTableViewCell.xib */,
+				DDFED6B721E067A100F2F354 /* TPNoMoreTableViewCellEntity.h */,
+				DDFED6B821E067A100F2F354 /* TPNoMoreTableViewCellEntity.m */,
+			);
+			path = CommonView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1471,12 +1527,14 @@
 				DDFED68F21DC992B00F2F354 /* YUSearchBarView.xib in Resources */,
 				DDFE5D9821CA1BC0005D6D48 /* HUD_success@2x.png in Resources */,
 				DD0244052196C96B006A1390 /* LaunchScreen.storyboard in Resources */,
+				DDFED6B621E065F100F2F354 /* YUCollectionViewCell.xib in Resources */,
 				DD0244022196C96B006A1390 /* Assets.xcassets in Resources */,
 				DDFE5DB321CC9FA8005D6D48 /* custom.png in Resources */,
 				DD374D5921C3B41100093A0F /* TZImagePickerController.bundle in Resources */,
 				DDFE5D9C21CA1BC0005D6D48 /* HUD_info@2x.png in Resources */,
 				DDFE5D9D21CA1BC0005D6D48 /* HUD_error@2x.png in Resources */,
 				DDFE5D9A21CA1BC0005D6D48 /* HUD_error@3x.png in Resources */,
+				DDFED6A421E0605300F2F354 /* TPNoMoreTableViewCell.xib in Resources */,
 				DD374DA521C5228100093A0F /* AAJSFiles.bundle in Resources */,
 				DD10844921A001030087F244 /* BCScanQR1@2x.png in Resources */,
 				DD10844121A001030087F244 /* QRCodeScanLine@2x.png in Resources */,
@@ -1579,6 +1637,7 @@
 				DD374D5D21C3B41100093A0F /* TZPhotoPreviewCell.m in Sources */,
 				DDF69FBB21C26181006EE7A4 /* TPTransDetailViewController.m in Sources */,
 				DDFED68D21DC98DF00F2F354 /* YUSearchBarView.m in Sources */,
+				DDFED6A321E0605300F2F354 /* TPNoMoreTableViewCell.m in Sources */,
 				DD374DA821C5228100093A0F /* AASeries.m in Sources */,
 				DD02394421AD2F4B00333446 /* UILabel+WLAttributedString.m in Sources */,
 				DDFE5DD721CDF273005D6D48 /* TPNonPublish.m in Sources */,
@@ -1588,6 +1647,7 @@
 				DD374D5A21C3B41100093A0F /* TZProgressView.m in Sources */,
 				DD374DBC21C5228100093A0F /* AAPie.m in Sources */,
 				DD374D5E21C3B41100093A0F /* TZImagePickerController.m in Sources */,
+				DDFED69E21DF67A200F2F354 /* TPFliterModel.m in Sources */,
 				DD0243FD2196C968006A1390 /* ViewController.m in Sources */,
 				DD374D5F21C3B41100093A0F /* TZLocationManager.m in Sources */,
 				DD374D5721C3B41100093A0F /* UIView+Layout.m in Sources */,
@@ -1614,6 +1674,7 @@
 				DDC5927F21D0B44C00CE8D3C /* TPKLineModel.m in Sources */,
 				DD2FD6C621C7AD3000A28F78 /* TPNavigationController.m in Sources */,
 				DD02392721A7AC8400333446 /* TPBuyRecordViewController.m in Sources */,
+				DDFED6B921E067A100F2F354 /* TPNoMoreTableViewCellEntity.m in Sources */,
 				DDFE5DA921CA30D5005D6D48 /* JKCountDownButton.m in Sources */,
 				DD374DC021C5228100093A0F /* AAOptions.m in Sources */,
 				DD0239AC21AFF2F500333446 /* TPConstant.m in Sources */,
@@ -1664,9 +1725,11 @@
 				DD10845321A3EC6A0087F244 /* TPChainTakeViewController.m in Sources */,
 				DD108421219E9EC70087F244 /* TPMeCell.m in Sources */,
 				DDDDFB90219BE1820056FC57 /* TPHeaderComView.m in Sources */,
+				DDFED6B121E065F100F2F354 /* UITableView+YUTableViewAddition.m in Sources */,
 				DD10842D219EB60F0087F244 /* TPAboutViewController.m in Sources */,
 				DD72F435219A7F12004C0DAF /* TPBaseViewController.m in Sources */,
 				DDDDFB8A219AD0550056FC57 /* UIView+TPExtension.m in Sources */,
+				DDFED6B421E065F100F2F354 /* YUCellEntity.m in Sources */,
 				DDFED69821DEFC9800F2F354 /* QuickMaker.m in Sources */,
 				DDDDFB84219AB8C40056FC57 /* YFactoryUI.m in Sources */,
 				DD0239A921AFECEB00333446 /* NSObject+TPExtension.m in Sources */,
@@ -1679,6 +1742,7 @@
 				DD374DC121C5228100093A0F /* AASeriesElement.m in Sources */,
 				DDFE5DA621CA21F1005D6D48 /* NSObject+TPHUD.m in Sources */,
 				DD2FD6B921C7A17000A28F78 /* YUTabBarController.m in Sources */,
+				DDFED6B521E065F100F2F354 /* YUCollectionViewCell.m in Sources */,
 				DD1083DC219D76560087F244 /* TPTokenTopicViewController.m in Sources */,
 				DD108427219EAEB80087F244 /* TPLanguageViewController.m in Sources */,
 				DD02391E21A5570B00333446 /* TPTranDetailViewController.m in Sources */,
@@ -1700,6 +1764,7 @@
 				DD02393721ABECD100333446 /* TPSellViewController.m in Sources */,
 				DD0239B521B1269E00333446 /* TPCurrencyRatio.m in Sources */,
 				DD10845021A2B4B60087F244 /* TPTokenBottomView.m in Sources */,
+				DDFED6B321E065F100F2F354 /* UITableView+YUTableView.m in Sources */,
 				DDF69FB521C0F42C006EE7A4 /* CountDown.m in Sources */,
 				DDDDFB8D219AD92F0056FC57 /* TPCFTopicViewController.m in Sources */,
 				DDFBBA3D21B5317100BA09DE /* TPNotificationModel.m in Sources */,
@@ -1708,6 +1773,7 @@
 				DDFBBA4021B7997200BA09DE /* TPTokenTopic.m in Sources */,
 				DDFED67521D4C1F800F2F354 /* TPBalloonMarker.swift in Sources */,
 				DDFED67221D4BBFF00F2F354 /* comTest.swift in Sources */,
+				DDFED6B221E065F100F2F354 /* YUTableViewCell.m in Sources */,
 				DD1083D9219D71410087F244 /* TPTokenCell.m in Sources */,
 				DD374DB921C5228100093A0F /* AAMarker.m in Sources */,
 				DD374D5621C3B41100093A0F /* NSBundle+TZImagePicker.m in Sources */,

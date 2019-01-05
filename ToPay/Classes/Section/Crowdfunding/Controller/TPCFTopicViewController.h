@@ -10,7 +10,7 @@
 #import "TPBaseViewController.h"
 #import "TPCrowdConfig.h"
 @interface TPCFTopicViewController : TPBaseViewController
-
+@property (nonatomic, copy) NSString *projectNmae ;
 -( TPCrowdfundStyle )type;
 
 @end

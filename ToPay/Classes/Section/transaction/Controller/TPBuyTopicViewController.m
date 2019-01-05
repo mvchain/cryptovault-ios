@@ -8,6 +8,7 @@
 
 #import "TPBuyTopicViewController.h"
 #import "TPRecordModel.h"
+#import "TPFliterModel.h"
 #import "TPVRTModel.h"
 @interface TPBuyTopicViewController ()
 @property (nonatomic) TPStatusStyle statusStyle;
@@ -15,8 +16,11 @@
 @property (nonatomic, strong) NSMutableArray <TPRecordModel *> *recordTopic;
 
 @property (nonatomic, strong) NSMutableDictionary *param;
+@property (nonatomic ,strong) TPFliterModel *fliterModel ;
 
 @property (nonatomic, strong) NSMutableArray <TPVRTModel *> *pairTopic;
+@property (nonatomic ,assign) BOOL alreadyViewDidload;
+
 @end
 
 @implementation TPBuyTopicViewController
@@ -30,6 +34,9 @@ static NSString  *TPBuyTopicCellId = @"buyTopicCell";
     {
         _statusStyle = statusStyle;
         _param = [NSMutableDictionary dictionary];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(respondsToNotification:) name:Notifi_Name_Filter object:nil];
+        _alreadyViewDidload = NO;
+        
     }
     return self;
 }
@@ -48,35 +55,43 @@ static NSString  *TPBuyTopicCellId = @"buyTopicCell";
          make.width.equalTo(@(KWidth));
          make.height.equalTo(self.view.mas_height);
      }];
-    
-    
     YYCache *listCache = [YYCache cacheWithName:TPCacheName];
-    
-    
     NSArray *balanceArr = (NSArray *)[listCache objectForKey:TPPairBalanceKey];
     NSArray *VRTArr = (NSArray *)[listCache objectForKey:TPPairVRTKey];
     self.pairTopic = [NSMutableArray array];
     [self.pairTopic addObjectsFromArray:balanceArr];
     [self.pairTopic addObjectsFromArray:VRTArr];
-    
     [self setupRefreshWithShowFooter:YES];
-    
     [self loadNewTopics];
+    
+    _alreadyViewDidload = YES;
     
     
 }
+- (void)respondsToNotification:(NSNotification *)noti {
+    id obj = noti.object;
+    NSDictionary *dic = noti.userInfo;
+    _fliterModel = dic[@"data"];
+    if( _alreadyViewDidload ) {
+        [self.baseTableView.mj_header beginRefreshing];
+    }
+   // NSLog(@"\n- self:%@ \n- obj:%@ \n- notificationInfo:%@", self, obj, dic);
+}
+
 
 -(void)loadNewTopics
 {
     self.param[@"pageSize"] = @"10";
     self.param[@"status"] = @(self.statusStyle);
     self.param[@"type"] = @"0";
-    
-    if (self.pairId)
-    {
-        self.param[@"pairId"] = self.pairId;
+    if( self.fliterModel ) {
+        self.param[@"transactionType"] = self.fliterModel.transcationType;
+        self.param[@"pairId"] = self.fliterModel.pairId;
     }
-    
+//    if (self.pairId)
+//    {
+//        self.param[@"pairId"] = self.pairId;
+//    }
     [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"transaction/partake" parameters:self.param success:^(id responseObject, BOOL isCacheObject)
      {
          if ([responseObject[@"code"] isEqual:@200])
@@ -86,12 +101,14 @@ static NSString  *TPBuyTopicCellId = @"buyTopicCell";
              self.recordTopic = [TPRecordModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
              if (self.recordTopic.count == 0)
              {
-                 [self showNoDataView:YES];
+                  self.isNomoreData = YES;
              }
                 else
              {
-                 [self.baseTableView reloadData];
+                 self.isNomoreData = NO;
+                
              }
+            [self.baseTableView reloadData];
             RefreshEndHeader
          }
          else
@@ -113,10 +130,14 @@ static NSString  *TPBuyTopicCellId = @"buyTopicCell";
     
     TPRecordModel *recordM = self.recordTopic[self.recordTopic.count - 1];
     self.param[@"id"] = recordM.id;
-    if (self.pairId)
-    {
-        self.param[@"pairId"] = self.pairId;
+    if( self.fliterModel ) {
+        self.param[@"transactionType"] = self.fliterModel.transcationType ;
+        self.param[@"pairId"] = self.fliterModel.pairId;
     }
+//    if (self.pairId)
+//    {
+//        self.param[@"pairId"] = self.pairId;
+//    }
     
     
     [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"transaction/partake" parameters:self.param success:^(id responseObject, BOOL isCacheObject)
@@ -151,18 +172,28 @@ static NSString  *TPBuyTopicCellId = @"buyTopicCell";
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if ( self.isNomoreData ) {
+        return 1;
+    }
+    
     return self.recordTopic.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    if ( self.isNomoreData ) {
+        
+        return  [tableView cellByIndexPath:indexPath dataArrays:self.noMoreDataArray];
+        
+    }
+    
     TPProcessingCell *cell = [tableView dequeueReusableCellWithIdentifier:TPBuyTopicCellId];
     if (!cell)
         cell = [[TPProcessingCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TPBuyTopicCellId WithStyle:_statusStyle pairArr:self.pairTopic];
    
     cell.record = self.recordTopic[indexPath.row];
     __block TPProcessingCell *proCell = cell;
-    
     cell.withdrawalBlock = ^
     {
         [self withdrawalAlert:proCell index:indexPath tableView:tableView];
@@ -174,14 +205,15 @@ static NSString  *TPBuyTopicCellId = @"buyTopicCell";
 {
     if (_statusStyle == TPStatusStyleProcessing)
     return 168;
-    else
+        else
     return 200;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    TPTranDetailViewController *tranDetailVC = [[TPTranDetailViewController alloc] init];
-//    [self.navigationController pushViewController:tranDetailVC animated:YES];
+
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -228,5 +260,9 @@ static NSString  *TPBuyTopicCellId = @"buyTopicCell";
      }];
 }
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+    
+}
 
 @end

@@ -50,6 +50,8 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self loadNewTopics];
+    
     [self showSystemNavgation:NO];
 }
 
@@ -243,8 +245,6 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
     self.customNavBar.barBackgroundColor = TPMainColor;
     [self.customNavBar wr_setBottomLineHidden:YES];
     [self.customNavBar wr_setBackgroundAlpha:0];
-    
-    
     [self.customNavBar wr_setLeftButtonWithImage:[UIImage imageNamed:@"note_icon"]];
     [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"add_icon_white"]];
     

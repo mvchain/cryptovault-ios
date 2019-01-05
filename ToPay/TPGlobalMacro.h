@@ -61,5 +61,5 @@
 
 #define RefreshEndHeader [self.baseTableView.mj_header endRefreshing];
 #define RefreshEndFooter [self.baseTableView.mj_footer endRefreshing];
-
+#define Notifi_Name_Filter @"Notifi_filter"
 #endif /* TPGlobalMacro_h */

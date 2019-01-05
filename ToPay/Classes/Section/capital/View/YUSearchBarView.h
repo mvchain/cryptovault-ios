@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *searchTextfield;
 @property (strong,nonatomic) void (^onTextChange)(NSString *text);
 @property (strong,nonatomic) void (^onTextDidEndEditing)(id sender);
+@property (strong,nonatomic) void (^onTextKeyboardReturn)(NSString *text);
 @property (copy, nonatomic) NSString *placeholder;
 
 - (void)fadeOut:(void(^)(void))complete;

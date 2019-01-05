@@ -102,8 +102,6 @@
          make.height.equalTo(@(49 + HOME_INDICATOR_HEIGHT));
          make.bottom.equalTo(self.view);
      }];
-
-
     [bottomView setChainTransferBlock:^
     {
         NSLog(@"发布出售订单");
@@ -134,9 +132,7 @@
     balanceVC.cData = self.cData;
     balanceVC.currName = self.currName;
     balanceVC.tokenName = self.cData.tokenName;
-    
     NSArray *childArr = @[VRTVC, balanceVC];
-    
     self.contentViewY = StatusBarAndNavigationBarHeight + 12 + 240 + 48 + 2;
     CGFloat contentViewHeight = KHeight - self.contentViewY - TAB_BAR_HEIGHT;
     

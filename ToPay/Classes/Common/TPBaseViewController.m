@@ -9,10 +9,11 @@
 #import "TPBaseViewController.h"
 #import "TPRefreshHeader.h"
 #import "TPRefreshFooter.h"
+#import "TPNoMoreTableViewCell.h"
+#import "TPNoMoreTableViewCellEntity.h"
 @interface TPBaseViewController ()
 
 @end
-
 @implementation TPBaseViewController
 
 -(WRCustomNavigationBar *)customNavBar
@@ -31,19 +32,22 @@
 
 -(void)showNoDataView:(BOOL)isShow
 {
-    self.noDataView.hidden = !isShow;
-    self.baseTableView.hidden = isShow;
+//    self.noDataView.hidden = !isShow;
+//    self.baseTableView.hidden = isShow;
+    self.isNomoreData = YES;
+    
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    _noMoreDataArray = [[NSMutableArray alloc]init];
+    TPNoMoreTableViewCellEntity *en = [[TPNoMoreTableViewCellEntity alloc]init];
+    [_noMoreDataArray addObject:en];
 //    self.navigationController.navigationBar.hidden = YES;
     self.view.backgroundColor = [UIColor whiteColor];
     [self setupNavBar];
 }
-
 
 -(void)setupNavBar
 {
@@ -60,8 +64,6 @@
         [weakSelf.navigationController popViewControllerAnimated:YES];
     }];
 }
-
-
 -(UIImageView *)noDataView
 {
     if (_noDataView == nil) {
@@ -88,9 +90,8 @@
         _baseTableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         _baseTableView.backgroundColor = TPF6Color;
         _baseTableView.tableFooterView = [[UIView alloc]init];
-        
+        [_baseTableView registerCell: [TPNoMoreTableViewCell class]];
         [self.view addSubview:_baseTableView];
-        
     }
     return _baseTableView;
 }
@@ -101,7 +102,12 @@
     [self.baseTableView.mj_header beginRefreshing];
     if (isShowFooter == YES)
     {
-        self.baseTableView.mj_footer = [TPRefreshFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
+        MJRefreshAutoNormalFooter *au =[MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
+        au.stateLabel.hidden = YES;
+        
+        self.baseTableView.mj_footer = au;
+        
+        
     }
 }
 

@@ -16,6 +16,8 @@
 @property (nonatomic, strong) WRCustomNavigationBar *customNavBar;
 
 @property (nonatomic, strong) UIImageView *noDataView;
+@property (nonatomic, assign) BOOL isNomoreData;
+@property (strong,nonatomic ) NSMutableArray  * noMoreDataArray;
 
 /*
  * 显示空数据界面

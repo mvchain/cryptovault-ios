@@ -313,7 +313,7 @@
     transView.title = @"确认预约";
     transView.desc = @"总计需支付";
     transView.Total = self.VRTLab.text;
-    transView.con1 = TPString(@"%@%@",self.buyTextView.comTextField.text,self.croModel.projectName);
+    transView.con1 = TPString(@"%@ %@",self.buyTextView.comTextField.text,self.croModel.tokenName);
     [transView showMenuWithAlpha:YES];
     __block TPTransView *TPTransV = transView;
     [transView.pasView setEndEditBlock:^(NSString *text)

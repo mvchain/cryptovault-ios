@@ -56,7 +56,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     self.sellLabs = [NSMutableArray<UILabel *> array];
     self.currentPrice = 1.0f;
     self.tokenName = self.cData.tokenName;
@@ -68,7 +67,6 @@
         TPBuyRecordViewController *VC = [TPBuyRecordViewController new];
         [weakSelf.navigationController pushViewController:VC animated:YES];
     }];
-    
     [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"transaction/info" parameters:@{@"pairId":self.pairId,@"transactionType":_transType == TPTransactionTypeTransferOut ? @"1":@"2"} success:^(id responseObject, BOOL isCacheObject)
     {
         if ([responseObject[@"code"] isEqual:@200])
@@ -76,13 +74,11 @@
 //            NSLog(@"挂单信息：%@",responseObject[@"data"]);
             self.transInfo = [TPTransInfoModel mj_objectWithKeyValues:responseObject[@"data"]];
             self.sellLabs[0].text = TPString(@"%.4f",[self.transInfo.tokenBalance floatValue]);
-            self.sellLabs[1].text = TPString(@"%.4f",[self.transInfo.balance floatValue]);;
-            
+            self.sellLabs[1].text = TPString(@"%.4f",[self.transInfo.balance floatValue]);
             if (self.isPublish)
             {
                 self.publishView.transModel = self.transInfo;
             }
-
             self.publishView.comSlider.slider.maxValue = 100 + [self.transInfo.max floatValue];
             self.publishView.comSlider.slider.minValue = 100 + [self.transInfo.min floatValue];
             self.publishView.comSlider.slider.value = 100;
@@ -93,12 +89,8 @@
         NSLog(@"挂单信息获取失败 error = %@", error);
     }];
     
-    
-    
     [self setUpheaderView];
-    
     [self setUpContentView];
-    
     [self setUpbBottomBtn];
 }
 
@@ -115,7 +107,6 @@
          make.height.equalTo(@102);
          make.width.equalTo(@355);
      }];
-    
     NSArray *titArr = @[TPString(@"可用%@",self.tokenName),TPString(@"可用%@",self.currName)];
     NSMutableArray *balanceArr = [NSMutableArray array];
     for (int i = 0; i <titArr.count ; i++)
@@ -272,13 +263,14 @@
 
 -(void)setUpbBottomBtn
 {
-    
-    //TPString(@"立即%@",self.transType == TPTransactionTypeTransfer ? @"购买":@"出售")
-    UIButton *reservationBtn = [YFactoryUI YButtonWithTitle:@"立即发布" Titcolor:[UIColor colorWithHex:@"#D5D7D6"] font:FONT(15) Image:nil target:self action:@selector(reservationClick)];
+    NSString *title = @"立即发布";
+    if( self.isFromTableView ) {
+        title = @"立即购买";
+    }
+    UIButton *reservationBtn = [YFactoryUI YButtonWithTitle:title Titcolor:[UIColor colorWithHex:@"#D5D7D6"] font:FONT(15) Image:nil target:self action:@selector(reservationClick)];
     [reservationBtn setLayer:22 WithBackColor:TPMainColor];
     self.reservationBtn = reservationBtn;
     [self.view addSubview:reservationBtn];
-    
     [reservationBtn mas_makeConstraints:^(MASConstraintMaker *make)
      {
          make.centerX.equalTo(self.view);
@@ -389,8 +381,15 @@
                 if ([responseObject[@"code"] isEqual:@200])
                 {
                     if (self.isPublish)
-                    [self showSuccessText:@"挂单成功"];
-                    
+                        [self showSuccessText:@"挂单成功"];
+                    else {
+                        if (self.transType == TPTransactionTypeTransferOut)
+                        {
+                            [self showSuccessText:@"出售成功"];
+                        }else {
+                            [self showSuccessText:@"购买成功"];
+                        }
+                    }
                     [TPTransV showMenuWithAlpha:NO];
                     
                     [TPNotificationCenter postNotificationName:TPTakeOutSuccessNotification object:nil];

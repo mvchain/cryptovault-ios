@@ -49,4 +49,6 @@
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "QuickMaker.h"
 #import "QuickDo.h"
+#import "UITableView+YUTableView.h"
+#import "UITableView+YUTableViewAddition.h"
 #endif /* TP_pch */
