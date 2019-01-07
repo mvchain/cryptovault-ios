@@ -34,4 +34,18 @@
     }
         return  [self isETH:addr] ;
 }
+
++ (BOOL) isIphoneX {
+    BOOL _iPhoneX = NO;
+    if (UIDevice.currentDevice.userInterfaceIdiom != UIUserInterfaceIdiomPhone) {//判断是否是手机
+        return _iPhoneX;
+    }
+    if (@available(iOS 11.0, *)) {
+        UIWindow *mainWindow = [[[UIApplication sharedApplication] delegate] window];
+        if (mainWindow.safeAreaInsets.bottom > 0.0) {
+            _iPhoneX = YES;
+        }
+    }
+    return _iPhoneX;
+}
 @end

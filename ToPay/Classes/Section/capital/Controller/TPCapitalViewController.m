@@ -107,7 +107,6 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
     
     [self setUpTableView];
     
-    
     [self balanceRequest];
     
     [self notificationRequest];

@@ -106,21 +106,6 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             completion(@[scannedResult]);
         });
-        
-        /*
-         CIDetector*detector = [CIDetectordetectorOfType:CIDetectorTypeQRCodecontext:niloptions:@{CIDetectorAccuracy:CIDetectorAccuracyHigh}];
-         NSData*imageData =UIImagePNGRepresentation(newImage);
-         CIImage*ciImage = [CIImageimageWithData:imageData];
-         NSArray*features = [detectorfeaturesInImage:ciImage];
-         CIQRCodeFeature*feature = [featuresobjectAtIndex:0];
-         NSString*scannedResult = feature.messageString;
-         [selfhandelStringValue:scannedResult];
-         
-         作者：Li_小龙
-         链接：https://www.jianshu.com/p/6d4615ad1a72
-         來源：简书
-         简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。
-         */
     });
 }
 

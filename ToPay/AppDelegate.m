@@ -21,7 +21,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self setUpNetWorkManager];
-    
+    BOOL is = [WRCustomNavigationBar isIphoneX];
+
     [self refreshToken];
 
     [self setUpWindow];

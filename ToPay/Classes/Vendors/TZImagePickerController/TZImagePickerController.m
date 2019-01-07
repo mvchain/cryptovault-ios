@@ -841,10 +841,9 @@
 @implementation TZCommonTools
 
 + (BOOL)tz_isIPhoneX {
-    return (CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(375, 812)) ||
-            CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(812, 375)) ||
-            CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(414, 896)) ||
-            CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(896, 414)));
+    
+    return [JudegeCenter isIphoneX];
+    
 }
 
 + (CGFloat)tz_statusBarHeight {

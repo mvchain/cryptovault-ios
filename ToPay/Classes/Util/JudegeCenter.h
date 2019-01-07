@@ -10,9 +10,10 @@
 
 
 @interface JudegeCenter : NSObject
-+(BOOL)isETH:(NSString *)ethString;
-+(BOOL)isBTC:(NSString *)btcString;
-+ (BOOL)isVaildAddrWithTokenId:(NSString *)tokenId addr:(NSString *)addr ;
++ (BOOL) isETH:(NSString *)ethString;
++ (BOOL) isBTC:(NSString *)btcString;
++ (BOOL) isVaildAddrWithTokenId:(NSString *)tokenId addr:(NSString *)addr ;
++ (BOOL) isIphoneX;
 
 @end
 

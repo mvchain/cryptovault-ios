@@ -58,14 +58,9 @@
          {
              NSLog(@"%@",responseObject[@"data"]);
              NSDictionary *dic = responseObject[@"data"];
-//
-//             TPTransferModel *transfer = [TPTransferModel mj_objectWithKeyValues:responseObject[@"data"]];
-//             self.DataSources = responseObject[@"data"];
-//             self.balanceLab.text = TPString(@"可用 %@：%@",self.assetModel.tokenName,self.DataSources[@"balance"]);
-//             self.balance = self.DataSources[@"balance"];
-//             self.formalitiesLab.text = TPString(@"%.5f %@",transfer.fee,self.DataSources[@"feeTokenName"]);
+
              TPAssetModel *assetmodel = self.headerView.assetModel;
-             assetmodel.value = [dic[@"balance"] floatValue];
+             assetmodel.value = [dic[@"balance"] doubleValue];
              
              self.headerView.assetModel = assetmodel ;
              
@@ -88,7 +83,6 @@
     self.customNavBar.titleLabelColor = [UIColor whiteColor];
     [self wr_setStatusBarStyle:UIStatusBarStyleLightContent];
     [self.customNavBar wr_setLeftButtonWithImage:[UIImage imageNamed:@"back_icon_white"]];
-    
     if ([self.clData.tokenType isEqualToString:@"2"])
     {
         [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"code_icon_white"]];
@@ -99,12 +93,7 @@
             [weakSelf QRClick];
         }];
     }
-    
-    
-    
     [self.customNavBar wr_setBackgroundAlpha:0];
-    
-    
 }
 
 -(void)QRClick
@@ -195,12 +184,7 @@
     self.pageTitleView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_pageTitleView];
     
-    
-    
     TPTokenTopicViewController *allVC = [[TPTokenTopicViewController alloc] initWithTokenId:self.assetModel.tokenId WithTransactionType:TPTransactionTypeAll];
-    
-    
-    
     TPTokenTopicViewController *transferVC = [[TPTokenTopicViewController alloc] initWithTokenId:self.assetModel.tokenId WithTransactionType:TPTransactionTypeTransferOut];
     TPTokenTopicViewController *transfer2VC = [[TPTokenTopicViewController alloc] initWithTokenId:self.assetModel.tokenId WithTransactionType:TPTransactionTypeTransfer];
 

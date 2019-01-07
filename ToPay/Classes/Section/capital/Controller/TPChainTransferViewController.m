@@ -238,7 +238,7 @@
                             @"address":self.textArray[0].comTextField.text,
                             @"password":text,
                             @"tokenId":self.assetModel.tokenId,
-                            @"value":@([self.textArray[1].comTextField.text integerValue])}
+                            @"value":@([self.textArray[1].comTextField.text doubleValue])}
                 success:^(id responseObject, BOOL isCacheObject)
             {
                 if ([responseObject[@"code"] isEqual:@200])
@@ -247,8 +247,6 @@
                     [TPTransV showMenuWithAlpha:NO];
                     
                     [TPNotificationCenter postNotificationName:TPTakeOutSuccessNotification object:nil];
-                    
-                    
                     for (UIViewController *controller in self.navigationController.viewControllers)
                     {
                         if ([controller isKindOfClass:[TPTokenKindViewController class]])
