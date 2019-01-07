@@ -22,10 +22,6 @@ static NSString  *TPNotiCellCellId = @"notiCell";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-//    [self setupRequestNotification];
-    
-    
     self.customNavBar.title = @"通知";
     self.baseTableView.backgroundColor = TPF6Color;
     self.baseTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -36,11 +32,8 @@ static NSString  *TPNotiCellCellId = @"notiCell";
         make.width.equalTo(@(KWidth));
         make.height.equalTo(self.view.mas_height);
     }];
-    
-    
     [self setupRefreshWithShowFooter:YES];
 }
-
 #pragma mark - 请求
 -(void)loadNewTopics
 {

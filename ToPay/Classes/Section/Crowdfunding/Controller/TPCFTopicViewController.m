@@ -14,8 +14,8 @@
 #import "TPCrowdfundingModel.h"
 #import "CountDown.h"
 @interface TPCFTopicViewController ()
-@property (nonatomic, strong) NSArray <TPCrowdfundingModel *> *croTopic;
-@property (nonatomic, strong) NSArray <TPCroRecordModel *> *croRecordTopic;
+@property (nonatomic, strong) NSMutableArray <TPCrowdfundingModel *> *croTopic;
+@property (nonatomic, strong) NSMutableArray <TPCroRecordModel *> *croRecordTopic;
 @property (nonatomic, strong) CountDown *countD;
 @property (nonatomic)NSInteger proType;
 @end
@@ -36,6 +36,7 @@ static NSString  *TPReservationCellCellId = @"ReservationCell";
     self.customNavBar.hidden = YES;
     self.baseTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.baseTableView.backgroundColor = TPF6Color;
+     
     [self.baseTableView mas_makeConstraints:^(MASConstraintMaker *make)
      {
          make.top.mas_equalTo(0);
@@ -75,23 +76,36 @@ static NSString  *TPReservationCellCellId = @"ReservationCell";
 }
 
 -(void)loadNewTopics
-{
+{   RefreshEndFooter
     if (self.proType == 3)
     {
-        [self getRequestProjectReservation:self.proType];
+        [self getRequestProjectReservation:self.proType]; //众筹记录
     }
     else
     {
         [self getRequestProject:self.proType];
     }
 }
-
+-(void)loadMoreTopics {
+    
+    if (self.proType == 3)
+    {
+        [self requestNextProjectReservation:self.proType];
+    }
+    else
+    {
+        [self requestNextProject:self.proType] ;
+        
+    }
+}
 /*
  * 获取项目列表
  */
+
 -(void)getRequestProject:(NSInteger)proType
 {
-    [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"project" parameters:@{@"projectId":@"0",@"projectType":@(proType),@"type":@0,@"pageSize":@"10"} success:^(id responseObject, BOOL isCacheObject)
+    NSDictionary *postDic = @{@"projectId":@"0",@"projectType":@(proType),@"type":@0,@"pageSize":@"10"};
+    [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"project" parameters:postDic success:^(id responseObject, BOOL isCacheObject)
      {
          if ([responseObject[@"code"] isEqual:@200])
          {
@@ -116,11 +130,43 @@ static NSString  *TPReservationCellCellId = @"ReservationCell";
      }];
 }
 
+- (void)requestNextProject:(NSInteger)proType {
+    if( !( self.croTopic && self.croTopic.count >0 ) ) {
+        [self.baseTableView.mj_footer endRefreshingWithNoMoreData];
+        return;
+    }
+    TPCrowdfundingModel *lastModel = self.croTopic.lastObject;
+    NSDictionary *postDic = @{@"projectId":lastModel.projectId,@"projectType":@(proType),@"type":@1,@"pageSize":@"10"};
+    [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"project" parameters:postDic success:^(id responseObject, BOOL isCacheObject)
+     {
+         if ([responseObject[@"code"] isEqual:@200])
+         {
+             NSMutableArray *marr = [TPCrowdfundingModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+             if( marr.count >0 ) {
+                  [self.croTopic addObjectsFromArray:marr];
+                 
+                 [self.baseTableView.mj_footer endRefreshing];
+                 
+             }else {
+                 [self.baseTableView.mj_footer endRefreshingWithNoMoreData];
+             }
+             [self.baseTableView reloadData];
+             
+         }
+     }
+                                             failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
+     {
+         NSLog(@"获取项目列表失败");
+         RefreshEndFooter
+     }];
+}
+
 /*
  * 获取众筹记录
  */
 -(void)getRequestProjectReservation:(NSInteger)proType
 {
+    
     self.customNavBar.hidden = NO;
     self.customNavBar.title = @"众筹记录";
     [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"project/reservation" parameters:@{@"id":@"0",@"pageSize":@"10",@"type":@"0",@"projectName":_projectNmae} success:^(id responseObject, BOOL isCacheObject)
@@ -138,7 +184,6 @@ static NSString  *TPReservationCellCellId = @"ReservationCell";
                  {
                      make.height.mas_equalTo(KHeight - StatusBarAndNavigationBarHeight);
                  }];
-            
             }
             [self.baseTableView reloadData];
             RefreshEndHeader
@@ -152,6 +197,39 @@ static NSString  *TPReservationCellCellId = @"ReservationCell";
     }];
 }
 
+- (void)requestNextProjectReservation:(NSInteger)proType {
+  
+    if( !( self.croRecordTopic && self.croRecordTopic.count >0 ) ) {
+        [self.baseTableView.mj_footer endRefreshingWithNoMoreData];
+        return;
+    }
+    TPCroRecordModel *lastModel = self.croRecordTopic.lastObject;
+    NSDictionary *posDic = @{@"id":lastModel.id,@"pageSize":@"10",@"type":@"1",@"projectName":_projectNmae};
+    
+    [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"project/reservation" parameters:posDic success:^(id responseObject, BOOL isCacheObject)
+     {
+         if ([responseObject[@"code"] isEqual:@200])
+         {
+             NSLog(@"获取参与的项目：%@",responseObject[@"data"]);
+             NSMutableArray *marr = [TPCroRecordModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+             if (marr.count > 0 ) {
+                 [self.croRecordTopic addObjectsFromArray:marr];
+                 
+                 [self.baseTableView.mj_footer endRefreshing];
+             }else {
+                 [self.baseTableView.mj_footer endRefreshingWithNoMoreData];
+                 
+             }
+             [self.baseTableView reloadData];
+             
+         }
+     }
+                                             failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
+     {
+         RefreshEndHeader
+         NSLog(@"获取参与的项目列表失败");
+     }];
+}
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if ( self.isNomoreData ) {

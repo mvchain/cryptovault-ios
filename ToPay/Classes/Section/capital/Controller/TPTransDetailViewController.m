@@ -206,9 +206,6 @@ static NSString  *TPDetailCellId = @"detailCell";
     return cell;
 }
 
-
-
-
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([self.tokenTopic.classify isEqualToString:@"0"])

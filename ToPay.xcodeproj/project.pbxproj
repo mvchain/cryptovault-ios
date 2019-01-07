@@ -502,6 +502,7 @@
 		DD374DA421C5228100093A0F /* AAChartModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAChartModel.h; sourceTree = "<group>"; };
 		DD374DC221C559AD00093A0F /* TPDetailTitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPDetailTitleView.h; sourceTree = "<group>"; };
 		DD374DC321C559AD00093A0F /* TPDetailTitleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPDetailTitleView.m; sourceTree = "<group>"; };
+		DD7046E021E33EDF00D02D7F /* ToPay.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ToPay.entitlements; sourceTree = "<group>"; };
 		DD72F42921998491004C0DAF /* TPNavigationBarTitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPNavigationBarTitleView.h; sourceTree = "<group>"; };
 		DD72F42A21998491004C0DAF /* TPNavigationBarTitleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPNavigationBarTitleView.m; sourceTree = "<group>"; };
 		DD72F42C219A7D7A004C0DAF /* TPVRTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPVRTViewController.h; sourceTree = "<group>"; };
@@ -765,6 +766,7 @@
 		DD0243F72196C968006A1390 /* ToPay */ = {
 			isa = PBXGroup;
 			children = (
+				DD7046E021E33EDF00D02D7F /* ToPay.entitlements */,
 				DD0243F82196C968006A1390 /* AppDelegate.h */,
 				DD0243F92196C968006A1390 /* AppDelegate.m */,
 				DD0244012196C96B006A1390 /* Assets.xcassets */,
@@ -921,6 +923,7 @@
 		DD0244312196D1B8006A1390 /* capital */ = {
 			isa = PBXGroup;
 			children = (
+				DD7046E121E3414800D02D7F /* ViewModel */,
 				DD0244322196D1B8006A1390 /* Controller */,
 				DD0244332196D1B8006A1390 /* Model */,
 				DD0244342196D1B8006A1390 /* View */,
@@ -1323,6 +1326,13 @@
 			path = AAChartConfiger;
 			sourceTree = "<group>";
 		};
+		DD7046E121E3414800D02D7F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		DD72F432219A7EF2004C0DAF /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -1484,6 +1494,11 @@
 					DD0243F42196C968006A1390 = {
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 1010;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					DD02440C2196C96C006A1390 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -1978,6 +1993,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ToPay/ToPay.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SXV4N6YG2P;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2004,6 +2020,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ToPay/ToPay.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SXV4N6YG2P;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

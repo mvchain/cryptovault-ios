@@ -110,6 +110,7 @@ static NSString  *TPBuyTopicCellId = @"buyTopicCell";
              }
             [self.baseTableView reloadData];
             RefreshEndHeader
+            RefreshEndFooter
          }
          else
              [self showErrorText:responseObject[@"message"]];
@@ -119,6 +120,7 @@ static NSString  *TPBuyTopicCellId = @"buyTopicCell";
 
          [self showErrorText:@"筛选参与订单失败"];
          RefreshEndHeader
+         RefreshEndFooter
      }];
 }
 
@@ -127,7 +129,11 @@ static NSString  *TPBuyTopicCellId = @"buyTopicCell";
     self.param[@"pageSize"] = @"10";
     self.param[@"status"] = @(self.statusStyle);
     self.param[@"type"] = @"1";
-    
+    if ( self.recordTopic.count <=0 ) {
+        [self.baseTableView.mj_footer endRefreshingWithNoMoreData];
+        
+        return;
+    }
     TPRecordModel *recordM = self.recordTopic[self.recordTopic.count - 1];
     self.param[@"id"] = recordM.id;
     if( self.fliterModel ) {

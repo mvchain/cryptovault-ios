@@ -10,8 +10,14 @@
 #import "TPLoginViewController.h"
 #import "YUTabBarController.h"
 #import <WRNavigationBar/WRNavigationBar.h>
+// 引入 JPush 功能所需头文件
+#import "JPUSHService.h"
+// iOS10 注册 APNs 所需头文件
+#ifdef NSFoundationVersionNumber_iOS_9_x_Max
+#import <UserNotifications/UserNotifications.h>
+#endif
 
-@interface AppDelegate ()
+@interface AppDelegate ()<JPUSHRegisterDelegate>
 
 @end
 
@@ -21,8 +27,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self setUpNetWorkManager];
-    BOOL is = [WRCustomNavigationBar isIphoneX];
-
+ 
     [self refreshToken];
 
     [self setUpWindow];
@@ -160,5 +165,33 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+#pragma mark Jpush
 
+/*
+ * @brief handle UserNotifications.framework [willPresentNotification:withCompletionHandler:]
+ * @param center [UNUserNotificationCenter currentNotificationCenter] 新特性用户通知中心
+ * @param notification 前台得到的的通知对象
+ * @param completionHandler 该callback中的options 请使用UNNotificationPresentationOptions
+ */
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(NSInteger options))completionHandler {
+    
+}
+/*
+ * @brief handle UserNotifications.framework [didReceiveNotificationResponse:withCompletionHandler:]
+ * @param center [UNUserNotificationCenter currentNotificationCenter] 新特性用户通知中心
+ * @param response 通知响应对象
+ * @param completionHandler
+ */
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)(void ))completionHandler {
+    
+}
+
+/*
+ * @brief handle UserNotifications.framework [openSettingsForNotification:]
+ * @param center [UNUserNotificationCenter currentNotificationCenter] 新特性用户通知中心
+ * @param notification 当前管理的通知对象
+ */
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center openSettingsForNotification:(nullable UNNotification *)notification NS_AVAILABLE_IOS(12.0) {
+    
+}
 @end
