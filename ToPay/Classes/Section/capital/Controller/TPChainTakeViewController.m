@@ -62,7 +62,7 @@
     [takeText.comTextField addTarget:self action:@selector(didChangeText:) forControlEvents:UIControlEventEditingChanged];
     takeText.comTextField.secureTextEntry = NO;
     
-    takeText.comTextField.keyboardType = UIKeyboardTypeNumberPad;
+    takeText.comTextField.keyboardType = UIKeyboardTypeDecimalPad;
     [backView addSubview:takeText];
     self.takeText = takeText;
     [takeText mas_makeConstraints:^(MASConstraintMaker *make)

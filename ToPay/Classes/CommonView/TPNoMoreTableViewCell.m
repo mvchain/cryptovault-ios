@@ -12,6 +12,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.backgroundColor = [UIColor colorWithHex:@"#F2F2F2"];
+    
     // Initialization code
 }
 

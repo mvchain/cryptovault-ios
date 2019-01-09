@@ -41,14 +41,12 @@ static NSString  *TPTokenCellCellId = @"tokenCell";
     self.customNavBar.hidden = YES;
     
 //    [self setupRequestTransactions];
-    
-    
     [self.baseTableView mas_makeConstraints:^(MASConstraintMaker *make)
     {
         make.left.equalTo(@0);
         make.top.equalTo(@0);
         make.width.equalTo(@(KWidth));
-        make.height.equalTo(@(KHeight - 174 - 44));
+        make.height.equalTo(@(KHeight - 174 - 60));
     }];
     
     [TPNotificationCenter addObserver:self selector:@selector(takeOutSuccessNoti) name:TPTakeOutSuccessNotification object:nil];
@@ -60,9 +58,9 @@ static NSString  *TPTokenCellCellId = @"tokenCell";
     [self loadNewTopics];
 }
 
-
 -(void)loadNewTopics
 {
+    
     [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"asset/transactions" parameters:@{
                     @"tokenId":_tokenId,
                     @"transactionType":_transType == TPTransactionTypeTransfer ? @1 : (_transType == TPTransactionTypeTransferOut ? @2:@0),
@@ -75,17 +73,17 @@ static NSString  *TPTokenCellCellId = @"tokenCell";
             if (self.tokenTopics.count == 0)
             {
                 self.isNomoreData = YES;
+                self.baseTableView.separatorStyle =  UITableViewCellSeparatorStyleNone;
             }
                 else
             {
+                self.baseTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
                 self.isNomoreData = NO;
                 
             }
             [self.baseTableView reloadData];
-             [self.baseTableView.mj_footer endRefreshing];
+            [self.baseTableView.mj_footer endRefreshing];
             RefreshEndHeader
-            
-            
         }
     }
         failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
@@ -96,7 +94,8 @@ static NSString  *TPTokenCellCellId = @"tokenCell";
 }
 
 - (void)loadMoreTopics {
-    if ( !self.tokenTopics ) {
+    if ( !( self.tokenTopics && self.tokenTopics.count >0)) {
+         [self.baseTableView.mj_footer endRefreshingWithNoMoreData];
         return;
     }
     TPTokenTopic *lastTopic =  self.tokenTopics.lastObject;
@@ -138,6 +137,21 @@ static NSString  *TPTokenCellCellId = @"tokenCell";
     }
     return self.tokenTopics.count;
 }
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // 去掉最后一行分割线
+    if (indexPath.row==self.tokenTopics.count-1) {
+         cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, [UIScreen mainScreen].bounds.size.width);
+    }else {
+         cell.separatorInset = UIEdgeInsetsMake(0, 0, 0,0);
+    }
+    
+}
+/**
+ *  布局视图
+ */
+
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {

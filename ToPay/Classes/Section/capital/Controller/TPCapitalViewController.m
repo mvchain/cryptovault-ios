@@ -206,8 +206,9 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
     headerView.height = 140; 
     self.headerView = headerView;
     self.baseTableView.tableHeaderView = headerView;
+    self.baseTableView.backgroundColor = [UIColor colorWithHex:@"#F2F2F2"];
     
-    self.baseTableView.backgroundColor = [UIColor clearColor];
+ 
     self.baseTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.baseTableView mas_makeConstraints:^(MASConstraintMaker *make)
      {

@@ -9,7 +9,5 @@
 #import <UIKit/UIKit.h>
 #import "TPNotificationModel.h"
 @interface TPNotiCell : UITableViewCell
-
 @property (nonatomic, strong) TPNotificationModel *notiModel;
-
 @end

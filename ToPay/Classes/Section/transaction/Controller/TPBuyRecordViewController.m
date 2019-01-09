@@ -45,6 +45,7 @@
     configure.titleColor = TP8EColor;
     configure.titleSelectedColor = TP59Color;
     configure.indicatorColor = TP59Color;
+    configure.needBounces = NO;
     configure.showBottomSeparator = NO;
     // pageTitleView
     self.pageTitleView = [SGPageTitleView pageTitleViewWithFrame:CGRectMake(0, StatusBarAndNavigationBarHeight, self.view.frame.size.width, 40) delegate:self titleNames:titleArr configure:configure];

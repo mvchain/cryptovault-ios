@@ -9,13 +9,11 @@
 #import "TPTransactionViewController.h"
 #import "TPVRTViewController.h"
 #import "TPBuyRecordViewController.h"
-
 #import "TPNavigationBarTitleView.h"
 @interface TPTransactionViewController ()<SGPageContentScrollViewDelegate,SGPageTitleViewDelegate>
 @property (nonatomic, strong) SGPageTitleView *pageTitleView;
 @property (nonatomic, strong) SGPageContentScrollView *pageContentScrollView;
 @end
-
 @implementation TPTransactionViewController
 
 -(void)viewWillAppear:(BOOL)animated
@@ -60,9 +58,7 @@
     TPVRTViewController *balanceVC = [[TPVRTViewController alloc] initWithChainStyle:TPTransactionStyleBalance];
 
     NSArray *childArr = @[VRTVC, balanceVC];
-    
     CGFloat contentViewHeight = KHeight - StatusBarAndNavigationBarHeight - TAB_BAR_HEIGHT + (iPhoneX ? 10:0);
-
     self.pageContentScrollView = [[SGPageContentScrollView alloc] initWithFrame:CGRectMake(0, StatusBarAndNavigationBarHeight, self.view.frame.size.width, contentViewHeight) parentVC:self childVCs:childArr];
     _pageContentScrollView.delegatePageContentScrollView = self;
     [self.view addSubview:_pageContentScrollView];
@@ -79,6 +75,7 @@
     [configure setTitleSelectedColor:TP59Color];
     configure.titleFont = FONT(15);
     configure.showBottomSeparator = NO;
+    configure.needBounces = NO;
     
     CGFloat titleVW = 250;
     

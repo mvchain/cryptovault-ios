@@ -18,65 +18,57 @@
 @property (nonatomic, strong) NSArray *dataSource;
 @property (nonatomic, strong) NSArray *dataSourceImg;
 @end
-
 @implementation TPMeViewController
-
 static NSString  *TPMeCellCellId = @"meCell";
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     self.customNavBar.title = @"我的";
     self.customNavBar.hidden = YES;
     [self showSystemNavgation:NO];
-    
     _dataSource = @[@"语言",@"关于"];
     _dataSourceImg = @[@"language_icon",@"about_icon"];
-
     TPMeHeaderView *headerView = [[TPMeHeaderView alloc] init];
-
     [self.view addSubview:headerView];
     [headerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.equalTo(@0);
         make.width.equalTo(@(KWidth));
         make.height.equalTo(@(156+12+STATUS_BAR_HEIGHT));
     }];
-
+    /*
+     
+     */
     [self.baseTableView mas_makeConstraints:^(MASConstraintMaker *make)
      {
         make.left.equalTo(@0);
-         make.top.equalTo(headerView.mas_bottom).with.offset(0);
+        make.top.equalTo(headerView.mas_bottom).with.offset(0);
         make.width.equalTo(@(KWidth));
         make.height.equalTo(self.view);
     }];
-    
-    
     [self.view sendSubviewToBack:self.baseTableView];
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return _dataSource.count;
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TPMeCell *cell = [tableView dequeueReusableCellWithIdentifier:TPMeCellCellId];
     if (!cell)
         cell = [[TPMeCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TPMeCellCellId];
-    
     cell.descLab.text = _dataSource[indexPath.row];
     cell.iconImgV.image = [UIImage imageNamed:_dataSourceImg[indexPath.row]];
     return cell;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return  48;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 0)
     {
@@ -91,11 +83,8 @@ static NSString  *TPMeCellCellId = @"meCell";
 }
 
 - (void)didReceiveMemoryWarning {
+    
     [super didReceiveMemoryWarning];
     
 }
-
-
-
-
 @end

@@ -11,7 +11,7 @@
 #import "TPNotificationModel.h"
 @interface TPNotiViewController ()
 
-@property (nonatomic, strong) NSArray<TPNotificationModel *> *notiTopic;
+@property (nonatomic, strong) NSMutableArray<TPNotificationModel *> *notiTopic;
 
 @end
 
@@ -23,20 +23,24 @@ static NSString  *TPNotiCellCellId = @"notiCell";
 {
     [super viewDidLoad];
     self.customNavBar.title = @"通知";
+    [self.customNavBar wr_setBottomLineHidden:YES];
+    
     self.baseTableView.backgroundColor = TPF6Color;
     self.baseTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.baseTableView mas_makeConstraints:^(MASConstraintMaker *make)
     {
+        
         make.left.equalTo(@0);
         make.top.equalTo(@(StatusBarAndNavigationBarHeight));
         make.width.equalTo(@(KWidth));
-        make.height.equalTo(self.view.mas_height);
+        make.height.equalTo( @(KHeight - StatusBarAndNavigationBarHeight) );
     }];
     [self setupRefreshWithShowFooter:YES];
 }
 #pragma mark - 请求
 -(void)loadNewTopics
 {
+    [self.baseTableView.mj_footer endRefreshing];
     [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"message" parameters:@{@"pageSize":@10,@"type":@0,@"timestamp":[self getNowTimeTimestamp]} success:^(id responseObject, BOOL isCacheObject)
     {
         NSLog(@"%@",responseObject);
@@ -51,7 +55,6 @@ static NSString  *TPNotiCellCellId = @"notiCell";
             {
                 [self.baseTableView reloadData];
             }
-            
             RefreshEndHeader
         }
     }
@@ -61,7 +64,35 @@ static NSString  *TPNotiCellCellId = @"notiCell";
         RefreshEndHeader
     }];
 }
-
+- (void)loadMoreTopics {
+ 
+    if ( !( self.notiTopic && self.notiTopic.count >0) ) return;
+    TPNotificationModel * last = self.notiTopic.lastObject;
+    NSDictionary *dic = @{@"pageSize":@10,@"type":@0,@"timestamp":last.createdAt};
+    NSLog(@"%@",dic);
+    
+    [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"message" parameters:@{@"pageSize":@10,@"type":@1,@"timestamp":last.createdAt} success:^(id responseObject, BOOL isCacheObject)
+     {
+        
+         if ([responseObject[@"code"] isEqual:@200])
+         {
+             NSMutableArray *marr  = [TPNotificationModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+             NSLog(@"%d",marr.count);
+             if( marr.count ) {
+                 [self.notiTopic addObjectsFromArray: marr];
+                 [self.baseTableView reloadData];
+                 [self.baseTableView.mj_footer endRefreshing];
+             }else {
+                 [self.baseTableView.mj_footer endRefreshingWithNoMoreData];
+             }
+         }
+     }
+                                             failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
+     {
+         NSLog(@"%@",error);
+         RefreshEndFooter
+     }];
+}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -81,21 +112,8 @@ static NSString  *TPNotiCellCellId = @"notiCell";
 {
     return  76;
 }
-
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

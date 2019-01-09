@@ -40,6 +40,8 @@
         
         _iconImgV = [YFactoryUI YImageViewWithimage:[UIImage imageNamed:@"btc_icon"]];
 //        _iconImgV.backgroundColor = YRandomColor;
+        [_iconImgV setLayer:14 WithBackColor:[ UIColor clearColor]];
+        
         [self addSubview:_iconImgV];
         
         _nickLab = [YFactoryUI YLableWithText:@"BTC" color:TP59Color font:FONT(16)];

@@ -139,6 +139,7 @@
 		DD374DC021C5228100093A0F /* AAOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = DD374DA121C5228100093A0F /* AAOptions.m */; };
 		DD374DC121C5228100093A0F /* AASeriesElement.m in Sources */ = {isa = PBXBuildFile; fileRef = DD374DA221C5228100093A0F /* AASeriesElement.m */; };
 		DD374DC421C559AD00093A0F /* TPDetailTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD374DC321C559AD00093A0F /* TPDetailTitleView.m */; };
+		DD7046E421E5FE9500D02D7F /* QuickGet.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7046E321E5FE9500D02D7F /* QuickGet.m */; };
 		DD72F42B21998491004C0DAF /* TPNavigationBarTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD72F42A21998491004C0DAF /* TPNavigationBarTitleView.m */; };
 		DD72F42E219A7D7A004C0DAF /* TPVRTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD72F42D219A7D7A004C0DAF /* TPVRTViewController.m */; };
 		DD72F435219A7F12004C0DAF /* TPBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD72F434219A7F12004C0DAF /* TPBaseViewController.m */; };
@@ -503,6 +504,8 @@
 		DD374DC221C559AD00093A0F /* TPDetailTitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPDetailTitleView.h; sourceTree = "<group>"; };
 		DD374DC321C559AD00093A0F /* TPDetailTitleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPDetailTitleView.m; sourceTree = "<group>"; };
 		DD7046E021E33EDF00D02D7F /* ToPay.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ToPay.entitlements; sourceTree = "<group>"; };
+		DD7046E221E5FE9500D02D7F /* QuickGet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickGet.h; sourceTree = "<group>"; };
+		DD7046E321E5FE9500D02D7F /* QuickGet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickGet.m; sourceTree = "<group>"; };
 		DD72F42921998491004C0DAF /* TPNavigationBarTitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPNavigationBarTitleView.h; sourceTree = "<group>"; };
 		DD72F42A21998491004C0DAF /* TPNavigationBarTitleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPNavigationBarTitleView.m; sourceTree = "<group>"; };
 		DD72F42C219A7D7A004C0DAF /* TPVRTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPVRTViewController.h; sourceTree = "<group>"; };
@@ -1165,6 +1168,8 @@
 				DDFED69721DEFC9800F2F354 /* QuickMaker.m */,
 				DDFED69921DEFDE500F2F354 /* QuickDo.h */,
 				DDFED69A21DEFDE500F2F354 /* QuickDo.m */,
+				DD7046E221E5FE9500D02D7F /* QuickGet.h */,
+				DD7046E321E5FE9500D02D7F /* QuickGet.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -1498,6 +1503,9 @@
 							com.apple.Push = {
 								enabled = 1;
 							};
+							com.apple.Siri = {
+								enabled = 0;
+							};
 						};
 					};
 					DD02440C2196C96C006A1390 = {
@@ -1677,6 +1685,7 @@
 				DD374DB521C5228100093A0F /* AATitle.m in Sources */,
 				DD02399221AF968E00333446 /* WYNetworkConfig.m in Sources */,
 				DDE176A121BE5C9500167EB1 /* SJCommonSlider.m in Sources */,
+				DD7046E421E5FE9500D02D7F /* QuickGet.m in Sources */,
 				DDF7B9B321BA65E200BE35D6 /* UIImageView+YUExtension.m in Sources */,
 				DD374D6021C3B41100093A0F /* TZGifPhotoPreviewController.m in Sources */,
 				DD0239A021AFD6E800333446 /* TPLoginUtil.m in Sources */,
@@ -1999,18 +2008,18 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/ToPay/TP.pch";
 				INFOPLIST_FILE = ToPay/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				NEW_SETTING = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "N-NSTechnology.ToPay";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mvc.cryptovault;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ToPay/ToPay-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -2026,17 +2035,17 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/ToPay/TP.pch";
 				INFOPLIST_FILE = ToPay/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				NEW_SETTING = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "N-NSTechnology.ToPay";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mvc.cryptovault;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ToPay/ToPay-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

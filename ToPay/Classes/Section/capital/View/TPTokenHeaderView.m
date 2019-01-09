@@ -7,7 +7,7 @@
 //
 
 #import "TPTokenHeaderView.h"
-
+#import "TPExchangeRate.h"
 @interface TPTokenHeaderView ()
 
 @property (nonatomic, strong) UILabel *totalLab;
@@ -28,8 +28,10 @@
         
         _totalLab = [YFactoryUI YLableWithText:@"" color:[UIColor whiteColor] font:FONT(34)];
         [self addSubview:_totalLab];
+        NSString *str = [QuickGet getLegalCurrency];
         
-        _chooseBtn = [YFactoryUI YButtonWithTitle:[USER_DEFAULT objectForKey:TPNowLegalNameKey] Titcolor:[UIColor whiteColor] font:FONT(12) Image:nil target:self action:@selector(chooseToken)];
+ 
+        _chooseBtn = [YFactoryUI YButtonWithTitle:str Titcolor:[UIColor whiteColor] font:FONT(12) Image:nil target:self action:@selector(chooseToken)];
         [self addSubview:_chooseBtn];
         
         _numLab = [YFactoryUI YLableWithText:@"" color:[UIColor whiteColor] font:FONT(12)];

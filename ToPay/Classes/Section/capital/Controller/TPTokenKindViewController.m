@@ -17,13 +17,10 @@
 #import "TPTokenBottomView.h"
 #import "TPCurrencyList.h"
 @interface TPTokenKindViewController ()<SGPageTitleViewDelegate, SGPageContentScrollViewDelegate>
-
 @property (nonatomic, strong) SGPageTitleView *pageTitleView;
 @property (nonatomic, strong) SGPageContentScrollView *pageContentScrollView;
 @property (nonatomic, strong) TPTokenHeaderView *headerView;
-
 @property (nonatomic, strong) CLData *clData;
-
 @end
 
 @implementation TPTokenKindViewController
@@ -94,6 +91,9 @@
         }];
     }
     [self.customNavBar wr_setBackgroundAlpha:0];
+    
+    
+    
 }
 
 -(void)QRClick
@@ -180,7 +180,7 @@
     configure.showBottomSeparator = NO;
     configure.needBounces = NO;
     // pageTitleView
-    self.pageTitleView = [SGPageTitleView pageTitleViewWithFrame:CGRectMake(0, StatusBarAndNavigationBarHeight + 110 + 12, self.view.frame.size.width, 44) delegate:self titleNames:titleArr configure:configure];
+    self.pageTitleView = [SGPageTitleView pageTitleViewWithFrame:CGRectMake(0, StatusBarAndNavigationBarHeight + 110 , self.view.frame.size.width, 44) delegate:self titleNames:titleArr configure:configure];
     self.pageTitleView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_pageTitleView];
     
@@ -211,7 +211,7 @@
     {
         make.left.equalTo(@0);
         make.right.equalTo(@0);
-        make.height.equalTo(@(49 + HOME_INDICATOR_HEIGHT));
+        make.height.equalTo(@(52));
         make.bottom.equalTo(self.view);
     }];
     

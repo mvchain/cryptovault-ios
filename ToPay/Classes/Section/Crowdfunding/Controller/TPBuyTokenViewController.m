@@ -162,7 +162,7 @@
         make.height.equalTo(@191);
     }];
     
-    TPComTextView *buyTextView = [[TPComTextView alloc] initWithTitle:@"购买数量" WithDesc:@"输入预约数量"];
+    TPComTextView *buyTextView = [[TPComTextView alloc] initWithTitle:@"预约数量" WithDesc:@"输入预约数量"];
     [buyTextView.comTextField addTarget:self action:@selector(didChange:)
                        forControlEvents:UIControlEventEditingChanged];
     buyTextView.comTextField.keyboardType = UIKeyboardTypePhonePad;
@@ -247,7 +247,7 @@
     vaild0 = YES;vaild1 = YES;vaild2 = YES;vaild3 = YES;
     if (comText.text.length >0)
     {
-        self.VRTLab.text = TPString(@"%.2f %@",[comText.text floatValue] * [_croModel.ratio floatValue],_croModel.baseTokenName);
+        self.VRTLab.text = TPString(@"%@ %.2f",_croModel.baseTokenName,[comText.text floatValue] * [_croModel.ratio floatValue]);
         if ([self.VRTLab.text floatValue] > [self.available floatValue])
         {
             self.availableLab.text = TPString(@"可用%@不足！",_croModel.baseTokenName) ;
@@ -288,7 +288,7 @@
     {
         vaild3 = NO;
         self.promptLab.hidden = YES;
-        self.VRTLab.text = @"0.00 VRT";
+        self.VRTLab.text = @"VRT 0.00";
         self.availableLab.textColor = TP8EColor;
         NSString *adesc = TPString(@"可用%@：%.4f",_croModel.baseTokenName,[self.available floatValue]);
         [self.availableLab setText:adesc];
@@ -328,7 +328,7 @@
              {
                  if ([responseObject[@"code"] isEqual:@200])
                  {
-                     [self showSuccessText:@"购买成功"];
+                     [self showSuccessText:@"预约成功"];
                      [TPTransV showMenuWithAlpha:NO];
                      [TPNotificationCenter postNotificationName:TPAssetRedNotification object:nil];
                      [self.navigationController popViewControllerAnimated:YES];
@@ -341,7 +341,7 @@
              }
                 failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
              {
-                 [self showErrorText:@"购买失败"];
+                 [self showErrorText:@"预约失败"];
                  [TPTransV showMenuWithAlpha:NO];
              }];
          }

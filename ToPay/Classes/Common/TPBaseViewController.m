@@ -63,6 +63,7 @@
     {
         [weakSelf.navigationController popViewControllerAnimated:YES];
     }];
+    [self.customNavBar wr_setBottomLineHidden:YES];
 }
 -(UIImageView *)noDataView
 {

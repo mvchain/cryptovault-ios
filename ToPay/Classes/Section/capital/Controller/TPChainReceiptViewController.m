@@ -148,15 +148,7 @@
      }];
     
     UIImageView *logoImgV = [YFactoryUI YImageViewWithimage:nil];
-    logoImgV.backgroundColor = YRandomColor;
-    [self.view addSubview:logoImgV];
-    
-    [logoImgV mas_makeConstraints:^(MASConstraintMaker *make)
-    {
-        make.centerX.equalTo(self.view);
-        make.top.equalTo(backView.mas_bottom).with.offset(45);
-        make.size.equalTo(@56);
-    }];
+
 }
 
 -(void)copyClick

@@ -23,13 +23,13 @@
 #define TPMainColor [UIColor colorWithHex:@"#007AFF"]
 #define TP59Color [UIColor colorWithHex:@"#595971"]
 #define TP8EColor [UIColor colorWithHex:@"#8E8E9E"]
-#define TPF6Color [UIColor colorWithHex:@"#F6F7FB"]
+#define TPF6Color [UIColor colorWithHex:@"#F2F2F2"]
 #define TPA7Color [UIColor colorWithHex:@"#A7A9B8"]
 #define TPD5Color [UIColor colorWithHex:@"#D5D7E6"]
 #define TPC1Color [UIColor colorWithHex:@"#C1C2CC"]
 #define TPEBColor [UIColor colorWithHex:@"#EBF1FB"]
 #define TPD5Color [UIColor colorWithHex:@"#D5D7E6"]
-
+#define TP5856D6 [UIColor colorWithHex:@"#5856D6"]
 //字符串转换
 #define TPString(FORMAT, ...) [NSString stringWithFormat:FORMAT,##__VA_ARGS__]
 

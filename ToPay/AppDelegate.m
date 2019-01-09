@@ -27,22 +27,36 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self setUpNetWorkManager];
- 
     [self refreshToken];
-
     [self setUpWindow];
-    
     [self setNavBarAppearence];
-    
     [self setUpIQKeyBoardManager];
-    
+    [self setUpJpush];
+    [JPUSHService setupWithOption:launchOptions appKey:@"ffb83d2be1729d733dd03c34"
+                          channel:nil
+                 apsForProduction:YES
+            advertisingIdentifier:nil];
     return YES;
+}
+
+- (void)setUpJpush {
+    //Required
+    //notice: 3.0.0 及以后版本注册可以这样写，也可以继续用之前的注册方式
+    
+    JPUSHRegisterEntity * entity = [[JPUSHRegisterEntity alloc] init];
+    entity.types = JPAuthorizationOptionAlert|JPAuthorizationOptionBadge|JPAuthorizationOptionSound|JPAuthorizationOptionProvidesAppNotificationSettings;
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+        // 可以添加自定义 categories
+        // NSSet<UNNotificationCategory *> *categories for iOS10 or later
+        // NSSet<UIUserNotificationCategory *> *categories for iOS8 and iOS9
+    }
+    [JPUSHService registerForRemoteNotificationConfig:entity delegate:self];
+    
 }
 
 -(void)setUpWindow
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
     if ([TPLoginUtil isLogin] == NO)
         [self.window setRootViewController:[[TPLoginViewController alloc] init]];
     else
@@ -123,7 +137,6 @@
            TPLoginModel *loginM = [TPLoginUtil userInfo];
             loginM.token = responseObject[@"data"];
             [TPLoginUtil saveUserInfo:loginM];
-            
             [[WYNetworkConfig sharedConfig] addCustomHeader:@{
                                                               @"Authorization":[TPLoginUtil userInfo].token,
                                                               @"Accept-Language":@"zh-cn"
@@ -164,34 +177,64 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+- (void)application:(UIApplication *)application
+didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    
+    /// Required - 注册 DeviceToken
+    [JPUSHService registerDeviceToken:deviceToken];
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    //Optional
+    NSLog(@"did Fail To Register For Remote Notifications With Error: %@", error);
+}
 
 #pragma mark Jpush
 
-/*
- * @brief handle UserNotifications.framework [willPresentNotification:withCompletionHandler:]
- * @param center [UNUserNotificationCenter currentNotificationCenter] 新特性用户通知中心
- * @param notification 前台得到的的通知对象
- * @param completionHandler 该callback中的options 请使用UNNotificationPresentationOptions
- */
-- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(NSInteger options))completionHandler {
-    
-}
-/*
- * @brief handle UserNotifications.framework [didReceiveNotificationResponse:withCompletionHandler:]
- * @param center [UNUserNotificationCenter currentNotificationCenter] 新特性用户通知中心
- * @param response 通知响应对象
- * @param completionHandler
- */
-- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)(void ))completionHandler {
-    
+// iOS 12 Support
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center openSettingsForNotification:(UNNotification *)notification{
+   
+    if (notification && [notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        //从通知界面直接进入应用
+    }else{
+        //从通知设置界面进入应用
+    }
 }
 
-/*
- * @brief handle UserNotifications.framework [openSettingsForNotification:]
- * @param center [UNUserNotificationCenter currentNotificationCenter] 新特性用户通知中心
- * @param notification 当前管理的通知对象
- */
-- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center openSettingsForNotification:(nullable UNNotification *)notification NS_AVAILABLE_IOS(12.0) {
-    
+// iOS 10 Support
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(NSInteger))completionHandler {
+    // Required
+    NSDictionary * userInfo = notification.request.content.userInfo;
+    if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        [JPUSHService handleRemoteNotification:userInfo];
+    }
+    completionHandler(UNNotificationPresentationOptionAlert); // 需要执行这个方法，选择是否提醒用户，有 Badge、Sound、Alert 三种类型可以选择设置
 }
+
+// iOS 10 Support
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler {
+    // Required
+    NSDictionary * userInfo = response.notification.request.content.userInfo;
+    if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        [JPUSHService handleRemoteNotification:userInfo];
+    }
+    completionHandler();  // 系统要求执行这个方法
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    
+    // Required, iOS 7 Support
+    NSLog(@"%@",userInfo);
+    
+    [JPUSHService handleRemoteNotification:userInfo];
+    completionHandler(UIBackgroundFetchResultNewData);
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    
+    // Required, For systems with less than or equal to iOS 6
+    [JPUSHService handleRemoteNotification:userInfo];
+}
+
+
 @end

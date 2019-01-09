@@ -125,8 +125,6 @@
     {
         [self showInfoText:@"请输入正确的手机号"];
     }
-    
-    
     [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"user/sms" parameters:@{@"cellphone":self.textArr[0].text} success:^(id responseObject, BOOL isCacheObject)
     {
         if ([responseObject[@"code"] isEqual:@200])
@@ -190,25 +188,20 @@
         if ([responseObject[@"code"] isEqual:@200])
         {
             NSLog(@"responseObject:%@",responseObject[@"data"]);
-    
             TPLoginModel *loginM = [TPLoginModel mj_objectWithKeyValues:responseObject[@"data"]];
-
             // set Request token
+            [QuickDo setJPushAlians:loginM.userId];
+            
             [[WYNetworkConfig sharedConfig] addCustomHeader:@{@"Authorization":loginM.token,@"Accept-Language":@"zh-cn"}];
 
             // Store user information
             [TPLoginUtil saveUserInfo:loginM];
-
             // Basic user information
             [TPLoginUtil setRequestInfo];
-            
             // Get currency list
             [TPLoginUtil setRequestToken];
-            
             [TPLoginUtil requestExchangeRate];
-            
             [self showSuccessText:@"登录成功"];
-
             [SVProgressHUD showSuccessWithStatus:@"登录成功"];
             UIApplication *app = [UIApplication sharedApplication];
             AppDelegate *dele = (AppDelegate*)app.delegate;

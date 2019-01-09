@@ -73,7 +73,7 @@
     
     [self.backView mas_makeConstraints:^(MASConstraintMaker *make)
     {
-        make.centerY.equalTo(self);
+        make.top.equalTo(@12);
         make.left.equalTo(@10);
         make.right.equalTo(@(-10));
         make.height.equalTo(@64);

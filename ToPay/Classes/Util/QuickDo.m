@@ -7,9 +7,16 @@
 //
 
 #import "QuickDo.h"
-
+#import <JPUSHService.h>
 @implementation QuickDo
 
++ (void)setJPushAlians:(NSString *)aliansName  {
+    [JPUSHService setAlias:aliansName completion:^(NSInteger iResCode, NSString *iAlias, NSInteger seq) {
+        NSLog(@"%d%@%d",iResCode,iAlias,seq);
+        
+    } seq:0];
+    
+}
 + (void)shareToSystem:(NSArray *)items target:(id)target success:(void(^)(bool isok))successBlock {
     /*
      *  NSString *textToShare = @"mq分享";

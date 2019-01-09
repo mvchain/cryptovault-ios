@@ -76,15 +76,13 @@
     
     [_tagListCate setDidselectItemBlock:^(NSArray *arr)
      {
-        
          if( [arr[0] isEqualToString:@"买入"] ) {
              wsf.filterModel.transcationType = @"1";
          }
-         
          if( [arr[0] isEqualToString:@"卖出"] ) {
               wsf.filterModel.transcationType = @"2";
          }
-         
+
          if( [arr[0] isEqualToString:@"全部" ] ) {
              wsf.filterModel.transcationType = @"";
          }

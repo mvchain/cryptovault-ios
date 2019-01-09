@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface QuickDo : NSObject
 + (void)shareToSystem:(NSArray *)items target:(id)target success:(void(^)(bool isok))successBlock ;
++ (void)setJPushAlians:(NSString *)aliansName ;
 
 
 @end

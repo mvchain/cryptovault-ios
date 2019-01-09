@@ -19,6 +19,8 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = TPF6Color;
+    self.customNavBar.title  = @"关于";
+    
     [self showSystemNavgation:NO];
     [self setUpViews];
 }
