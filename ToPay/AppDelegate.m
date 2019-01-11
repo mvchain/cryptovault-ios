@@ -97,20 +97,16 @@
 -(void)setUpIQKeyBoardManager
 {
     IQKeyboardManager *keyboardManager = [IQKeyboardManager sharedManager];
-    
     keyboardManager.enable = YES;
-    
     keyboardManager.shouldResignOnTouchOutside = YES;
-    
     keyboardManager.keyboardDistanceFromTextField = 10.0f;
 }
-
 
 -(void)setUpNetWorkManager
 {
 // 192.168.15.21
 //    47.110.234.233
-    [WYNetworkConfig sharedConfig].baseUrl = @"http://47.110.234.233:10086/";
+    [WYNetworkConfig sharedConfig].baseUrl = @"http://192.168.15.21:10086/";
     [WYNetworkConfig sharedConfig].timeoutSeconds = 10;
     if ([TPLoginUtil userInfo].token)
     {
@@ -121,7 +117,7 @@
     }
 }
 
--(void)refreshToken
+- (void)refreshToken
 {
     if ([TPLoginUtil isLogin] == NO)
     {
@@ -129,9 +125,7 @@
         [USER_DEFAULT setObject:@"￥" forKey:TPNowLegalSymbolKey]; 
         return ;
     }
-    
     [[WYNetworkConfig sharedConfig] addCustomHeader:@{@"Authorization":[TPLoginUtil userInfo].refreshToken}];
-    
     [[WYNetworkManager sharedManager] sendPostRequest:WYJSONRequestSerializer url:@"user/refresh" parameters:nil success:^(id responseObject, BOOL isCacheObject)
     {
         if ([responseObject[@"code"] isEqual:@200])
@@ -140,7 +134,7 @@
             loginM.token = responseObject[@"data"];
             [TPLoginUtil saveUserInfo:loginM];
             [[WYNetworkConfig sharedConfig] addCustomHeader:@{
-                                                              @"Authorization":[TPLoginUtil userInfo].token,
+                                                            @"Authorization":@"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IjE4MDU3MTkzMDg4IiwidXNlcklkIjoyNSwic2VydmljZSI6ImFwcCIsInR5cGUiOiJ0b2tlbiIsImV4cCI6MTU0NzE5OTYzOX0.5zNH-nom2Qlz-GxUncnsuud28XIVzrE2_oU4nhp4QEI",
                                                               @"Accept-Language":@"zh-cn"
                                                               }];
             [TPLoginUtil requestExchangeRate];

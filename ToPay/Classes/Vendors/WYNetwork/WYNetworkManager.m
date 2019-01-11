@@ -186,6 +186,16 @@
                 success:(WYSuccessBlock _Nullable)successBlock
                 failure:(WYFailureBlock _Nullable)failureBlock{
     
+    WYSuccessBlock succ =^void (id responseObject, BOOL isCacheObject) {
+        successBlock(responseObject,isCacheObject);
+    };
+    WYFailureBlock fail =^void (NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
+        failureBlock(task,error,statusCode);
+        NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
+        NSInteger status = response.statusCode;
+
+        
+    };
     
     [self.requestEngine sendRequest:serializer
                                 url:url
@@ -193,8 +203,8 @@
                          parameters:parameters
                           cacheType:WYNetworkCacheTypeNetworkOnly
                       cacheDuration:0
-                            success:successBlock
-                            failure:failureBlock];
+                            success:succ
+                            failure:fail];
 }
 
 
@@ -207,7 +217,13 @@
                 success:(WYSuccessBlock _Nullable)successBlock
                 failure:(WYFailureBlock _Nullable)failureBlock{
     
+    WYSuccessBlock succ =^void (id responseObject, BOOL isCacheObject) {
+        successBlock(responseObject,isCacheObject);
+    };
     
+    WYFailureBlock fail =^void (NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
+        failureBlock(task,error,statusCode);
+    };
     [self.requestEngine sendRequest:serializer
                                 url:url
                              method:WYRequestMethodPOST
@@ -227,7 +243,13 @@
                 success:(WYSuccessBlock _Nullable)successBlock
                 failure:(WYFailureBlock _Nullable)failureBlock{
     
+    WYSuccessBlock succ =^void (id responseObject, BOOL isCacheObject) {
+        successBlock(responseObject,isCacheObject);
+    };
     
+    WYFailureBlock fail =^void (NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
+        failureBlock(task,error,statusCode);
+    };
     [self.requestEngine sendRequest:serializer
                                 url:url
                              method:WYRequestMethodPOST

@@ -245,6 +245,20 @@
         _comTextField.leftViewMode = UITextFieldViewModeAlways;
         [_comTextField setLayerCornerRadius:22 WithColor:TP59Color WithBorderWidth:1];
         [self addSubview:_comTextField];
+        [self.comTitleLabel mas_makeConstraints:^(MASConstraintMaker *make)
+         {
+             make.top.equalTo(@0);
+             make.left.equalTo(@32);
+             make.height.equalTo(@17);
+         }];
+        
+        [self.comTextField mas_makeConstraints:^(MASConstraintMaker *make)
+         {
+             make.left.equalTo(@16);
+             make.top.equalTo(self.comTitleLabel.mas_bottom).with.offset(10);
+             make.width.equalTo(@(KWidth - 16*2));
+             make.height.equalTo(@44);
+         }];
     }
     return self;
 }
@@ -253,20 +267,7 @@
 {
     [super layoutSubviews];
     
-    [self.comTitleLabel mas_makeConstraints:^(MASConstraintMaker *make)
-     {
-         make.top.equalTo(@0);
-         make.left.equalTo(@32);
-         make.height.equalTo(@17);
-     }];
     
-    [self.comTextField mas_makeConstraints:^(MASConstraintMaker *make)
-     {
-         make.left.equalTo(@16);
-         make.top.equalTo(self.comTitleLabel.mas_bottom).with.offset(10);
-         make.width.equalTo(@(KWidth - 16*2));
-         make.height.equalTo(@44);
-     }];
 }
 
 @end

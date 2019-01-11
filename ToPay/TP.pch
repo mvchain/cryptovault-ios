@@ -52,4 +52,5 @@
 #import "UITableView+YUTableView.h"
 #import "UITableView+YUTableViewAddition.h"
 #import "QuickGet.h"
+#import "UIView+YUStyle.h"
 #endif /* TP_pch */

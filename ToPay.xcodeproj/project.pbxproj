@@ -85,6 +85,10 @@
 		DD10845621A3EC7E0087F244 /* TPChainTransferViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD10845521A3EC7E0087F244 /* TPChainTransferViewController.m */; };
 		DD10845921A3EC900087F244 /* TPChainReceiptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD10845821A3EC900087F244 /* TPChainReceiptViewController.m */; };
 		DD10845C21A401560087F244 /* TPComTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD10845B21A401560087F244 /* TPComTextView.m */; };
+		DD23C28421E89FDC007727DA /* UIView+YUStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = DD23C28321E89FDC007727DA /* UIView+YUStyle.m */; };
+		DD23C28921E8B6BA007727DA /* TPRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD23C28721E8B6BA007727DA /* TPRegisterViewController.m */; };
+		DD23C28A21E8B6BA007727DA /* TPRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD23C28821E8B6BA007727DA /* TPRegisterViewController.xib */; };
+		DD23C28D21E8B6D6007727DA /* TPRgeisterViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD23C28C21E8B6D6007727DA /* TPRgeisterViewModel.m */; };
 		DD2FD6A921C7685F00A28F78 /* TPMSCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2FD6A821C7685F00A28F78 /* TPMSCell.m */; };
 		DD2FD6B521C7A17000A28F78 /* YUTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2FD6AB21C7A16F00A28F78 /* YUTabBar.m */; };
 		DD2FD6B621C7A17000A28F78 /* YUBadgeValue.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2FD6AD21C7A16F00A28F78 /* YUBadgeValue.m */; };
@@ -395,6 +399,13 @@
 		DD10845821A3EC900087F244 /* TPChainReceiptViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPChainReceiptViewController.m; sourceTree = "<group>"; };
 		DD10845A21A401560087F244 /* TPComTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPComTextView.h; sourceTree = "<group>"; };
 		DD10845B21A401560087F244 /* TPComTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPComTextView.m; sourceTree = "<group>"; };
+		DD23C28221E89FDC007727DA /* UIView+YUStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YUStyle.h"; sourceTree = "<group>"; };
+		DD23C28321E89FDC007727DA /* UIView+YUStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YUStyle.m"; sourceTree = "<group>"; };
+		DD23C28621E8B6BA007727DA /* TPRegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPRegisterViewController.h; sourceTree = "<group>"; };
+		DD23C28721E8B6BA007727DA /* TPRegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPRegisterViewController.m; sourceTree = "<group>"; };
+		DD23C28821E8B6BA007727DA /* TPRegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPRegisterViewController.xib; sourceTree = "<group>"; };
+		DD23C28B21E8B6D6007727DA /* TPRgeisterViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPRgeisterViewModel.h; sourceTree = "<group>"; };
+		DD23C28C21E8B6D6007727DA /* TPRgeisterViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPRgeisterViewModel.m; sourceTree = "<group>"; };
 		DD2FD6A721C7685F00A28F78 /* TPMSCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPMSCell.h; sourceTree = "<group>"; };
 		DD2FD6A821C7685F00A28F78 /* TPMSCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPMSCell.m; sourceTree = "<group>"; };
 		DD2FD6AB21C7A16F00A28F78 /* YUTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUTabBar.m; sourceTree = "<group>"; };
@@ -839,6 +850,7 @@
 		DD02442C2196D1B8006A1390 /* Section */ = {
 			isa = PBXGroup;
 			children = (
+				DD23C28521E8B66A007727DA /* Regisetr (注册) */,
 				DD0244312196D1B8006A1390 /* capital */,
 				DD02442D2196D1B8006A1390 /* transaction */,
 				DD0244392196D1B8006A1390 /* Crowdfunding */,
@@ -1201,6 +1213,18 @@
 			path = QRCode;
 			sourceTree = "<group>";
 		};
+		DD23C28521E8B66A007727DA /* Regisetr (注册) */ = {
+			isa = PBXGroup;
+			children = (
+				DD23C28621E8B6BA007727DA /* TPRegisterViewController.h */,
+				DD23C28721E8B6BA007727DA /* TPRegisterViewController.m */,
+				DD23C28821E8B6BA007727DA /* TPRegisterViewController.xib */,
+				DD23C28B21E8B6D6007727DA /* TPRgeisterViewModel.h */,
+				DD23C28C21E8B6D6007727DA /* TPRgeisterViewModel.m */,
+			);
+			path = "Regisetr (注册)";
+			sourceTree = "<group>";
+		};
 		DD2FD6AA21C7A16F00A28F78 /* YTabBarController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1412,6 +1436,8 @@
 		DDFED69F21E05C7A00F2F354 /* CommonView */ = {
 			isa = PBXGroup;
 			children = (
+				DD23C28221E89FDC007727DA /* UIView+YUStyle.h */,
+				DD23C28321E89FDC007727DA /* UIView+YUStyle.m */,
 				DDFED6AF21E065F100F2F354 /* UITableView+YUTableView.h */,
 				DDFED6A921E065F000F2F354 /* UITableView+YUTableView.m */,
 				DDFED6AC21E065F100F2F354 /* UITableView+YUTableViewAddition.h */,
@@ -1553,6 +1579,7 @@
 				DDFE5DB121CC9FA0005D6D48 /* shareImage.png in Resources */,
 				DDFE5D9921CA1BC0005D6D48 /* HUD_success@3x.png in Resources */,
 				DDFED68F21DC992B00F2F354 /* YUSearchBarView.xib in Resources */,
+				DD23C28A21E8B6BA007727DA /* TPRegisterViewController.xib in Resources */,
 				DDFE5D9821CA1BC0005D6D48 /* HUD_success@2x.png in Resources */,
 				DD0244052196C96B006A1390 /* LaunchScreen.storyboard in Resources */,
 				DDFED6B621E065F100F2F354 /* YUCollectionViewCell.xib in Resources */,
@@ -1678,6 +1705,7 @@
 				DD374DBC21C5228100093A0F /* AAPie.m in Sources */,
 				DD374D5E21C3B41100093A0F /* TZImagePickerController.m in Sources */,
 				DDFED69E21DF67A200F2F354 /* TPFliterModel.m in Sources */,
+				DD23C28D21E8B6D6007727DA /* TPRgeisterViewModel.m in Sources */,
 				DD0243FD2196C968006A1390 /* ViewController.m in Sources */,
 				DD374D5F21C3B41100093A0F /* TZLocationManager.m in Sources */,
 				DD374D5721C3B41100093A0F /* UIView+Layout.m in Sources */,
@@ -1711,6 +1739,7 @@
 				DD0239AC21AFF2F500333446 /* TPConstant.m in Sources */,
 				DD374D5321C3B41100093A0F /* TZAssetCell.m in Sources */,
 				DDE176A021BE5C9500167EB1 /* SJSlider.m in Sources */,
+				DD23C28921E8B6BA007727DA /* TPRegisterViewController.m in Sources */,
 				DD374DBD21C5228100093A0F /* AAChart.m in Sources */,
 				DD10844621A001030087F244 /* NIMScannerMaskView.m in Sources */,
 				DD72F42B21998491004C0DAF /* TPNavigationBarTitleView.m in Sources */,
@@ -1828,6 +1857,7 @@
 				DD374DBA21C5228100093A0F /* AASpline.m in Sources */,
 				DD2FD6B621C7A17000A28F78 /* YUBadgeValue.m in Sources */,
 				DD02394121ACF53E00333446 /* TPTransDetailCell.m in Sources */,
+				DD23C28421E89FDC007727DA /* UIView+YUStyle.m in Sources */,
 				DDDDFBA3219C1EBE0056FC57 /* UIBarButtonItem+SXCreate.m in Sources */,
 				DDDDFBA9219C27BF0056FC57 /* TPCapitalCell.m in Sources */,
 				DD374DA921C5228100093A0F /* AAXAxis.m in Sources */,
