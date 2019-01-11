@@ -279,6 +279,7 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
     TPCapitalCell *cell = [tableView dequeueReusableCellWithIdentifier:TPCapitalCellCellId];
     if (!cell)
         cell = [[TPCapitalCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TPCapitalCellCellId];
+    
     cell.assetModel = self.assetTopic[indexPath.row];
     
     if (self.ratio)

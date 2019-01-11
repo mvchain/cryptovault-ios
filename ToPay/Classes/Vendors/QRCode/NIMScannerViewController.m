@@ -153,11 +153,12 @@ static NSString * typeRoomID = @"evn:r:";
         NSLog(@"values.firstObject:%@",values.firstObject);
         if (values.count > 0)
         {
-            [self selectNTESType:values.firstObject];
-            
-            [self dismissViewControllerAnimated:NO completion:^{
-                [self clickCloseButton];
+            [self dismissViewControllerAnimated:YES completion:^{
+                [self selectNTESType:values.firstObject];
             }];
+            
+            
+           
         } else {
             tipLabel.text = @"没有识别到二维码，请选择其他照片";
             

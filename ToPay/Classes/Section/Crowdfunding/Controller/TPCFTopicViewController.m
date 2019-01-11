@@ -132,7 +132,7 @@ static NSString  *TPReservationCellCellId = @"ReservationCell";
 
 - (void)requestNextProject:(NSInteger)proType {
     if( !( self.croTopic && self.croTopic.count >0 ) ) {
-        [self.baseTableView.mj_footer endRefreshingWithNoMoreData];
+        [self.baseTableView.mj_footer endRefreshing];
         return;
     }
     TPCrowdfundingModel *lastModel = self.croTopic.lastObject;
@@ -200,7 +200,7 @@ static NSString  *TPReservationCellCellId = @"ReservationCell";
 - (void)requestNextProjectReservation:(NSInteger)proType {
   
     if( !( self.croRecordTopic && self.croRecordTopic.count >0 ) ) {
-        [self.baseTableView.mj_footer endRefreshingWithNoMoreData];
+        [self.baseTableView.mj_footer endRefreshing];
         return;
     }
     TPCroRecordModel *lastModel = self.croRecordTopic.lastObject;

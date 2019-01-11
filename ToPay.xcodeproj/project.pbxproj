@@ -143,6 +143,7 @@
 		DD72F42B21998491004C0DAF /* TPNavigationBarTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD72F42A21998491004C0DAF /* TPNavigationBarTitleView.m */; };
 		DD72F42E219A7D7A004C0DAF /* TPVRTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD72F42D219A7D7A004C0DAF /* TPVRTViewController.m */; };
 		DD72F435219A7F12004C0DAF /* TPBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD72F434219A7F12004C0DAF /* TPBaseViewController.m */; };
+		DDAA117721E72BD800F5D184 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAA117621E72BD800F5D184 /* MBProgressHUD+Add.m */; };
 		DDC5927F21D0B44C00CE8D3C /* TPKLineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DDC5927E21D0B44C00CE8D3C /* TPKLineModel.m */; };
 		DDDDFB7B219AB5560056FC57 /* TPVRPLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFB7A219AB5560056FC57 /* TPVRPLabelCell.m */; };
 		DDDDFB81219AB7350056FC57 /* TPVRTCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFB80219AB7350056FC57 /* TPVRTCell.m */; };
@@ -512,6 +513,8 @@
 		DD72F42D219A7D7A004C0DAF /* TPVRTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPVRTViewController.m; sourceTree = "<group>"; };
 		DD72F433219A7F12004C0DAF /* TPBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPBaseViewController.h; sourceTree = "<group>"; };
 		DD72F434219A7F12004C0DAF /* TPBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPBaseViewController.m; sourceTree = "<group>"; };
+		DDAA117521E72BD800F5D184 /* MBProgressHUD+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Add.h"; sourceTree = "<group>"; };
+		DDAA117621E72BD800F5D184 /* MBProgressHUD+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Add.m"; sourceTree = "<group>"; };
 		DDC5927D21D0B44C00CE8D3C /* TPKLineModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPKLineModel.h; sourceTree = "<group>"; };
 		DDC5927E21D0B44C00CE8D3C /* TPKLineModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPKLineModel.m; sourceTree = "<group>"; };
 		DDDDFB79219AB5560056FC57 /* TPVRPLabelCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPVRPLabelCell.h; sourceTree = "<group>"; };
@@ -979,6 +982,8 @@
 		DD0244342196D1B8006A1390 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DDAA117521E72BD800F5D184 /* MBProgressHUD+Add.h */,
+				DDAA117621E72BD800F5D184 /* MBProgressHUD+Add.m */,
 				DD0239B621B1335F00333446 /* BCQMView.h */,
 				DD0239B721B1335F00333446 /* BCQMView.m */,
 				DDDDFBA7219C27BF0056FC57 /* TPCapitalCell.h */,
@@ -1597,6 +1602,7 @@
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
@@ -1612,6 +1618,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FDFullscreenPopGesture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
@@ -1736,6 +1743,7 @@
 				DD108424219EA5570087F244 /* TPMeHeaderView.m in Sources */,
 				DD02399A21AF968E00333446 /* WYNetworkDownloadEngine.m in Sources */,
 				DDDDFB9D219C1AC00056FC57 /* TPComingSoonViewController.m in Sources */,
+				DDAA117721E72BD800F5D184 /* MBProgressHUD+Add.m in Sources */,
 				DDDDFB87219ACC310056FC57 /* TPCrowdfundCell.m in Sources */,
 				DDFE5DD421CDF22E005D6D48 /* TPPublish.m in Sources */,
 				DD02399C21AF968E00333446 /* WYNetworkBaseEngine.m in Sources */,

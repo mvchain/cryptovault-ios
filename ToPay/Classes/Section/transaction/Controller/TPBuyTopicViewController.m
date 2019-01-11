@@ -130,7 +130,7 @@ static NSString  *TPBuyTopicCellId = @"buyTopicCell";
     self.param[@"status"] = @(self.statusStyle);
     self.param[@"type"] = @"1";
     if ( self.recordTopic.count <=0 ) {
-        [self.baseTableView.mj_footer endRefreshingWithNoMoreData];
+        [self.baseTableView.mj_footer endRefreshing];
         
         return;
     }

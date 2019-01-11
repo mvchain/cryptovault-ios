@@ -60,43 +60,45 @@
 -(void)setTokenTopic:(TPTokenTopic *)tokenTopic
 {
     _tokenTopic = tokenTopic;
-    
     _nickLab.text = tokenTopic.tokenName;
     _timeLab.text = [tokenTopic.createdAt conversionTimeStamp];
+    // set style
+    if([tokenTopic.classify isEqualToString:@"0"]) {
+        [_valueLab mas_updateConstraints:^(MASConstraintMaker *make)
+         {
+             make.top.equalTo(@10);
+         }];
+        [_proLab mas_makeConstraints:^(MASConstraintMaker *make)
+         {
+             make.right.equalTo(self.valueLab.mas_right);
+             make.top.equalTo(self.valueLab.mas_bottom).with.offset(4);
+             make.height.equalTo(@16);
+         }];
+        _proLab.hidden = NO;
+    }else {
+        _proLab.hidden = YES;
+        [self setValueLabCenter];
+    }
+    _iconImgV.image = [UIImage imageNamed:[tokenTopic.transactionType isEqualToString:@"1"] ? @"receive_icon": @"sent_icon"]; //default
     
-    
-    
-    if ([tokenTopic.classify isEqualToString:@"0"] || [tokenTopic.classify isEqual:@"3"])
+    if ([tokenTopic.classify isEqualToString:@"0"] )
     {
-        _iconImgV.image = [UIImage imageNamed:[tokenTopic.transactionType isEqualToString:@"1"] ? @"receive_icon": @"sent_icon"];
-        if ([tokenTopic.tokenName isEqualToString:@"余额"])
+       
+        if (![tokenTopic.tokenName isEqualToString:@"余额"])
         {
-            [self setValueLabCenter];
-            
-        }
-            else
-        {
-            [self setStatus];
-        
-            [_valueLab mas_updateConstraints:^(MASConstraintMaker *make)
-             {
-                 make.top.equalTo(@10);
-             }];
+           [self setStatus];
         }
     }
         else if ([tokenTopic.classify isEqualToString:@"2"])
     {
         _nickLab.text = [NSString stringWithFormat:@"%@众筹",tokenTopic.orderRemark];
         _iconImgV.image = [UIImage imageNamed:@"Crowdfunding_icon_2"];
-        [self setValueLabCenter];
+      
     }
         else if ([tokenTopic.classify isEqualToString:@"1"])
     {
         _iconImgV.image = [UIImage imageNamed:@"trand_icon_2"];
-        [self setValueLabCenter];
     }
-    
-    
     if ([tokenTopic.transactionType isEqualToString:@"1"])
     {
         _valueLab.text = TPString(@"+%.4f",[tokenTopic.value floatValue]);
@@ -105,31 +107,30 @@
     {
         _valueLab.text = TPString(@"-%.4f",[tokenTopic.value floatValue]);
     }
+   
+    
 }
 
 -(void)setStatus
 {
-    [_proLab mas_makeConstraints:^(MASConstraintMaker *make)
-    {
-        make.right.equalTo(self.valueLab.mas_right);
-        make.top.equalTo(self.valueLab.mas_bottom).with.offset(4);
-        make.height.equalTo(@16);
-    }];
-    
+
     if ([_tokenTopic.status isEqualToString:@"0"] || [_tokenTopic.status isEqualToString:@"1"])
     {
         _proLab.textColor = TP59Color;
-        //_proLab.text = @"转账中";
+        if( [_tokenTopic.classify isEqualToString:@"0"] )
+            _proLab.text = @"转账中";
     }
         else if ([_tokenTopic.status isEqualToString:@"2"])
     {
         _proLab.textColor = TP8EColor;
-        //_proLab.text = @"转账成功";
+        if( [_tokenTopic.classify isEqualToString:@"0"] )
+            _proLab.text = @"转账成功";
     }
         else
     {
         _proLab.textColor = [UIColor colorWithHex:@"#F33636"];
-        //_proLab.text = @"转账失败";
+         if( [_tokenTopic.classify isEqualToString:@"0"] )
+             _proLab.text = @"转账失败";
     }
 }
 
@@ -137,7 +138,7 @@
 {
     [_valueLab mas_updateConstraints:^(MASConstraintMaker *make)
      {
-         make.centerY.equalTo(self);
+          make.top.equalTo(@22);
      }];
 }
 

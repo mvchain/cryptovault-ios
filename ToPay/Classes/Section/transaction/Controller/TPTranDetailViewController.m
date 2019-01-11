@@ -99,7 +99,7 @@
      {
          make.left.equalTo(@0);
          make.right.equalTo(@0);
-         make.height.equalTo(@(49 + HOME_INDICATOR_HEIGHT));
+         make.height.equalTo(@([QuickGet getWhiteBottomHeight]));
          make.bottom.equalTo(self.view);
      }];
     [bottomView setChainTransferBlock:^
@@ -134,7 +134,7 @@
     balanceVC.tokenName = self.cData.tokenName;
     NSArray *childArr = @[VRTVC, balanceVC];
     self.contentViewY = StatusBarAndNavigationBarHeight + 12 + 240 + 48 + 2;
-    CGFloat contentViewHeight = KHeight - self.contentViewY - TAB_BAR_HEIGHT;
+    CGFloat contentViewHeight = KHeight - self.contentViewY - 52;
     
     self.pageContentScrollView = [[SGPageContentScrollView alloc] initWithFrame:CGRectMake(0, self.contentViewY, self.view.frame.size.width, contentViewHeight) parentVC:self childVCs:childArr];
     _pageContentScrollView.delegatePageContentScrollView = self;

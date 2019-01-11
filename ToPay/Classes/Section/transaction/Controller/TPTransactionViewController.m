@@ -30,19 +30,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-
     [self.customNavBar wr_setBottomLineHidden:YES];
-    
-
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(transRecord) image:[UIImage imageNamed:@"list_icon_black"] imageEdgeInsets:UIEdgeInsetsMake(0, 15, 0, -15)];
-    
-    
-    
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(transRecord) image:[UIImage imageNamed:@"list_icon_black"] imageEdgeInsets:UIEdgeInsetsMake(0, 16, 0, -16)];
     [self showSystemNavgation:YES];
-    
     [self setNavTitleView];
-    
     [self setNavConView];
 }
 
@@ -56,14 +47,12 @@
 {
     TPVRTViewController *VRTVC = [[TPVRTViewController alloc] initWithChainStyle:TPTransactionStyleVRT];
     TPVRTViewController *balanceVC = [[TPVRTViewController alloc] initWithChainStyle:TPTransactionStyleBalance];
-
     NSArray *childArr = @[VRTVC, balanceVC];
     CGFloat contentViewHeight = KHeight - StatusBarAndNavigationBarHeight - TAB_BAR_HEIGHT + (iPhoneX ? 10:0);
     self.pageContentScrollView = [[SGPageContentScrollView alloc] initWithFrame:CGRectMake(0, StatusBarAndNavigationBarHeight, self.view.frame.size.width, contentViewHeight) parentVC:self childVCs:childArr];
     _pageContentScrollView.delegatePageContentScrollView = self;
     [self.view addSubview:_pageContentScrollView];
 }
-
 
 -(void)setNavTitleView
 {
@@ -76,16 +65,12 @@
     configure.titleFont = FONT(15);
     configure.showBottomSeparator = NO;
     configure.needBounces = NO;
-    
     CGFloat titleVW = 250;
-    
     self.pageTitleView = [SGPageTitleView pageTitleViewWithFrame:CGRectMake(0, 0, titleVW, 44) delegate:self titleNames:titleArr configure:configure];
     TPNavigationBarTitleView *view = [[TPNavigationBarTitleView alloc] initWithFrame:CGRectMake(0, 0, titleVW, 44)];
-
     self.navigationItem.titleView = view;
     [view addSubview:_pageTitleView];
 }
-
 
 - (void)pageTitleView:(SGPageTitleView *)pageTitleView selectedIndex:(NSInteger)selectedIndex
 {

@@ -123,11 +123,9 @@
          make.height.equalTo(@19);
          make.width.equalTo(@153);
      }];
-    
     UIButton *copyBtn = [YFactoryUI YButtonWithTitle:@"" Titcolor:nil font:nil Image:[UIImage imageNamed:@"copy_icon"] target:self action:@selector(copyClick)];
     self.cpBtn = copyBtn;
     [self.view addSubview:copyBtn];
-    
     [copyBtn mas_makeConstraints:^(MASConstraintMaker *make)
     {
         make.left.equalTo(addressBtn.mas_right).with.offset(6);

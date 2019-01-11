@@ -35,8 +35,7 @@
 
     [self setupPageView];
 }
-
--(void)setupPageView
+- (void)setupPageView
 {
     NSArray *titleArr = @[@"进行中的订单", @"成交记录"];
     SGPageTitleViewConfigure *configure = [SGPageTitleViewConfigure pageTitleViewConfigure];
@@ -49,6 +48,7 @@
     configure.showBottomSeparator = NO;
     // pageTitleView
     self.pageTitleView = [SGPageTitleView pageTitleViewWithFrame:CGRectMake(0, StatusBarAndNavigationBarHeight, self.view.frame.size.width, 40) delegate:self titleNames:titleArr configure:configure];
+    self.pageTitleView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_pageTitleView];
     TPBuyTopicViewController *oneVC = [[TPBuyTopicViewController alloc] initWithChainStyle:TPStatusStyleProcessing];
     oneVC.pairId = self.pairId;

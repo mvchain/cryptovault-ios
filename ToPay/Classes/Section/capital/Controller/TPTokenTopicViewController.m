@@ -37,16 +37,14 @@ static NSString  *TPTokenCellCellId = @"tokenCell";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     self.customNavBar.hidden = YES;
-    
 //    [self setupRequestTransactions];
     [self.baseTableView mas_makeConstraints:^(MASConstraintMaker *make)
     {
         make.left.equalTo(@0);
         make.top.equalTo(@0);
         make.width.equalTo(@(KWidth));
-        make.height.equalTo(@(KHeight - 174 - 60));
+        make.bottom.equalTo(self.view);
     }];
     
     [TPNotificationCenter addObserver:self selector:@selector(takeOutSuccessNoti) name:TPTakeOutSuccessNotification object:nil];
@@ -95,7 +93,7 @@ static NSString  *TPTokenCellCellId = @"tokenCell";
 
 - (void)loadMoreTopics {
     if ( !( self.tokenTopics && self.tokenTopics.count >0)) {
-         [self.baseTableView.mj_footer endRefreshingWithNoMoreData];
+         [self.baseTableView.mj_footer endRefreshing];
         return;
     }
     TPTokenTopic *lastTopic =  self.tokenTopics.lastObject;
@@ -104,7 +102,6 @@ static NSString  *TPTokenCellCellId = @"tokenCell";
                            @"tokenId":_tokenId,
                            @"transactionType":_transType == TPTransactionTypeTransfer ? @1 : (_transType == TPTransactionTypeTransferOut ? @2:@0),
                            @"type":@"1",@"id":@([lastTopic.id integerValue]),@"pageSize":@10 };
-
     [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"asset/transactions" parameters:dic success:^(id responseObject, BOOL isCacheObject)
      {
          if ([responseObject[@"code"] isEqual:@200])
@@ -116,11 +113,10 @@ static NSString  *TPTokenCellCellId = @"tokenCell";
                   [self.baseTableView.mj_footer endRefreshing];
              }else
              {
+                 [self.baseTableView.mj_footer endRefreshing];
                  [self.baseTableView.mj_footer endRefreshingWithNoMoreData];
              }
-            
              [self.baseTableView reloadData];
-           
          }
      }
                                              failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
@@ -140,25 +136,15 @@ static NSString  *TPTokenCellCellId = @"tokenCell";
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // 去掉最后一行分割线
-    if (indexPath.row==self.tokenTopics.count-1) {
-         cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, [UIScreen mainScreen].bounds.size.width);
-    }else {
-         cell.separatorInset = UIEdgeInsetsMake(0, 0, 0,0);
-    }
-    
+    [QuickDo prettyTableViewCellSeparate:@[@(self.tokenTopics.count-1)] cell:cell indexPath:indexPath]; // 美观分割线
 }
 /**
  *  布局视图
  */
-
-
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if( self.isNomoreData ) {
-        
         return [tableView cellByIndexPath:indexPath dataArrays:self.noMoreDataArray];
-        
     }
     TPTokenCell *cell = [tableView dequeueReusableCellWithIdentifier:TPTokenCellCellId];
     if (!cell)
@@ -177,11 +163,12 @@ static NSString  *TPTokenCellCellId = @"tokenCell";
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TPTransDetailViewController *transDetailVC = [[TPTransDetailViewController alloc] init];
-    transDetailVC.tokenTopic = self.tokenTopics[indexPath.row];
-    [self.navigationController pushViewController:transDetailVC animated:YES];
+    if( indexPath.row >=0 && indexPath.row < self.tokenTopics.count ) {
+        TPTransDetailViewController *transDetailVC = [[TPTransDetailViewController alloc] init];
+        transDetailVC.tokenTopic = self.tokenTopics[indexPath.row];
+        [self.navigationController pushViewController:transDetailVC animated:YES];
+    }
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

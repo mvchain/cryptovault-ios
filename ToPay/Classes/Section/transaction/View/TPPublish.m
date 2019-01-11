@@ -98,16 +98,21 @@
 {
     _transModel = transModel;
     
-    
-    self.msLab.text = TPString(@"%@单价: %.4f %@",self.transType == TPTransactionTypeTransfer ? @"购买":@"出售",[transModel.price floatValue],self.currName);
-    self.currentLab.text = TPString(@"当前价格 %.4f %@",[transModel.price floatValue],self.currName);
+    CGFloat msLab_v = [QuickMaker makeFloatNumber:[transModel.price floatValue] tailNum:4];
+    self.msLab.text = TPString(@"%@单价: %.4f %@",self.transType == TPTransactionTypeTransfer ? @"购买":@"出售",msLab_v,self.currName);
+    CGFloat currentLabv =  [QuickMaker makeFloatNumber:[transModel.price floatValue] tailNum:4];
+    self.currentLab.text = TPString(@"当前价格 %.4f %@",currentLabv,self.currName);
 }
 
 #pragma mark - SJSliderDelegate
 -(void)sliderDidDrag:(SJSlider *)slider
 {
     self.floatLab.text = TPString(@"%.2f%%",slider.value);
-    self.msLab.text = TPString(@"%@单价：%.4f %@",self.transType == TPTransactionTypeTransfer ? @"购买":@"出售",[self.transModel.price floatValue] *slider.value/100 ,self.currName);
+    CGFloat price = [self.transModel.price floatValue];
+    price = [QuickMaker makeFloatNumber:price tailNum:4];
+    CGFloat v = price * slider.value/100;
+    v = [QuickMaker makeFloatNumber:v tailNum:4];
+    self.msLab.text = TPString(@"%@单价：%.4f %@",self.transType == TPTransactionTypeTransfer ? @"购买":@"出售",v ,self.currName);
     if (self.sliderBlock)
     {
         self.sliderBlock(slider);

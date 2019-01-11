@@ -81,7 +81,9 @@ static NSString  *TPMeCellCellId = @"meCell";
         [self.navigationController pushViewController:aboutVC animated:YES];
     }
 }
-
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [QuickDo prettyTableViewCellSeparate:@[@1] cell:cell indexPath:indexPath];
+}
 - (void)didReceiveMemoryWarning {
     
     [super didReceiveMemoryWarning];

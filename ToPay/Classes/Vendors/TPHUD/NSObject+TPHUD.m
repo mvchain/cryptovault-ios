@@ -7,43 +7,50 @@
 //
 
 #import "NSObject+TPHUD.h"
-
+#import "MBProgressHUD+Add.h"
 @implementation NSObject (TPHUD)
 
 - (void)showText:(NSString *)aText
 {
-    [TProgressHUD showWithStatus:aText];
-    [TProgressHUD dismissWithDelay:1];
+    [MBProgressHUD showMessag:aText toView:nil];
+    
+//    [TProgressHUD showWithStatus:aText];
+//    [TProgressHUD dismissWithDelay:1];
 }
 
 
 - (void)showErrorText:(NSString *)aText
 {
-    [TProgressHUD showErrorWithStatus:aText];
-    [TProgressHUD dismissWithDelay:1];
+      [MBProgressHUD showError:aText toView:nil];
+//    [TProgressHUD showErrorWithStatus:aText];
+//    [TProgressHUD dismissWithDelay:1];
 }
 
 - (void)showSuccessText:(NSString *)aText
 {
-    [TProgressHUD showSuccessWithStatus:aText];
-    [TProgressHUD dismissWithDelay:1];
+    [MBProgressHUD showSuccess:aText toView:nil];
+    
+//    [TProgressHUD showSuccessWithStatus:aText];
+//    [TProgressHUD dismissWithDelay:1];
 }
 
 - (void)showInfoText:(NSString *)aText
 {
-    [TProgressHUD showInfoWithStatus:aText];
-    [TProgressHUD dismissWithDelay:1];
+    [MBProgressHUD showWithText:aText view:nil];
+    
+//    [TProgressHUD showInfoWithStatus:aText];
+//    [TProgressHUD dismissWithDelay:1];
 }
 
 - (void)showLoading
 {
-    [TProgressHUD show];
+    //[TProgressHUD show];
 }
 
 
 - (void)dismissLoading
 {
-    [TProgressHUD dismiss];
+    //[TProgressHUD dismiss];
 }
 
 - (void)showProgress:(NSInteger)progress

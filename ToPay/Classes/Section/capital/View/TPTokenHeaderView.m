@@ -29,8 +29,8 @@
         _totalLab = [YFactoryUI YLableWithText:@"" color:[UIColor whiteColor] font:FONT(34)];
         [self addSubview:_totalLab];
         NSString *str = [QuickGet getLegalCurrency];
+        str = [str substringFromIndex:1];
         
- 
         _chooseBtn = [YFactoryUI YButtonWithTitle:str Titcolor:[UIColor whiteColor] font:FONT(12) Image:nil target:self action:@selector(chooseToken)];
         [self addSubview:_chooseBtn];
         

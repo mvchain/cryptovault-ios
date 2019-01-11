@@ -31,6 +31,8 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self)
     {
+        self.backgroundColor = [UIColor whiteColor];
+        
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.tokenName = tokenName;
         self.transType = transType;
@@ -67,7 +69,9 @@
         _limitLab.text = TPString(@"剩余可出售量：%.1f",[transModel.limitValue floatValue]);
     }
     
-    _priceLab.text = TPString(@"%.4f %@",[transModel.price floatValue],self.tokenName);
+    CGFloat price = [QuickMaker makeFloatNumber:[transModel.price floatValue] tailNum:4];
+    
+    _priceLab.text = TPString(@"%.4f %@",price,self.tokenName);
 }
 
 -(void)layoutSubviews

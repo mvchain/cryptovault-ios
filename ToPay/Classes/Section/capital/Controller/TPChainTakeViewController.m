@@ -149,8 +149,7 @@
         
         if (text.length == 6)
         {
-        [SVProgressHUD show];
-            
+        [self showLoading];
         [[WYNetworkManager sharedManager] sendPostRequest:WYJSONRequestSerializer url:@"asset/debit" parameters:@{@"password":text,
                                             @"value":self.takeText.comTextField.text}
             success:^(id responseObject, BOOL isCacheObject)
@@ -170,12 +169,15 @@
                  [self showErrorText:responseObject[@"message"]];
                  [TPTransV showMenuWithAlpha:NO];
              }
+             [self dismissLoading];
          }
             failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
          {
              NSLog(@"划账失败 %@",error);
              [self showErrorText:@"取出余额失败"];
              [TPTransV showMenuWithAlpha:NO];
+             [self dismissLoading];
+             
          }];
 
         }

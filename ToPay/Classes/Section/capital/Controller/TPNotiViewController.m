@@ -66,7 +66,12 @@ static NSString  *TPNotiCellCellId = @"notiCell";
 }
 - (void)loadMoreTopics {
  
-    if ( !( self.notiTopic && self.notiTopic.count >0) ) return;
+    if ( !( self.notiTopic && self.notiTopic.count >0) ){
+        [self.baseTableView.mj_footer endRefreshing];
+        
+        return;
+        
+    }
     TPNotificationModel * last = self.notiTopic.lastObject;
     NSDictionary *dic = @{@"pageSize":@10,@"type":@0,@"timestamp":last.createdAt};
     NSLog(@"%@",dic);

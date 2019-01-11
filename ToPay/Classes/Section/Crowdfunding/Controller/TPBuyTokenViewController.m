@@ -320,7 +320,8 @@
      {
          if (text.length == 6)
          {
-             [SVProgressHUD show];
+             [self showLoading];
+             
              NSLog(@"<<<<<<<%@ %@>>>>>>",text,self.buyTextView.comTextField.text);
              WYNetworkManager *manage = [WYNetworkManager sharedManager];
              NSLog(@"%@",manage.customHeaders);
@@ -338,9 +339,12 @@
                      [TPTransV showMenuWithAlpha:NO];
                      [self showInfoText:responseObject[@"message"]];
                  }
+                 [self dismissLoading];
+                 
              }
                 failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
              {
+                 [self dismissLoading];
                  [self showErrorText:@"预约失败"];
                  [TPTransV showMenuWithAlpha:NO];
              }];

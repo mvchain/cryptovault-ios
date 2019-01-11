@@ -45,16 +45,20 @@ static NSString  *TPUSDTCellId = @"USDTCell";
          make.width.equalTo(@(KWidth));
          make.height.equalTo(self.view.mas_height);
      }];
-
+   
+    
     [self setupRefreshWithShowFooter:YES];
 
     [TPNotificationCenter addObserver:self selector:@selector(loadNewTopics) name:TPTakeOutSuccessNotification object:nil];
     
     self.customNavBar.hidden = YES;
+    self.baseTableView.backgroundColor = [UIColor whiteColor];
 }
 
 -(void)loadNewTopics
 {
+    [self.baseTableView.mj_footer endRefreshing];
+    
     [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"transaction" parameters:
      @{@"pageSize":@(10),
        @"pairId":@(self.pairId),
@@ -92,6 +96,10 @@ static NSString  *TPUSDTCellId = @"USDTCell";
 
 -(void)loadMoreTopics
 {
+    if( !( self.transactionTopic && self.transactionTopic.count >0 ) ) {
+        [self.baseTableView.mj_footer endRefreshing];
+        return;
+    }
     TPTransactionModel *transM =  self.transactionTopic[self.transactionTopic.count-1];
     NSDictionary *dict =  @{@"id":transM.id,
                             @"pageSize":@(10),
@@ -100,11 +108,7 @@ static NSString  *TPUSDTCellId = @"USDTCell";
                             @"type":@"1"};
     
     [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"transaction" parameters:
-     @{@"id":transM.id,
-       @"pageSize":@(10),
-       @"pairId":@(self.pairId),
-       @"transactionType":self.transactionType,
-       @"type":@"1"} success:^(id responseObject, BOOL isCacheObject)
+     dict success:^(id responseObject, BOOL isCacheObject)
      {
          
          
@@ -112,20 +116,23 @@ static NSString  *TPUSDTCellId = @"USDTCell";
          {
              NSLog(@"%@",responseObject[@"data"]);
              
-             NSMutableArray<TPTransactionModel *> *moreTopic = [NSMutableArray<TPTransactionModel *> array];
+             NSMutableArray<TPTransactionModel *> *moreTopic = nil;
              
              moreTopic = [TPTransactionModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
              
              if (moreTopic.count == 0)
              {
-                 [self showInfoText:@"数据已经拉到底了"];
+                // [self showInfoText:@"数据已经拉到底了"];
+                 [self.baseTableView.mj_footer endRefreshingWithNoMoreData];
+                 
              }
                 else
              {
                  [self.transactionTopic addObjectsFromArray:moreTopic];
                  [self.baseTableView reloadData];
+                 RefreshEndFooter
              }
-             RefreshEndFooter
+             
          }
      }
          failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
@@ -156,7 +163,6 @@ static NSString  *TPUSDTCellId = @"USDTCell";
 {
     return 64;
 }
-
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TPSellViewController *sellVC = [[TPSellViewController alloc] initWithPairId:TPString(@"%ld",(long)self.pairId)  WithTransType:[self.transactionType  isEqualToString: @"1"] ?  TPTransactionTypeTransferOut:TPTransactionTypeTransfer publish:NO];
@@ -164,10 +170,13 @@ static NSString  *TPUSDTCellId = @"USDTCell";
     sellVC.cData = self.cData;
     sellVC.transModel = self.transactionTopic[indexPath.row];
     sellVC.isFromTableView = YES;
-    
     [self.navigationController pushViewController:sellVC animated:YES];
 }
 
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [QuickDo prettyTableViewCellSeparate:@[@(self.transactionTopic.count -1)] cell:cell indexPath:indexPath]; // 美观分割线
+}
 
 - (void)didReceiveMemoryWarning
 {

@@ -104,7 +104,7 @@
     if (isShowFooter == YES)
     {
         MJRefreshAutoNormalFooter *au =[MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
-        au.stateLabel.hidden = YES;
+        
         
         self.baseTableView.mj_footer = au;
         

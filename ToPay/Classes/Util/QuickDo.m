@@ -23,8 +23,6 @@
      *  UIImage *imageToShare = [UIImage imageNamed:@"imageName"];
      *  NSURL *urlToShare = [NSURL URLWithString:@"https://www.baidu.com"];
      *  NSArray *items = @[urlToShare,textToShare,imageToShare];
-
-     
      */
     if (items.count == 0 || target == nil) {
         return;
@@ -55,5 +53,31 @@
         [vc presentViewController:activityVC animated:YES completion:nil];
     }
 }
+
++ (void)prettyTableViewCellSeparate:(NSArray<NSNumber *> *)hideIndexs cell:(UITableViewCell *)cell indexPath:(NSIndexPath *)indexPath {
+    BOOL hide = NO;
+    for ( NSNumber *i in hideIndexs ) {
+        if ( [i integerValue] == indexPath.row ) {
+            hide = YES;
+            break;
+        }
+    }
+    if ( hide ) {
+        cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, [UIScreen mainScreen].bounds.size.width);
+    }else {
+        
+        if ([cell respondsToSelector:@selector(setSeparatorInset:)])
+        {
+            [cell setSeparatorInset:UIEdgeInsetsMake(0, 16, 0, 16)];
+        }
+        if ([cell respondsToSelector:@selector(setLayoutMargins:)])
+        {
+            [cell setLayoutMargins:UIEdgeInsetsMake(0, 16, 0, 16)];
+        }
+    }
+    
+}
+
+
 
 @end

@@ -40,4 +40,13 @@
     }
     return res;
 }
+
++ (CGFloat)makeFloatNumber:(CGFloat) num tailNum:(int)tailNum {
+    int sum = 10 ;
+    while (--tailNum) {
+        sum*=10;
+    }
+    int res_int =  (int)(num * sum);
+    return res_int / (CGFloat)sum;
+}
 @end

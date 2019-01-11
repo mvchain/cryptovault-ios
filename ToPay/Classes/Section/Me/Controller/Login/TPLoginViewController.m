@@ -166,7 +166,8 @@
 
 -(void)loginClcik
 {
-    [SVProgressHUD show];
+    //[SVProgressHUD show];
+    [self showLoading];
     
     if (self.textArr[1].text.length == 0)
     {
@@ -211,7 +212,10 @@
             else
         {
             [self showErrorText:responseObject[@"message"]];
+            [self dismissLoading];
+            
         }
+        [self dismissLoading];
     }
         failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
     {

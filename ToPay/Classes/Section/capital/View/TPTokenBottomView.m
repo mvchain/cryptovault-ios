@@ -58,8 +58,8 @@
         {
             make.left.equalTo(@16);
             make.right.equalTo(@(-16));
-            make.top.equalTo(@3);
-            make.height.equalTo(@44);
+            make.top.equalTo(@6);
+            make.height.equalTo(@40);
         }];
     }
         else
@@ -70,7 +70,7 @@
         [array mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:11 leadSpacing:16 tailSpacing:16];
         [array mas_makeConstraints:^(MASConstraintMaker *make)
         {
-            make.centerY.equalTo(self.mas_centerY);
+            make.top.equalTo(@6);
             
             make.height.equalTo(@40);
         }];
@@ -84,7 +84,7 @@
     [self.receiptBtn setTitle:titleArray[1] forState:UIControlStateNormal];
 }
 
--(void)takeOutClcik
+- (void)takeOutClcik
 {    
     if (self.chainTakeBlock)
     {
@@ -92,14 +92,14 @@
     }
 }
 
--(void)transferClcik
+- (void)transferClcik
 {
     if (self.chainTransferBlock)
     {
         self.chainTransferBlock();
     }
 }
--(void)receiptClcik
+- (void)receiptClcik
 {
     if (self.chainReceiptBlock)
     {

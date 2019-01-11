@@ -22,4 +22,12 @@
     return str;
     
 }
+
++ (CGFloat )getWhiteBottomHeight {
+    if( [JudegeCenter isIphoneX] )
+        return 52+39;
+    else
+        return 52;
+    
+}
 @end

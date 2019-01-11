@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 @interface QuickGet : NSObject
 + (NSString *)getLegalCurrency;
++ (CGFloat )getWhiteBottomHeight ;
 
 @end
 

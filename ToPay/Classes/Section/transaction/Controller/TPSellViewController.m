@@ -73,8 +73,11 @@
         {
 //            NSLog(@"挂单信息：%@",responseObject[@"data"]);
             self.transInfo = [TPTransInfoModel mj_objectWithKeyValues:responseObject[@"data"]];
-            self.sellLabs[0].text = TPString(@"%.4f",[self.transInfo.tokenBalance floatValue]);
-            self.sellLabs[1].text = TPString(@"%.4f",[self.transInfo.balance floatValue]);
+            CGFloat tkBalance = [QuickMaker makeFloatNumber:[self.transInfo.tokenBalance floatValue] tailNum:4];
+            CGFloat blance = [QuickMaker makeFloatNumber:[self.transInfo.balance floatValue] tailNum:4];
+            
+            self.sellLabs[0].text = TPString(@"%.4f",tkBalance);
+            self.sellLabs[1].text = TPString(@"%.4f",blance);
             if (self.isPublish)
             {
                 self.publishView.transModel = self.transInfo;
@@ -181,20 +184,22 @@
             make.width.equalTo(self.bottomView.mas_width);
             make.height.equalTo(@153);
         }];
-        
         publishView.sliderBlock = ^(SJSlider * _Nonnull slider)
         {
             self.currentPrice = slider.value / 100;
         
             if (self.comText.comTextField.text.length > 0)
             {
-                self.conLab.text = TPString(@"%.4f %@",[self.comText.comTextField.text floatValue] * [self.transInfo.price floatValue] * slider.value/100 , self.currName);
-              
+                CGFloat com = [QuickMaker makeFloatNumber:[self.comText.comTextField.text floatValue] tailNum:4] ;
+                CGFloat price = [QuickMaker makeFloatNumber:[self.transInfo.price floatValue] tailNum:4] ;
+                CGFloat conLab_v = com * price * slider.value / 100;
+                conLab_v = [QuickMaker makeFloatNumber:conLab_v tailNum:4];
+                self.conLab.text = TPString(@"%.4f %@",conLab_v , self.currName);
+                NSLog(@"dsjdkjsldjlsjdklsjdkjslkdjlsd");
+                
             }
         };
     }
-    
-    
     NSArray *titleArr;
     NSArray *placeArr;
     if (self.transType == TPTransactionTypeTransferOut)
@@ -237,10 +242,6 @@
          make.top.equalTo(takeText.mas_bottom).with.offset(4);
          make.height.equalTo(@17);
      }];
-    
-    
-    
-    
     UILabel *proLab = [YFactoryUI YLableWithText:@"总价格：" color:TP8EColor font:FONT(13)];
     [_bottomView addSubview:proLab];
     [proLab mas_makeConstraints:^(MASConstraintMaker *make)
@@ -317,11 +318,22 @@
 
     if (self.isPublish)
     {
-        self.conLab.text = TPString(@"%.4f %@",[comText.text floatValue] * [self.transInfo.price floatValue] * self.currentPrice,self.currName);
+        CGFloat com = [QuickMaker makeFloatNumber: [comText.text floatValue] tailNum:4];
+        CGFloat price = [QuickMaker makeFloatNumber:[self.transInfo.price floatValue] tailNum:4] ;
+        CGFloat currentPrice = [QuickMaker makeFloatNumber:self.currentPrice tailNum:4];
+//        CGFloat conLab_v = [comText.text floatValue] * [self.transInfo.price floatValue] * self.currentPrice;
+        CGFloat conLab_v = com * price * currentPrice;
+        conLab_v = [QuickMaker makeFloatNumber:conLab_v tailNum:4];
+        self.conLab.text = TPString(@"%.4f %@",conLab_v,self.currName);
     }
         else
     {
-        self.conLab.text = TPString(@"%.4f %@",[comText.text floatValue] * [self.transModel.price floatValue],self.currName);
+        
+        CGFloat com = [QuickMaker makeFloatNumber: [comText.text floatValue] tailNum:4];
+        CGFloat price = [QuickMaker makeFloatNumber:[self.transInfo.price floatValue] tailNum:4] ;
+        CGFloat conLab_v_2 = com * price;
+        conLab_v_2 = [QuickMaker makeFloatNumber:conLab_v_2 tailNum:4];
+        self.conLab.text = TPString(@"%.4f %@",conLab_v_2,self.currName);
     }
 }
 
@@ -357,8 +369,6 @@
     else
     transView.con2 = TPString(@"%.4f %@",[self.transModel.price floatValue],self.currName);
     
-   
-    
     [transView showMenuWithAlpha:YES];
     
     __block TPTransView *TPTransV = transView;
@@ -369,8 +379,6 @@
             CGFloat price = 0.0;
             if (self.isPublish)
             price = [self.transInfo.price floatValue] * self.currentPrice;
-            
-
             [[WYNetworkManager sharedManager] sendPostRequest:WYJSONRequestSerializer url:@"transaction" parameters:@{ @"id":self.transModel ? self.transModel.id:@"0",
                               @"pairId":self.pairId,
                               @"password":text,
@@ -391,7 +399,6 @@
                         }
                     }
                     [TPTransV showMenuWithAlpha:NO];
-                    
                     [TPNotificationCenter postNotificationName:TPTakeOutSuccessNotification object:nil];
                     [self.navigationController popViewControllerAnimated:YES];
                 }

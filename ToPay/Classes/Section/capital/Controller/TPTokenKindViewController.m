@@ -99,9 +99,10 @@
 -(void)QRClick
 {
     NIMScannerViewController * scannerVC = [[NIMScannerViewController alloc] initWithCardName:@"hahaha" avatar:nil completion:^(NSString *stringValue)
+                                            
     {
-        NSLog(@"stringValue:%@",stringValue);
-        if ([self.assetModel.tokenId isEqualToString:@"4"])
+        
+        if ([ self.assetModel.tokenId isEqualToString:@"4"])
         {
             //USDT BTC
             if ([self isBTC:stringValue])
@@ -122,8 +123,12 @@
             [self shwoErrorPopVC];
         }
     }];
+    scannerVC.tokenid = self.assetModel.tokenId;
+
+    [self presentViewController:scannerVC animated:YES completion:^{
+        
+    }];
     
-    [self.navigationController pushViewController:scannerVC animated:YES];
 }
 
 -(void)pushTransferClick:(NSString *)address
@@ -189,15 +194,21 @@
     TPTokenTopicViewController *transfer2VC = [[TPTokenTopicViewController alloc] initWithTokenId:self.assetModel.tokenId WithTransactionType:TPTransactionTypeTransfer];
 
     NSArray *childArr = @[allVC,transferVC,transfer2VC];
+    CGFloat height = KHeight - CGRectGetMaxY(_pageTitleView.frame);
+    if (![self.clData.tokenType isEqualToString:@"1"])
+    {
+        height-=52;
+        
+    }
     
-    CGFloat height = KHeight - StatusBarAndNavigationBarHeight - TAB_BAR_HEIGHT - 40;
+    
     
     self.pageContentScrollView = [[SGPageContentScrollView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_pageTitleView.frame), self.view.frame.size.width, height) parentVC:self childVCs:childArr];
     _pageContentScrollView.delegatePageContentScrollView = self;
     [self.view addSubview:_pageContentScrollView];
 }
 
--(void)setUpBottomView
+- (void)setUpBottomView
 {
     if ([self.clData.tokenType isEqualToString:@"1"])
     {
@@ -211,7 +222,7 @@
     {
         make.left.equalTo(@0);
         make.right.equalTo(@0);
-        make.height.equalTo(@(52));
+        make.height.equalTo(@([QuickGet getWhiteBottomHeight]));
         make.bottom.equalTo(self.view);
     }];
     

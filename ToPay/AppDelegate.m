@@ -32,6 +32,8 @@
     [self setNavBarAppearence];
     [self setUpIQKeyBoardManager];
     [self setUpJpush];
+
+    
     [JPUSHService setupWithOption:launchOptions appKey:@"ffb83d2be1729d733dd03c34"
                           channel:nil
                  apsForProduction:YES

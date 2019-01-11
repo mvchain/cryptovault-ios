@@ -227,7 +227,8 @@
     {
         if (text.length == 6)
         {
-            [SVProgressHUD show];
+            [self showLoading];
+            
             
             NSLog(@"%@",self.textArray[0].comTextField.text);
             NSLog(@"%@",text);
@@ -261,10 +262,12 @@
                 {
                     [self showErrorText:responseObject[@"message"]];
                 }
+                [self dismissLoading];
             }
                 failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
             {
                 [self showErrorText:@"转账失败"];
+                [self dismissLoading];
                 [TPTransV showMenuWithAlpha:NO];
                 NSLog(@"转账失败");
             }];
