@@ -25,7 +25,7 @@
     long long day = time / ( 24 * 60 * 60 );
     long long rest_sec = time % ( 24 * 60 * 60 ) ;
     long long hour = rest_sec / (60 * 60);
-    rest_sec = rest_sec % (60 * 60) ;
+    rest_sec = rest_sec % (60 * 60);
     long long mintue =  rest_sec / 60;
     rest_sec = rest_sec % 60 ;
     NSString *res ;

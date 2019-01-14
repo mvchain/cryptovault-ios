@@ -15,6 +15,7 @@
 // iOS10 注册 APNs 所需头文件
 #ifdef NSFoundationVersionNumber_iOS_9_x_Max
 #import <UserNotifications/UserNotifications.h>
+#import "TPGuiderViewController.h"
 #endif
 
 @interface AppDelegate ()<JPUSHRegisterDelegate>
@@ -59,8 +60,15 @@
 -(void)setUpWindow
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    if ([TPLoginUtil isLogin] == NO)
-        [self.window setRootViewController:[[TPLoginViewController alloc] init]];
+    if ([TPLoginUtil isLogin] == NO){
+        UINavigationController *nav = [[UINavigationController alloc] init];
+        nav.navigationBar.hidden = YES;
+        [nav setNavigationBarHidden:YES];
+        
+        TPGuiderViewController *tp = [[TPGuiderViewController alloc] init];
+        nav.viewControllers = @[tp];
+        [self.window setRootViewController:nav];
+    }
     else
         [self.window setRootViewController:[[YUTabBarController alloc] config]];
     
@@ -104,9 +112,9 @@
 
 -(void)setUpNetWorkManager
 {
-// 192.168.15.21
+// 192.168.15.31
 //    47.110.234.233
-    [WYNetworkConfig sharedConfig].baseUrl = @"http://192.168.15.21:10086/";
+    [WYNetworkConfig sharedConfig].baseUrl = @"http://192.168.15.31:10086/";
     [WYNetworkConfig sharedConfig].timeoutSeconds = 10;
     if ([TPLoginUtil userInfo].token)
     {
@@ -134,7 +142,7 @@
             loginM.token = responseObject[@"data"];
             [TPLoginUtil saveUserInfo:loginM];
             [[WYNetworkConfig sharedConfig] addCustomHeader:@{
-                                                            @"Authorization":@"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IjE4MDU3MTkzMDg4IiwidXNlcklkIjoyNSwic2VydmljZSI6ImFwcCIsInR5cGUiOiJ0b2tlbiIsImV4cCI6MTU0NzE5OTYzOX0.5zNH-nom2Qlz-GxUncnsuud28XIVzrE2_oU4nhp4QEI",
+                                                            @"Authorization":loginM.token,
                                                               @"Accept-Language":@"zh-cn"
                                                               }];
             [TPLoginUtil requestExchangeRate];

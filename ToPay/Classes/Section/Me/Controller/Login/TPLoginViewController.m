@@ -78,7 +78,6 @@
             }];
         }
         
-        
         [loginTextView.comTextField addTarget:self action:@selector(changeTextField:) forControlEvents:UIControlEventEditingChanged];
         [self.view addSubview:loginTextView];
         [self.textArr addObject:loginTextView.comTextField];
@@ -90,7 +89,6 @@
              make.height.equalTo(@71);
          }];
     }
-    
     UIButton *quitBtn = [YFactoryUI YButtonWithTitle:@"登录" Titcolor:[UIColor whiteColor] font:FONT(15) Image:nil target:self action:@selector(loginClcik)];
     [quitBtn setLayer:23 WithBackColor:TPMainColor];
     [self.view addSubview:quitBtn];
@@ -121,10 +119,13 @@
 
 -(void)countDownClick:(JKCountDownButton *)btn
 {
+    
     if (![self isMobileNumber:self.textArr[0].text] )
     {
         [self showInfoText:@"请输入正确的手机号"];
     }
+    [btn startCountDownWithSecond:60];
+    
     [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"user/sms" parameters:@{@"cellphone":self.textArr[0].text} success:^(id responseObject, BOOL isCacheObject)
     {
         if ([responseObject[@"code"] isEqual:@200])
@@ -234,35 +235,55 @@
     self = [super init];
     if (self)
     {
-        _comTitleLabel = [YFactoryUI YLableWithText:title color:TP59Color font:FONT(13)];
-        [self addSubview:_comTitleLabel];
-        
-        
-        _comTextField = [YFactoryUI YTextFieldWithPlaceholder:[NSString stringWithFormat:@"%@",desc] color:TP8EColor font:FONT(15) secureTextEntry:YES delegate:nil];
-        _comTextField.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 18, 0)];
-        _comTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        _comTextField.leftView.userInteractionEnabled = NO;
-        _comTextField.leftViewMode = UITextFieldViewModeAlways;
-        [_comTextField setLayerCornerRadius:22 WithColor:TP59Color WithBorderWidth:1];
-        [self addSubview:_comTextField];
-        [self.comTitleLabel mas_makeConstraints:^(MASConstraintMaker *make)
-         {
-             make.top.equalTo(@0);
-             make.left.equalTo(@32);
-             make.height.equalTo(@17);
-         }];
-        
-        [self.comTextField mas_makeConstraints:^(MASConstraintMaker *make)
-         {
-             make.left.equalTo(@16);
-             make.top.equalTo(self.comTitleLabel.mas_bottom).with.offset(10);
-             make.width.equalTo(@(KWidth - 16*2));
-             make.height.equalTo(@44);
-         }];
+        [self setUpWithTitle:title desc:desc];
     }
     return self;
 }
 
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self setUpWithTitle:@"" desc:@""];
+        
+    }
+    return self;
+}
+- (void)noTitleLabel{
+    [_comTitleLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+         make.height.equalTo(@0);
+    }];
+    [_comTextField mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.comTitleLabel.mas_bottom).with.offset(0);
+    }];
+}
+- (void)setTitle:(NSString *)title desc:(NSString *)desc  {
+    [_comTitleLabel setText:title];
+    _comTextField.placeholder = desc;
+}
+- (void)setUpWithTitle:(NSString *)title desc:(NSString *)desc {
+    _comTitleLabel = [YFactoryUI YLableWithText:title color:TP59Color font:FONT(13)];
+    [self addSubview:_comTitleLabel];
+    _comTextField = [YFactoryUI YTextFieldWithPlaceholder:[NSString stringWithFormat:@"%@",desc] color:TP8EColor font:FONT(15) secureTextEntry:YES delegate:nil];
+    _comTextField.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 18, 0)];
+    _comTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    _comTextField.leftView.userInteractionEnabled = NO;
+    _comTextField.leftViewMode = UITextFieldViewModeAlways;
+    [_comTextField setLayerCornerRadius:22 WithColor:TP59Color WithBorderWidth:1];
+    [self addSubview:_comTextField];
+    [self.comTitleLabel mas_makeConstraints:^(MASConstraintMaker *make)
+     {
+         make.top.equalTo(@0);
+         make.left.equalTo(@32);
+         make.height.equalTo(@17);
+     }];
+    [self.comTextField mas_makeConstraints:^(MASConstraintMaker *make)
+     {
+         make.left.equalTo(@16);
+         make.top.equalTo(self.comTitleLabel.mas_bottom).with.offset(10);
+         make.width.equalTo(self).with.offset(-16*2);
+         make.height.equalTo(@44);
+     }];
+}
 -(void)layoutSubviews
 {
     [super layoutSubviews];

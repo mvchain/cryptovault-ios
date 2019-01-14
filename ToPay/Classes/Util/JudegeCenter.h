@@ -14,7 +14,7 @@
 + (BOOL) isBTC:(NSString *)btcString;
 + (BOOL) isVaildAddrWithTokenId:(NSString *)tokenId addr:(NSString *)addr ;
 + (BOOL) isIphoneX;
-
++ (BOOL) isAvailableEmail:(NSString *)email;
 @end
 
 

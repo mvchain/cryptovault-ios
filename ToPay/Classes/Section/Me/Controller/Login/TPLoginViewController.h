@@ -24,6 +24,10 @@
 
 - (instancetype)initWithTitle:(NSString *)title WithDesc:(NSString *)desc;
 
+- (void)noTitleLabel ;
+
+- (void)setTitle:(NSString *)title desc:(NSString *)desc ;
+
 @end
 
 

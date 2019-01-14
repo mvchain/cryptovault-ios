@@ -48,4 +48,8 @@
  */
 +(BOOL)isLogin;
 
++ (void)refreshToken ;
+
++ (void)setRequestToken:(NSString *)token ;
+
 @end

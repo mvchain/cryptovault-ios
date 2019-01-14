@@ -122,6 +122,38 @@
          NSLog(@"获取法币汇率失败 %@",error);
      }];
 }
++ (void)setRequestToken:(NSString *)token  {
+    [[WYNetworkConfig sharedConfig] addCustomHeader:@{
+                                                      @"Authorization":token,
+                                                      @"Accept-Language":@"zh-cn"
+                                                      }];
+    
+}
 
++ (void)refreshToken {
+    if ([TPLoginUtil isLogin] == NO)
+    {
+        [USER_DEFAULT setObject:@"1" forKey:TPNowLegalCurrencyKey];
+        [USER_DEFAULT setObject:@"￥" forKey:TPNowLegalSymbolKey];
+        return ;
+    }
+    [[WYNetworkConfig sharedConfig] addCustomHeader:@{@"Authorization":[TPLoginUtil userInfo].refreshToken}];
+    [[WYNetworkManager sharedManager] sendPostRequest:WYJSONRequestSerializer url:@"user/refresh" parameters:nil success:^(id responseObject, BOOL isCacheObject)
+     {
+         if ([responseObject[@"code"] isEqual:@200])
+         {
+             TPLoginModel *loginM = [TPLoginUtil userInfo];
+             loginM.token = responseObject[@"data"];
+             [TPLoginUtil saveUserInfo:loginM];
+             [TPLoginUtil setRequestToken:loginM.token];
+             
+             [TPLoginUtil requestExchangeRate];
+         }
+     }
+                                              failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
+     {
+         NSLog(@"刷新token失败");
+     }];
 
+}
 @end

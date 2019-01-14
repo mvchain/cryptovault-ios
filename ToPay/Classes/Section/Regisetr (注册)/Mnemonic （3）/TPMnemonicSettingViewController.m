@@ -1,35 +1,23 @@
 //
-//  TPRegisterViewController.m
+//  TPMnemonicSettingViewController.m
 //  ToPay
 //
-//  Created by 蒲公英 on 2019/1/11.
+//  Created by 蒲公英 on 2019/1/14.
 //  Copyright © 2019年 蒲公英. All rights reserved.
 //
 
-#import "TPRegisterViewController.h"
-#import "TPRgeisterViewModel.h"
-@interface TPRegisterViewController ()
-@property (strong,nonatomic) TPRgeisterViewModel *viewModel;
+#import "TPMnemonicSettingViewController.h"
+
+@interface TPMnemonicSettingViewController ()
+
 @end
 
-@implementation TPRegisterViewController
+@implementation TPMnemonicSettingViewController
 
-#pragma mark Lazy Load
-// vm
-- (TPRgeisterViewModel *)viewModel {
-    if( !_viewModel ) {
-        _viewModel = [[TPRgeisterViewModel alloc]init];
-    }
-    return _viewModel;
-}
-
-#pragma mark System Method
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
-
-#pragma mark View Method
 
 /*
 #pragma mark - Navigation
