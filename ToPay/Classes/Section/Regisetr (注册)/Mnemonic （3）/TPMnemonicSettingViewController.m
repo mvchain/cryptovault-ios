@@ -7,26 +7,161 @@
 //
 
 #import "TPMnemonicSettingViewController.h"
+#import "TPMnemonicSettingViewModel.h"
+#import "TPMemonicStatusCollectionViewCell.h"
+#import "TPMemonicCollectionViewCell.h"
+#import "YUTabBarController.h"
+#define UP_CELL_COLLECT_ID @"UP_CELL_COLLECT_ID"
+#define DOWN_CELL_COLLECT_ID @"DOWN_CELL_COLLECT_ID"
 
-@interface TPMnemonicSettingViewController ()
+#define DOWN_CELL_HEIGHT 30
+#define UP_CELL_HEIGHT 20
+#define Line_Space 16
+#define V_Space 15
+// 代理是在xib上拖拽的
+@interface TPMnemonicSettingViewController ()<UICollectionViewDelegate,UICollectionViewDataSource ,UICollectionViewDelegateFlowLayout>
+@property (strong, nonatomic) TPMnemonicSettingViewModel *viewModel;
+@property (weak, nonatomic) IBOutlet UICollectionView *upCollectionView;
+@property (weak, nonatomic) IBOutlet UICollectionView *downCollectionView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *atly_downCollection_height;
+@property (weak, nonatomic) IBOutlet UIButton *nextSetpButton;
 
 @end
 
 @implementation TPMnemonicSettingViewController
 
+#pragma mark lazy load
+- (TPMnemonicSettingViewModel *)viewModel {
+    if (!_viewModel) {
+        _viewModel = [[TPMnemonicSettingViewModel alloc] init];
+    }
+    return _viewModel;
+}
+#pragma mark initialize
+- (void)initUI {
+    [self.upCollectionView registerNib:[UINib nibWithNibName:@"TPMemonicCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:UP_CELL_COLLECT_ID];
+    [self.downCollectionView registerNib:[UINib nibWithNibName:@"TPMemonicStatusCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:DOWN_CELL_COLLECT_ID];
+    NSInteger nums = self.viewModel.downDataArrays.count;
+    NSInteger row_count = ( nums / 3 );
+    CGFloat h = row_count * DOWN_CELL_HEIGHT + Line_Space* (row_count-1);
+    self.atly_downCollection_height.constant = h;
+    [self.upCollectionView yu_smallCircleStyle];
+    [self.downCollectionView yu_smallCircleStyle];
+    [self.nextSetpButton gradualChangeStyle];
+    
+}
+
+#pragma mark system method 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [self initUI];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    if ( collectionView == self.upCollectionView ) {
+        return self.viewModel.upDataArrays.count;
+    }else {
+        return self.viewModel.downDataArrays.count;
+    }
 }
-*/
 
+// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
+- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+ 
+    if (collectionView == self.upCollectionView) {
+        return [self returnUpCollectionViewCell:indexPath];
+    }else {
+        return [self returnDownCollectionViewCell:indexPath];
+    }
+    
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (collectionView == self.upCollectionView) {
+        CGFloat ew =  collectionView.width / 3.0;
+        return CGSizeMake(ew, 20);
+    } else {
+        CGFloat ew =  (collectionView.width - V_Space*2) /3 ;
+        return CGSizeMake(ew, DOWN_CELL_HEIGHT);
+    }
+}
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
+{
+    return Line_Space; // 行间距
+}
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
+{
+    if (collectionView == self.upCollectionView) {
+        return 0;
+    }else {
+        return V_Space;
+    }
+}
+- ( UIEdgeInsets )collectionView:( UICollectionView *)collectionView layout:( UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:( NSInteger )section {
+    if (collectionView == self.upCollectionView) {
+        return UIEdgeInsetsMake ( 13 , 0 , 0 , 0 ); // 顶部填充13
+    }
+    return UIEdgeInsetsMake ( 0 , 0 , 0 , 0 );
+}
+
+#pragma mark local method
+- (UICollectionViewCell *)returnUpCollectionViewCell:(NSIndexPath *)indexPath {
+    TPMemonicCollectionViewCell *cell = [self.upCollectionView dequeueReusableCellWithReuseIdentifier:UP_CELL_COLLECT_ID forIndexPath:indexPath];
+    NSString *title = self.viewModel.upDataArrays[indexPath.row].title;
+    [cell setTitle:title];
+    return cell;
+}
+- (UICollectionViewCell *)returnDownCollectionViewCell:(NSIndexPath *)indexPath {
+    TPMemonicStatusCollectionViewCell *cell = [self.downCollectionView dequeueReusableCellWithReuseIdentifier:DOWN_CELL_COLLECT_ID forIndexPath:indexPath];
+    TPMemonicStatusCollectionViewCellModel *model = self.viewModel.downDataArrays[indexPath.row];
+    [cell setModel:model];
+    return cell;
+}
+
+#pragma mark event method
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (collectionView == self.upCollectionView) {
+        TPMemonicStatusCollectionViewCellModel *model = self.viewModel.upDataArrays[indexPath.row];
+        model.isSelected = !model.isSelected;
+        [self.viewModel.upDataArrays removeObject:model];
+        
+    }
+    if( collectionView == self.downCollectionView ) {
+        TPMemonicStatusCollectionViewCellModel *model = self.viewModel.downDataArrays[indexPath.row];
+        if (!model.isSelected) {
+            // 当前没选中，按下
+                [self.viewModel.upDataArrays addObject:model];
+          
+        }else {
+            // 当前选中状态,取消
+                [self.viewModel.upDataArrays removeObject:model];
+        }
+        model.isSelected = !model.isSelected;
+    }
+    [self.upCollectionView reloadData];
+    [self.downCollectionView reloadData];
+}
+- (IBAction)onNextStepTap:(id)sender {
+    NSMutableArray *marr = [[NSMutableArray alloc]init];
+    if (self.viewModel.upDataArrays.count != self.viewModel.downDataArrays.count) {
+        [self showErrorText:@"请选完整"];
+        return;
+    }
+    for (TPMemonicStatusCollectionViewCellModel *model in self.viewModel.upDataArrays) {
+        [marr addObject:model.title];
+    }
+    [self.viewModel checkoutMnemonicsWithEmail:self.viewModel.cacheRegisterModel.email
+                                     mnemonics:marr
+                                      complete:^(BOOL isSucc, NSString *reasonInf) {
+                                          if (isSucc) {
+                                              [self showSuccessText:@"激活成功"];
+                                              UIApplication *app = [UIApplication sharedApplication];
+                                              AppDelegate *dele = (AppDelegate*)app.delegate;
+                                              dele.window.rootViewController = [[YUTabBarController alloc] config];
+                                          }else {
+                                              [self showErrorText:reasonInf];
+                                          }
+    }];
+}
 @end

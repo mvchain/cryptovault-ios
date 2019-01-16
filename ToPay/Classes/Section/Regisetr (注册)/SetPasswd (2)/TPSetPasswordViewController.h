@@ -10,7 +10,7 @@
 
 
 #import "TPSetPasswordViewModel.h"
-@interface TPSetPasswordViewController : TPBaseViewController
+@interface TPSetPasswordViewController : YURootViewController
 @property (strong,nonatomic) TPSetPasswordViewModel *viewModel;
 @end
 

@@ -87,10 +87,8 @@
     {[btn setTitleColor:color forState:UIControlStateNormal];}
 //    btn.backgroundColor =YRandomColor;
     [btn.titleLabel setFont:font];
-    
     [btn setImage:Image forState:UIControlStateNormal];//setBackgroundImage:backgroundImage forState:UIControlStateNormal];
     [btn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
-    
     return btn;
 }
 

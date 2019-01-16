@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "YUTabBarController.h"
 #import "JKCountDownButton.h"
+#import "TPRgeisterViewModel.h"
 @interface TPLoginViewController ()
 
 @property (nonatomic, strong) NSMutableArray<UITextField *> *textArr;
@@ -44,7 +45,7 @@
          make.height.equalTo(@46);
      }];
     
-    NSArray *titleArr = @[@"手机号",@"密码",@"验证码"];
+    NSArray *titleArr = @[@"邮箱",@"密码",@"验证码"];
     NSArray *descArr = @[@"请输入手机号",@"请输入密码",@"请输入验证码"];
     TPLoginTextView *loginTextView;
     for (int i = 0; i < titleArr.count ; i++ )
@@ -54,7 +55,10 @@
         if (i == 0 || i == 2)
         {
             loginTextView.comTextField.secureTextEntry = NO;
-            loginTextView.comTextField.keyboardType = UIKeyboardTypeNumberPad;
+            if (i ==2)
+                loginTextView.comTextField.keyboardType = UIKeyboardTypeNumberPad;
+            if(i ==0)
+                 loginTextView.comTextField.keyboardType = UIKeyboardTypeEmailAddress;
         }
         
         if (i == 2)
@@ -120,36 +124,26 @@
 -(void)countDownClick:(JKCountDownButton *)btn
 {
     
-    if (![self isMobileNumber:self.textArr[0].text] )
+    if (![JudegeCenter isAvailableEmail:self.textArr[0].text] )
     {
-        [self showInfoText:@"请输入正确的手机号"];
+        [self showInfoText:@"请输入正确的邮箱"];
     }
     [btn startCountDownWithSecond:60];
     
-    [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"user/sms" parameters:@{@"cellphone":self.textArr[0].text} success:^(id responseObject, BOOL isCacheObject)
-    {
-        if ([responseObject[@"code"] isEqual:@200])
-        {
+    
+    TPRgeisterViewModel *reg = [[TPRgeisterViewModel alloc]init];
+    [reg sendVaildCodeByEmail:self.textArr[0].text complete:^(BOOL isSucc) {
+        if (isSucc) {
             [self showSuccessText:@"已发送"];
             [btn startCountDownWithSecond:60];
             btn.backgroundColor = TPA7Color;
+        }else{
+            [self showErrorText:@"发送失败"];
+            
         }
-            else
-        {
-            [self showErrorText:responseObject[@"message"]];
-        }
-    }
-        failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
-    {
-        [self showErrorText:@"获取验证码失败"];
     }];
     
-
-    [btn countDownFinished:^NSString *(JKCountDownButton *countDownButton, NSUInteger second)
-    {
-        btn.backgroundColor = TP59Color;
-        return @"重新发送";
-    }];
+   
 }
 
 
@@ -193,7 +187,6 @@
             TPLoginModel *loginM = [TPLoginModel mj_objectWithKeyValues:responseObject[@"data"]];
             // set Request token
             [QuickDo setJPushAlians:loginM.userId];
-            
             [[WYNetworkConfig sharedConfig] addCustomHeader:@{@"Authorization":loginM.token,@"Accept-Language":@"zh-cn"}];
 
             // Store user information

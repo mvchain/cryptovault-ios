@@ -14,6 +14,7 @@
 #import "TPMeCell.h"
 #import "TPMeHeaderView.h"
 #import "TPCurrencyList.h"
+#import "TPAccountSafeViewController.h"
 @interface TPMeViewController ()
 @property (nonatomic, strong) NSArray *dataSource;
 @property (nonatomic, strong) NSArray *dataSourceImg;
@@ -26,8 +27,8 @@ static NSString  *TPMeCellCellId = @"meCell";
     self.customNavBar.title = @"我的";
     self.customNavBar.hidden = YES;
     [self showSystemNavgation:NO];
-    _dataSource = @[@"语言",@"关于"];
-    _dataSourceImg = @[@"language_icon",@"about_icon"];
+    _dataSource = @[@"账户安全",@"邀请注册",@"语言",@"关于"];
+    _dataSourceImg = @[@"language_icon",@"about_icon",@"about_icon",@"about_icon"];
     TPMeHeaderView *headerView = [[TPMeHeaderView alloc] init];
     [self.view addSubview:headerView];
     [headerView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -62,7 +63,6 @@ static NSString  *TPMeCellCellId = @"meCell";
     cell.iconImgV.image = [UIImage imageNamed:_dataSourceImg[indexPath.row]];
     return cell;
 }
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return  48;
@@ -70,19 +70,26 @@ static NSString  *TPMeCellCellId = @"meCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0)
+    
+    if (indexPath.row == 0) {
+        TPAccountSafeViewController *account =[[TPAccountSafeViewController alloc]init];
+        [self.navigationController pushViewController:account animated:YES];
+        
+    }
+    
+    if (indexPath.row == 2)
     {
         TPLanguageViewController *languageVC = [[TPLanguageViewController alloc] init];
         [self.navigationController pushViewController:languageVC animated:YES];
     }
-        else if (indexPath.row == 1)
+        else if (indexPath.row == 3)
     {
         TPAboutViewController *aboutVC = [[TPAboutViewController alloc] init];
         [self.navigationController pushViewController:aboutVC animated:YES];
     }
 }
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    [QuickDo prettyTableViewCellSeparate:@[@1] cell:cell indexPath:indexPath];
+    [QuickDo prettyTableViewCellSeparate:@[@3] cell:cell indexPath:indexPath];
 }
 - (void)didReceiveMemoryWarning {
     

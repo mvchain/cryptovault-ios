@@ -12,6 +12,7 @@
 #import "TPGuiderViewModel.h"
 #import "TPSetPasswordViewModel.h"
 #import "TPMnemonicDisplayViewController.h"
+#import "UIButton+YUButtonStyle.h"
 @interface TPGuiderViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet UIButton *registerButton;
@@ -42,7 +43,13 @@
     [super viewDidLoad];
     [self setUp];
 }
-#pragma mark custom method
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.loginButton allWhiteStyle];
+    [self.registerButton whiteBorderStyle];
+    
+}
+#pragma mark local method
 
 #pragma mark event
 - (IBAction)onLoginTap:(id)sender {

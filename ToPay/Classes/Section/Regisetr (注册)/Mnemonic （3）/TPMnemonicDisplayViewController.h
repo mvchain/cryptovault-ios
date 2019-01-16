@@ -10,8 +10,7 @@
 
 
 
-@interface TPMnemonicDisplayViewController : TPBaseViewController
-
+@interface TPMnemonicDisplayViewController : YURootViewController
 
 @end
 

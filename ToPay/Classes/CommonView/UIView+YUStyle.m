@@ -240,6 +240,10 @@
 
 
 
-
++ (instancetype)xib_loadUsingClassName {
+    NSString *className = NSStringFromClass([self class]);
+    UINib *nib = [UINib nibWithNibName:className bundle:nil];
+    return [nib instantiateWithOwner:nil options:nil].firstObject;
+}
 
 @end

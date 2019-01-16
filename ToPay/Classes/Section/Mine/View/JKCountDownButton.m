@@ -13,7 +13,6 @@
                                          repeats:(BOOL)repeats;
 @end
 
-
 @interface JKCountDownButton(){
     NSInteger _second;
     NSUInteger _totalSecond;
@@ -81,7 +80,7 @@
         }
         else
         {
-            NSString *title = [NSString stringWithFormat:@"%zds后重新获取",_second];
+            NSString *title = [NSString stringWithFormat:@"%zd s",_second];
             [self setTitle:title forState:UIControlStateNormal];
             [self setTitle:title forState:UIControlStateDisabled];
             

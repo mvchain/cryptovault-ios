@@ -12,13 +12,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TPRegisterViewController">
             <connections>
-                <outlet property="emailTextView" destination="mum-X5-7N2" id="IpE-2J-tqU"/>
-                <outlet property="invitedCodeTextView" destination="WBc-Cl-t2F" id="UlY-63-fdk"/>
+                <outlet property="emailTextView" destination="mum-X5-7N2" id="h53-ya-Aoa"/>
+                <outlet property="invitedCodeTextView" destination="WBc-Cl-t2F" id="V0i-hd-yEf"/>
                 <outlet property="nextStepButton" destination="mEn-j1-2sd" id="JAh-Gy-IEh"/>
-                <outlet property="nickNameTextView" destination="x02-Cb-2zk" id="NDQ-RI-dJ4"/>
+                <outlet property="nickNameTextView" destination="x02-Cb-2zk" id="F0w-cj-Jhu"/>
                 <outlet property="scrollView" destination="lk2-YH-Oz6" id="1io-XO-JmA"/>
                 <outlet property="sendVaildCodeButton" destination="BEx-b9-aR3" id="LJ3-9L-Wa8"/>
-                <outlet property="vaildCodeTextView" destination="IoT-n6-wwD" id="U0V-We-dNy"/>
+                <outlet property="vaildCodeTextView" destination="IoT-n6-wwD" id="1WJ-K5-pzq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -31,83 +31,86 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注册" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e49-V1-wrh">
-                            <rect key="frame" x="62" y="106" width="35" height="21"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="35" id="lRg-YP-MnI"/>
-                                <constraint firstAttribute="height" constant="21" id="rRS-qU-riF"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
+                            <rect key="frame" x="41" y="79" width="49" height="29"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                            <color key="textColor" red="0.34901960784313724" green="0.35294117647058826" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WBc-Cl-t2F" customClass="TPLoginTextView">
-                            <rect key="frame" x="0.0" y="195" width="375" height="50"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WBc-Cl-t2F" customClass="YUTextView">
+                            <rect key="frame" x="40" y="152" width="295" height="50"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="psu-qd-F1U"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x02-Cb-2zk" customClass="TPLoginTextView">
-                            <rect key="frame" x="0.0" y="265" width="375" height="50"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x02-Cb-2zk" customClass="YUTextView">
+                            <rect key="frame" x="40" y="210" width="295" height="50"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mum-X5-7N2" customClass="TPLoginTextView">
-                            <rect key="frame" x="0.0" y="345" width="375" height="50"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mum-X5-7N2" customClass="YUTextView">
+                            <rect key="frame" x="40" y="268" width="295" height="50"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IoT-n6-wwD" customClass="TPLoginTextView">
-                            <rect key="frame" x="0.0" y="425" width="200" height="50"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IoT-n6-wwD" customClass="YUTextView">
+                            <rect key="frame" x="40" y="326" width="172" height="50"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="200" id="Q8R-TE-UVE"/>
+                                <constraint firstAttribute="width" constant="172" id="Q8R-TE-UVE"/>
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mEn-j1-2sd">
-                            <rect key="frame" x="142.5" y="542" width="90" height="30"/>
+                            <rect key="frame" x="115.5" y="443" width="144" height="44"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="90" id="4yX-EZ-PK5"/>
+                                <constraint firstAttribute="width" constant="144" id="4yX-EZ-PK5"/>
+                                <constraint firstAttribute="height" constant="44" id="f0G-Vb-k3s"/>
                             </constraints>
                             <state key="normal" title="下一步"/>
                             <connections>
                                 <action selector="onNextTap:" destination="-1" eventType="touchUpInside" id="eTh-ii-hI3"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEx-b9-aR3" customClass="JKCountDownButton">
-                            <rect key="frame" x="228" y="435" width="77" height="30"/>
-                            <state key="normal" title="发送验证码"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEx-b9-aR3" customClass="JKCountDownButton">
+                            <rect key="frame" x="240" y="332" width="105" height="38"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="105" id="KxZ-Si-sDI"/>
+                                <constraint firstAttribute="height" constant="38" id="POX-bx-qNr"/>
+                            </constraints>
+                            <state key="normal" title="发送验证码">
+                                <color key="titleColor" red="0.78039215689999997" green="0.78039215689999997" blue="0.81568627449999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
                             <connections>
                                 <action selector="onSendVaildCodeTap:" destination="-1" eventType="touchUpInside" id="ODn-mx-CcK"/>
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mYu-FH-0ha">
-                            <rect key="frame" x="0.0" y="44" width="375" height="17"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="17" id="8eM-UH-1so"/>
+                                <constraint firstAttribute="height" id="8eM-UH-1so"/>
                             </constraints>
                         </view>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="WBc-Cl-t2F" secondAttribute="trailing" id="16a-Uf-Hby"/>
+                        <constraint firstAttribute="trailing" secondItem="WBc-Cl-t2F" secondAttribute="trailing" constant="40" id="16a-Uf-Hby"/>
                         <constraint firstItem="x02-Cb-2zk" firstAttribute="height" secondItem="WBc-Cl-t2F" secondAttribute="height" id="2QS-Oi-0xa"/>
                         <constraint firstItem="mum-X5-7N2" firstAttribute="centerX" secondItem="WBc-Cl-t2F" secondAttribute="centerX" id="6wA-nw-TaE"/>
                         <constraint firstItem="mum-X5-7N2" firstAttribute="height" secondItem="WBc-Cl-t2F" secondAttribute="height" id="Ccs-zc-mNi"/>
-                        <constraint firstItem="IoT-n6-wwD" firstAttribute="top" secondItem="mum-X5-7N2" secondAttribute="bottom" constant="30" id="EdJ-MQ-Uy2"/>
+                        <constraint firstItem="IoT-n6-wwD" firstAttribute="top" secondItem="mum-X5-7N2" secondAttribute="bottom" constant="8" id="EdJ-MQ-Uy2"/>
                         <constraint firstItem="mEn-j1-2sd" firstAttribute="top" secondItem="IoT-n6-wwD" secondAttribute="bottom" constant="67" id="HXk-RT-lmK"/>
                         <constraint firstItem="IoT-n6-wwD" firstAttribute="height" secondItem="WBc-Cl-t2F" secondAttribute="height" id="I3h-qu-jfD"/>
                         <constraint firstItem="BEx-b9-aR3" firstAttribute="centerY" secondItem="IoT-n6-wwD" secondAttribute="centerY" id="IcG-n7-3Ei"/>
-                        <constraint firstItem="x02-Cb-2zk" firstAttribute="top" secondItem="WBc-Cl-t2F" secondAttribute="bottom" constant="20" id="Kba-HC-C0D"/>
-                        <constraint firstItem="WBc-Cl-t2F" firstAttribute="leading" secondItem="lk2-YH-Oz6" secondAttribute="leading" id="Rkb-fo-AsG"/>
-                        <constraint firstItem="WBc-Cl-t2F" firstAttribute="top" secondItem="e49-V1-wrh" secondAttribute="bottom" constant="68" id="SLl-Og-8KQ"/>
-                        <constraint firstItem="mum-X5-7N2" firstAttribute="top" secondItem="x02-Cb-2zk" secondAttribute="bottom" constant="30" id="VEQ-Qh-snI"/>
+                        <constraint firstItem="x02-Cb-2zk" firstAttribute="top" secondItem="WBc-Cl-t2F" secondAttribute="bottom" constant="8" id="Kba-HC-C0D"/>
+                        <constraint firstItem="mYu-FH-0ha" firstAttribute="top" secondItem="lk2-YH-Oz6" secondAttribute="top" id="N8N-Wt-wbR"/>
+                        <constraint firstItem="WBc-Cl-t2F" firstAttribute="leading" secondItem="lk2-YH-Oz6" secondAttribute="leading" constant="40" id="Rkb-fo-AsG"/>
+                        <constraint firstItem="WBc-Cl-t2F" firstAttribute="top" secondItem="e49-V1-wrh" secondAttribute="bottom" constant="44" id="SLl-Og-8KQ"/>
+                        <constraint firstItem="mum-X5-7N2" firstAttribute="top" secondItem="x02-Cb-2zk" secondAttribute="bottom" constant="8" id="VEQ-Qh-snI"/>
                         <constraint firstItem="x02-Cb-2zk" firstAttribute="width" secondItem="WBc-Cl-t2F" secondAttribute="width" id="VW4-ck-5I9"/>
                         <constraint firstAttribute="trailing" secondItem="mYu-FH-0ha" secondAttribute="trailing" id="bdp-oB-7l6"/>
                         <constraint firstItem="mum-X5-7N2" firstAttribute="width" secondItem="WBc-Cl-t2F" secondAttribute="width" id="cVg-kB-2Hp"/>
                         <constraint firstItem="x02-Cb-2zk" firstAttribute="centerX" secondItem="WBc-Cl-t2F" secondAttribute="centerX" id="cje-Q4-ZuG"/>
                         <constraint firstItem="mYu-FH-0ha" firstAttribute="leading" secondItem="lk2-YH-Oz6" secondAttribute="leading" id="emm-Q8-qLf"/>
-                        <constraint firstItem="e49-V1-wrh" firstAttribute="top" secondItem="lk2-YH-Oz6" secondAttribute="top" constant="106" id="foA-Uq-qzc"/>
+                        <constraint firstItem="e49-V1-wrh" firstAttribute="top" secondItem="lk2-YH-Oz6" secondAttribute="top" constant="79" id="foA-Uq-qzc"/>
                         <constraint firstAttribute="bottom" secondItem="mEn-j1-2sd" secondAttribute="bottom" constant="124" id="jZS-FR-VKP"/>
-                        <constraint firstItem="e49-V1-wrh" firstAttribute="leading" secondItem="lk2-YH-Oz6" secondAttribute="leading" constant="62" id="kVY-ZF-ngr"/>
-                        <constraint firstItem="e49-V1-wrh" firstAttribute="top" secondItem="mYu-FH-0ha" secondAttribute="bottom" constant="45" id="kcc-bu-Bqe"/>
+                        <constraint firstItem="e49-V1-wrh" firstAttribute="leading" secondItem="lk2-YH-Oz6" secondAttribute="leading" constant="41" id="kVY-ZF-ngr"/>
                         <constraint firstItem="BEx-b9-aR3" firstAttribute="leading" secondItem="IoT-n6-wwD" secondAttribute="trailing" constant="28" id="oKS-Uz-Sua"/>
                         <constraint firstItem="mEn-j1-2sd" firstAttribute="centerX" secondItem="WBc-Cl-t2F" secondAttribute="centerX" id="y6e-uZ-T6T"/>
                         <constraint firstItem="IoT-n6-wwD" firstAttribute="leading" secondItem="mum-X5-7N2" secondAttribute="leading" id="zf5-JQ-98R"/>

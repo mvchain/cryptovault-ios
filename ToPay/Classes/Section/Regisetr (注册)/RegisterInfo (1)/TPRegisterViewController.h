@@ -10,7 +10,7 @@
 
 
 
-@interface TPRegisterViewController : TPBaseViewController
+@interface TPRegisterViewController : YURootViewController
 
 @end
 

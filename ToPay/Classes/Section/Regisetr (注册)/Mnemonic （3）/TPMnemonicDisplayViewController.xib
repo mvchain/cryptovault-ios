@@ -46,7 +46,7 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KJ0-wQ-guc">
                             <rect key="frame" x="41" y="108" width="36" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" red="0.34901960784313724" green="0.35294117647058826" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="助记词" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mby-b3-f8L">
@@ -75,17 +75,21 @@
                                 <outlet property="delegate" destination="-1" id="u3i-Vc-iPQ"/>
                             </connections>
                         </collectionView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请妥善保管保管私钥和助记词，方便未来找回密码和找回账号" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WJp-Vt-jC8">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请妥善保管保管私钥和助记词，方便未来找回密码和找回账号" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WJp-Vt-jC8">
                             <rect key="frame" x="41" y="339" width="296" height="70"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="70" id="TsK-aE-Kgs"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="0.34901960784313724" green="0.35294117647058826" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U66-44-jbW">
-                            <rect key="frame" x="164.5" y="434" width="46" height="30"/>
+                            <rect key="frame" x="115.5" y="434" width="144" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="KKE-9F-E7m"/>
+                                <constraint firstAttribute="width" constant="144" id="rJb-oV-t0P"/>
+                            </constraints>
                             <state key="normal" title="下一步"/>
                             <connections>
                                 <action selector="onNextStepTap:" destination="-1" eventType="touchUpInside" id="wcx-ZE-Xo7"/>

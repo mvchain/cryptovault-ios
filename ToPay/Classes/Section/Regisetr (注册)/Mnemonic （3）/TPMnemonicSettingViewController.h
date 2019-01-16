@@ -8,6 +8,6 @@
 
 #import "TPBaseViewController.h"
 
-@interface TPMnemonicSettingViewController : TPBaseViewController
+@interface TPMnemonicSettingViewController : YURootViewController
 @end
 

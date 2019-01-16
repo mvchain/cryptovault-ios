@@ -11,15 +11,18 @@
 #import "TPLoginViewController.h"
 #import "JKCountDownButton.h"
 #import "TPSetPasswordViewController.h"
+#import "YUTextView.h"
+
 @interface TPRegisterViewController ()
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIButton *nextStepButton; // 下一步按钮
-@property (weak, nonatomic) IBOutlet TPLoginTextView *invitedCodeTextView; // 邀请码文本框
-@property (weak, nonatomic) IBOutlet TPLoginTextView *nickNameTextView; // 昵称文本框
-@property (weak, nonatomic) IBOutlet TPLoginTextView *emailTextView; // 邮箱文本框
-@property (weak, nonatomic) IBOutlet TPLoginTextView *vaildCodeTextView; // 验证码文本框
+@property (weak, nonatomic) IBOutlet YUTextView *invitedCodeTextView; // 邀请码文本框
+@property (weak, nonatomic) IBOutlet YUTextView *nickNameTextView; // 昵称文本框
+@property (weak, nonatomic) IBOutlet YUTextView *emailTextView; // 邮箱文本框
+@property (weak, nonatomic) IBOutlet YUTextView *vaildCodeTextView; // 验证码文本框
 @property (weak, nonatomic) IBOutlet JKCountDownButton *sendVaildCodeButton; // 发送验证码按钮
+
 
 @property (strong,nonatomic) TPRgeisterViewModel *viewModel;
 @property (copy, nonatomic) NSString *invitedCodeStr; // 邀请码字符串
@@ -41,31 +44,33 @@
     return _viewModel;
 }
 - (NSString *)invitedCodeStr {
-    return self.invitedCodeTextView.comTextField.text;
+    return self.invitedCodeTextView.text;
 }
 - (NSString *)nickNameStr {
-    return self.nickNameTextView.comTextField.text;
+    return self.nickNameTextView.text;
 }
 - (NSString *)emailStr {
-    return self.emailTextView.comTextField.text;
+    return self.emailTextView.text;
 }
 - (NSString *)vaildCodeStr {
-    return self.vaildCodeTextView.comTextField.text;
+    return self.vaildCodeTextView.text;
 }
 #pragma mark initialize
 - (void)initUI {
     
-    NSArray<TPLoginTextView *> *textViews = @[_invitedCodeTextView,_nickNameTextView,_emailTextView,_vaildCodeTextView];
+    NSArray<YUTextView *> *textViews = @[_invitedCodeTextView,_nickNameTextView,_emailTextView,_vaildCodeTextView];
     NSArray *titles = @[@"邀请码",@"昵称",@"邮箱",@"验证码"];
     NSArray *placeholders = @[@"注册邀请码",@"设置昵称",@"输入邮箱",@"输入验证码"];
     NSInteger index = 0;
-    
-    for (TPLoginTextView * tpTextView in textViews) {
-        [tpTextView noTitleLabel]; // 无提示label
-        [tpTextView setTitle:titles[index] desc:placeholders[index]];
-        tpTextView.comTextField.secureTextEntry = NO;
-        ++index;
+    self.invitedCodeTextView.xibContainer.textField.keyboardType =  UIKeyboardTypeASCIICapable;
+    self.emailTextView.xibContainer.textField.keyboardType = UIKeyboardTypeEmailAddress;
+    self.vaildCodeTextView.xibContainer.textField.keyboardType = UIKeyboardTypeNumberPad;
+    for( YUTextView *textView in textViews ) {
+        [textView setHintText:titles[index]];
+        [textView setPlaceHolder:placeholders[index]];
+        index++;
     }
+    [self.sendVaildCodeButton rectBlackBorderStyle];
 }
 #pragma mark system method
 - (void)viewDidLoad {
@@ -73,17 +78,36 @@
     [self initUI];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.nextStepButton gradualChangeStyle];
+    
+}
 #pragma mark local method
-
+/**
+ * 验证码动画
+ */
+- (void)startValidCodeButtonAnimate {
+    [self.sendVaildCodeButton startCountDownWithSecond:15];
+    self.sendVaildCodeButton.enabled = NO;
+    [self.sendVaildCodeButton rectGrayBorderStyle];
+    [self.sendVaildCodeButton countDownFinished:^NSString *(JKCountDownButton *countDownButton, NSUInteger second) {
+        self.sendVaildCodeButton.enabled = YES;
+        [self.sendVaildCodeButton rectBlackBorderStyle];
+        return @"发送验证码";
+        
+    }];
+}
 #pragma mark event method
 
 /** 
  * 发送验证码
  */
 - (IBAction)onSendVaildCodeTap:(id)sender {
-    
-    if ( self.emailTextView.comTextField.text.length > 0 ) {
-        [self.viewModel sendVaildCodeByEmail:self.emailTextView.comTextField.text
+  
+    if ( self.emailTextView.text.length > 0 ) {
+        [self startValidCodeButtonAnimate];//
+        [self.viewModel sendVaildCodeByEmail:self.emailTextView.text
                                     complete:^(BOOL isSucc) {
                                         if (isSucc) {
                                             [self showSuccessText:@"发送成功!"];
@@ -94,7 +118,6 @@
     } else {
         [self showSuccessText:@"邮箱不可以为空"];
     }
-   
 }
 
 /**
@@ -135,4 +158,6 @@
     }];
     
 }
+
+
 @end

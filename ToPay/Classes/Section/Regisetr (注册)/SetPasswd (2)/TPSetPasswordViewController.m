@@ -8,9 +8,12 @@
 
 #import "TPSetPasswordViewController.h"
 #import "TPLoginViewController.h"
+#import "YUTextView.h"
+#import "TPMnemonicDisplayViewController.h"
 @interface TPSetPasswordViewController ()
-@property (weak, nonatomic) IBOutlet TPLoginTextView *passWordTextView;
-@property (weak, nonatomic) IBOutlet TPLoginTextView *payPassWordTextView;
+@property (weak, nonatomic) IBOutlet YUTextView *passWordTextView;
+@property (weak, nonatomic) IBOutlet YUTextView *payPassWordTextView;
+@property (weak, nonatomic) IBOutlet UIButton *nextStepButton;
 
 @end
 
@@ -24,12 +27,17 @@
 }
 - (void)initUI {
     
-    NSArray<TPLoginTextView *> *textViews = @[self.passWordTextView,self.payPassWordTextView];
-    for (TPLoginTextView * tpTextView in textViews) {
-        [tpTextView noTitleLabel]; // 无提示label
-        tpTextView.comTextField.secureTextEntry = YES;
-        
+    NSArray<YUTextView *> *textViews = @[self.passWordTextView,self.payPassWordTextView];
+    NSArray *titles = @[@"登陆密码",@"支付密码"];
+    int index = 0 ;
+    for (YUTextView *textView in textViews) {
+        [textView setHintText:titles[index]];
+        [textView setPlaceHolder:titles[index]];
+        textView.xibContainer.textField.secureTextEntry = YES;
+        index++;
     }
+    [self.nextStepButton gradualChangeStyle]; // 渐变
+    
 }
 #pragma mark system method
 - (void)viewDidLoad {
@@ -49,8 +57,8 @@
  */
 - (IBAction)onNextStepTap:(id)sender {
     
-    NSString *passWd = self.passWordTextView.comTextField.text;
-    NSString *payPassWd = self.payPassWordTextView.comTextField.text;
+    NSString *passWd = self.passWordTextView.text;
+    NSString *payPassWd = self.payPassWordTextView.text;
     self.viewModel.regInfoModel.password = passWd;
     self.viewModel.regInfoModel.transactionPassword = payPassWd;
     
@@ -62,6 +70,8 @@
                                           [self.viewModel registerWithRegInfoModel:self.viewModel.regInfoModel complete:^(BOOL isSucc, NSString *_reasonInfo) {
                                               if (isSucc) {
                                                   [self showSuccessText:@"注册成功"];
+                                                  TPMnemonicDisplayViewController *mn = [[TPMnemonicDisplayViewController alloc]init];
+                                                  [self.navigationController pushViewController:mn animated:YES];
                                               }else {
                                                   [self showErrorText:_reasonInfo];
                                               }

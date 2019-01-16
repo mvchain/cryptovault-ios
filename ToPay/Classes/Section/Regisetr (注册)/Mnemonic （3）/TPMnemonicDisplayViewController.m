@@ -9,6 +9,7 @@
 #import "TPMnemonicDisplayViewController.h"
 #import "TPMnemonicDisplayViewModel.h"
 #import "TPMemonicCollectionViewCell.h"
+#import "TPMnemonicSettingViewController.h"
 #define CELL_COLLECT_ID @"CELL_COLLECT_ID"
 #define HEIGHT_CELL 30
 @interface TPMnemonicDisplayViewController ()<UICollectionViewDelegate,UICollectionViewDataSource ,UICollectionViewDelegateFlowLayout>
@@ -37,6 +38,8 @@
     [self.privateKeyLabel setText:privateKey];
     [self.collectionView registerNib:[UINib nibWithNibName:@"TPMemonicCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:CELL_COLLECT_ID];
     _alyt_collect_height.constant = (self.viewModel.cacheRegisterResponseModel.mnemonics.count / 3) * HEIGHT_CELL ;
+    [self.nextStepButton gradualChangeStyle];
+    [self.collectionView yu_smallCircleStyle];
     
 }
 
@@ -74,8 +77,13 @@
 - ( UIEdgeInsets )collectionView:( UICollectionView *)collectionView layout:( UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:( NSInteger )section {
     return UIEdgeInsetsMake ( 0 , 0 , 0 , 0 );
 }
+
+
 #pragma mark event method
 
 - (IBAction)onNextStepTap:(id)sender {
+    TPMnemonicSettingViewController *mnemonicSetting = [[TPMnemonicSettingViewController alloc] init];
+    [self.navigationController pushViewController:mnemonicSetting animated:YES];
+    
 }
 @end

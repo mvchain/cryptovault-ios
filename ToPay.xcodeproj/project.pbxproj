@@ -87,6 +87,22 @@
 		DD10845C21A401560087F244 /* TPComTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD10845B21A401560087F244 /* TPComTextView.m */; };
 		DD13CEFF21ECB4C80022EECC /* TPMnemonicSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD13CEFD21ECB4C80022EECC /* TPMnemonicSettingViewController.m */; };
 		DD13CF0021ECB4C80022EECC /* TPMnemonicSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD13CEFE21ECB4C80022EECC /* TPMnemonicSettingViewController.xib */; };
+		DD13CF0321ED893C0022EECC /* TPMnemonicSettingViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD13CF0221ED893C0022EECC /* TPMnemonicSettingViewModel.m */; };
+		DD13CF0721ED8A500022EECC /* TPMemonicStatusCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD13CF0521ED8A500022EECC /* TPMemonicStatusCollectionViewCell.m */; };
+		DD13CF0821ED8A500022EECC /* TPMemonicStatusCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD13CF0621ED8A500022EECC /* TPMemonicStatusCollectionViewCell.xib */; };
+		DD13CF0B21ED8B0B0022EECC /* TPMemonicStatusCollectionViewCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD13CF0A21ED8B0B0022EECC /* TPMemonicStatusCollectionViewCellModel.m */; };
+		DD13CF0E21EDE9C10022EECC /* YURootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD13CF0D21EDE9C10022EECC /* YURootViewController.m */; };
+		DD13CF1121EECCCB0022EECC /* YUTextViewXibContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD13CF1021EECCCB0022EECC /* YUTextViewXibContainer.xib */; };
+		DD13CF1421EED1FC0022EECC /* YUTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD13CF1321EED1FC0022EECC /* YUTextView.m */; };
+		DD13CF1721EED49A0022EECC /* YUTextViewXibContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = DD13CF1621EED49A0022EECC /* YUTextViewXibContainer.m */; };
+		DD13CF2121EF20180022EECC /* UIButton+YUButtonStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = DD13CF2021EF20180022EECC /* UIButton+YUButtonStyle.m */; };
+		DD13CF2721EF33D90022EECC /* UIButton+Gradient.m in Sources */ = {isa = PBXBuildFile; fileRef = DD13CF2321EF33D90022EECC /* UIButton+Gradient.m */; };
+		DD13CF2821EF33D90022EECC /* UIImage+Gradient.m in Sources */ = {isa = PBXBuildFile; fileRef = DD13CF2421EF33D90022EECC /* UIImage+Gradient.m */; };
+		DD13CF2D21EF59CF0022EECC /* TPAccountSafeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD13CF2B21EF59CF0022EECC /* TPAccountSafeViewController.m */; };
+		DD13CF2E21EF59CF0022EECC /* TPAccountSafeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD13CF2C21EF59CF0022EECC /* TPAccountSafeViewController.xib */; };
+		DD13CF3421EF5B3C0022EECC /* TPAccountSafeItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD13CF3221EF5B3C0022EECC /* TPAccountSafeItemTableViewCell.m */; };
+		DD13CF3521EF5B3C0022EECC /* TPAccountSafeItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD13CF3321EF5B3C0022EECC /* TPAccountSafeItemTableViewCell.xib */; };
+		DD13CF3821EF5B5A0022EECC /* TPAccountSafeItemTableViewCellEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DD13CF3721EF5B5A0022EECC /* TPAccountSafeItemTableViewCellEntity.m */; };
 		DD23C28421E89FDC007727DA /* UIView+YUStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = DD23C28321E89FDC007727DA /* UIView+YUStyle.m */; };
 		DD23C28921E8B6BA007727DA /* TPRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD23C28721E8B6BA007727DA /* TPRegisterViewController.m */; };
 		DD23C28A21E8B6BA007727DA /* TPRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD23C28821E8B6BA007727DA /* TPRegisterViewController.xib */; };
@@ -418,6 +434,34 @@
 		DD13CEFC21ECB4C80022EECC /* TPMnemonicSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPMnemonicSettingViewController.h; sourceTree = "<group>"; };
 		DD13CEFD21ECB4C80022EECC /* TPMnemonicSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPMnemonicSettingViewController.m; sourceTree = "<group>"; };
 		DD13CEFE21ECB4C80022EECC /* TPMnemonicSettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPMnemonicSettingViewController.xib; sourceTree = "<group>"; };
+		DD13CF0121ED893C0022EECC /* TPMnemonicSettingViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPMnemonicSettingViewModel.h; sourceTree = "<group>"; };
+		DD13CF0221ED893C0022EECC /* TPMnemonicSettingViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPMnemonicSettingViewModel.m; sourceTree = "<group>"; };
+		DD13CF0421ED8A500022EECC /* TPMemonicStatusCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPMemonicStatusCollectionViewCell.h; sourceTree = "<group>"; };
+		DD13CF0521ED8A500022EECC /* TPMemonicStatusCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPMemonicStatusCollectionViewCell.m; sourceTree = "<group>"; };
+		DD13CF0621ED8A500022EECC /* TPMemonicStatusCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPMemonicStatusCollectionViewCell.xib; sourceTree = "<group>"; };
+		DD13CF0921ED8B0B0022EECC /* TPMemonicStatusCollectionViewCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPMemonicStatusCollectionViewCellModel.h; sourceTree = "<group>"; };
+		DD13CF0A21ED8B0B0022EECC /* TPMemonicStatusCollectionViewCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPMemonicStatusCollectionViewCellModel.m; sourceTree = "<group>"; };
+		DD13CF0C21EDE9C10022EECC /* YURootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YURootViewController.h; sourceTree = "<group>"; };
+		DD13CF0D21EDE9C10022EECC /* YURootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YURootViewController.m; sourceTree = "<group>"; };
+		DD13CF1021EECCCB0022EECC /* YUTextViewXibContainer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YUTextViewXibContainer.xib; sourceTree = "<group>"; };
+		DD13CF1221EED1FC0022EECC /* YUTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YUTextView.h; sourceTree = "<group>"; };
+		DD13CF1321EED1FC0022EECC /* YUTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YUTextView.m; sourceTree = "<group>"; };
+		DD13CF1521EED49A0022EECC /* YUTextViewXibContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YUTextViewXibContainer.h; sourceTree = "<group>"; };
+		DD13CF1621EED49A0022EECC /* YUTextViewXibContainer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YUTextViewXibContainer.m; sourceTree = "<group>"; };
+		DD13CF1F21EF20180022EECC /* UIButton+YUButtonStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+YUButtonStyle.h"; sourceTree = "<group>"; };
+		DD13CF2021EF20180022EECC /* UIButton+YUButtonStyle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+YUButtonStyle.m"; sourceTree = "<group>"; };
+		DD13CF2321EF33D90022EECC /* UIButton+Gradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Gradient.m"; sourceTree = "<group>"; };
+		DD13CF2421EF33D90022EECC /* UIImage+Gradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Gradient.m"; sourceTree = "<group>"; };
+		DD13CF2521EF33D90022EECC /* UIButton+Gradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Gradient.h"; sourceTree = "<group>"; };
+		DD13CF2621EF33D90022EECC /* UIImage+Gradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Gradient.h"; sourceTree = "<group>"; };
+		DD13CF2A21EF59CF0022EECC /* TPAccountSafeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAccountSafeViewController.h; sourceTree = "<group>"; };
+		DD13CF2B21EF59CF0022EECC /* TPAccountSafeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAccountSafeViewController.m; sourceTree = "<group>"; };
+		DD13CF2C21EF59CF0022EECC /* TPAccountSafeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPAccountSafeViewController.xib; sourceTree = "<group>"; };
+		DD13CF3121EF5B3C0022EECC /* TPAccountSafeItemTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAccountSafeItemTableViewCell.h; sourceTree = "<group>"; };
+		DD13CF3221EF5B3C0022EECC /* TPAccountSafeItemTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAccountSafeItemTableViewCell.m; sourceTree = "<group>"; };
+		DD13CF3321EF5B3C0022EECC /* TPAccountSafeItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPAccountSafeItemTableViewCell.xib; sourceTree = "<group>"; };
+		DD13CF3621EF5B5A0022EECC /* TPAccountSafeItemTableViewCellEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAccountSafeItemTableViewCellEntity.h; sourceTree = "<group>"; };
+		DD13CF3721EF5B5A0022EECC /* TPAccountSafeItemTableViewCellEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAccountSafeItemTableViewCellEntity.m; sourceTree = "<group>"; };
 		DD23C28221E89FDC007727DA /* UIView+YUStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YUStyle.h"; sourceTree = "<group>"; };
 		DD23C28321E89FDC007727DA /* UIView+YUStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YUStyle.m"; sourceTree = "<group>"; };
 		DD23C28621E8B6BA007727DA /* TPRegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPRegisterViewController.h; sourceTree = "<group>"; };
@@ -894,13 +938,14 @@
 		DD02442C2196D1B8006A1390 /* Section */ = {
 			isa = PBXGroup;
 			children = (
-				DD23C29821E9F33D007727DA /* New Group */,
+				DD13CF2921EF59710022EECC /* AccountSafe（账户安全） */,
+				DD23C29821E9F33D007727DA /* Root */,
 				DD23C28E21E99E21007727DA /* Guider (引导) */,
 				DD23C28521E8B66A007727DA /* Regisetr (注册) */,
 				DD0244312196D1B8006A1390 /* capital */,
 				DD02442D2196D1B8006A1390 /* transaction */,
 				DD0244392196D1B8006A1390 /* Crowdfunding */,
-				DD0244352196D1B8006A1390 /* Me */,
+				DD0244352196D1B8006A1390 /* Mine */,
 			);
 			path = Section;
 			sourceTree = "<group>";
@@ -1071,14 +1116,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		DD0244352196D1B8006A1390 /* Me */ = {
+		DD0244352196D1B8006A1390 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
 				DD0244362196D1B8006A1390 /* Controller */,
 				DD0244372196D1B8006A1390 /* Model */,
 				DD0244382196D1B8006A1390 /* View */,
 			);
-			path = Me;
+			path = Mine;
 			sourceTree = "<group>";
 		};
 		DD0244362196D1B8006A1390 /* Controller */ = {
@@ -1259,6 +1304,69 @@
 			path = QRCode;
 			sourceTree = "<group>";
 		};
+		DD13CF0F21EDFB8A0022EECC /* YUTextView */ = {
+			isa = PBXGroup;
+			children = (
+				DD13CF1221EED1FC0022EECC /* YUTextView.h */,
+				DD13CF1321EED1FC0022EECC /* YUTextView.m */,
+				DD13CF1521EED49A0022EECC /* YUTextViewXibContainer.h */,
+				DD13CF1621EED49A0022EECC /* YUTextViewXibContainer.m */,
+				DD13CF1021EECCCB0022EECC /* YUTextViewXibContainer.xib */,
+			);
+			path = YUTextView;
+			sourceTree = "<group>";
+		};
+		DD13CF1821EF1BB50022EECC /* YUButton */ = {
+			isa = PBXGroup;
+			children = (
+				DD13CF1F21EF20180022EECC /* UIButton+YUButtonStyle.h */,
+				DD13CF2021EF20180022EECC /* UIButton+YUButtonStyle.m */,
+			);
+			path = YUButton;
+			sourceTree = "<group>";
+		};
+		DD13CF2221EF33940022EECC /* Gradient */ = {
+			isa = PBXGroup;
+			children = (
+				DD13CF2521EF33D90022EECC /* UIButton+Gradient.h */,
+				DD13CF2321EF33D90022EECC /* UIButton+Gradient.m */,
+				DD13CF2621EF33D90022EECC /* UIImage+Gradient.h */,
+				DD13CF2421EF33D90022EECC /* UIImage+Gradient.m */,
+			);
+			path = Gradient;
+			sourceTree = "<group>";
+		};
+		DD13CF2921EF59710022EECC /* AccountSafe（账户安全） */ = {
+			isa = PBXGroup;
+			children = (
+				DD13CF3021EF5B160022EECC /* Controller */,
+				DD13CF2F21EF5B0B0022EECC /* Cell */,
+			);
+			path = "AccountSafe（账户安全）";
+			sourceTree = "<group>";
+		};
+		DD13CF2F21EF5B0B0022EECC /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DD13CF3121EF5B3C0022EECC /* TPAccountSafeItemTableViewCell.h */,
+				DD13CF3221EF5B3C0022EECC /* TPAccountSafeItemTableViewCell.m */,
+				DD13CF3321EF5B3C0022EECC /* TPAccountSafeItemTableViewCell.xib */,
+				DD13CF3621EF5B5A0022EECC /* TPAccountSafeItemTableViewCellEntity.h */,
+				DD13CF3721EF5B5A0022EECC /* TPAccountSafeItemTableViewCellEntity.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		DD13CF3021EF5B160022EECC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DD13CF2A21EF59CF0022EECC /* TPAccountSafeViewController.h */,
+				DD13CF2B21EF59CF0022EECC /* TPAccountSafeViewController.m */,
+				DD13CF2C21EF59CF0022EECC /* TPAccountSafeViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		DD23C28521E8B66A007727DA /* Regisetr (注册) */ = {
 			isa = PBXGroup;
 			children = (
@@ -1291,11 +1399,13 @@
 			path = HttpService;
 			sourceTree = "<group>";
 		};
-		DD23C29821E9F33D007727DA /* New Group */ = {
+		DD23C29821E9F33D007727DA /* Root */ = {
 			isa = PBXGroup;
 			children = (
+				DD13CF0C21EDE9C10022EECC /* YURootViewController.h */,
+				DD13CF0D21EDE9C10022EECC /* YURootViewController.m */,
 			);
-			path = "New Group";
+			path = Root;
 			sourceTree = "<group>";
 		};
 		DD23C29921E9F384007727DA /* SetPasswd (2) */ = {
@@ -1345,6 +1455,8 @@
 				DD13CEFC21ECB4C80022EECC /* TPMnemonicSettingViewController.h */,
 				DD13CEFD21ECB4C80022EECC /* TPMnemonicSettingViewController.m */,
 				DD13CEFE21ECB4C80022EECC /* TPMnemonicSettingViewController.xib */,
+				DD13CF0121ED893C0022EECC /* TPMnemonicSettingViewModel.h */,
+				DD13CF0221ED893C0022EECC /* TPMnemonicSettingViewModel.m */,
 			);
 			path = "Mnemonic （3）";
 			sourceTree = "<group>";
@@ -1355,6 +1467,11 @@
 				DD23C2BA21ECA892007727DA /* TPMemonicCollectionViewCell.h */,
 				DD23C2BB21ECA892007727DA /* TPMemonicCollectionViewCell.m */,
 				DD23C2BC21ECA892007727DA /* TPMemonicCollectionViewCell.xib */,
+				DD13CF0421ED8A500022EECC /* TPMemonicStatusCollectionViewCell.h */,
+				DD13CF0521ED8A500022EECC /* TPMemonicStatusCollectionViewCell.m */,
+				DD13CF0621ED8A500022EECC /* TPMemonicStatusCollectionViewCell.xib */,
+				DD13CF0921ED8B0B0022EECC /* TPMemonicStatusCollectionViewCellModel.h */,
+				DD13CF0A21ED8B0B0022EECC /* TPMemonicStatusCollectionViewCellModel.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1570,6 +1687,9 @@
 		DDFED69F21E05C7A00F2F354 /* CommonView */ = {
 			isa = PBXGroup;
 			children = (
+				DD13CF2221EF33940022EECC /* Gradient */,
+				DD13CF1821EF1BB50022EECC /* YUButton */,
+				DD13CF0F21EDFB8A0022EECC /* YUTextView */,
 				DD23C28221E89FDC007727DA /* UIView+YUStyle.h */,
 				DD23C28321E89FDC007727DA /* UIView+YUStyle.m */,
 				DDFED6AF21E065F100F2F354 /* UITableView+YUTableView.h */,
@@ -1709,6 +1829,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD10844221A001030087F244 /* BCScanQR2@2x.png in Resources */,
+				DD13CF0821ED8A500022EECC /* TPMemonicStatusCollectionViewCell.xib in Resources */,
 				DDFED67B21D4CF8F00F2F354 /* custom.png in Resources */,
 				DDFE5DB121CC9FA0005D6D48 /* shareImage.png in Resources */,
 				DDFE5D9921CA1BC0005D6D48 /* HUD_success@3x.png in Resources */,
@@ -1726,17 +1847,20 @@
 				DD23C2BE21ECA892007727DA /* TPMemonicCollectionViewCell.xib in Resources */,
 				DDFE5D9A21CA1BC0005D6D48 /* HUD_error@3x.png in Resources */,
 				DDFED6A421E0605300F2F354 /* TPNoMoreTableViewCell.xib in Resources */,
+				DD13CF3521EF5B3C0022EECC /* TPAccountSafeItemTableViewCell.xib in Resources */,
 				DD374DA521C5228100093A0F /* AAJSFiles.bundle in Resources */,
 				DD10844921A001030087F244 /* BCScanQR1@2x.png in Resources */,
 				DD10844121A001030087F244 /* QRCodeScanLine@2x.png in Resources */,
 				DD10844021A001030087F244 /* BCScanQR4@2x.png in Resources */,
 				DD10844721A001030087F244 /* BCScanQR3@2x.png in Resources */,
 				DD23C29321E99E74007727DA /* TPGuiderViewController.xib in Resources */,
+				DD13CF1121EECCCB0022EECC /* YUTextViewXibContainer.xib in Resources */,
 				DD13CF0021ECB4C80022EECC /* TPMnemonicSettingViewController.xib in Resources */,
 				DD0244002196C969006A1390 /* Main.storyboard in Resources */,
 				DD23C2AF21EC8E32007727DA /* TPMnemonicDisplayViewController.xib in Resources */,
 				DDFE5D9B21CA1BC0005D6D48 /* HUD_info@3x.png in Resources */,
 				DDFED67C21D4CF8F00F2F354 /* shareImage.png in Resources */,
+				DD13CF2E21EF59CF0022EECC /* TPAccountSafeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1845,6 +1969,7 @@
 				DD374DBC21C5228100093A0F /* AAPie.m in Sources */,
 				DD374D5E21C3B41100093A0F /* TZImagePickerController.m in Sources */,
 				DDFED69E21DF67A200F2F354 /* TPFliterModel.m in Sources */,
+				DD13CF0721ED8A500022EECC /* TPMemonicStatusCollectionViewCell.m in Sources */,
 				DD23C28D21E8B6D6007727DA /* TPRgeisterViewModel.m in Sources */,
 				DD0243FD2196C968006A1390 /* ViewController.m in Sources */,
 				DD374D5F21C3B41100093A0F /* TZLocationManager.m in Sources */,
@@ -1868,6 +1993,7 @@
 				DD0244412196DD23006A1390 /* TPCapitalViewController.m in Sources */,
 				DD0239AF21AFF6ED00333446 /* TPCurrencyList.m in Sources */,
 				DD374DAF21C5228100093A0F /* AAYAxis.m in Sources */,
+				DD13CF1421EED1FC0022EECC /* YUTextView.m in Sources */,
 				DD374D5421C3B41100093A0F /* TZVideoPlayerController.m in Sources */,
 				DDE176A221BE5C9500167EB1 /* SJButtonSlider.m in Sources */,
 				DDC5927F21D0B44C00CE8D3C /* TPKLineModel.m in Sources */,
@@ -1879,6 +2005,7 @@
 				DD374DC021C5228100093A0F /* AAOptions.m in Sources */,
 				DD0239AC21AFF2F500333446 /* TPConstant.m in Sources */,
 				DD374D5321C3B41100093A0F /* TZAssetCell.m in Sources */,
+				DD13CF2721EF33D90022EECC /* UIButton+Gradient.m in Sources */,
 				DDE176A021BE5C9500167EB1 /* SJSlider.m in Sources */,
 				DD23C28921E8B6BA007727DA /* TPRegisterViewController.m in Sources */,
 				DD374DBD21C5228100093A0F /* AAChart.m in Sources */,
@@ -1893,12 +2020,14 @@
 				DD2FD6B521C7A17000A28F78 /* YUTabBar.m in Sources */,
 				DD0244082196C96B006A1390 /* main.m in Sources */,
 				DDE1769F21BE5C9500167EB1 /* SJLabelSlider.m in Sources */,
+				DD13CF0B21ED8B0B0022EECC /* TPMemonicStatusCollectionViewCellModel.m in Sources */,
 				DDE1769521BD1EED00167EB1 /* TPRecordModel.m in Sources */,
 				DDDDFBAC219D5A110056FC57 /* TPCapitalHeaderView.m in Sources */,
 				DD02399821AF968E00333446 /* WYNetworkCacheManager.m in Sources */,
 				DD1083E2219D83C20087F244 /* TPNotiCell.m in Sources */,
 				DD0243FA2196C968006A1390 /* AppDelegate.m in Sources */,
 				DD02391821A50AC100333446 /* TPAddTokenCell.m in Sources */,
+				DD13CF2D21EF59CF0022EECC /* TPAccountSafeViewController.m in Sources */,
 				DD374D6621C4B18F00093A0F /* TPRefreshFooter.m in Sources */,
 				DD02399D21AF968E00333446 /* WYImageScaleTool.m in Sources */,
 				DD374DAB21C5228100093A0F /* AADataLabels.m in Sources */,
@@ -1912,6 +2041,7 @@
 				DD23C2A621E9FCA1007727DA /* TPSetPasswordViewModel.m in Sources */,
 				DD2FD6A921C7685F00A28F78 /* TPMSCell.m in Sources */,
 				DD108424219EA5570087F244 /* TPMeHeaderView.m in Sources */,
+				DD13CF0E21EDE9C10022EECC /* YURootViewController.m in Sources */,
 				DD02399A21AF968E00333446 /* WYNetworkDownloadEngine.m in Sources */,
 				DDDDFB9D219C1AC00056FC57 /* TPComingSoonViewController.m in Sources */,
 				DDAA117721E72BD800F5D184 /* MBProgressHUD+Add.m in Sources */,
@@ -1925,10 +2055,12 @@
 				DD374DB821C5228100093A0F /* AALegend.m in Sources */,
 				DD0239B221B10AC700333446 /* TPAssetModel.m in Sources */,
 				DD374D5221C3B41100093A0F /* TZImageCropManager.m in Sources */,
+				DD13CF1721EED49A0022EECC /* YUTextViewXibContainer.m in Sources */,
 				DD02444F21992F09006A1390 /* UIColor+Additions.m in Sources */,
 				DD10845321A3EC6A0087F244 /* TPChainTakeViewController.m in Sources */,
 				DD108421219E9EC70087F244 /* TPMeCell.m in Sources */,
 				DDDDFB90219BE1820056FC57 /* TPHeaderComView.m in Sources */,
+				DD13CF3821EF5B5A0022EECC /* TPAccountSafeItemTableViewCellEntity.m in Sources */,
 				DDFED6B121E065F100F2F354 /* UITableView+YUTableViewAddition.m in Sources */,
 				DD10842D219EB60F0087F244 /* TPAboutViewController.m in Sources */,
 				DD72F435219A7F12004C0DAF /* TPBaseViewController.m in Sources */,
@@ -1961,6 +2093,7 @@
 				DD10844D21A28E3C0087F244 /* TPStartViewController.m in Sources */,
 				DD23C2A321E9F953007727DA /* TPRegisterInfoModel.m in Sources */,
 				DD23C2BD21ECA892007727DA /* TPMemonicCollectionViewCell.m in Sources */,
+				DD13CF2821EF33D90022EECC /* UIImage+Gradient.m in Sources */,
 				DD02391521A50A0A00333446 /* TPAddTokenViewController.m in Sources */,
 				DD23C2B521EC8F9A007727DA /* TPRegisterResponseModel.m in Sources */,
 				DD1083D6219D67800087F244 /* TPTokenHeaderView.m in Sources */,
@@ -1976,6 +2109,7 @@
 				DD10845021A2B4B60087F244 /* TPTokenBottomView.m in Sources */,
 				DDFED6B321E065F100F2F354 /* UITableView+YUTableView.m in Sources */,
 				DDF69FB521C0F42C006EE7A4 /* CountDown.m in Sources */,
+				DD13CF3421EF5B3C0022EECC /* TPAccountSafeItemTableViewCell.m in Sources */,
 				DDDDFB8D219AD92F0056FC57 /* TPCFTopicViewController.m in Sources */,
 				DDFBBA3D21B5317100BA09DE /* TPNotificationModel.m in Sources */,
 				DD02395421AE84CB00333446 /* SYPasswordView.m in Sources */,
@@ -2007,6 +2141,7 @@
 				DD374DBA21C5228100093A0F /* AASpline.m in Sources */,
 				DD2FD6B621C7A17000A28F78 /* YUBadgeValue.m in Sources */,
 				DD02394121ACF53E00333446 /* TPTransDetailCell.m in Sources */,
+				DD13CF0321ED893C0022EECC /* TPMnemonicSettingViewModel.m in Sources */,
 				DD23C28421E89FDC007727DA /* UIView+YUStyle.m in Sources */,
 				DDDDFBA3219C1EBE0056FC57 /* UIBarButtonItem+SXCreate.m in Sources */,
 				DDDDFBA9219C27BF0056FC57 /* TPCapitalCell.m in Sources */,
@@ -2020,6 +2155,7 @@
 				DD02399121AF968E00333446 /* WYNetworkRequestModel.m in Sources */,
 				DD374D5821C3B41100093A0F /* TZPhotoPreviewController.m in Sources */,
 				DD374DAD21C5228100093A0F /* AATooltip.m in Sources */,
+				DD13CF2121EF20180022EECC /* UIButton+YUButtonStyle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

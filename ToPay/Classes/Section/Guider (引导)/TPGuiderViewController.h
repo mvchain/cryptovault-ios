@@ -8,6 +8,6 @@
 
 #import "TPBaseViewController.h"
 
-@interface TPGuiderViewController : UIViewController
+@interface TPGuiderViewController : YURootViewController
 
 @end

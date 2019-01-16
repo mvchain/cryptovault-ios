@@ -156,4 +156,17 @@
      }];
 
 }
+
++ (void)loginInitSetting:(TPLoginModel *)model {
+    [QuickDo setJPushAlians:model.userId]; //极光的设置
+    [[WYNetworkConfig sharedConfig] addCustomHeader:@{@"Authorization":model.token,@"Accept-Language":@"zh-cn"}];
+    // Store user information
+    [TPLoginUtil saveUserInfo:model];
+    // Basic user information
+    [TPLoginUtil setRequestInfo];
+    // Get currency list
+    [TPLoginUtil setRequestToken];
+    [TPLoginUtil requestExchangeRate];
+}
+
 @end

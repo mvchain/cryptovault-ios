@@ -52,4 +52,7 @@
 
 + (void)setRequestToken:(NSString *)token ;
 
++ (void)loginInitSetting:(TPLoginModel *)model;
+
+
 @end
