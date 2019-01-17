@@ -8,6 +8,8 @@
 
 #import "QuickDo.h"
 #import <JPUSHService.h>
+#import "TPGuiderViewController.h"
+#import "YUTabBarController.h"
 @implementation QuickDo
 
 + (void)setJPushAlians:(NSString *)aliansName  {
@@ -78,6 +80,24 @@
     
 }
 
++ (void)changeWindowKeyWindow:(UIViewController *)vc  {
+    UIApplication *app = [UIApplication sharedApplication];
+    AppDelegate *dele = (AppDelegate*)app.delegate;
+    dele.window.rootViewController = vc;
+}
 
++ (void)switchToGuiderPage {
+    UINavigationController *nav = [[UINavigationController alloc] init];
+    nav.navigationBar.hidden = YES;
+    [nav setNavigationBarHidden:YES];
+    
+    TPGuiderViewController *tp = [[TPGuiderViewController alloc] init];
+    nav.viewControllers = @[tp];
+    [self changeWindowKeyWindow:nav];
+}
 
++ (void)swithchToMainTab {
+    YUTabBarController *tab =[[YUTabBarController alloc]init];
+    [self changeWindowKeyWindow:tab];
+}
 @end

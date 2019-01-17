@@ -7,11 +7,9 @@
 //
 
 #import "TPBaseViewController.h"
-
-
-
-@interface TPVerifyEmailViewController : TPBaseViewController
-
+#import "TPBindEmailViewModel.h"
+@interface TPBindEmailViewController : TPBaseViewController
+@property (strong, nonatomic) TPBindEmailViewModel *viewModel ;
 @end
 
 

@@ -88,7 +88,7 @@
  * 验证码动画
  */
 - (void)startValidCodeButtonAnimate {
-    [self.sendVaildCodeButton startCountDownWithSecond:15];
+    [self.sendVaildCodeButton startCountDownWithSecond:60];
     self.sendVaildCodeButton.enabled = NO;
     [self.sendVaildCodeButton rectGrayBorderStyle];
     [self.sendVaildCodeButton countDownFinished:^NSString *(JKCountDownButton *countDownButton, NSUInteger second) {

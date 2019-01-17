@@ -10,6 +10,15 @@
 
 @interface TPVerifyEmailViewModel : NSObject
 
+
+- (NSString *)currentEmail;
+
+- (void)sendVaildCodeWithcomplete:(void(^)(BOOL isSucc))complete ;
+
+
+- (void)checkoutWithVaildCode:(NSString *)vaildCode
+                     complete:(void(^)(BOOL isVaild,NSString *token))complete;
+
 @end
 
 

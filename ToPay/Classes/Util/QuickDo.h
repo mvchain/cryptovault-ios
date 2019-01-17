@@ -32,8 +32,9 @@ NS_ASSUME_NONNULL_BEGIN
  * 左右分割线有空隙
  */
 + (void)prettyTableViewCellSeparate:(NSArray<NSNumber *> *)hideIndexs cell:(UITableViewCell *)cell indexPath:(NSIndexPath *)indexPath;
-
-
++ (void)changeWindowKeyWindow:(UIViewController *)vc;
++ (void)swithchToMainTab;
++ (void)switchToGuiderPage ;
 
 @end
 

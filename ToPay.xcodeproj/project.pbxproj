@@ -104,8 +104,8 @@
 		DD13CF3521EF5B3C0022EECC /* TPAccountSafeItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD13CF3321EF5B3C0022EECC /* TPAccountSafeItemTableViewCell.xib */; };
 		DD13CF3821EF5B5A0022EECC /* TPAccountSafeItemTableViewCellEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DD13CF3721EF5B5A0022EECC /* TPAccountSafeItemTableViewCellEntity.m */; };
 		DD13CF3B21F04DB40022EECC /* TPAccountSafeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD13CF3A21F04DB40022EECC /* TPAccountSafeViewModel.m */; };
-		DD13CF4121F05BB20022EECC /* TPVerifyEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD13CF3F21F05BB20022EECC /* TPVerifyEmailViewController.m */; };
-		DD13CF4221F05BB20022EECC /* TPVerifyEmailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD13CF4021F05BB20022EECC /* TPVerifyEmailViewController.xib */; };
+		DD13CF4121F05BB20022EECC /* TPBindEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD13CF3F21F05BB20022EECC /* TPBindEmailViewController.m */; };
+		DD13CF4221F05BB20022EECC /* TPBindEmailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD13CF4021F05BB20022EECC /* TPBindEmailViewController.xib */; };
 		DD23C28421E89FDC007727DA /* UIView+YUStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = DD23C28321E89FDC007727DA /* UIView+YUStyle.m */; };
 		DD23C28921E8B6BA007727DA /* TPRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD23C28721E8B6BA007727DA /* TPRegisterViewController.m */; };
 		DD23C28A21E8B6BA007727DA /* TPRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD23C28821E8B6BA007727DA /* TPRegisterViewController.xib */; };
@@ -185,6 +185,12 @@
 		DDAA117721E72BD800F5D184 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAA117621E72BD800F5D184 /* MBProgressHUD+Add.m */; };
 		DDC5927F21D0B44C00CE8D3C /* TPKLineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DDC5927E21D0B44C00CE8D3C /* TPKLineModel.m */; };
 		DDD211C421F05EA40029905C /* TPVerifyEmailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD211C321F05EA40029905C /* TPVerifyEmailViewModel.m */; };
+		DDD211CD21F084A60029905C /* TPVerifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD211CB21F084A60029905C /* TPVerifyViewController.m */; };
+		DDD211CE21F084A60029905C /* TPVerifyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDD211CC21F084A60029905C /* TPVerifyViewController.xib */; };
+		DDD211D121F087E20029905C /* TPBindEmailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD211D021F087E20029905C /* TPBindEmailViewModel.m */; };
+		DDD211D621F09F090029905C /* TPChangePassWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD211D421F09F090029905C /* TPChangePassWordViewController.m */; };
+		DDD211D721F09F090029905C /* TPChangePassWordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDD211D521F09F090029905C /* TPChangePassWordViewController.xib */; };
+		DDD211DC21F0A46F0029905C /* TPChangePassWordViewModel_LoginPassWd.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD211DB21F0A46F0029905C /* TPChangePassWordViewModel_LoginPassWd.m */; };
 		DDDDFB7B219AB5560056FC57 /* TPVRPLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFB7A219AB5560056FC57 /* TPVRPLabelCell.m */; };
 		DDDDFB81219AB7350056FC57 /* TPVRTCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFB80219AB7350056FC57 /* TPVRTCell.m */; };
 		DDDDFB84219AB8C40056FC57 /* YFactoryUI.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFB83219AB8C40056FC57 /* YFactoryUI.m */; };
@@ -468,9 +474,9 @@
 		DD13CF3721EF5B5A0022EECC /* TPAccountSafeItemTableViewCellEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAccountSafeItemTableViewCellEntity.m; sourceTree = "<group>"; };
 		DD13CF3921F04DB40022EECC /* TPAccountSafeViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAccountSafeViewModel.h; sourceTree = "<group>"; };
 		DD13CF3A21F04DB40022EECC /* TPAccountSafeViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAccountSafeViewModel.m; sourceTree = "<group>"; };
-		DD13CF3E21F05BB20022EECC /* TPVerifyEmailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPVerifyEmailViewController.h; sourceTree = "<group>"; };
-		DD13CF3F21F05BB20022EECC /* TPVerifyEmailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPVerifyEmailViewController.m; sourceTree = "<group>"; };
-		DD13CF4021F05BB20022EECC /* TPVerifyEmailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPVerifyEmailViewController.xib; sourceTree = "<group>"; };
+		DD13CF3E21F05BB20022EECC /* TPBindEmailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPBindEmailViewController.h; sourceTree = "<group>"; };
+		DD13CF3F21F05BB20022EECC /* TPBindEmailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPBindEmailViewController.m; sourceTree = "<group>"; };
+		DD13CF4021F05BB20022EECC /* TPBindEmailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPBindEmailViewController.xib; sourceTree = "<group>"; };
 		DD23C28221E89FDC007727DA /* UIView+YUStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YUStyle.h"; sourceTree = "<group>"; };
 		DD23C28321E89FDC007727DA /* UIView+YUStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YUStyle.m"; sourceTree = "<group>"; };
 		DD23C28621E8B6BA007727DA /* TPRegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPRegisterViewController.h; sourceTree = "<group>"; };
@@ -626,6 +632,16 @@
 		DDC5927E21D0B44C00CE8D3C /* TPKLineModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPKLineModel.m; sourceTree = "<group>"; };
 		DDD211C221F05EA40029905C /* TPVerifyEmailViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPVerifyEmailViewModel.h; sourceTree = "<group>"; };
 		DDD211C321F05EA40029905C /* TPVerifyEmailViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPVerifyEmailViewModel.m; sourceTree = "<group>"; };
+		DDD211CA21F084A60029905C /* TPVerifyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPVerifyViewController.h; sourceTree = "<group>"; };
+		DDD211CB21F084A60029905C /* TPVerifyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPVerifyViewController.m; sourceTree = "<group>"; };
+		DDD211CC21F084A60029905C /* TPVerifyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPVerifyViewController.xib; sourceTree = "<group>"; };
+		DDD211CF21F087E20029905C /* TPBindEmailViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPBindEmailViewModel.h; sourceTree = "<group>"; };
+		DDD211D021F087E20029905C /* TPBindEmailViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPBindEmailViewModel.m; sourceTree = "<group>"; };
+		DDD211D321F09F090029905C /* TPChangePassWordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPChangePassWordViewController.h; sourceTree = "<group>"; };
+		DDD211D421F09F090029905C /* TPChangePassWordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPChangePassWordViewController.m; sourceTree = "<group>"; };
+		DDD211D521F09F090029905C /* TPChangePassWordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPChangePassWordViewController.xib; sourceTree = "<group>"; };
+		DDD211DA21F0A46F0029905C /* TPChangePassWordViewModel_LoginPassWd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPChangePassWordViewModel_LoginPassWd.h; sourceTree = "<group>"; };
+		DDD211DB21F0A46F0029905C /* TPChangePassWordViewModel_LoginPassWd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPChangePassWordViewModel_LoginPassWd.m; sourceTree = "<group>"; };
 		DDDDFB79219AB5560056FC57 /* TPVRPLabelCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPVRPLabelCell.h; sourceTree = "<group>"; };
 		DDDDFB7A219AB5560056FC57 /* TPVRPLabelCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPVRPLabelCell.m; sourceTree = "<group>"; };
 		DDDDFB7F219AB7350056FC57 /* TPVRTCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPVRTCell.h; sourceTree = "<group>"; };
@@ -1350,8 +1366,8 @@
 		DD13CF2921EF59710022EECC /* AccountSafe（账户安全） */ = {
 			isa = PBXGroup;
 			children = (
-				DD13CF3021EF5B160022EECC /* Controller */,
 				DD13CF2F21EF5B0B0022EECC /* Cell */,
+				DD13CF3021EF5B160022EECC /* Controller */,
 			);
 			path = "AccountSafe（账户安全）";
 			sourceTree = "<group>";
@@ -1371,7 +1387,6 @@
 		DD13CF3021EF5B160022EECC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				DD13CF3D21F05B3A0022EECC /* TPVerifyEmailViewController */,
 				DD13CF3C21F058AB0022EECC /* TPAccountSafeViewController */,
 			);
 			path = Controller;
@@ -1380,6 +1395,9 @@
 		DD13CF3C21F058AB0022EECC /* TPAccountSafeViewController */ = {
 			isa = PBXGroup;
 			children = (
+				DDD211D221F09EA80029905C /* TPChangePassWordViewController */,
+				DDD211C921F084460029905C /* TPVerifyEmailViewController */,
+				DD13CF3D21F05B3A0022EECC /* TPBindEmailViewController */,
 				DD13CF2A21EF59CF0022EECC /* TPAccountSafeViewController.h */,
 				DD13CF2B21EF59CF0022EECC /* TPAccountSafeViewController.m */,
 				DD13CF2C21EF59CF0022EECC /* TPAccountSafeViewController.xib */,
@@ -1389,16 +1407,16 @@
 			path = TPAccountSafeViewController;
 			sourceTree = "<group>";
 		};
-		DD13CF3D21F05B3A0022EECC /* TPVerifyEmailViewController */ = {
+		DD13CF3D21F05B3A0022EECC /* TPBindEmailViewController */ = {
 			isa = PBXGroup;
 			children = (
-				DD13CF3E21F05BB20022EECC /* TPVerifyEmailViewController.h */,
-				DD13CF3F21F05BB20022EECC /* TPVerifyEmailViewController.m */,
-				DD13CF4021F05BB20022EECC /* TPVerifyEmailViewController.xib */,
-				DDD211C221F05EA40029905C /* TPVerifyEmailViewModel.h */,
-				DDD211C321F05EA40029905C /* TPVerifyEmailViewModel.m */,
+				DD13CF3E21F05BB20022EECC /* TPBindEmailViewController.h */,
+				DD13CF3F21F05BB20022EECC /* TPBindEmailViewController.m */,
+				DD13CF4021F05BB20022EECC /* TPBindEmailViewController.xib */,
+				DDD211CF21F087E20029905C /* TPBindEmailViewModel.h */,
+				DDD211D021F087E20029905C /* TPBindEmailViewModel.m */,
 			);
-			path = TPVerifyEmailViewController;
+			path = TPBindEmailViewController;
 			sourceTree = "<group>";
 		};
 		DD23C28521E8B66A007727DA /* Regisetr (注册) */ = {
@@ -1671,6 +1689,30 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		DDD211C921F084460029905C /* TPVerifyEmailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DDD211C221F05EA40029905C /* TPVerifyEmailViewModel.h */,
+				DDD211C321F05EA40029905C /* TPVerifyEmailViewModel.m */,
+				DDD211CA21F084A60029905C /* TPVerifyViewController.h */,
+				DDD211CB21F084A60029905C /* TPVerifyViewController.m */,
+				DDD211CC21F084A60029905C /* TPVerifyViewController.xib */,
+			);
+			path = TPVerifyEmailViewController;
+			sourceTree = "<group>";
+		};
+		DDD211D221F09EA80029905C /* TPChangePassWordViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DDD211D321F09F090029905C /* TPChangePassWordViewController.h */,
+				DDD211D421F09F090029905C /* TPChangePassWordViewController.m */,
+				DDD211D521F09F090029905C /* TPChangePassWordViewController.xib */,
+				DDD211DA21F0A46F0029905C /* TPChangePassWordViewModel_LoginPassWd.h */,
+				DDD211DB21F0A46F0029905C /* TPChangePassWordViewModel_LoginPassWd.m */,
+			);
+			path = TPChangePassWordViewController;
+			sourceTree = "<group>";
+		};
 		DDE1769621BE5C9500167EB1 /* SJSlider */ = {
 			isa = PBXGroup;
 			children = (
@@ -1862,7 +1904,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD13CF4221F05BB20022EECC /* TPVerifyEmailViewController.xib in Resources */,
+				DD13CF4221F05BB20022EECC /* TPBindEmailViewController.xib in Resources */,
 				DD10844221A001030087F244 /* BCScanQR2@2x.png in Resources */,
 				DD13CF0821ED8A500022EECC /* TPMemonicStatusCollectionViewCell.xib in Resources */,
 				DDFED67B21D4CF8F00F2F354 /* custom.png in Resources */,
@@ -1890,8 +1932,10 @@
 				DD10844721A001030087F244 /* BCScanQR3@2x.png in Resources */,
 				DD23C29321E99E74007727DA /* TPGuiderViewController.xib in Resources */,
 				DD13CF1121EECCCB0022EECC /* YUTextViewXibContainer.xib in Resources */,
+				DDD211CE21F084A60029905C /* TPVerifyViewController.xib in Resources */,
 				DD13CF0021ECB4C80022EECC /* TPMnemonicSettingViewController.xib in Resources */,
 				DD0244002196C969006A1390 /* Main.storyboard in Resources */,
+				DDD211D721F09F090029905C /* TPChangePassWordViewController.xib in Resources */,
 				DD23C2AF21EC8E32007727DA /* TPMnemonicDisplayViewController.xib in Resources */,
 				DDFE5D9B21CA1BC0005D6D48 /* HUD_info@3x.png in Resources */,
 				DDFED67C21D4CF8F00F2F354 /* shareImage.png in Resources */,
@@ -2014,8 +2058,10 @@
 				DDFE5DA021CA1BE9005D6D48 /* TProgressHUD.m in Sources */,
 				DDFED69521DE045A00F2F354 /* JudegeCenter.m in Sources */,
 				DD2FD6B721C7A17000A28F78 /* YUTabBarConfig.m in Sources */,
+				DDD211D121F087E20029905C /* TPBindEmailViewModel.m in Sources */,
 				DD02399421AF968E00333446 /* WYNetworkManager.m in Sources */,
 				DDDDFBA0219C1AE90056FC57 /* TPEndViewController.m in Sources */,
+				DDD211D621F09F090029905C /* TPChangePassWordViewController.m in Sources */,
 				DDF7B9B221BA65E200BE35D6 /* UIImage+YUExtension.m in Sources */,
 				DD02444A2196DD57006A1390 /* TPMeViewController.m in Sources */,
 				DD374DB621C5228100093A0F /* AAArea.m in Sources */,
@@ -2052,6 +2098,7 @@
 				DD374D5C21C3B41100093A0F /* TZPhotoPickerController.m in Sources */,
 				DDFE5DAC21CA61D1005D6D48 /* TPTransferModel.m in Sources */,
 				DD374DB121C5228100093A0F /* AAColumn.m in Sources */,
+				DDD211CD21F084A60029905C /* TPVerifyViewController.m in Sources */,
 				DD374DBF21C5228100093A0F /* AAChartModel.m in Sources */,
 				DD10844421A001030087F244 /* NIMScannerBorder.m in Sources */,
 				DD2FD6B521C7A17000A28F78 /* YUTabBar.m in Sources */,
@@ -2091,7 +2138,7 @@
 				DD02392121A6B42100333446 /* TPUSDTViewController.m in Sources */,
 				DD374DB821C5228100093A0F /* AALegend.m in Sources */,
 				DD0239B221B10AC700333446 /* TPAssetModel.m in Sources */,
-				DD13CF4121F05BB20022EECC /* TPVerifyEmailViewController.m in Sources */,
+				DD13CF4121F05BB20022EECC /* TPBindEmailViewController.m in Sources */,
 				DD374D5221C3B41100093A0F /* TZImageCropManager.m in Sources */,
 				DD13CF1721EED49A0022EECC /* YUTextViewXibContainer.m in Sources */,
 				DD02444F21992F09006A1390 /* UIColor+Additions.m in Sources */,
@@ -2117,6 +2164,7 @@
 				DD02399321AF968E00333446 /* WYNetworkRequestPool.m in Sources */,
 				DD374DC121C5228100093A0F /* AASeriesElement.m in Sources */,
 				DDFE5DA621CA21F1005D6D48 /* NSObject+TPHUD.m in Sources */,
+				DDD211DC21F0A46F0029905C /* TPChangePassWordViewModel_LoginPassWd.m in Sources */,
 				DD2FD6B921C7A17000A28F78 /* YUTabBarController.m in Sources */,
 				DDFED6B521E065F100F2F354 /* YUCollectionViewCell.m in Sources */,
 				DD1083DC219D76560087F244 /* TPTokenTopicViewController.m in Sources */,

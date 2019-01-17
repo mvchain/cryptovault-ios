@@ -8,6 +8,10 @@
 
 #import "TPAccountSafeViewController.h"
 #import "TPAccountSafeViewModel.h"
+#import "TPBindEmailViewController.h"
+#import "TPChangePassWordViewController.h"
+#import "TPVerifyViewController.h"
+#import "TPChangePassWordViewModel_LoginPassWd.h"
 @interface TPAccountSafeViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) TPAccountSafeViewModel *viewModel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *atly_tableview_top;
@@ -33,7 +37,6 @@
     self.tableView.scrollEnabled = NO;
     
     
-    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -49,8 +52,22 @@
     [QuickDo prettyTableViewCellSeparate:@[@2] cell:cell indexPath:indexPath];
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    if (indexPath.row == 0) {
+        TPVerifyViewController *verifyVc = [[TPVerifyViewController alloc] init];
+        [self.navigationController pushViewController:verifyVc animated:YES];
+    }
+    if (indexPath.row == 1) {
+        TPChangePassWordViewController *change = [[TPChangePassWordViewController alloc] init];
+        change.viewModel = [[TPChangePassWordViewModel_LoginPassWd alloc] init];
+
+        [self.navigationController pushViewController:change animated:YES];
+    }
+    if (indexPath.row == 2) {
+        TPChangePassWordViewController *change = [[TPChangePassWordViewController alloc] init];
+        [self.navigationController pushViewController:change animated:YES];
+    }
 }
+
 #pragma mark local method
 - (void)setUpNav {
     

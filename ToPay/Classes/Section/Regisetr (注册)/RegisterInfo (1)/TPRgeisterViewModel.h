@@ -28,7 +28,6 @@
             vaildCode:(NSString *)vaildCode
              complete:(void(^)(BOOL isSucc,NSString *token,NSString *message))complete;
 
-
 #pragma mark logic
 // 本地判断注册信息是否合法
 - (void)isRegisterParameterCorrect:(NSString *)invitedCode
