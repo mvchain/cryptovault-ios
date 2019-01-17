@@ -184,6 +184,7 @@
 		DD72F435219A7F12004C0DAF /* TPBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD72F434219A7F12004C0DAF /* TPBaseViewController.m */; };
 		DDAA117721E72BD800F5D184 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAA117621E72BD800F5D184 /* MBProgressHUD+Add.m */; };
 		DDC5927F21D0B44C00CE8D3C /* TPKLineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DDC5927E21D0B44C00CE8D3C /* TPKLineModel.m */; };
+		DDD211C421F05EA40029905C /* TPVerifyEmailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD211C321F05EA40029905C /* TPVerifyEmailViewModel.m */; };
 		DDDDFB7B219AB5560056FC57 /* TPVRPLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFB7A219AB5560056FC57 /* TPVRPLabelCell.m */; };
 		DDDDFB81219AB7350056FC57 /* TPVRTCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFB80219AB7350056FC57 /* TPVRTCell.m */; };
 		DDDDFB84219AB8C40056FC57 /* YFactoryUI.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFB83219AB8C40056FC57 /* YFactoryUI.m */; };
@@ -623,6 +624,8 @@
 		DDAA117621E72BD800F5D184 /* MBProgressHUD+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Add.m"; sourceTree = "<group>"; };
 		DDC5927D21D0B44C00CE8D3C /* TPKLineModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPKLineModel.h; sourceTree = "<group>"; };
 		DDC5927E21D0B44C00CE8D3C /* TPKLineModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPKLineModel.m; sourceTree = "<group>"; };
+		DDD211C221F05EA40029905C /* TPVerifyEmailViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPVerifyEmailViewModel.h; sourceTree = "<group>"; };
+		DDD211C321F05EA40029905C /* TPVerifyEmailViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPVerifyEmailViewModel.m; sourceTree = "<group>"; };
 		DDDDFB79219AB5560056FC57 /* TPVRPLabelCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPVRPLabelCell.h; sourceTree = "<group>"; };
 		DDDDFB7A219AB5560056FC57 /* TPVRPLabelCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPVRPLabelCell.m; sourceTree = "<group>"; };
 		DDDDFB7F219AB7350056FC57 /* TPVRTCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPVRTCell.h; sourceTree = "<group>"; };
@@ -1392,6 +1395,8 @@
 				DD13CF3E21F05BB20022EECC /* TPVerifyEmailViewController.h */,
 				DD13CF3F21F05BB20022EECC /* TPVerifyEmailViewController.m */,
 				DD13CF4021F05BB20022EECC /* TPVerifyEmailViewController.xib */,
+				DDD211C221F05EA40029905C /* TPVerifyEmailViewModel.h */,
+				DDD211C321F05EA40029905C /* TPVerifyEmailViewModel.m */,
 			);
 			path = TPVerifyEmailViewController;
 			sourceTree = "<group>";
@@ -2126,6 +2131,7 @@
 				DD02392421A6B83D00333446 /* TPUSDTCell.m in Sources */,
 				DD10844D21A28E3C0087F244 /* TPStartViewController.m in Sources */,
 				DD23C2A321E9F953007727DA /* TPRegisterInfoModel.m in Sources */,
+				DDD211C421F05EA40029905C /* TPVerifyEmailViewModel.m in Sources */,
 				DD23C2BD21ECA892007727DA /* TPMemonicCollectionViewCell.m in Sources */,
 				DD13CF2821EF33D90022EECC /* UIImage+Gradient.m in Sources */,
 				DD02391521A50A0A00333446 /* TPAddTokenViewController.m in Sources */,
