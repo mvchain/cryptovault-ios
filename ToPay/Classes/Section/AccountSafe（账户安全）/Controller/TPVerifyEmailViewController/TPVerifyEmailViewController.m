@@ -1,29 +1,22 @@
 //
-//  TPAccountSafeViewController.m
+//  TPVerifyEmailViewController.m
 //  ToPay
 //
-//  Created by 蒲公英 on 2019/1/16.
+//  Created by 蒲公英 on 2019/1/17.
 //  Copyright © 2019年 蒲公英. All rights reserved.
 //
 
-#import "TPAccountSafeViewController.h"
+#import "TPVerifyEmailViewController.h"
 
-@interface TPAccountSafeViewController ()
+@interface TPVerifyEmailViewController ()
 
 @end
 
-@implementation TPAccountSafeViewController
-#pragma mark system method
+@implementation TPVerifyEmailViewController
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setUpNav];
-    
-}
-
-#pragma mark local method
-- (void)setUpNav {
-    self.customNavBar.title = @"账户安全";
-    
+    // Do any additional setup after loading the view from its nib.
 }
 
 /*

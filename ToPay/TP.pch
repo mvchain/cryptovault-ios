@@ -55,6 +55,7 @@
 #import "UIView+YUStyle.h"
 #import "YURootViewController.h"
 #import "UIButton+YUButtonStyle.h"
+#import "BlocksKit.h"
 #define kModelCache @"kModelCache"
 #define kReginfoModelCacheKey @"kReginfoModelCacheKey"
 #define kRegResponseCacheKey @"kRegResponseCacheKey"

@@ -11,6 +11,7 @@
 
 
 @interface TPAccountSafeItemTableViewCellEntity : YUCellEntity
+@property (copy, nonatomic) NSString *title;
 
 @end
 

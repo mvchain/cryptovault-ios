@@ -21,6 +21,7 @@ pod 'Charts'
 pod 'FDFullscreenPopGesture'
 pod 'JPush'
 pod 'MBProgressHUD'
+pod 'BlocksKit'
 # pod 'ChartsRealm'
 # pod 'TZImagePickerController' 
 

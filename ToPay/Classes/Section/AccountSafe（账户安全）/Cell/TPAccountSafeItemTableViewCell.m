@@ -7,18 +7,23 @@
 //
 
 #import "TPAccountSafeItemTableViewCell.h"
-
+#import "TPAccountSafeItemTableViewCellEntity.h"
+@interface TPAccountSafeItemTableViewCell()
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@end
 @implementation TPAccountSafeItemTableViewCell
-
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    
+}
+- (void)setEntity:(YUCellEntity *)entity {
+    TPAccountSafeItemTableViewCellEntity *entity_s = (TPAccountSafeItemTableViewCellEntity *)entity ;
+    [self.titleLabel setText:entity_s.title];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+    
 }
 
 @end

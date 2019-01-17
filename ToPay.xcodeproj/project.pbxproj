@@ -103,6 +103,9 @@
 		DD13CF3421EF5B3C0022EECC /* TPAccountSafeItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD13CF3221EF5B3C0022EECC /* TPAccountSafeItemTableViewCell.m */; };
 		DD13CF3521EF5B3C0022EECC /* TPAccountSafeItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD13CF3321EF5B3C0022EECC /* TPAccountSafeItemTableViewCell.xib */; };
 		DD13CF3821EF5B5A0022EECC /* TPAccountSafeItemTableViewCellEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DD13CF3721EF5B5A0022EECC /* TPAccountSafeItemTableViewCellEntity.m */; };
+		DD13CF3B21F04DB40022EECC /* TPAccountSafeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD13CF3A21F04DB40022EECC /* TPAccountSafeViewModel.m */; };
+		DD13CF4121F05BB20022EECC /* TPVerifyEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD13CF3F21F05BB20022EECC /* TPVerifyEmailViewController.m */; };
+		DD13CF4221F05BB20022EECC /* TPVerifyEmailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD13CF4021F05BB20022EECC /* TPVerifyEmailViewController.xib */; };
 		DD23C28421E89FDC007727DA /* UIView+YUStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = DD23C28321E89FDC007727DA /* UIView+YUStyle.m */; };
 		DD23C28921E8B6BA007727DA /* TPRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD23C28721E8B6BA007727DA /* TPRegisterViewController.m */; };
 		DD23C28A21E8B6BA007727DA /* TPRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD23C28821E8B6BA007727DA /* TPRegisterViewController.xib */; };
@@ -462,6 +465,11 @@
 		DD13CF3321EF5B3C0022EECC /* TPAccountSafeItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPAccountSafeItemTableViewCell.xib; sourceTree = "<group>"; };
 		DD13CF3621EF5B5A0022EECC /* TPAccountSafeItemTableViewCellEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAccountSafeItemTableViewCellEntity.h; sourceTree = "<group>"; };
 		DD13CF3721EF5B5A0022EECC /* TPAccountSafeItemTableViewCellEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAccountSafeItemTableViewCellEntity.m; sourceTree = "<group>"; };
+		DD13CF3921F04DB40022EECC /* TPAccountSafeViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAccountSafeViewModel.h; sourceTree = "<group>"; };
+		DD13CF3A21F04DB40022EECC /* TPAccountSafeViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAccountSafeViewModel.m; sourceTree = "<group>"; };
+		DD13CF3E21F05BB20022EECC /* TPVerifyEmailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPVerifyEmailViewController.h; sourceTree = "<group>"; };
+		DD13CF3F21F05BB20022EECC /* TPVerifyEmailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPVerifyEmailViewController.m; sourceTree = "<group>"; };
+		DD13CF4021F05BB20022EECC /* TPVerifyEmailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPVerifyEmailViewController.xib; sourceTree = "<group>"; };
 		DD23C28221E89FDC007727DA /* UIView+YUStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YUStyle.h"; sourceTree = "<group>"; };
 		DD23C28321E89FDC007727DA /* UIView+YUStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YUStyle.m"; sourceTree = "<group>"; };
 		DD23C28621E8B6BA007727DA /* TPRegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPRegisterViewController.h; sourceTree = "<group>"; };
@@ -1360,11 +1368,32 @@
 		DD13CF3021EF5B160022EECC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DD13CF3D21F05B3A0022EECC /* TPVerifyEmailViewController */,
+				DD13CF3C21F058AB0022EECC /* TPAccountSafeViewController */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DD13CF3C21F058AB0022EECC /* TPAccountSafeViewController */ = {
+			isa = PBXGroup;
+			children = (
 				DD13CF2A21EF59CF0022EECC /* TPAccountSafeViewController.h */,
 				DD13CF2B21EF59CF0022EECC /* TPAccountSafeViewController.m */,
 				DD13CF2C21EF59CF0022EECC /* TPAccountSafeViewController.xib */,
+				DD13CF3921F04DB40022EECC /* TPAccountSafeViewModel.h */,
+				DD13CF3A21F04DB40022EECC /* TPAccountSafeViewModel.m */,
 			);
-			path = Controller;
+			path = TPAccountSafeViewController;
+			sourceTree = "<group>";
+		};
+		DD13CF3D21F05B3A0022EECC /* TPVerifyEmailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DD13CF3E21F05BB20022EECC /* TPVerifyEmailViewController.h */,
+				DD13CF3F21F05BB20022EECC /* TPVerifyEmailViewController.m */,
+				DD13CF4021F05BB20022EECC /* TPVerifyEmailViewController.xib */,
+			);
+			path = TPVerifyEmailViewController;
 			sourceTree = "<group>";
 		};
 		DD23C28521E8B66A007727DA /* Regisetr (注册) */ = {
@@ -1828,6 +1857,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD13CF4221F05BB20022EECC /* TPVerifyEmailViewController.xib in Resources */,
 				DD10844221A001030087F244 /* BCScanQR2@2x.png in Resources */,
 				DD13CF0821ED8A500022EECC /* TPMemonicStatusCollectionViewCell.xib in Resources */,
 				DDFED67B21D4CF8F00F2F354 /* custom.png in Resources */,
@@ -1889,6 +1919,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ToPay/Pods-ToPay-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/BlocksKit/BlocksKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
@@ -1905,6 +1936,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BlocksKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FDFullscreenPopGesture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
@@ -2054,6 +2086,7 @@
 				DD02392121A6B42100333446 /* TPUSDTViewController.m in Sources */,
 				DD374DB821C5228100093A0F /* AALegend.m in Sources */,
 				DD0239B221B10AC700333446 /* TPAssetModel.m in Sources */,
+				DD13CF4121F05BB20022EECC /* TPVerifyEmailViewController.m in Sources */,
 				DD374D5221C3B41100093A0F /* TZImageCropManager.m in Sources */,
 				DD13CF1721EED49A0022EECC /* YUTextViewXibContainer.m in Sources */,
 				DD02444F21992F09006A1390 /* UIColor+Additions.m in Sources */,
@@ -2069,6 +2102,7 @@
 				DDFED69821DEFC9800F2F354 /* QuickMaker.m in Sources */,
 				DDDDFB84219AB8C40056FC57 /* YFactoryUI.m in Sources */,
 				DD0239A921AFECEB00333446 /* NSObject+TPExtension.m in Sources */,
+				DD13CF3B21F04DB40022EECC /* TPAccountSafeViewModel.m in Sources */,
 				DD13CEFF21ECB4C80022EECC /* TPMnemonicSettingViewController.m in Sources */,
 				DD02399521AF968E00333446 /* WYNetworkCacheInfo.m in Sources */,
 				DD0244472196DD4E006A1390 /* TPCrowdfundingViewController.m in Sources */,
