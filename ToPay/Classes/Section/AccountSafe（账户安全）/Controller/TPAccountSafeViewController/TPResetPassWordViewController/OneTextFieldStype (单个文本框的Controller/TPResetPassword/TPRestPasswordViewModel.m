@@ -1,22 +1,39 @@
 //
-//  TPChangePassWordViewModel_LoginPassWd.m
+//  TPRestPasswordViewModel.m
 //  ToPay
 //
-//  Created by 蒲公英 on 2019/1/17.
+//  Created by 蒲公英 on 2019/1/18.
 //  Copyright © 2019年 蒲公英. All rights reserved.
 //
 
-#import "TPChangePassWordViewModel_LoginPassWd.h"
+#import "TPRestPasswordViewModel.h"
 
-@implementation TPChangePassWordViewModel_LoginPassWd
+@implementation TPRestPasswordViewModel
 
-- (void)changePassWdWithOldPassWd:(NSString *)old
-                        newPassWd:(NSString *)newPassWd
-                         complete:(void (^)(BOOL isSucc, NSString *ifno))complete {
+- (NSString *)HintTitle {
+    return @"设置登录密码";
+}
+
+- (NSString *)buttonTitle {
+    return @"确认重置";
+}
+
+- (UIKeyboardType)keyboardType {
     
-    NSDictionary *postDict = @{@"password":old,@"newPassword":newPassWd};
+    return UIKeyboardTypeASCIICapable;
+}
+
+- (NSString *)placeHolder {
+    return @"登录密码";
+}
+
+- (void)submitWithValue:(NSString *)value
+               complete:(void(^)(BOOL isSucc ,NSString *info))complete {
+    NSString *pwdtype = [[NSUserDefaults standardUserDefaults]objectForKey:@"reset-pwd-type"];
+    
+    NSDictionary *postDict = @{@"password":value,@"token":self.onceToken,@"type":pwdtype};
     [[WYNetworkManager sharedManager] sendPutRequest:WYJSONRequestSerializer
-                                                 url:@"user/password"
+                                                 url:@"/user/forget"
                                           parameters:postDict
                                              success:^(id responseObject, BOOL isCacheObject) {
                                                  NSDictionary *res = (NSDictionary *)responseObject;
@@ -30,14 +47,5 @@
                                                  NSLog(@"%@",[error description]);
                                                  complete(NO,@"网络错误");
                                              } ];
-}
-
-// 密码类型名
-- (NSString *)passWordTypeName {
-    return @"登录密码";
-}
-// 键盘类型
-- (UIKeyboardType)textFieldKeyboardType {
-    return UIKeyboardTypeAlphabet;
 }
 @end

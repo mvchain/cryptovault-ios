@@ -1,22 +1,20 @@
 //
-//  TPChangePassWordViewModel_LoginPassWd.m
+//  TPChangePassWordViewModel_PayPassWd.m
 //  ToPay
 //
-//  Created by 蒲公英 on 2019/1/17.
+//  Created by 蒲公英 on 2019/1/18.
 //  Copyright © 2019年 蒲公英. All rights reserved.
 //
 
-#import "TPChangePassWordViewModel_LoginPassWd.h"
+#import "TPChangePassWordViewModel_PayPassWd.h"
 
-@implementation TPChangePassWordViewModel_LoginPassWd
-
+@implementation TPChangePassWordViewModel_PayPassWd
 - (void)changePassWdWithOldPassWd:(NSString *)old
                         newPassWd:(NSString *)newPassWd
                          complete:(void (^)(BOOL isSucc, NSString *ifno))complete {
-    
     NSDictionary *postDict = @{@"password":old,@"newPassword":newPassWd};
     [[WYNetworkManager sharedManager] sendPutRequest:WYJSONRequestSerializer
-                                                 url:@"user/password"
+                                                 url:@"user/transactionPassword"
                                           parameters:postDict
                                              success:^(id responseObject, BOOL isCacheObject) {
                                                  NSDictionary *res = (NSDictionary *)responseObject;
@@ -32,12 +30,11 @@
                                              } ];
 }
 
-// 密码类型名
 - (NSString *)passWordTypeName {
-    return @"登录密码";
+    return @"支付密码";
 }
-// 键盘类型
+// 键盘类型,支付密码--数字键盘
 - (UIKeyboardType)textFieldKeyboardType {
-    return UIKeyboardTypeAlphabet;
+    return UIKeyboardTypeNumberPad;
 }
 @end

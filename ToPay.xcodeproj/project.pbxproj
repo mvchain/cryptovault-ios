@@ -58,6 +58,12 @@
 		DD0244472196DD4E006A1390 /* TPCrowdfundingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0244462196DD4E006A1390 /* TPCrowdfundingViewController.m */; };
 		DD02444A2196DD57006A1390 /* TPMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0244492196DD57006A1390 /* TPMeViewController.m */; };
 		DD02444F21992F09006A1390 /* UIColor+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = DD02444D21992F09006A1390 /* UIColor+Additions.m */; };
+		DD0B44F021F1A7FE00333016 /* TPResetPassWordByEmailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0B44EF21F1A7FE00333016 /* TPResetPassWordByEmailViewModel.m */; };
+		DD0B44F721F1B8DE00333016 /* TPResetPwdOneTextFiledViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0B44F521F1B8DE00333016 /* TPResetPwdOneTextFiledViewController.m */; };
+		DD0B44F821F1B8DE00333016 /* TPResetPwdOneTextFiledViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD0B44F621F1B8DE00333016 /* TPResetPwdOneTextFiledViewController.xib */; };
+		DD0B44FB21F1B9FE00333016 /* TPRestPasswordByMnmonicViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0B44FA21F1B9FE00333016 /* TPRestPasswordByMnmonicViewModel.m */; };
+		DD0B44FE21F1BA8000333016 /* TPRestPasswordByPrivateKeyViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0B44FD21F1BA8000333016 /* TPRestPasswordByPrivateKeyViewModel.m */; };
+		DD0B450221F1BD6D00333016 /* TPRestPasswordViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0B450121F1BD6D00333016 /* TPRestPasswordViewModel.m */; };
 		DD1083D3219D67480087F244 /* TPTokenKindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1083D2219D67480087F244 /* TPTokenKindViewController.m */; };
 		DD1083D6219D67800087F244 /* TPTokenHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1083D5219D67800087F244 /* TPTokenHeaderView.m */; };
 		DD1083D9219D71410087F244 /* TPTokenCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1083D8219D71410087F244 /* TPTokenCell.m */; };
@@ -191,6 +197,11 @@
 		DDD211D621F09F090029905C /* TPChangePassWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD211D421F09F090029905C /* TPChangePassWordViewController.m */; };
 		DDD211D721F09F090029905C /* TPChangePassWordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDD211D521F09F090029905C /* TPChangePassWordViewController.xib */; };
 		DDD211DC21F0A46F0029905C /* TPChangePassWordViewModel_LoginPassWd.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD211DB21F0A46F0029905C /* TPChangePassWordViewModel_LoginPassWd.m */; };
+		DDD211DF21F171280029905C /* TPChangePassWordViewModel_PayPassWd.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD211DE21F171280029905C /* TPChangePassWordViewModel_PayPassWd.m */; };
+		DDD211E421F1852F0029905C /* TPResetPassWordGuiderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD211E221F1852F0029905C /* TPResetPassWordGuiderViewController.m */; };
+		DDD211E521F1852F0029905C /* TPResetPassWordGuiderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDD211E321F1852F0029905C /* TPResetPassWordGuiderViewController.xib */; };
+		DDD211EA21F1A2520029905C /* TPRetPassWordByEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD211E821F1A2520029905C /* TPRetPassWordByEmailViewController.m */; };
+		DDD211EB21F1A2520029905C /* TPRetPassWordByEmailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDD211E921F1A2520029905C /* TPRetPassWordByEmailViewController.xib */; };
 		DDDDFB7B219AB5560056FC57 /* TPVRPLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFB7A219AB5560056FC57 /* TPVRPLabelCell.m */; };
 		DDDDFB81219AB7350056FC57 /* TPVRTCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFB80219AB7350056FC57 /* TPVRTCell.m */; };
 		DDDDFB84219AB8C40056FC57 /* YFactoryUI.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDFB83219AB8C40056FC57 /* YFactoryUI.m */; };
@@ -392,6 +403,17 @@
 		DD02444C21992EE0006A1390 /* TPGlobalMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPGlobalMacro.h; sourceTree = "<group>"; };
 		DD02444D21992F09006A1390 /* UIColor+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Additions.m"; sourceTree = "<group>"; };
 		DD02444E21992F09006A1390 /* UIColor+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Additions.h"; sourceTree = "<group>"; };
+		DD0B44EE21F1A7FE00333016 /* TPResetPassWordByEmailViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPResetPassWordByEmailViewModel.h; sourceTree = "<group>"; };
+		DD0B44EF21F1A7FE00333016 /* TPResetPassWordByEmailViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPResetPassWordByEmailViewModel.m; sourceTree = "<group>"; };
+		DD0B44F421F1B8DE00333016 /* TPResetPwdOneTextFiledViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPResetPwdOneTextFiledViewController.h; sourceTree = "<group>"; };
+		DD0B44F521F1B8DE00333016 /* TPResetPwdOneTextFiledViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPResetPwdOneTextFiledViewController.m; sourceTree = "<group>"; };
+		DD0B44F621F1B8DE00333016 /* TPResetPwdOneTextFiledViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPResetPwdOneTextFiledViewController.xib; sourceTree = "<group>"; };
+		DD0B44F921F1B9FE00333016 /* TPRestPasswordByMnmonicViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPRestPasswordByMnmonicViewModel.h; sourceTree = "<group>"; };
+		DD0B44FA21F1B9FE00333016 /* TPRestPasswordByMnmonicViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPRestPasswordByMnmonicViewModel.m; sourceTree = "<group>"; };
+		DD0B44FC21F1BA8000333016 /* TPRestPasswordByPrivateKeyViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPRestPasswordByPrivateKeyViewModel.h; sourceTree = "<group>"; };
+		DD0B44FD21F1BA8000333016 /* TPRestPasswordByPrivateKeyViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPRestPasswordByPrivateKeyViewModel.m; sourceTree = "<group>"; };
+		DD0B450021F1BD6D00333016 /* TPRestPasswordViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPRestPasswordViewModel.h; sourceTree = "<group>"; };
+		DD0B450121F1BD6D00333016 /* TPRestPasswordViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPRestPasswordViewModel.m; sourceTree = "<group>"; };
 		DD1083D1219D67480087F244 /* TPTokenKindViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTokenKindViewController.h; sourceTree = "<group>"; };
 		DD1083D2219D67480087F244 /* TPTokenKindViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTokenKindViewController.m; sourceTree = "<group>"; };
 		DD1083D4219D67800087F244 /* TPTokenHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTokenHeaderView.h; sourceTree = "<group>"; };
@@ -642,6 +664,14 @@
 		DDD211D521F09F090029905C /* TPChangePassWordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPChangePassWordViewController.xib; sourceTree = "<group>"; };
 		DDD211DA21F0A46F0029905C /* TPChangePassWordViewModel_LoginPassWd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPChangePassWordViewModel_LoginPassWd.h; sourceTree = "<group>"; };
 		DDD211DB21F0A46F0029905C /* TPChangePassWordViewModel_LoginPassWd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPChangePassWordViewModel_LoginPassWd.m; sourceTree = "<group>"; };
+		DDD211DD21F171280029905C /* TPChangePassWordViewModel_PayPassWd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPChangePassWordViewModel_PayPassWd.h; sourceTree = "<group>"; };
+		DDD211DE21F171280029905C /* TPChangePassWordViewModel_PayPassWd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPChangePassWordViewModel_PayPassWd.m; sourceTree = "<group>"; };
+		DDD211E121F1852F0029905C /* TPResetPassWordGuiderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPResetPassWordGuiderViewController.h; sourceTree = "<group>"; };
+		DDD211E221F1852F0029905C /* TPResetPassWordGuiderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPResetPassWordGuiderViewController.m; sourceTree = "<group>"; };
+		DDD211E321F1852F0029905C /* TPResetPassWordGuiderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPResetPassWordGuiderViewController.xib; sourceTree = "<group>"; };
+		DDD211E721F1A2520029905C /* TPRetPassWordByEmailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPRetPassWordByEmailViewController.h; sourceTree = "<group>"; };
+		DDD211E821F1A2520029905C /* TPRetPassWordByEmailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPRetPassWordByEmailViewController.m; sourceTree = "<group>"; };
+		DDD211E921F1A2520029905C /* TPRetPassWordByEmailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPRetPassWordByEmailViewController.xib; sourceTree = "<group>"; };
 		DDDDFB79219AB5560056FC57 /* TPVRPLabelCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPVRPLabelCell.h; sourceTree = "<group>"; };
 		DDDDFB7A219AB5560056FC57 /* TPVRPLabelCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPVRPLabelCell.m; sourceTree = "<group>"; };
 		DDDDFB7F219AB7350056FC57 /* TPVRTCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPVRTCell.h; sourceTree = "<group>"; };
@@ -1309,6 +1339,47 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		DD0B44F121F1B7C200333016 /* TPResetPasswordByPrivateKey */ = {
+			isa = PBXGroup;
+			children = (
+				DD0B44FC21F1BA8000333016 /* TPRestPasswordByPrivateKeyViewModel.h */,
+				DD0B44FD21F1BA8000333016 /* TPRestPasswordByPrivateKeyViewModel.m */,
+			);
+			path = TPResetPasswordByPrivateKey;
+			sourceTree = "<group>";
+		};
+		DD0B44F221F1B83E00333016 /* TPResetPasswordByMnmonic */ = {
+			isa = PBXGroup;
+			children = (
+				DD0B44F921F1B9FE00333016 /* TPRestPasswordByMnmonicViewModel.h */,
+				DD0B44FA21F1B9FE00333016 /* TPRestPasswordByMnmonicViewModel.m */,
+			);
+			name = TPResetPasswordByMnmonic;
+			path = "    self. ";
+			sourceTree = "<group>";
+		};
+		DD0B44F321F1B89300333016 /* OneTextFieldStype (单个文本框的Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DD0B44FF21F1BD4B00333016 /* TPResetPassword */,
+				DD0B44F221F1B83E00333016 /* TPResetPasswordByMnmonic */,
+				DD0B44F121F1B7C200333016 /* TPResetPasswordByPrivateKey */,
+				DD0B44F421F1B8DE00333016 /* TPResetPwdOneTextFiledViewController.h */,
+				DD0B44F521F1B8DE00333016 /* TPResetPwdOneTextFiledViewController.m */,
+				DD0B44F621F1B8DE00333016 /* TPResetPwdOneTextFiledViewController.xib */,
+			);
+			path = "OneTextFieldStype (单个文本框的Controller";
+			sourceTree = "<group>";
+		};
+		DD0B44FF21F1BD4B00333016 /* TPResetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				DD0B450021F1BD6D00333016 /* TPRestPasswordViewModel.h */,
+				DD0B450121F1BD6D00333016 /* TPRestPasswordViewModel.m */,
+			);
+			path = TPResetPassword;
+			sourceTree = "<group>";
+		};
 		DD10842E21A001030087F244 /* QRCode */ = {
 			isa = PBXGroup;
 			children = (
@@ -1395,6 +1466,7 @@
 		DD13CF3C21F058AB0022EECC /* TPAccountSafeViewController */ = {
 			isa = PBXGroup;
 			children = (
+				DDD211E021F184F60029905C /* TPResetPassWordViewController */,
 				DDD211D221F09EA80029905C /* TPChangePassWordViewController */,
 				DDD211C921F084460029905C /* TPVerifyEmailViewController */,
 				DD13CF3D21F05B3A0022EECC /* TPBindEmailViewController */,
@@ -1709,8 +1781,34 @@
 				DDD211D521F09F090029905C /* TPChangePassWordViewController.xib */,
 				DDD211DA21F0A46F0029905C /* TPChangePassWordViewModel_LoginPassWd.h */,
 				DDD211DB21F0A46F0029905C /* TPChangePassWordViewModel_LoginPassWd.m */,
+				DDD211DD21F171280029905C /* TPChangePassWordViewModel_PayPassWd.h */,
+				DDD211DE21F171280029905C /* TPChangePassWordViewModel_PayPassWd.m */,
 			);
 			path = TPChangePassWordViewController;
+			sourceTree = "<group>";
+		};
+		DDD211E021F184F60029905C /* TPResetPassWordViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DD0B44F321F1B89300333016 /* OneTextFieldStype (单个文本框的Controller */,
+				DDD211E621F1A1890029905C /* TPRetPassWordByEmailViewController */,
+				DDD211E121F1852F0029905C /* TPResetPassWordGuiderViewController.h */,
+				DDD211E221F1852F0029905C /* TPResetPassWordGuiderViewController.m */,
+				DDD211E321F1852F0029905C /* TPResetPassWordGuiderViewController.xib */,
+			);
+			path = TPResetPassWordViewController;
+			sourceTree = "<group>";
+		};
+		DDD211E621F1A1890029905C /* TPRetPassWordByEmailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DDD211E721F1A2520029905C /* TPRetPassWordByEmailViewController.h */,
+				DDD211E821F1A2520029905C /* TPRetPassWordByEmailViewController.m */,
+				DDD211E921F1A2520029905C /* TPRetPassWordByEmailViewController.xib */,
+				DD0B44EE21F1A7FE00333016 /* TPResetPassWordByEmailViewModel.h */,
+				DD0B44EF21F1A7FE00333016 /* TPResetPassWordByEmailViewModel.m */,
+			);
+			path = TPRetPassWordByEmailViewController;
 			sourceTree = "<group>";
 		};
 		DDE1769621BE5C9500167EB1 /* SJSlider */ = {
@@ -1905,6 +2003,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD13CF4221F05BB20022EECC /* TPBindEmailViewController.xib in Resources */,
+				DDD211EB21F1A2520029905C /* TPRetPassWordByEmailViewController.xib in Resources */,
 				DD10844221A001030087F244 /* BCScanQR2@2x.png in Resources */,
 				DD13CF0821ED8A500022EECC /* TPMemonicStatusCollectionViewCell.xib in Resources */,
 				DDFED67B21D4CF8F00F2F354 /* custom.png in Resources */,
@@ -1925,6 +2024,7 @@
 				DDFE5D9A21CA1BC0005D6D48 /* HUD_error@3x.png in Resources */,
 				DDFED6A421E0605300F2F354 /* TPNoMoreTableViewCell.xib in Resources */,
 				DD13CF3521EF5B3C0022EECC /* TPAccountSafeItemTableViewCell.xib in Resources */,
+				DDD211E521F1852F0029905C /* TPResetPassWordGuiderViewController.xib in Resources */,
 				DD374DA521C5228100093A0F /* AAJSFiles.bundle in Resources */,
 				DD10844921A001030087F244 /* BCScanQR1@2x.png in Resources */,
 				DD10844121A001030087F244 /* QRCodeScanLine@2x.png in Resources */,
@@ -1932,6 +2032,7 @@
 				DD10844721A001030087F244 /* BCScanQR3@2x.png in Resources */,
 				DD23C29321E99E74007727DA /* TPGuiderViewController.xib in Resources */,
 				DD13CF1121EECCCB0022EECC /* YUTextViewXibContainer.xib in Resources */,
+				DD0B44F821F1B8DE00333016 /* TPResetPwdOneTextFiledViewController.xib in Resources */,
 				DDD211CE21F084A60029905C /* TPVerifyViewController.xib in Resources */,
 				DD13CF0021ECB4C80022EECC /* TPMnemonicSettingViewController.xib in Resources */,
 				DD0244002196C969006A1390 /* Main.storyboard in Resources */,
@@ -2033,6 +2134,7 @@
 				DD23C2AE21EC8E32007727DA /* TPMnemonicDisplayViewController.m in Sources */,
 				DD1083D3219D67480087F244 /* TPTokenKindViewController.m in Sources */,
 				DDFD5EC821B291CF00D64283 /* TPVRTModel.m in Sources */,
+				DDD211DF21F171280029905C /* TPChangePassWordViewModel_PayPassWd.m in Sources */,
 				DD374DB321C5228100093A0F /* AAStyle.m in Sources */,
 				DD374DAC21C5228100093A0F /* AALine.m in Sources */,
 				DD374DAA21C5228100093A0F /* AAPlotOptions.m in Sources */,
@@ -2097,6 +2199,7 @@
 				DD02399B21AF968E00333446 /* WYNetworkUtils.m in Sources */,
 				DD374D5C21C3B41100093A0F /* TZPhotoPickerController.m in Sources */,
 				DDFE5DAC21CA61D1005D6D48 /* TPTransferModel.m in Sources */,
+				DDD211E421F1852F0029905C /* TPResetPassWordGuiderViewController.m in Sources */,
 				DD374DB121C5228100093A0F /* AAColumn.m in Sources */,
 				DDD211CD21F084A60029905C /* TPVerifyViewController.m in Sources */,
 				DD374DBF21C5228100093A0F /* AAChartModel.m in Sources */,
@@ -2114,6 +2217,7 @@
 				DD13CF2D21EF59CF0022EECC /* TPAccountSafeViewController.m in Sources */,
 				DD374D6621C4B18F00093A0F /* TPRefreshFooter.m in Sources */,
 				DD02399D21AF968E00333446 /* WYImageScaleTool.m in Sources */,
+				DDD211EA21F1A2520029905C /* TPRetPassWordByEmailViewController.m in Sources */,
 				DD374DAB21C5228100093A0F /* AADataLabels.m in Sources */,
 				DDDDFBAF219D60BC0056FC57 /* UIViewExt.m in Sources */,
 				DDE176A521BE74D700167EB1 /* TPTransInfoModel.m in Sources */,
@@ -2129,6 +2233,7 @@
 				DD02399A21AF968E00333446 /* WYNetworkDownloadEngine.m in Sources */,
 				DDDDFB9D219C1AC00056FC57 /* TPComingSoonViewController.m in Sources */,
 				DDAA117721E72BD800F5D184 /* MBProgressHUD+Add.m in Sources */,
+				DD0B44F021F1A7FE00333016 /* TPResetPassWordByEmailViewModel.m in Sources */,
 				DDDDFB87219ACC310056FC57 /* TPCrowdfundCell.m in Sources */,
 				DDFE5DD421CDF22E005D6D48 /* TPPublish.m in Sources */,
 				DD02399C21AF968E00333446 /* WYNetworkBaseEngine.m in Sources */,
@@ -2151,6 +2256,7 @@
 				DD72F435219A7F12004C0DAF /* TPBaseViewController.m in Sources */,
 				DDDDFB8A219AD0550056FC57 /* UIView+TPExtension.m in Sources */,
 				DDFED6B421E065F100F2F354 /* YUCellEntity.m in Sources */,
+				DD0B44FB21F1B9FE00333016 /* TPRestPasswordByMnmonicViewModel.m in Sources */,
 				DDFED69821DEFC9800F2F354 /* QuickMaker.m in Sources */,
 				DDDDFB84219AB8C40056FC57 /* YFactoryUI.m in Sources */,
 				DD0239A921AFECEB00333446 /* NSObject+TPExtension.m in Sources */,
@@ -2170,10 +2276,12 @@
 				DD1083DC219D76560087F244 /* TPTokenTopicViewController.m in Sources */,
 				DD108427219EAEB80087F244 /* TPLanguageViewController.m in Sources */,
 				DD02391E21A5570B00333446 /* TPTranDetailViewController.m in Sources */,
+				DD0B44FE21F1BA8000333016 /* TPRestPasswordByPrivateKeyViewModel.m in Sources */,
 				DD10845C21A401560087F244 /* TPComTextView.m in Sources */,
 				DD374DB421C5228100093A0F /* AABar.m in Sources */,
 				DD23C29221E99E74007727DA /* TPGuiderViewController.m in Sources */,
 				DD0244442196DD39006A1390 /* TPTransactionViewController.m in Sources */,
+				DD0B44F721F1B8DE00333016 /* TPResetPwdOneTextFiledViewController.m in Sources */,
 				DD02393E21ACEBDA00333446 /* TPLoginViewController.m in Sources */,
 				DD1083DF219D7AD10087F244 /* TPNotiViewController.m in Sources */,
 				DD02392421A6B83D00333446 /* TPUSDTCell.m in Sources */,
@@ -2186,6 +2294,7 @@
 				DD23C2B521EC8F9A007727DA /* TPRegisterResponseModel.m in Sources */,
 				DD1083D6219D67800087F244 /* TPTokenHeaderView.m in Sources */,
 				DD10844821A001030087F244 /* NIMScannerViewController.m in Sources */,
+				DD0B450221F1BD6D00333016 /* TPRestPasswordViewModel.m in Sources */,
 				DD02399721AF968E00333446 /* WYNetworkDownloadResumeDataInfo.m in Sources */,
 				DD10845921A3EC900087F244 /* TPChainReceiptViewController.m in Sources */,
 				DD374DB021C5228100093A0F /* AACrosshair.m in Sources */,

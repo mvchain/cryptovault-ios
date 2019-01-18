@@ -90,7 +90,6 @@
     UINavigationController *nav = [[UINavigationController alloc] init];
     nav.navigationBar.hidden = YES;
     [nav setNavigationBarHidden:YES];
-    
     TPGuiderViewController *tp = [[TPGuiderViewController alloc] init];
     nav.viewControllers = @[tp];
     [self changeWindowKeyWindow:nav];
@@ -99,5 +98,11 @@
 + (void)swithchToMainTab {
     YUTabBarController *tab =[[YUTabBarController alloc]init];
     [self changeWindowKeyWindow:tab];
+}
+
++ (void)logout  {
+    [TPLoginUtil quitWithRemoveUserInfo];
+    [self switchToGuiderPage];
+    
 }
 @end

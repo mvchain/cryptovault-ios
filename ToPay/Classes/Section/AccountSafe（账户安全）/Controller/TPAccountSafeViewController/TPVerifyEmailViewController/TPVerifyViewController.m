@@ -12,7 +12,9 @@
 #import "JKCountDownButton.h"
 #import "TPBindEmailViewModel.h"
 #import "TPBindEmailViewController.h"
+
 @interface TPVerifyViewController ()
+
 @property (weak, nonatomic) IBOutlet UILabel *emailLabel;
 @property (weak, nonatomic) IBOutlet YUTextView *vaildCodeTextView;
 @property (weak, nonatomic) IBOutlet JKCountDownButton *sendVaildButton;
@@ -32,7 +34,6 @@
 }
 
 #pragma mark system method
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.nextStepButton gradualChangeStyle];
@@ -40,8 +41,10 @@
     [self.vaildCodeTextView setPlaceHolder:@"邮箱验证码"];
     [self.vaildCodeTextView setHintText:@"邮箱验证码"];
     self.vaildCodeTextView.xibContainer.textField.keyboardType = UIKeyboardTypeNumberPad;
+    
     self.emailLabel.text = TPString(@"验证当前邮箱：%@",self.viewModel.currentEmail);
     self.scrollView.contentInset = UIEdgeInsetsMake(self.customNavBar.height, 0, 0, 0  );
+    self.customNavBar.title = @"账户安全验证";
 }
 
 #pragma mark local method
@@ -62,10 +65,8 @@
         [self showErrorText:@"验证码不能为空"];
         return;
     }
-    
     [self.viewModel checkoutWithVaildCode:self.vaildCodeTextView.text
                                  complete:^(BOOL isVaild, NSString *token) {
-        
         if (isVaild){
             TPBindEmailViewController *newBind = [[TPBindEmailViewController alloc] init];
             newBind.viewModel.oneceToken = token;
@@ -78,7 +79,7 @@
 }
 
 - (IBAction)onSendVaildCodeTap:(id)sender {
- 
+   
     [self startValidCodeButtonAnimate];
     [self.viewModel sendVaildCodeWithcomplete:^(BOOL isSucc) {
         if (isSucc) {

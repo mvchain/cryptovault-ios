@@ -12,6 +12,7 @@
 #import "TPChangePassWordViewController.h"
 #import "TPVerifyViewController.h"
 #import "TPChangePassWordViewModel_LoginPassWd.h"
+#import "TPChangePassWordViewModel_PayPassWd.h"
 @interface TPAccountSafeViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) TPAccountSafeViewModel *viewModel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *atly_tableview_top;
@@ -35,8 +36,6 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.view.backgroundColor = [UIColor colorWithHex:@"#F2F2F2"];
     self.tableView.scrollEnabled = NO;
-    
-    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -64,6 +63,7 @@
     }
     if (indexPath.row == 2) {
         TPChangePassWordViewController *change = [[TPChangePassWordViewController alloc] init];
+        change.viewModel = [[TPChangePassWordViewModel_PayPassWd alloc] init];
         [self.navigationController pushViewController:change animated:YES];
     }
 }

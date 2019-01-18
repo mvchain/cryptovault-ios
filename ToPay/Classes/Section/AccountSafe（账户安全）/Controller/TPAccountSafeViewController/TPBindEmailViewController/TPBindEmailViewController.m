@@ -50,6 +50,7 @@
         index++;
     }
     self.scrollView.contentInset = UIEdgeInsetsMake(self.customNavBar.height, 0, 0, 0  );
+    self.customNavBar.title = @"绑定新邮箱";
 }
 - (void)startValidCodeButtonAnimate {
     [self.sendVaildCodeButton startCountDownWithSecond:60];
@@ -91,7 +92,6 @@
     if(self.vaildCodeTextView.text.length == 0) {
         [self showErrorText:@"验证码不能为空"];
         return;
-        
     }
     [self.viewModel rebindEmail:self.emailTextView.text
                           token:self.viewModel.oneceToken

@@ -8,10 +8,14 @@
 
 #import "TPBaseViewController.h"
 
+/**
+ * 改变（支付/登录）密码
+ */
 
 @protocol TPChangePassWordViewModelProtocol <NSObject>
 @required
 - (NSString *)passWordTypeName ;
+- (UIKeyboardType)textFieldKeyboardType;
 - (void)changePassWdWithOldPassWd:(NSString *)old
                         newPassWd:(NSString *)newPassWd
                          complete:(void(^)(BOOL isSucc,NSString *info))complete;

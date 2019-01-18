@@ -201,13 +201,11 @@
             UIApplication *app = [UIApplication sharedApplication];
             AppDelegate *dele = (AppDelegate*)app.delegate;
             dele.window.rootViewController = [[YUTabBarController alloc] config];
-
         }
             else
         {
             [self showErrorText:responseObject[@"message"]];
             [self dismissLoading];
-            
         }
         [self dismissLoading];
     }

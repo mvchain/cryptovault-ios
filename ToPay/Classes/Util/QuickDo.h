@@ -35,6 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)changeWindowKeyWindow:(UIViewController *)vc;
 + (void)swithchToMainTab;
 + (void)switchToGuiderPage ;
++ (void)logout ; //退出
 
 @end
 
