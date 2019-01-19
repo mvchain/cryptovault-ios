@@ -20,7 +20,10 @@
  */
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
+#define yudef_property_strong(type,name) @property (strong ,nonatomic) type* name;
+#define yudef_property_copy(type,name) @property (copy ,nonatomic) type* name;
+#define yudef_property_assign(type,name) @property (assign ,nonatomic) type* name;
+#define yudef_lazyLoad(type,name,_name) -(type *)name {if(!_name){_name = [[type alloc] init];}return _name;}
 
 @interface QuickDo : NSObject
 + (void)shareToSystem:(NSArray *)items target:(id)target success:(void(^)(bool isok))successBlock ;
@@ -39,4 +42,4 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-NS_ASSUME_NONNULL_END
+

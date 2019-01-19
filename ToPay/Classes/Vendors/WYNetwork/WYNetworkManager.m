@@ -193,8 +193,6 @@
         failureBlock(task,error,statusCode);
         NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
         NSInteger status = response.statusCode;
-
-        
     };
     
     [self.requestEngine sendRequest:serializer

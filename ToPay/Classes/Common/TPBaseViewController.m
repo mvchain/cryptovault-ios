@@ -11,11 +11,27 @@
 #import "TPRefreshFooter.h"
 #import "TPNoMoreTableViewCell.h"
 #import "TPNoMoreTableViewCellEntity.h"
+#import "TPTransactionViewController.h"
 @interface TPBaseViewController ()
 
 @end
 @implementation TPBaseViewController
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+  
+    self.navigationController.navigationBar.hidden = YES;
+    
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+}
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+ 
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBar.hidden = YES;
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+}
 -(WRCustomNavigationBar *)customNavBar
 {
     if (_customNavBar == nil) {
@@ -28,6 +44,8 @@
 -(void)showSystemNavgation:(BOOL)isShow
 {
    self.navigationController.navigationBar.hidden = !isShow;
+   
+    
 }
 
 -(void)showNoDataView:(BOOL)isShow

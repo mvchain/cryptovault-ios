@@ -14,7 +14,7 @@
 #import "TPTransactionViewController.h"
 #import "TPCrowdfundingViewController.h"
 #import "TPMeViewController.h"
-
+#import "TPFinancingViewController.h"
 
 
 
@@ -34,6 +34,7 @@
 - (instancetype)config
 {
     TPNavigationController *navC = [[TPNavigationController alloc]initWithRootViewController:[[TPCapitalViewController alloc] init]];
+    TPNavigationController *navC_1 = [[TPNavigationController alloc]initWithRootViewController:[[TPFinancingViewController alloc] init]];
     TPNavigationController *navC1 = [[TPNavigationController alloc]initWithRootViewController:[[TPTransactionViewController alloc] init]];
     TPNavigationController *navC2 = [[TPNavigationController alloc]initWithRootViewController:[[TPCrowdfundingViewController alloc] init]];
     TPNavigationController *navC3 = [[TPNavigationController alloc]initWithRootViewController:[[TPMeViewController alloc] init]];
@@ -53,9 +54,8 @@
     config.imageOffset = 8.0f;
     config.titleOffset = 0.1f;
     config.imageSize = CGSizeMake(23, 23);
-    
 
-    return [self initWithTabBarControllers:@[navC,navC1,navC2,navC3] NorImageArr:@[@"assets_unselected_icon",@"trand_unselected_icon",@"Crowdfunding_unselected_icon",@"mine_unselected_icon"] SelImageArr:@[@"assets_selected_icon",@"trand_selected_icon",@"Crowdfunding_selected_icon",@"mine_selected_icon"] TitleArr:@[@"资产",@"交易",@"众筹",@"我的"] Config:config];
+    return [self initWithTabBarControllers:@[navC,navC_1,navC1,navC2,navC3] NorImageArr:@[@"assets_unselected_icon",@"trand_unselected_icon",@"trand_unselected_icon",@"Crowdfunding_unselected_icon",@"mine_unselected_icon"] SelImageArr:@[@"assets_selected_icon",@"trand_selected_icon",@"trand_selected_icon",@"Crowdfunding_selected_icon",@"mine_selected_icon"] TitleArr:@[@"资产",@"理财",@"交易",@"众筹",@"我的"] Config:config];
 }
 
 - (void)viewDidLoad

@@ -64,6 +64,17 @@
 		DD0B44FB21F1B9FE00333016 /* TPRestPasswordByMnmonicViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0B44FA21F1B9FE00333016 /* TPRestPasswordByMnmonicViewModel.m */; };
 		DD0B44FE21F1BA8000333016 /* TPRestPasswordByPrivateKeyViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0B44FD21F1BA8000333016 /* TPRestPasswordByPrivateKeyViewModel.m */; };
 		DD0B450221F1BD6D00333016 /* TPRestPasswordViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0B450121F1BD6D00333016 /* TPRestPasswordViewModel.m */; };
+		DD0B450521F2D6DC00333016 /* TPMnemonicSettingViewModel_ResetPassWd.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0B450421F2D6DC00333016 /* TPMnemonicSettingViewModel_ResetPassWd.m */; };
+		DD0B450A21F2F78800333016 /* TPYULoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0B450821F2F78800333016 /* TPYULoginViewController.m */; };
+		DD0B450B21F2F78800333016 /* TPYULoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD0B450921F2F78800333016 /* TPYULoginViewController.xib */; };
+		DD0B451421F3085400333016 /* TPInvitedRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0B451221F3085400333016 /* TPInvitedRegisterViewController.m */; };
+		DD0B451521F3085400333016 /* TPInvitedRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD0B451321F3085400333016 /* TPInvitedRegisterViewController.xib */; };
+		DD0B451A21F309A600333016 /* TPFinancingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0B451821F309A600333016 /* TPFinancingViewController.m */; };
+		DD0B451B21F309A600333016 /* TPFinancingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD0B451921F309A600333016 /* TPFinancingViewController.xib */; };
+		DD0B451E21F31ADE00333016 /* TPInvitedRegisterViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0B451D21F31ADE00333016 /* TPInvitedRegisterViewModel.m */; };
+		DD0B452621F3228D00333016 /* TPInviteRegFirstPageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0B452421F3228D00333016 /* TPInviteRegFirstPageTableViewCell.m */; };
+		DD0B452721F3228D00333016 /* TPInviteRegFirstPageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD0B452521F3228D00333016 /* TPInviteRegFirstPageTableViewCell.xib */; };
+		DD0B452A21F3273000333016 /* TPInviteRegFirstPageTableViewCellEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0B452921F3273000333016 /* TPInviteRegFirstPageTableViewCellEntity.m */; };
 		DD1083D3219D67480087F244 /* TPTokenKindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1083D2219D67480087F244 /* TPTokenKindViewController.m */; };
 		DD1083D6219D67800087F244 /* TPTokenHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1083D5219D67800087F244 /* TPTokenHeaderView.m */; };
 		DD1083D9219D71410087F244 /* TPTokenCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1083D8219D71410087F244 /* TPTokenCell.m */; };
@@ -414,6 +425,24 @@
 		DD0B44FD21F1BA8000333016 /* TPRestPasswordByPrivateKeyViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPRestPasswordByPrivateKeyViewModel.m; sourceTree = "<group>"; };
 		DD0B450021F1BD6D00333016 /* TPRestPasswordViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPRestPasswordViewModel.h; sourceTree = "<group>"; };
 		DD0B450121F1BD6D00333016 /* TPRestPasswordViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPRestPasswordViewModel.m; sourceTree = "<group>"; };
+		DD0B450321F2D6DC00333016 /* TPMnemonicSettingViewModel_ResetPassWd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPMnemonicSettingViewModel_ResetPassWd.h; sourceTree = "<group>"; };
+		DD0B450421F2D6DC00333016 /* TPMnemonicSettingViewModel_ResetPassWd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPMnemonicSettingViewModel_ResetPassWd.m; sourceTree = "<group>"; };
+		DD0B450721F2F78800333016 /* TPYULoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPYULoginViewController.h; sourceTree = "<group>"; };
+		DD0B450821F2F78800333016 /* TPYULoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPYULoginViewController.m; sourceTree = "<group>"; };
+		DD0B450921F2F78800333016 /* TPYULoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPYULoginViewController.xib; sourceTree = "<group>"; };
+		DD0B451121F3085400333016 /* TPInvitedRegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPInvitedRegisterViewController.h; sourceTree = "<group>"; };
+		DD0B451221F3085400333016 /* TPInvitedRegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPInvitedRegisterViewController.m; sourceTree = "<group>"; };
+		DD0B451321F3085400333016 /* TPInvitedRegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPInvitedRegisterViewController.xib; sourceTree = "<group>"; };
+		DD0B451721F309A600333016 /* TPFinancingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPFinancingViewController.h; sourceTree = "<group>"; };
+		DD0B451821F309A600333016 /* TPFinancingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPFinancingViewController.m; sourceTree = "<group>"; };
+		DD0B451921F309A600333016 /* TPFinancingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPFinancingViewController.xib; sourceTree = "<group>"; };
+		DD0B451C21F31ADE00333016 /* TPInvitedRegisterViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPInvitedRegisterViewModel.h; sourceTree = "<group>"; };
+		DD0B451D21F31ADE00333016 /* TPInvitedRegisterViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPInvitedRegisterViewModel.m; sourceTree = "<group>"; };
+		DD0B452321F3228D00333016 /* TPInviteRegFirstPageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPInviteRegFirstPageTableViewCell.h; sourceTree = "<group>"; };
+		DD0B452421F3228D00333016 /* TPInviteRegFirstPageTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPInviteRegFirstPageTableViewCell.m; sourceTree = "<group>"; };
+		DD0B452521F3228D00333016 /* TPInviteRegFirstPageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPInviteRegFirstPageTableViewCell.xib; sourceTree = "<group>"; };
+		DD0B452821F3273000333016 /* TPInviteRegFirstPageTableViewCellEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPInviteRegFirstPageTableViewCellEntity.h; sourceTree = "<group>"; };
+		DD0B452921F3273000333016 /* TPInviteRegFirstPageTableViewCellEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPInviteRegFirstPageTableViewCellEntity.m; sourceTree = "<group>"; };
 		DD1083D1219D67480087F244 /* TPTokenKindViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTokenKindViewController.h; sourceTree = "<group>"; };
 		DD1083D2219D67480087F244 /* TPTokenKindViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTokenKindViewController.m; sourceTree = "<group>"; };
 		DD1083D4219D67800087F244 /* TPTokenHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTokenHeaderView.h; sourceTree = "<group>"; };
@@ -995,26 +1024,25 @@
 		DD02442C2196D1B8006A1390 /* Section */ = {
 			isa = PBXGroup;
 			children = (
-				DD13CF2921EF59710022EECC /* AccountSafe（账户安全） */,
+				DD0B451621F3094800333016 /* Financing */,
+				DD0B450C21F3060300333016 /* Login */,
 				DD23C29821E9F33D007727DA /* Root */,
-				DD23C28E21E99E21007727DA /* Guider (引导) */,
-				DD23C28521E8B66A007727DA /* Regisetr (注册) */,
-				DD0244312196D1B8006A1390 /* capital */,
-				DD02442D2196D1B8006A1390 /* transaction */,
+				DD0244312196D1B8006A1390 /* Capital */,
+				DD02442D2196D1B8006A1390 /* Transaction */,
 				DD0244392196D1B8006A1390 /* Crowdfunding */,
 				DD0244352196D1B8006A1390 /* Mine */,
 			);
 			path = Section;
 			sourceTree = "<group>";
 		};
-		DD02442D2196D1B8006A1390 /* transaction */ = {
+		DD02442D2196D1B8006A1390 /* Transaction */ = {
 			isa = PBXGroup;
 			children = (
 				DD02442E2196D1B8006A1390 /* Controller */,
 				DD02442F2196D1B8006A1390 /* Model */,
 				DD0244302196D1B8006A1390 /* View */,
 			);
-			path = transaction;
+			path = Transaction;
 			sourceTree = "<group>";
 		};
 		DD02442E2196D1B8006A1390 /* Controller */ = {
@@ -1086,7 +1114,7 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		DD0244312196D1B8006A1390 /* capital */ = {
+		DD0244312196D1B8006A1390 /* Capital */ = {
 			isa = PBXGroup;
 			children = (
 				DD7046E121E3414800D02D7F /* ViewModel */,
@@ -1094,7 +1122,7 @@
 				DD0244332196D1B8006A1390 /* Model */,
 				DD0244342196D1B8006A1390 /* View */,
 			);
-			path = capital;
+			path = Capital;
 			sourceTree = "<group>";
 		};
 		DD0244322196D1B8006A1390 /* Controller */ = {
@@ -1176,6 +1204,9 @@
 		DD0244352196D1B8006A1390 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				DD0B450D21F3061600333016 /* Invite（邀请注册） */,
+				DD0B450621F2F76D00333016 /* NewLogin(登录) */,
+				DD13CF2921EF59710022EECC /* AccountSafe（账户安全） */,
 				DD0244362196D1B8006A1390 /* Controller */,
 				DD0244372196D1B8006A1390 /* Model */,
 				DD0244382196D1B8006A1390 /* View */,
@@ -1380,6 +1411,60 @@
 			path = TPResetPassword;
 			sourceTree = "<group>";
 		};
+		DD0B450621F2F76D00333016 /* NewLogin(登录) */ = {
+			isa = PBXGroup;
+			children = (
+				DD0B450721F2F78800333016 /* TPYULoginViewController.h */,
+				DD0B450821F2F78800333016 /* TPYULoginViewController.m */,
+				DD0B450921F2F78800333016 /* TPYULoginViewController.xib */,
+			);
+			path = "NewLogin(登录)";
+			sourceTree = "<group>";
+		};
+		DD0B450C21F3060300333016 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				DD23C28E21E99E21007727DA /* Guider (引导) */,
+				DD23C28521E8B66A007727DA /* Regisetr (注册) */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		DD0B450D21F3061600333016 /* Invite（邀请注册） */ = {
+			isa = PBXGroup;
+			children = (
+				DD0B452221F3222F00333016 /* Cell & CellModel */,
+				DD0B451121F3085400333016 /* TPInvitedRegisterViewController.h */,
+				DD0B451221F3085400333016 /* TPInvitedRegisterViewController.m */,
+				DD0B451321F3085400333016 /* TPInvitedRegisterViewController.xib */,
+				DD0B451C21F31ADE00333016 /* TPInvitedRegisterViewModel.h */,
+				DD0B451D21F31ADE00333016 /* TPInvitedRegisterViewModel.m */,
+			);
+			path = "Invite（邀请注册）";
+			sourceTree = "<group>";
+		};
+		DD0B451621F3094800333016 /* Financing */ = {
+			isa = PBXGroup;
+			children = (
+				DD0B451721F309A600333016 /* TPFinancingViewController.h */,
+				DD0B451821F309A600333016 /* TPFinancingViewController.m */,
+				DD0B451921F309A600333016 /* TPFinancingViewController.xib */,
+			);
+			path = Financing;
+			sourceTree = "<group>";
+		};
+		DD0B452221F3222F00333016 /* Cell & CellModel */ = {
+			isa = PBXGroup;
+			children = (
+				DD0B452321F3228D00333016 /* TPInviteRegFirstPageTableViewCell.h */,
+				DD0B452421F3228D00333016 /* TPInviteRegFirstPageTableViewCell.m */,
+				DD0B452521F3228D00333016 /* TPInviteRegFirstPageTableViewCell.xib */,
+				DD0B452821F3273000333016 /* TPInviteRegFirstPageTableViewCellEntity.h */,
+				DD0B452921F3273000333016 /* TPInviteRegFirstPageTableViewCellEntity.m */,
+			);
+			path = "Cell & CellModel";
+			sourceTree = "<group>";
+		};
 		DD10842E21A001030087F244 /* QRCode */ = {
 			isa = PBXGroup;
 			children = (
@@ -1581,6 +1666,8 @@
 				DD13CEFE21ECB4C80022EECC /* TPMnemonicSettingViewController.xib */,
 				DD13CF0121ED893C0022EECC /* TPMnemonicSettingViewModel.h */,
 				DD13CF0221ED893C0022EECC /* TPMnemonicSettingViewModel.m */,
+				DD0B450321F2D6DC00333016 /* TPMnemonicSettingViewModel_ResetPassWd.h */,
+				DD0B450421F2D6DC00333016 /* TPMnemonicSettingViewModel_ResetPassWd.m */,
 			);
 			path = "Mnemonic （3）";
 			sourceTree = "<group>";
@@ -2004,10 +2091,12 @@
 			files = (
 				DD13CF4221F05BB20022EECC /* TPBindEmailViewController.xib in Resources */,
 				DDD211EB21F1A2520029905C /* TPRetPassWordByEmailViewController.xib in Resources */,
+				DD0B451B21F309A600333016 /* TPFinancingViewController.xib in Resources */,
 				DD10844221A001030087F244 /* BCScanQR2@2x.png in Resources */,
 				DD13CF0821ED8A500022EECC /* TPMemonicStatusCollectionViewCell.xib in Resources */,
 				DDFED67B21D4CF8F00F2F354 /* custom.png in Resources */,
 				DDFE5DB121CC9FA0005D6D48 /* shareImage.png in Resources */,
+				DD0B450B21F2F78800333016 /* TPYULoginViewController.xib in Resources */,
 				DDFE5D9921CA1BC0005D6D48 /* HUD_success@3x.png in Resources */,
 				DDFED68F21DC992B00F2F354 /* YUSearchBarView.xib in Resources */,
 				DD23C28A21E8B6BA007727DA /* TPRegisterViewController.xib in Resources */,
@@ -2017,8 +2106,10 @@
 				DD0244022196C96B006A1390 /* Assets.xcassets in Resources */,
 				DDFE5DB321CC9FA8005D6D48 /* custom.png in Resources */,
 				DD374D5921C3B41100093A0F /* TZImagePickerController.bundle in Resources */,
+				DD0B451521F3085400333016 /* TPInvitedRegisterViewController.xib in Resources */,
 				DD23C29F21E9F623007727DA /* TPSetPasswordViewController.xib in Resources */,
 				DDFE5D9C21CA1BC0005D6D48 /* HUD_info@2x.png in Resources */,
+				DD0B452721F3228D00333016 /* TPInviteRegFirstPageTableViewCell.xib in Resources */,
 				DDFE5D9D21CA1BC0005D6D48 /* HUD_error@2x.png in Resources */,
 				DD23C2BE21ECA892007727DA /* TPMemonicCollectionViewCell.xib in Resources */,
 				DDFE5D9A21CA1BC0005D6D48 /* HUD_error@3x.png in Resources */,
@@ -2185,6 +2276,7 @@
 				DD23C29721E9BFF5007727DA /* UserHttpService.m in Sources */,
 				DD2FD6C621C7AD3000A28F78 /* TPNavigationController.m in Sources */,
 				DD02392721A7AC8400333446 /* TPBuyRecordViewController.m in Sources */,
+				DD0B451E21F31ADE00333016 /* TPInvitedRegisterViewModel.m in Sources */,
 				DDFED6B921E067A100F2F354 /* TPNoMoreTableViewCellEntity.m in Sources */,
 				DDFE5DA921CA30D5005D6D48 /* JKCountDownButton.m in Sources */,
 				DD374DC021C5228100093A0F /* AAOptions.m in Sources */,
@@ -2202,6 +2294,7 @@
 				DDD211E421F1852F0029905C /* TPResetPassWordGuiderViewController.m in Sources */,
 				DD374DB121C5228100093A0F /* AAColumn.m in Sources */,
 				DDD211CD21F084A60029905C /* TPVerifyViewController.m in Sources */,
+				DD0B450A21F2F78800333016 /* TPYULoginViewController.m in Sources */,
 				DD374DBF21C5228100093A0F /* AAChartModel.m in Sources */,
 				DD10844421A001030087F244 /* NIMScannerBorder.m in Sources */,
 				DD2FD6B521C7A17000A28F78 /* YUTabBar.m in Sources */,
@@ -2263,10 +2356,12 @@
 				DD13CF3B21F04DB40022EECC /* TPAccountSafeViewModel.m in Sources */,
 				DD13CEFF21ECB4C80022EECC /* TPMnemonicSettingViewController.m in Sources */,
 				DD02399521AF968E00333446 /* WYNetworkCacheInfo.m in Sources */,
+				DD0B452621F3228D00333016 /* TPInviteRegFirstPageTableViewCell.m in Sources */,
 				DD0244472196DD4E006A1390 /* TPCrowdfundingViewController.m in Sources */,
 				DD02392D21A7D6CA00333446 /* TPBuyTopicViewController.m in Sources */,
 				DDF69FB821C12A35006EE7A4 /* TPCroRecordModel.m in Sources */,
 				DD02392A21A7B1AC00333446 /* TPProcessingCell.m in Sources */,
+				DD0B451A21F309A600333016 /* TPFinancingViewController.m in Sources */,
 				DD02399321AF968E00333446 /* WYNetworkRequestPool.m in Sources */,
 				DD374DC121C5228100093A0F /* AASeriesElement.m in Sources */,
 				DDFE5DA621CA21F1005D6D48 /* NSObject+TPHUD.m in Sources */,
@@ -2285,6 +2380,7 @@
 				DD02393E21ACEBDA00333446 /* TPLoginViewController.m in Sources */,
 				DD1083DF219D7AD10087F244 /* TPNotiViewController.m in Sources */,
 				DD02392421A6B83D00333446 /* TPUSDTCell.m in Sources */,
+				DD0B450521F2D6DC00333016 /* TPMnemonicSettingViewModel_ResetPassWd.m in Sources */,
 				DD10844D21A28E3C0087F244 /* TPStartViewController.m in Sources */,
 				DD23C2A321E9F953007727DA /* TPRegisterInfoModel.m in Sources */,
 				DDD211C421F05EA40029905C /* TPVerifyEmailViewModel.m in Sources */,
@@ -2337,6 +2433,7 @@
 				DDF7B9AD21BA4DA100BE35D6 /* TPUserInfo.m in Sources */,
 				DD374DBA21C5228100093A0F /* AASpline.m in Sources */,
 				DD2FD6B621C7A17000A28F78 /* YUBadgeValue.m in Sources */,
+				DD0B451421F3085400333016 /* TPInvitedRegisterViewController.m in Sources */,
 				DD02394121ACF53E00333446 /* TPTransDetailCell.m in Sources */,
 				DD13CF0321ED893C0022EECC /* TPMnemonicSettingViewModel.m in Sources */,
 				DD23C28421E89FDC007727DA /* UIView+YUStyle.m in Sources */,
@@ -2352,6 +2449,7 @@
 				DD02399121AF968E00333446 /* WYNetworkRequestModel.m in Sources */,
 				DD374D5821C3B41100093A0F /* TZPhotoPreviewController.m in Sources */,
 				DD374DAD21C5228100093A0F /* AATooltip.m in Sources */,
+				DD0B452A21F3273000333016 /* TPInviteRegFirstPageTableViewCellEntity.m in Sources */,
 				DD13CF2121EF20180022EECC /* UIButton+YUButtonStyle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

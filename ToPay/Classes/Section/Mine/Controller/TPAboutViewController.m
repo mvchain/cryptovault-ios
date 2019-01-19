@@ -8,6 +8,8 @@
 
 #import "TPAboutViewController.h"
 #import "TPLoginViewController.h"
+#import "TPGuiderViewController.h"
+
 @interface TPAboutViewController ()
 
 @end
@@ -71,10 +73,8 @@
         if ([TPLoginUtil quitWithRemoveUserInfo])
         {
             [TPLoginUtil  quitWithRemoveUserInfo];
+            [QuickDo logout];
             
-            UIApplication *app = [UIApplication sharedApplication];
-            AppDelegate *dele = (AppDelegate*)app.delegate;
-            dele.window.rootViewController = [TPLoginViewController new];
         }
     }];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];

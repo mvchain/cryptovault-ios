@@ -15,6 +15,7 @@
 #import "TPMeHeaderView.h"
 #import "TPCurrencyList.h"
 #import "TPAccountSafeViewController.h"
+#import "TPInvitedRegisterViewController.h"
 @interface TPMeViewController ()
 @property (nonatomic, strong) NSArray *dataSource;
 @property (nonatomic, strong) NSArray *dataSourceImg;
@@ -76,7 +77,11 @@ static NSString  *TPMeCellCellId = @"meCell";
         [self.navigationController pushViewController:account animated:YES];
         
     }
-    
+    if (indexPath.row == 1){
+        TPInvitedRegisterViewController *cv = [[TPInvitedRegisterViewController alloc] init];
+        [self.navigationController pushViewController:cv animated:YES];
+        
+    }
     if (indexPath.row == 2)
     {
         TPLanguageViewController *languageVC = [[TPLanguageViewController alloc] init];
