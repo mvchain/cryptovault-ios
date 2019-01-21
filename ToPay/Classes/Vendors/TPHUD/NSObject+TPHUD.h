@@ -43,6 +43,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  只显示一个加载框
  */
+
+
+- (void)yu_showLoading ;
+
+- (void)yu_dismissLoading ;
+
 - (void)showLoading;
 
 /**

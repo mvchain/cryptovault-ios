@@ -22,13 +22,12 @@
 
 #define yudef_property_strong(type,name) @property (strong ,nonatomic) type* name;
 #define yudef_property_copy(type,name) @property (copy ,nonatomic) type* name;
-#define yudef_property_assign(type,name) @property (assign ,nonatomic) type* name;
+#define yudef_property_assign(type,name) @property (assign ,nonatomic) type name;
 #define yudef_lazyLoad(type,name,_name) -(type *)name {if(!_name){_name = [[type alloc] init];}return _name;}
 
 @interface QuickDo : NSObject
 + (void)shareToSystem:(NSArray *)items target:(id)target success:(void(^)(bool isok))successBlock ;
 + (void)setJPushAlians:(NSString *)aliansName ;
-
 /**
  * 美观cell的分割线
  * 去掉尾行分割线
@@ -39,6 +38,7 @@
 + (void)swithchToMainTab;
 + (void)switchToGuiderPage ;
 + (void)logout ; //退出
++ (void)copyToPastboard:(NSString *)str ;
 
 @end
 

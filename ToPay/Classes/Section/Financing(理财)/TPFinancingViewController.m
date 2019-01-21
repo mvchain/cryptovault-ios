@@ -16,7 +16,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setUpNav];
+    
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)setUpNav {
+    self.customNavBar.title = @"理财";
+    [self.customNavBar.rightButton.titleLabel setFont:[UIFont systemFontOfSize:12]];
+    
 }
 
 /*

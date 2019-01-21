@@ -75,6 +75,15 @@
 		DD0B452621F3228D00333016 /* TPInviteRegFirstPageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0B452421F3228D00333016 /* TPInviteRegFirstPageTableViewCell.m */; };
 		DD0B452721F3228D00333016 /* TPInviteRegFirstPageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD0B452521F3228D00333016 /* TPInviteRegFirstPageTableViewCell.xib */; };
 		DD0B452A21F3273000333016 /* TPInviteRegFirstPageTableViewCellEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0B452921F3273000333016 /* TPInviteRegFirstPageTableViewCellEntity.m */; };
+		DD0B452E21F59BAF00333016 /* TPInviteRegSecondPageItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0B452C21F59BAF00333016 /* TPInviteRegSecondPageItemTableViewCell.m */; };
+		DD0B452F21F59BAF00333016 /* TPInviteRegSecondPageItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD0B452D21F59BAF00333016 /* TPInviteRegSecondPageItemTableViewCell.xib */; };
+		DD0B453221F59FAF00333016 /* TPInviteRegSecondPageItemTableViewCellEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0B453121F59FAF00333016 /* TPInviteRegSecondPageItemTableViewCellEntity.m */; };
+		DD0D344021F5AB1E00ECEDF2 /* TPRecommendedUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0D343E21F5AB1E00ECEDF2 /* TPRecommendedUserModel.m */; };
+		DD0D344621F5AFDE00ECEDF2 /* TPInviteRegSecondPageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0D344421F5AFDE00ECEDF2 /* TPInviteRegSecondPageTableViewCell.m */; };
+		DD0D344721F5AFDE00ECEDF2 /* TPInviteRegSecondPageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD0D344521F5AFDE00ECEDF2 /* TPInviteRegSecondPageTableViewCell.xib */; };
+		DD0D344A21F5B06400ECEDF2 /* TPInviteRegSecondPageTableViewCellEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0D344921F5B06400ECEDF2 /* TPInviteRegSecondPageTableViewCellEntity.m */; };
+		DD0D344F21F5F75500ECEDF2 /* TPFinancingTotalCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0D344D21F5F75500ECEDF2 /* TPFinancingTotalCellView.m */; };
+		DD0D345021F5F75500ECEDF2 /* TPFinancingTotalCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD0D344E21F5F75500ECEDF2 /* TPFinancingTotalCellView.xib */; };
 		DD1083D3219D67480087F244 /* TPTokenKindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1083D2219D67480087F244 /* TPTokenKindViewController.m */; };
 		DD1083D6219D67800087F244 /* TPTokenHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1083D5219D67800087F244 /* TPTokenHeaderView.m */; };
 		DD1083D9219D71410087F244 /* TPTokenCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1083D8219D71410087F244 /* TPTokenCell.m */; };
@@ -443,6 +452,21 @@
 		DD0B452521F3228D00333016 /* TPInviteRegFirstPageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPInviteRegFirstPageTableViewCell.xib; sourceTree = "<group>"; };
 		DD0B452821F3273000333016 /* TPInviteRegFirstPageTableViewCellEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPInviteRegFirstPageTableViewCellEntity.h; sourceTree = "<group>"; };
 		DD0B452921F3273000333016 /* TPInviteRegFirstPageTableViewCellEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPInviteRegFirstPageTableViewCellEntity.m; sourceTree = "<group>"; };
+		DD0B452B21F59BAF00333016 /* TPInviteRegSecondPageItemTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPInviteRegSecondPageItemTableViewCell.h; sourceTree = "<group>"; };
+		DD0B452C21F59BAF00333016 /* TPInviteRegSecondPageItemTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPInviteRegSecondPageItemTableViewCell.m; sourceTree = "<group>"; };
+		DD0B452D21F59BAF00333016 /* TPInviteRegSecondPageItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPInviteRegSecondPageItemTableViewCell.xib; sourceTree = "<group>"; };
+		DD0B453021F59FAF00333016 /* TPInviteRegSecondPageItemTableViewCellEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPInviteRegSecondPageItemTableViewCellEntity.h; sourceTree = "<group>"; };
+		DD0B453121F59FAF00333016 /* TPInviteRegSecondPageItemTableViewCellEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPInviteRegSecondPageItemTableViewCellEntity.m; sourceTree = "<group>"; };
+		DD0D343E21F5AB1E00ECEDF2 /* TPRecommendedUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPRecommendedUserModel.m; path = "ToPay/Classes/Section/Mine/Invite（邀请注册）/TPRecommendedUserModel.m"; sourceTree = SOURCE_ROOT; };
+		DD0D343F21F5AB1E00ECEDF2 /* TPRecommendedUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPRecommendedUserModel.h; path = "ToPay/Classes/Section/Mine/Invite（邀请注册）/TPRecommendedUserModel.h"; sourceTree = SOURCE_ROOT; };
+		DD0D344321F5AFDE00ECEDF2 /* TPInviteRegSecondPageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPInviteRegSecondPageTableViewCell.h; sourceTree = "<group>"; };
+		DD0D344421F5AFDE00ECEDF2 /* TPInviteRegSecondPageTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPInviteRegSecondPageTableViewCell.m; sourceTree = "<group>"; };
+		DD0D344521F5AFDE00ECEDF2 /* TPInviteRegSecondPageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPInviteRegSecondPageTableViewCell.xib; sourceTree = "<group>"; };
+		DD0D344821F5B06400ECEDF2 /* TPInviteRegSecondPageTableViewCellEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPInviteRegSecondPageTableViewCellEntity.h; sourceTree = "<group>"; };
+		DD0D344921F5B06400ECEDF2 /* TPInviteRegSecondPageTableViewCellEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPInviteRegSecondPageTableViewCellEntity.m; sourceTree = "<group>"; };
+		DD0D344C21F5F75500ECEDF2 /* TPFinancingTotalCellView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPFinancingTotalCellView.h; sourceTree = "<group>"; };
+		DD0D344D21F5F75500ECEDF2 /* TPFinancingTotalCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPFinancingTotalCellView.m; sourceTree = "<group>"; };
+		DD0D344E21F5F75500ECEDF2 /* TPFinancingTotalCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPFinancingTotalCellView.xib; sourceTree = "<group>"; };
 		DD1083D1219D67480087F244 /* TPTokenKindViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTokenKindViewController.h; sourceTree = "<group>"; };
 		DD1083D2219D67480087F244 /* TPTokenKindViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTokenKindViewController.m; sourceTree = "<group>"; };
 		DD1083D4219D67800087F244 /* TPTokenHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTokenHeaderView.h; sourceTree = "<group>"; };
@@ -1024,7 +1048,7 @@
 		DD02442C2196D1B8006A1390 /* Section */ = {
 			isa = PBXGroup;
 			children = (
-				DD0B451621F3094800333016 /* Financing */,
+				DD0B451621F3094800333016 /* Financing(理财) */,
 				DD0B450C21F3060300333016 /* Login */,
 				DD23C29821E9F33D007727DA /* Root */,
 				DD0244312196D1B8006A1390 /* Capital */,
@@ -1433,6 +1457,7 @@
 		DD0B450D21F3061600333016 /* Invite（邀请注册） */ = {
 			isa = PBXGroup;
 			children = (
+				DD0D343D21F5AB0A00ECEDF2 /* Model */,
 				DD0B452221F3222F00333016 /* Cell & CellModel */,
 				DD0B451121F3085400333016 /* TPInvitedRegisterViewController.h */,
 				DD0B451221F3085400333016 /* TPInvitedRegisterViewController.m */,
@@ -1443,17 +1468,36 @@
 			path = "Invite（邀请注册）";
 			sourceTree = "<group>";
 		};
-		DD0B451621F3094800333016 /* Financing */ = {
+		DD0B451621F3094800333016 /* Financing(理财) */ = {
 			isa = PBXGroup;
 			children = (
+				DD0D344B21F5F6F600ECEDF2 /* Cell */,
 				DD0B451721F309A600333016 /* TPFinancingViewController.h */,
 				DD0B451821F309A600333016 /* TPFinancingViewController.m */,
 				DD0B451921F309A600333016 /* TPFinancingViewController.xib */,
 			);
-			path = Financing;
+			path = "Financing(理财)";
 			sourceTree = "<group>";
 		};
 		DD0B452221F3222F00333016 /* Cell & CellModel */ = {
+			isa = PBXGroup;
+			children = (
+				DD0D344121F5AF5400ECEDF2 /* FirstPage */,
+				DD0D344221F5AF5B00ECEDF2 /* SecondPage */,
+			);
+			path = "Cell & CellModel";
+			sourceTree = "<group>";
+		};
+		DD0D343D21F5AB0A00ECEDF2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DD0D343F21F5AB1E00ECEDF2 /* TPRecommendedUserModel.h */,
+				DD0D343E21F5AB1E00ECEDF2 /* TPRecommendedUserModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DD0D344121F5AF5400ECEDF2 /* FirstPage */ = {
 			isa = PBXGroup;
 			children = (
 				DD0B452321F3228D00333016 /* TPInviteRegFirstPageTableViewCell.h */,
@@ -1462,7 +1506,34 @@
 				DD0B452821F3273000333016 /* TPInviteRegFirstPageTableViewCellEntity.h */,
 				DD0B452921F3273000333016 /* TPInviteRegFirstPageTableViewCellEntity.m */,
 			);
-			path = "Cell & CellModel";
+			path = FirstPage;
+			sourceTree = "<group>";
+		};
+		DD0D344221F5AF5B00ECEDF2 /* SecondPage */ = {
+			isa = PBXGroup;
+			children = (
+				DD0B452B21F59BAF00333016 /* TPInviteRegSecondPageItemTableViewCell.h */,
+				DD0B452C21F59BAF00333016 /* TPInviteRegSecondPageItemTableViewCell.m */,
+				DD0B452D21F59BAF00333016 /* TPInviteRegSecondPageItemTableViewCell.xib */,
+				DD0B453021F59FAF00333016 /* TPInviteRegSecondPageItemTableViewCellEntity.h */,
+				DD0B453121F59FAF00333016 /* TPInviteRegSecondPageItemTableViewCellEntity.m */,
+				DD0D344321F5AFDE00ECEDF2 /* TPInviteRegSecondPageTableViewCell.h */,
+				DD0D344421F5AFDE00ECEDF2 /* TPInviteRegSecondPageTableViewCell.m */,
+				DD0D344521F5AFDE00ECEDF2 /* TPInviteRegSecondPageTableViewCell.xib */,
+				DD0D344821F5B06400ECEDF2 /* TPInviteRegSecondPageTableViewCellEntity.h */,
+				DD0D344921F5B06400ECEDF2 /* TPInviteRegSecondPageTableViewCellEntity.m */,
+			);
+			path = SecondPage;
+			sourceTree = "<group>";
+		};
+		DD0D344B21F5F6F600ECEDF2 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DD0D344C21F5F75500ECEDF2 /* TPFinancingTotalCellView.h */,
+				DD0D344D21F5F75500ECEDF2 /* TPFinancingTotalCellView.m */,
+				DD0D344E21F5F75500ECEDF2 /* TPFinancingTotalCellView.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		DD10842E21A001030087F244 /* QRCode */ = {
@@ -2094,6 +2165,7 @@
 				DD0B451B21F309A600333016 /* TPFinancingViewController.xib in Resources */,
 				DD10844221A001030087F244 /* BCScanQR2@2x.png in Resources */,
 				DD13CF0821ED8A500022EECC /* TPMemonicStatusCollectionViewCell.xib in Resources */,
+				DD0D344721F5AFDE00ECEDF2 /* TPInviteRegSecondPageTableViewCell.xib in Resources */,
 				DDFED67B21D4CF8F00F2F354 /* custom.png in Resources */,
 				DDFE5DB121CC9FA0005D6D48 /* shareImage.png in Resources */,
 				DD0B450B21F2F78800333016 /* TPYULoginViewController.xib in Resources */,
@@ -2116,6 +2188,7 @@
 				DDFED6A421E0605300F2F354 /* TPNoMoreTableViewCell.xib in Resources */,
 				DD13CF3521EF5B3C0022EECC /* TPAccountSafeItemTableViewCell.xib in Resources */,
 				DDD211E521F1852F0029905C /* TPResetPassWordGuiderViewController.xib in Resources */,
+				DD0B452F21F59BAF00333016 /* TPInviteRegSecondPageItemTableViewCell.xib in Resources */,
 				DD374DA521C5228100093A0F /* AAJSFiles.bundle in Resources */,
 				DD10844921A001030087F244 /* BCScanQR1@2x.png in Resources */,
 				DD10844121A001030087F244 /* QRCodeScanLine@2x.png in Resources */,
@@ -2130,6 +2203,7 @@
 				DDD211D721F09F090029905C /* TPChangePassWordViewController.xib in Resources */,
 				DD23C2AF21EC8E32007727DA /* TPMnemonicDisplayViewController.xib in Resources */,
 				DDFE5D9B21CA1BC0005D6D48 /* HUD_info@3x.png in Resources */,
+				DD0D345021F5F75500ECEDF2 /* TPFinancingTotalCellView.xib in Resources */,
 				DDFED67C21D4CF8F00F2F354 /* shareImage.png in Resources */,
 				DD13CF2E21EF59CF0022EECC /* TPAccountSafeViewController.xib in Resources */,
 			);
@@ -2286,6 +2360,7 @@
 				DDE176A021BE5C9500167EB1 /* SJSlider.m in Sources */,
 				DD23C28921E8B6BA007727DA /* TPRegisterViewController.m in Sources */,
 				DD374DBD21C5228100093A0F /* AAChart.m in Sources */,
+				DD0D344F21F5F75500ECEDF2 /* TPFinancingTotalCellView.m in Sources */,
 				DD10844621A001030087F244 /* NIMScannerMaskView.m in Sources */,
 				DD72F42B21998491004C0DAF /* TPNavigationBarTitleView.m in Sources */,
 				DD02399B21AF968E00333446 /* WYNetworkUtils.m in Sources */,
@@ -2311,6 +2386,7 @@
 				DD374D6621C4B18F00093A0F /* TPRefreshFooter.m in Sources */,
 				DD02399D21AF968E00333446 /* WYImageScaleTool.m in Sources */,
 				DDD211EA21F1A2520029905C /* TPRetPassWordByEmailViewController.m in Sources */,
+				DD0B453221F59FAF00333016 /* TPInviteRegSecondPageItemTableViewCellEntity.m in Sources */,
 				DD374DAB21C5228100093A0F /* AADataLabels.m in Sources */,
 				DDDDFBAF219D60BC0056FC57 /* UIViewExt.m in Sources */,
 				DDE176A521BE74D700167EB1 /* TPTransInfoModel.m in Sources */,
@@ -2336,6 +2412,7 @@
 				DD02392121A6B42100333446 /* TPUSDTViewController.m in Sources */,
 				DD374DB821C5228100093A0F /* AALegend.m in Sources */,
 				DD0239B221B10AC700333446 /* TPAssetModel.m in Sources */,
+				DD0D344621F5AFDE00ECEDF2 /* TPInviteRegSecondPageTableViewCell.m in Sources */,
 				DD13CF4121F05BB20022EECC /* TPBindEmailViewController.m in Sources */,
 				DD374D5221C3B41100093A0F /* TZImageCropManager.m in Sources */,
 				DD13CF1721EED49A0022EECC /* YUTextViewXibContainer.m in Sources */,
@@ -2379,6 +2456,7 @@
 				DD0B44F721F1B8DE00333016 /* TPResetPwdOneTextFiledViewController.m in Sources */,
 				DD02393E21ACEBDA00333446 /* TPLoginViewController.m in Sources */,
 				DD1083DF219D7AD10087F244 /* TPNotiViewController.m in Sources */,
+				DD0D344021F5AB1E00ECEDF2 /* TPRecommendedUserModel.m in Sources */,
 				DD02392421A6B83D00333446 /* TPUSDTCell.m in Sources */,
 				DD0B450521F2D6DC00333016 /* TPMnemonicSettingViewModel_ResetPassWd.m in Sources */,
 				DD10844D21A28E3C0087F244 /* TPStartViewController.m in Sources */,
@@ -2417,6 +2495,7 @@
 				DD10845621A3EC7E0087F244 /* TPChainTransferViewController.m in Sources */,
 				DDFED69221DDA88500F2F354 /* PHJTransformPinyin.m in Sources */,
 				DDF69FBE21C26B1E006EE7A4 /* TPTransDetailModel.m in Sources */,
+				DD0D344A21F5B06400ECEDF2 /* TPInviteRegSecondPageTableViewCellEntity.m in Sources */,
 				DDF7B9B621BBA25000BE35D6 /* TPExchangeRate.m in Sources */,
 				DDDDFB93219BE19B0056FC57 /* TPHeaderRecordView.m in Sources */,
 				DD0239A321AFD9CA00333446 /* TPLoginModel.m in Sources */,
@@ -2425,6 +2504,7 @@
 				DDE1769221BBCFAA00167EB1 /* TPTransactionModel.m in Sources */,
 				DDDDFB97219C1A440056FC57 /* TPReservationViewController.m in Sources */,
 				DD10844521A001030087F244 /* NIMScanner.m in Sources */,
+				DD0B452E21F59BAF00333016 /* TPInviteRegSecondPageItemTableViewCell.m in Sources */,
 				DD374D5B21C3B41100093A0F /* TZImageManager.m in Sources */,
 				DDDDFB81219AB7350056FC57 /* TPVRTCell.m in Sources */,
 				DD374DBB21C5228100093A0F /* AAItemStyle.m in Sources */,

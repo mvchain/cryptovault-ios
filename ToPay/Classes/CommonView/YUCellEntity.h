@@ -49,6 +49,8 @@
 
 @property (strong,nonatomic) id data ;
 
+@property (strong,nonatomic) void(^callBackByCell)(NSDictionary *info);
+@property (strong,nonatomic) void(^callBackByOuter)(NSDictionary *info); // 外部回调
 
 - (void) fillDataByNSDictionary:(NSDictionary *) dict ;
 

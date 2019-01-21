@@ -52,6 +52,13 @@
 {
     //[TProgressHUD dismiss];
 }
+- (void)yu_showLoading {
+    [TProgressHUD show];
+}
+
+- (void)yu_dismissLoading {
+    [TProgressHUD dismiss];
+}
 
 - (void)showProgress:(NSInteger)progress
 {

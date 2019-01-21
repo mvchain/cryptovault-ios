@@ -48,4 +48,10 @@
     self.layer.borderWidth = 1;
     [self setTitleColor:[UIColor colorWithHex:@"#C7C7D1"] forState:UIControlStateNormal];
 }
+
+- (void)clarityStyle {
+    [self yu_circleStyle];
+    [self setBackgroundColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:0.3]];
+    [self.titleLabel setFont:[UIFont systemFontOfSize:12]];
+}
 @end

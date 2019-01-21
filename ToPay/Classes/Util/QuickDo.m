@@ -105,4 +105,10 @@
     [self switchToGuiderPage];
     
 }
+
++ (void)copyToPastboard:(NSString *)str  {
+    UIPasteboard*pasteboard = [UIPasteboard generalPasteboard];
+    
+    pasteboard.string = str;
+}
 @end

@@ -40,7 +40,19 @@
     }
     return res;
 }
-
++ (NSString *)timeWithTimeIntervalString:( NSInteger)time
+{
+    // 格式化时间
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    formatter.timeZone = [NSTimeZone timeZoneWithName:@"shanghai"];
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    [formatter setDateFormat:@"yyyy年MM月dd日"];
+    // 毫秒值转化为秒
+    NSDate* date = [NSDate dateWithTimeIntervalSince1970:time / 1000];
+    NSString* dateString = [formatter stringFromDate:date];
+    return dateString;
+}
 + (CGFloat)makeFloatNumber:(CGFloat) num tailNum:(int)tailNum {
     int sum = 10 ;
     while (--tailNum) {

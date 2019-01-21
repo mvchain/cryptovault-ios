@@ -13,6 +13,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *invitedCodeLabel;
 @property (weak, nonatomic) IBOutlet UIView *firstRectView;
 @property (weak, nonatomic) IBOutlet UIView *secondRectView;
+@property (weak, nonatomic) IBOutlet UIButton *mcopyInvitedCodeBtn;
+@property (weak, nonatomic) IBOutlet UIButton *mcopyDownLoadBtn;
+@property (weak, nonatomic) IBOutlet UIButton *myInvitedBtm;
 
 @end
 
@@ -20,14 +23,17 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    [_mcopyDownLoadBtn clarityStyle];
+    [_mcopyInvitedCodeBtn clarityStyle];
+    [_myInvitedBtm gradualChangeStyle];
+    
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-    
-    // Configure the view for the selected state
 }
+
 - (void)setEntity:(YUCellEntity *)entity {
     
     [super setEntity:entity];
@@ -35,5 +41,23 @@
     [_secondRectView yu_smallCircleStyle];
     TPInviteRegFirstPageTableViewCellEntity *entity_s = (TPInviteRegFirstPageTableViewCellEntity *)entity;
     self.invitedCodeLabel.text = entity_s.inviteCode;
+}
+- (IBAction)copyDownLoadAddrTap:(id)sender {
+    if(self.entity.callBackByCell) {
+        self.entity.callBackByCell(@{@"from":@"copy-download-addr"});
+    }
+
+}
+
+- (IBAction)copyInvitedCdoeTap:(id)sender {
+    if(self.entity.callBackByCell) {
+        self.entity.callBackByCell(@{@"from":@"copy-invited-code"});
+    }
+
+}
+- (IBAction)myInvitedTap:(id)sender {
+    if(self.entity.callBackByCell) {
+        self.entity.callBackByCell(@{@"from":@"my-invited"});
+    }
 }
 @end

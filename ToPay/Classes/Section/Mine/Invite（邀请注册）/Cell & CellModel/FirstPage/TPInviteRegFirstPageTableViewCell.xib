@@ -42,9 +42,12 @@
                                 <state key="normal" title="复制邀请码">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="copyInvitedCdoeTap:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="bnF-CX-yjU"/>
+                                </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.19607843137254902" green="0.42745098039215684" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="SZP-ES-dKD" firstAttribute="top" secondItem="eFx-ht-rhd" secondAttribute="bottom" id="41A-7l-YJB"/>
                             <constraint firstItem="4cN-ij-oqv" firstAttribute="centerX" secondItem="eFx-ht-rhd" secondAttribute="centerX" id="9Fb-wr-RO3"/>
@@ -87,9 +90,12 @@
                                 <state key="normal" title="复制下载地址">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="copyDownLoadAddrTap:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="xgn-Qy-PNw"/>
+                                </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.1960784314" green="0.42745098040000001" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="5uv-nG-9r9" firstAttribute="top" secondItem="bGh-P8-lBo" secondAttribute="bottom" constant="16" id="3mg-E0-a0V"/>
                             <constraint firstItem="PxB-X9-tqP" firstAttribute="centerX" secondItem="8sn-XO-Wqu" secondAttribute="centerX" id="FPb-cO-1rq"/>
@@ -110,6 +116,9 @@
                             <constraint firstAttribute="width" constant="172" id="g8A-Ww-qUk"/>
                         </constraints>
                         <state key="normal" title="我的邀请"/>
+                        <connections>
+                            <action selector="myInvitedTap:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="fIT-02-86z"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
@@ -126,6 +135,9 @@
             <connections>
                 <outlet property="firstRectView" destination="URp-rH-m7o" id="lww-8v-v84"/>
                 <outlet property="invitedCodeLabel" destination="SZP-ES-dKD" id="HAB-sT-Mq3"/>
+                <outlet property="mcopyDownLoadBtn" destination="Bvu-AO-BA3" id="TJk-ww-lsI"/>
+                <outlet property="mcopyInvitedCodeBtn" destination="4cN-ij-oqv" id="rrN-4K-5Uk"/>
+                <outlet property="myInvitedBtm" destination="E4n-vM-Xoa" id="o3s-WH-VOr"/>
                 <outlet property="secondRectView" destination="8sn-XO-Wqu" id="uOH-qy-vDl"/>
             </connections>
             <point key="canvasLocation" x="169.59999999999999" y="328.78560719640183"/>

@@ -8,7 +8,10 @@
 
 #import "TPInvitedRegisterViewModel.h"
 #import "TPInviteRegFirstPageTableViewCellEntity.h"
-
+#import "TPRecommendedUserModel.h"
+#import "TPInviteRegSecondPageItemTableViewCellEntity.h"
+#import "TPInviteRegSecondPageTableViewCellEntity.h"
+@class TPInviteRegSecondPageItemTableViewCellEntity;
 @implementation TPInvitedRegisterViewModel
 yudef_lazyLoad(NSMutableArray<YUCellEntity*>, dataArray, _dataArray)
 - (id)init {
@@ -18,9 +21,87 @@ yudef_lazyLoad(NSMutableArray<YUCellEntity*>, dataArray, _dataArray)
     }
     return self;
 }
+
+- (void)loadNewData:(bool_id_block)complete {
+    [self getInvitedCodeWithCallBack:^(BOOL isSucc, NSString *info) {
+        if (isSucc) {
+            TPInviteRegSecondPageTableViewCellEntity *second =  (TPInviteRegSecondPageTableViewCellEntity*)self.dataArray[1];
+            [second initDataArray];
+            [self loadNewRecommandUserListWithId:0 complete:^(BOOL isSucc, id data) {
+                if(isSucc){
+                     complete(YES,nil);
+                }else {
+                    complete(NO,data);
+                }
+            }];
+        }else {
+             complete(NO,info);
+        }
+    }];
+    
+}
+- (void)loadMoreData:(bool_id_block)complete  {
+    TPInviteRegSecondPageTableViewCellEntity *second =  (TPInviteRegSecondPageTableViewCellEntity*)self.dataArray[1];
+    [self loadNewRecommandUserListWithId:second.dataArray.lastObject.userModel.userId
+                                complete:complete];
+    
+}
+// 获取邀请码
+- (void)getInvitedCodeWithCallBack:(void (^)(BOOL, NSString *))complete {
+    [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer
+                                                 url:@"user/invitation"
+                                          parameters:nil
+                                             success:^(id responseObject, BOOL isCacheObject) {
+                                                 NSDictionary *res = (NSDictionary *)responseObject;
+                                                 if ([res[@"code"] intValue] == 200) {
+                                                     TPInviteRegFirstPageTableViewCellEntity *entity = (TPInviteRegFirstPageTableViewCellEntity *)self.dataArray[0];
+                                                     entity.inviteCode = res[@"data"];
+                                                     complete(YES,res[@"data"]);
+                                                 }else {
+                                                     complete(NO,res[@"message"]);
+                                                 }
+                                             }
+                                             failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
+                                                 NSLog(@"%@",[error description]);
+                                                 complete(NO,@"网络错误");
+                                             } ];
+}
+
+// 获取推荐列表
+- (void)loadNewRecommandUserListWithId:(NSInteger )Id complete:(void(^)(BOOL isSucc,id data)) complete {
+    NSDictionary *postDict = @{@"inviteUserId":@(Id),@"pageSize":@10};
+                               
+    [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer
+                                                 url:@"user/recommend"
+                                          parameters:postDict
+                                             success:^(id responseObject, BOOL isCacheObject) {
+                                                 NSDictionary *res = (NSDictionary *)responseObject;
+                                                 if ([res[@"code"] intValue] == 200) {
+                                                     NSArray *arr = res[@"data"];
+                                                     if(![arr isKindOfClass:NSNull.class] ) {
+                                                         for (NSDictionary *dic in arr) {
+                                                             TPInviteRegSecondPageItemTableViewCellEntity *entity = [[TPInviteRegSecondPageItemTableViewCellEntity alloc] init] ;
+                                                             entity.userModel = [[TPRecommendedUserModel alloc] initWithDictionary:dic];
+                                                             TPInviteRegSecondPageTableViewCellEntity *second =  (TPInviteRegSecondPageTableViewCellEntity*)self.dataArray[1];
+                                                             [second.dataArray addObject:entity];
+                                                        }
+                                                     }
+                                                     complete(YES,res[@"data"]);
+                                                 }else {
+                                                     complete(NO,res[@"message"]);
+                                                 }
+                                             }
+                                             failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
+                                                 NSLog(@"%@",[error description]);
+                                                 complete(NO,@"网络错误");
+                                             } ];
+}
 - (void)setUp {
+    _curPage = 0;
     TPInviteRegFirstPageTableViewCellEntity *entity = [[TPInviteRegFirstPageTableViewCellEntity alloc] init];
     entity.inviteCode = @"aabab";
-    [self.dataArray addObject:entity];
+    TPInviteRegSecondPageTableViewCellEntity *entity2 = [[TPInviteRegSecondPageTableViewCellEntity alloc] init];
+    [self.dataArray addObject:entity]; // 邀请码界面加入
+    [self.dataArray addObject:entity2];
 }
 @end

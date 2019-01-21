@@ -7,10 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+typedef void(^bool_id_block)(BOOL isSucc,id data) ;
 
 @interface TPInvitedRegisterViewModel : NSObject
 yudef_property_strong(NSMutableArray<YUCellEntity*>, dataArray)
-- (void)getInvitedCodeWithCallBack:(void(^)(BOOL isSucc,NSString *info))complete;
+yudef_property_assign(int, curPage)
+- (void)loadNewData:(bool_id_block)complete;
+- (void)loadMoreData:(bool_id_block)complete ;
+
 
 @end
 

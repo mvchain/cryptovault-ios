@@ -16,6 +16,7 @@
 - (void)whiteBorderStyle; // 白色边框样式(内部透明)
 - (void)rectBlackBorderStyle;// 黑色矩形（内部透明）
 - (void)rectGrayBorderStyle; // 灰色矩形（内部透明）
+- (void)clarityStyle; // 半透明圆形按钮
 
 @end
 

@@ -181,6 +181,12 @@
     
     self.layer.masksToBounds=YES;//隐藏裁剪掉的部分
 }
+-(void) yu_smallCircleStyleWithRadius:(CGFloat)radius {
+    self.layer.cornerRadius=radius;
+    
+    self.layer.masksToBounds=YES;//隐藏裁剪掉的部分
+}
+
 - (void)yu_circleStyle{
     
     self.layer.cornerRadius=self.frame.size.height/2;//裁成圆角

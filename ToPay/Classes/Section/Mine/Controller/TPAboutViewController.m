@@ -49,41 +49,11 @@
          make.height.equalTo(@16);
      }];
     
-    UIButton *quitBtn = [YFactoryUI YButtonWithTitle:@"退出登录" Titcolor:[UIColor whiteColor] font:FONT(15) Image:nil target:self action:@selector(quitClcik)];
-    [quitBtn setLayer:23 WithBackColor:TPMainColor];
-    [self.view addSubview:quitBtn];
-    
-    [quitBtn mas_makeConstraints:^(MASConstraintMaker *make)
-    {
-        make.centerX.equalTo(self.view);
-        make.bottom.equalTo(@(-54));
-        make.height.equalTo(@44);
-        make.width.equalTo(@343);
-    }];
+  
 }
 
 
--(void)quitClcik
-{
-//    NSLog(@"退出登录");
-    
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"退出登录" message:@"您确定要退出ToPay吗？"preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *resetAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action)
-    {
-        if ([TPLoginUtil quitWithRemoveUserInfo])
-        {
-            [TPLoginUtil  quitWithRemoveUserInfo];
-            [QuickDo logout];
-            
-        }
-    }];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-    
-    //添加顺序和显示顺序相同
-    [alertController addAction:cancelAction];
-    [alertController addAction:resetAction];
-    [self presentViewController:alertController animated:YES completion:nil];
-}
+
 
 - (void)didReceiveMemoryWarning
 {
