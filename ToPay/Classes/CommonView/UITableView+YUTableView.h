@@ -13,13 +13,14 @@
 @class YUCellEntity;
 
 @interface UITableView (YUTableView)
-
+- (void)noSeparatorLine;
 -(UITableViewCell *)cellByIndexPath:(NSIndexPath *)indexPath
                          dataArrays:(NSMutableArray *)dataArrays;
 
 - (UITableViewCell *)cellByIndexPath:(NSIndexPath *)indexPath
                           dataArrays:(NSMutableArray *)dataArrays delegate:(id<YUCellDelegate>)delegate;
 
--(void)addHeaderWithBlock:(MJRefreshComponentRefreshingBlock)block;
 
+- (void)addHeaderWithBlock:(void(^)(MJRefreshHeader *header))block;
+- (void)addFooterWithBlock:(void(^)(MJRefreshFooter *footer))block;
 @end

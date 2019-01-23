@@ -13,8 +13,7 @@
 @property (nonatomic, copy) NSString  *total;
 @property (nonatomic, copy) NSString  *nickName;
 @property (nonatomic) CGFloat  ratio;
-
+@property (strong,nonatomic) UIButton *checkButton; //签到
 @property (nullable, copy) void (^chooseCurrencyBlock)(void);
-
-
+@property (nullable, copy) void (^checkTap)(void);
 @end

@@ -7,6 +7,10 @@
 //
 
 #import "TPNoMoreTableViewCell.h"
+@interface TPNoMoreTableViewCell()
+@property (weak, nonatomic) IBOutlet UIView *bgView;
+
+@end
 
 @implementation TPNoMoreTableViewCell
 
@@ -16,7 +20,17 @@
     
     // Initialization code
 }
-
+- (void)setEntity:(YUCellEntity *)entity {
+    [super setEntity:entity];
+    if (entity.data) {
+        NSString *str= (NSString *)entity.data;
+        if ([str isEqualToString:@"fin"]) {
+            _bgView.hidden = NO;
+            self.backgroundColor = [UIColor colorWithHex:@"#F5F5F5"];
+            
+        }
+    }
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

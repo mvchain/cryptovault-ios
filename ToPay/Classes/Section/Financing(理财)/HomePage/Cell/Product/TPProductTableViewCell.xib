@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="142" id="KGk-i7-Jjw" customClass="TPProductTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="469" height="142"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="469" height="141.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uD1-Uz-tGr">
+                        <rect key="frame" x="16" y="12" width="437" height="129.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cK7-lh-rzb">
+                        <rect key="frame" x="179" y="27" width="63" height="20"/>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jii-aK-REq">
+                        <rect key="frame" x="246" y="27" width="63" height="20"/>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12-24 %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ft4-ip-P17">
+                        <rect key="frame" x="33" y="33" width="106" height="35"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                        <color key="textColor" red="0.85098039219999999" green="0.42745098040000001" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="预期年化收益率" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9t2-oY-gWF">
+                        <rect key="frame" x="36" y="77" width="86" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.61568627450000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eG7-xR-bVg">
+                        <rect key="frame" x="160" y="54" width="1" height="27"/>
+                        <color key="backgroundColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="1" id="NpG-hs-ik3"/>
+                            <constraint firstAttribute="height" constant="27" id="QMc-AD-BBZ"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQO-o9-DGv">
+                        <rect key="frame" x="182" y="23" width="0.0" height="0.0"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.34901960780000002" green="0.35294117650000001" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="预期年收益" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJq-NT-Dnb">
+                        <rect key="frame" x="182" y="30" width="57" height="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.61568627450000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="预期年收益" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ne1-Rm-A4V">
+                        <rect key="frame" x="249" y="30" width="57" height="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.61568627450000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="下单时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdv-M0-o5M">
+                        <rect key="frame" x="182" y="66" width="45" height="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.61568627450000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="Ne1-Rm-A4V" firstAttribute="centerY" secondItem="OJq-NT-Dnb" secondAttribute="centerY" id="9a9-WN-4qh"/>
+                    <constraint firstItem="zQO-o9-DGv" firstAttribute="leading" secondItem="eG7-xR-bVg" secondAttribute="trailing" constant="21" id="BJp-w6-oqV"/>
+                    <constraint firstItem="cK7-lh-rzb" firstAttribute="centerX" secondItem="OJq-NT-Dnb" secondAttribute="centerX" id="CHi-S4-BPb"/>
+                    <constraint firstAttribute="trailing" secondItem="uD1-Uz-tGr" secondAttribute="trailing" constant="16" id="CJL-sF-ajC"/>
+                    <constraint firstItem="wdv-M0-o5M" firstAttribute="leading" secondItem="OJq-NT-Dnb" secondAttribute="leading" id="Ggb-UA-0qK"/>
+                    <constraint firstItem="uD1-Uz-tGr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="LNI-kw-Ab7"/>
+                    <constraint firstItem="Ne1-Rm-A4V" firstAttribute="leading" secondItem="OJq-NT-Dnb" secondAttribute="trailing" constant="10" id="Nya-fM-WsV"/>
+                    <constraint firstItem="cK7-lh-rzb" firstAttribute="height" secondItem="OJq-NT-Dnb" secondAttribute="height" constant="6" id="OK0-Xp-pe5"/>
+                    <constraint firstItem="uD1-Uz-tGr" firstAttribute="leading" secondItem="eG7-xR-bVg" secondAttribute="trailing" constant="-145" id="OdO-dL-7y3"/>
+                    <constraint firstItem="cK7-lh-rzb" firstAttribute="width" secondItem="OJq-NT-Dnb" secondAttribute="width" constant="6" id="S54-HP-DgN"/>
+                    <constraint firstItem="cK7-lh-rzb" firstAttribute="centerY" secondItem="OJq-NT-Dnb" secondAttribute="centerY" id="TCH-m7-EUn"/>
+                    <constraint firstItem="9t2-oY-gWF" firstAttribute="leading" secondItem="ft4-ip-P17" secondAttribute="leading" constant="3" id="VNF-Ki-jgK"/>
+                    <constraint firstItem="wdv-M0-o5M" firstAttribute="top" secondItem="cK7-lh-rzb" secondAttribute="bottom" constant="19" id="X4p-TB-bOF"/>
+                    <constraint firstItem="zQO-o9-DGv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="12" id="XrZ-kn-cJ9"/>
+                    <constraint firstItem="jii-aK-REq" firstAttribute="height" secondItem="Ne1-Rm-A4V" secondAttribute="height" constant="6" id="YH3-cT-dc4"/>
+                    <constraint firstItem="ft4-ip-P17" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="22" id="YJW-qo-kMb"/>
+                    <constraint firstAttribute="bottom" secondItem="uD1-Uz-tGr" secondAttribute="bottom" id="Yg9-Kq-Hgn"/>
+                    <constraint firstItem="uD1-Uz-tGr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="ZpL-md-3Oc"/>
+                    <constraint firstItem="eG7-xR-bVg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="43" id="cCf-VY-jwh"/>
+                    <constraint firstItem="jii-aK-REq" firstAttribute="width" secondItem="Ne1-Rm-A4V" secondAttribute="width" constant="6" id="giX-SY-YDH"/>
+                    <constraint firstItem="jii-aK-REq" firstAttribute="centerY" secondItem="Ne1-Rm-A4V" secondAttribute="centerY" id="h9f-8W-N2c"/>
+                    <constraint firstItem="OJq-NT-Dnb" firstAttribute="leading" secondItem="zQO-o9-DGv" secondAttribute="leading" id="hfF-er-OTX"/>
+                    <constraint firstItem="OJq-NT-Dnb" firstAttribute="top" secondItem="zQO-o9-DGv" secondAttribute="bottom" constant="7" id="lOB-Vm-aXe"/>
+                    <constraint firstItem="ft4-ip-P17" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="13" id="oQ2-17-liv"/>
+                    <constraint firstItem="9t2-oY-gWF" firstAttribute="top" secondItem="ft4-ip-P17" secondAttribute="bottom" constant="9" id="vtE-fq-Qcf"/>
+                    <constraint firstItem="jii-aK-REq" firstAttribute="centerX" secondItem="Ne1-Rm-A4V" secondAttribute="centerX" id="x9y-aE-vMb"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="bgView" destination="uD1-Uz-tGr" id="W1f-3N-ezS"/>
+                <outlet property="orderTimeLabel" destination="wdv-M0-o5M" id="mVV-5I-9Of"/>
+                <outlet property="persentLabel" destination="ft4-ip-P17" id="aax-hn-qhb"/>
+                <outlet property="productTitleLabel" destination="zQO-o9-DGv" id="IAh-gL-95E"/>
+                <outlet property="rightSmall0BgView" destination="cK7-lh-rzb" id="CWI-Xd-TWl"/>
+                <outlet property="rightSmall0Label" destination="OJq-NT-Dnb" id="ckb-aH-Tos"/>
+                <outlet property="rightSmall1BgView" destination="jii-aK-REq" id="xrX-06-8KM"/>
+                <outlet property="rightSmall1Label" destination="Ne1-Rm-A4V" id="IG5-ok-veg"/>
+            </connections>
+            <point key="canvasLocation" x="100" y="134.03298350824588"/>
+        </tableViewCell>
+    </objects>
+</document>

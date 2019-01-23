@@ -1,0 +1,49 @@
+//
+//  TPStoreDetailProductIntroCell.m
+//  ToPay
+//
+//  Created by 蒲公英 on 2019/1/23.
+//  Copyright © 2019年 蒲公英. All rights reserved.
+//
+
+#import "TPStoreDetailProductIntroCell.h"
+#import "MyStoreDetailBigInfoModel.h"
+@interface TPStoreDetailProductIntroCell()
+@property (weak, nonatomic) IBOutlet UILabel *productNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *revuneLabel;
+@property (weak, nonatomic) IBOutlet UILabel *bottom_left_labe;
+@property (weak, nonatomic) IBOutlet UILabel *bottom_middle_label;
+@property (weak, nonatomic) IBOutlet UILabel *bottom_right_label;
+@property (weak, nonatomic) IBOutlet UIView *bgView;
+
+
+
+@end
+
+@implementation TPStoreDetailProductIntroCell
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    [self.bgView yu_smallCircleStyleWithRadius:7];
+    // Initialization code
+}
+
+- (void)setEntity:(YUCellEntity *)entity
+{
+    [super setEntity:entity];
+    MyStoreDetailBigInfoModel *model = (MyStoreDetailBigInfoModel *)entity.data;
+    [self.productNameLabel setText:model.financialName];
+    [self.revuneLabel setText:TPString(@"年化收益率：%ld-%ld",(long)model.incomeMin,(long)model.incomeMax)];
+    [self.bottom_left_labe setText:TPString(@"%.4f %@",model.value,model.baseTokenName)];
+    
+    [self.bottom_middle_label setText:TPString(@"%.4f %@",model.income,model.baseTokenName)];
+    [self.bottom_right_label setText:TPString(@"%d天",model.times)];
+    
+}
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+
+    // Configure the view for the selected state
+}
+
+@end

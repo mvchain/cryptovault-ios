@@ -10,4 +10,8 @@
 
 @implementation TPNoMoreTableViewCellEntity
 
+- (CGFloat)yu_cellHeight {
+    return 120;
+    
+}
 @end

@@ -114,7 +114,7 @@
 {
 // 192.168.15.31
 //    47.110.234.233
-    [WYNetworkConfig sharedConfig].baseUrl = @"http://192.168.15.31:10086/";
+    [WYNetworkConfig sharedConfig].baseUrl = @"http://47.110.234.233:10086/";
     [WYNetworkConfig sharedConfig].timeoutSeconds = 10;
     if ([TPLoginUtil userInfo].token)
     {

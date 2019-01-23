@@ -16,7 +16,6 @@
 @property (nonatomic, strong) UILabel *numLab;
 
 @property (nonatomic, strong) UIImageView *bgImgV;
-
 @end
 
 @implementation TPCapitalHeaderView
@@ -61,10 +60,60 @@
                  }
              });
        });
+        _checkButton =[UIButton buttonWithType:UIButtonTypeCustom];
+        [_checkButton setBackgroundImage:[UIImage imageNamed:@"home_check-in_img"] forState:UIControlStateNormal];
+        [_checkButton addTarget:self action:@selector(check:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [self addSubview:_checkButton];
+        
+        [self initLayt];
     }
     return self;
 }
-
+- (void)check :(id)sender{
+    // 签到
+    if(_checkTap){
+        _checkTap();
+    }
+}
+- (void)initLayt{
+    [_bgImgV mas_makeConstraints:^(MASConstraintMaker *make)
+     {
+         make.left.top.equalTo(@0);
+         make.width.equalTo(@(KWidth));
+         make.height.equalTo(self.mas_height).with.offset(-6);
+     }];
+    [_totalLab mas_makeConstraints:^(MASConstraintMaker *make)
+     {
+         make.centerX.equalTo(self);
+         make.top.equalTo(@12);
+         make.height.equalTo(@15);
+     }];
+    
+    [_chooseBtn mas_makeConstraints:^(MASConstraintMaker *make)
+     {
+         make.centerX.equalTo(self);
+         make.top.equalTo(self.totalLab.mas_bottom).with.offset(11);
+         make.height.equalTo(@19);
+         make.width.equalTo(@100);
+     }];
+    
+    [_numLab mas_makeConstraints:^(MASConstraintMaker *make)
+     {
+         make.centerX.equalTo(self);
+         make.top.equalTo(self.chooseBtn.mas_bottom).with.offset(1);
+         make.height.equalTo(@48);
+     }];
+    [_checkButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@77);
+        make.height.equalTo(@36);
+        make.trailing.equalTo(self.mas_trailing);
+        make.top.equalTo(self.mas_top).with.offset(45);
+        
+       
+    }];
+    
+}
 -(void)setTotal:(NSString *)total
 {
     _total = total;
@@ -96,32 +145,6 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
-    [_bgImgV mas_makeConstraints:^(MASConstraintMaker *make)
-    {
-        make.left.top.equalTo(@0);
-        make.width.equalTo(@(KWidth));
-        make.height.equalTo(self.mas_height).with.offset(-6);
-    }];
-    [_totalLab mas_makeConstraints:^(MASConstraintMaker *make)
-    {
-        make.centerX.equalTo(self);
-        make.top.equalTo(@12);
-        make.height.equalTo(@15);
-    }];
-
-    [_chooseBtn mas_makeConstraints:^(MASConstraintMaker *make)
-    {
-        make.centerX.equalTo(self);
-        make.top.equalTo(self.totalLab.mas_bottom).with.offset(11);
-        make.height.equalTo(@19);
-        make.width.equalTo(@100);
-    }];
     
-    [_numLab mas_makeConstraints:^(MASConstraintMaker *make)
-    {
-        make.centerX.equalTo(self);
-        make.top.equalTo(self.chooseBtn.mas_bottom).with.offset(1);
-        make.height.equalTo(@48);
-    }];
 }
 @end

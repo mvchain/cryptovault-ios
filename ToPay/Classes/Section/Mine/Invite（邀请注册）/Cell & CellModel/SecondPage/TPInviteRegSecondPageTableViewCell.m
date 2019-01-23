@@ -37,8 +37,6 @@
             }else {
                 [wsf.tableView.mj_footer endRefreshing];
                 [wsf.tableView reloadData];
-                
-                
             }
             
         };

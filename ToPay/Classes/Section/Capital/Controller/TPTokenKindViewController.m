@@ -9,7 +9,6 @@
 #import "TPTokenKindViewController.h"
 #import "TPTokenTopicViewController.h"
 #import "NIMScannerViewController.h"
-
 #import "TPChainTakeViewController.h"
 #import "TPChainTransferViewController.h"
 #import "TPChainReceiptViewController.h"
@@ -259,8 +258,5 @@
 {
     [self.pageTitleView setPageTitleViewWithProgress:progress originalIndex:originalIndex targetIndex:targetIndex];
 }
-
-
-
 
 @end

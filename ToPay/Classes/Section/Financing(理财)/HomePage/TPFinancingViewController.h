@@ -7,9 +7,6 @@
 //
 
 #import "TPBaseViewController.h"
-
-
-
 @interface TPFinancingViewController : TPBaseViewController
 
 @end

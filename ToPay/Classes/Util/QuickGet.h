@@ -10,7 +10,6 @@
 @interface QuickGet : NSObject
 + (NSString *)getLegalCurrency;
 + (CGFloat )getWhiteBottomHeight ;
-
 @end
 
 

@@ -40,9 +40,6 @@ static NSString  *TPDetailCellId = @"detailCell";
         self.contentArray = @[@""];
     }
     
-    
-    
-
     [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:TPString(@"asset/transaction/%@",self.tokenTopic.id) success:^(id responseObject, BOOL isCacheObject)
     {
         if ([responseObject[@"code"] isEqual:@200])
@@ -177,15 +174,11 @@ static NSString  *TPDetailCellId = @"detailCell";
 }
 
 //-(void)
-
-
 -(void)setStatuText:(NSString *)text WithImg:(NSString *)img
 {
     self.statusLab.text = text;
     self.iconImgV.image = [UIImage imageNamed:img];
 }
-
-
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.titleArray.count;

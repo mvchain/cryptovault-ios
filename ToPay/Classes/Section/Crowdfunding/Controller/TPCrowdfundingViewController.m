@@ -13,6 +13,8 @@
 #import "TPComingSoonViewController.h"
 #import "TPEndViewController.h"
 #import "TPRecordViewController.h"
+#import "TPIJoinedViewController.h"
+
 @interface TPCrowdfundingViewController ()<SGPageTitleViewDelegate, SGPageContentScrollViewDelegate>
 
 @property (nonatomic, strong) SGPageTitleView *pageTitleView;
@@ -57,7 +59,7 @@
 
 -(void)setupPageView
 {
-    NSArray *titleArr = @[@"预约中", @"即将预约", @"已结束"];
+    NSArray *titleArr = @[@"预约中", @"即将预约", @"已结束",@"我参与的"];
     SGPageTitleViewConfigure *configure = [SGPageTitleViewConfigure pageTitleViewConfigure];
     configure.indicatorAdditionalWidth = 10; // 说明：指示器额外增加的宽度，不设置，指示器宽度为标题文字宽度；若设置无限大，则指示器宽度为按钮宽度
     configure.titleGradientEffect = YES;
@@ -75,8 +77,8 @@
     TPComingSoonViewController *twoVC = [[TPComingSoonViewController alloc] init];
     
     TPEndViewController *threeVC = [[TPEndViewController alloc] init];
-    
-    NSArray *childArr = @[oneVC,twoVC,threeVC];
+    TPIJoinedViewController *four = [[TPIJoinedViewController alloc]init];
+    NSArray *childArr = @[oneVC,twoVC,threeVC,four];
     
     CGFloat height = KHeight - StatusBarAndNavigationBarHeight - TAB_BAR_HEIGHT - 40 + (iPhoneX ? 10:0);
     

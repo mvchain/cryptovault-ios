@@ -25,7 +25,7 @@ yudef_lazyLoad(TPInvitedRegisterViewModel, viewModel,_viewModel);
             if([data isKindOfClass:[NSNull class]]) {
                  self.viewModel.dataArray[1].callBackByOuter(@{@"type":@"no-more"}); // 通知第二页内部tableview刷新
             }else {
-                 self.viewModel.dataArray[1].callBackByOuter(@{@"type":@"new"}); // 通知第二页内部tableview刷新
+                self.viewModel.dataArray[1].callBackByOuter(@{@"type":@"new"}); // 通知第二页内部tableview刷新
             }
            
         }else {
@@ -41,6 +41,26 @@ yudef_lazyLoad(TPInvitedRegisterViewModel, viewModel,_viewModel);
     [self initWithUI];
     [self initEvent];
     [self loadNetData];
+    [self setUpNav];
+}
+- (void)setUpNav{
+    __weak typeof (self) wsf = self;
+     [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"share_icon_black"]];
+    [self.customNavBar setOnClickRightButton:^{
+        [wsf toPgae0];
+        TPInviteRegFirstPageTableViewCellEntity *en =  (TPInviteRegFirstPageTableViewCellEntity *)wsf.viewModel.dataArray[0];
+        en.qucikShotMode = YES;
+        [wsf.tableView reloadData];
+
+        UIImage *shot = [QuickMaker makeImageWithView:wsf.tableView withSize:wsf.tableView.bounds.size];
+        UIImage *imageToShare =shot;
+        NSArray *items = @[imageToShare];
+        [QuickDo shareToSystem:items target:wsf  success:^(bool isok) {
+            en.qucikShotMode = NO;
+            [wsf.tableView reloadData];
+        }];
+    }];
+    
 }
 - (void)initWithUI {
     self.customNavBar.title = @"邀请注册";
@@ -62,30 +82,37 @@ yudef_lazyLoad(TPInvitedRegisterViewModel, viewModel,_viewModel);
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [tableView cellByIndexPath:indexPath dataArrays:self.viewModel.dataArray];
 }
-
+- (void)toPgae0 {
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    self.viewModel.curPage =0;
+}
+- (void)toPage1 {
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    self.viewModel.curPage =1;
+}
 #pragma mark event
 - (void)initEvent {
+    
+    __weak typeof (self) wsf = self ;
     self.viewModel.dataArray[0].callBackByCell = ^(NSDictionary *info) {
         // d第一页事件
         if ([info[@"from"] isEqualToString:@"my-invited"]) {
-            [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-            self.viewModel.curPage =1;
-            
-            
+            [wsf toPage1];
         }else if([info[@"from"] isEqualToString:@"copy-invited-code"]) {
             TPInviteRegFirstPageTableViewCellEntity *entity = (TPInviteRegFirstPageTableViewCellEntity *)self.viewModel.dataArray[0];
             [QuickDo copyToPastboard:entity.inviteCode];
+            [self showSuccessText:@"复制成功"];
         }else if([info[@"from"] isEqualToString:@"copy-download-addr"]) {
-            
+            TPInviteRegFirstPageTableViewCellEntity *entity = (TPInviteRegFirstPageTableViewCellEntity *)self.viewModel.dataArray[0];
+            [QuickDo copyToPastboard:entity.website];
+             [self showSuccessText:@"复制成功"];
         }
     };
-    
     self.viewModel.dataArray[1].callBackByCell = ^(NSDictionary *info) {
         // 第二页滚动事件
         if ([info[@"type"] isEqualToString:@"scroll-change"]) {
             if( self.viewModel.curPage == 1 ) {
-                [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-                self.viewModel.curPage =0;
+                [wsf toPgae0];
             }
         }else if([info[@"type"] isEqualToString:@"loadMore"]) {
             // 加载更多事件
@@ -93,9 +120,8 @@ yudef_lazyLoad(TPInvitedRegisterViewModel, viewModel,_viewModel);
                 if ([data isKindOfClass:[NSNull class]]) {
                     self.viewModel.dataArray[1].callBackByOuter(@{@"type":@"no-more"}); // 通知第二页内部tableview刷新
                 }else {
-                    self.viewModel.dataArray[1].callBackByOuter(@{@"type":@"more"}); // 通知第二页内部tableview刷新
+                self.viewModel.dataArray[1].callBackByOuter(@{@"type":@"more"}); // 通知第二页内部tableview刷新
                 }
-                
             }];
             
         }

@@ -1,30 +1,26 @@
 //
-//  TPFinancingViewController.m
+//  TPIJoinedViewController.m
 //  ToPay
 //
-//  Created by 蒲公英 on 2019/1/19.
+//  Created by 蒲公英 on 2019/1/23.
 //  Copyright © 2019年 蒲公英. All rights reserved.
 //
 
-#import "TPFinancingViewController.h"
+#import "TPIJoinedViewController.h"
 
-@interface TPFinancingViewController ()
+@interface TPIJoinedViewController ()
 
 @end
 
-@implementation TPFinancingViewController
+@implementation TPIJoinedViewController
+-(TPCrowdfundStyle)type
+{
+    return 3;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setUpNav];
-    
-    // Do any additional setup after loading the view from its nib.
-}
-
-- (void)setUpNav {
-    self.customNavBar.title = @"理财";
-    [self.customNavBar.rightButton.titleLabel setFont:[UIFont systemFontOfSize:12]];
-    
+    // Do any additional setup after loading the view.
 }
 
 /*

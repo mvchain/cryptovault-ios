@@ -24,8 +24,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.customNavBar.title = TPString(@"%@收款",self.assetModel.tokenName);
+  ;
     [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"share_icon_black"]];
     
     __weak typeof (self) wsf = self;

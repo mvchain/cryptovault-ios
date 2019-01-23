@@ -11,6 +11,8 @@
 #import "TPRecommendedUserModel.h"
 #import "TPInviteRegSecondPageItemTableViewCellEntity.h"
 #import "TPInviteRegSecondPageTableViewCellEntity.h"
+#import "NIMScanner.h"
+#import <Social/Social.h>
 @class TPInviteRegSecondPageItemTableViewCellEntity;
 @implementation TPInvitedRegisterViewModel
 yudef_lazyLoad(NSMutableArray<YUCellEntity*>, dataArray, _dataArray)
@@ -100,6 +102,11 @@ yudef_lazyLoad(NSMutableArray<YUCellEntity*>, dataArray, _dataArray)
     _curPage = 0;
     TPInviteRegFirstPageTableViewCellEntity *entity = [[TPInviteRegFirstPageTableViewCellEntity alloc] init];
     entity.inviteCode = @"aabab";
+    entity.website = @"www.mvchain.org";
+    [NIMScanner qrImageWithString:entity.website avatar:nil completion:^(UIImage *image)
+     {
+         entity.qrimage = image;
+     }];
     TPInviteRegSecondPageTableViewCellEntity *entity2 = [[TPInviteRegSecondPageTableViewCellEntity alloc] init];
     [self.dataArray addObject:entity]; // 邀请码界面加入
     [self.dataArray addObject:entity2];

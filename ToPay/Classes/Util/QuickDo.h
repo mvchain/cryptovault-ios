@@ -24,7 +24,7 @@
 #define yudef_property_copy(type,name) @property (copy ,nonatomic) type* name;
 #define yudef_property_assign(type,name) @property (assign ,nonatomic) type name;
 #define yudef_lazyLoad(type,name,_name) -(type *)name {if(!_name){_name = [[type alloc] init];}return _name;}
-
+#define yudef_exit_func_if(condition) if(condition)return;
 @interface QuickDo : NSObject
 + (void)shareToSystem:(NSArray *)items target:(id)target success:(void(^)(bool isok))successBlock ;
 + (void)setJPushAlians:(NSString *)aliansName ;

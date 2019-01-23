@@ -19,6 +19,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="464" height="331.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5a9-El-1FK">
+                        <rect key="frame" x="16" y="0.0" width="432" height="331.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defeat_icon" translatesAutoresizingMaskIntoConstraints="NO" id="evP-wB-ACk">
                         <rect key="frame" x="142" y="76" width="180" height="180"/>
                         <constraints>
@@ -29,11 +33,18 @@
                 </subviews>
                 <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
+                    <constraint firstItem="5a9-El-1FK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="7jn-Xj-2Gd"/>
+                    <constraint firstAttribute="bottom" secondItem="5a9-El-1FK" secondAttribute="bottom" id="Rcw-DE-lpO"/>
                     <constraint firstItem="evP-wB-ACk" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="U4N-1A-TtT"/>
+                    <constraint firstAttribute="trailing" secondItem="5a9-El-1FK" secondAttribute="trailing" constant="16" id="n60-Fe-CHB"/>
                     <constraint firstItem="evP-wB-ACk" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="qg0-rX-w35"/>
+                    <constraint firstItem="5a9-El-1FK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="zDi-p5-HGl"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="bgView" destination="5a9-El-1FK" id="eXf-Bc-SHW"/>
+            </connections>
             <point key="canvasLocation" x="188.80000000000001" y="286.95652173913044"/>
         </tableViewCell>
     </objects>

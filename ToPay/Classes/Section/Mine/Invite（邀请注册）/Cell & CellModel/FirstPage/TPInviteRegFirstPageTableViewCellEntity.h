@@ -11,7 +11,11 @@
 
 
 @interface TPInviteRegFirstPageTableViewCellEntity : YUCellEntity
+
 yudef_property_copy(NSString, inviteCode);
+yudef_property_copy(NSString, website);
+yudef_property_strong(UIImage, qrimage);
+yudef_property_assign(BOOL, qucikShotMode);
 
 @end
 

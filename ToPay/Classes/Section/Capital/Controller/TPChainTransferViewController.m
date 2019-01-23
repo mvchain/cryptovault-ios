@@ -255,7 +255,6 @@
                             TPTokenKindViewController *vc = (TPTokenKindViewController *)controller;
                             [self.navigationController popToViewController:vc animated:YES];
                         }
-                        
                     }
                 }
                 else

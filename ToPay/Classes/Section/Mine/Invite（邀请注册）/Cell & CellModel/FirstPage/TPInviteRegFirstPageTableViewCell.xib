@@ -137,8 +137,10 @@
                 <outlet property="invitedCodeLabel" destination="SZP-ES-dKD" id="HAB-sT-Mq3"/>
                 <outlet property="mcopyDownLoadBtn" destination="Bvu-AO-BA3" id="TJk-ww-lsI"/>
                 <outlet property="mcopyInvitedCodeBtn" destination="4cN-ij-oqv" id="rrN-4K-5Uk"/>
+                <outlet property="mimageView" destination="5uv-nG-9r9" id="G3e-iH-OUj"/>
                 <outlet property="myInvitedBtm" destination="E4n-vM-Xoa" id="o3s-WH-VOr"/>
                 <outlet property="secondRectView" destination="8sn-XO-Wqu" id="uOH-qy-vDl"/>
+                <outlet property="websiteLabel" destination="PxB-X9-tqP" id="0RA-mU-qsq"/>
             </connections>
             <point key="canvasLocation" x="169.59999999999999" y="328.78560719640183"/>
         </tableViewCell>

@@ -11,7 +11,7 @@
 #import "TPNotiViewController.h"
 #import "TPAddTokenViewController.h"
 #import <WRNavigationBar/WRCustomNavigationBar.h>
-
+#import "CheckSuccView.h"
 
 #import "TPExchangeRate.h"
 #import "TPNotificationModel.h"
@@ -26,7 +26,7 @@
 #define IMAGE_HEIGHT 260
 
 @interface TPCapitalViewController ()
-
+yudef_property_strong(CheckSuccView, succView);
 @property (nonatomic, strong)  NSMutableArray<TPAssetModel *> *assetTopic;
 
 @property (nonatomic, strong) NSArray<TPNotificationModel *> *notiTopic;
@@ -39,7 +39,6 @@
 @end
 
 @implementation TPCapitalViewController
-
 static NSString  *TPCapitalCellCellId = @"CapitalCell";
 
 - (UIStatusBarStyle)preferredStatusBarStyle
@@ -51,11 +50,14 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
 {
     [super viewWillAppear:animated];
     [self loadNewTopics];
-    
+
     [self showSystemNavgation:NO];
+    [self paddingIsChecked];
 }
 
-
+- (void)viewDidAppear:(BOOL)animated {
+    
+}
 -(BCQMView *)qmView
 {
     if (!_qmView)
@@ -116,6 +118,8 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
     
     
     [self setupRefreshWithShowFooter:NO];
+    [self setEvent];
+    
 }
 
 -(void)currencyNotification
@@ -207,8 +211,6 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
     self.headerView = headerView;
     self.baseTableView.tableHeaderView = headerView;
     self.baseTableView.backgroundColor = [UIColor colorWithHex:@"#F2F2F2"];
-    
- 
     self.baseTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.baseTableView mas_makeConstraints:^(MASConstraintMaker *make)
      {
@@ -317,6 +319,64 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
     {
         [self.customNavBar wr_setBackgroundAlpha:0];
     }
+}
+
+- (void)setEvent {
+    __weak typeof (self) wsf =self;
+    
+    self.headerView.checkTap = ^{
+        [wsf checkSign];
+    };
+    
+}
+#pragma mark http
+// 判断是否签到
+- (void)paddingIsChecked {
+    [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"user/sign" success:^(id responseObject, BOOL isCacheObject) {
+        NSDictionary *res = (NSDictionary *)responseObject;
+        if([res[@"data"] boolValue] ) {
+            self.headerView.checkButton.hidden = YES;
+        }
+        else {
+            self.headerView.checkButton.hidden = NO;
+        }
+    } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
+        
+    }];
+}
+// 签到     check-in_success_img
+- (void)checkSign {
+    
+    [[WYNetworkManager sharedManager] sendPutRequest:WYJSONRequestSerializer url:@"user/sign" parameters:nil success:^(id responseObject, BOOL isCacheObject) {
+        NSDictionary *res = (NSDictionary *)responseObject;
+        if( [res[@"code"] intValue] == 200 ) {
+            [self showCheckSucc];
+            self.headerView.checkButton.hidden = YES;
+            
+        }else {
+            [self showErrorText:TPString(@"错误：%@",res[@"messgae"])];
+            
+        }
+    } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
+        [self showErrorText:@"网络错误"];
+    }];
+}
+
+#pragma mark ui
+- (void)showCheckSucc {
+    __weak typeof (self) wsf =self;
+    _succView = [CheckSuccView xib_loadUsingClassName];
+    [_succView setFrame:CGRectMake(0, 0, KWidth, KHeight)];
+    _succView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];
+    _succView.onTap = ^{
+        
+        [wsf.succView removeFromSuperview];
+        
+        
+    };
+    
+    [self.view.window addSubview:_succView];
+    
 }
 
 @end
