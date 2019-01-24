@@ -27,7 +27,6 @@
     {
         _bgImgV = [YFactoryUI YImageViewWithimage:[UIImage imageNamed:@"X_homepage_bg"]];
         [self addSubview:_bgImgV];
-        
         _totalLab = [YFactoryUI YLableWithText:@"总资产" color:[UIColor whiteColor] font:FONT(14)];
         [self addSubview:_totalLab];
         _chooseBtn = [YFactoryUI YButtonWithTitle:@"" Titcolor:[UIColor whiteColor] font:FONT(12) Image:[UIImage imageNamed:@"down_icon_3"] target:self action:@selector(chooseToken)];
@@ -36,16 +35,13 @@
         [self addSubview:_chooseBtn];
         _numLab = [YFactoryUI YLableWithText:@"" color:[UIColor whiteColor] font:FONT(36)];
         [self addSubview:_numLab];
-
         dispatch_queue_t queen = dispatch_get_global_queue(0, 0);
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), queen, ^
        {
            dispatch_sync(dispatch_get_main_queue(), ^
              {
-                 
                  if ([USER_DEFAULT objectForKey:TPNowLegalNameKey])
                  {
-                     
                      NSString *name = [USER_DEFAULT objectForKey:TPNowLegalNameKey];
                      name = [name substringFromIndex:1];
                      [self.chooseBtn setTitle:name forState:UIControlStateNormal];
@@ -63,9 +59,7 @@
         _checkButton =[UIButton buttonWithType:UIButtonTypeCustom];
         [_checkButton setBackgroundImage:[UIImage imageNamed:@"home_check-in_img"] forState:UIControlStateNormal];
         [_checkButton addTarget:self action:@selector(check:) forControlEvents:UIControlEventTouchUpInside];
-        
         [self addSubview:_checkButton];
-        
         [self initLayt];
     }
     return self;
@@ -97,7 +91,6 @@
          make.height.equalTo(@19);
          make.width.equalTo(@100);
      }];
-    
     [_numLab mas_makeConstraints:^(MASConstraintMaker *make)
      {
          make.centerX.equalTo(self);
@@ -108,33 +101,29 @@
         make.width.equalTo(@77);
         make.height.equalTo(@36);
         make.trailing.equalTo(self.mas_trailing);
-        make.top.equalTo(self.mas_top).with.offset(45);
-        
-       
+        make.top.equalTo(self.mas_top).with.offset(20);
     }];
-    
 }
--(void)setTotal:(NSString *)total
+- (void)setTotal:(NSString *)total
 {
     _total = total;
     _numLab.text = TPString(@"%.2f",[total floatValue]);
 }
 
--(void)setRatio:(CGFloat)ratio
+- (void)setRatio:(CGFloat)ratio
 {
     _ratio = ratio;
-    
     _numLab.text = TPString(@"%.2f",[_total floatValue] / ratio);
 }
 
--(void)setNickName:(NSString *)nickName
+- (void)setNickName:(NSString *)nickName
 {
     _nickName = nickName;
     NSString *name = [_nickName substringFromIndex:1];
     [_chooseBtn setTitle:name forState:UIControlStateNormal];
 }
 
--(void)chooseToken
+- (void)chooseToken
 {
 //    NSLog(@"选择token");
     if (self.chooseCurrencyBlock) {
@@ -142,7 +131,7 @@
     }
 }
 
--(void)layoutSubviews
+- (void)layoutSubviews
 {
     [super layoutSubviews];
     

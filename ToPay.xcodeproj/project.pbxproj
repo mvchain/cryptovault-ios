@@ -242,6 +242,15 @@
 		DD374DC021C5228100093A0F /* AAOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = DD374DA121C5228100093A0F /* AAOptions.m */; };
 		DD374DC121C5228100093A0F /* AASeriesElement.m in Sources */ = {isa = PBXBuildFile; fileRef = DD374DA221C5228100093A0F /* AASeriesElement.m */; };
 		DD374DC421C559AD00093A0F /* TPDetailTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD374DC321C559AD00093A0F /* TPDetailTitleView.m */; };
+		DD4126AC21F9A9A800079538 /* YUTMineCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4126AA21F9A9A800079538 /* YUTMineCellTableViewCell.m */; };
+		DD4126AD21F9A9A800079538 /* YUTMineCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD4126AB21F9A9A800079538 /* YUTMineCellTableViewCell.xib */; };
+		DD4126B021F9AEC400079538 /* YUTMineCellTableViewCellEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4126AF21F9AEC400079538 /* YUTMineCellTableViewCellEntity.m */; };
+		DD4126B521F9B09C00079538 /* YUSpaceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4126B321F9B09C00079538 /* YUSpaceTableViewCell.m */; };
+		DD4126B621F9B09C00079538 /* YUSpaceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD4126B421F9B09C00079538 /* YUSpaceTableViewCell.xib */; };
+		DD4126B921F9B0CD00079538 /* YUSpaceTableViewCellEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4126B821F9B0CD00079538 /* YUSpaceTableViewCellEntity.m */; };
+		DD4126BD21F9B7F400079538 /* YUMineLoginOutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4126BB21F9B7F400079538 /* YUMineLoginOutCell.m */; };
+		DD4126BE21F9B7F400079538 /* YUMineLoginOutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD4126BC21F9B7F400079538 /* YUMineLoginOutCell.xib */; };
+		DD4126C121F9B80A00079538 /* YUMineLoginOutCellEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4126C021F9B80A00079538 /* YUMineLoginOutCellEntity.m */; };
 		DD7046E421E5FE9500D02D7F /* QuickGet.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7046E321E5FE9500D02D7F /* QuickGet.m */; };
 		DD72F42B21998491004C0DAF /* TPNavigationBarTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD72F42A21998491004C0DAF /* TPNavigationBarTitleView.m */; };
 		DD72F42E219A7D7A004C0DAF /* TPVRTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD72F42D219A7D7A004C0DAF /* TPVRTViewController.m */; };
@@ -794,6 +803,21 @@
 		DD374DA421C5228100093A0F /* AAChartModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAChartModel.h; sourceTree = "<group>"; };
 		DD374DC221C559AD00093A0F /* TPDetailTitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPDetailTitleView.h; sourceTree = "<group>"; };
 		DD374DC321C559AD00093A0F /* TPDetailTitleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPDetailTitleView.m; sourceTree = "<group>"; };
+		DD4126A921F9A9A800079538 /* YUTMineCellTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YUTMineCellTableViewCell.h; sourceTree = "<group>"; };
+		DD4126AA21F9A9A800079538 /* YUTMineCellTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YUTMineCellTableViewCell.m; sourceTree = "<group>"; };
+		DD4126AB21F9A9A800079538 /* YUTMineCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YUTMineCellTableViewCell.xib; sourceTree = "<group>"; };
+		DD4126AE21F9AEC400079538 /* YUTMineCellTableViewCellEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YUTMineCellTableViewCellEntity.h; sourceTree = "<group>"; };
+		DD4126AF21F9AEC400079538 /* YUTMineCellTableViewCellEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YUTMineCellTableViewCellEntity.m; sourceTree = "<group>"; };
+		DD4126B221F9B09C00079538 /* YUSpaceTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YUSpaceTableViewCell.h; sourceTree = "<group>"; };
+		DD4126B321F9B09C00079538 /* YUSpaceTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YUSpaceTableViewCell.m; sourceTree = "<group>"; };
+		DD4126B421F9B09C00079538 /* YUSpaceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YUSpaceTableViewCell.xib; sourceTree = "<group>"; };
+		DD4126B721F9B0CD00079538 /* YUSpaceTableViewCellEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YUSpaceTableViewCellEntity.h; sourceTree = "<group>"; };
+		DD4126B821F9B0CD00079538 /* YUSpaceTableViewCellEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YUSpaceTableViewCellEntity.m; sourceTree = "<group>"; };
+		DD4126BA21F9B7F400079538 /* YUMineLoginOutCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YUMineLoginOutCell.h; sourceTree = "<group>"; };
+		DD4126BB21F9B7F400079538 /* YUMineLoginOutCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YUMineLoginOutCell.m; sourceTree = "<group>"; };
+		DD4126BC21F9B7F400079538 /* YUMineLoginOutCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YUMineLoginOutCell.xib; sourceTree = "<group>"; };
+		DD4126BF21F9B80A00079538 /* YUMineLoginOutCellEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YUMineLoginOutCellEntity.h; sourceTree = "<group>"; };
+		DD4126C021F9B80A00079538 /* YUMineLoginOutCellEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YUMineLoginOutCellEntity.m; sourceTree = "<group>"; };
 		DD7046E021E33EDF00D02D7F /* ToPay.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ToPay.entitlements; sourceTree = "<group>"; };
 		DD7046E221E5FE9500D02D7F /* QuickGet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickGet.h; sourceTree = "<group>"; };
 		DD7046E321E5FE9500D02D7F /* QuickGet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickGet.m; sourceTree = "<group>"; };
@@ -1346,6 +1370,7 @@
 		DD0244362196D1B8006A1390 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DD4126A521F9A85C00079538 /* Cell */,
 				DD02393B21ACEBA700333446 /* Login */,
 				DD0244482196DD57006A1390 /* TPMeViewController.h */,
 				DD0244492196DD57006A1390 /* TPMeViewController.m */,
@@ -1608,9 +1633,9 @@
 			isa = PBXGroup;
 			children = (
 				DD0A941121F8466200D9E82E /* CircleTopAndBottom */,
+				DD0A940421F83E9D00D9E82E /* TPStoreDetailProductIntroCell.h */,
 				DD0A940521F83E9D00D9E82E /* TPStoreDetailProductIntroCell.m */,
 				DD0A940621F83E9D00D9E82E /* TPStoreDetailProductIntroCell.xib */,
-				DD0A940421F83E9D00D9E82E /* TPStoreDetailProductIntroCell.h */,
 				DD0A940921F8429500D9E82E /* TPStoreDetailProductIntroCellEntity.h */,
 				DD0A940A21F8429500D9E82E /* TPStoreDetailProductIntroCellEntity.m */,
 				DD0A940C21F843AE00D9E82E /* TPStoreEveryDayIncomeCell.h */,
@@ -2179,6 +2204,35 @@
 			path = AAChartConfiger;
 			sourceTree = "<group>";
 		};
+		DD4126A521F9A85C00079538 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DD4126A921F9A9A800079538 /* YUTMineCellTableViewCell.h */,
+				DD4126AA21F9A9A800079538 /* YUTMineCellTableViewCell.m */,
+				DD4126AB21F9A9A800079538 /* YUTMineCellTableViewCell.xib */,
+				DD4126AE21F9AEC400079538 /* YUTMineCellTableViewCellEntity.h */,
+				DD4126AF21F9AEC400079538 /* YUTMineCellTableViewCellEntity.m */,
+				DD4126BA21F9B7F400079538 /* YUMineLoginOutCell.h */,
+				DD4126BB21F9B7F400079538 /* YUMineLoginOutCell.m */,
+				DD4126BC21F9B7F400079538 /* YUMineLoginOutCell.xib */,
+				DD4126BF21F9B80A00079538 /* YUMineLoginOutCellEntity.h */,
+				DD4126C021F9B80A00079538 /* YUMineLoginOutCellEntity.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		DD4126B121F9B07700079538 /* spaceCell */ = {
+			isa = PBXGroup;
+			children = (
+				DD4126B221F9B09C00079538 /* YUSpaceTableViewCell.h */,
+				DD4126B321F9B09C00079538 /* YUSpaceTableViewCell.m */,
+				DD4126B421F9B09C00079538 /* YUSpaceTableViewCell.xib */,
+				DD4126B721F9B0CD00079538 /* YUSpaceTableViewCellEntity.h */,
+				DD4126B821F9B0CD00079538 /* YUSpaceTableViewCellEntity.m */,
+			);
+			path = spaceCell;
+			sourceTree = "<group>";
+		};
 		DD7046E121E3414800D02D7F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -2305,6 +2359,7 @@
 		DDFED69F21E05C7A00F2F354 /* CommonView */ = {
 			isa = PBXGroup;
 			children = (
+				DD4126B121F9B07700079538 /* spaceCell */,
 				DD13CF2221EF33940022EECC /* Gradient */,
 				DD13CF1821EF1BB50022EECC /* YUButton */,
 				DD13CF0F21EDFB8A0022EECC /* YUTextView */,
@@ -2456,6 +2511,7 @@
 				DD0D344721F5AFDE00ECEDF2 /* TPInviteRegSecondPageTableViewCell.xib in Resources */,
 				DD0D345D21F6BEEC00ECEDF2 /* TPProductTableViewCell.xib in Resources */,
 				DDFED67B21D4CF8F00F2F354 /* custom.png in Resources */,
+				DD4126B621F9B09C00079538 /* YUSpaceTableViewCell.xib in Resources */,
 				DDFE5DB121CC9FA0005D6D48 /* shareImage.png in Resources */,
 				DD0A941021F843AE00D9E82E /* TPStoreEveryDayIncomeCell.xib in Resources */,
 				DD0B450B21F2F78800333016 /* TPYULoginViewController.xib in Resources */,
@@ -2487,6 +2543,7 @@
 				DD374DA521C5228100093A0F /* AAJSFiles.bundle in Resources */,
 				DD10844921A001030087F244 /* BCScanQR1@2x.png in Resources */,
 				DD10844121A001030087F244 /* QRCodeScanLine@2x.png in Resources */,
+				DD4126AD21F9A9A800079538 /* YUTMineCellTableViewCell.xib in Resources */,
 				DD0A940821F83E9D00D9E82E /* TPStoreDetailProductIntroCell.xib in Resources */,
 				DD10844021A001030087F244 /* BCScanQR4@2x.png in Resources */,
 				DD0A940221F83CAD00D9E82E /* TPStoreDetailViewController.xib in Resources */,
@@ -2500,6 +2557,7 @@
 				DD0244002196C969006A1390 /* Main.storyboard in Resources */,
 				DDD211D721F09F090029905C /* TPChangePassWordViewController.xib in Resources */,
 				DD23C2AF21EC8E32007727DA /* TPMnemonicDisplayViewController.xib in Resources */,
+				DD4126BE21F9B7F400079538 /* YUMineLoginOutCell.xib in Resources */,
 				DDFE5D9B21CA1BC0005D6D48 /* HUD_info@3x.png in Resources */,
 				DD0D345021F5F75500ECEDF2 /* TPFinancingTotalCellView.xib in Resources */,
 				DDFED67C21D4CF8F00F2F354 /* shareImage.png in Resources */,
@@ -2597,6 +2655,7 @@
 				DD23C2AE21EC8E32007727DA /* TPMnemonicDisplayViewController.m in Sources */,
 				DD1083D3219D67480087F244 /* TPTokenKindViewController.m in Sources */,
 				DDFD5EC821B291CF00D64283 /* TPVRTModel.m in Sources */,
+				DD4126B021F9AEC400079538 /* YUTMineCellTableViewCellEntity.m in Sources */,
 				DDD211DF21F171280029905C /* TPChangePassWordViewModel_PayPassWd.m in Sources */,
 				DD374DB321C5228100093A0F /* AAStyle.m in Sources */,
 				DD374DAC21C5228100093A0F /* AALine.m in Sources */,
@@ -2645,6 +2704,7 @@
 				DD10842A219EB2280087F244 /* TPLangUageCell.m in Sources */,
 				DD0244412196DD23006A1390 /* TPCapitalViewController.m in Sources */,
 				DD0A93DA21F703B400D9E82E /* TPProductIntroduceCellEntity.m in Sources */,
+				DD4126BD21F9B7F400079538 /* YUMineLoginOutCell.m in Sources */,
 				DD0239AF21AFF6ED00333446 /* TPCurrencyList.m in Sources */,
 				DD374DAF21C5228100093A0F /* AAYAxis.m in Sources */,
 				DD13CF1421EED1FC0022EECC /* YUTextView.m in Sources */,
@@ -2668,6 +2728,7 @@
 				DD10844621A001030087F244 /* NIMScannerMaskView.m in Sources */,
 				DD0A940B21F8429500D9E82E /* TPStoreDetailProductIntroCellEntity.m in Sources */,
 				DD72F42B21998491004C0DAF /* TPNavigationBarTitleView.m in Sources */,
+				DD4126AC21F9A9A800079538 /* YUTMineCellTableViewCell.m in Sources */,
 				DD02399B21AF968E00333446 /* WYNetworkUtils.m in Sources */,
 				DD374D5C21C3B41100093A0F /* TZPhotoPickerController.m in Sources */,
 				DD0A941821F8534200D9E82E /* MyStoreDetailBigInfoModel.m in Sources */,
@@ -2710,6 +2771,7 @@
 				DD108424219EA5570087F244 /* TPMeHeaderView.m in Sources */,
 				DD0A93CD21F6F98100D9E82E /* TPFinancingProductDetailVC.m in Sources */,
 				DD13CF0E21EDE9C10022EECC /* YURootViewController.m in Sources */,
+				DD4126B921F9B0CD00079538 /* YUSpaceTableViewCellEntity.m in Sources */,
 				DD02399A21AF968E00333446 /* WYNetworkDownloadEngine.m in Sources */,
 				DDDDFB9D219C1AC00056FC57 /* TPComingSoonViewController.m in Sources */,
 				DDAA117721E72BD800F5D184 /* MBProgressHUD+Add.m in Sources */,
@@ -2720,6 +2782,7 @@
 				DD374DAE21C5228100093A0F /* AASubtitle.m in Sources */,
 				DDDDFB7B219AB5560056FC57 /* TPVRPLabelCell.m in Sources */,
 				DD23C29E21E9F623007727DA /* TPSetPasswordViewController.m in Sources */,
+				DD4126B521F9B09C00079538 /* YUSpaceTableViewCell.m in Sources */,
 				DD02392121A6B42100333446 /* TPUSDTViewController.m in Sources */,
 				DD374DB821C5228100093A0F /* AALegend.m in Sources */,
 				DD0239B221B10AC700333446 /* TPAssetModel.m in Sources */,
@@ -2774,6 +2837,7 @@
 				DD0D344021F5AB1E00ECEDF2 /* TPRecommendedUserModel.m in Sources */,
 				DD02392421A6B83D00333446 /* TPUSDTCell.m in Sources */,
 				DD0B450521F2D6DC00333016 /* TPMnemonicSettingViewModel_ResetPassWd.m in Sources */,
+				DD4126C121F9B80A00079538 /* YUMineLoginOutCellEntity.m in Sources */,
 				DD10844D21A28E3C0087F244 /* TPStartViewController.m in Sources */,
 				DD23C2A321E9F953007727DA /* TPRegisterInfoModel.m in Sources */,
 				DDD211C421F05EA40029905C /* TPVerifyEmailViewModel.m in Sources */,

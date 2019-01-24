@@ -15,9 +15,17 @@ typedef NS_ENUM(NSInteger, TPTransactionType)
     TPTransactionTypeTransfer,
     TPTransactionTypeTransferOut,
 };
-
+typedef NS_ENUM(NSInteger, TransClassfiy)
+{
+    TransClassfiyBlock,
+    TransClassfiyOrder,
+    TransClassfiyCrowfuding,
+    TransClassfiyTransfer,
+    TransClassfiyFinancing
+};
 
 @interface TPTokenTopicViewController : TPStartViewController
+@property (assign,nonatomic )TransClassfiy classfiy;
 
 - (instancetype)initWithTokenId:(NSString *)tokenId WithTransactionType:(TPTransactionType)type;
 

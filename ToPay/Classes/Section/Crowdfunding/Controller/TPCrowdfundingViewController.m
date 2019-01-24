@@ -56,7 +56,6 @@
     }];
 }
 
-
 -(void)setupPageView
 {
     NSArray *titleArr = @[@"预约中", @"即将预约", @"已结束",@"我参与的"];
@@ -73,9 +72,7 @@
     [self.view addSubview:_pageTitleView];
     
     TPReservationViewController *oneVC = [[TPReservationViewController alloc] init];
-
     TPComingSoonViewController *twoVC = [[TPComingSoonViewController alloc] init];
-    
     TPEndViewController *threeVC = [[TPEndViewController alloc] init];
     TPIJoinedViewController *four = [[TPIJoinedViewController alloc]init];
     NSArray *childArr = @[oneVC,twoVC,threeVC,four];

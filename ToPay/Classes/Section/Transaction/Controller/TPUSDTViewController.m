@@ -165,7 +165,8 @@ static NSString  *TPUSDTCellId = @"USDTCell";
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TPSellViewController *sellVC = [[TPSellViewController alloc] initWithPairId:TPString(@"%ld",(long)self.pairId)  WithTransType:[self.transactionType  isEqualToString: @"1"] ?  TPTransactionTypeTransferOut:TPTransactionTypeTransfer publish:NO];
+    //[self.transactionType  isEqualToString: @"1"] ?
+    TPSellViewController *sellVC = [[TPSellViewController alloc] initWithPairId:TPString(@"%ld",(long)self.pairId)  WithTransType:0 publish:NO];
     sellVC.currName = self.currName;
     sellVC.cData = self.cData;
     sellVC.transModel = self.transactionTopic[indexPath.row];

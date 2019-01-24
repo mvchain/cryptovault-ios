@@ -6,11 +6,10 @@
 //  Copyright © 2019年 蒲公英. All rights reserved.
 //
 
-#import "TPStoreDetailProductIntroCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TPStoreEveryDayIncomeCell : TPStoreDetailProductIntroCell
+@interface TPStoreEveryDayIncomeCell : YUTableViewCell
 
 @end
 

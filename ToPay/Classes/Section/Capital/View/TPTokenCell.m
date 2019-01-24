@@ -59,8 +59,10 @@
 
 -(void)setTokenTopic:(TPTokenTopic *)tokenTopic
 {
+    NSArray *tranArr =@[@"",@" 收入",@" 支出"];
     _tokenTopic = tokenTopic;
-    _nickLab.text = tokenTopic.tokenName;
+    int tindex = [tokenTopic.transactionType intValue];
+    _nickLab.text = TPString(@"%@%@",tokenTopic.orderRemark,tranArr[tindex]);
     _timeLab.text = [tokenTopic.createdAt conversionTimeStamp];
     // set style
     if([tokenTopic.classify isEqualToString:@"0"]) {
@@ -75,45 +77,53 @@
              make.height.equalTo(@16);
          }];
         _proLab.hidden = NO;
+        // q区块链
     }else {
         _proLab.hidden = YES;
         [self setValueLabCenter];
     }
     _iconImgV.image = [UIImage imageNamed:[tokenTopic.transactionType isEqualToString:@"1"] ? @"receive_icon": @"sent_icon"]; //default
     
-    if ([tokenTopic.classify isEqualToString:@"0"] )
-    {
+    // setTitle
+    if ([tokenTopic.classify isEqualToString:@"0"] ) {
        
         if (![tokenTopic.tokenName isEqualToString:@"余额"])
         {
-           [self setStatus];
+           [self setTransferStatus];
         }
     }
-        else if ([tokenTopic.classify isEqualToString:@"2"])
-    {
-        _nickLab.text = [NSString stringWithFormat:@"%@众筹",tokenTopic.orderRemark];
-        _iconImgV.image = [UIImage imageNamed:@"Crowdfunding_icon_2"];
-      
-    }
-        else if ([tokenTopic.classify isEqualToString:@"1"])
-    {
+    else if ([tokenTopic.classify isEqualToString:@"1"]) {
         _iconImgV.image = [UIImage imageNamed:@"trand_icon_2"];
     }
-    if ([tokenTopic.transactionType isEqualToString:@"1"])
-    {
+    else if ([tokenTopic.classify isEqualToString:@"2"]) {
+        _nickLab.text = [NSString stringWithFormat:@"%@众筹",tokenTopic.orderRemark];
+        _iconImgV.image = [UIImage imageNamed:@"Crowdfunding_icon_2"];
+    }
+    else if ([tokenTopic.classify isEqualToString:@"3"]) {
+        
+    }
+    else if([tokenTopic.classify isEqualToString:@"4"]) {
+        _iconImgV.image = [UIImage imageNamed:@"financial_selected_light"];
+        NSArray *titles = @[@"",@"",@"",@"",@"取出",@"奖励",@"收益"];
+        NSInteger index = [tokenTopic.status integerValue];
+        [self.nickLab setText:TPString(@"%@%@",tokenTopic.orderRemark,titles[index])];
+        
+    }
+    // set content
+    if ([tokenTopic.transactionType isEqualToString:@"1"]) {
+        //1  转入
         _valueLab.text = TPString(@"+%.4f",[tokenTopic.value floatValue]);
     }
-        else if([tokenTopic.transactionType isEqualToString:@"2"])
-    {
+    else if([tokenTopic.transactionType isEqualToString:@"2"]) {
+        // 转出
         _valueLab.text = TPString(@"-%.4f",[tokenTopic.value floatValue]);
     }
    
     
 }
 
--(void)setStatus
+-(void)setTransferStatus
 {
-
     if ([_tokenTopic.status isEqualToString:@"0"] || [_tokenTopic.status isEqualToString:@"1"])
     {
         _proLab.textColor = TP59Color;

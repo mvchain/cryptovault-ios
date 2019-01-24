@@ -25,6 +25,8 @@
     NSString *tipStr = TPString(@"产品限额：%ld/%ld",self.productModel.purchased,self.productModel.limitValue) ;
     NSString *balanceStr = TPString(@"可用%@:%.4lf",self.productModel.baseTokenName,self.productModel.balance);
     self.inputTextField.keyboardType = UIKeyboardTypeDecimalPad;
+    
+    
     [self.productNumberLabel setText:tipStr];
     [self.tipLabel setText:balanceStr];
     [self setUpNav];

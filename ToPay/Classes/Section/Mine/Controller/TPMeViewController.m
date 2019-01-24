@@ -16,20 +16,43 @@
 #import "TPCurrencyList.h"
 #import "TPAccountSafeViewController.h"
 #import "TPInvitedRegisterViewController.h"
+#import "YUTMineCellTableViewCellEntity.h"
+#import "YUSpaceTableViewCellEntity.h"
+#import "YUMineLoginOutCellEntity.h"
 @interface TPMeViewController ()
 @property (nonatomic, strong) NSArray *dataSource;
 @property (nonatomic, strong) NSArray *dataSourceImg;
+@property (strong ,nonatomic) NSMutableArray<YUCellEntity*>* datarr ;
+
 @end
 @implementation TPMeViewController
 static NSString  *TPMeCellCellId = @"meCell";
+
+#pragma mark lzy
+yudef_lazyLoad(NSMutableArray<YUCellEntity*>, datarr, _datarr)
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.customNavBar.title = @"我的";
     self.customNavBar.hidden = YES;
     [self showSystemNavgation:NO];
-    _dataSource = @[@"账户安全",@"邀请注册",@"语言",@"关于",@"退出"];
-    _dataSourceImg = @[@"language_icon",@"about_icon",@"about_icon",@"about_icon",@"about_icon"];
+    _dataSource = @[@"账户安全",@"邀请注册",@"语言",@"关于",];
+    _dataSourceImg = @[@"mine_safe_icon",@"mine_invite_icon",@"language_icon",@"about_icon"];
+    
+    for(int i=0;i<_dataSource.count;i++){
+        YUTMineCellTableViewCellEntity*en =  [[YUTMineCellTableViewCellEntity alloc ] init];
+        en.title = _dataSource[i];
+        en.image = [UIImage imageNamed:_dataSourceImg[i]];
+        [self.datarr addObject:en];
+    }
+    YUSpaceTableViewCellEntity *en = [[YUSpaceTableViewCellEntity alloc]init];
+    en.yu_cellHeight =  23;
+    en.bgcolor = [UIColor colorWithHex:@"#F2F2F2"];
+    [self.datarr addObject:en];
+    
+    YUMineLoginOutCellEntity *en_c = [[YUMineLoginOutCellEntity alloc] init];
+    [self.datarr addObject:en_c];
+    
     TPMeHeaderView *headerView = [[TPMeHeaderView alloc] init];
     [self.view addSubview:headerView];
     [headerView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -52,21 +75,18 @@ static NSString  *TPMeCellCellId = @"meCell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _dataSource.count;
+    return _datarr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TPMeCell *cell = [tableView dequeueReusableCellWithIdentifier:TPMeCellCellId];
-    if (!cell)
-        cell = [[TPMeCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TPMeCellCellId];
-    cell.descLab.text = _dataSource[indexPath.row];
-    cell.iconImgV.image = [UIImage imageNamed:_dataSourceImg[indexPath.row]];
-    return cell;
+   return   [tableView cellByIndexPath:indexPath dataArrays:self.datarr];
+    
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return  48;
+    return  self.datarr[indexPath.row].yu_cellHeight;
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -92,13 +112,13 @@ static NSString  *TPMeCellCellId = @"meCell";
         [self.navigationController pushViewController:aboutVC animated:YES];
     }
     
-    if(indexPath.row == 4) {
+    if(indexPath.row == 5) {
         [self quitClcik];
         
     }
 }
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    [QuickDo prettyTableViewCellSeparate:@[@4] cell:cell indexPath:indexPath];
+    [QuickDo prettyTableViewCellSeparate:@[@3,@4,@5] cell:cell indexPath:indexPath];
 }
 - (void)didReceiveMemoryWarning {
     

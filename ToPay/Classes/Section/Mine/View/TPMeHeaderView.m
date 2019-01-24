@@ -25,7 +25,7 @@
     if (self)
     {
         self.backgroundColor = TPF6Color;//[UIColor redColor];
-        _backImgV = [YFactoryUI YImageViewWithimage:  [UIImage imageNamed:iPhoneX ? @"X_bg_nav_1": @"minepage_bg"]];
+        _backImgV = [YFactoryUI YImageViewWithimage:  [UIImage imageNamed:iPhoneX ? @"X_homepage_allbg": @"X_homepage_allbg"]];
         [self addSubview:_backImgV];
         
         _iconImgV = [YFactoryUI YImageViewWithimage:nil];
@@ -44,11 +44,9 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
-    
+    __weak typeof (self) wsf = self ;
     YYCache *listCache = [YYCache cacheWithName:TPCacheName];
-    
     TPUserInfo *userInfo = (TPUserInfo *)[listCache objectForKey:TPUserInfoKey];
-    
     if (userInfo)
     {
         NSLog(@"headImage:%@",userInfo.headImage);
@@ -56,33 +54,30 @@
         self.nickLab.text = userInfo.nickname;
         self.mobLab.text = TPString(@"手机号：%@",userInfo.username);
     }
-    
     [_backImgV mas_makeConstraints:^(MASConstraintMaker *make)
     {
-       make.left.top.equalTo(@0);
+        make.left.top.equalTo(@0);
         make.width.equalTo(self);
         make.height.equalTo(@(156 + STATUS_BAR_HEIGHT));
     }];
     
     [_iconImgV mas_makeConstraints:^(MASConstraintMaker *make)
     {
-        make.centerX.equalTo(self);
+        make.left.equalTo(@32);
         make.top.equalTo(@(24 + STATUS_BAR_HEIGHT ));
         make.size.equalTo(@56);
     }];
-    
     [_nickLab mas_makeConstraints:^(MASConstraintMaker *make)
     {
-        make.centerX.equalTo(self);
-        make.top.equalTo(self.iconImgV.mas_bottom).with.offset(10);
+        make.leading.equalTo(wsf.iconImgV.mas_trailing).with.offset(20);
+        make.top.equalTo(self.iconImgV.mas_top).with.offset(3);
         make.height.equalTo(@22);
     }];
     
     [_mobLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self);
-        make.top.equalTo(self.nickLab.mas_bottom).with.offset(4);
+         make.leading.equalTo(wsf.iconImgV.mas_trailing).with.offset(20);
+        make.top.equalTo(self.nickLab.mas_bottom).with.offset(10);
         make.height.equalTo(@17);
     }];
 }
-
 @end

@@ -61,12 +61,12 @@ static NSString  *TPTokenCellCellId = @"tokenCell";
     
     [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"asset/transactions" parameters:@{
                     @"tokenId":_tokenId,
-                    @"transactionType":_transType == TPTransactionTypeTransfer ? @1 : (_transType == TPTransactionTypeTransferOut ? @2:@0),
+                    @"classify":@(self.classfiy),
                     @"type":@"0"} success:^(id responseObject, BOOL isCacheObject)
     {
         if ([responseObject[@"code"] isEqual:@200])
         {
-//            NSLog(@"<<<<  %@  >>>>",responseObject[@"data"]);
+
             self.tokenTopics = [TPTokenTopic mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
             if (self.tokenTopics.count == 0)
             {
@@ -77,7 +77,6 @@ static NSString  *TPTokenCellCellId = @"tokenCell";
             {
                 self.baseTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
                 self.isNomoreData = NO;
-                
             }
             [self.baseTableView reloadData];
             [self.baseTableView.mj_footer endRefreshing];
@@ -100,7 +99,7 @@ static NSString  *TPTokenCellCellId = @"tokenCell";
     if( !lastTopic ) return;
     NSDictionary * dic = @{
                            @"tokenId":_tokenId,
-                           @"transactionType":_transType == TPTransactionTypeTransfer ? @1 : (_transType == TPTransactionTypeTransferOut ? @2:@0),
+                           @"classify":@(self.classfiy),
                            @"type":@"1",@"id":@([lastTopic.id integerValue]),@"pageSize":@10 };
     [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"asset/transactions" parameters:dic success:^(id responseObject, BOOL isCacheObject)
      {

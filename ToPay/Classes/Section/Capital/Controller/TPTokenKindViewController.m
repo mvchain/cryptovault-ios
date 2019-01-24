@@ -90,17 +90,13 @@
         }];
     }
     [self.customNavBar wr_setBackgroundAlpha:0];
-    
-    
-    
+
 }
 
--(void)QRClick
+- (void)QRClick
 {
     NIMScannerViewController * scannerVC = [[NIMScannerViewController alloc] initWithCardName:@"hahaha" avatar:nil completion:^(NSString *stringValue)
-                                            
     {
-        
         if ([ self.assetModel.tokenId isEqualToString:@"4"])
         {
             //USDT BTC
@@ -130,7 +126,7 @@
     
 }
 
--(void)pushTransferClick:(NSString *)address
+- (void)pushTransferClick:(NSString *)address
 {
     TPChainTransferViewController *transferVC = [[TPChainTransferViewController alloc]init];
     transferVC.assetModel = self.assetModel;
@@ -144,8 +140,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-
--(void)setUpHeaderView
+- (void)setUpHeaderView
 {
     UIImageView *headImgV = [YFactoryUI YImageViewWithimage:[UIImage imageNamed:@"X_nextpage_bg"]];
     [self.view addSubview:headImgV];
@@ -171,11 +166,9 @@
         make.height.equalTo(@(110));
     }];
 }
-
-
 -(void)setupPageView
 {
-    NSArray *titleArr = @[@"全部", @"支出", @"收入"];
+    NSArray *titleArr = @[@"转账", @"理财", @"交易",@"众筹"];
     SGPageTitleViewConfigure *configure = [SGPageTitleViewConfigure pageTitleViewConfigure];
     configure.titleGradientEffect = YES;
     configure.titleColor = TP8EColor;
@@ -187,36 +180,33 @@
     self.pageTitleView = [SGPageTitleView pageTitleViewWithFrame:CGRectMake(0, StatusBarAndNavigationBarHeight + 110 , self.view.frame.size.width, 44) delegate:self titleNames:titleArr configure:configure];
     self.pageTitleView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_pageTitleView];
+    TPTokenTopicViewController *allVC = [[TPTokenTopicViewController alloc] initWithTokenId:self.assetModel.tokenId WithTransactionType:0];
+    allVC.classfiy = TransClassfiyBlock;
+    TPTokenTopicViewController *transferVC = [[TPTokenTopicViewController alloc] initWithTokenId:self.assetModel.tokenId WithTransactionType:4];
+    transferVC.classfiy = 4;
+    TPTokenTopicViewController *transfer2VC = [[TPTokenTopicViewController alloc] initWithTokenId:self.assetModel.tokenId WithTransactionType:1];
+    transfer2VC.classfiy = 1;
+    TPTokenTopicViewController *transfer3VC = [[TPTokenTopicViewController alloc] initWithTokenId:self.assetModel.tokenId WithTransactionType:2];
+    transfer3VC.classfiy = 2;
     
-    TPTokenTopicViewController *allVC = [[TPTokenTopicViewController alloc] initWithTokenId:self.assetModel.tokenId WithTransactionType:TPTransactionTypeAll];
-    TPTokenTopicViewController *transferVC = [[TPTokenTopicViewController alloc] initWithTokenId:self.assetModel.tokenId WithTransactionType:TPTransactionTypeTransferOut];
-    TPTokenTopicViewController *transfer2VC = [[TPTokenTopicViewController alloc] initWithTokenId:self.assetModel.tokenId WithTransactionType:TPTransactionTypeTransfer];
-
-    NSArray *childArr = @[allVC,transferVC,transfer2VC];
+    NSArray *childArr = @[allVC,transferVC,transfer2VC,transfer3VC];
     CGFloat height = KHeight - CGRectGetMaxY(_pageTitleView.frame);
     if (![self.clData.tokenType isEqualToString:@"1"])
     {
         height-=52;
-        
     }
-    
-    
-    
     self.pageContentScrollView = [[SGPageContentScrollView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_pageTitleView.frame), self.view.frame.size.width, height) parentVC:self childVCs:childArr];
     _pageContentScrollView.delegatePageContentScrollView = self;
     [self.view addSubview:_pageContentScrollView];
 }
-
 - (void)setUpBottomView
 {
     if ([self.clData.tokenType isEqualToString:@"1"])
     {
         return ;
     }
-    
-    TPTokenBottomView * bottomView = [[TPTokenBottomView alloc] initWithStyle:[self.clData.tokenType isEqualToString:@"0"] ? TPChainStyleDown : TPChainStyleUp];
+    TPTokenBottomView * bottomView = [[TPTokenBottomView alloc] initWithStyle:TPChainStyleUp];
     [self.view addSubview:bottomView];
-    
     [bottomView mas_makeConstraints:^(MASConstraintMaker *make)
     {
         make.left.equalTo(@0);
@@ -224,13 +214,11 @@
         make.height.equalTo(@([QuickGet getWhiteBottomHeight]));
         make.bottom.equalTo(self.view);
     }];
-    
     [bottomView setChainTakeBlock:^
     {
         TPChainTakeViewController *takeOutVC = [[TPChainTakeViewController alloc] init];
         [self.navigationController pushViewController:takeOutVC animated:YES];
     }];
-    
     [bottomView setChainTransferBlock:^
      {
          TPChainTransferViewController *transferVC = [[TPChainTransferViewController alloc] init];
@@ -245,8 +233,6 @@
          [self.navigationController pushViewController:receiptVC animated:YES];
      }];
 }
-
-
 #pragma mark - SGPageTitleViewDelegate
 
 - (void)pageTitleView:(SGPageTitleView *)pageTitleView selectedIndex:(NSInteger)selectedIndex

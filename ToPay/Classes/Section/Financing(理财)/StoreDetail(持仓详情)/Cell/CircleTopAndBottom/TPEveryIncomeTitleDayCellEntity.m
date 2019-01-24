@@ -10,7 +10,7 @@
 
 @implementation TPEveryIncomeTitleDayCellEntity
 - (CGFloat) yu_cellHeight {
-    return 70;
+    return 60;
     
 }
 @end

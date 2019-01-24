@@ -8,10 +8,10 @@
 
 #import "YUCellEntity.h"
 
-NS_ASSUME_NONNULL_BEGIN
+
 
 @interface TPStoreEveryDayIncomeCellEntity : YUCellEntity
 
 @end
 
-NS_ASSUME_NONNULL_END
+

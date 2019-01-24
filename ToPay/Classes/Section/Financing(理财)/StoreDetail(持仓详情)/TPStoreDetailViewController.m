@@ -66,21 +66,22 @@
                                                          [self.dataArrays addObject:en];
                                                      }
                                                      if (arr.count <10){
-                                                         //　少于10
+                                                         //　少于10,
                                                          if( arr.count ==0 && pid == 0  ){
                                                              //  无数据
                                                              TPNoMoreTableViewCellEntity *en =[[TPNoMoreTableViewCellEntity alloc] init];
                                                              en.data = @"fin";
-                                                        
+
                                                              [self.dataArrays addObject:en];
-                                                             
+
                                                          }
                                                          [self.tableView.mj_footer endRefreshingWithNoMoreData]; // 已经读取万
                                                      }else {
+                                                        // 还可以继续尝试刷新
                                                          [self.tableView.mj_footer endRefreshing];
                                                      }
                                                      complete(YES,nil);
-                                                     
+
                                                  }else {
                                                      [self showErrorText:TPString(@"错误：%@",res[@"message"])];
                                                      complete(NO,res[@"message"]);
@@ -135,14 +136,21 @@
     
     [self getParTakeDetailHttpData:^(BOOL isSucc, id data) {
         [self.tableView.mj_header endRefreshing];
+        [self.tableView reloadData];
         [self getFinancialPartake:0 complete:^(BOOL isSucc, id data) {
-                    [self.tableView reloadData];
+            [self.tableView reloadData];
         }];
     }];
 }
 
 - (void)nextPage {
+    if( ![self.dataArrays.lastObject isKindOfClass: TPStoreEveryDayIncomeCellEntity.class] )return;
+    MyEveryDayIncomItemModel *model = (MyEveryDayIncomItemModel *)self.dataArrays.lastObject.data;
+    [self getFinancialPartake:model.idField complete:^(BOOL isSucc, id data) {
+        [self.tableView reloadData];
+    }];
     
+
 }
 - (void)setUpRefresh {
     __weak typeof (self) wsf = self;

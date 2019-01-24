@@ -8,6 +8,7 @@
 
 #import "TPLanguageViewController.h"
 #import "TPLangUageCell.h"
+#import "YUTMineCellTableViewCellEntity.h"
 @interface TPLanguageViewController ()
 @property (nonatomic, strong) NSArray *dataSource;
 @end

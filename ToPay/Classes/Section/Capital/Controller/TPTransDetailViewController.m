@@ -26,7 +26,7 @@ static NSString  *TPDetailCellId = @"detailCell";
 {
     [super viewDidLoad];
     
-    self.customNavBar.title = @"详情";
+    self.customNavBar.title = @"区块链浏览器";
     self.view.backgroundColor = TPF6Color;
     
     if ([self.tokenTopic.classify isEqualToString:@"0"])
@@ -47,20 +47,25 @@ static NSString  *TPDetailCellId = @"detailCell";
             NSLog(@"%@",responseObject[@"data"]);
             TPTransDetailModel *transModel = [TPTransDetailModel mj_objectWithKeyValues:responseObject[@"data"]];
             NSMutableArray *conArr = [NSMutableArray array];
-            
             if ([transModel.classify isEqualToString:@"0"])
             {
+                NSArray *tranTypeStrArr =@[@"",@"收款",@"转账"];
+                NSInteger tranIndex = [transModel.transactionType integerValue];
                 if ([transModel.status isEqualToString:@"0"] || [transModel.status isEqualToString:@"1"])
                 {
-                    [self setStatuText:@"转账中" WithImg:@"Details_pending_icon"];
+                    NSString *str = TPString(@"%@中",tranTypeStrArr[tranIndex]);
+                    [self setStatuText:str WithImg:@"Details_pending_icon"];
                 }
                     else if ([transModel.status isEqualToString:@"2"])
                 {
-                     [self setStatuText:@"转账成功" WithImg:@"Details_succss_icon"];
+                     NSString *str = TPString(@"%@成功",tranTypeStrArr[tranIndex]);
+                     [self setStatuText:str WithImg:@"Details_succss_icon"];
+                    
                 }
-                    else if ([transModel.status isEqualToString:@"3"])
+                    else if ([transModel.status isEqualToString:@"9"])
                 {
-                     [self setStatuText:@"转账失败" WithImg:@"Details_failure_icon"];
+                     NSString *str = TPString(@"%@失败",tranTypeStrArr[tranIndex]);
+                     [self setStatuText:str WithImg:@"Details_failure_icon"];
                 }
             }
                 else if ([transModel.classify isEqualToString:@"1"])
@@ -81,8 +86,13 @@ static NSString  *TPDetailCellId = @"detailCell";
                 {
                     [self setStatuText:@"取出成功" WithImg:@"Details_succss_icon"];
                 }
+            }  else if([transModel.classify isEqualToString:@"4"]) {
+                //4理财取出 5理财奖励 6理财收益(利息)
+                NSArray *titles = @[@"",@"",@"",@"",@"取出",@"奖励",@"收益"];
+                NSInteger index = [transModel.status integerValue];
+
+                [self setStatuText:TPString(@"%@%@",transModel.orderRemark,titles[index]) WithImg:@"financial_selected_light"];
             }
-            
             self.timeLab.text = [transModel.createdAt conversionTimeStamp];
             
             if ([self.tokenTopic.classify isEqualToString:@"0"])
@@ -97,8 +107,6 @@ static NSString  *TPDetailCellId = @"detailCell";
             {
                 [conArr addObject:transModel.value];
             }
-            
-            
             self.contentArray = conArr;
             
             [self.baseTableView reloadData];
