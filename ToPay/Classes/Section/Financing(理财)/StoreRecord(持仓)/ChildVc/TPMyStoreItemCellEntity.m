@@ -10,7 +10,7 @@
 
 @implementation TPMyStoreItemCellEntity
 - (CGFloat)yu_cellHeight {
-    return 140.0;
+    return 160;
     
 }
 @end

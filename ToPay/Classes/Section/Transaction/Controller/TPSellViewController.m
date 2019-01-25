@@ -370,7 +370,7 @@
     transView.con2 = TPString(@"%.4f %@",[self.transModel.price floatValue],self.currName);
     
     [transView showMenuWithAlpha:YES];
-    
+
     __block TPTransView *TPTransV = transView;
     [transView.pasView setEndEditBlock:^(NSString *text)
     {
@@ -381,7 +381,7 @@
             price = [self.transInfo.price floatValue] * self.currentPrice;
             [[WYNetworkManager sharedManager] sendPostRequest:WYJSONRequestSerializer url:@"transaction" parameters:@{ @"id":self.transModel ? self.transModel.id:@"0",
                               @"pairId":self.pairId,
-                              @"password":text,
+                              @"password":[QuickGet encryptPwd:text email:nil],
                               @"price":self.isPublish ? @(price):self.transModel.price,
                               @"transactionType":self.transType == TPTransactionTypeTransfer ? @"1":@"2",
                               @"value":self.comText.comTextField.text} success:^(id responseObject, BOOL isCacheObject)

@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *bottom_middle_label;
 @property (weak, nonatomic) IBOutlet UILabel *bottom_right_label;
 @property (weak, nonatomic) IBOutlet UIView *bgView;
+@property (weak, nonatomic) IBOutlet UIView *checkBgView;
 
 
 
@@ -37,7 +38,10 @@
     [self.bottom_left_labe setText:TPString(@"%.4f %@",model.value,model.baseTokenName)];
     
     [self.bottom_middle_label setText:TPString(@"%.4f %@",model.income,model.baseTokenName)];
-    [self.bottom_right_label setText:TPString(@"%d天",model.times)];
+    [self.bottom_right_label setText:TPString(@"剩余签到%ld天",(long)model.times)];
+    [_checkBgView yu_smallCircleStyle];
+    [_checkBgView yu_boarderStyle:[UIColor whiteColor]];
+    
     
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

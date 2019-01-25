@@ -9,7 +9,7 @@
 #import "TPInviteRegSecondPageTableViewCellEntity.h"
 
 @implementation TPInviteRegSecondPageTableViewCellEntity
-yudef_lazyLoad( NSMutableArray <TPInviteRegSecondPageItemTableViewCellEntity *>, dataArray, _dataArray)
+yudef_lazyLoad( NSMutableArray <YUCellEntity *>, dataArray, _dataArray)
 
 - (void)initDataArray {
    self.dataArray =   [[NSMutableArray <TPInviteRegSecondPageItemTableViewCellEntity *> alloc] init];

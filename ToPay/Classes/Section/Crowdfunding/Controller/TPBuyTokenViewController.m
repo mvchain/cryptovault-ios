@@ -325,7 +325,7 @@
              NSLog(@"<<<<<<<%@ %@>>>>>>",text,self.buyTextView.comTextField.text);
              WYNetworkManager *manage = [WYNetworkManager sharedManager];
              NSLog(@"%@",manage.customHeaders);
-             [[WYNetworkManager sharedManager] sendPostRequest:WYJSONRequestSerializer url:TPString(@"project/%@/purchase",self.croModel.projectId) parameters:@{@"password":text,@"value":self.buyTextView.comTextField.text} success:^(id responseObject, BOOL isCacheObject)
+             [[WYNetworkManager sharedManager] sendPostRequest:WYJSONRequestSerializer url:TPString(@"project/%@/purchase",self.croModel.projectId) parameters:@{@"password":[QuickGet encryptPwd:text email:nil],@"value":self.buyTextView.comTextField.text} success:^(id responseObject, BOOL isCacheObject)
              {
                  if ([responseObject[@"code"] isEqual:@200])
                  {

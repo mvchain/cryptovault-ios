@@ -22,13 +22,13 @@ yudef_lazyLoad(TPInvitedRegisterViewModel, viewModel,_viewModel);
     [self yu_showLoading];
     [self.viewModel loadNewData:^(BOOL isSucc, id data) {
         if( isSucc ) {
-            [self.tableView reloadData];
-            if([data isKindOfClass:[NSNull class]]) {
+            
+            if(!data) {
                  self.viewModel.dataArray[1].callBackByOuter(@{@"type":@"no-more"}); // 通知第二页内部tableview刷新
             }else {
                 self.viewModel.dataArray[1].callBackByOuter(@{@"type":@"new"}); // 通知第二页内部tableview刷新
             }
-           
+           [self.tableView reloadData];
         }else {
             [self showErrorText:data];
         }
@@ -53,7 +53,6 @@ yudef_lazyLoad(TPInvitedRegisterViewModel, viewModel,_viewModel);
         TPInviteRegFirstPageTableViewCellEntity *en =  (TPInviteRegFirstPageTableViewCellEntity *)wsf.viewModel.dataArray[0];
         en.qucikShotMode = YES;
         [wsf.tableView reloadData];
-
         UIImage *shot = [QuickMaker makeImageWithView:wsf.tableView withSize:wsf.tableView.bounds.size];
         UIImage *imageToShare =shot;
         NSArray *items = @[imageToShare];
@@ -120,7 +119,7 @@ yudef_lazyLoad(TPInvitedRegisterViewModel, viewModel,_viewModel);
                 [wsf toPgae0];
             }
         }else if([info[@"type"] isEqualToString:@"loadMore"]) {
-            // 加载更多事件
+            // 加载更多数据事件
             [self.viewModel loadMoreData:^(BOOL isSucc, id data) {
                 if ([data isKindOfClass:[NSNull class]]) {
                     self.viewModel.dataArray[1].callBackByOuter(@{@"type":@"no-more"}); // 通知第二页内部tableview刷新

@@ -18,8 +18,11 @@
 - (void)registerWithRegInfoModel:(TPRegisterInfoModel *)regInfoModel
                         complete:(void(^)(BOOL isSucc,NSString *reasonInfo))complete {
     NSDictionary *postDict = [regInfoModel toDictionary];
+    NSMutableDictionary *sendPostdic = [[NSMutableDictionary alloc] initWithDictionary:postDict];
+    sendPostdic[@"password"] = [QuickGet encryptPwd:postDict[@"password"] email:regInfoModel.email ];
+    
     [[WYNetworkManager sharedManager] sendPostRequest:WYJSONRequestSerializer url:@"user/register"
-                                           parameters:postDict
+                                           parameters:sendPostdic
                                               success:^(id responseObject, BOOL isCacheObject) {
                                                   
                                                   NSDictionary *res = (NSDictionary *)responseObject;

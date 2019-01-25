@@ -39,9 +39,9 @@
     [_productTitleLabel setText:model.name];
     NSString *persentStr = [NSString stringWithFormat:@"%.f-%.f%%",model.incomeMin,model.incomeMax];
     [_persentLabel setText:persentStr];
-    [_orderTimeLabel setText:[QuickMaker timeWithTimeIntervalString:model.stopAt]];
-    [_rightSmall0Label setText:[NSString stringWithFormat:@"签到%ld天",(long)model.times]];
-    [_rightSmall1Label setText:[NSString stringWithFormat:@"%.f %@起投",model.minValue,model.baseTokenName]];
+    [_orderTimeLabel setText:TPString(@"下线时间：%@",[QuickMaker timeWithTimeIntervalString:model.stopAt])];
+    [_rightSmall1Label setText:[NSString stringWithFormat:@"签到%ld天",(long)model.times]];
+    [_rightSmall0Label setText:[NSString stringWithFormat:@"%.f %@起投",model.minValue,model.baseTokenName]];
     
     
 }

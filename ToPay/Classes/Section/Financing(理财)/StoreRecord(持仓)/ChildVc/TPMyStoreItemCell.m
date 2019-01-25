@@ -27,7 +27,7 @@
     [super setEntity:entity];
     MyStoreItemModel *dataModel = (MyStoreItemModel *)entity.data;
     [_productNameLabel setText:dataModel.name];
-    [_leftLabel setText:TPString(@"%ld",dataModel.times)];
+    [_leftLabel setText:TPString(@"%剩余签到%ld天",dataModel.times)];
     [_middleLabel setText:TPString(@"%.4lf %@",dataModel.value,dataModel.baseTokenName)];
     [_rightLabel setText:TPString(@"%4.lf %@",dataModel.partake,dataModel.baseTokenName)];
     

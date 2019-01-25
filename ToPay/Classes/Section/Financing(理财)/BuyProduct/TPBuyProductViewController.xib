@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TPBuyProductViewController">
             <connections>
+                <outlet property="atly_view_top" destination="x1r-Bt-9Mb" id="29W-Kt-TLA"/>
                 <outlet property="inputTextField" destination="YTM-Dc-agg" id="LMB-Zv-Adm"/>
                 <outlet property="productNumberLabel" destination="tDm-qA-ta9" id="dS2-3T-YKn"/>
                 <outlet property="submitButton" destination="9aI-m6-Fn6" id="O0W-bH-RMH"/>
@@ -24,12 +25,12 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mNi-q2-pHu">
-                    <rect key="frame" x="0.0" y="10" width="375" height="52"/>
+                    <rect key="frame" x="0.0" y="50" width="375" height="52"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tDm-qA-ta9">
                             <rect key="frame" x="16" y="16" width="38" height="18"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" red="0.34901960784313724" green="0.35294117647058826" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -41,12 +42,12 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q2x-6b-Oo6">
-                    <rect key="frame" x="0.0" y="74" width="375" height="144"/>
+                    <rect key="frame" x="0.0" y="114" width="375" height="120"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="存入数量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JVd-fg-M5o">
                             <rect key="frame" x="16" y="16" width="62" height="18"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" red="0.34901960780000002" green="0.35294117650000001" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pwu-Cf-RQw">
@@ -79,13 +80,13 @@
                         <constraint firstItem="pwu-Cf-RQw" firstAttribute="leading" secondItem="JVd-fg-M5o" secondAttribute="leading" id="j21-Pm-aoD"/>
                         <constraint firstItem="SwU-Vb-YSt" firstAttribute="top" secondItem="YTM-Dc-agg" secondAttribute="bottom" constant="4" id="qUw-sn-BDP"/>
                         <constraint firstItem="YTM-Dc-agg" firstAttribute="top" secondItem="JVd-fg-M5o" secondAttribute="bottom" constant="5" id="ri1-2v-uKZ"/>
-                        <constraint firstAttribute="height" constant="144" id="uGc-6i-z1i"/>
+                        <constraint firstAttribute="height" constant="120" id="uGc-6i-z1i"/>
                         <constraint firstAttribute="trailing" secondItem="YTM-Dc-agg" secondAttribute="trailing" constant="20" id="vd5-Mf-bdt"/>
                         <constraint firstItem="YTM-Dc-agg" firstAttribute="leading" secondItem="JVd-fg-M5o" secondAttribute="leading" id="wug-CR-9du"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9aI-m6-Fn6">
-                    <rect key="frame" x="115.5" y="363" width="144" height="44"/>
+                    <rect key="frame" x="115.5" y="379" width="144" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="5bn-xV-rCt"/>
                         <constraint firstAttribute="width" constant="144" id="edh-68-GKE"/>
@@ -105,7 +106,7 @@
                 <constraint firstAttribute="trailing" secondItem="q2x-6b-Oo6" secondAttribute="trailing" id="jeN-i3-pi2"/>
                 <constraint firstItem="9aI-m6-Fn6" firstAttribute="top" secondItem="q2x-6b-Oo6" secondAttribute="bottom" constant="145" id="uO0-qj-vvX"/>
                 <constraint firstItem="mNi-q2-pHu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vXs-LO-4V4"/>
-                <constraint firstItem="mNi-q2-pHu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="x1r-Bt-9Mb"/>
+                <constraint firstItem="mNi-q2-pHu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="x1r-Bt-9Mb"/>
             </constraints>
             <point key="canvasLocation" x="138.40000000000001" y="126.38680659670166"/>
         </view>

@@ -71,8 +71,8 @@
         return ;
     }
     
-    [[WYNetworkManager sharedManager] sendPostRequest:WYJSONRequestSerializer url:@"user/login" parameters:@{@"username":self.textArr[0].text,
-                                                                                                             @"password":self.textArr[1].text,
+    [[WYNetworkManager sharedManager] sendPostRequest:WYJSONRequestSerializer url:@"user/login" parameters:@{@"username":self. textArr[0].text,
+                                                                                                             @"password":[QuickGet encryptPwd:self.textArr[1].text email:self. textArr[0].text] ,
                                                                                                              @"validCode":self.textArr[2].text,
                                                                                                              } success:^(id responseObject, BOOL isCacheObject)
      {
@@ -83,7 +83,6 @@
              // set Request token
              [QuickDo setJPushAlians:loginM.userId];
              [[WYNetworkConfig sharedConfig] addCustomHeader:@{@"Authorization":loginM.token,@"Accept-Language":@"zh-cn"}];
-             
              // Store user information
              [TPLoginUtil saveUserInfo:loginM];
              // Basic user information

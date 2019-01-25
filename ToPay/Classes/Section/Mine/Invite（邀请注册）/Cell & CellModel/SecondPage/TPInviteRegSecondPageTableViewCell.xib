@@ -31,7 +31,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.17254901960784313" green="0.47843137254901963" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="54" id="9gV-d1-kwq"/>
                                     <constraint firstItem="2RR-D2-cwN" firstAttribute="top" secondItem="sY7-Zr-EY8" secondAttribute="top" constant="19" id="HPz-og-fgB"/>
@@ -41,7 +41,7 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ol9-Rv-Ekc">
                                 <rect key="frame" x="0.0" y="54" width="283" height="530.5"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.17254901960784313" green="0.47843137254901963" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

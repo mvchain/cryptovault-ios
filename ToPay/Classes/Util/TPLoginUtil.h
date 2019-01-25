@@ -32,7 +32,7 @@
 
 
 /*
- *  保存-用户-信息
+ *  保存-用户-信息 ，持久化
  */
 +(void)saveUserInfo:(TPLoginModel *)userInfo;
 

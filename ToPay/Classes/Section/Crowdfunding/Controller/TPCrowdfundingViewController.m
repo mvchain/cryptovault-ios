@@ -19,7 +19,6 @@
 
 @property (nonatomic, strong) SGPageTitleView *pageTitleView;
 @property (nonatomic, strong) SGPageContentScrollView *pageContentScrollView;
-
 @end
 
 @implementation TPCrowdfundingViewController
@@ -69,19 +68,18 @@
     configure.needBounces = NO;
     // pageTitleView
     self.pageTitleView = [SGPageTitleView pageTitleViewWithFrame:CGRectMake(0, StatusBarAndNavigationBarHeight, self.view.frame.size.width, 40) delegate:self titleNames:titleArr configure:configure];
+    self.pageTitleView.selectedIndex = 1;
     [self.view addSubview:_pageTitleView];
-    
     TPReservationViewController *oneVC = [[TPReservationViewController alloc] init];
     TPComingSoonViewController *twoVC = [[TPComingSoonViewController alloc] init];
     TPEndViewController *threeVC = [[TPEndViewController alloc] init];
     TPIJoinedViewController *four = [[TPIJoinedViewController alloc]init];
     NSArray *childArr = @[oneVC,twoVC,threeVC,four];
-    
     CGFloat height = KHeight - StatusBarAndNavigationBarHeight - TAB_BAR_HEIGHT - 40 + (iPhoneX ? 10:0);
-    
     self.pageContentScrollView = [[SGPageContentScrollView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_pageTitleView.frame), self.view.frame.size.width, height) parentVC:self childVCs:childArr];
     _pageContentScrollView.delegatePageContentScrollView = self;
     [self.view addSubview:_pageContentScrollView];
+    
 }
 
 - (void)pageTitleView:(SGPageTitleView *)pageTitleView selectedIndex:(NSInteger)selectedIndex

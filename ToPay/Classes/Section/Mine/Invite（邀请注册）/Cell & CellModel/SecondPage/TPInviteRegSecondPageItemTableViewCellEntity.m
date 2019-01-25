@@ -9,5 +9,8 @@
 #import "TPInviteRegSecondPageItemTableViewCellEntity.h"
 
 @implementation TPInviteRegSecondPageItemTableViewCellEntity
-
+- (CGFloat)yu_cellHeight {
+    return 42.0;
+    
+}
 @end

@@ -8,6 +8,8 @@
 
 #import "QuickGet.h"
 #import "TPExchangeRate.h"
+#import <CommonCrypto/CommonDigest.h>
+#import "TPLoginUtil.h"
 @implementation QuickGet
 + (NSString *)getLegalCurrency {
     NSString *str = [USER_DEFAULT objectForKey:TPNowLegalNameKey];
@@ -17,10 +19,8 @@
         NSString *name = listArr[0].name;
         name = [name substringFromIndex:1];
         str = name ;
-        
     }
     return str;
-    
 }
 
 + (CGFloat )getWhiteBottomHeight {
@@ -30,4 +30,23 @@
         return 52;
     
 }
++ (NSString *)encryptPwd:(NSString *)pwd email:(NSString *)m_email  {
+    //Md5(“邮箱” + Md5(“密码/交易密码”))
+    NSString *email =   m_email?m_email:TPLoginUtil.userInfo.email;
+    NSString *inMd5 = [self md5:pwd];
+    NSString *finalMd5 = [[self md5:TPString(@"%@%@",email,[inMd5 uppercaseString])] uppercaseString];
+    return finalMd5;
+
+}
++ (NSString *) md5:(NSString *) input {
+    
+    const char *cStr = [input UTF8String];
+    unsigned char digest[CC_MD5_DIGEST_LENGTH];
+    CC_MD5( cStr, strlen(cStr), digest ); // This is the md5 call
+    NSMutableString *output = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
+    for(int i = 0; i < CC_MD5_DIGEST_LENGTH; i++)
+        [output appendFormat:@"%02x", digest[i]];
+    return  output;
+}
+
 @end

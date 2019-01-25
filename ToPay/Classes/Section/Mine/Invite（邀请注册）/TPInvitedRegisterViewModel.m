@@ -13,6 +13,7 @@
 #import "TPInviteRegSecondPageTableViewCellEntity.h"
 #import "NIMScanner.h"
 #import <Social/Social.h>
+#import "TPInvitedNoDataCellEntity.h"
 @class TPInviteRegSecondPageItemTableViewCellEntity;
 @implementation TPInvitedRegisterViewModel
 yudef_lazyLoad(NSMutableArray<YUCellEntity*>, dataArray, _dataArray)
@@ -28,7 +29,7 @@ yudef_lazyLoad(NSMutableArray<YUCellEntity*>, dataArray, _dataArray)
     [self getInvitedCodeWithCallBack:^(BOOL isSucc, NSString *info) {
         if (isSucc) {
             TPInviteRegSecondPageTableViewCellEntity *second =  (TPInviteRegSecondPageTableViewCellEntity*)self.dataArray[1];
-            [second initDataArray];
+            [second initDataArray]; //重置第二页的数据的
             [self loadNewRecommandUserListWithId:0 complete:^(BOOL isSucc, id data) {
                 if(isSucc){
                      complete(YES,nil);
@@ -44,8 +45,13 @@ yudef_lazyLoad(NSMutableArray<YUCellEntity*>, dataArray, _dataArray)
 }
 - (void)loadMoreData:(bool_id_block)complete  {
     TPInviteRegSecondPageTableViewCellEntity *second =  (TPInviteRegSecondPageTableViewCellEntity*)self.dataArray[1];
-    [self loadNewRecommandUserListWithId:second.dataArray.lastObject.userModel.userId
-                                complete:complete];
+    if([second.dataArray.lastObject isKindOfClass:TPRecommendedUserModel.class]) {
+        TPRecommendedUserModel *model = (TPRecommendedUserModel *)second.dataArray.lastObject ;
+        
+        [self loadNewRecommandUserListWithId:model.userId
+                                    complete:complete];
+    }
+    
     
 }
 // 获取邀请码
@@ -78,15 +84,22 @@ yudef_lazyLoad(NSMutableArray<YUCellEntity*>, dataArray, _dataArray)
                                           parameters:postDict
                                              success:^(id responseObject, BOOL isCacheObject) {
                                                  NSDictionary *res = (NSDictionary *)responseObject;
+                                                 TPInviteRegSecondPageTableViewCellEntity *second =  (TPInviteRegSecondPageTableViewCellEntity*)self.dataArray[1]; // 第二页
                                                  if ([res[@"code"] intValue] == 200) {
                                                      NSArray *arr = res[@"data"];
                                                      if(![arr isKindOfClass:NSNull.class] ) {
                                                          for (NSDictionary *dic in arr) {
                                                              TPInviteRegSecondPageItemTableViewCellEntity *entity = [[TPInviteRegSecondPageItemTableViewCellEntity alloc] init] ;
                                                              entity.userModel = [[TPRecommendedUserModel alloc] initWithDictionary:dic];
-                                                             TPInviteRegSecondPageTableViewCellEntity *second =  (TPInviteRegSecondPageTableViewCellEntity*)self.dataArray[1];
-                                                             [second.dataArray addObject:entity];
+                                                                                                                [second.dataArray addObject:entity];
                                                         }
+                                                     }else {
+                                                         //  无数据
+                                                         if(Id == 0) {
+                                                             //无数据，
+                                                             TPInvitedNoDataCellEntity *en = [[TPInvitedNoDataCellEntity alloc] init];
+                                                             [second.dataArray addObject:en];
+                                                         }
                                                      }
                                                      complete(YES,res[@"data"]);
                                                  }else {

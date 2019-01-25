@@ -51,10 +51,8 @@
         [self.leftPartBigLabel setText:TPString(@"%ld",res.times)];
         [self.rightPartSmallLabel setText:@"起投金额"];
         [self.rightPartBigLabel setText:TPString(@"%.4f%@",res.minValue,res.baseTokenName)];
-        
     }
 }
-
 - (void)homeStyle {
     // 首页style
     _leftUpLabel.hidden = NO;

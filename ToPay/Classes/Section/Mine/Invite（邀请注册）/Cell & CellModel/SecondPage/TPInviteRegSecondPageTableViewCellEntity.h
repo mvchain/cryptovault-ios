@@ -9,7 +9,7 @@
 #import "YUTableViewCell.h"
 @class TPInviteRegSecondPageItemTableViewCellEntity;
 @interface TPInviteRegSecondPageTableViewCellEntity : YUCellEntity
-@property (strong,nonatomic) NSMutableArray <TPInviteRegSecondPageItemTableViewCellEntity *> *dataArray;
+@property (strong,nonatomic) NSMutableArray <YUCellEntity *> *dataArray;
 - (void)initDataArray;
 
 @end

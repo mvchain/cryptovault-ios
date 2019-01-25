@@ -10,6 +10,9 @@
 @interface QuickGet : NSObject
 + (NSString *)getLegalCurrency;
 + (CGFloat )getWhiteBottomHeight ;
++ (NSString *)getMd5:(NSString *)md5;
++ (NSString *)encryptPwd:(NSString *)pwd email:(NSString *)m_email ;
+
 @end
 
 

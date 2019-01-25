@@ -19,8 +19,7 @@
     [super awakeFromNib];
     [_backView yu_smallCircleStyleWithRadius:8];
     _tableView.separatorStyle =  UITableViewCellSeparatorStyleNone;
-    self.tableView.backgroundColor = [UIColor colorWithHex:@"#007AFF"];
-    self.headView.backgroundColor = [UIColor colorWithHex:@"#007AFF"];
+
     _tableView.delegate =self;
     _tableView.dataSource =self;
     [self setFootRefresh];
@@ -34,22 +33,21 @@
             //  提供给外部回调
             if ([info[@"type"] isEqualToString:@"no-more"]) {
                 [wsf.tableView.mj_footer endRefreshingWithNoMoreData];
+                
             }else {
                 [wsf.tableView.mj_footer endRefreshing];
-                [wsf.tableView reloadData];
+                
             }
-            
+            [wsf.tableView reloadData];
         };
     }
 }
 
 - (void)setFootRefresh {
     __weak typeof (self) wsf = self;
-    MJRefreshAutoNormalFooter *au =[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-        wsf.entity.callBackByCell(@{@"type":@"loadMore"}); //  下拉加载更多
+    [self.tableView addFooterWithBlock:^(MJRefreshFooter *footer) {
+            wsf.entity.callBackByCell(@{@"type":@"loadMore"}); //  下拉加载更多
     }];
-    au.refreshingTitleHidden =YES;
-    self.tableView.mj_footer = au;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     TPInviteRegSecondPageTableViewCellEntity *en = (TPInviteRegSecondPageTableViewCellEntity*)self.entity;
@@ -66,6 +64,12 @@
             self.entity.callBackByCell(@{@"type":@"scroll-change"}); //  翻页
         }
     }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+        TPInviteRegSecondPageTableViewCellEntity *en = (TPInviteRegSecondPageTableViewCellEntity*)self.entity;
+    return en.dataArray[indexPath.row].yu_cellHeight;
+    
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
