@@ -62,11 +62,11 @@ NSString *const kFinProductDetailModelUserLimit = @"userLimit";
     }
     
     if(![dictionary[kFinProductDetailModelIncomeMax] isKindOfClass:[NSNull class]]){
-        self.incomeMax = [dictionary[kFinProductDetailModelIncomeMax] integerValue];
+        self.incomeMax = [dictionary[kFinProductDetailModelIncomeMax] floatValue];
     }
     
     if(![dictionary[kFinProductDetailModelIncomeMin] isKindOfClass:[NSNull class]]){
-        self.incomeMin = [dictionary[kFinProductDetailModelIncomeMin] integerValue];
+        self.incomeMin = [dictionary[kFinProductDetailModelIncomeMin] floatValue];
     }
     
     if(![dictionary[kFinProductDetailModelLimitValue] isKindOfClass:[NSNull class]]){
@@ -194,8 +194,8 @@ NSString *const kFinProductDetailModelUserLimit = @"userLimit";
     self.baseTokenName = [aDecoder decodeObjectForKey:kFinProductDetailModelBaseTokenName];
     self.content = [aDecoder decodeObjectForKey:kFinProductDetailModelContent];
     self.idField = [[aDecoder decodeObjectForKey:kFinProductDetailModelIdField] integerValue];
-    self.incomeMax = [[aDecoder decodeObjectForKey:kFinProductDetailModelIncomeMax] integerValue];
-    self.incomeMin = [[aDecoder decodeObjectForKey:kFinProductDetailModelIncomeMin] integerValue];
+    self.incomeMax = [[aDecoder decodeObjectForKey:kFinProductDetailModelIncomeMax] floatValue];
+    self.incomeMin = [[aDecoder decodeObjectForKey:kFinProductDetailModelIncomeMin] floatValue];
     self.limitValue = [[aDecoder decodeObjectForKey:kFinProductDetailModelLimitValue] integerValue];
     self.minValue = [[aDecoder decodeObjectForKey:kFinProductDetailModelMinValue] floatValue];
     self.name = [aDecoder decodeObjectForKey:kFinProductDetailModelName];

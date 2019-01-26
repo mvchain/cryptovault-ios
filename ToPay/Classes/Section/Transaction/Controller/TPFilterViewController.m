@@ -91,7 +91,7 @@
     [_tagListCate setDidSelectIndex];
     
     
-    UILabel *VRTLab = [self createLabelWithTitle:@"VRT交易" WithTop:_tagListCate.bottom + 13];
+    UILabel *VRTLab = [self createLabelWithTitle:@"BTZ交易" WithTop:_tagListCate.bottom + 13];
     
     _tagListVRT = [self createTagListViewWithContent:balanceArr WithFrame:CGRectMake(margin, VRTLab.bottom + 11, KWidth, 100)];
  
@@ -114,24 +114,24 @@
          [wsf.tagListBalance recover];
      }];
     
-    UILabel *balanceLab = [self createLabelWithTitle:@"余额交易" WithTop:_tagListVRT.bottom + 13];
+    //UILabel *balanceLab = [self createLabelWithTitle:@"余额交易" WithTop:_tagListVRT.bottom + 13];
     
-    _tagListBalance = [self createTagListViewWithContent:VRTArr WithFrame:CGRectMake(margin, balanceLab.bottom + 11, KWidth, 100)];
-    [_tagListBalance setDidselectItemBlock:^(NSArray *arr)
-     {
-         NSLog(@"arr3:%@",arr);
-         if( arr.count > 0 ) {
-          NSString * ele = arr[0];
-          NSString *pairId = nil;
-          for( TPVRTModel *vec in obj_VRTArr ) {
-              if ( [vec.pair isEqualToString:ele] ) {
-                  pairId = vec.pairId;
-              }
-          }
-          wsf.filterModel.pairId = pairId;
-         }
-         [wsf.tagListVRT recover];
-     }];
+//    _tagListBalance = [self createTagListViewWithContent:VRTArr WithFrame:CGRectMake(margin, balanceLab.bottom + 11, KWidth, 100)];
+//    [_tagListBalance setDidselectItemBlock:^(NSArray *arr)
+//     {
+//         NSLog(@"arr3:%@",arr);
+//         if( arr.count > 0 ) {
+//          NSString * ele = arr[0];
+//          NSString *pairId = nil;
+//          for( TPVRTModel *vec in obj_VRTArr ) {
+//              if ( [vec.pair isEqualToString:ele] ) {
+//                  pairId = vec.pairId;
+//              }
+//          }
+//          wsf.filterModel.pairId = pairId;
+//         }
+//         [wsf.tagListVRT recover];
+//     }];
 }
 
 -(GBTagListView *)createTagListViewWithContent:(NSArray *)conArray WithFrame:(CGRect)frame

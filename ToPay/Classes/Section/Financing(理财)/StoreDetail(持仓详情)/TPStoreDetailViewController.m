@@ -104,6 +104,8 @@
                                                   NSDictionary *res = (NSDictionary *)responseObject;
                                                   if ([res[@"code"] intValue] == 200 ) {
                                                       [self showSuccessText:@"取出成功"];
+                                                      [self TakeOutedStatus];
+                                                      
                                                   }else {
                                                       [self showErrorText:res[@"message"]];
                                                       
@@ -130,6 +132,10 @@
     [self.takeOutBtn gradualChangeStyle];
     [self.tableView.mj_header beginRefreshing];
     _aylt_top.constant = self.customNavBar.y_Height;
+    if (_isTakeouted) {
+        [self TakeOutedStatus];
+        
+    }
 }
 - (void)firstPage {
     [self.tableView.mj_footer endRefreshing];
@@ -149,8 +155,11 @@
     [self getFinancialPartake:model.idField complete:^(BOOL isSucc, id data) {
         [self.tableView reloadData];
     }];
-    
+}
 
+- (void)TakeOutedStatus {
+    self.takeOutBtn.enabled = NO;
+    [self.takeOutBtn setTitle:@"已取出" forState:UIControlStateNormal];
 }
 - (void)setUpRefresh {
     __weak typeof (self) wsf = self;

@@ -49,8 +49,7 @@
 -(void)setNavConView
 {
     TPVRTViewController *VRTVC = [[TPVRTViewController alloc] initWithChainStyle:TPTransactionStyleVRT];
-    TPVRTViewController *balanceVC = [[TPVRTViewController alloc] initWithChainStyle:TPTransactionStyleBalance];
-    NSArray *childArr = @[VRTVC, balanceVC];
+    NSArray *childArr = @[VRTVC];
     CGFloat contentViewHeight = KHeight - StatusBarAndNavigationBarHeight - TAB_BAR_HEIGHT + (iPhoneX ? 10:0);
     self.pageContentScrollView = [[SGPageContentScrollView alloc] initWithFrame:CGRectMake(0, StatusBarAndNavigationBarHeight, self.view.frame.size.width, contentViewHeight) parentVC:self childVCs:childArr];
     _pageContentScrollView.delegatePageContentScrollView = self;
@@ -59,7 +58,7 @@
 
 -(void)setNavTitleView
 {
-    NSArray *titleArr = @[@"VRT交易", @"余额交易"];
+    NSArray *titleArr = @[@"BTZ交易"];
     SGPageTitleViewConfigure *configure = [SGPageTitleViewConfigure pageTitleViewConfigure];
     configure.indicatorStyle =  SGIndicatorStyleDefault;
     configure.indicatorColor = TP59Color;

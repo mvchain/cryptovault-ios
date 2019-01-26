@@ -7,10 +7,8 @@
 //
 
 #import "TPMyStoreItemCellEntity.h"
-
 @implementation TPMyStoreItemCellEntity
 - (CGFloat)yu_cellHeight {
-    return 160;
-    
+    return 160;    
 }
 @end

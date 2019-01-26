@@ -45,7 +45,7 @@
         FinProductDetailModel *res = (FinProductDetailModel *)entity.data;
         NSString *currency =  [QuickGet getLegalCurrency];
         [self.middleTitleLabel setText:@"预期年化收益率"];
-        NSString *persent = TPString(@"%ld-%ld%%",res.incomeMin,res.incomeMax);
+        NSString *persent = TPString(@"%.2f-%.2f%%",res.incomeMin,res.incomeMax);
         [self.middleNumberLabel setText:persent];
         [self.leftPartSmallLabel setText:@"理财周期"];
         [self.leftPartBigLabel setText:TPString(@"%ld",res.times)];

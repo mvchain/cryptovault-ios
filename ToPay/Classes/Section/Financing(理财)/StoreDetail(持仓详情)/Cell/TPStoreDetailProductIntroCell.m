@@ -34,7 +34,7 @@
     [super setEntity:entity];
     MyStoreDetailBigInfoModel *model = (MyStoreDetailBigInfoModel *)entity.data;
     [self.productNameLabel setText:model.financialName];
-    [self.revuneLabel setText:TPString(@"年化收益率：%ld-%ld",(long)model.incomeMin,(long)model.incomeMax)];
+    [self.revuneLabel setText:TPString(@"年化收益率：%.2f-%.2f%%",model.incomeMin,model.incomeMax)];
     [self.bottom_left_labe setText:TPString(@"%.4f %@",model.value,model.baseTokenName)];
     
     [self.bottom_middle_label setText:TPString(@"%.4f %@",model.income,model.baseTokenName)];

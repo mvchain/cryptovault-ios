@@ -127,6 +127,7 @@ static NSString  *TPAddTokenCellId = @"addTokenCell";
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TPAddTokenCell *cell = [tableView dequeueReusableCellWithIdentifier:TPAddTokenCellId];
+   
     if (!cell)
         cell = [[TPAddTokenCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TPAddTokenCellId withfilterData:self.assetNameArr];
     if( _isSearchState ) {
@@ -141,6 +142,13 @@ static NSString  *TPAddTokenCellId = @"addTokenCell";
     {
         [self operatingCurrencyIsAdd:isAdd WithTokenId:tokenId WithName:tokenName WithSelectCell:addTokenCell];
     };
+    if(indexPath.row==0) {
+        cell.operatingBtn.hidden = YES;
+        
+    }else {
+        
+        cell.operatingBtn.hidden =  NO;
+    }
     return cell;
 }
 

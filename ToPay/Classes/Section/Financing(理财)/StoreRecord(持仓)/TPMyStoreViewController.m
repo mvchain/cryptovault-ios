@@ -42,18 +42,20 @@
         tp.outModel = model;
         [wsf.navigationController pushViewController:tp animated:YES];
     } ;
-    _tableVc2.onTableViewDidSelect = ^(MyStoreItemModel *model, int financialType) {
-        TPStoreDetailViewController * tp = [[TPStoreDetailViewController alloc]init];
-        tp.financial_id = model.idField;
-        tp.outModel = model;
-        [wsf.navigationController pushViewController:tp animated:YES];
-    };
+
     _tableVc1.onTableViewDidSelect = ^(MyStoreItemModel *model, int financialType) {
         TPStoreDetailViewController * tp = [[TPStoreDetailViewController alloc]init];
         tp.financial_id = model.idField;
         tp.outModel = model;
         [wsf.navigationController pushViewController:tp animated:YES];
     } ;
+    _tableVc2.onTableViewDidSelect = ^(MyStoreItemModel *model, int financialType) {
+        TPStoreDetailViewController * tp = [[TPStoreDetailViewController alloc]init];
+        tp.financial_id = model.idField;
+        tp.isTakeouted = YES;
+        tp.outModel = model;
+        [wsf.navigationController pushViewController:tp animated:YES];
+    };
     
 }
 -(void)setNavConView

@@ -37,7 +37,7 @@
     [super setEntity:entity];
     FinancialProductModel *model = entity.data;
     [_productTitleLabel setText:model.name];
-    NSString *persentStr = [NSString stringWithFormat:@"%.f-%.f%%",model.incomeMin,model.incomeMax];
+    NSString *persentStr = [NSString stringWithFormat:@"%.2f-%.2f%%",model.incomeMin,model.incomeMax];
     [_persentLabel setText:persentStr];
     [_orderTimeLabel setText:TPString(@"下线时间：%@",[QuickMaker timeWithTimeIntervalString:model.stopAt])];
     [_rightSmall1Label setText:[NSString stringWithFormat:@"签到%ld天",(long)model.times]];

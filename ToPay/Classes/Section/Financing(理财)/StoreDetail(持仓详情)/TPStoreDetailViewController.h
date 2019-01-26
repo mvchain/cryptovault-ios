@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TPStoreDetailViewController : TPBaseViewController
 @property (assign,nonatomic) NSInteger financial_id;
+@property (assign,nonatomic) BOOL isTakeouted; //是否已经取出
 @property (strong,nonatomic) MyStoreItemModel *outModel; // 初始化时候外部传，
 @end
 

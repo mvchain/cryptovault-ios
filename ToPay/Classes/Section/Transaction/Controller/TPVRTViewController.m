@@ -103,7 +103,7 @@ static NSString  *TPMSCellId = @"MSCell";
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
  
-    [QuickDo prettyTableViewCellSeparate:@[@0,@2] cell:cell indexPath:indexPath]; // 美化分割线
+    [QuickDo prettyTableViewCellSeparate:@[@0,@(self.VRTTopic.count)] cell:cell indexPath:indexPath]; // 美化分割线
  
 }
 

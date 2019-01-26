@@ -9,6 +9,8 @@
 #import "TPInvitedRegisterViewController.h"
 #import "TPInvitedRegisterViewModel.h"
 #import "TPInviteRegFirstPageTableViewCellEntity.h"
+#import "NIMScanner.h"
+#import <Social/Social.h>
 @interface TPInvitedRegisterViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *atly_tableViewTop;
 
@@ -43,8 +45,22 @@ yudef_lazyLoad(TPInvitedRegisterViewModel, viewModel,_viewModel);
     [self initEvent];
     [self loadNetData];
     [self setUpNav];
-      [self initWithUI];
+    [self initWithUI];
+    [self makeQRImage];
+    
 }
+- (void)makeQRImage {
+    TPInviteRegFirstPageTableViewCellEntity *en  = (TPInviteRegFirstPageTableViewCellEntity *) self.viewModel.dataArray[0];
+    __weak typeof (self) wsf =self;
+    [NIMScanner qrImageWithString:en.website avatar:nil completion:^(UIImage *image)
+     {
+         [wsf.tableView reloadData];
+         
+         en.qrimage = image;
+         
+     }];
+}
+
 - (void)setUpNav{
     __weak typeof (self) wsf = self;
      [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"share_icon_black"]];

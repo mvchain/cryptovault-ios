@@ -94,8 +94,8 @@
 @property (nonatomic, strong) NSString * baseTokenName;
 @property (nonatomic, strong) NSString * content;
 @property (nonatomic, assign) NSInteger idField;
-@property (nonatomic, assign) NSInteger incomeMax;
-@property (nonatomic, assign) NSInteger incomeMin;
+@property (nonatomic, assign) CGFloat incomeMax;
+@property (nonatomic, assign) CGFloat incomeMin;
 @property (nonatomic, assign) NSInteger limitValue;
 @property (nonatomic, assign) CGFloat minValue;
 @property (nonatomic, strong) NSString * name;
