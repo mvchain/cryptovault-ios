@@ -32,6 +32,7 @@
              vaildCode:(NSString *)vaildCode
               complete:(void(^)(BOOL isSucc,NSString *info))complete  {
     NSDictionary *postDict = @{@"email":email,@"resetType":@0,@"value":vaildCode};
+    [[NSUserDefaults standardUserDefaults] setObject:email forKey:kForgetPwdEmail]; //缓存临时邮箱
     /**
      {
      "code": 0,
@@ -46,7 +47,6 @@
                                                   if ([res[@"code"] intValue] == 200) {
                                                       self.onceToken = res[@"data"];
                                                       complete(YES,nil);
-                                                      
                                                   }else {
                                                       complete(NO,res[@"message"]);
                                                   }

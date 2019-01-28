@@ -13,9 +13,7 @@
                     complete:(void(^)(BOOL isSucc))complete {
     TPRgeisterViewModel *reg = [[TPRgeisterViewModel alloc] init];
     [reg sendVaildCodeByEmail:emailAddr complete:complete];
-    
 }
-
 - (void)rebindEmail:(NSString *)email
               token:(NSString *)token
            valiCode:(NSString *)valiCode

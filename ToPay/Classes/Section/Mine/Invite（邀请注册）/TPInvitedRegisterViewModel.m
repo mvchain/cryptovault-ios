@@ -47,12 +47,9 @@ yudef_lazyLoad(NSMutableArray<YUCellEntity*>, dataArray, _dataArray)
     TPInviteRegSecondPageTableViewCellEntity *second =  (TPInviteRegSecondPageTableViewCellEntity*)self.dataArray[1];
     if([second.dataArray.lastObject isKindOfClass:TPRecommendedUserModel.class]) {
         TPRecommendedUserModel *model = (TPRecommendedUserModel *)second.dataArray.lastObject ;
-        
         [self loadNewRecommandUserListWithId:model.userId
                                     complete:complete];
     }
-    
-    
 }
 // 获取邀请码
 - (void)getInvitedCodeWithCallBack:(void (^)(BOOL, NSString *))complete {
@@ -78,7 +75,6 @@ yudef_lazyLoad(NSMutableArray<YUCellEntity*>, dataArray, _dataArray)
 // 获取推荐列表
 - (void)loadNewRecommandUserListWithId:(NSInteger )Id complete:(void(^)(BOOL isSucc,id data)) complete {
     NSDictionary *postDict = @{@"inviteUserId":@(Id),@"pageSize":@10};
-                               
     [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer
                                                  url:@"user/recommend"
                                           parameters:postDict

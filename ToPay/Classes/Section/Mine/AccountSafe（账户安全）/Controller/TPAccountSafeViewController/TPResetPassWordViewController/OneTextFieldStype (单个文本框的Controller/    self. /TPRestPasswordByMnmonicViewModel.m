@@ -25,9 +25,12 @@
 - (NSString *)placeHolder { 
     return @"邮箱";
 }
-
+- (BOOL)isPasswdType {
+    return NO;
+}
 - (void)submitWithValue:(NSString *)value
                complete:(void(^)(BOOL isSucc ,NSString *info,id data))complete {
+    [[NSUserDefaults standardUserDefaults] setObject:value forKey:kForgetPwdEmail];
     [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer
                                                  url:@"user/mnemonics"
                                           parameters:@{@"email":value}

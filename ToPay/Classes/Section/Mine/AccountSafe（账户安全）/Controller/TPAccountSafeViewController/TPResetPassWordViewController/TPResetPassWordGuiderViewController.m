@@ -11,7 +11,7 @@
 #import "TPResetPwdOneTextFiledViewController.h"
 #import "TPRestPasswordViewModel.h"
 #import "TPRestPasswordByMnmonicViewModel.h"
-#import "TPRestPasswordByPrivateKeyViewModel.h"
+#import "TPResetPasswordByPrivatekey_InputEmailVM.h"
 @interface TPResetPassWordGuiderViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *emailReseButton;
 @property (weak, nonatomic) IBOutlet UIButton *privateKeyReset;
@@ -38,7 +38,7 @@
 
 - (IBAction)onPrivteKeyTap:(id)sender {
     TPResetPwdOneTextFiledViewController *tp = [[TPResetPwdOneTextFiledViewController alloc] init];
-    TPRestPasswordByPrivateKeyViewModel *model = [[TPRestPasswordByPrivateKeyViewModel alloc] init];
+    TPResetPasswordByPrivatekey_InputEmailVM *model = [[TPResetPasswordByPrivatekey_InputEmailVM alloc] init];
     tp.viewModel = model;
     [self.navigationController pushViewController:tp animated:YES];
 }

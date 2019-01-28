@@ -13,6 +13,7 @@
 #import "TPRestPasswordByPrivateKeyViewModel.h"
 #import "TPMnemonicSettingViewController.h"
 #import "TPMnemonicSettingViewModel_ResetPassWd.h"
+#import "TPResetPasswordByPrivatekey_InputEmailVM.h"
 @interface TPResetPwdOneTextFiledViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *descLabel;
 @property (weak, nonatomic) IBOutlet YUTextView *textView;
@@ -33,6 +34,7 @@
     [self.submitButton setTitle:self.viewModel.buttonTitle forState:UIControlStateNormal];
     self.scrollView.contentInset = UIEdgeInsetsMake(self.customNavBar.height, 0, 0, 0);
     [self.submitButton gradualChangeStyle];
+    self.textView.xibContainer.textField.secureTextEntry = self.viewModel.isPasswdType;
     
     // Do any additional setup after loading the view from its nib.
 }
@@ -51,20 +53,27 @@
                                        [QuickDo logout]; //退出
                                        
                                    }else if ( [self.viewModel isKindOfClass:TPRestPasswordByPrivateKeyViewModel.class ]) {
+                                       // 私钥重置第二阶段
                                        TPRestPasswordViewModel *rmodel = [[TPRestPasswordViewModel alloc]init];
                                        rmodel.onceToken = ((TPRestPasswordByPrivateKeyViewModel *)self.viewModel).onceToken;
                                        TPResetPwdOneTextFiledViewController *cv = [[TPResetPwdOneTextFiledViewController alloc]init];
                                        cv.viewModel = rmodel;
                                        [self.navigationController pushViewController:cv animated:YES];
                                        
-                                   } else if ([self.viewModel isKindOfClass:TPRestPasswordByMnmonicViewModel.class]) {
-                        
+                                   } else if( [self.viewModel isKindOfClass:TPResetPasswordByPrivatekey_InputEmailVM.class] ) {
+                                       // 私钥重置第一阶段
+                                       TPRestPasswordByPrivateKeyViewModel *vm = [[TPRestPasswordByPrivateKeyViewModel alloc] init];
+                                       TPResetPwdOneTextFiledViewController *cv = [[TPResetPwdOneTextFiledViewController alloc]init];
+                                       cv.viewModel = vm;
+                                       [self.navigationController pushViewController:cv animated:YES];
+                                   }
+                                   else if ([self.viewModel isKindOfClass:TPRestPasswordByMnmonicViewModel.class]) {
+                                       // 助记词，第一阶段
                                        TPMnemonicSettingViewController *tp  =[[TPMnemonicSettingViewController alloc] init];
                                        TPMnemonicSettingViewModel_ResetPassWd *resetModel = [[TPMnemonicSettingViewModel_ResetPassWd alloc] init];
                                        [resetModel setDownDataArraysByArr:data];
                                        resetModel.emialAddr = self.textView.text;
                                        tp.viewModel = resetModel;
-                                       
                                        [self.navigationController pushViewController:tp animated:YES];
                                    }
                                }

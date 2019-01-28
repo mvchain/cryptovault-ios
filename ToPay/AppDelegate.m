@@ -33,15 +33,23 @@
     [self setNavBarAppearence];
     [self setUpIQKeyBoardManager];
     [self setUpJpush];
-
-    
+    [self startAutorefrshToken];
     [JPUSHService setupWithOption:launchOptions appKey:@"ffb83d2be1729d733dd03c34"
                           channel:nil
                  apsForProduction:YES
             advertisingIdentifier:nil];
+    
     return YES;
 }
+- (void)startAutorefrshToken {
+    
+     NSTimer* timer = [NSTimer scheduledTimerWithTimeInterval:15*60 target:self selector:@selector(Timered:) userInfo:nil repeats:YES];
+}
 
+- (void)Timered:(NSTimer*)timer {
+    [self refreshToken];
+    
+}
 - (void)setUpJpush {
     //Required
     //notice: 3.0.0 及以后版本注册可以这样写，也可以继续用之前的注册方式

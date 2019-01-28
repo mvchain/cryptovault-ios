@@ -42,8 +42,10 @@
 - (IBAction)onForgetPassWdTap:(id)sender {
     if ([self.viewModel isKindOfClass:TPChangePassWordViewModel_PayPassWd.class]) {
          [[NSUserDefaults standardUserDefaults] setObject:@"2" forKey:@"reset-pwd-type"];
+        //   支付密码
     }else {
          [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:@"reset-pwd-type"];
+        // 登录密码
     }
     TPResetPassWordGuiderViewController *tp = [[TPResetPassWordGuiderViewController alloc] init];
     [self.navigationController pushViewController:tp animated:YES];

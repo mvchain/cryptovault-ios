@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "TPResetPwdOneTextFiledViewController.h"
+/*
+ **** 最后一步重置密码
+ */
 @interface TPRestPasswordViewModel : NSObject <TPResetPwdOneTextFiledViewModelProtocol>
 
 @property (copy,nonatomic) NSString *onceToken;

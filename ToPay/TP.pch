@@ -60,4 +60,5 @@ typedef void(^bool_id_block)(BOOL isSucc,id data) ;
 #define kModelCache @"kModelCache"
 #define kReginfoModelCacheKey @"kReginfoModelCacheKey"
 #define kRegResponseCacheKey @"kRegResponseCacheKey"
+#define kForgetPwdEmail @"kForgetPwdEmail"
 #endif /* TP_pch */

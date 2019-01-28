@@ -22,6 +22,7 @@
 - (NSString *)buttonTitle;
 - (NSString *)placeHolder;
 - (NSString *)HintTitle;
+- (BOOL) isPasswdType;
 
 
 @end

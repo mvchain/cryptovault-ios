@@ -9,6 +9,7 @@
 #import "TPVerifyEmailViewModel.h"
 #import "TPRgeisterViewModel.h"
 #import "TPUserInfo.h"
+
 @implementation TPVerifyEmailViewModel
 - (NSString *)currentEmail {
     YYCache *listCache = [YYCache cacheWithName:TPCacheName];

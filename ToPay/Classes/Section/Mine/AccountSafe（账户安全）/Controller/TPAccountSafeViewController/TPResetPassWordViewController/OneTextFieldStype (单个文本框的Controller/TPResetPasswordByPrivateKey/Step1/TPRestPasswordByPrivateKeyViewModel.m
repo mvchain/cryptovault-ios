@@ -26,6 +26,11 @@
     return @"输入私钥";
 }
 
+- (BOOL) isPasswdType {
+    return NO;
+    
+}
+
 - (void)submitWithValue:(NSString *)value
                complete:(void (^)(BOOL, NSString *ifno,id data))complete {
     NSDictionary *postDict = @{@"resetType":@1,@"value":value};

@@ -342,6 +342,7 @@
 		DDFED6B521E065F100F2F354 /* YUCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFED6AE21E065F100F2F354 /* YUCollectionViewCell.m */; };
 		DDFED6B621E065F100F2F354 /* YUCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDFED6B021E065F100F2F354 /* YUCollectionViewCell.xib */; };
 		DDFED6B921E067A100F2F354 /* TPNoMoreTableViewCellEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFED6B821E067A100F2F354 /* TPNoMoreTableViewCellEntity.m */; };
+		DDFFEEA721FED48300FE26C7 /* TPResetPasswordByPrivatekey_InputEmailVM.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFFEEA621FED48300FE26C7 /* TPResetPasswordByPrivatekey_InputEmailVM.m */; };
 		F5E7B5DA88A0AD0247016986 /* Pods_ToPay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD9ADC3B99E8C7306FF2F4F /* Pods_ToPay.framework */; };
 /* End PBXBuildFile section */
 
@@ -987,6 +988,8 @@
 		DDFED6B021E065F100F2F354 /* YUCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YUCollectionViewCell.xib; sourceTree = "<group>"; };
 		DDFED6B721E067A100F2F354 /* TPNoMoreTableViewCellEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPNoMoreTableViewCellEntity.h; sourceTree = "<group>"; };
 		DDFED6B821E067A100F2F354 /* TPNoMoreTableViewCellEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPNoMoreTableViewCellEntity.m; sourceTree = "<group>"; };
+		DDFFEEA521FED48300FE26C7 /* TPResetPasswordByPrivatekey_InputEmailVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPResetPasswordByPrivatekey_InputEmailVM.h; sourceTree = "<group>"; };
+		DDFFEEA621FED48300FE26C7 /* TPResetPasswordByPrivatekey_InputEmailVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPResetPasswordByPrivatekey_InputEmailVM.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1680,19 +1683,19 @@
 		DD0B44F121F1B7C200333016 /* TPResetPasswordByPrivateKey */ = {
 			isa = PBXGroup;
 			children = (
-				DD0B44FC21F1BA8000333016 /* TPRestPasswordByPrivateKeyViewModel.h */,
-				DD0B44FD21F1BA8000333016 /* TPRestPasswordByPrivateKeyViewModel.m */,
+				DDFFEEA421FED3B100FE26C7 /* Step1 */,
+				DDFFEEA321FED39200FE26C7 /* Step0 */,
 			);
 			path = TPResetPasswordByPrivateKey;
 			sourceTree = "<group>";
 		};
-		DD0B44F221F1B83E00333016 /* TPResetPasswordByMnmonic */ = {
+		DD0B44F221F1B83E00333016 /* TPResetPasswordByMnmonic( step 0 ) */ = {
 			isa = PBXGroup;
 			children = (
 				DD0B44F921F1B9FE00333016 /* TPRestPasswordByMnmonicViewModel.h */,
 				DD0B44FA21F1B9FE00333016 /* TPRestPasswordByMnmonicViewModel.m */,
 			);
-			name = TPResetPasswordByMnmonic;
+			name = "TPResetPasswordByMnmonic( step 0 )";
 			path = "    self. ";
 			sourceTree = "<group>";
 		};
@@ -1700,7 +1703,7 @@
 			isa = PBXGroup;
 			children = (
 				DD0B44FF21F1BD4B00333016 /* TPResetPassword */,
-				DD0B44F221F1B83E00333016 /* TPResetPasswordByMnmonic */,
+				DD0B44F221F1B83E00333016 /* TPResetPasswordByMnmonic( step 0 ) */,
 				DD0B44F121F1B7C200333016 /* TPResetPasswordByPrivateKey */,
 				DD0B44F421F1B8DE00333016 /* TPResetPwdOneTextFiledViewController.h */,
 				DD0B44F521F1B8DE00333016 /* TPResetPwdOneTextFiledViewController.m */,
@@ -2407,6 +2410,24 @@
 			path = CommonView;
 			sourceTree = "<group>";
 		};
+		DDFFEEA321FED39200FE26C7 /* Step0 */ = {
+			isa = PBXGroup;
+			children = (
+				DDFFEEA521FED48300FE26C7 /* TPResetPasswordByPrivatekey_InputEmailVM.h */,
+				DDFFEEA621FED48300FE26C7 /* TPResetPasswordByPrivatekey_InputEmailVM.m */,
+			);
+			path = Step0;
+			sourceTree = "<group>";
+		};
+		DDFFEEA421FED3B100FE26C7 /* Step1 */ = {
+			isa = PBXGroup;
+			children = (
+				DD0B44FC21F1BA8000333016 /* TPRestPasswordByPrivateKeyViewModel.h */,
+				DD0B44FD21F1BA8000333016 /* TPRestPasswordByPrivateKeyViewModel.m */,
+			);
+			path = Step1;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2716,6 +2737,7 @@
 				DD374DB521C5228100093A0F /* AATitle.m in Sources */,
 				DD02399221AF968E00333446 /* WYNetworkConfig.m in Sources */,
 				DDE176A121BE5C9500167EB1 /* SJCommonSlider.m in Sources */,
+				DDFFEEA721FED48300FE26C7 /* TPResetPasswordByPrivatekey_InputEmailVM.m in Sources */,
 				DD7046E421E5FE9500D02D7F /* QuickGet.m in Sources */,
 				DDF7B9B321BA65E200BE35D6 /* UIImageView+YUExtension.m in Sources */,
 				DD0D345C21F6BEEC00ECEDF2 /* TPProductTableViewCell.m in Sources */,
