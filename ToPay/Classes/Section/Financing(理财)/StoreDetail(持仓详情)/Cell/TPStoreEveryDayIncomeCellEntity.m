@@ -9,5 +9,8 @@
 #import "TPStoreEveryDayIncomeCellEntity.h"
 
 @implementation TPStoreEveryDayIncomeCellEntity
-
+- (CGFloat)yu_cellHeight {
+    return 58.0;
+    
+}
 @end

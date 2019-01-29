@@ -343,6 +343,7 @@
 		DDFED6B621E065F100F2F354 /* YUCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDFED6B021E065F100F2F354 /* YUCollectionViewCell.xib */; };
 		DDFED6B921E067A100F2F354 /* TPNoMoreTableViewCellEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFED6B821E067A100F2F354 /* TPNoMoreTableViewCellEntity.m */; };
 		DDFFEEA721FED48300FE26C7 /* TPResetPasswordByPrivatekey_InputEmailVM.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFFEEA621FED48300FE26C7 /* TPResetPasswordByPrivatekey_InputEmailVM.m */; };
+		DDFFEEAC220034AB00FE26C7 /* Language.strings in Resources */ = {isa = PBXBuildFile; fileRef = DDFFEEAE220034AB00FE26C7 /* Language.strings */; };
 		F5E7B5DA88A0AD0247016986 /* Pods_ToPay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD9ADC3B99E8C7306FF2F4F /* Pods_ToPay.framework */; };
 /* End PBXBuildFile section */
 
@@ -990,6 +991,10 @@
 		DDFED6B821E067A100F2F354 /* TPNoMoreTableViewCellEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPNoMoreTableViewCellEntity.m; sourceTree = "<group>"; };
 		DDFFEEA521FED48300FE26C7 /* TPResetPasswordByPrivatekey_InputEmailVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPResetPasswordByPrivatekey_InputEmailVM.h; sourceTree = "<group>"; };
 		DDFFEEA621FED48300FE26C7 /* TPResetPasswordByPrivatekey_InputEmailVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPResetPasswordByPrivatekey_InputEmailVM.m; sourceTree = "<group>"; };
+		DDFFEEA82200334900FE26C7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		DDFFEEA92200334900FE26C7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		DDFFEEAD220034AB00FE26C7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Language.strings"; sourceTree = "<group>"; };
+		DDFFEEAF220034AE00FE26C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Language.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1131,6 +1136,7 @@
 				DD02444B219928DF006A1390 /* TP.pch */,
 				DD02444C21992EE0006A1390 /* TPGlobalMacro.h */,
 				DD0243FB2196C968006A1390 /* ViewController.h */,
+				DDFFEEAE220034AB00FE26C7 /* Language.strings */,
 			);
 			path = ToPay;
 			sourceTree = "<group>";
@@ -2567,6 +2573,7 @@
 				DDFED6B621E065F100F2F354 /* YUCollectionViewCell.xib in Resources */,
 				DD0244022196C96B006A1390 /* Assets.xcassets in Resources */,
 				DDFE5DB321CC9FA8005D6D48 /* custom.png in Resources */,
+				DDFFEEAC220034AB00FE26C7 /* Language.strings in Resources */,
 				DD374D5921C3B41100093A0F /* TZImagePickerController.bundle in Resources */,
 				DD0B451521F3085400333016 /* TPInvitedRegisterViewController.xib in Resources */,
 				DD4126C721FABC1F00079538 /* TPInvitedNoDataCell.xib in Resources */,
@@ -3004,6 +3011,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				DD0243FF2196C969006A1390 /* Base */,
+				DDFFEEA92200334900FE26C7 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -3012,8 +3020,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				DD0244042196C96B006A1390 /* Base */,
+				DDFFEEA82200334900FE26C7 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		DDFFEEAE220034AB00FE26C7 /* Language.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DDFFEEAD220034AB00FE26C7 /* zh-Hans */,
+				DDFFEEAF220034AE00FE26C7 /* en */,
+			);
+			name = Language.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -3023,6 +3041,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -3081,6 +3100,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

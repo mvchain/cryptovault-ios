@@ -34,12 +34,30 @@
     [self setUpIQKeyBoardManager];
     [self setUpJpush];
     [self startAutorefrshToken];
+    [self setLanguage];
+    [[NSUserDefaults standardUserDefaults] setObject:@"zh-Hans" forKey:@"appLanguage"];
+    NSString *str = Localized(@"capital");
+    
     [JPUSHService setupWithOption:launchOptions appKey:@"ffb83d2be1729d733dd03c34"
                           channel:nil
                  apsForProduction:YES
             advertisingIdentifier:nil];
     
     return YES;
+}
+- (void)setLanguage {
+    
+    if (![[NSUserDefaults standardUserDefaults]objectForKey:@"appLanguage"]) {
+        NSArray *languages = [NSLocale preferredLanguages];
+        NSString *language = [languages objectAtIndex:0];
+
+        if ([language hasPrefix:@"zh-Hans"]) {
+            //开头匹配
+            [[NSUserDefaults standardUserDefaults] setObject:@"zh-Hans" forKey:@"appLanguage"];
+        }else{
+            [[NSUserDefaults standardUserDefaults] setObject:@"en" forKey:@"appLanguage"];
+        }
+    }
 }
 - (void)startAutorefrshToken {
     
