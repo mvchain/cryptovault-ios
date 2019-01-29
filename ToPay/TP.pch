@@ -61,6 +61,7 @@ typedef void(^bool_id_block)(BOOL isSucc,id data) ;
 #define kReginfoModelCacheKey @"kReginfoModelCacheKey"
 #define kRegResponseCacheKey @"kRegResponseCacheKey"
 #define kForgetPwdEmail @"kForgetPwdEmail"
+#define kResetPwdType @"reset-pwd-type"
 #define Localized(key)  [[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"appLanguage"]] ofType:@"lproj"]] localizedStringForKey:(key) value:nil table:@"Language"]
 
 

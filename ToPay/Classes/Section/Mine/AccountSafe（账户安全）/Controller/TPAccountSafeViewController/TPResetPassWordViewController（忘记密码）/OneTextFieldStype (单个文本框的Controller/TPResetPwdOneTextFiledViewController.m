@@ -50,7 +50,13 @@
                                    if ([self.viewModel isKindOfClass:TPRestPasswordViewModel.class]) {
                                        // 修改密码
                                        [self showSuccessText:@"重置成功"];
-                                       [QuickDo logout]; //退出
+                                       if ([[[NSUserDefaults standardUserDefaults]objectForKey:kResetPwdType] isEqualToString:@"1"]) {
+                                            [QuickDo logout]; //退出
+                                       }else {
+                                           [self.navigationController popToRootViewControllerAnimated:YES];
+                                           
+                                       }
+                                      
                                        
                                    }else if ( [self.viewModel isKindOfClass:TPRestPasswordByPrivateKeyViewModel.class ]) {
                                        // 私钥重置第二阶段

@@ -36,13 +36,11 @@
     [self startAutorefrshToken];
     [self setLanguage];
     [[NSUserDefaults standardUserDefaults] setObject:@"zh-Hans" forKey:@"appLanguage"];
-    NSString *str = Localized(@"capital");
-    
+   // NSString *str = Localized(@"capital");
     [JPUSHService setupWithOption:launchOptions appKey:@"ffb83d2be1729d733dd03c34"
                           channel:nil
                  apsForProduction:YES
             advertisingIdentifier:nil];
-    
     return YES;
 }
 - (void)setLanguage {
@@ -139,7 +137,11 @@
 -(void)setUpNetWorkManager
 {
 // 192.168.15.31
-//    47.110.234.233
+// 47.110.234.233
+// 正式 com.mvc.cryptovault https://www.bzvp.net/api/app/
+// 测试 N-NSTechnology.ToPay http://47.110.234.233:10086/
+
+
     [WYNetworkConfig sharedConfig].baseUrl = @"http://47.110.234.233:10086/";
     [WYNetworkConfig sharedConfig].timeoutSeconds = 10;
     if ([TPLoginUtil userInfo].token)

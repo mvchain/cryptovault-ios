@@ -11,7 +11,8 @@
 @implementation TPRestPasswordViewModel
 
 - (NSString *)HintTitle {
-    return @"设置登录密码";
+    NSString *pwdtype = [[NSUserDefaults standardUserDefaults]objectForKey:kResetPwdType]; // 1 登录，2 支付
+    return [pwdtype isEqualToString:@"1"]?@"设置登录密码":@"设置支付密码";
 }
 
 - (NSString *)buttonTitle {
@@ -28,7 +29,7 @@
 }
 - (void)submitWithValue:(NSString *)value
                complete:(void(^)(BOOL isSucc ,NSString *info,id data))complete {
-    NSString *pwdtype = [[NSUserDefaults standardUserDefaults]objectForKey:@"reset-pwd-type"];
+    NSString *pwdtype = [[NSUserDefaults standardUserDefaults]objectForKey:kResetPwdType]; // 1 登录，2 支付
     NSString *email = [[NSUserDefaults standardUserDefaults] objectForKey:kForgetPwdEmail];
     NSDictionary *postDict = @{@"password":[QuickGet encryptPwd:value email:email],@"token":self.onceToken,@"type":pwdtype};
     [[WYNetworkManager sharedManager] sendPutRequest:WYJSONRequestSerializer

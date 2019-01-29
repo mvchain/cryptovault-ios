@@ -1951,7 +1951,7 @@
 		DD13CF3C21F058AB0022EECC /* TPAccountSafeViewController */ = {
 			isa = PBXGroup;
 			children = (
-				DDD211E021F184F60029905C /* TPResetPassWordViewController */,
+				DDD211E021F184F60029905C /* TPResetPassWordViewController（忘记密码） */,
 				DDD211D221F09EA80029905C /* TPChangePassWordViewController */,
 				DDD211C921F084460029905C /* TPVerifyEmailViewController */,
 				DD13CF3D21F05B3A0022EECC /* TPBindEmailViewController */,
@@ -2315,7 +2315,7 @@
 			path = TPChangePassWordViewController;
 			sourceTree = "<group>";
 		};
-		DDD211E021F184F60029905C /* TPResetPassWordViewController */ = {
+		DDD211E021F184F60029905C /* TPResetPassWordViewController（忘记密码） */ = {
 			isa = PBXGroup;
 			children = (
 				DD0B44F321F1B89300333016 /* OneTextFieldStype (单个文本框的Controller */,
@@ -2324,7 +2324,7 @@
 				DDD211E221F1852F0029905C /* TPResetPassWordGuiderViewController.m */,
 				DDD211E321F1852F0029905C /* TPResetPassWordGuiderViewController.xib */,
 			);
-			path = TPResetPassWordViewController;
+			path = "TPResetPassWordViewController（忘记密码）";
 			sourceTree = "<group>";
 		};
 		DDD211E621F1A1890029905C /* TPRetPassWordByEmailViewController */ = {
@@ -3167,7 +3167,7 @@
 					"@executable_path/Frameworks",
 				);
 				NEW_SETTING = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mvc.cryptovault;
+				PRODUCT_BUNDLE_IDENTIFIER = "N-NSTechnology.ToPay";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ToPay/ToPay-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -3194,7 +3194,7 @@
 					"@executable_path/Frameworks",
 				);
 				NEW_SETTING = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mvc.cryptovault;
+				PRODUCT_BUNDLE_IDENTIFIER = "N-NSTechnology.ToPay";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ToPay/ToPay-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;

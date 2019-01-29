@@ -47,7 +47,7 @@
     // Do any additional setup after loading the view from its nib.
 }
 - (IBAction)onforgetTap:(id)sender {
-    [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:@"reset-pwd-type"];
+    [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:kResetPwdType];
     TPResetPassWordGuiderViewController *tp = [[TPResetPassWordGuiderViewController alloc]init];
     [self.navigationController pushViewController:tp animated:YES];
     
