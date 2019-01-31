@@ -139,6 +139,8 @@
     transV.title = @"确认取出";
     transV.desc = @"取出金额";
     transV.Total = TPString(@"%@ 余额",self.takeText.comTextField.text);
+    transV.pvc = self;
+    
     [transV showMenuWithAlpha:YES];
     __block TPTransView *TPTransV = transV;
     [transV.pasView setEndEditBlock:^(NSString *text)

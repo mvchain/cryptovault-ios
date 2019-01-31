@@ -96,10 +96,10 @@
 @property (nonatomic, assign) NSInteger idField;
 @property (nonatomic, assign) CGFloat incomeMax;
 @property (nonatomic, assign) CGFloat incomeMin;
-@property (nonatomic, assign) NSInteger limitValue;
+@property (nonatomic, assign) CGFloat limitValue;
 @property (nonatomic, assign) CGFloat minValue;
 @property (nonatomic, strong) NSString * name;
-@property (nonatomic, assign) NSInteger purchased;
+@property (nonatomic, assign) CGFloat purchased;
 @property (nonatomic, assign) CGFloat ratio;
 @property (nonatomic, strong) NSString * rule;
 @property (nonatomic, assign) NSInteger startAt;

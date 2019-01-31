@@ -20,20 +20,13 @@
 @property (nonatomic, strong) NSMutableArray <TPComTextView *> *textArray;
 @property (nonatomic, strong) UIButton *confirmBtn;
 @property (nonatomic, copy) NSString *balance ;
-
 @end
-
 @implementation TPChainTransferViewController
-
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     self.textArray = [NSMutableArray<TPComTextView *> array];
-
     [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = NO;
-    
     self.customNavBar.title = TPString(@"%@转账",self.assetModel.tokenName);
     [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"code_icon_black"]];
     TPWeakSelf;
@@ -50,18 +43,16 @@
     [self createUI];
     [self RequestTransaction];
 }
-
--(void)RequestTransaction
+- (void)RequestTransaction
 {
     [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"asset/transaction" parameters:@{@"tokenId":self.assetModel.tokenId} success:^(id responseObject, BOOL isCacheObject)
      {
          if ([responseObject[@"code"] isEqual:@200])
          {
              NSLog(@"%@",responseObject[@"data"]);
-             
              TPTransferModel *transfer = [TPTransferModel mj_objectWithKeyValues:responseObject[@"data"]];
              self.DataSources = responseObject[@"data"];
-             self.balanceLab.text = TPString(@"可用 %@：%@",self.assetModel.tokenName,self.DataSources[@"balance"]);
+             self.balanceLab.text = TPString(@"可用 %@：%.4f",self.assetModel.tokenName,[self.DataSources[@"balance"] floatValue ]);
              self.balance = self.DataSources[@"balance"];
              self.formalitiesLab.text = TPString(@"%.5f %@",transfer.fee,self.DataSources[@"feeTokenName"]);
          }
@@ -85,14 +76,11 @@
         make.right.equalTo(self.view).with.offset(-10);
         make.height.equalTo(@280);
     }];
-    
     NSArray *titArray = @[@"收款地址",@"转账金额"];
     NSArray *descArray = @[@"输入地址",@"输入转账金额"];
-    
     TPComTextView *textView;
     for (int i = 0; i <titArray.count ; i++)
     {
-        
         textView = [[TPComTextView alloc] initWithTitle:titArray[i] WithDesc:descArray[i]];
         [backView addSubview:textView];
         textView.comTextField.secureTextEntry = NO;
@@ -102,9 +90,7 @@
              textView.comTextField.clearButtonMode = UITextFieldViewModeAlways;
             if (self.address) textView.comTextField.text = self.address;
         }
-        
         [self.textArray addObject:textView];
-        
         [textView mas_makeConstraints:^(MASConstraintMaker *make)
         {
             make.left.equalTo(@0);
@@ -112,7 +98,6 @@
             make.width.equalTo(backView.mas_width);
             make.height.equalTo(@71);
         }];
-        
         if (i == 1) {
             textView.comTextField.keyboardType = UIKeyboardTypeDecimalPad;
         }
@@ -144,14 +129,11 @@
         make.top.equalTo(descLab.mas_bottom).with.offset(8);
         make.height.equalTo(@19);
     }];
-    
-    
     UIButton *confirmBtn = [YFactoryUI YButtonWithTitle:@"确认" Titcolor:TPD5Color font:FONT(15) Image:nil target:self action:@selector(confirClcik)];
     confirmBtn.userInteractionEnabled = NO;
     [confirmBtn setLayer:22 WithBackColor:TPEBColor];
     [self.view addSubview:confirmBtn];
     self.confirmBtn = confirmBtn;
-    
     [confirmBtn mas_makeConstraints:^(MASConstraintMaker *make)
     {
         make.centerX.equalTo(self.view);
@@ -182,7 +164,7 @@
             self.balanceLab.textColor = [UIColor colorWithHex:@"#F33636"];
         }else {
             self.balanceLab.textColor = TP8EColor;
-             self.balanceLab.text = TPString(@"可用 %@：%@",self.assetModel.tokenName,self.DataSources[@"balance"]);
+            self.balanceLab.text = TPString(@"可用 %@：%.4f",self.assetModel.tokenName,[self.DataSources[@"balance"] floatValue]);
         }
     }
 }
@@ -196,23 +178,7 @@
         return;
         
     }
-//    if ([self.assetModel.tokenId isEqualToString:@"4"])
-//    {
-//        if ([self isBTC:self.textArray[0].comTextField.text] == NO)
-//        {
-//            [self showInfoText:TPString(@"请输入正确的%@地址",self.assetModel.tokenName)];
-//
-//            return ;
-//        }
-//    }
-//        else if(![self.assetModel.tokenId isEqualToString:@"4"])
-//    {
-//        if ([self isETH:self.textArray[0].comTextField.text] == NO)
-//        {
-//            [self showInfoText:TPString(@"请输入正确的%@地址",self.assetModel.tokenName)];
-//            return ;
-//        }
-//    }
+
     
     TPTransView *transView = [TPTransView createTransferViewStyle:TPTransStyleTransfer];
     transView.title = @"确认转账";
@@ -221,7 +187,7 @@
     transView.con1 = self.textArray[0].comTextField.text;
     transView.con2 = self.formalitiesLab.text;
     [transView showMenuWithAlpha:YES];
-    
+     transView.pvc = self;
     __block TPTransView *TPTransV = transView;
     [transView.pasView setEndEditBlock:^(NSString *text)
     {

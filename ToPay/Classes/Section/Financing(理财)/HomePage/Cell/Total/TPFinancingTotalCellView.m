@@ -48,7 +48,7 @@
         NSString *persent = TPString(@"%.2f-%.2f%%",res.incomeMin,res.incomeMax);
         [self.middleNumberLabel setText:persent];
         [self.leftPartSmallLabel setText:@"理财周期"];
-        [self.leftPartBigLabel setText:TPString(@"%ld",res.times)];
+        [self.leftPartBigLabel setText:TPString(@"%ld天",res.times)];
         [self.rightPartSmallLabel setText:@"起投金额"];
         [self.rightPartBigLabel setText:TPString(@"%.4f%@",res.minValue,res.baseTokenName)];
     }

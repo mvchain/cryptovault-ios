@@ -19,16 +19,12 @@
 @end
 
 @implementation TPTransDetailViewController
-
 static NSString  *TPDetailCellId = @"detailCell";
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     self.customNavBar.title = @"区块链浏览器";
     self.view.backgroundColor = TPF6Color;
-    
     if ([self.tokenTopic.classify isEqualToString:@"0"])
     {
         self.titleArray = @[@"金额：",@"交易手续费：",@"收款地址：",@"",@"交易哈希："];
@@ -60,7 +56,6 @@ static NSString  *TPDetailCellId = @"detailCell";
                 {
                      NSString *str = TPString(@"%@成功",tranTypeStrArr[tranIndex]);
                      [self setStatuText:str WithImg:@"Details_succss_icon"];
-                    
                 }
                     else if ([transModel.status isEqualToString:@"9"])
                 {
@@ -108,7 +103,6 @@ static NSString  *TPDetailCellId = @"detailCell";
                 [conArr addObject:transModel.value];
             }
             self.contentArray = conArr;
-            
             [self.baseTableView reloadData];
             NSLog(@"根据转账交易Id获取转账详情");
         }else
@@ -121,8 +115,7 @@ static NSString  *TPDetailCellId = @"detailCell";
         NSLog(@"根据转账交易Id获取转账详情失败 %@",error);
         [self showErrorText:@"获取转账详情失败"];
     }];
-    
-    
+
     UIImageView *iconImgV = [YFactoryUI YImageViewWithimage:nil];
     self.iconImgV = iconImgV;
     [self.view addSubview:iconImgV];
@@ -152,8 +145,6 @@ static NSString  *TPDetailCellId = @"detailCell";
         make.top.equalTo(iconImgV.mas_bottom).with.offset(34);
         make.height.equalTo(@16);
     }];
-    
-    
     self.baseTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.baseTableView mas_makeConstraints:^(MASConstraintMaker *make)
     {
@@ -199,11 +190,19 @@ static NSString  *TPDetailCellId = @"detailCell";
         cell = [[TPTransDetailCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TPDetailCellId isCopy:indexPath.row == 3 ? YES : NO];
     cell.titleLab.text = self.titleArray[indexPath.row];
     
-    if (self.titleArray.count == 1)
+    if (self.titleArray.count == 1 )
     {
         cell.conLab.text = TPString(@"%.4f",[self.contentArray[indexPath.row] floatValue]);
-    }else
-    cell.conLab.text = self.contentArray[indexPath.row];
+        
+    }else{
+        if(indexPath.row == 0) {
+             cell.conLab.text = TPString(@"%.4f",[self.contentArray[indexPath.row] floatValue]);
+        }else {
+            //
+             cell.conLab.text = self.contentArray[indexPath.row];
+        }
+       
+    }
     return cell;
 }
 

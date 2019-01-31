@@ -12,6 +12,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TPFinancingProductDetailVC">
             <connections>
                 <outlet property="alyt_table_top" destination="VhS-Qc-xjo" id="Toz-2t-4BV"/>
+                <outlet property="atly_bottom" destination="cZ7-dx-EmX" id="vxb-OJ-lGf"/>
+                <outlet property="bottomView" destination="BMU-cQ-gLS" id="77s-5D-C8X"/>
                 <outlet property="buyinButton" destination="LVB-Ny-kF4" id="hbV-59-qtd"/>
                 <outlet property="tableView" destination="xSD-oX-rzp" id="yFd-xs-HBR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -34,7 +36,10 @@
                     <rect key="frame" x="0.0" y="615" width="375" height="52"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LVB-Ny-kF4">
-                            <rect key="frame" x="22" y="6" width="331" height="40"/>
+                            <rect key="frame" x="22" y="5" width="331" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="6FY-8t-grX"/>
+                            </constraints>
                             <state key="normal" title="存入"/>
                             <connections>
                                 <action selector="submit:" destination="-1" eventType="touchUpInside" id="r4c-px-QxI"/>
@@ -43,12 +48,10 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="LVB-Ny-kF4" firstAttribute="centerY" secondItem="BMU-cQ-gLS" secondAttribute="centerY" id="LiY-EE-rkK"/>
-                        <constraint firstAttribute="bottom" secondItem="LVB-Ny-kF4" secondAttribute="bottom" constant="6" id="P4o-C7-OZx"/>
+                        <constraint firstItem="LVB-Ny-kF4" firstAttribute="top" secondItem="BMU-cQ-gLS" secondAttribute="top" constant="5" id="a9C-Bx-xPy"/>
                         <constraint firstItem="LVB-Ny-kF4" firstAttribute="leading" secondItem="BMU-cQ-gLS" secondAttribute="leading" constant="22" id="cQr-Kj-ZP9"/>
                         <constraint firstAttribute="height" constant="52" id="cZ7-dx-EmX"/>
                         <constraint firstItem="LVB-Ny-kF4" firstAttribute="centerX" secondItem="BMU-cQ-gLS" secondAttribute="centerX" id="lua-Wb-oUR"/>
-                        <constraint firstItem="LVB-Ny-kF4" firstAttribute="top" secondItem="BMU-cQ-gLS" secondAttribute="top" constant="6" id="pQp-am-5aX"/>
                         <constraint firstAttribute="trailing" secondItem="LVB-Ny-kF4" secondAttribute="trailing" constant="22" id="zCe-xy-WGk"/>
                     </constraints>
                 </view>

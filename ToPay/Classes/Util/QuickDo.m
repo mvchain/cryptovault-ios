@@ -9,6 +9,7 @@
 #import "QuickDo.h"
 #import <JPUSHService.h>
 #import "TPGuiderViewController.h"
+#import "TPResetPassWordGuiderViewController.h"
 #import "YUTabBarController.h"
 @implementation QuickDo
 
@@ -110,5 +111,13 @@
     UIPasteboard*pasteboard = [UIPasteboard generalPasteboard];
     
     pasteboard.string = str;
+}
+
++ (void)entoForgetPayPwd:(UIViewController *)vc {
+
+    [[NSUserDefaults standardUserDefaults] setObject:@"2" forKey:kResetPwdType];
+    
+    TPResetPassWordGuiderViewController *tp = [[TPResetPassWordGuiderViewController alloc] init];
+    [vc.navigationController pushViewController:tp animated:YES];
 }
 @end

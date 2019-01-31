@@ -50,7 +50,7 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
 {
     [super viewWillAppear:animated];
     [self loadNewTopics];
-
+    [self balanceRequest];
     [self showSystemNavgation:NO];
     [self paddingIsChecked];
 }
@@ -85,8 +85,6 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
             weakSelf.headerView.ratio = [ratioM.value floatValue];
             weakSelf.headerView.nickName = ratioM.name;
             weakSelf.ratio = [ratioM.value floatValue];
-           
-            
             [USER_DEFAULT setObject:ratioM.value forKey:TPNowLegalCurrencyKey];
             [USER_DEFAULT setObject:[ratioM.name substringToIndex:1] forKey:TPNowLegalSymbolKey];
             [USER_DEFAULT setObject:ratioM.name forKey:TPNowLegalNameKey];
@@ -109,7 +107,7 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
     
     [self setUpTableView];
     
-    [self balanceRequest];
+    
     
     [self notificationRequest];
     

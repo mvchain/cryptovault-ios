@@ -19,6 +19,8 @@
 
 @property (nonatomic, strong) UILabel *conLab1;
 @property (nonatomic, strong) UILabel *conLab2;
+@property (nonatomic, strong) UIButton *forgetbtn;
+
 @end
 
 @implementation TPTransView
@@ -147,18 +149,36 @@
             make.left.equalTo(@(KWidth*0.5 - pasW*0.5));
             make.top.equalTo(transTextView.mas_bottom).with.offset(21);
         }];
-        
         UILabel *forgetLab = [YFactoryUI YLableWithText:@"忘记密码?" color:TPA7Color font:FONT(12)];
         [self addSubview:forgetLab];
-        
         [forgetLab mas_makeConstraints:^(MASConstraintMaker *make)
         {
             make.right.equalTo(self.mas_right).with.offset(-16);
             make.height.equalTo(@16);
             make.top.equalTo(self.pasView.mas_bottom).with.offset(10 + 48);
         }];
+        _forgetbtn = [YFactoryUI YButtonWithTitle:@"" Titcolor:nil font:nil Image:nil target:self action:@selector(forgetButtonTap:)];
+        [self addSubview:_forgetbtn];
+        [_forgetbtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(forgetLab.mas_centerX);
+            make.centerY.equalTo(forgetLab.mas_centerY);
+            make.width.equalTo(forgetLab.mas_width).with.offset(44);
+            make.height.equalTo(forgetLab.mas_height).with.offset(44);
+        }];
     }
     return self;
+}
+
+- (void)forgetButtonTap:(id)sender {
+    if(self.pvc) {
+        [self hideMenuWithAnimate:^{
+             [QuickDo entoForgetPayPwd:self.pvc];
+        }];
+        
+       
+        
+        
+    }
 }
 
 -(void)setTitle:(NSString *)title
@@ -209,7 +229,13 @@
              [self removeFromSuperview];
      }];
 }
-
+- (void)hideMenuWithAnimate:(void(^)(void))complete {
+    
+    [self removeFromSuperview];
+    complete();
+    
+    
+}
 -(void)hiddenMenuView
 {
     [self showMenuWithAlpha:NO];

@@ -39,7 +39,7 @@
 + (void)switchToGuiderPage ;
 + (void)logout ; //退出
 + (void)copyToPastboard:(NSString *)str ;
-
++ (void)entoForgetPayPwd:(UIViewController *)vc;
 @end
 
 

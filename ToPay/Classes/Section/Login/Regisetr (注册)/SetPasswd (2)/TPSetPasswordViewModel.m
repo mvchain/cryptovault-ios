@@ -20,6 +20,7 @@
     NSDictionary *postDict = [regInfoModel toDictionary];
     NSMutableDictionary *sendPostdic = [[NSMutableDictionary alloc] initWithDictionary:postDict];
     sendPostdic[@"password"] = [QuickGet encryptPwd:postDict[@"password"] email:regInfoModel.email ];
+    sendPostdic[@"transactionPassword"] = [QuickGet encryptPwd:postDict[@"transactionPassword"] email:regInfoModel.email ];
     
     [[WYNetworkManager sharedManager] sendPostRequest:WYJSONRequestSerializer url:@"user/register"
                                            parameters:sendPostdic

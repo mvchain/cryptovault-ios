@@ -70,7 +70,7 @@ NSString *const kFinProductDetailModelUserLimit = @"userLimit";
     }
     
     if(![dictionary[kFinProductDetailModelLimitValue] isKindOfClass:[NSNull class]]){
-        self.limitValue = [dictionary[kFinProductDetailModelLimitValue] integerValue];
+        self.limitValue = [dictionary[kFinProductDetailModelLimitValue] floatValue];
     }
     
     if(![dictionary[kFinProductDetailModelMinValue] isKindOfClass:[NSNull class]]){
@@ -81,7 +81,7 @@ NSString *const kFinProductDetailModelUserLimit = @"userLimit";
         self.name = dictionary[kFinProductDetailModelName];
     }
     if(![dictionary[kFinProductDetailModelPurchased] isKindOfClass:[NSNull class]]){
-        self.purchased = [dictionary[kFinProductDetailModelPurchased] integerValue];
+        self.purchased = [dictionary[kFinProductDetailModelPurchased] floatValue];
     }
     
     if(![dictionary[kFinProductDetailModelRatio] isKindOfClass:[NSNull class]]){
@@ -196,10 +196,10 @@ NSString *const kFinProductDetailModelUserLimit = @"userLimit";
     self.idField = [[aDecoder decodeObjectForKey:kFinProductDetailModelIdField] integerValue];
     self.incomeMax = [[aDecoder decodeObjectForKey:kFinProductDetailModelIncomeMax] floatValue];
     self.incomeMin = [[aDecoder decodeObjectForKey:kFinProductDetailModelIncomeMin] floatValue];
-    self.limitValue = [[aDecoder decodeObjectForKey:kFinProductDetailModelLimitValue] integerValue];
+    self.limitValue = [[aDecoder decodeObjectForKey:kFinProductDetailModelLimitValue] floatValue];
     self.minValue = [[aDecoder decodeObjectForKey:kFinProductDetailModelMinValue] floatValue];
     self.name = [aDecoder decodeObjectForKey:kFinProductDetailModelName];
-    self.purchased = [[aDecoder decodeObjectForKey:kFinProductDetailModelPurchased] integerValue];
+    self.purchased = [[aDecoder decodeObjectForKey:kFinProductDetailModelPurchased] floatValue];
     self.ratio = [[aDecoder decodeObjectForKey:kFinProductDetailModelRatio] floatValue];
     self.rule = [aDecoder decodeObjectForKey:kFinProductDetailModelRule];
     self.startAt = [[aDecoder decodeObjectForKey:kFinProductDetailModelStartAt] integerValue];

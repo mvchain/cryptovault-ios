@@ -126,7 +126,7 @@ NSString *const kMyStoreItemModelValue = @"value";
 - (instancetype)copyWithZone:(NSZone *)zone
 {
     MyStoreItemModel *copy = [MyStoreItemModel new];
-    
+
     copy.baseTokenName = [self.baseTokenName copy];
     copy.idField = self.idField;
     copy.name = [self.name copy];

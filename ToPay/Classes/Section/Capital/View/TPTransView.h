@@ -41,7 +41,7 @@ typedef NS_ENUM(NSInteger, TPTransStyle)
 
 @property (nonatomic, copy) NSString *con1;
 @property (nonatomic, copy) NSString *con2;
-
+@property (nonatomic, strong) UIViewController *pvc;
 
 @property (nonatomic, strong) SYPasswordView * pasView;
 

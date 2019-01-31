@@ -67,13 +67,11 @@
                                                      }
                                                      if (arr.count <10){
                                                          //　少于10,
-                                                         if( arr.count ==0 && pid == 0  ){
-                                                             //  无数据
+                                                         if( arr.count == 0 && pid == 0  ){
+                                                             //  无数据放一个“空空如也”占位
                                                              TPNoMoreTableViewCellEntity *en =[[TPNoMoreTableViewCellEntity alloc] init];
                                                              en.data = @"fin";
-
                                                              [self.dataArrays addObject:en];
-
                                                          }
                                                          [self.tableView.mj_footer endRefreshingWithNoMoreData]; // 已经读取万
                                                      }else {
@@ -81,7 +79,6 @@
                                                          [self.tableView.mj_footer endRefreshing];
                                                      }
                                                      complete(YES,nil);
-
                                                  }else {
                                                      [self showErrorText:TPString(@"错误：%@",res[@"message"])];
                                                      complete(NO,res[@"message"]);

@@ -57,7 +57,7 @@
 
 -(void)setupPageView
 {
-    NSArray *titleArr = @[@"预约中", @"即将预约", @"已结束",@"我参与的"];
+    NSArray *titleArr = @[@"预热中", @"预约中", @"已结束",@"我参与的"];
     SGPageTitleViewConfigure *configure = [SGPageTitleViewConfigure pageTitleViewConfigure];
     configure.indicatorAdditionalWidth = 10; // 说明：指示器额外增加的宽度，不设置，指示器宽度为标题文字宽度；若设置无限大，则指示器宽度为按钮宽度
     configure.titleGradientEffect = YES;
@@ -70,8 +70,8 @@
     self.pageTitleView = [SGPageTitleView pageTitleViewWithFrame:CGRectMake(0, StatusBarAndNavigationBarHeight, self.view.frame.size.width, 40) delegate:self titleNames:titleArr configure:configure];
     self.pageTitleView.selectedIndex = 1;
     [self.view addSubview:_pageTitleView];
-    TPReservationViewController *oneVC = [[TPReservationViewController alloc] init];
-    TPComingSoonViewController *twoVC = [[TPComingSoonViewController alloc] init];
+    TPComingSoonViewController *oneVC = [[TPComingSoonViewController alloc] init];
+    TPReservationViewController *twoVC = [[TPReservationViewController alloc] init];
     TPEndViewController *threeVC = [[TPEndViewController alloc] init];
     TPIJoinedViewController *four = [[TPIJoinedViewController alloc]init];
     NSArray *childArr = @[oneVC,twoVC,threeVC,four];

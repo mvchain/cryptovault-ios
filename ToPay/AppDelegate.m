@@ -41,6 +41,7 @@
                           channel:nil
                  apsForProduction:YES
             advertisingIdentifier:nil];
+
     return YES;
 }
 - (void)setLanguage {
@@ -142,7 +143,7 @@
 // 测试 N-NSTechnology.ToPay http://47.110.234.233:10086/
 
 
-    [WYNetworkConfig sharedConfig].baseUrl = @"http://47.110.234.233:10086/";
+    [WYNetworkConfig sharedConfig].baseUrl = @"https://www.bzvp.net/api/app/";
     [WYNetworkConfig sharedConfig].timeoutSeconds = 10;
     if ([TPLoginUtil userInfo].token)
     {

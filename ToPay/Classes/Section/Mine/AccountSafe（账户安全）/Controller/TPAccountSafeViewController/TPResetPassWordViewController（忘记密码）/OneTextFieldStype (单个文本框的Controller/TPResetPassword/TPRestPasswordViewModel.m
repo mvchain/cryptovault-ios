@@ -33,7 +33,7 @@
     NSString *email = [[NSUserDefaults standardUserDefaults] objectForKey:kForgetPwdEmail];
     NSDictionary *postDict = @{@"password":[QuickGet encryptPwd:value email:email],@"token":self.onceToken,@"type":pwdtype};
     [[WYNetworkManager sharedManager] sendPutRequest:WYJSONRequestSerializer
-                                                 url:@"/user/forget"
+                                                 url:@"user/forget"
                                           parameters:postDict
                                              success:^(id responseObject, BOOL isCacheObject) {
                                                  NSDictionary *res = (NSDictionary *)responseObject;

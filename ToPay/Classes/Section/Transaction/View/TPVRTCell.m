@@ -70,7 +70,7 @@
     
     _nickLab.text = VRTModel.tokenName;
 
-    _VRTpriceLab.text = TPString(@"%.4f %@",[VRTModel.ratio floatValue],self.currName);
+    _VRTpriceLab.text = TPString(@"%.4f %@",[VRTModel.ratio floatValue],@"BTZB");
     
     _priceLab.text =  TPString(@"%@ %.2f",[USER_DEFAULT objectForKey:TPNowLegalSymbolKey],[VRTModel.ratio floatValue] / [[USER_DEFAULT objectForKey:TPNowLegalCurrencyKey] floatValue]);
     
