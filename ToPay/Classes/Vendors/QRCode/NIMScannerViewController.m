@@ -242,26 +242,21 @@ static NSString * typeRoomID = @"evn:r:";
 {
     // 1> 提示标签
     tipLabel = [[UILabel alloc] init];
-    
     tipLabel.text = @"将二维码置于取景框即可自动扫描";
     tipLabel.font = [UIFont systemFontOfSize:14];
     tipLabel.textColor = [UIColor colorWithHex:@"#b1b1bc"];//NIMKit_UIColorFromRGB(0xb1b1bc);
     tipLabel.textAlignment = NSTextAlignmentCenter;
-    
     [tipLabel sizeToFit];
     tipLabel.centerX = scannerBorder.centerX;
     tipLabel.top = scannerBorder.bottom + 12;
     [self.view addSubview:tipLabel];
-    
     UIView *bottomView = [[UIView alloc] init];
     bottomView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.4];
     [self.view addSubview:bottomView];
-    
     bottomView.bottom = self.view.bottom - 62 - HOME_INDICATOR_HEIGHT;
     bottomView.width = self.view.width;
     bottomView.left = 0;
     bottomView.height = 62 + HOME_INDICATOR_HEIGHT;
- 
     UIButton *photoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [photoBtn setTitle:@"从相册选择" forState:UIControlStateNormal];
     [photoBtn setImage:[UIImage imageNamed:@"pohoto_icon"] forState:UIControlStateNormal];
@@ -271,14 +266,10 @@ static NSString * typeRoomID = @"evn:r:";
     [photoBtn addTarget:self action:@selector(clickAlbumButton) forControlEvents:UIControlEventTouchUpInside];
 //    [photoBtn setLayer:23 WithBackColor:[UIColor colorWithHex:@"#5E5E60"]] ;
     [bottomView addSubview:photoBtn];
-    
     CGFloat pW = 147;
-    
     photoBtn.left = bottomView.width/2 - pW/2;
     photoBtn.top = 62/2 - 44/2;
     photoBtn.size = CGSizeMake(pW, 44);
-    
-    
 }
 
 /// 准备扫描框
@@ -288,30 +279,29 @@ static NSString * typeRoomID = @"evn:r:";
     scannerBorder = [[NIMScannerBorder alloc] initWithFrame:CGRectMake(0, 124 + StatusBarAndNavigationBarHeight, width, width)];
     scannerBorder.centerX = self.view.centerX;
     scannerBorder.tintColor = self.navigationController.navigationBar.tintColor;
-    
     [self.view addSubview:scannerBorder];
-    
     NIMScannerMaskView *maskView = [NIMScannerMaskView maskViewWithFrame:self.view.bounds cropRect:CGRectMake(scannerBorder.left + 2, scannerBorder.top + 2, scannerBorder.width - 4, scannerBorder.height -4)];
-    
     [self.view insertSubview:maskView atIndex:0];
 }
 
 /// 准备导航栏
 - (void)prepareNavigationBar
-{   // 2> 标题
-//    self.title = @"扫码转账";
+{
+    
     self.customNavBar.title = @"扫码转账";
+    __weak typeof (self) wsf = self;
+    [self.customNavBar setOnClickLeftButton:^{
+        [wsf.navigationController popViewControllerAnimated:YES];
+        [wsf dismissViewControllerAnimated:YES completion:^{
+        }];
+    }];
 }
 
 - (BOOL)navigationShouldPopOnBackButton
 {
 //    [[[UIAlertView alloc] initWithTitle:@"提示" message:@"确定返回上一界面?" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil] show];
+ 
     [self.navigationController popToRootViewControllerAnimated:YES];
-    
     return NO;
 }
-
-
-
-
 @end

@@ -21,14 +21,13 @@
 +(BOOL)isBTC:(NSString *)btcString
 {
     NSString *MOBILE = @"^[123mn][a-zA-Z1-9]{24,34}$";
-    
     NSPredicate *regextestmobile = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", MOBILE];
-    
     return [regextestmobile evaluateWithObject:btcString];
 }
 
 + (BOOL)isVaildAddrWithTokenId:(NSString *)tokenId addr:(NSString *)addr {
-    if ([tokenId isEqualToString:@"4"])
+    
+    if ([tokenId isEqualToString:@"4"] || [tokenId isEqualToString:@"2"] )
     {
         return  [self isBTC:addr] ;
     }

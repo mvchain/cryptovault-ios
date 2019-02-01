@@ -110,7 +110,7 @@
          make.height.equalTo(@102);
          make.width.equalTo(@355);
      }];
-    NSArray *titArr = @[TPString(@"可用%@",self.tokenName),TPString(@"可用%@",self.currName)];
+    NSArray *titArr = @[TPString(@"可用%@",self.tokenName),TPString(@"可用%@",@"BZTB")];
     NSMutableArray *balanceArr = [NSMutableArray array];
     for (int i = 0; i <titArr.count ; i++)
     {
@@ -194,7 +194,7 @@
                 CGFloat price = [QuickMaker makeFloatNumber:[self.transInfo.price floatValue] tailNum:4] ;
                 CGFloat conLab_v = com * price * slider.value / 100;
                 conLab_v = [QuickMaker makeFloatNumber:conLab_v tailNum:4];
-                self.conLab.text = TPString(@"%.4f %@",conLab_v , self.currName);
+                self.conLab.text = TPString(@"%.4f %@",conLab_v ,@"BZTB");
                 NSLog(@"dsjdkjsldjlsjdklsjdkjslkdjlsd");
                 
             }
@@ -217,7 +217,7 @@
     for (int i = 0 ; i < titleArr.count ; i++)
     {
         takeText = [[TPComTextView alloc] initWithTitle:titleArr[i] WithDesc:placeArr[i]];
-        takeText.comTextField.keyboardType = UIKeyboardTypeNumberPad;
+        takeText.comTextField.keyboardType = UIKeyboardTypeDecimalPad;
         takeText.comTextField.secureTextEntry = NO;
         
         [takeText.comTextField addTarget:self action:@selector(changeText:) forControlEvents:UIControlEventEditingChanged];
@@ -251,7 +251,7 @@
         make.top.equalTo(takeText.mas_bottom).with.offset(24);
     }];
 
-    UILabel *conLab = [YFactoryUI YLableWithText:TPString(@"0 %@",self.currName) color:TPC1Color font:FONT(17)];
+    UILabel *conLab = [YFactoryUI YLableWithText:TPString(@"0 %@",@"BZTB") color:TPC1Color font:FONT(17)];
     [_bottomView addSubview:conLab];
     self.conLab = conLab;
     [conLab mas_makeConstraints:^(MASConstraintMaker *make)
@@ -324,7 +324,7 @@
 //        CGFloat conLab_v = [comText.text floatValue] * [self.transInfo.price floatValue] * self.currentPrice;
         CGFloat conLab_v = com * price * currentPrice;
         conLab_v = [QuickMaker makeFloatNumber:conLab_v tailNum:4];
-        self.conLab.text = TPString(@"%.4f %@",conLab_v,self.currName);
+        self.conLab.text = TPString(@"%.4f %@",conLab_v,@"BZTB");
     }
         else
     {
@@ -333,7 +333,7 @@
         CGFloat price = [QuickMaker makeFloatNumber:[self.transInfo.price floatValue] tailNum:4] ;
         CGFloat conLab_v_2 = com * price;
         conLab_v_2 = [QuickMaker makeFloatNumber:conLab_v_2 tailNum:4];
-        self.conLab.text = TPString(@"%.4f %@",conLab_v_2,self.currName);
+        self.conLab.text = TPString(@"%.4f %@",conLab_v_2,@"BZTB");
     }
 }
 

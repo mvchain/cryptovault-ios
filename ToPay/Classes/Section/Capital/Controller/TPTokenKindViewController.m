@@ -97,26 +97,29 @@
 {
     NIMScannerViewController * scannerVC = [[NIMScannerViewController alloc] initWithCardName:@"hahaha" avatar:nil completion:^(NSString *stringValue)
     {
-        if ([ self.assetModel.tokenId isEqualToString:@"4"])
-        {
-            //USDT BTC
-            if ([self isBTC:stringValue])
-            [self pushTransferClick:stringValue];
-            else
-            [self shwoErrorPopVC];
-        }
-            else if (![self.assetModel.tokenId isEqualToString:@"4"])
-        {
-            //ETH
-            if([self isETH:stringValue])
-            [self pushTransferClick:stringValue];
-            else
-            [self shwoErrorPopVC];
-        }
-            else
-        {
-            [self shwoErrorPopVC];
-        }
+//        if ([ self.assetModel.tokenId isEqualToString:@"4"])
+//        {
+//            //USDT BTC
+//            if ([self isBTC:stringValue])
+//            [self pushTransferClick:stringValue];
+//            else
+//            [self shwoErrorPopVC];
+//        }
+//            else if (![self.assetModel.tokenId isEqualToString:@"4"])
+//        {
+//            //ETH
+//            if([self isETH:stringValue])
+//            [self pushTransferClick:stringValue];
+//            else
+//            [self shwoErrorPopVC];
+//        }
+//            else
+//        {
+//            [self shwoErrorPopVC];
+//        }
+        
+        [self pushTransferClick:stringValue];
+        
     }];
     scannerVC.tokenid = self.assetModel.tokenId;
 

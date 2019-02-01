@@ -81,7 +81,7 @@
             make.height.equalTo(@20);
         }];
     
-        UILabel *currentLab = [YFactoryUI YLableWithText:@"当前价格 100 VRT" color:TP59Color font:FONT(13)];
+        UILabel *currentLab = [YFactoryUI YLableWithText:@"当前价格 100 BZTB" color:TP59Color font:FONT(13)];
         [self addSubview:currentLab];
         self.currentLab = currentLab;
         [currentLab mas_makeConstraints:^(MASConstraintMaker *make)
@@ -99,9 +99,9 @@
     _transModel = transModel;
     
     CGFloat msLab_v = [QuickMaker makeFloatNumber:[transModel.price floatValue] tailNum:4];
-    self.msLab.text = TPString(@"%@单价: %.4f %@",self.transType == TPTransactionTypeTransfer ? @"购买":@"出售",msLab_v,self.currName);
+    self.msLab.text = TPString(@"%@单价: %.4f %@",self.transType == TPTransactionTypeTransfer ? @"购买":@"出售",msLab_v,@"BZTB");
     CGFloat currentLabv =  [QuickMaker makeFloatNumber:[transModel.price floatValue] tailNum:4];
-    self.currentLab.text = TPString(@"当前价格 %.4f %@",currentLabv,self.currName);
+    self.currentLab.text = TPString(@"当前价格 %.4f %@",currentLabv,@"BZTB");
 }
 
 #pragma mark - SJSliderDelegate
@@ -112,7 +112,7 @@
     price = [QuickMaker makeFloatNumber:price tailNum:4];
     CGFloat v = price * slider.value/100;
     v = [QuickMaker makeFloatNumber:v tailNum:4];
-    self.msLab.text = TPString(@"%@单价：%.4f %@",self.transType == TPTransactionTypeTransfer ? @"购买":@"出售",v ,self.currName);
+    self.msLab.text = TPString(@"%@单价：%.4f %@",self.transType == TPTransactionTypeTransfer ? @"购买":@"出售",v ,@"BZTB");
     if (self.sliderBlock)
     {
         self.sliderBlock(slider);

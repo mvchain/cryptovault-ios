@@ -121,13 +121,12 @@
     }];
 }
 
--(void)setUpPageContentView
+- (void)setUpPageContentView
 {
     TPUSDTViewController *VRTVC = [[TPUSDTViewController alloc] initWithPairId:self.vrtTopic.pairId WithTransactionType:@"2" ];
     VRTVC.cData = self.cData;
     VRTVC.currName = self.currName;
     VRTVC.tokenName = self.cData.tokenName;
-    
     TPUSDTViewController *balanceVC = [[TPUSDTViewController alloc] initWithPairId:self.vrtTopic.pairId WithTransactionType:@"1"];
     balanceVC.cData = self.cData;
     balanceVC.currName = self.currName;
@@ -135,7 +134,6 @@
     NSArray *childArr = @[VRTVC, balanceVC];
     self.contentViewY = StatusBarAndNavigationBarHeight + 12 + 240 + 48 + 2;
     CGFloat contentViewHeight = KHeight - self.contentViewY - 52;
-    
     self.pageContentScrollView = [[SGPageContentScrollView alloc] initWithFrame:CGRectMake(0, self.contentViewY, self.view.frame.size.width, contentViewHeight) parentVC:self childVCs:childArr];
     _pageContentScrollView.delegatePageContentScrollView = self;
     [self.pageContentScrollView setPageContentScrollViewCurrentIndex:0];
@@ -228,7 +226,7 @@
     {
         TPDetailTitleView *deTitleView = [[TPDetailTitleView alloc] initWithTextAlignment:i == 0 ? NSTextAlignmentLeft : i == 1 ? NSTextAlignmentCenter:NSTextAlignmentRight];
         deTitleView.timeLab.text = tits[i];
-        deTitleView.conLab.text = i == 0 ? TPString(@"%@ %@",currPrice,self.currName)  : TPString(@"%.4f %@",i == 1 ? max:min,self.currName);
+        deTitleView.conLab.text = i == 0 ? TPString(@"%@ %@",currPrice,@"BZTB")  : TPString(@"%.4f %@",i == 1 ? max:min,@"BZTB");
         [self.headerView addSubview:deTitleView];
         [titleViews addObject:deTitleView];
     }

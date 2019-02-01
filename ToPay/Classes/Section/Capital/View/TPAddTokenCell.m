@@ -46,7 +46,7 @@
         [self addSubview:_nickLab];
         
         
-        _numLab = [YFactoryUI YLableWithText:@"1234567.1234 VRT" color:TP8EColor font:FONT(12)];
+        _numLab = [YFactoryUI YLableWithText:@"1234567.1234 BZTB" color:TP8EColor font:FONT(12)];
         [self addSubview:_numLab];
     
         _operatingBtn = [YFactoryUI YButtonWithTitle:@"添加" Titcolor:[UIColor whiteColor] font:FONT(12) Image:nil target:self action:@selector(operatingClick:)];
@@ -68,8 +68,6 @@
     self.operatingBtn.hidden = YES;
     else
     self.operatingBtn.hidden = NO;
-    
-    
     
     if ([self.filters containsObject:clData.tokenName])
     {

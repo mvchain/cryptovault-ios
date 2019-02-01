@@ -120,7 +120,7 @@
         make.top.equalTo(balanceLab.mas_bottom).with.offset(20);
     }];
     
-    UILabel *formalitiesLab = [YFactoryUI YLableWithText:@"0.001BTC" color:TP59Color font:FONT(15)];
+    UILabel *formalitiesLab = [YFactoryUI YLableWithText:@"0.001BZTB" color:TP59Color font:FONT(15)];
     [backView addSubview:formalitiesLab];
     self.formalitiesLab = formalitiesLab;
     [formalitiesLab mas_makeConstraints:^(MASConstraintMaker *make)
@@ -156,7 +156,7 @@
     {
         [self vaildButton];
         self.balanceLab.textColor = TP8EColor;
-        self.balanceLab.text = TPString(@"可用 %@：%@",self.assetModel.tokenName,self.DataSources[@"balance"]);
+        self.balanceLab.text = TPString(@"可用 %@：%.4f",self.assetModel.tokenName,[self.DataSources[@"balance"] floatValue]);
     }else {
         [self invaildButton];
         if(  [self.textArray[1].comTextField.text floatValue] > [self.balance floatValue] ) {
@@ -168,7 +168,6 @@
         }
     }
 }
-
 -(void)confirClcik
 {
 //    3 ETH
@@ -176,10 +175,7 @@
     if( ![JudegeCenter isVaildAddrWithTokenId:self.assetModel.tokenId addr:self.textArray[0].comTextField.text] ) {
          [self showInfoText:TPString(@"请输入正确的%@地址",self.assetModel.tokenName)];
         return;
-        
     }
-
-    
     TPTransView *transView = [TPTransView createTransferViewStyle:TPTransStyleTransfer];
     transView.title = @"确认转账";
     transView.desc = @"转账金额";
