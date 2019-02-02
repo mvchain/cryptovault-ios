@@ -91,7 +91,7 @@
     [_tagListCate setDidSelectIndex];
     
     
-    UILabel *VRTLab = [self createLabelWithTitle:@"BTZ交易" WithTop:_tagListCate.bottom + 13];
+    UILabel *VRTLab = [self createLabelWithTitle:@"BZT交易" WithTop:_tagListCate.bottom + 13];
     
     _tagListVRT = [self createTagListViewWithContent:balanceArr WithFrame:CGRectMake(margin, VRTLab.bottom + 11, KWidth, 100)];
  

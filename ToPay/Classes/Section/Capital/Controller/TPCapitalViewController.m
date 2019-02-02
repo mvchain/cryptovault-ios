@@ -240,7 +240,7 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
 -(void)setNavgation
 {
     [self showSystemNavgation:NO];
-    self.customNavBar.title = @"VP Wallet";
+    self.customNavBar.title = @"BZT Wallet";
     self.customNavBar.titleLabelColor = [UIColor whiteColor];
     self.customNavBar.barBackgroundColor = TPMainColor;
     [self.customNavBar wr_setBottomLineHidden:YES];
@@ -367,10 +367,7 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
     [_succView setFrame:CGRectMake(0, 0, KWidth, KHeight)];
     _succView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];
     _succView.onTap = ^{
-        
         [wsf.succView removeFromSuperview];
-        
-        
     };
     
     [self.view.window addSubview:_succView];

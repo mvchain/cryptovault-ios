@@ -62,7 +62,7 @@
     YYCache *listCache = [YYCache cacheWithName:TPCacheName];
     self.cData = (CLData *)[listCache objectForKey:self.vrtTopic.tokenId];
     
-    self.customNavBar.title = TPString(@"%@/%@",self.cData.tokenName,self.currName);
+    self.customNavBar.title = TPString(@"%@/%@",self.cData.tokenName,@"BZTB");
     [self showSystemNavgation:NO];
     
     

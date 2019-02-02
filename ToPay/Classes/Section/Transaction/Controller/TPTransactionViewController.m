@@ -58,7 +58,7 @@
 
 -(void)setNavTitleView
 {
-    NSArray *titleArr = @[@"BTZ交易"];
+    NSArray *titleArr = @[@"BZT交易"];
     SGPageTitleViewConfigure *configure = [SGPageTitleViewConfigure pageTitleViewConfigure];
     configure.indicatorStyle =  SGIndicatorStyleDefault;
     configure.indicatorColor = TP59Color;
