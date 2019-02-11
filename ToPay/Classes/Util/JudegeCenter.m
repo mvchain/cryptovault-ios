@@ -54,7 +54,7 @@
         NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
     
         return [emailTest evaluateWithObject:email];
-    
+  
 }
 
 @end

@@ -59,7 +59,10 @@
         _checkButton =[UIButton buttonWithType:UIButtonTypeCustom];
         [_checkButton setBackgroundImage:[UIImage imageNamed:@"home_check-in_img"] forState:UIControlStateNormal];
         [_checkButton addTarget:self action:@selector(check:) forControlEvents:UIControlEventTouchUpInside];
+        _checkButton.hidden = YES;
+        
         [self addSubview:_checkButton];
+        
         [self initLayt];
     }
     return self;

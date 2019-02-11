@@ -130,7 +130,7 @@
     
 }
 
-+ (void)refreshToken {
++ (void)refreshToken:(void (^)(bool isSucc))status {
     if ([TPLoginUtil isLogin] == NO)
     {
         [USER_DEFAULT setObject:@"1" forKey:TPNowLegalCurrencyKey];
@@ -146,8 +146,11 @@
              loginM.token = responseObject[@"data"];
              [TPLoginUtil saveUserInfo:loginM];
              [TPLoginUtil setRequestToken:loginM.token];
-             
              [TPLoginUtil requestExchangeRate];
+             status(YES);
+             
+         }else {
+             status(NO);
          }
      }
                                               failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)

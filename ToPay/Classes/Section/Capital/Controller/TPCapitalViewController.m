@@ -366,12 +366,17 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
     _succView = [CheckSuccView xib_loadUsingClassName];
     [_succView setFrame:CGRectMake(0, 0, KWidth, KHeight)];
     _succView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];
+    _succView.alpha = 0;
     _succView.onTap = ^{
         [wsf.succView removeFromSuperview];
     };
-    
     [self.view.window addSubview:_succView];
-    
+    [UIView animateWithDuration:0.37 animations:^{
+        self->_succView.alpha = 1;
+    } completion:^(BOOL finished) {
+        
+    }];
+
 }
 
 @end

@@ -35,6 +35,7 @@
     [self setUpJpush];
     [self startAutorefrshToken];
     [self setLanguage];
+    [self setObserver];
     [[NSUserDefaults standardUserDefaults] setObject:@"zh-Hans" forKey:@"appLanguage"];
    // NSString *str = Localized(@"capital");
     [JPUSHService setupWithOption:launchOptions appKey:@"ffb83d2be1729d733dd03c34"
@@ -43,6 +44,13 @@
             advertisingIdentifier:nil];
 
     return YES;
+}
+
+- (void)setObserver {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(net_noti:) name:kNotiNetSucc object:nil];
+}
+- (void)net_noti:(NSNotification *)noti {
+    
 }
 - (void)setLanguage {
     
@@ -64,7 +72,7 @@
 }
 
 - (void)Timered:(NSTimer*)timer {
-    [self refreshToken];
+      [self refreshToken];
     
 }
 - (void)setUpJpush {
@@ -154,34 +162,43 @@
     }
 }
 
-- (void)refreshToken
-{
-    if ([TPLoginUtil isLogin] == NO)
-    {
-        [USER_DEFAULT setObject:@"1" forKey:TPNowLegalCurrencyKey];
-        [USER_DEFAULT setObject:@"￥" forKey:TPNowLegalSymbolKey]; 
-        return ;
-    }
-    [[WYNetworkConfig sharedConfig] addCustomHeader:@{@"Authorization":[TPLoginUtil userInfo].refreshToken}];
-    [[WYNetworkManager sharedManager] sendPostRequest:WYJSONRequestSerializer url:@"user/refresh" parameters:nil success:^(id responseObject, BOOL isCacheObject)
-    {
-        if ([responseObject[@"code"] isEqual:@200])
-        {
-           TPLoginModel *loginM = [TPLoginUtil userInfo];
-            loginM.token = responseObject[@"data"];
-            [TPLoginUtil saveUserInfo:loginM];
-            [[WYNetworkConfig sharedConfig] addCustomHeader:@{
-                                                            @"Authorization":loginM.token,
-                                                              @"Accept-Language":@"zh-cn"
-                                                              }];
-            [TPLoginUtil requestExchangeRate];
+- (void)refreshToken {
+    [TPLoginUtil refreshToken:^(bool isSucc) {
+        if (!isSucc) {
+            [QuickDo logout];
+            
         }
-    }
-        failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
-    {
-        NSLog(@"刷新token失败");
     }];
 }
+
+//- (void)refreshToken
+//{
+//    if ([TPLoginUtil isLogin] == NO)
+//    {
+//        [USER_DEFAULT setObject:@"1" forKey:TPNowLegalCurrencyKey];
+//        [USER_DEFAULT setObject:@"￥" forKey:TPNowLegalSymbolKey];
+//        return ;
+//    }
+//    [[WYNetworkConfig sharedConfig] addCustomHeader:@{@"Authorization":[TPLoginUtil userInfo].refreshToken}];
+//    [[WYNetworkManager sharedManager] sendPostRequest:WYJSONRequestSerializer url:@"user/refresh" parameters:nil success:^(id responseObject, BOOL isCacheObject)
+//    {
+//        if ([responseObject[@"code"] isEqual:@200])
+//        {
+//           TPLoginModel *loginM = [TPLoginUtil userInfo];
+//            loginM.token = responseObject[@"data"];
+//            [TPLoginUtil saveUserInfo:loginM];
+//            [[WYNetworkConfig sharedConfig] addCustomHeader:@{
+//                                                            @"Authorization":loginM.token,
+//                                                              @"Accept-Language":@"zh-cn"
+//                                                              }];
+//            [TPLoginUtil requestExchangeRate];
+//        }
+//    }
+//        failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
+//    {
+//        NSLog(@"刷新token失败");
+//    }];
+//}
 
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -264,10 +281,11 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    
     // Required, For systems with less than or equal to iOS 6
     [JPUSHService handleRemoteNotification:userInfo];
 }
 
-
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 @end

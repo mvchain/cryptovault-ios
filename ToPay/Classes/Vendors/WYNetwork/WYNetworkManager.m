@@ -188,11 +188,11 @@
     
     WYSuccessBlock succ =^void (id responseObject, BOOL isCacheObject) {
         successBlock(responseObject,isCacheObject);
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotiNetSucc object:nil userInfo:@{@"res":responseObject}];
     };
     WYFailureBlock fail =^void (NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
         failureBlock(task,error,statusCode);
-        NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
-        NSInteger status = response.statusCode;
+ 
     };
     
     [self.requestEngine sendRequest:serializer
@@ -217,6 +217,7 @@
     
     WYSuccessBlock succ =^void (id responseObject, BOOL isCacheObject) {
         successBlock(responseObject,isCacheObject);
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotiNetSucc object:nil userInfo:@{@"res":responseObject}];
     };
     
     WYFailureBlock fail =^void (NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
@@ -228,7 +229,7 @@
                          parameters:parameters
                           cacheType:cacheType
                       cacheDuration:30
-                            success:successBlock
+                            success:succ
                             failure:failureBlock];
 }
 
@@ -243,6 +244,7 @@
     
     WYSuccessBlock succ =^void (id responseObject, BOOL isCacheObject) {
         successBlock(responseObject,isCacheObject);
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotiNetSucc object:nil userInfo:@{@"res":responseObject}];
     };
     
     WYFailureBlock fail =^void (NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
@@ -254,7 +256,7 @@
                          parameters:parameters
                           cacheType:WYNetworkCacheTypeCacheNetwork
                       cacheDuration:cacheDuration
-                            success:successBlock
+                            success:succ
                             failure:failureBlock];
 }
 
@@ -269,6 +271,10 @@
                 success:(WYSuccessBlock _Nullable)successBlock
                 failure:(WYFailureBlock _Nullable)failureBlock{
     
+    WYSuccessBlock succ =^void (id responseObject, BOOL isCacheObject) {
+        successBlock(responseObject,isCacheObject);
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotiNetSucc object:nil userInfo:@{@"res":responseObject}];
+    };
     
     [self.requestEngine sendRequest:serializer
                                 url:url
@@ -276,8 +282,9 @@
                          parameters:parameters
                           cacheType:cacheType
                       cacheDuration:cacheDuration
-                            success:successBlock
+                            success:succ
                             failure:failureBlock];
+    
 }
 
 
@@ -293,13 +300,17 @@
                failure:(WYFailureBlock _Nullable)failureBlock{
     
     
+    WYSuccessBlock succ =^void (id responseObject, BOOL isCacheObject) {
+        successBlock(responseObject,isCacheObject);
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotiNetSucc object:nil userInfo:@{@"res":responseObject}];
+    };
     [self.requestEngine sendRequest:serializer
                                 url:url
                              method:WYRequestMethodPUT
                          parameters:parameters
                           cacheType:WYNetworkCacheTypeNetworkOnly
                       cacheDuration:0
-                            success:successBlock
+                            success:succ
                             failure:failureBlock];
 }
 
@@ -312,6 +323,11 @@
              cacheType:(WYNetworkCacheType)cacheType
                success:(WYSuccessBlock _Nullable)successBlock
                failure:(WYFailureBlock _Nullable)failureBlock{
+    
+    WYSuccessBlock succ =^void (id responseObject, BOOL isCacheObject) {
+        successBlock(responseObject,isCacheObject);
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotiNetSucc object:nil userInfo:@{@"res":responseObject}];
+    };
     
     
     [self.requestEngine sendRequest:serializer
@@ -320,7 +336,7 @@
                          parameters:parameters
                           cacheType:cacheType
                       cacheDuration:30
-                            success:successBlock
+                            success:succ
                             failure:failureBlock];
 }
 
@@ -335,13 +351,18 @@
                failure:(WYFailureBlock _Nullable)failureBlock{
     
     
+    WYSuccessBlock succ =^void (id responseObject, BOOL isCacheObject) {
+        successBlock(responseObject,isCacheObject);
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotiNetSucc object:nil userInfo:@{@"res":responseObject}];
+    };
+    
     [self.requestEngine sendRequest:serializer
                                 url:url
                              method:WYRequestMethodPUT
                          parameters:parameters
                           cacheType:WYNetworkCacheTypeCacheNetwork
                       cacheDuration:cacheDuration
-                            success:successBlock
+                            success:succ
                             failure:failureBlock];
 }
 
@@ -357,13 +378,19 @@
                failure:(WYFailureBlock _Nullable)failureBlock{
     
     
+    WYSuccessBlock succ =^void (id responseObject, BOOL isCacheObject) {
+        successBlock(responseObject,isCacheObject);
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotiNetSucc object:nil userInfo:@{@"res":responseObject}];
+        
+    };
+   
     [self.requestEngine sendRequest:serializer
                                 url:url
                              method:WYRequestMethodPUT
                          parameters:parameters
                           cacheType:cacheType
                       cacheDuration:cacheDuration
-                            success:successBlock
+                            success:succ
                             failure:failureBlock];
     
 }

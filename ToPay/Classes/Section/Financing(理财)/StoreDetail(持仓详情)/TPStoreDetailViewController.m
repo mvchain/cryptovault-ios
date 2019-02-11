@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *takeOutBtn;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *aylt_top;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottom_height;
 @property (strong ,nonatomic) NSMutableArray<YUCellEntity *> *dataArrays;
 @end
 @implementation TPStoreDetailViewController
@@ -133,6 +134,8 @@
         [self TakeOutedStatus];
         
     }
+    _bottom_height.constant = [QuickGet getWhiteBottomHeight];
+    
 }
 - (void)firstPage {
     [self.tableView.mj_footer endRefreshing];

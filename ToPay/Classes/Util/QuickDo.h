@@ -38,8 +38,9 @@
 + (void)swithchToMainTab;
 + (void)switchToGuiderPage ;
 + (void)logout ; //退出
-+ (void)copyToPastboard:(NSString *)str ;
-+ (void)entoForgetPayPwd:(UIViewController *)vc;
++ (void)copyToPastboard:(NSString *)str ;// 拷贝到剪切板
++ (void)entoForgetPayPwd:(UIViewController *)vc; //进入忘记密码界面
+
 @end
 
 

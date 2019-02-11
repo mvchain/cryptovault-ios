@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TPStoreDetailViewController">
             <connections>
                 <outlet property="aylt_top" destination="Wj2-FU-5hV" id="vQU-tV-NqT"/>
+                <outlet property="bottom_height" destination="7XI-zn-eZP" id="CDX-8i-nSb"/>
                 <outlet property="tableView" destination="P1j-d1-mOf" id="iOV-Dq-k68"/>
                 <outlet property="takeOutBtn" destination="gb2-Ir-gE8" id="gVS-Vq-4UG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -34,7 +35,10 @@
                     <rect key="frame" x="0.0" y="615" width="375" height="52"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gb2-Ir-gE8">
-                            <rect key="frame" x="22" y="5" width="331" height="42"/>
+                            <rect key="frame" x="22" y="5" width="331" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="uw2-L0-UPX"/>
+                            </constraints>
                             <state key="normal" title="取出"/>
                             <connections>
                                 <action selector="onTakeOutTap:" destination="-1" eventType="touchUpInside" id="h0J-cx-TaB"/>
@@ -46,7 +50,6 @@
                         <constraint firstAttribute="height" constant="52" id="7XI-zn-eZP"/>
                         <constraint firstItem="gb2-Ir-gE8" firstAttribute="top" secondItem="Ajz-Xt-VnX" secondAttribute="top" constant="5" id="Vbn-cj-NrR"/>
                         <constraint firstAttribute="trailing" secondItem="gb2-Ir-gE8" secondAttribute="trailing" constant="22" id="YYT-Nw-lYT"/>
-                        <constraint firstAttribute="bottom" secondItem="gb2-Ir-gE8" secondAttribute="bottom" constant="5" id="rh5-0E-sWz"/>
                         <constraint firstItem="gb2-Ir-gE8" firstAttribute="leading" secondItem="Ajz-Xt-VnX" secondAttribute="leading" constant="22" id="srV-nH-5kf"/>
                     </constraints>
                 </view>
