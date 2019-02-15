@@ -19,6 +19,7 @@
 #endif
 
 @interface AppDelegate ()<JPUSHRegisterDelegate>
+@property (copy) NSMutableArray *arr ;
 
 @end
 
@@ -29,21 +30,23 @@
 {
     [self setUpNetWorkManager];
     [self refreshToken];
-    [self setUpWindow];
     [self setNavBarAppearence];
     [self setUpIQKeyBoardManager];
     [self setUpJpush];
     [self startAutorefrshToken];
     [self setLanguage];
     [self setObserver];
+    [self setUpWindow];
     [[NSUserDefaults standardUserDefaults] setObject:@"zh-Hans" forKey:@"appLanguage"];
    // NSString *str = Localized(@"capital");
     [JPUSHService setupWithOption:launchOptions appKey:@"ffb83d2be1729d733dd03c34"
                           channel:nil
                  apsForProduction:YES
             advertisingIdentifier:nil];
-
+//    self.arr = [[NSMutableArray alloc]init];
+//    [self.arr addObject:@""];
     return YES;
+
 }
 
 - (void)setObserver {
@@ -118,20 +121,6 @@
                                        @"TZAlbumPickerController",
                                        @"TZPhotoPreviewController",
                                        @"TZVideoPlayerController"]];
-    
-    // 导航栏默认背景颜色
-//    [WRNavigationBar wr_setDefaultNavBarTintColor:[UIColor redColor]];
-    
-    // 导航栏所有按钮的默认颜色
-//    [WRNavigationBar wr_setDefaultNavBarTintColor:[UIColor redColor]];
-    
-    // 设置导航栏标题默认颜色
-//    [WRNavigationBar wr_setDefaultNavBarTitleColor:[UIColor redColor]];
-    
-    //统一设置状态
-//    [WRNavigationBar wr_setDefaultStatusBarStyle:UIStatusBarStyleLightContent];
-    
-    //导航栏底部分割线隐藏
     [WRNavigationBar wr_setDefaultNavBarShadowImageHidden:YES];
 }
 
@@ -149,9 +138,11 @@
 // 47.110.234.233
 // 正式 com.mvc.cryptovault https://www.bzvp.net/api/app/
 // 测试 N-NSTechnology.ToPay http://47.110.234.233:10086/
-
-
-    [WYNetworkConfig sharedConfig].baseUrl = @"https://www.bzvp.net/api/app/";
+    
+    NSString *release_url = @"https://www.bzvp.net/api/app/";
+    NSString *test_url = @"http://47.110.234.233:10086/";
+    NSString *this_cur = [JudegeCenter isReleaseVersion]?release_url:test_url;
+    [WYNetworkConfig sharedConfig].baseUrl = this_cur;
     [WYNetworkConfig sharedConfig].timeoutSeconds = 10;
     if ([TPLoginUtil userInfo].token)
     {

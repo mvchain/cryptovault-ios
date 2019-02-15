@@ -48,8 +48,6 @@
     }
     return _downDataArrays;
 }
-
-
 - (NSMutableArray<TPMemonicStatusCollectionViewCellModel *> *)upDataArrays {
     if (!_upDataArrays) {
         _upDataArrays = [[NSMutableArray<TPMemonicStatusCollectionViewCellModel *> alloc] init];
@@ -57,6 +55,9 @@
     return _upDataArrays;
 }
 
+/*
+ * 设置助记词
+ */
 - (void)setDownDataArraysByArr:(NSArray *)arr {
     for( NSString *str in arr ) {
         TPMemonicStatusCollectionViewCellModel *model = [[TPMemonicStatusCollectionViewCellModel alloc]init];

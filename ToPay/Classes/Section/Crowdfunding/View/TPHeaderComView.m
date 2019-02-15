@@ -35,16 +35,16 @@
         [_iconImgV setLayer:5 WithBackColor:[UIColor clearColor]];
         [self addSubview:_iconImgV];
         
-        _nickLab = [YFactoryUI YLableWithText:@"VRT" color:TP59Color font:FONT(16)];
+        _nickLab = [YFactoryUI YLableWithText:@"BTZB" color:TP59Color font:FONT(16)];
         [self addSubview:_nickLab];
         
-        _cateLab = [YFactoryUI YLableWithText:@"接受币种：VRT" color:TP8EColor font:FONT(13)];
+        _cateLab = [YFactoryUI YLableWithText:@"接受币种：BTZB" color:TP8EColor font:FONT(13)];
         [self addSubview:_cateLab];
         
         _timeLab = [YFactoryUI YLableWithText:@"预约时间：2018-11-01 15:38" color:TP8EColor font:FONT(13)];
         [self addSubview:_timeLab];
         
-        if (_crowdStyle == TPCrowdfundStyleReservation || _crowdStyle == TPCrowdfundStyleEnd)
+        if (_crowdStyle == TPCrowdfundStyleReservation || _crowdStyle == TPCrowdfundStyleEnd || _crowdStyle == TPCrowdfundStyleIJoined)
         {
             BOOL  isCrowd = _crowdStyle == TPCrowdfundStyleReservation;
             

@@ -324,7 +324,6 @@
         set1.fillAlpha = 1.f;
         set1.drawHorizontalHighlightIndicatorEnabled = NO;
         set1.fillFormatter = [[CubicLineSampleFillFormatter alloc] init];
-        
         /*
          * 渐变
          */
@@ -332,9 +331,6 @@
                                     (id)[TPMainColor colorWithAlphaComponent:0.16].CGColor];
         CGGradientRef gradient = CGGradientCreateWithColors(nil, (CFArrayRef)gradientColors, nil);
         set1.fill = [ChartFill fillWithLinearGradient:gradient angle:90.f];
-        
-        
-
         TPBalloonMarker *marker = [[TPBalloonMarker alloc]
                                  initWithColor: [UIColor colorWithWhite:180/255. alpha:1.0]
                                  font: [UIFont systemFontOfSize:12.0]
@@ -343,9 +339,6 @@
         marker.chartView = _chartView;
         marker.minimumSize = CGSizeMake(80.f, 40.f);
         _chartView.marker = marker;
-        
-        
-        
         LineChartData *data = [[LineChartData alloc] initWithDataSet:set1];
         [data setValueFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:9.f]];
         [data setDrawValues:NO];

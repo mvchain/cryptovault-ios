@@ -170,6 +170,8 @@
 		DD13CF3B21F04DB40022EECC /* TPAccountSafeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD13CF3A21F04DB40022EECC /* TPAccountSafeViewModel.m */; };
 		DD13CF4121F05BB20022EECC /* TPBindEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD13CF3F21F05BB20022EECC /* TPBindEmailViewController.m */; };
 		DD13CF4221F05BB20022EECC /* TPBindEmailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD13CF4021F05BB20022EECC /* TPBindEmailViewController.xib */; };
+		DD1F511E22151B4900DB5442 /* YUAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1F511B22151B4900DB5442 /* YUAlertViewController.m */; };
+		DD1F511F22151B4900DB5442 /* YUAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD1F511C22151B4900DB5442 /* YUAlertViewController.xib */; };
 		DD23C28421E89FDC007727DA /* UIView+YUStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = DD23C28321E89FDC007727DA /* UIView+YUStyle.m */; };
 		DD23C28921E8B6BA007727DA /* TPRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD23C28721E8B6BA007727DA /* TPRegisterViewController.m */; };
 		DD23C28A21E8B6BA007727DA /* TPRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD23C28821E8B6BA007727DA /* TPRegisterViewController.xib */; };
@@ -668,6 +670,9 @@
 		DD13CF3E21F05BB20022EECC /* TPBindEmailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPBindEmailViewController.h; sourceTree = "<group>"; };
 		DD13CF3F21F05BB20022EECC /* TPBindEmailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPBindEmailViewController.m; sourceTree = "<group>"; };
 		DD13CF4021F05BB20022EECC /* TPBindEmailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPBindEmailViewController.xib; sourceTree = "<group>"; };
+		DD1F511B22151B4900DB5442 /* YUAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUAlertViewController.m; sourceTree = "<group>"; };
+		DD1F511C22151B4900DB5442 /* YUAlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YUAlertViewController.xib; sourceTree = "<group>"; };
+		DD1F511D22151B4900DB5442 /* YUAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUAlertViewController.h; sourceTree = "<group>"; };
 		DD23C28221E89FDC007727DA /* UIView+YUStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YUStyle.h"; sourceTree = "<group>"; };
 		DD23C28321E89FDC007727DA /* UIView+YUStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YUStyle.m"; sourceTree = "<group>"; };
 		DD23C28621E8B6BA007727DA /* TPRegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPRegisterViewController.h; sourceTree = "<group>"; };
@@ -1515,6 +1520,9 @@
 		DD02443E2196D1B8006A1390 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				DD1F511D22151B4900DB5442 /* YUAlertViewController.h */,
+				DD1F511B22151B4900DB5442 /* YUAlertViewController.m */,
+				DD1F511C22151B4900DB5442 /* YUAlertViewController.xib */,
 				DDFED69021DDA88500F2F354 /* PHJTransformPinyin.h */,
 				DDFED69121DDA88500F2F354 /* PHJTransformPinyin.m */,
 				DDF69FB421C0F42C006EE7A4 /* CountDown.h */,
@@ -2596,6 +2604,7 @@
 				DD4126AD21F9A9A800079538 /* YUTMineCellTableViewCell.xib in Resources */,
 				DD0A940821F83E9D00D9E82E /* TPStoreDetailProductIntroCell.xib in Resources */,
 				DD10844021A001030087F244 /* BCScanQR4@2x.png in Resources */,
+				DD1F511F22151B4900DB5442 /* YUAlertViewController.xib in Resources */,
 				DD0A940221F83CAD00D9E82E /* TPStoreDetailViewController.xib in Resources */,
 				DD10844721A001030087F244 /* BCScanQR3@2x.png in Resources */,
 				DD0A93E421F71A8200D9E82E /* TPBuyProductViewController.xib in Resources */,
@@ -2900,6 +2909,7 @@
 				DD23C2B521EC8F9A007727DA /* TPRegisterResponseModel.m in Sources */,
 				DD1083D6219D67800087F244 /* TPTokenHeaderView.m in Sources */,
 				DD10844821A001030087F244 /* NIMScannerViewController.m in Sources */,
+				DD1F511E22151B4900DB5442 /* YUAlertViewController.m in Sources */,
 				DD0B450221F1BD6D00333016 /* TPRestPasswordViewModel.m in Sources */,
 				DD02399721AF968E00333446 /* WYNetworkDownloadResumeDataInfo.m in Sources */,
 				DD10845921A3EC900087F244 /* TPChainReceiptViewController.m in Sources */,
@@ -3167,7 +3177,7 @@
 					"@executable_path/Frameworks",
 				);
 				NEW_SETTING = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mvc.cryptovault;
+				PRODUCT_BUNDLE_IDENTIFIER = "N-NSTechnology.ToPay";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ToPay/ToPay-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -3194,7 +3204,7 @@
 					"@executable_path/Frameworks",
 				);
 				NEW_SETTING = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mvc.cryptovault;
+				PRODUCT_BUNDLE_IDENTIFIER = "N-NSTechnology.ToPay";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ToPay/ToPay-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;

@@ -48,5 +48,19 @@
         [output appendFormat:@"%02x", digest[i]];
     return  output;
 }
++ (NSString *)getCurVersion  {
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    NSString *app_Version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+    return app_Version;
+}
++ (NSString *)getCurBuildVersion {
+   //  CFBundleVersion
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    NSString *app_Version = [infoDictionary objectForKey:@"CFBundleVersion"];
+    return app_Version;
+}
++ (NSString *)getBundleIdStr {
+    return [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIdentifier"];
+}
 
 @end

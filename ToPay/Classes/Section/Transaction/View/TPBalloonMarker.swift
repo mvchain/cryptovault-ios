@@ -100,7 +100,6 @@ class TPBalloonMarker: MarkerImage
         rect.origin.y -= size.height
 
         context.saveGState()
-
         context.setFillColor(color.cgColor)
 
         if offset.y > 0
@@ -179,26 +178,19 @@ class TPBalloonMarker: MarkerImage
 
         context.restoreGState()
     }
-
     open override func refreshContent(entry: ChartDataEntry, highlight: Highlight)
     {
-        let defaultStand = UserDefaults.standard
-        let stringValue = defaultStand.string(forKey: "TPCurrencyNameKey")
-        setLabel(String(format:"%.2f %@", entry.y,stringValue!));
+        let stringValue = "BZTB";
+        setLabel(String(format:"%.2f %@", entry.y,stringValue));
     }
-
     @objc open func setLabel(_ newLabel: String)
     {
         label = newLabel
-
         _drawAttributes.removeAll()
-
         _drawAttributes[.font] = self.font
         _drawAttributes[.paragraphStyle] = _paragraphStyle
         _drawAttributes[.foregroundColor] = self.textColor
-
         _labelSize = label?.size(withAttributes: _drawAttributes) ?? CGSize.zero
-
         var size = CGSize()
         size.width = _labelSize.width + self.insets.left + self.insets.right
         size.height = _labelSize.height + self.insets.top + self.insets.bottom

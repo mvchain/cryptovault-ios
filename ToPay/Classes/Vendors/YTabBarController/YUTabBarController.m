@@ -68,9 +68,14 @@
     self.tabBar.layer.shadowOffset = CGSizeMake(0, -3);
        
     self.tabBar.layer.shadowOpacity = 0.25;
+   
+    
     
 }
-
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+     [QuickDo checkShouldUpdateWithParentVC_onlyNotNewest:self];
+}
 - (UIImage*)imageWithColor:(UIColor*)color size:(CGSize)size
 {
         if(!color || size.width<=0|| size.height<=0)return nil;

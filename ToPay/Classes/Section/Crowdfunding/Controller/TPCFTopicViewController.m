@@ -64,20 +64,24 @@ static NSString  *TPReservationCellCellId = @"ReservationCell";
             self.proType = 2;
             break;
             
-            /** 记录 */
-        case TPCrowdfundStyleRecord:
+            /** 我参与 */
+        case TPCrowdfundStyleIJoined:
             self.proType = 3;
             break;
+        case TPCrowdfundStyleRecord:
+            self.proType = 4;
+            break;
+        
         default:
             break;
     }
     
     [self setupRefreshWithShowFooter:YES];
 }
-
+/* 众筹记录单独处理 */
 -(void)loadNewTopics
 {   RefreshEndFooter
-    if (self.proType == 3)
+    if (self.proType == TPCrowdfundStyleRecord)
     {
         [self getRequestProjectReservation:self.proType]; //众筹记录
     }
@@ -86,9 +90,10 @@ static NSString  *TPReservationCellCellId = @"ReservationCell";
         [self getRequestProject:self.proType];
     }
 }
+/* 众筹记录单独处理 */
 -(void)loadMoreTopics {
     
-    if (self.proType == 3)
+    if (self.proType == TPCrowdfundStyleRecord)
     {
         [self requestNextProjectReservation:self.proType];
     }
@@ -214,17 +219,13 @@ static NSString  *TPReservationCellCellId = @"ReservationCell";
              NSMutableArray *marr = [TPCroRecordModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
              if (marr.count > 0 ) {
                  [self.croRecordTopic addObjectsFromArray:marr];
-                 
                  [self.baseTableView.mj_footer endRefreshing];
              }else {
                  [self.baseTableView.mj_footer endRefreshingWithNoMoreData];
-                 
              }
              [self.baseTableView reloadData];
-             
          }
-     }
-                                             failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
+     }                                             failure:^(NSURLSessionTask *task,NSError *error, NSInteger statusCode)
      {
          RefreshEndHeader
          NSLog(@"获取参与的项目列表失败");
@@ -259,6 +260,8 @@ static NSString  *TPReservationCellCellId = @"ReservationCell";
             m.displayType = @"1";
         } else if( [self type] == TPCrowdfundStyleEnd ) {
             m.displayType = @"2";
+        }else if([self type] == TPCrowdfundStyleIJoined ) {
+            m.displayType = @"1";
         }
 
         cell.croModel = m;

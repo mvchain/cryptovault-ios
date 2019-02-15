@@ -11,6 +11,7 @@
 #import "TPGuiderViewController.h"
 #import "TPResetPassWordGuiderViewController.h"
 #import "YUTabBarController.h"
+#import "YUAlertViewController.h"
 @implementation QuickDo
 
 + (void)setJPushAlians:(NSString *)aliansName  {
@@ -119,5 +120,56 @@
     
     TPResetPassWordGuiderViewController *tp = [[TPResetPassWordGuiderViewController alloc] init];
     [vc.navigationController pushViewController:tp animated:YES];
+}
+
++ (void)checkShouldUpdateWithParentVC:(UIViewController *)vc  {
+    [JudegeCenter isNewstVersion:^(BOOL isnew_now, BOOL isNetOk, NSString *link) {
+        
+        
+        if (!isNetOk) {[self showErrorText:@"网络错误"];return ;};
+        if (isnew_now) {
+            [self showErrorText:@"已经是最新版本了"];
+        }else {
+            // 需要更新
+            YUAlertViewController *alert = [[YUAlertViewController alloc]init];
+            [alert yu_setting:^(YUAlertViewControllerCancelWithConfirmStyle *style) {
+                style.yu_alertTitle = @"提示";
+                style.yu_alertContent = @"发现有新版本，现在去下载？";
+                style.yu_confirmButtonTitle = @"去下载";
+            } confirmAction:^(id sender) {
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:link] options:@{} completionHandler:^(BOOL success) {
+                    
+                }];
+            } cancleAction:^(id sender) {
+                
+            }];
+            [vc presentViewController:alert animated:YES completion:^{
+                
+            }];
+        }
+    }];
+}
++ (void)checkShouldUpdateWithParentVC_onlyNotNewest:(UIViewController *)vc  {
+    [JudegeCenter isNewstVersion:^(BOOL isnew_now, BOOL isNetOk, NSString *link) {
+        
+        if (!isnew_now) {
+            // s不是最新,需要更新
+            YUAlertViewController *alert = [[YUAlertViewController alloc]init];
+            [alert yu_setting:^(YUAlertViewControllerCancelWithConfirmStyle *style) {
+                style.yu_alertTitle = @"提示";
+                style.yu_alertContent = @"发现有新版本，现在去下载？";
+                style.yu_confirmButtonTitle = @"去下载";
+            } confirmAction:^(id sender) {
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:link] options:@{} completionHandler:^(BOOL success) {
+                    
+                }];
+            } cancleAction:^(id sender) {
+                
+            }];
+            [vc presentViewController:alert animated:YES completion:^{
+                
+            }];
+        }
+    }];
 }
 @end

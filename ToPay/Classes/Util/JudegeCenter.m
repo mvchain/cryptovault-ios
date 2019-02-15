@@ -49,12 +49,38 @@
 }
 + (BOOL)isAvailableEmail:(NSString *)email {
     
-        NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+  NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
     
-        NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+  NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
     
-        return [emailTest evaluateWithObject:email];
+  return [emailTest evaluateWithObject:email];
   
 }
++ (void)isNewstVersion:(void(^)(BOOL isnew_now,BOOL isNetOk,NSString *link))padding {
+    
+    [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer
+                                                 url:@"app"
+                                          parameters:@{@"appType":@"ipa"}
+                                             success:^(id responseObject, BOOL isCacheObject) {
+                                                 NSDictionary *res = (NSDictionary *)responseObject;
+                                                 int serv_app_v_code= [res[@"data"][@"appVersionCode"] intValue ] ;
+                                                 int local_v_code = [[QuickGet getCurBuildVersion] intValue] ;
+                                                 if(serv_app_v_code <= local_v_code) {
+                                                     // 本地版本>= 服务器版本
+                                                     padding(YES,YES,res[@"data"][@"httpUrl"]);
+                                                 }else {
+                                                     padding(NO,YES,res[@"data"][@"httpUrl"]);
+                                                 }
+                                             }
+                                             failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
+                                                 padding(NO,NO,@"error");
+                                                 
+                                             } ];
+}
 
++ (BOOL) isReleaseVersion {
+    // 正式 com.mvc.cryptovault https://www.bzvp.net/api/app/
+    // 测试 N-NSTechnology.ToPay http://47.110.234.233:10086/
+    return  ([[QuickGet getBundleIdStr] isEqualToString:@"com.mvc.cryptovault"]);
+}
 @end

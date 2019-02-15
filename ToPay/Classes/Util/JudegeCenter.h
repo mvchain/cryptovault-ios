@@ -15,6 +15,9 @@
 + (BOOL) isVaildAddrWithTokenId:(NSString *)tokenId addr:(NSString *)addr ;
 + (BOOL) isIphoneX;
 + (BOOL) isAvailableEmail:(NSString *)email;
++ (void) isNewstVersion:(void(^)(BOOL isnew_now,BOOL isNetOk,NSString *link))padding;
++ (BOOL) isReleaseVersion ;
+
 @end
 
 

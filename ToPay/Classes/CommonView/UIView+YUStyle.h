@@ -6,7 +6,7 @@
 //  Copyright (c) 2014年 YXY. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import<UIKit/UIKit.h>
 /**
  
  所有方法要在 加入到指定view 后使用

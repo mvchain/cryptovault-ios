@@ -23,7 +23,6 @@
 @end
 
 @implementation TPResetPwdOneTextFiledViewController
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSAssert(self.viewModel, @"viewmodel --- 必须存在");
@@ -35,7 +34,6 @@
     self.scrollView.contentInset = UIEdgeInsetsMake(self.customNavBar.height, 0, 0, 0);
     [self.submitButton gradualChangeStyle];
     self.textView.xibContainer.textField.secureTextEntry = self.viewModel.isPasswdType;
-    
     // Do any additional setup after loading the view from its nib.
 }
 #pragma mark tap
@@ -56,8 +54,6 @@
                                            [self.navigationController popToRootViewControllerAnimated:YES];
                                            
                                        }
-                                      
-                                       
                                    }else if ( [self.viewModel isKindOfClass:TPRestPasswordByPrivateKeyViewModel.class ]) {
                                        // 私钥重置第二阶段
                                        TPRestPasswordViewModel *rmodel = [[TPRestPasswordViewModel alloc]init];

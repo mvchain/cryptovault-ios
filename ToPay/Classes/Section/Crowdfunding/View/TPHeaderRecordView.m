@@ -28,7 +28,7 @@
         _iconImgV = [YFactoryUI YImageViewWithimage:[UIImage imageNamed:@"success_icon_1"]];
         [self addSubview:_iconImgV];
         
-        _nickLab = [YFactoryUI YLableWithText:@"VRT" color:TP59Color font:FONT(15)];
+        _nickLab = [YFactoryUI YLableWithText:@"BZTB" color:TP59Color font:FONT(15)];
         [self addSubview:_nickLab];
         
         _stateLab = [YFactoryUI YLableWithText:@"已获取众筹名额" color:TP8EColor font:FONT(13)];

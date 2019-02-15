@@ -14,7 +14,9 @@ typedef NS_ENUM(NSUInteger, TPCrowdfundStyle)
     TPCrowdfundStyleReservation,  // 预约中
     TPCrowdfundStyleComingSoon,   // 即将预约
     TPCrowdfundStyleEnd,          // 已结束
-    TPCrowdfundStyleRecord,       // 记录
+    TPCrowdfundStyleIJoined,//我参与的
+    TPCrowdfundStyleRecord       // 记录
+
 };
 
 #endif /* TPCrowdConfig_h */
