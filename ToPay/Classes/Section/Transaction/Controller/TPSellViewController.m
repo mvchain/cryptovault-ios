@@ -102,7 +102,6 @@
     _headerView = [[UIView alloc] init];
     [_headerView setLayer:5 WithBackColor:[UIColor whiteColor]];
     [self.view addSubview:_headerView];
-    
     [_headerView mas_makeConstraints:^(MASConstraintMaker *make)
      {
          make.centerX.equalTo(self.view);
@@ -342,33 +341,34 @@
 {
     NSLog(@"发布");
     TPTransView *transView = [TPTransView createTransferViewStyle:self.transType == TPTransactionTypeTransferOut ? TPTransStyleReleaseSell : TPTransStyleReleaseBuy];
-    
     transView.title = @"确认发布";
     transView.desc = @"总计需支付";
     transView.pvc = self;
-    
-    if (self.isPublish)
-    transView.Total = TPString(@"%.4f %@",[self.comText.comTextField.text floatValue],self.tokenName);
+    if (self.isPublish){
+        NSString *pix = self.transType == TPTransactionTypeTransfer ? @"BZTB":self.tokenName;// 单位
+        transView.Total = TPString(@"%.4f %@",[self.comText.comTextField.text floatValue],pix);
+    }
     else
-    transView.Total = self.conLab.text;
-    
-    
+        transView.Total = self.conLab.text;
     /*
      * 数量
      */
-    if (self.isPublish)
-    transView.con1 = TPString(@"%.4f %@",[self.comText.comTextField.text floatValue] * [self.transInfo.price floatValue] * self.currentPrice,self.currName);
+    if (self.isPublish){
+        NSString * str = self.transType == TPTransactionTypeTransfer ? self.tokenName:@"BZTB";// 单位
+        
+         transView.con1 = TPString(@"%.4f %@",[self.comText.comTextField.text floatValue] * [self.transInfo.price floatValue] * self.currentPrice,str);
+        
+    }
     else
-    transView.con1 = TPString(@"%.2f %@",[self.comText.comTextField.text floatValue],self.tokenName);
-    
-    
+        transView.con1 = TPString(@"%.2f %@",[self.comText.comTextField.text floatValue],@"BZTB");
+
     /*
      * 单价
      */
     if (self.isPublish)
-    transView.con2 =  TPString(@"%.4f %@",[self.transInfo.price floatValue] *self.currentPrice,self.currName);
+    transView.con2 =  TPString(@"%.4f %@",[self.transInfo.price floatValue] *self.currentPrice,@"BZTB");
     else
-    transView.con2 = TPString(@"%.4f %@",[self.transModel.price floatValue],self.currName);
+    transView.con2 = TPString(@"%.4f %@",[self.transModel.price floatValue],@"BZTB");
     
     [transView showMenuWithAlpha:YES];
 
