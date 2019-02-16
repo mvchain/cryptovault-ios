@@ -258,10 +258,8 @@
     _chartView.pinchZoomEnabled = NO;
     _chartView.drawGridBackgroundEnabled = NO;
     _chartView.maxHighlightDistance = 300.0;
-    
-//    _chartView.drawFilledEnabled
-//    _chartView.data.dataSets
     _chartView.xAxis.enabled = YES;
+    
     
     ChartYAxis *yAxis = _chartView.leftAxis;
     yAxis.labelFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:12.f];
@@ -293,12 +291,10 @@
 - (void)setDataCount:(int)count range:(double)range
 {
     NSMutableArray *yVals1 = [[NSMutableArray alloc] init];
-    
     for (int i = 0 ; i < count; i++)
     {
         [yVals1 addObject:[[ChartDataEntry alloc] initWithX:i y:[self.KLineModel.valueY[i] doubleValue]]];
     }
-    
     LineChartDataSet *set1 = nil;
     
     if (_chartView.data.dataSetCount > 0)
