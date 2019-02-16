@@ -345,6 +345,7 @@
     
     transView.title = @"确认发布";
     transView.desc = @"总计需支付";
+    transView.pvc = self;
     
     if (self.isPublish)
     transView.Total = TPString(@"%.4f %@",[self.comText.comTextField.text floatValue],self.tokenName);

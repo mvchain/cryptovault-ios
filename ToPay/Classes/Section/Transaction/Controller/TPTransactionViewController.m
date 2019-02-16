@@ -18,28 +18,22 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    
     [self showSystemNavgation:YES];
        // 覆盖，取消继承方法
 }
-
 -(void)viewWillDisappear:(BOOL)animated
 {
        // 覆盖，取消继承方法
 }
-
-
-- (void)viewDidLoad
+-(void)viewDidLoad
 {
     [super viewDidLoad];
     [self.customNavBar wr_setBottomLineHidden:YES];
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(transRecord) image:[UIImage imageNamed:@"list_icon_black"] imageEdgeInsets:UIEdgeInsetsMake(0, 16, 0, -16)];
-    
     [self setNavTitleView];
     [self setNavConView];
     [self showSystemNavgation:YES];
 }
-
 -(void)transRecord
 {
     TPBuyRecordViewController *recordVC = [[TPBuyRecordViewController alloc] init];
@@ -55,7 +49,6 @@
     _pageContentScrollView.delegatePageContentScrollView = self;
     [self.view addSubview:_pageContentScrollView];
 }
-
 -(void)setNavTitleView
 {
     NSArray *titleArr = @[@"BZT交易"];
@@ -77,6 +70,7 @@
 - (void)pageTitleView:(SGPageTitleView *)pageTitleView selectedIndex:(NSInteger)selectedIndex
 {
     [self.pageContentScrollView setPageContentScrollViewCurrentIndex:selectedIndex];
+
 }
 
 - (void)pageContentScrollView:(SGPageContentScrollView *)pageContentScrollView progress:(CGFloat)progress originalIndex:(NSInteger)originalIndex targetIndex:(NSInteger)targetIndex
@@ -87,7 +81,5 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-
 }
-
 @end

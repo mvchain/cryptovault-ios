@@ -170,6 +170,7 @@
 }
 
 - (void)forgetButtonTap:(id)sender {
+    
     if(self.pvc) {
         [self hideMenuWithAnimate:^{
              [QuickDo entoForgetPayPwd:self.pvc];
