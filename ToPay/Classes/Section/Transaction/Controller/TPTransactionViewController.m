@@ -10,6 +10,7 @@
 #import "TPVRTViewController.h"
 #import "TPBuyRecordViewController.h"
 #import "TPNavigationBarTitleView.h"
+#import "TPReleaseProjectViewController.h"
 @interface TPTransactionViewController ()<SGPageContentScrollViewDelegate,SGPageTitleViewDelegate>
 @property (nonatomic, strong) SGPageTitleView *pageTitleView;
 @property (nonatomic, strong) SGPageContentScrollView *pageContentScrollView;
@@ -27,9 +28,11 @@
 }
 -(void)viewDidLoad
 {
+    
     [super viewDidLoad];
     [self.customNavBar wr_setBottomLineHidden:YES];
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(transRecord) image:[UIImage imageNamed:@"list_icon_black"] imageEdgeInsets:UIEdgeInsetsMake(0, 16, 0, -16)];
+    
     [self setNavTitleView];
     [self setNavConView];
     [self showSystemNavgation:YES];

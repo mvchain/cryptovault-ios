@@ -139,9 +139,8 @@
 // 正式 com.mvc.cryptovault https://www.bzvp.net/api/app/
 // 测试 N-NSTechnology.ToPay http://47.110.234.233:10086/
     
-    NSString *release_url = @"https://www.bzvp.net/api/app/";
-    NSString *test_url = @"http://47.110.234.233:10086/";
-    NSString *this_cur = [JudegeCenter isReleaseVersion]?release_url:test_url;
+    
+    NSString *this_cur = [QuickGet getCurrentServerUrl];
     [WYNetworkConfig sharedConfig].baseUrl = this_cur;
     [WYNetworkConfig sharedConfig].timeoutSeconds = 10;
     if ([TPLoginUtil userInfo].token)

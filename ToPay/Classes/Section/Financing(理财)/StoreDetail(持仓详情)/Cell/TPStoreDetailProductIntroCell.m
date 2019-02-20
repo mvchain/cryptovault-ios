@@ -35,14 +35,11 @@
     MyStoreDetailBigInfoModel *model = (MyStoreDetailBigInfoModel *)entity.data;
     [self.productNameLabel setText:model.financialName];
     [self.revuneLabel setText:TPString(@"年化收益率：%.2f-%.2f%%",model.incomeMin,model.incomeMax)];
-    [self.bottom_left_labe setText:TPString(@"%.4f %@",model.value,model.baseTokenName)];
-    
+    [self.bottom_left_labe setText:TPString(@"%.4f %@",model.value,model.tokenName)];
     [self.bottom_middle_label setText:TPString(@"%.4f %@",model.income,model.baseTokenName)];
     [self.bottom_right_label setText:TPString(@"剩余签到%ld天",(long)model.times)];
     [_checkBgView yu_smallCircleStyle];
     [_checkBgView yu_boarderStyle:[UIColor whiteColor]];
-    
-    
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

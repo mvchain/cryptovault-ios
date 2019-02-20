@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TPReleaseProjectDetailVC">
+            <connections>
+                <outlet property="headView" destination="e2L-oZ-F9k" id="26F-uu-hgi"/>
+                <outlet property="tableView" destination="8f6-Cd-btz" id="qNY-AN-sdv"/>
+                <outlet property="top" destination="fO4-KI-VOo" id="s5R-lr-hcu"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8f6-Cd-btz">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="kcV-k1-O19"/>
+                        <outlet property="delegate" destination="-1" id="5Qq-h5-TsJ"/>
+                    </connections>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e2L-oZ-F9k">
+                    <rect key="frame" x="9" y="0.0" width="357" height="34"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="发币记录" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETk-bC-VeX">
+                            <rect key="frame" x="147.5" y="8" width="62" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="ETk-bC-VeX" firstAttribute="centerY" secondItem="e2L-oZ-F9k" secondAttribute="centerY" id="AJE-PN-JwD"/>
+                        <constraint firstItem="ETk-bC-VeX" firstAttribute="centerX" secondItem="e2L-oZ-F9k" secondAttribute="centerX" id="bNe-Vs-FTP"/>
+                        <constraint firstAttribute="height" constant="34" id="jbM-76-MIa"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="e2L-oZ-F9k" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="9" id="2zR-yY-yig"/>
+                <constraint firstItem="e2L-oZ-F9k" firstAttribute="top" secondItem="8f6-Cd-btz" secondAttribute="top" id="Nzz-yK-dDw"/>
+                <constraint firstAttribute="trailing" secondItem="8f6-Cd-btz" secondAttribute="trailing" id="OER-Pd-frh"/>
+                <constraint firstItem="8f6-Cd-btz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="XGB-ng-6Rr"/>
+                <constraint firstItem="8f6-Cd-btz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="fO4-KI-VOo"/>
+                <constraint firstAttribute="bottom" secondItem="8f6-Cd-btz" secondAttribute="bottom" id="k6t-GR-BgD"/>
+                <constraint firstAttribute="trailing" secondItem="e2L-oZ-F9k" secondAttribute="trailing" constant="9" id="rMa-8G-fC3"/>
+            </constraints>
+            <point key="canvasLocation" x="53.600000000000001" y="48.125937031484263"/>
+        </view>
+    </objects>
+</document>

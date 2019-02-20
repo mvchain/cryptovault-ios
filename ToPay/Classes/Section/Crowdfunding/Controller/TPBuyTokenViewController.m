@@ -288,7 +288,7 @@
     {
         vaild3 = NO;
         self.promptLab.hidden = YES;
-        self.VRTLab.text = @"BZTB 0.00";
+        self.VRTLab.text = TPString(@"%@ 0.00",_croModel.baseTokenName);
         self.availableLab.textColor = TP8EColor;
         NSString *adesc = TPString(@"可用%@：%.4f",_croModel.baseTokenName,[self.available floatValue]);
         [self.availableLab setText:adesc];

@@ -15,6 +15,8 @@
 + (NSString *)getCurVersion ;
 + (NSString *)getBundleIdStr ;
 + (NSString *)getCurBuildVersion;
++ (NSString *)getCurrentServerUrl ;
++ (NSString *)httpPathWithCurrentServerUrl:(NSString *)path;
 
 @end
 

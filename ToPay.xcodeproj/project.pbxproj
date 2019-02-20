@@ -244,6 +244,14 @@
 		DD374DC021C5228100093A0F /* AAOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = DD374DA121C5228100093A0F /* AAOptions.m */; };
 		DD374DC121C5228100093A0F /* AASeriesElement.m in Sources */ = {isa = PBXBuildFile; fileRef = DD374DA221C5228100093A0F /* AASeriesElement.m */; };
 		DD374DC421C559AD00093A0F /* TPDetailTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD374DC321C559AD00093A0F /* TPDetailTitleView.m */; };
+		DD3E1CE4221BEAB5007E8907 /* TPReleasePrjNoMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3E1CE2221BEAB5007E8907 /* TPReleasePrjNoMoreCell.m */; };
+		DD3E1CE5221BEAB5007E8907 /* TPReleasePrjNoMoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD3E1CE3221BEAB5007E8907 /* TPReleasePrjNoMoreCell.xib */; };
+		DD3E1CE8221BEB13007E8907 /* TPReleasePrjNoMoreCellEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3E1CE7221BEB13007E8907 /* TPReleasePrjNoMoreCellEntity.m */; };
+		DD3E1CEC221BF096007E8907 /* TPReleaseRecordNoDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3E1CEA221BF096007E8907 /* TPReleaseRecordNoDataCell.m */; };
+		DD3E1CED221BF096007E8907 /* TPReleaseRecordNoDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD3E1CEB221BF096007E8907 /* TPReleaseRecordNoDataCell.xib */; };
+		DD3E1CF0221BF0AC007E8907 /* TPReleaseRecordNoDataCellEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3E1CEF221BF0AC007E8907 /* TPReleaseRecordNoDataCellEntity.m */; };
+		DD3E1CF8221D0356007E8907 /* GT3Captcha.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DD3E1CF3221D0356007E8907 /* GT3Captcha.bundle */; };
+		DD3E1CF9221D0356007E8907 /* GT3Captcha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3E1CF4221D0356007E8907 /* GT3Captcha.framework */; };
 		DD4126AC21F9A9A800079538 /* YUTMineCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4126AA21F9A9A800079538 /* YUTMineCellTableViewCell.m */; };
 		DD4126AD21F9A9A800079538 /* YUTMineCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD4126AB21F9A9A800079538 /* YUTMineCellTableViewCell.xib */; };
 		DD4126B021F9AEC400079538 /* YUTMineCellTableViewCellEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4126AF21F9AEC400079538 /* YUTMineCellTableViewCellEntity.m */; };
@@ -260,7 +268,26 @@
 		DD72F42B21998491004C0DAF /* TPNavigationBarTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD72F42A21998491004C0DAF /* TPNavigationBarTitleView.m */; };
 		DD72F42E219A7D7A004C0DAF /* TPVRTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD72F42D219A7D7A004C0DAF /* TPVRTViewController.m */; };
 		DD72F435219A7F12004C0DAF /* TPBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD72F434219A7F12004C0DAF /* TPBaseViewController.m */; };
+		DD786980221AA4530027566E /* TPReleaseRecordItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD78697E221AA4530027566E /* TPReleaseRecordItemCell.m */; };
+		DD786981221AA4530027566E /* TPReleaseRecordItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD78697F221AA4530027566E /* TPReleaseRecordItemCell.xib */; };
+		DD786984221AA9010027566E /* TPReleaseRecordItemCellEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DD786983221AA9010027566E /* TPReleaseRecordItemCellEntity.m */; };
+		DD786988221AB9740027566E /* TPTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD786986221AB9740027566E /* TPTitleCell.m */; };
+		DD786989221AB9740027566E /* TPTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD786987221AB9740027566E /* TPTitleCell.xib */; };
+		DD78698C221ABA100027566E /* TPTitleCellEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DD78698B221ABA100027566E /* TPTitleCellEntity.m */; };
 		DDAA117721E72BD800F5D184 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAA117621E72BD800F5D184 /* MBProgressHUD+Add.m */; };
+		DDBB4617221A60630035CE07 /* TPReleaseProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDBB4615221A60630035CE07 /* TPReleaseProjectViewController.m */; };
+		DDBB4618221A60630035CE07 /* TPReleaseProjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDBB4616221A60630035CE07 /* TPReleaseProjectViewController.xib */; };
+		DDBB461D221A74AA0035CE07 /* TPReleaseProjectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDBB461B221A74AA0035CE07 /* TPReleaseProjectCell.m */; };
+		DDBB461E221A74AA0035CE07 /* TPReleaseProjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDBB461C221A74AA0035CE07 /* TPReleaseProjectCell.xib */; };
+		DDBB4621221A74FD0035CE07 /* TPReleaseProjectCellEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DDBB4620221A74FD0035CE07 /* TPReleaseProjectCellEntity.m */; };
+		DDBB4629221A7C810035CE07 /* M_ReleaseProjectJoinedDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = DDBB4624221A7C800035CE07 /* M_ReleaseProjectJoinedDetail.m */; };
+		DDBB462A221A7C810035CE07 /* M_ReleaseProjectRecordItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DDBB4627221A7C800035CE07 /* M_ReleaseProjectRecordItem.m */; };
+		DDBB462B221A7C810035CE07 /* ReleaseProjectItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DDBB4628221A7C810035CE07 /* ReleaseProjectItem.m */; };
+		DDBB4631221A922F0035CE07 /* TPReleaseProjectDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DDBB462F221A922F0035CE07 /* TPReleaseProjectDetailVC.m */; };
+		DDBB4632221A922F0035CE07 /* TPReleaseProjectDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDBB4630221A922F0035CE07 /* TPReleaseProjectDetailVC.xib */; };
+		DDBB4638221A9A810035CE07 /* TPReleaseDetailMainInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDBB4636221A9A810035CE07 /* TPReleaseDetailMainInfoCell.m */; };
+		DDBB4639221A9A810035CE07 /* TPReleaseDetailMainInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDBB4637221A9A810035CE07 /* TPReleaseDetailMainInfoCell.xib */; };
+		DDBB463C221A9ACB0035CE07 /* TPReleaseDetailMainInfoCellEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DDBB463B221A9ACB0035CE07 /* TPReleaseDetailMainInfoCellEntity.m */; };
 		DDC5927F21D0B44C00CE8D3C /* TPKLineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DDC5927E21D0B44C00CE8D3C /* TPKLineModel.m */; };
 		DDD211C421F05EA40029905C /* TPVerifyEmailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD211C321F05EA40029905C /* TPVerifyEmailViewModel.m */; };
 		DDD211CD21F084A60029905C /* TPVerifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD211CB21F084A60029905C /* TPVerifyViewController.m */; };
@@ -813,6 +840,18 @@
 		DD374DA421C5228100093A0F /* AAChartModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAChartModel.h; sourceTree = "<group>"; };
 		DD374DC221C559AD00093A0F /* TPDetailTitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPDetailTitleView.h; sourceTree = "<group>"; };
 		DD374DC321C559AD00093A0F /* TPDetailTitleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPDetailTitleView.m; sourceTree = "<group>"; };
+		DD3E1CE1221BEAB5007E8907 /* TPReleasePrjNoMoreCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPReleasePrjNoMoreCell.h; sourceTree = "<group>"; };
+		DD3E1CE2221BEAB5007E8907 /* TPReleasePrjNoMoreCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPReleasePrjNoMoreCell.m; sourceTree = "<group>"; };
+		DD3E1CE3221BEAB5007E8907 /* TPReleasePrjNoMoreCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPReleasePrjNoMoreCell.xib; sourceTree = "<group>"; };
+		DD3E1CE6221BEB13007E8907 /* TPReleasePrjNoMoreCellEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPReleasePrjNoMoreCellEntity.h; sourceTree = "<group>"; };
+		DD3E1CE7221BEB13007E8907 /* TPReleasePrjNoMoreCellEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPReleasePrjNoMoreCellEntity.m; sourceTree = "<group>"; };
+		DD3E1CE9221BF096007E8907 /* TPReleaseRecordNoDataCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPReleaseRecordNoDataCell.h; sourceTree = "<group>"; };
+		DD3E1CEA221BF096007E8907 /* TPReleaseRecordNoDataCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPReleaseRecordNoDataCell.m; sourceTree = "<group>"; };
+		DD3E1CEB221BF096007E8907 /* TPReleaseRecordNoDataCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPReleaseRecordNoDataCell.xib; sourceTree = "<group>"; };
+		DD3E1CEE221BF0AC007E8907 /* TPReleaseRecordNoDataCellEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPReleaseRecordNoDataCellEntity.h; sourceTree = "<group>"; };
+		DD3E1CEF221BF0AC007E8907 /* TPReleaseRecordNoDataCellEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPReleaseRecordNoDataCellEntity.m; sourceTree = "<group>"; };
+		DD3E1CF3221D0356007E8907 /* GT3Captcha.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GT3Captcha.bundle; sourceTree = "<group>"; };
+		DD3E1CF4221D0356007E8907 /* GT3Captcha.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GT3Captcha.framework; sourceTree = "<group>"; };
 		DD4126A921F9A9A800079538 /* YUTMineCellTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YUTMineCellTableViewCell.h; sourceTree = "<group>"; };
 		DD4126AA21F9A9A800079538 /* YUTMineCellTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YUTMineCellTableViewCell.m; sourceTree = "<group>"; };
 		DD4126AB21F9A9A800079538 /* YUTMineCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YUTMineCellTableViewCell.xib; sourceTree = "<group>"; };
@@ -842,8 +881,40 @@
 		DD72F42D219A7D7A004C0DAF /* TPVRTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPVRTViewController.m; sourceTree = "<group>"; };
 		DD72F433219A7F12004C0DAF /* TPBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPBaseViewController.h; sourceTree = "<group>"; };
 		DD72F434219A7F12004C0DAF /* TPBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPBaseViewController.m; sourceTree = "<group>"; };
+		DD78697D221AA4530027566E /* TPReleaseRecordItemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPReleaseRecordItemCell.h; sourceTree = "<group>"; };
+		DD78697E221AA4530027566E /* TPReleaseRecordItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPReleaseRecordItemCell.m; sourceTree = "<group>"; };
+		DD78697F221AA4530027566E /* TPReleaseRecordItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPReleaseRecordItemCell.xib; sourceTree = "<group>"; };
+		DD786982221AA9010027566E /* TPReleaseRecordItemCellEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPReleaseRecordItemCellEntity.h; sourceTree = "<group>"; };
+		DD786983221AA9010027566E /* TPReleaseRecordItemCellEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPReleaseRecordItemCellEntity.m; sourceTree = "<group>"; };
+		DD786985221AB9740027566E /* TPTitleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTitleCell.h; sourceTree = "<group>"; };
+		DD786986221AB9740027566E /* TPTitleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTitleCell.m; sourceTree = "<group>"; };
+		DD786987221AB9740027566E /* TPTitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPTitleCell.xib; sourceTree = "<group>"; };
+		DD78698A221ABA100027566E /* TPTitleCellEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTitleCellEntity.h; sourceTree = "<group>"; };
+		DD78698B221ABA100027566E /* TPTitleCellEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTitleCellEntity.m; sourceTree = "<group>"; };
 		DDAA117521E72BD800F5D184 /* MBProgressHUD+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Add.h"; sourceTree = "<group>"; };
 		DDAA117621E72BD800F5D184 /* MBProgressHUD+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Add.m"; sourceTree = "<group>"; };
+		DDBB4614221A60630035CE07 /* TPReleaseProjectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPReleaseProjectViewController.h; sourceTree = "<group>"; };
+		DDBB4615221A60630035CE07 /* TPReleaseProjectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPReleaseProjectViewController.m; sourceTree = "<group>"; };
+		DDBB4616221A60630035CE07 /* TPReleaseProjectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPReleaseProjectViewController.xib; sourceTree = "<group>"; };
+		DDBB461A221A74AA0035CE07 /* TPReleaseProjectCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPReleaseProjectCell.h; sourceTree = "<group>"; };
+		DDBB461B221A74AA0035CE07 /* TPReleaseProjectCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPReleaseProjectCell.m; sourceTree = "<group>"; };
+		DDBB461C221A74AA0035CE07 /* TPReleaseProjectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPReleaseProjectCell.xib; sourceTree = "<group>"; };
+		DDBB461F221A74FD0035CE07 /* TPReleaseProjectCellEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPReleaseProjectCellEntity.h; sourceTree = "<group>"; };
+		DDBB4620221A74FD0035CE07 /* TPReleaseProjectCellEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPReleaseProjectCellEntity.m; sourceTree = "<group>"; };
+		DDBB4623221A7C800035CE07 /* M_ReleaseProjectJoinedDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M_ReleaseProjectJoinedDetail.h; sourceTree = "<group>"; };
+		DDBB4624221A7C800035CE07 /* M_ReleaseProjectJoinedDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M_ReleaseProjectJoinedDetail.m; sourceTree = "<group>"; };
+		DDBB4625221A7C800035CE07 /* M_ReleaseProjectRecordItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M_ReleaseProjectRecordItem.h; sourceTree = "<group>"; };
+		DDBB4626221A7C800035CE07 /* ReleaseProjectItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReleaseProjectItem.h; sourceTree = "<group>"; };
+		DDBB4627221A7C800035CE07 /* M_ReleaseProjectRecordItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M_ReleaseProjectRecordItem.m; sourceTree = "<group>"; };
+		DDBB4628221A7C810035CE07 /* ReleaseProjectItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReleaseProjectItem.m; sourceTree = "<group>"; };
+		DDBB462E221A922F0035CE07 /* TPReleaseProjectDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPReleaseProjectDetailVC.h; sourceTree = "<group>"; };
+		DDBB462F221A922F0035CE07 /* TPReleaseProjectDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPReleaseProjectDetailVC.m; sourceTree = "<group>"; };
+		DDBB4630221A922F0035CE07 /* TPReleaseProjectDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPReleaseProjectDetailVC.xib; sourceTree = "<group>"; };
+		DDBB4635221A9A810035CE07 /* TPReleaseDetailMainInfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPReleaseDetailMainInfoCell.h; sourceTree = "<group>"; };
+		DDBB4636221A9A810035CE07 /* TPReleaseDetailMainInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPReleaseDetailMainInfoCell.m; sourceTree = "<group>"; };
+		DDBB4637221A9A810035CE07 /* TPReleaseDetailMainInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPReleaseDetailMainInfoCell.xib; sourceTree = "<group>"; };
+		DDBB463A221A9ACB0035CE07 /* TPReleaseDetailMainInfoCellEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPReleaseDetailMainInfoCellEntity.h; sourceTree = "<group>"; };
+		DDBB463B221A9ACB0035CE07 /* TPReleaseDetailMainInfoCellEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPReleaseDetailMainInfoCellEntity.m; sourceTree = "<group>"; };
 		DDC5927D21D0B44C00CE8D3C /* TPKLineModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPKLineModel.h; sourceTree = "<group>"; };
 		DDC5927E21D0B44C00CE8D3C /* TPKLineModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPKLineModel.m; sourceTree = "<group>"; };
 		DDD211C221F05EA40029905C /* TPVerifyEmailViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPVerifyEmailViewModel.h; sourceTree = "<group>"; };
@@ -1007,6 +1078,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD3E1CF9221D0356007E8907 /* GT3Captcha.framework in Frameworks */,
 				DDFE5DB521CCA016005D6D48 /* Social.framework in Frameworks */,
 				F5E7B5DA88A0AD0247016986 /* Pods_ToPay.framework in Frameworks */,
 			);
@@ -1104,6 +1176,7 @@
 		DD0243EC2196C968006A1390 = {
 			isa = PBXGroup;
 			children = (
+				DD3E1CF1221D0355007E8907 /* SDK */,
 				D947F3557A9197E172AF67EA /* Frameworks */,
 				C7021BC94920BE5C99FF3627 /* Pods */,
 				DD0243F62196C968006A1390 /* Products */,
@@ -1196,6 +1269,7 @@
 		DD02442C2196D1B8006A1390 /* Section */ = {
 			isa = PBXGroup;
 			children = (
+				DDBB4613221A5FF80035CE07 /* ReleaseProject */,
 				DD0B451621F3094800333016 /* Financing(理财) */,
 				DD0B450C21F3060300333016 /* Login */,
 				DD23C29821E9F33D007727DA /* Root */,
@@ -2230,6 +2304,23 @@
 			path = AAChartConfiger;
 			sourceTree = "<group>";
 		};
+		DD3E1CF1221D0355007E8907 /* SDK */ = {
+			isa = PBXGroup;
+			children = (
+				DD3E1CF2221D0356007E8907 /* Bitcode */,
+			);
+			path = SDK;
+			sourceTree = "<group>";
+		};
+		DD3E1CF2221D0356007E8907 /* Bitcode */ = {
+			isa = PBXGroup;
+			children = (
+				DD3E1CF3221D0356007E8907 /* GT3Captcha.bundle */,
+				DD3E1CF4221D0356007E8907 /* GT3Captcha.framework */,
+			);
+			path = Bitcode;
+			sourceTree = "<group>";
+		};
 		DD4126A521F9A85C00079538 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -2295,6 +2386,111 @@
 				DD374D6521C4B18F00093A0F /* TPRefreshFooter.m */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		DDBB4613221A5FF80035CE07 /* ReleaseProject */ = {
+			isa = PBXGroup;
+			children = (
+				DDBB462D221A91E70035CE07 /* ReleaseDetail */,
+				DDBB462C221A91C70035CE07 /* ReleaseList */,
+				DDBB4622221A7C480035CE07 /* Models */,
+			);
+			path = ReleaseProject;
+			sourceTree = "<group>";
+		};
+		DDBB4619221A74910035CE07 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DDBB461A221A74AA0035CE07 /* TPReleaseProjectCell.h */,
+				DDBB461B221A74AA0035CE07 /* TPReleaseProjectCell.m */,
+				DDBB461C221A74AA0035CE07 /* TPReleaseProjectCell.xib */,
+				DDBB461F221A74FD0035CE07 /* TPReleaseProjectCellEntity.h */,
+				DDBB4620221A74FD0035CE07 /* TPReleaseProjectCellEntity.m */,
+				DD3E1CE1221BEAB5007E8907 /* TPReleasePrjNoMoreCell.h */,
+				DD3E1CE2221BEAB5007E8907 /* TPReleasePrjNoMoreCell.m */,
+				DD3E1CE3221BEAB5007E8907 /* TPReleasePrjNoMoreCell.xib */,
+				DD3E1CE6221BEB13007E8907 /* TPReleasePrjNoMoreCellEntity.h */,
+				DD3E1CE7221BEB13007E8907 /* TPReleasePrjNoMoreCellEntity.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		DDBB4622221A7C480035CE07 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DDBB4623221A7C800035CE07 /* M_ReleaseProjectJoinedDetail.h */,
+				DDBB4624221A7C800035CE07 /* M_ReleaseProjectJoinedDetail.m */,
+				DDBB4625221A7C800035CE07 /* M_ReleaseProjectRecordItem.h */,
+				DDBB4627221A7C800035CE07 /* M_ReleaseProjectRecordItem.m */,
+				DDBB4626221A7C800035CE07 /* ReleaseProjectItem.h */,
+				DDBB4628221A7C810035CE07 /* ReleaseProjectItem.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DDBB462C221A91C70035CE07 /* ReleaseList */ = {
+			isa = PBXGroup;
+			children = (
+				DDBB4619221A74910035CE07 /* Cell */,
+				DDBB4614221A60630035CE07 /* TPReleaseProjectViewController.h */,
+				DDBB4615221A60630035CE07 /* TPReleaseProjectViewController.m */,
+				DDBB4616221A60630035CE07 /* TPReleaseProjectViewController.xib */,
+			);
+			path = ReleaseList;
+			sourceTree = "<group>";
+		};
+		DDBB462D221A91E70035CE07 /* ReleaseDetail */ = {
+			isa = PBXGroup;
+			children = (
+				DDBB4634221A9A410035CE07 /* Cell */,
+				DDBB462E221A922F0035CE07 /* TPReleaseProjectDetailVC.h */,
+				DDBB462F221A922F0035CE07 /* TPReleaseProjectDetailVC.m */,
+				DDBB4630221A922F0035CE07 /* TPReleaseProjectDetailVC.xib */,
+			);
+			path = ReleaseDetail;
+			sourceTree = "<group>";
+		};
+		DDBB4634221A9A410035CE07 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DDBB463E221AA2880035CE07 /* RecordItem */,
+				DDBB463D221AA2760035CE07 /* MainInfo */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		DDBB463D221AA2760035CE07 /* MainInfo */ = {
+			isa = PBXGroup;
+			children = (
+				DDBB4635221A9A810035CE07 /* TPReleaseDetailMainInfoCell.h */,
+				DDBB4636221A9A810035CE07 /* TPReleaseDetailMainInfoCell.m */,
+				DDBB4637221A9A810035CE07 /* TPReleaseDetailMainInfoCell.xib */,
+				DDBB463A221A9ACB0035CE07 /* TPReleaseDetailMainInfoCellEntity.h */,
+				DDBB463B221A9ACB0035CE07 /* TPReleaseDetailMainInfoCellEntity.m */,
+			);
+			path = MainInfo;
+			sourceTree = "<group>";
+		};
+		DDBB463E221AA2880035CE07 /* RecordItem */ = {
+			isa = PBXGroup;
+			children = (
+				DD78697D221AA4530027566E /* TPReleaseRecordItemCell.h */,
+				DD78697E221AA4530027566E /* TPReleaseRecordItemCell.m */,
+				DD78697F221AA4530027566E /* TPReleaseRecordItemCell.xib */,
+				DD786982221AA9010027566E /* TPReleaseRecordItemCellEntity.h */,
+				DD786983221AA9010027566E /* TPReleaseRecordItemCellEntity.m */,
+				DD786985221AB9740027566E /* TPTitleCell.h */,
+				DD786986221AB9740027566E /* TPTitleCell.m */,
+				DD786987221AB9740027566E /* TPTitleCell.xib */,
+				DD78698A221ABA100027566E /* TPTitleCellEntity.h */,
+				DD78698B221ABA100027566E /* TPTitleCellEntity.m */,
+				DD3E1CE9221BF096007E8907 /* TPReleaseRecordNoDataCell.h */,
+				DD3E1CEA221BF096007E8907 /* TPReleaseRecordNoDataCell.m */,
+				DD3E1CEB221BF096007E8907 /* TPReleaseRecordNoDataCell.xib */,
+				DD3E1CEE221BF0AC007E8907 /* TPReleaseRecordNoDataCellEntity.h */,
+				DD3E1CEF221BF0AC007E8907 /* TPReleaseRecordNoDataCellEntity.m */,
+			);
+			path = RecordItem;
 			sourceTree = "<group>";
 		};
 		DDD211C921F084460029905C /* TPVerifyEmailViewController */ = {
@@ -2558,10 +2754,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD13CF4221F05BB20022EECC /* TPBindEmailViewController.xib in Resources */,
+				DDBB461E221A74AA0035CE07 /* TPReleaseProjectCell.xib in Resources */,
 				DDD211EB21F1A2520029905C /* TPRetPassWordByEmailViewController.xib in Resources */,
 				DD0B451B21F309A600333016 /* TPFinancingViewController.xib in Resources */,
 				DD10844221A001030087F244 /* BCScanQR2@2x.png in Resources */,
 				DD0A93D721F6FEE200D9E82E /* TPProductIntroduceCell.xib in Resources */,
+				DD3E1CF8221D0356007E8907 /* GT3Captcha.bundle in Resources */,
 				DD0A93F521F809B200D9E82E /* TPMyStoreItemCell.xib in Resources */,
 				DD13CF0821ED8A500022EECC /* TPMemonicStatusCollectionViewCell.xib in Resources */,
 				DD0D344721F5AFDE00ECEDF2 /* TPInviteRegSecondPageTableViewCell.xib in Resources */,
@@ -2572,6 +2770,7 @@
 				DD0A941021F843AE00D9E82E /* TPStoreEveryDayIncomeCell.xib in Resources */,
 				DD0B450B21F2F78800333016 /* TPYULoginViewController.xib in Resources */,
 				DD0A942321F8644000D9E82E /* TPEveryIncomeTitleDayCell.xib in Resources */,
+				DDBB4618221A60630035CE07 /* TPReleaseProjectViewController.xib in Resources */,
 				DDFE5D9921CA1BC0005D6D48 /* HUD_success@3x.png in Resources */,
 				DDFED68F21DC992B00F2F354 /* YUSearchBarView.xib in Resources */,
 				DD23C28A21E8B6BA007727DA /* TPRegisterViewController.xib in Resources */,
@@ -2581,6 +2780,7 @@
 				DDFED6B621E065F100F2F354 /* YUCollectionViewCell.xib in Resources */,
 				DD0244022196C96B006A1390 /* Assets.xcassets in Resources */,
 				DDFE5DB321CC9FA8005D6D48 /* custom.png in Resources */,
+				DD3E1CE5221BEAB5007E8907 /* TPReleasePrjNoMoreCell.xib in Resources */,
 				DDFFEEAC220034AB00FE26C7 /* Language.strings in Resources */,
 				DD374D5921C3B41100093A0F /* TZImagePickerController.bundle in Resources */,
 				DD0B451521F3085400333016 /* TPInvitedRegisterViewController.xib in Resources */,
@@ -2594,6 +2794,7 @@
 				DDFE5D9D21CA1BC0005D6D48 /* HUD_error@2x.png in Resources */,
 				DD23C2BE21ECA892007727DA /* TPMemonicCollectionViewCell.xib in Resources */,
 				DDFE5D9A21CA1BC0005D6D48 /* HUD_error@3x.png in Resources */,
+				DDBB4632221A922F0035CE07 /* TPReleaseProjectDetailVC.xib in Resources */,
 				DDFED6A421E0605300F2F354 /* TPNoMoreTableViewCell.xib in Resources */,
 				DD13CF3521EF5B3C0022EECC /* TPAccountSafeItemTableViewCell.xib in Resources */,
 				DDD211E521F1852F0029905C /* TPResetPassWordGuiderViewController.xib in Resources */,
@@ -2602,13 +2803,16 @@
 				DD10844921A001030087F244 /* BCScanQR1@2x.png in Resources */,
 				DD10844121A001030087F244 /* QRCodeScanLine@2x.png in Resources */,
 				DD4126AD21F9A9A800079538 /* YUTMineCellTableViewCell.xib in Resources */,
+				DD3E1CED221BF096007E8907 /* TPReleaseRecordNoDataCell.xib in Resources */,
 				DD0A940821F83E9D00D9E82E /* TPStoreDetailProductIntroCell.xib in Resources */,
+				DDBB4639221A9A810035CE07 /* TPReleaseDetailMainInfoCell.xib in Resources */,
 				DD10844021A001030087F244 /* BCScanQR4@2x.png in Resources */,
 				DD1F511F22151B4900DB5442 /* YUAlertViewController.xib in Resources */,
 				DD0A940221F83CAD00D9E82E /* TPStoreDetailViewController.xib in Resources */,
 				DD10844721A001030087F244 /* BCScanQR3@2x.png in Resources */,
 				DD0A93E421F71A8200D9E82E /* TPBuyProductViewController.xib in Resources */,
 				DD23C29321E99E74007727DA /* TPGuiderViewController.xib in Resources */,
+				DD786981221AA4530027566E /* TPReleaseRecordItemCell.xib in Resources */,
 				DD13CF1121EECCCB0022EECC /* YUTextViewXibContainer.xib in Resources */,
 				DD0B44F821F1B8DE00333016 /* TPResetPwdOneTextFiledViewController.xib in Resources */,
 				DDD211CE21F084A60029905C /* TPVerifyViewController.xib in Resources */,
@@ -2620,6 +2824,7 @@
 				DDFE5D9B21CA1BC0005D6D48 /* HUD_info@3x.png in Resources */,
 				DD0D345021F5F75500ECEDF2 /* TPFinancingTotalCellView.xib in Resources */,
 				DDFED67C21D4CF8F00F2F354 /* shareImage.png in Resources */,
+				DD786989221AB9740027566E /* TPTitleCell.xib in Resources */,
 				DD13CF2E21EF59CF0022EECC /* TPAccountSafeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2735,6 +2940,7 @@
 				DDFED69E21DF67A200F2F354 /* TPFliterModel.m in Sources */,
 				DD13CF0721ED8A500022EECC /* TPMemonicStatusCollectionViewCell.m in Sources */,
 				DD23C28D21E8B6D6007727DA /* TPRgeisterViewModel.m in Sources */,
+				DD3E1CF0221BF0AC007E8907 /* TPReleaseRecordNoDataCellEntity.m in Sources */,
 				DD0243FD2196C968006A1390 /* ViewController.m in Sources */,
 				DD374D5F21C3B41100093A0F /* TZLocationManager.m in Sources */,
 				DD374D5721C3B41100093A0F /* UIView+Layout.m in Sources */,
@@ -2784,6 +2990,7 @@
 				DDE176A021BE5C9500167EB1 /* SJSlider.m in Sources */,
 				DD23C28921E8B6BA007727DA /* TPRegisterViewController.m in Sources */,
 				DD374DBD21C5228100093A0F /* AAChart.m in Sources */,
+				DDBB462A221A7C810035CE07 /* M_ReleaseProjectRecordItem.m in Sources */,
 				DD0D344F21F5F75500ECEDF2 /* TPFinancingTotalCellView.m in Sources */,
 				DD10844621A001030087F244 /* NIMScannerMaskView.m in Sources */,
 				DD4126CA21FABC3400079538 /* TPInvitedNoDataCellEntity.m in Sources */,
@@ -2801,6 +3008,7 @@
 				DD0B450A21F2F78800333016 /* TPYULoginViewController.m in Sources */,
 				DD374DBF21C5228100093A0F /* AAChartModel.m in Sources */,
 				DD10844421A001030087F244 /* NIMScannerBorder.m in Sources */,
+				DDBB4621221A74FD0035CE07 /* TPReleaseProjectCellEntity.m in Sources */,
 				DD2FD6B521C7A17000A28F78 /* YUTabBar.m in Sources */,
 				DD0A93E321F71A8200D9E82E /* TPBuyProductViewController.m in Sources */,
 				DD0244082196C96B006A1390 /* main.m in Sources */,
@@ -2822,16 +3030,20 @@
 				DD374DAB21C5228100093A0F /* AADataLabels.m in Sources */,
 				DDDDFBAF219D60BC0056FC57 /* UIViewExt.m in Sources */,
 				DD0A942621F8682600D9E82E /* TPEveryIncomeTitleDayCellEntity.m in Sources */,
+				DD786984221AA9010027566E /* TPReleaseRecordItemCellEntity.m in Sources */,
 				DDE176A521BE74D700167EB1 /* TPTransInfoModel.m in Sources */,
 				DDFED69B21DEFDE500F2F354 /* QuickDo.m in Sources */,
 				DD374DC421C559AD00093A0F /* TPDetailTitleView.m in Sources */,
+				DDBB4617221A60630035CE07 /* TPReleaseProjectViewController.m in Sources */,
 				DD2FD6B821C7A17000A28F78 /* YUTabBarButton.m in Sources */,
 				DD02391B21A5328500333446 /* TPBuyTokenViewController.m in Sources */,
 				DD02399621AF968E00333446 /* WYNetworkUploadEngine.m in Sources */,
+				DDBB461D221A74AA0035CE07 /* TPReleaseProjectCell.m in Sources */,
 				DD23C2A621E9FCA1007727DA /* TPSetPasswordViewModel.m in Sources */,
 				DD2FD6A921C7685F00A28F78 /* TPMSCell.m in Sources */,
 				DD108424219EA5570087F244 /* TPMeHeaderView.m in Sources */,
 				DD0A93CD21F6F98100D9E82E /* TPFinancingProductDetailVC.m in Sources */,
+				DDBB462B221A7C810035CE07 /* ReleaseProjectItem.m in Sources */,
 				DD13CF0E21EDE9C10022EECC /* YURootViewController.m in Sources */,
 				DD4126B921F9B0CD00079538 /* YUSpaceTableViewCellEntity.m in Sources */,
 				DD02399A21AF968E00333446 /* WYNetworkDownloadEngine.m in Sources */,
@@ -2839,6 +3051,7 @@
 				DDAA117721E72BD800F5D184 /* MBProgressHUD+Add.m in Sources */,
 				DD0B44F021F1A7FE00333016 /* TPResetPassWordByEmailViewModel.m in Sources */,
 				DDDDFB87219ACC310056FC57 /* TPCrowdfundCell.m in Sources */,
+				DDBB4631221A922F0035CE07 /* TPReleaseProjectDetailVC.m in Sources */,
 				DDFE5DD421CDF22E005D6D48 /* TPPublish.m in Sources */,
 				DD02399C21AF968E00333446 /* WYNetworkBaseEngine.m in Sources */,
 				DD374DAE21C5228100093A0F /* AASubtitle.m in Sources */,
@@ -2855,9 +3068,12 @@
 				DD02444F21992F09006A1390 /* UIColor+Additions.m in Sources */,
 				DD10845321A3EC6A0087F244 /* TPChainTakeViewController.m in Sources */,
 				DD108421219E9EC70087F244 /* TPMeCell.m in Sources */,
+				DD786980221AA4530027566E /* TPReleaseRecordItemCell.m in Sources */,
 				DDDDFB90219BE1820056FC57 /* TPHeaderComView.m in Sources */,
+				DD3E1CE4221BEAB5007E8907 /* TPReleasePrjNoMoreCell.m in Sources */,
 				DD13CF3821EF5B5A0022EECC /* TPAccountSafeItemTableViewCellEntity.m in Sources */,
 				DDFED6B121E065F100F2F354 /* UITableView+YUTableViewAddition.m in Sources */,
+				DD3E1CE8221BEB13007E8907 /* TPReleasePrjNoMoreCellEntity.m in Sources */,
 				DD10842D219EB60F0087F244 /* TPAboutViewController.m in Sources */,
 				DD72F435219A7F12004C0DAF /* TPBaseViewController.m in Sources */,
 				DDDDFB8A219AD0550056FC57 /* UIView+TPExtension.m in Sources */,
@@ -2889,6 +3105,7 @@
 				DD02391E21A5570B00333446 /* TPTranDetailViewController.m in Sources */,
 				DD0B44FE21F1BA8000333016 /* TPRestPasswordByPrivateKeyViewModel.m in Sources */,
 				DD10845C21A401560087F244 /* TPComTextView.m in Sources */,
+				DDBB4638221A9A810035CE07 /* TPReleaseDetailMainInfoCell.m in Sources */,
 				DD374DB421C5228100093A0F /* AABar.m in Sources */,
 				DD23C29221E99E74007727DA /* TPGuiderViewController.m in Sources */,
 				DD0244442196DD39006A1390 /* TPTransactionViewController.m in Sources */,
@@ -2911,6 +3128,7 @@
 				DD10844821A001030087F244 /* NIMScannerViewController.m in Sources */,
 				DD1F511E22151B4900DB5442 /* YUAlertViewController.m in Sources */,
 				DD0B450221F1BD6D00333016 /* TPRestPasswordViewModel.m in Sources */,
+				DDBB463C221A9ACB0035CE07 /* TPReleaseDetailMainInfoCellEntity.m in Sources */,
 				DD02399721AF968E00333446 /* WYNetworkDownloadResumeDataInfo.m in Sources */,
 				DD10845921A3EC900087F244 /* TPChainReceiptViewController.m in Sources */,
 				DD374DB021C5228100093A0F /* AACrosshair.m in Sources */,
@@ -2919,7 +3137,9 @@
 				DD23C2B821EC98D3007727DA /* TPMnemonicDisplayViewModel.m in Sources */,
 				DD374D5521C3B41100093A0F /* TZAssetModel.m in Sources */,
 				DD02393721ABECD100333446 /* TPSellViewController.m in Sources */,
+				DD78698C221ABA100027566E /* TPTitleCellEntity.m in Sources */,
 				DD0239B521B1269E00333446 /* TPCurrencyRatio.m in Sources */,
+				DDBB4629221A7C810035CE07 /* M_ReleaseProjectJoinedDetail.m in Sources */,
 				DD10845021A2B4B60087F244 /* TPTokenBottomView.m in Sources */,
 				DDFED6B321E065F100F2F354 /* UITableView+YUTableView.m in Sources */,
 				DDF69FB521C0F42C006EE7A4 /* CountDown.m in Sources */,
@@ -2937,6 +3157,7 @@
 				DD374D5621C3B41100093A0F /* NSBundle+TZImagePicker.m in Sources */,
 				DD10845621A3EC7E0087F244 /* TPChainTransferViewController.m in Sources */,
 				DDFED69221DDA88500F2F354 /* PHJTransformPinyin.m in Sources */,
+				DD3E1CEC221BF096007E8907 /* TPReleaseRecordNoDataCell.m in Sources */,
 				DDF69FBE21C26B1E006EE7A4 /* TPTransDetailModel.m in Sources */,
 				DD0D344A21F5B06400ECEDF2 /* TPInviteRegSecondPageTableViewCellEntity.m in Sources */,
 				DDF7B9B621BBA25000BE35D6 /* TPExchangeRate.m in Sources */,
@@ -2973,6 +3194,7 @@
 				DD374DA721C5228100093A0F /* AALabels.m in Sources */,
 				DD02394A21AE408000333446 /* TPTransView.m in Sources */,
 				DD0A93FC21F8126900D9E82E /* MyStoreItemModel.m in Sources */,
+				DD786988221AB9740027566E /* TPTitleCell.m in Sources */,
 				DD374DB721C5228100093A0F /* AAAnimation.m in Sources */,
 				DD02393121ABCE8200333446 /* GBTagListView.m in Sources */,
 				DD02399121AF968E00333446 /* WYNetworkRequestModel.m in Sources */,
@@ -3168,6 +3390,11 @@
 				CODE_SIGN_ENTITLEMENTS = ToPay/ToPay.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SXV4N6YG2P;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SDK/Bitcode",
+					"$(PROJECT_DIR)/SDK/Without\\ Bitcode",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/ToPay/TP.pch";
 				INFOPLIST_FILE = ToPay/Info.plist;
@@ -3177,6 +3404,61 @@
 					"@executable_path/Frameworks",
 				);
 				NEW_SETTING = "";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"jcore-ios-1.2.6\"",
+					"-l\"jpush-ios-3.1.2\"",
+					"-l\"resolv\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AFNetworking\"",
+					"-framework",
+					"\"BlocksKit\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"Charts\"",
+					"-framework",
+					"\"CoreFoundation\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"FDFullscreenPopGesture\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"IQKeyboardManager\"",
+					"-framework",
+					"\"MBProgressHUD\"",
+					"-framework",
+					"\"MJExtension\"",
+					"-framework",
+					"\"MJRefresh\"",
+					"-framework",
+					"\"Masonry\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-framework",
+					"\"SGPagingView\"",
+					"-framework",
+					"\"SVProgressHUD\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"WRNavigationBar\"",
+					"-framework",
+					"\"YYCache\"",
+					"-weak_framework",
+					"\"UserNotifications\"",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "N-NSTechnology.ToPay";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ToPay/ToPay-Bridging-Header.h";
@@ -3195,6 +3477,11 @@
 				CODE_SIGN_ENTITLEMENTS = ToPay/ToPay.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SXV4N6YG2P;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SDK/Bitcode",
+					"$(PROJECT_DIR)/SDK/Without\\ Bitcode",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/ToPay/TP.pch";
 				INFOPLIST_FILE = ToPay/Info.plist;
@@ -3204,6 +3491,61 @@
 					"@executable_path/Frameworks",
 				);
 				NEW_SETTING = "";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"jcore-ios-1.2.6\"",
+					"-l\"jpush-ios-3.1.2\"",
+					"-l\"resolv\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AFNetworking\"",
+					"-framework",
+					"\"BlocksKit\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"Charts\"",
+					"-framework",
+					"\"CoreFoundation\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"FDFullscreenPopGesture\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"IQKeyboardManager\"",
+					"-framework",
+					"\"MBProgressHUD\"",
+					"-framework",
+					"\"MJExtension\"",
+					"-framework",
+					"\"MJRefresh\"",
+					"-framework",
+					"\"Masonry\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-framework",
+					"\"SGPagingView\"",
+					"-framework",
+					"\"SVProgressHUD\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"WRNavigationBar\"",
+					"-framework",
+					"\"YYCache\"",
+					"-weak_framework",
+					"\"UserNotifications\"",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "N-NSTechnology.ToPay";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ToPay/ToPay-Bridging-Header.h";

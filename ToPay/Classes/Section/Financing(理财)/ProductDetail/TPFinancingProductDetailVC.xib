@@ -25,7 +25,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xSD-oX-rzp">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="615"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="eAb-1l-7gA"/>
@@ -58,12 +58,12 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="BMU-cQ-gLS" firstAttribute="top" secondItem="xSD-oX-rzp" secondAttribute="bottom" id="Bnn-B8-Cgd"/>
                 <constraint firstItem="xSD-oX-rzp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="EAG-JH-PQm"/>
                 <constraint firstAttribute="bottom" secondItem="BMU-cQ-gLS" secondAttribute="bottom" id="N1Q-vB-EHy"/>
                 <constraint firstAttribute="trailing" secondItem="BMU-cQ-gLS" secondAttribute="trailing" id="QxB-zS-D7e"/>
                 <constraint firstAttribute="trailing" secondItem="xSD-oX-rzp" secondAttribute="trailing" id="R7y-NN-kuB"/>
                 <constraint firstItem="xSD-oX-rzp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="VhS-Qc-xjo"/>
-                <constraint firstAttribute="bottom" secondItem="xSD-oX-rzp" secondAttribute="bottom" id="tpH-Of-oxJ"/>
                 <constraint firstItem="BMU-cQ-gLS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zFl-bn-Gk1"/>
             </constraints>
             <point key="canvasLocation" x="109.59999999999999" y="48.125937031484263"/>

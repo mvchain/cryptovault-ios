@@ -355,9 +355,7 @@
      */
     if (self.isPublish){
         NSString * str = self.transType == TPTransactionTypeTransfer ? self.tokenName:@"BZTB";// 单位
-        
          transView.con1 = TPString(@"%.4f %@",[self.comText.comTextField.text floatValue] * [self.transInfo.price floatValue] * self.currentPrice,str);
-        
     }
     else
         transView.con1 = TPString(@"%.2f %@",[self.comText.comTextField.text floatValue],@"BZTB");
@@ -440,11 +438,8 @@
             make.height.equalTo(@16);
             make.top.equalTo(@27);
         }];
-        
-        
         self.amountLab = [YFactoryUI YLableWithText:amount color:TP59Color font:FONT(14)];
         [self addSubview:self.amountLab];
-        
         [self.amountLab mas_makeConstraints:^(MASConstraintMaker *make)
          {
              make.centerX.equalTo(self);
@@ -454,7 +449,4 @@
     }
     return self;
 }
-
-
-
 @end

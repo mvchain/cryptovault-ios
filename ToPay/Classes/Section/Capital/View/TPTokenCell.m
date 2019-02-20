@@ -59,9 +59,9 @@
 
 -(void)setTokenTopic:(TPTokenTopic *)tokenTopic
 {
-    NSArray *tranArr =@[@"",@" 收入",@" 支出"];
+    NSArray *tranArr =@[@"",@" 收入",@"支出",@""];
     _tokenTopic = tokenTopic;
-    int tindex = [tokenTopic.transactionType intValue];
+    int tindex = [tokenTopic.transactionType intValue] <3?[tokenTopic.transactionType intValue]:0;
     _nickLab.text = TPString(@"%@%@",tokenTopic.orderRemark,tranArr[tindex]);
     _timeLab.text = [tokenTopic.createdAt conversionTimeStamp];
     // set style

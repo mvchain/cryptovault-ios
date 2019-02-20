@@ -14,7 +14,7 @@
 #import "TPEndViewController.h"
 #import "TPRecordViewController.h"
 #import "TPIJoinedViewController.h"
-
+#import "TPReleaseProjectViewController.h"
 @interface TPCrowdfundingViewController ()<SGPageTitleViewDelegate, SGPageContentScrollViewDelegate>
 
 @property (nonatomic, strong) SGPageTitleView *pageTitleView;
@@ -33,26 +33,28 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-
+  
     self.customNavBar.title = @"众筹";
-    
     [self setupPageView];
-    
     [self setNavItem];
 }
 
-
 -(void)setNavItem
 {
-    [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"list_icon_black"]];
+    [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"order"]];
     [self.customNavBar wr_setBottomLineHidden:YES];
+    [self.customNavBar wr_setLeftButtonWithImage:[UIImage imageNamed:@"facoin"]];
     TPWeakSelf;
-    
+
     [self.customNavBar setOnClickRightButton:^{
         TPRecordViewController *recordVC = [[TPRecordViewController alloc] init];
         [weakSelf.navigationController pushViewController:recordVC animated:YES];
     }];
+    [self.customNavBar setOnClickLeftButton:^{
+        TPReleaseProjectViewController *re = [[TPReleaseProjectViewController alloc]init];
+        [weakSelf.navigationController pushViewController:re animated:YES];
+    }];
+    
 }
 
 -(void)setupPageView
