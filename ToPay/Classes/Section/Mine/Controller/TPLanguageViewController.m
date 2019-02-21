@@ -9,6 +9,7 @@
 #import "TPLanguageViewController.h"
 #import "TPLangUageCell.h"
 #import "YUTMineCellTableViewCellEntity.h"
+#import "YUAlertViewController.h"
 @interface TPLanguageViewController ()
 @property (nonatomic, strong) NSArray *dataSource;
 @end
@@ -23,7 +24,7 @@ static NSString  *TPLangUageCellCellId = @"languageCell";
 //    self.navigationItem.title = @"语言";
     self.customNavBar.title = @"语言";
     [self.view sendSubviewToBack:self.baseTableView];
-    _dataSource = @[@"中文",@"英文",@"韩文",@"日文"];
+    _dataSource = @[@"中文",@"英文"];
     [self showSystemNavgation:NO];
     [self.baseTableView mas_makeConstraints:^(MASConstraintMaker *make)
      {
@@ -32,6 +33,8 @@ static NSString  *TPLangUageCellCellId = @"languageCell";
          make.width.equalTo(@(KWidth));
          make.height.equalTo(self.view.mas_height);
      }];
+    self.baseTableView.delegate = self;
+    
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -53,7 +56,28 @@ static NSString  *TPLangUageCellCellId = @"languageCell";
 {
     return  48;
 }
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSArray *tips= @[@"中文",@"英文"];
+    
+    if(indexPath.row == 0 ){
+         [[NSUserDefaults standardUserDefaults] setObject:@"zh-Hans" forKey:@"appLanguage"];
+    }else {
+         [[NSUserDefaults standardUserDefaults] setObject:@"en" forKey:@"appLanguage"];
+    }
+    YUAlertViewController *aler = [[YUAlertViewController alloc]init];
+    [aler yu_setting:^(YUAlertViewControllerConfirmOnlyStyle *style) {
+        style.yu_alertTitle = @"提示";
+        style.yu_alertContent = TPString(@"当前修改为%@",tips[indexPath.row]);
+    } confirmAction:^(id sender) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:KNotiLanguageChange object:nil];
+        
+    }];
+    [self presentViewController:aler animated:YES completion:^{
+        
+    }];
+    
+    
+}
 
 
 - (void)didReceiveMemoryWarning {

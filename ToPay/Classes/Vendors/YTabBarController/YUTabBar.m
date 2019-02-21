@@ -48,7 +48,13 @@
     }
     return _saveTabBarArrM;
 }
-
+- (void)changeTitles:(NSArray *)titleArr {
+    for (int i = 0; i < titleArr.count; i++) {
+        YUTabBarButton *tbBtn = self.saveTabBarArrM[i];
+        
+        tbBtn.title.text = titleArr[i];
+    }
+}
 - (instancetype)initWithFrame:(CGRect)frame norImageArr:(NSArray *)norImageArr SelImageArr:(NSArray *)selImageArr TitleArr:(NSArray *)titleArr Config:(YUTabBarConfig *)config{
     if (self = [super initWithFrame:frame])
     {

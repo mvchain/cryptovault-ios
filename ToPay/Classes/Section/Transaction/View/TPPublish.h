@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) SJButtonSlider *comSlider;
 
 @property (nonatomic, strong) TPTransInfoModel *transModel;
-
+@property (nonatomic, strong) UILabel *floatLab;
 - (instancetype)initWithTransType:(TPTransactionType)transType tokenName:(NSString *)tokenName currName:(NSString *)currName;
 
 @end

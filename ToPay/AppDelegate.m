@@ -28,16 +28,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [self setLanguage];
     [self setUpNetWorkManager];
     [self refreshToken];
     [self setNavBarAppearence];
     [self setUpIQKeyBoardManager];
     [self setUpJpush];
     [self startAutorefrshToken];
-    [self setLanguage];
     [self setObserver];
     [self setUpWindow];
-    [[NSUserDefaults standardUserDefaults] setObject:@"zh-Hans" forKey:@"appLanguage"];
+
    // NSString *str = Localized(@"capital");
     [JPUSHService setupWithOption:launchOptions appKey:@"ffb83d2be1729d733dd03c34"
                           channel:nil
@@ -57,7 +57,7 @@
 }
 - (void)setLanguage {
     
-    if (![[NSUserDefaults standardUserDefaults]objectForKey:@"appLanguage"]) {
+   if (![[NSUserDefaults standardUserDefaults]objectForKey:@"appLanguage"]) {
         NSArray *languages = [NSLocale preferredLanguages];
         NSString *language = [languages objectAtIndex:0];
 
@@ -67,7 +67,7 @@
         }else{
             [[NSUserDefaults standardUserDefaults] setObject:@"en" forKey:@"appLanguage"];
         }
-    }
+  }
 }
 - (void)startAutorefrshToken {
     
@@ -161,34 +161,6 @@
     }];
 }
 
-//- (void)refreshToken
-//{
-//    if ([TPLoginUtil isLogin] == NO)
-//    {
-//        [USER_DEFAULT setObject:@"1" forKey:TPNowLegalCurrencyKey];
-//        [USER_DEFAULT setObject:@"￥" forKey:TPNowLegalSymbolKey];
-//        return ;
-//    }
-//    [[WYNetworkConfig sharedConfig] addCustomHeader:@{@"Authorization":[TPLoginUtil userInfo].refreshToken}];
-//    [[WYNetworkManager sharedManager] sendPostRequest:WYJSONRequestSerializer url:@"user/refresh" parameters:nil success:^(id responseObject, BOOL isCacheObject)
-//    {
-//        if ([responseObject[@"code"] isEqual:@200])
-//        {
-//           TPLoginModel *loginM = [TPLoginUtil userInfo];
-//            loginM.token = responseObject[@"data"];
-//            [TPLoginUtil saveUserInfo:loginM];
-//            [[WYNetworkConfig sharedConfig] addCustomHeader:@{
-//                                                            @"Authorization":loginM.token,
-//                                                              @"Accept-Language":@"zh-cn"
-//                                                              }];
-//            [TPLoginUtil requestExchangeRate];
-//        }
-//    }
-//        failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
-//    {
-//        NSLog(@"刷新token失败");
-//    }];
-//}
 
 
 - (void)applicationWillResignActive:(UIApplication *)application

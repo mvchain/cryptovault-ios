@@ -56,6 +56,7 @@
     config.imageSize = CGSizeMake(23, 23);
 
     return [self initWithTabBarControllers:@[navC,navC_1,navC1,navC2,navC3] NorImageArr:@[@"assets_unselected_icon",@"financial_unselected",@"trand_unselected_icon",@"Crowdfunding_unselected_icon",@"mine_unselected_icon"] SelImageArr:@[@"assets_selected_icon",@"financial_selected",@"trand_selected_icon",@"Crowdfunding_selected_icon",@"mine_selected_icon"] TitleArr:@[@"资产",@"理财",@"交易",@"众筹",@"我的"] Config:config];
+
 }
 
 - (void)viewDidLoad
@@ -69,6 +70,12 @@
        
     self.tabBar.layer.shadowOpacity = 0.25;
    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateLanguage) name:KNotiLanguageChange object:nil];
+    
+    
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
     
 }
@@ -103,6 +110,7 @@
     //KVO
     [self addObserver:self forKeyPath:@"selectedIndex" options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:nil];
     
+    [self updateLanguage];
     return self;
 }
 
@@ -118,8 +126,20 @@
 - (void)dealloc {
 //    NSLog(@"被销毁了");
     [self removeObserver:self forKeyPath:@"selectedIndex"];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
 }
 
 
-
+- (void)updateLanguage {
+    NSString *lan = [[NSUserDefaults standardUserDefaults]objectForKey:@"appLanguage"];
+    
+    NSArray *words = @[ Localized(@"capital"),
+                        Localized(@"financing"),
+                        Localized(@"transaction"),
+                        Localized(@"crowd-funding"),
+                        Localized(@"mine")];
+    [self.YU_TabBar changeTitles:words];
+    
+}
 @end

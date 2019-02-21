@@ -27,5 +27,5 @@
 
 /** selectedIndex (默认为0) */
 @property (nonatomic, assign) NSInteger selectedIndex;
-
+- (void)changeTitles:(NSArray *)titleArr;
 @end

@@ -82,9 +82,15 @@
             {
                 self.publishView.transModel = self.transInfo;
             }
-            self.publishView.comSlider.slider.maxValue = 100 + [self.transInfo.max floatValue];
-            self.publishView.comSlider.slider.minValue = 100 + [self.transInfo.min floatValue];
-            self.publishView.comSlider.slider.value = 100;
+            CGFloat min = [self.transInfo.min floatValue];
+            CGFloat max = [self.transInfo.max floatValue];
+            CGFloat silder_max_value = 100 + max;
+            CGFloat silder_min_value = 100 + min;
+            self.publishView.comSlider.slider.maxValue = silder_max_value;
+            self.publishView.comSlider.slider.minValue = silder_min_value;
+            CGFloat curValue = (silder_min_value + silder_max_value) / 2.0 ;
+            self.publishView.comSlider.slider.value = curValue;
+            self.publishView.floatLab.text = TPString(@"%.2f%%",curValue);
         }
     }
         failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)

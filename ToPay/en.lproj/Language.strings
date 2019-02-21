@@ -5,5 +5,8 @@
   Created by 蒲公英 on 2019/1/29.
   Copyright © 2019年 蒲公英. All rights reserved.
 */
-"capital" = "capital";
-
+"capital" = "Capital";
+"financing" = "Financing";
+"transaction" = "Transaction";
+"crowd-funding" = "Crowd-funding";
+"mine" = "Mine";

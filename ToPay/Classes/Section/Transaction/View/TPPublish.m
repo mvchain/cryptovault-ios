@@ -9,7 +9,7 @@
 #import "TPPublish.h"
 
 @interface TPPublish ()
-@property (nonatomic, strong) UILabel *floatLab;
+
 @property (nonatomic, strong) UILabel *msLab;
 @property (nonatomic, strong) UILabel *currentLab;
 

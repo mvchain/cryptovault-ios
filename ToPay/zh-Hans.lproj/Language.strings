@@ -6,4 +6,7 @@
   Copyright © 2019年 蒲公英. All rights reserved.
 */
 "capital" = "资产";
-
+"financing" = "理财";
+"transaction" = "交易";
+"crowd-funding" = "众筹";
+"mine" = "我的";

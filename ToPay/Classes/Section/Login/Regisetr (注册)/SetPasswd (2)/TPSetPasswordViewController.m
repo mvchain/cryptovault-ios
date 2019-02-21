@@ -29,7 +29,8 @@
 - (void)initUI {
     
     NSArray<YUTextView *> *textViews = @[self.passWordTextView,self.payPassWordTextView];
-    NSArray *titles = @[@"登陆密码",@"支付密码"];
+    NSArray *titles = @[@"登录密码",@"支付密码"];
+    self.payPassWordTextView.xibContainer.textField.keyboardType = UIKeyboardTypeNumberPad;
     int index = 0 ;
     for (YUTextView *textView in textViews) {
         [textView setHintText:titles[index]];
@@ -44,10 +45,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initUI];
-    
     // Do any additional setup after loading the view from its nib.
 }
-
 #pragma mark custom method
 
 #pragma mark event method

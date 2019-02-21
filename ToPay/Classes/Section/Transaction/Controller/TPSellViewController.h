@@ -18,7 +18,7 @@
 @property (nonatomic, strong) NSString *currName;
 @property (nonatomic, strong) TPTransactionModel *transModel;
 @property (nonatomic ,assign) BOOL isFromTableView;
-
+@property (nonatomic,copy) NSString *left_tokenName ;
 - (instancetype)initWithPairId:(NSString *)pairId WithTransType:(TPTransactionType)transType publish:(BOOL)isPublish;
 
 

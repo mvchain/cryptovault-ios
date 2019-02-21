@@ -62,7 +62,7 @@
     YYCache *listCache = [YYCache cacheWithName:TPCacheName];
     self.cData = (CLData *)[listCache objectForKey:self.vrtTopic.tokenId];
     
-    self.customNavBar.title = TPString(@"%@/%@",self.cData.tokenName,@"BZTB");
+    self.customNavBar.title = TPString(@"%@/%@",self.vrtTopic.tokenName ,@"BZTB");
     [self showSystemNavgation:NO];
     
     
@@ -106,8 +106,10 @@
     {
         NSLog(@"发布出售订单");
         TPSellViewController *SellVC = [[TPSellViewController alloc]initWithPairId:self.vrtTopic.pairId WithTransType:TPTransactionTypeTransferOut publish:YES];
+        SellVC.left_tokenName = self.vrtTopic.tokenName;
         SellVC.currName = self.currName;
         SellVC.cData = self.cData;
+        
         [self.navigationController pushViewController:SellVC animated:YES];
     }];
     
@@ -115,6 +117,7 @@
     {
         NSLog(@"发布购买订单");
         TPSellViewController *SellVC = [[TPSellViewController alloc]initWithPairId:self.vrtTopic.pairId WithTransType:TPTransactionTypeTransfer publish:YES];
+        SellVC.left_tokenName = self.vrtTopic.tokenName;
         SellVC.currName = self.currName;
         SellVC.cData = self.cData;
         [self.navigationController pushViewController:SellVC animated:YES];
