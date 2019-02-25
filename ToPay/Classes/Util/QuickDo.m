@@ -17,7 +17,6 @@
 + (void)setJPushAlians:(NSString *)aliansName  {
     [JPUSHService setAlias:aliansName completion:^(NSInteger iResCode, NSString *iAlias, NSInteger seq) {
         NSLog(@"%d%@%d",iResCode,iAlias,seq);
-        
     } seq:0];
     
 }

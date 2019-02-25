@@ -181,7 +181,8 @@ class TPBalloonMarker: MarkerImage
     open override func refreshContent(entry: ChartDataEntry, highlight: Highlight)
     {
         let stringValue = "BZTB";
-        setLabel(String(format:"%.2f %@", entry.y,stringValue));
+        
+        setLabel(String(format:"%.2f %@\ndsdsdsd", entry.y,stringValue));
     }
     @objc open func setLabel(_ newLabel: String)
     {

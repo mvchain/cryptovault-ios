@@ -63,7 +63,7 @@ yudef_lazyLoad( NSMutableArray <YUCellEntity *>, dataArrays, _dataArrays)
     }];
 }
 - (void)setUpNav {
-    self.customNavBar.title = @"发布项目";
+    self.customNavBar.title = @"发币项目";
     _top.constant = self.customNavBar.height;
 }
 #pragma mark table

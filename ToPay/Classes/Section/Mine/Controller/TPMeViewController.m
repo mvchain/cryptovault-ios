@@ -38,7 +38,6 @@ yudef_lazyLoad(NSMutableArray<YUCellEntity*>, datarr, _datarr)
     [self showSystemNavgation:NO];
     _dataSource = @[@"账户安全",@"邀请注册",@"语言",@"关于",];
     _dataSourceImg = @[@"mine_safe_icon",@"mine_invite_icon",@"language_icon",@"about_icon"];
-    
     for(int i=0;i<_dataSource.count;i++){
         YUTMineCellTableViewCellEntity*en =  [[YUTMineCellTableViewCellEntity alloc ] init];
         en.title = _dataSource[i];
@@ -49,10 +48,8 @@ yudef_lazyLoad(NSMutableArray<YUCellEntity*>, datarr, _datarr)
     en.yu_cellHeight =  23;
     en.bgcolor = [UIColor colorWithHex:@"#F2F2F2"];
     [self.datarr addObject:en];
-    
     YUMineLoginOutCellEntity *en_c = [[YUMineLoginOutCellEntity alloc] init];
     [self.datarr addObject:en_c];
-    
     TPMeHeaderView *headerView = [[TPMeHeaderView alloc] init];
     [self.view addSubview:headerView];
     [headerView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -62,6 +59,7 @@ yudef_lazyLoad(NSMutableArray<YUCellEntity*>, datarr, _datarr)
     }];
     /*
      
+     
      */
     [self.baseTableView mas_makeConstraints:^(MASConstraintMaker *make)
      {
@@ -70,6 +68,8 @@ yudef_lazyLoad(NSMutableArray<YUCellEntity*>, datarr, _datarr)
         make.width.equalTo(@(KWidth));
         make.height.equalTo(self.view);
     }];
+    self.baseTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
     [self.view sendSubviewToBack:self.baseTableView];
 }
 

@@ -91,6 +91,7 @@
             CGFloat curValue = (silder_min_value + silder_max_value) / 2.0 ;
             self.publishView.comSlider.slider.value = curValue;
             self.publishView.floatLab.text = TPString(@"%.2f%%",curValue);
+
         }
     }
         failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)

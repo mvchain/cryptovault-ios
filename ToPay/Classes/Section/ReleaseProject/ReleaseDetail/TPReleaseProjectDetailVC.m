@@ -43,7 +43,7 @@ yudef_lazyLoad(NSMutableArray<YUCellEntity *> , dataArrays, _dataArrays);
 }
 
 - (void)setUpNav {
-    NSString *title = TPString(@"%@-发布项目",self.fromModel.projectName);
+    NSString *title = TPString(@"%@-发币项目",self.fromModel.projectName);
     self.customNavBar.title = title;
     self.top.constant = self.customNavBar.height;
 }

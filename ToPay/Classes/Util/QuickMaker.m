@@ -12,13 +12,11 @@
 @implementation QuickMaker
 + (UIImage *)makeImageWithView:(UIView *)view withSize:(CGSize)size
 {
-    
     UIGraphicsBeginImageContextWithOptions(size, NO, 0.0);
     [view.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return image;
-    
 }
 + (NSString *)makeCnDayHourMinuteSecWithTimeCuo:(long long )time {
     

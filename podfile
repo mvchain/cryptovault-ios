@@ -22,6 +22,9 @@ pod 'FDFullscreenPopGesture'
 pod 'JPush'
 pod 'MBProgressHUD'
 pod 'BlocksKit'
+pod 'TZImagePickerController' #iOS8 and later
+pod 'TZImagePickerController', '2.2.6' #iOS6、iOS7
+pod 'Aspects'
 # pod 'ChartsRealm'
 # pod 'TZImagePickerController' 
 

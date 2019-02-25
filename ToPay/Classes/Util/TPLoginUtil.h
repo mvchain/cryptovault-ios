@@ -50,6 +50,7 @@
 
 + (void)refreshToken:(void (^)(bool isSucc))status;
 
++ (void)refreshToken_if_err_logout ;
 
 + (void)setRequestToken:(NSString *)token ;
 

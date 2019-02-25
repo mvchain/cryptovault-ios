@@ -67,6 +67,7 @@ yudef_property_strong(NSMutableArray<YUCellEntity *>, dataArrays);
             for (NSDictionary *dic in res[@"data"]) {
                 MyStoreItemModel *model = [[MyStoreItemModel alloc] initWithDictionary:dic];
                 TPMyStoreItemCellEntity *en = [[TPMyStoreItemCellEntity alloc] init];
+                en.financialType = self.financialType;
                 en.data = model;
                 [wsf.dataArrays addObject:en];
             }

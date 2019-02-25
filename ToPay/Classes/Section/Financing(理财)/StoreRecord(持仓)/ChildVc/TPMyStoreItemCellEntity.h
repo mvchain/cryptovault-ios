@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TPMyStoreItemCellEntity : YUCellEntity
-
+yudef_property_assign(int, financialType);
 @end
 
 NS_ASSUME_NONNULL_END

@@ -106,6 +106,7 @@ static NSString  *TPUSDTCellId = @"USDTCell";
                             @"pairId":@(self.pairId),
                             @"transactionType":self.transactionType,
                             @"type":@"1"};
+    NSLog(@"%@",dict);
     
     [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"transaction" parameters:
      dict success:^(id responseObject, BOOL isCacheObject)
@@ -165,8 +166,8 @@ static NSString  *TPUSDTCellId = @"USDTCell";
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //[self.transactionType  isEqualToString: @"1"] ?
-    TPSellViewController *sellVC = [[TPSellViewController alloc] initWithPairId:TPString(@"%ld",(long)self.pairId)  WithTransType:0 publish:NO];
+    int transType =  [self.transactionType  isEqualToString: @"1"] ?2:1;
+    TPSellViewController *sellVC = [[TPSellViewController alloc] initWithPairId:TPString(@"%ld",(long)self.pairId)  WithTransType:transType publish:NO];
     sellVC.currName = self.currName;
     sellVC.cData = self.cData;
     sellVC.transModel = self.transactionTopic[indexPath.row];

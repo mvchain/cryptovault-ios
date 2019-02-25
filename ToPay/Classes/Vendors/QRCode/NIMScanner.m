@@ -95,14 +95,12 @@
     NSAssert(completion != nil, @"必须传入完成回调");
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        
         CIDetector*detector = [CIDetector detectorOfType:CIDetectorTypeQRCode context:nil options:@{CIDetectorAccuracy:CIDetectorAccuracyHigh}];
         NSData*imageData =UIImagePNGRepresentation(image);
         CIImage*ciImage = [CIImage imageWithData:imageData];
         NSArray*features = [detector featuresInImage:ciImage];
         CIQRCodeFeature*feature = [features objectAtIndex:0];
         NSString*scannedResult = feature.messageString;
-        
         dispatch_async(dispatch_get_main_queue(), ^{
             completion(@[scannedResult]);
         });

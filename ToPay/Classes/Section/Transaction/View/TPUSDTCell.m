@@ -62,16 +62,16 @@
     
     if ([self.transType  isEqualToString: @"1"])
     {
-        _limitLab.text = TPString(@"剩余可购买量：%.1f",[transModel.limitValue floatValue]);
+        _limitLab.text = TPString(@"剩余可购买量：%.4f",[transModel.limitValue floatValue]);
     }
         else
     {
-        _limitLab.text = TPString(@"剩余可出售量：%.1f",[transModel.limitValue floatValue]);
+        _limitLab.text = TPString(@"剩余可出售量：%.4f",[transModel.limitValue floatValue]);
     }
     
     CGFloat price = [QuickMaker makeFloatNumber:[transModel.price floatValue] tailNum:4];
     
-    _priceLab.text = TPString(@"%.4f %@",price,self.tokenName);
+    _priceLab.text = TPString(@"%.4f %@",price,@"BZTB");
 }
 
 -(void)layoutSubviews
@@ -91,14 +91,12 @@
         make.top.equalTo(@13);
         make.height.equalTo(@19);
     }];
-    
     [_limitLab mas_makeConstraints:^(MASConstraintMaker *make)
      {
          make.left.equalTo(self.iconImgV.mas_right).with.offset(9);
          make.top.equalTo(self.nickLab.mas_bottom).with.offset(4);
          make.height.equalTo(@16);
      }];
-    
     [_priceLab mas_makeConstraints:^(MASConstraintMaker *make)
     {
         make.right.equalTo(self.mas_right).with.offset(-16);
@@ -106,8 +104,6 @@
         make.height.equalTo(@21);
     }];
 }
-
-
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];

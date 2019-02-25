@@ -197,21 +197,6 @@
 		DD2FD6B821C7A17000A28F78 /* YUTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2FD6B221C7A16F00A28F78 /* YUTabBarButton.m */; };
 		DD2FD6B921C7A17000A28F78 /* YUTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2FD6B421C7A16F00A28F78 /* YUTabBarController.m */; };
 		DD2FD6C621C7AD3000A28F78 /* TPNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2FD6C521C7AD3000A28F78 /* TPNavigationController.m */; };
-		DD374D5221C3B41100093A0F /* TZImageCropManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DD374D3721C3B41100093A0F /* TZImageCropManager.m */; };
-		DD374D5321C3B41100093A0F /* TZAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD374D3921C3B41100093A0F /* TZAssetCell.m */; };
-		DD374D5421C3B41100093A0F /* TZVideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD374D3A21C3B41100093A0F /* TZVideoPlayerController.m */; };
-		DD374D5521C3B41100093A0F /* TZAssetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD374D3B21C3B41100093A0F /* TZAssetModel.m */; };
-		DD374D5621C3B41100093A0F /* NSBundle+TZImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = DD374D3C21C3B41100093A0F /* NSBundle+TZImagePicker.m */; };
-		DD374D5721C3B41100093A0F /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = DD374D3F21C3B41100093A0F /* UIView+Layout.m */; };
-		DD374D5821C3B41100093A0F /* TZPhotoPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD374D4021C3B41100093A0F /* TZPhotoPreviewController.m */; };
-		DD374D5921C3B41100093A0F /* TZImagePickerController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DD374D4121C3B41100093A0F /* TZImagePickerController.bundle */; };
-		DD374D5A21C3B41100093A0F /* TZProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD374D4221C3B41100093A0F /* TZProgressView.m */; };
-		DD374D5B21C3B41100093A0F /* TZImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DD374D4521C3B41100093A0F /* TZImageManager.m */; };
-		DD374D5C21C3B41100093A0F /* TZPhotoPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD374D4721C3B41100093A0F /* TZPhotoPickerController.m */; };
-		DD374D5D21C3B41100093A0F /* TZPhotoPreviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD374D4821C3B41100093A0F /* TZPhotoPreviewCell.m */; };
-		DD374D5E21C3B41100093A0F /* TZImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD374D4E21C3B41100093A0F /* TZImagePickerController.m */; };
-		DD374D5F21C3B41100093A0F /* TZLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DD374D4F21C3B41100093A0F /* TZLocationManager.m */; };
-		DD374D6021C3B41100093A0F /* TZGifPhotoPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD374D5021C3B41100093A0F /* TZGifPhotoPreviewController.m */; };
 		DD374D6321C4B16700093A0F /* TPRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = DD374D6221C4B16700093A0F /* TPRefreshHeader.m */; };
 		DD374D6621C4B18F00093A0F /* TPRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = DD374D6521C4B18F00093A0F /* TPRefreshFooter.m */; };
 		DD374DA521C5228100093A0F /* AAJSFiles.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DD374D6821C5228100093A0F /* AAJSFiles.bundle */; };
@@ -746,35 +731,6 @@
 		DD2FD6C021C7A7E900A28F78 /* TPSwizzlingDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPSwizzlingDefine.h; sourceTree = "<group>"; };
 		DD2FD6C421C7AD3000A28F78 /* TPNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPNavigationController.h; sourceTree = "<group>"; };
 		DD2FD6C521C7AD3000A28F78 /* TPNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPNavigationController.m; sourceTree = "<group>"; };
-		DD374D3521C3B41100093A0F /* TZPhotoPreviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZPhotoPreviewCell.h; sourceTree = "<group>"; };
-		DD374D3621C3B41100093A0F /* TZPhotoPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZPhotoPickerController.h; sourceTree = "<group>"; };
-		DD374D3721C3B41100093A0F /* TZImageCropManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZImageCropManager.m; sourceTree = "<group>"; };
-		DD374D3821C3B41100093A0F /* TZImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZImageManager.h; sourceTree = "<group>"; };
-		DD374D3921C3B41100093A0F /* TZAssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZAssetCell.m; sourceTree = "<group>"; };
-		DD374D3A21C3B41100093A0F /* TZVideoPlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZVideoPlayerController.m; sourceTree = "<group>"; };
-		DD374D3B21C3B41100093A0F /* TZAssetModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZAssetModel.m; sourceTree = "<group>"; };
-		DD374D3C21C3B41100093A0F /* NSBundle+TZImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+TZImagePicker.m"; sourceTree = "<group>"; };
-		DD374D3D21C3B41100093A0F /* TZLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZLocationManager.h; sourceTree = "<group>"; };
-		DD374D3E21C3B41100093A0F /* TZImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZImagePickerController.h; sourceTree = "<group>"; };
-		DD374D3F21C3B41100093A0F /* UIView+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Layout.m"; sourceTree = "<group>"; };
-		DD374D4021C3B41100093A0F /* TZPhotoPreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZPhotoPreviewController.m; sourceTree = "<group>"; };
-		DD374D4121C3B41100093A0F /* TZImagePickerController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TZImagePickerController.bundle; sourceTree = "<group>"; };
-		DD374D4221C3B41100093A0F /* TZProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZProgressView.m; sourceTree = "<group>"; };
-		DD374D4321C3B41100093A0F /* TZGifPhotoPreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZGifPhotoPreviewController.h; sourceTree = "<group>"; };
-		DD374D4421C3B41100093A0F /* TZAssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZAssetCell.h; sourceTree = "<group>"; };
-		DD374D4521C3B41100093A0F /* TZImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZImageManager.m; sourceTree = "<group>"; };
-		DD374D4621C3B41100093A0F /* TZImageCropManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZImageCropManager.h; sourceTree = "<group>"; };
-		DD374D4721C3B41100093A0F /* TZPhotoPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZPhotoPickerController.m; sourceTree = "<group>"; };
-		DD374D4821C3B41100093A0F /* TZPhotoPreviewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZPhotoPreviewCell.m; sourceTree = "<group>"; };
-		DD374D4921C3B41100093A0F /* NSBundle+TZImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+TZImagePicker.h"; sourceTree = "<group>"; };
-		DD374D4A21C3B41100093A0F /* TZAssetModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZAssetModel.h; sourceTree = "<group>"; };
-		DD374D4B21C3B41100093A0F /* TZVideoPlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZVideoPlayerController.h; sourceTree = "<group>"; };
-		DD374D4C21C3B41100093A0F /* TZPhotoPreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZPhotoPreviewController.h; sourceTree = "<group>"; };
-		DD374D4D21C3B41100093A0F /* UIView+Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Layout.h"; sourceTree = "<group>"; };
-		DD374D4E21C3B41100093A0F /* TZImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZImagePickerController.m; sourceTree = "<group>"; };
-		DD374D4F21C3B41100093A0F /* TZLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZLocationManager.m; sourceTree = "<group>"; };
-		DD374D5021C3B41100093A0F /* TZGifPhotoPreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZGifPhotoPreviewController.m; sourceTree = "<group>"; };
-		DD374D5121C3B41100093A0F /* TZProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZProgressView.h; sourceTree = "<group>"; };
 		DD374D6121C4B16700093A0F /* TPRefreshHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPRefreshHeader.h; sourceTree = "<group>"; };
 		DD374D6221C4B16700093A0F /* TPRefreshHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPRefreshHeader.m; sourceTree = "<group>"; };
 		DD374D6421C4B18F00093A0F /* TPRefreshFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPRefreshFooter.h; sourceTree = "<group>"; };
@@ -1257,7 +1213,6 @@
 				DDFE5D9021CA1B93005D6D48 /* TPHUD */,
 				DD2FD6AA21C7A16F00A28F78 /* YTabBarController */,
 				DD374D6721C5228100093A0F /* AAChartKitLib */,
-				DD374D3421C3B41100093A0F /* TZImagePickerController */,
 				DDE1769621BE5C9500167EB1 /* SJSlider */,
 				DD02397321AF968E00333446 /* WYNetwork */,
 				DD02392E21ABCE8100333446 /* GBTagListView2.0 */,
@@ -2186,42 +2141,6 @@
 			path = YTabBarController;
 			sourceTree = "<group>";
 		};
-		DD374D3421C3B41100093A0F /* TZImagePickerController */ = {
-			isa = PBXGroup;
-			children = (
-				DD374D3521C3B41100093A0F /* TZPhotoPreviewCell.h */,
-				DD374D3621C3B41100093A0F /* TZPhotoPickerController.h */,
-				DD374D3721C3B41100093A0F /* TZImageCropManager.m */,
-				DD374D3821C3B41100093A0F /* TZImageManager.h */,
-				DD374D3921C3B41100093A0F /* TZAssetCell.m */,
-				DD374D3A21C3B41100093A0F /* TZVideoPlayerController.m */,
-				DD374D3B21C3B41100093A0F /* TZAssetModel.m */,
-				DD374D3C21C3B41100093A0F /* NSBundle+TZImagePicker.m */,
-				DD374D3D21C3B41100093A0F /* TZLocationManager.h */,
-				DD374D3E21C3B41100093A0F /* TZImagePickerController.h */,
-				DD374D3F21C3B41100093A0F /* UIView+Layout.m */,
-				DD374D4021C3B41100093A0F /* TZPhotoPreviewController.m */,
-				DD374D4121C3B41100093A0F /* TZImagePickerController.bundle */,
-				DD374D4221C3B41100093A0F /* TZProgressView.m */,
-				DD374D4321C3B41100093A0F /* TZGifPhotoPreviewController.h */,
-				DD374D4421C3B41100093A0F /* TZAssetCell.h */,
-				DD374D4521C3B41100093A0F /* TZImageManager.m */,
-				DD374D4621C3B41100093A0F /* TZImageCropManager.h */,
-				DD374D4721C3B41100093A0F /* TZPhotoPickerController.m */,
-				DD374D4821C3B41100093A0F /* TZPhotoPreviewCell.m */,
-				DD374D4921C3B41100093A0F /* NSBundle+TZImagePicker.h */,
-				DD374D4A21C3B41100093A0F /* TZAssetModel.h */,
-				DD374D4B21C3B41100093A0F /* TZVideoPlayerController.h */,
-				DD374D4C21C3B41100093A0F /* TZPhotoPreviewController.h */,
-				DD374D4D21C3B41100093A0F /* UIView+Layout.h */,
-				DD374D4E21C3B41100093A0F /* TZImagePickerController.m */,
-				DD374D4F21C3B41100093A0F /* TZLocationManager.m */,
-				DD374D5021C3B41100093A0F /* TZGifPhotoPreviewController.m */,
-				DD374D5121C3B41100093A0F /* TZProgressView.h */,
-			);
-			path = TZImagePickerController;
-			sourceTree = "<group>";
-		};
 		DD374D6721C5228100093A0F /* AAChartKitLib */ = {
 			isa = PBXGroup;
 			children = (
@@ -2782,7 +2701,6 @@
 				DDFE5DB321CC9FA8005D6D48 /* custom.png in Resources */,
 				DD3E1CE5221BEAB5007E8907 /* TPReleasePrjNoMoreCell.xib in Resources */,
 				DDFFEEAC220034AB00FE26C7 /* Language.strings in Resources */,
-				DD374D5921C3B41100093A0F /* TZImagePickerController.bundle in Resources */,
 				DD0B451521F3085400333016 /* TPInvitedRegisterViewController.xib in Resources */,
 				DD4126C721FABC1F00079538 /* TPInvitedNoDataCell.xib in Resources */,
 				DD0A93F021F7446000D9E82E /* TPMyStoreTableViewController.xib in Resources */,
@@ -2854,6 +2772,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ToPay/Pods-ToPay-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/Aspects/Aspects.framework",
 				"${BUILT_PRODUCTS_DIR}/BlocksKit/BlocksKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework",
@@ -2865,12 +2784,14 @@
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SGPagingView/SGPagingView.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/TZImagePickerController/TZImagePickerController.framework",
 				"${BUILT_PRODUCTS_DIR}/WRNavigationBar/WRNavigationBar.framework",
 				"${BUILT_PRODUCTS_DIR}/YYCache/YYCache.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Aspects.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BlocksKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FDFullscreenPopGesture.framework",
@@ -2882,6 +2803,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SGPagingView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TZImagePickerController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WRNavigationBar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYCache.framework",
 			);
@@ -2924,7 +2846,6 @@
 				DD374DB321C5228100093A0F /* AAStyle.m in Sources */,
 				DD374DAC21C5228100093A0F /* AALine.m in Sources */,
 				DD374DAA21C5228100093A0F /* AAPlotOptions.m in Sources */,
-				DD374D5D21C3B41100093A0F /* TZPhotoPreviewCell.m in Sources */,
 				DDF69FBB21C26181006EE7A4 /* TPTransDetailViewController.m in Sources */,
 				DDFED68D21DC98DF00F2F354 /* YUSearchBarView.m in Sources */,
 				DDFED6A321E0605300F2F354 /* TPNoMoreTableViewCell.m in Sources */,
@@ -2934,16 +2855,12 @@
 				DD72F42E219A7D7A004C0DAF /* TPVRTViewController.m in Sources */,
 				DD0239B821B1336000333446 /* BCQMView.m in Sources */,
 				DDDDFBA6219C1FA40056FC57 /* TPRecordViewController.m in Sources */,
-				DD374D5A21C3B41100093A0F /* TZProgressView.m in Sources */,
 				DD374DBC21C5228100093A0F /* AAPie.m in Sources */,
-				DD374D5E21C3B41100093A0F /* TZImagePickerController.m in Sources */,
 				DDFED69E21DF67A200F2F354 /* TPFliterModel.m in Sources */,
 				DD13CF0721ED8A500022EECC /* TPMemonicStatusCollectionViewCell.m in Sources */,
 				DD23C28D21E8B6D6007727DA /* TPRgeisterViewModel.m in Sources */,
 				DD3E1CF0221BF0AC007E8907 /* TPReleaseRecordNoDataCellEntity.m in Sources */,
 				DD0243FD2196C968006A1390 /* ViewController.m in Sources */,
-				DD374D5F21C3B41100093A0F /* TZLocationManager.m in Sources */,
-				DD374D5721C3B41100093A0F /* UIView+Layout.m in Sources */,
 				DDFE5DA021CA1BE9005D6D48 /* TProgressHUD.m in Sources */,
 				DDFED69521DE045A00F2F354 /* JudegeCenter.m in Sources */,
 				DD2FD6B721C7A17000A28F78 /* YUTabBarConfig.m in Sources */,
@@ -2963,7 +2880,6 @@
 				DD7046E421E5FE9500D02D7F /* QuickGet.m in Sources */,
 				DDF7B9B321BA65E200BE35D6 /* UIImageView+YUExtension.m in Sources */,
 				DD0D345C21F6BEEC00ECEDF2 /* TPProductTableViewCell.m in Sources */,
-				DD374D6021C3B41100093A0F /* TZGifPhotoPreviewController.m in Sources */,
 				DD0239A021AFD6E800333446 /* TPLoginUtil.m in Sources */,
 				DD0A940721F83E9D00D9E82E /* TPStoreDetailProductIntroCell.m in Sources */,
 				DD0A941E21F85E7700D9E82E /* MyEveryDayIncomItemModel.m in Sources */,
@@ -2974,7 +2890,6 @@
 				DD0239AF21AFF6ED00333446 /* TPCurrencyList.m in Sources */,
 				DD374DAF21C5228100093A0F /* AAYAxis.m in Sources */,
 				DD13CF1421EED1FC0022EECC /* YUTextView.m in Sources */,
-				DD374D5421C3B41100093A0F /* TZVideoPlayerController.m in Sources */,
 				DDE176A221BE5C9500167EB1 /* SJButtonSlider.m in Sources */,
 				DDC5927F21D0B44C00CE8D3C /* TPKLineModel.m in Sources */,
 				DD23C29721E9BFF5007727DA /* UserHttpService.m in Sources */,
@@ -2985,7 +2900,6 @@
 				DDFE5DA921CA30D5005D6D48 /* JKCountDownButton.m in Sources */,
 				DD374DC021C5228100093A0F /* AAOptions.m in Sources */,
 				DD0239AC21AFF2F500333446 /* TPConstant.m in Sources */,
-				DD374D5321C3B41100093A0F /* TZAssetCell.m in Sources */,
 				DD13CF2721EF33D90022EECC /* UIButton+Gradient.m in Sources */,
 				DDE176A021BE5C9500167EB1 /* SJSlider.m in Sources */,
 				DD23C28921E8B6BA007727DA /* TPRegisterViewController.m in Sources */,
@@ -2998,7 +2912,6 @@
 				DD72F42B21998491004C0DAF /* TPNavigationBarTitleView.m in Sources */,
 				DD4126AC21F9A9A800079538 /* YUTMineCellTableViewCell.m in Sources */,
 				DD02399B21AF968E00333446 /* WYNetworkUtils.m in Sources */,
-				DD374D5C21C3B41100093A0F /* TZPhotoPickerController.m in Sources */,
 				DD0A941821F8534200D9E82E /* MyStoreDetailBigInfoModel.m in Sources */,
 				DDFE5DAC21CA61D1005D6D48 /* TPTransferModel.m in Sources */,
 				DDD211E421F1852F0029905C /* TPResetPassWordGuiderViewController.m in Sources */,
@@ -3063,7 +2976,6 @@
 				DD0239B221B10AC700333446 /* TPAssetModel.m in Sources */,
 				DD0D344621F5AFDE00ECEDF2 /* TPInviteRegSecondPageTableViewCell.m in Sources */,
 				DD13CF4121F05BB20022EECC /* TPBindEmailViewController.m in Sources */,
-				DD374D5221C3B41100093A0F /* TZImageCropManager.m in Sources */,
 				DD13CF1721EED49A0022EECC /* YUTextViewXibContainer.m in Sources */,
 				DD02444F21992F09006A1390 /* UIColor+Additions.m in Sources */,
 				DD10845321A3EC6A0087F244 /* TPChainTakeViewController.m in Sources */,
@@ -3135,7 +3047,6 @@
 				DD0A93DE21F7061F00D9E82E /* FinProductDetailModel.m in Sources */,
 				DD02399921AF968E00333446 /* WYNetworkRequestEngine.m in Sources */,
 				DD23C2B821EC98D3007727DA /* TPMnemonicDisplayViewModel.m in Sources */,
-				DD374D5521C3B41100093A0F /* TZAssetModel.m in Sources */,
 				DD02393721ABECD100333446 /* TPSellViewController.m in Sources */,
 				DD78698C221ABA100027566E /* TPTitleCellEntity.m in Sources */,
 				DD0239B521B1269E00333446 /* TPCurrencyRatio.m in Sources */,
@@ -3154,7 +3065,6 @@
 				DDFED6B221E065F100F2F354 /* YUTableViewCell.m in Sources */,
 				DD1083D9219D71410087F244 /* TPTokenCell.m in Sources */,
 				DD374DB921C5228100093A0F /* AAMarker.m in Sources */,
-				DD374D5621C3B41100093A0F /* NSBundle+TZImagePicker.m in Sources */,
 				DD10845621A3EC7E0087F244 /* TPChainTransferViewController.m in Sources */,
 				DDFED69221DDA88500F2F354 /* PHJTransformPinyin.m in Sources */,
 				DD3E1CEC221BF096007E8907 /* TPReleaseRecordNoDataCell.m in Sources */,
@@ -3170,7 +3080,6 @@
 				DD10844521A001030087F244 /* NIMScanner.m in Sources */,
 				DD0A942E21F89FBC00D9E82E /* TPIJoinedViewController.m in Sources */,
 				DD0B452E21F59BAF00333016 /* TPInviteRegSecondPageItemTableViewCell.m in Sources */,
-				DD374D5B21C3B41100093A0F /* TZImageManager.m in Sources */,
 				DDDDFB81219AB7350056FC57 /* TPVRTCell.m in Sources */,
 				DD374DBB21C5228100093A0F /* AAItemStyle.m in Sources */,
 				DD374DBE21C5228100093A0F /* AAChartView.m in Sources */,
@@ -3198,7 +3107,6 @@
 				DD374DB721C5228100093A0F /* AAAnimation.m in Sources */,
 				DD02393121ABCE8200333446 /* GBTagListView.m in Sources */,
 				DD02399121AF968E00333446 /* WYNetworkRequestModel.m in Sources */,
-				DD374D5821C3B41100093A0F /* TZPhotoPreviewController.m in Sources */,
 				DD0A93E921F742AD00D9E82E /* TPMyStoreViewController.m in Sources */,
 				DD374DAD21C5228100093A0F /* AATooltip.m in Sources */,
 				DD0B452A21F3273000333016 /* TPInviteRegFirstPageTableViewCellEntity.m in Sources */,

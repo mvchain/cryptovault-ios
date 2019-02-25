@@ -172,4 +172,22 @@
     [TPLoginUtil requestExchangeRate];
 }
 
++ (void)refreshToken_if_err_logout {
+    
+    NSInteger lastTime = 0 ;
+    NSNumber *lastTime_number =  [[NSUserDefaults standardUserDefaults] objectForKey:kTokenLastTimeFetch];
+    if (lastTime_number) {
+        lastTime = [lastTime_number integerValue];
+    }
+    NSDate *cur = [NSDate date];
+    if([cur timeIntervalSince1970] - lastTime < 10 *60) return; //10分钟内
+    if(![TPLoginUtil isLogin]) return; // 尚未登陆
+    [TPLoginUtil refreshToken:^(bool isSucc) {
+        if (!isSucc) {
+            [QuickDo logout];
+        }else {
+              [[NSUserDefaults standardUserDefaults] setObject:@([cur timeIntervalSince1970]) forKey:kTokenLastTimeFetch];
+        }
+    }];
+}
 @end

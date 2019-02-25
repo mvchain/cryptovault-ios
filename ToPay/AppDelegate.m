@@ -16,6 +16,7 @@
 #ifdef NSFoundationVersionNumber_iOS_9_x_Max
 #import <UserNotifications/UserNotifications.h>
 #import "TPGuiderViewController.h"
+#import "Aspects.h"
 #endif
 
 @interface AppDelegate ()<JPUSHRegisterDelegate>
@@ -29,26 +30,33 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self setLanguage];
+    [self aop_UIViewController];
     [self setUpNetWorkManager];
-    [self refreshToken];
     [self setNavBarAppearence];
     [self setUpIQKeyBoardManager];
     [self setUpJpush];
-    [self startAutorefrshToken];
     [self setObserver];
     [self setUpWindow];
-
+    
+    [WRNavigationBar wr_setBlacklist:@[@"TZImagePickerController"]];
    // NSString *str = Localized(@"capital");
     [JPUSHService setupWithOption:launchOptions appKey:@"ffb83d2be1729d733dd03c34"
                           channel:nil
                  apsForProduction:YES
             advertisingIdentifier:nil];
-//    self.arr = [[NSMutableArray alloc]init];
-//    [self.arr addObject:@""];
+
     return YES;
 
 }
+- (void)aop_UIViewController {
+    
+    [UIViewController aspect_hookSelector:@selector(viewWillAppear:) withOptions:AspectPositionAfter usingBlock:^(id<AspectInfo> aspectInfo)
+     {
+             [TPLoginUtil refreshToken_if_err_logout ];
+        
+     } error:NULL];
 
+}
 - (void)setObserver {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(net_noti:) name:kNotiNetSucc object:nil];
 }
@@ -69,15 +77,7 @@
         }
   }
 }
-- (void)startAutorefrshToken {
-    
-     NSTimer* timer = [NSTimer scheduledTimerWithTimeInterval:15*60 target:self selector:@selector(Timered:) userInfo:nil repeats:YES];
-}
 
-- (void)Timered:(NSTimer*)timer {
-      [self refreshToken];
-    
-}
 - (void)setUpJpush {
     //Required
     //notice: 3.0.0 及以后版本注册可以这样写，也可以继续用之前的注册方式
@@ -152,14 +152,6 @@
     }
 }
 
-- (void)refreshToken {
-    [TPLoginUtil refreshToken:^(bool isSucc) {
-        if (!isSucc) {
-            [QuickDo logout];
-            
-        }
-    }];
-}
 
 
 

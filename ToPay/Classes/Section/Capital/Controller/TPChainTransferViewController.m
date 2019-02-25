@@ -52,7 +52,9 @@
              NSLog(@"%@",responseObject[@"data"]);
              TPTransferModel *transfer = [TPTransferModel mj_objectWithKeyValues:responseObject[@"data"]];
              self.DataSources = responseObject[@"data"];
-             self.balanceLab.text = TPString(@"可用 %@：%.4f",self.assetModel.tokenName,[self.DataSources[@"balance"] floatValue ]);
+             float balance = [self.DataSources[@"balance"] floatValue];
+             balance = [QuickMaker makeFloatNumber:balance tailNum:4];
+             self.balanceLab.text = TPString(@"可用 %@：%.4f",self.assetModel.tokenName,balance);
              self.balance = self.DataSources[@"balance"];
              self.formalitiesLab.text = TPString(@"%.5f %@",transfer.fee,self.DataSources[@"feeTokenName"]);
          }
@@ -156,15 +158,22 @@
     {
         [self vaildButton];
         self.balanceLab.textColor = TP8EColor;
-        self.balanceLab.text = TPString(@"可用 %@：%.4f",self.assetModel.tokenName,[self.DataSources[@"balance"] floatValue]);
+        float balance = [self.DataSources[@"balance"] floatValue];
+        balance = [QuickMaker makeFloatNumber:balance tailNum:4];
+        self.balanceLab.text = TPString(@"可用 %@：%.4f",self.assetModel.tokenName,balance);
     }else {
         [self invaildButton];
+        
+       
+        
         if(  [self.textArray[1].comTextField.text floatValue] > [self.balance floatValue] ) {
             [self.balanceLab setText:TPString(@"可用 %@不足",self.assetModel.tokenName)];
             self.balanceLab.textColor = [UIColor colorWithHex:@"#F33636"];
         }else {
             self.balanceLab.textColor = TP8EColor;
-            self.balanceLab.text = TPString(@"可用 %@：%.4f",self.assetModel.tokenName,[self.DataSources[@"balance"] floatValue]);
+            float balance = [self.DataSources[@"balance"] floatValue];
+            balance = [QuickMaker makeFloatNumber:balance tailNum:4];
+            self.balanceLab.text = TPString(@"可用 %@：%.4f",self.assetModel.tokenName,balance);
         }
     }
 }

@@ -19,6 +19,7 @@
                          dataArrays:(NSMutableArray *)dataArrays {
     
     YUCellEntity * entity = dataArrays[indexPath.row];
+    entity.indexpath = indexPath;
     // 复用队列中取出。。
     YUTableViewCell * cell = [self dequeueReusableCellWithIdentifier:entity.cellId];
     if(cell ==nil){

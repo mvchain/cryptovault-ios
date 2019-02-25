@@ -75,10 +75,10 @@ static NSString  *TPLangUageCellCellId = @"languageCell";
     [self presentViewController:aler animated:YES completion:^{
         
     }];
-    
-    
 }
-
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [QuickDo prettyTableViewCellSeparate:@[@1] cell:cell indexPath:indexPath];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

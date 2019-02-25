@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - Aspects (1.4.1)
   - BlocksKit (2.2.5):
     - BlocksKit/All (= 2.2.5)
   - BlocksKit/All (2.2.5):
@@ -46,11 +47,13 @@ PODS:
   - SDWebImage/Core (4.4.3)
   - SGPagingView (1.5.6)
   - SVProgressHUD (2.2.5)
+  - TZImagePickerController (2.2.6)
   - WRNavigationBar (1.2.0)
   - YYCache (1.0.4)
 
 DEPENDENCIES:
   - AFNetworking
+  - Aspects
   - BlocksKit
   - Charts
   - FDFullscreenPopGesture
@@ -63,12 +66,15 @@ DEPENDENCIES:
   - SDWebImage
   - SGPagingView (~> 1.5.5)
   - SVProgressHUD
+  - TZImagePickerController
+  - TZImagePickerController (= 2.2.6)
   - WRNavigationBar
   - YYCache
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
+    - Aspects
     - BlocksKit
     - Charts
     - FDFullscreenPopGesture
@@ -82,11 +88,13 @@ SPEC REPOS:
     - SDWebImage
     - SGPagingView
     - SVProgressHUD
+    - TZImagePickerController
     - WRNavigationBar
     - YYCache
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
   Charts: f122fb70b19847fa5817d018b77d6c5a2296ab25
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
@@ -100,9 +108,10 @@ SPEC CHECKSUMS:
   SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
   SGPagingView: 642091b0b1ea7d33d89301f6c4ad77f12793d311
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  TZImagePickerController: 3b25b39ba2e28984fb51bbf3ca5187ffccebb239
   WRNavigationBar: dc952230effbb646785f962587caaac06c60f229
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: bef50e98d4972bc6b17c76a78e701e890de39c8b
+PODFILE CHECKSUM: 5b6f2167ab66d3b6893b0e3204700bf60a54cceb
 
 COCOAPODS: 1.5.3

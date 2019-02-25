@@ -84,6 +84,8 @@
     [self setUpSegment];
     [self setUpPageContentView];
     [self setUpBottomView];
+    self.view.backgroundColor = [UIColor whiteColor];
+    
 }
 
 -(void)setUpBottomView
@@ -95,6 +97,7 @@
     bottomView.layer.shadowOpacity = 1;
     bottomView.titleArray = @[@"发布出售订单",@"发布购买订单"];
     [self.view addSubview:bottomView];
+   
     [bottomView mas_makeConstraints:^(MASConstraintMaker *make)
      {
          make.left.equalTo(@0);
@@ -126,7 +129,8 @@
 
 - (void)setUpPageContentView
 {
-    TPUSDTViewController *VRTVC = [[TPUSDTViewController alloc] initWithPairId:self.vrtTopic.pairId WithTransactionType:@"2" ];
+    // 出售订单，购买订单
+    TPUSDTViewController *VRTVC = [[TPUSDTViewController alloc] initWithPairId:self.vrtTopic.pairId WithTransactionType:@"2" ]; //
     VRTVC.cData = self.cData;
     VRTVC.currName = self.currName;
     VRTVC.tokenName = self.cData.tokenName;
@@ -174,7 +178,7 @@
     [self.headerView mas_makeConstraints:^(MASConstraintMaker *make)
     {
         make.left.equalTo(@0);
-        make.top.equalTo(@(12 + StatusBarAndNavigationBarHeight));
+        make.top.equalTo(@( StatusBarAndNavigationBarHeight));
         make.height.equalTo(@240);
         make.width.equalTo(self.view.mas_width);
     }];

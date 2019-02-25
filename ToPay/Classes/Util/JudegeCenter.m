@@ -58,24 +58,24 @@
 }
 + (void)isNewstVersion:(void(^)(BOOL isnew_now,BOOL isNetOk,NSString *link))padding {
     
-//    [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer
-//                                                 url:@"app"
-//                                          parameters:@{@"appType":@"ipa"}
-//                                             success:^(id responseObject, BOOL isCacheObject) {
-//                                                 NSDictionary *res = (NSDictionary *)responseObject;
-//                                                 int serv_app_v_code= [res[@"data"][@"appVersionCode"] intValue ] ;
-//                                                 int local_v_code = [[QuickGet getCurBuildVersion] intValue] ;
-//                                                 if(serv_app_v_code <= local_v_code) {
-//                                                     // 本地版本>= 服务器版本
-//                                                     padding(YES,YES,res[@"data"][@"httpUrl"]);
-//                                                 }else {
-//                                                     padding(NO,YES,res[@"data"][@"httpUrl"]);
-//                                                 }
-//                                             }
-//                                             failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
-//                                                 padding(NO,NO,@"error");
-//
-//                                             } ];
+    [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer
+                                                 url:@"app"
+                                          parameters:@{@"appType":@"ipa"}
+                                             success:^(id responseObject, BOOL isCacheObject) {
+                                                 NSDictionary *res = (NSDictionary *)responseObject;
+                                                 int serv_app_v_code= [res[@"data"][@"appVersionCode"] intValue ] ;
+                                                 int local_v_code = [[QuickGet getCurBuildVersion] intValue] ;
+                                                 if(serv_app_v_code <= local_v_code) {
+                                                     // 本地版本>= 服务器版本
+                                                     padding(YES,YES,res[@"data"][@"httpUrl"]);
+                                                 }else {
+                                                     padding(NO,YES,res[@"data"][@"httpUrl"]);
+                                                 }
+                                             }
+                                             failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
+                                                 padding(NO,NO,@"error");
+
+                                             } ];
 }
 
 + (BOOL) isReleaseVersion {

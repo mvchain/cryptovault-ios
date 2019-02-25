@@ -65,7 +65,7 @@
 
 + (NSString *)getCurrentServerUrl {
     NSString *release_url = @"https://www.bzvp.net/api/app/";
-    NSString *test_url = @"http://192.168.15.21:10086/";
+    NSString *test_url = @"http://47.110.234.233:10086/";
     NSString *this_cur = [JudegeCenter isReleaseVersion]?release_url:test_url;
     return this_cur;
 }

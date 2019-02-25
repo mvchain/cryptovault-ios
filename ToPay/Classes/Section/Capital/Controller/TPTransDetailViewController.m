@@ -12,6 +12,8 @@
 
 @interface TPTransDetailViewController ()
 @property (nonatomic, strong) NSArray *titleArray, *contentArray;
+@property (copy,nonatomic) NSString *tokenName ;
+@property (copy,nonatomic) NSString *feeTokenName;
 
 @property (nonatomic, strong) UILabel *statusLab;
 @property (nonatomic, strong) UILabel *timeLab;
@@ -42,6 +44,8 @@ static NSString  *TPDetailCellId = @"detailCell";
         {
             NSLog(@"%@",responseObject[@"data"]);
             TPTransDetailModel *transModel = [TPTransDetailModel mj_objectWithKeyValues:responseObject[@"data"]];
+            self->_tokenName = responseObject[@"data"][@"tokenName"];
+            self->_feeTokenName = responseObject[@"data"][@"feeTokenType"] ;
             NSMutableArray *conArr = [NSMutableArray array];
             if ([transModel.classify isEqualToString:@"0"])
             {
@@ -195,8 +199,14 @@ static NSString  *TPDetailCellId = @"detailCell";
         cell.conLab.text = TPString(@"%.4f",[self.contentArray[indexPath.row] floatValue]);
         
     }else{
-        if(indexPath.row == 0) {
-             cell.conLab.text = TPString(@"%.4f",[self.contentArray[indexPath.row] floatValue]);
+        if(indexPath.row == 0 || indexPath.row == 1) {
+            if (indexPath.row == 0 ) {
+                 cell.conLab.text = TPString(@"%.4f %@",[self.contentArray[indexPath.row] floatValue],self.tokenName);
+            }
+            else {
+                cell.conLab.text = TPString(@"%.4f %@",[self.contentArray[indexPath.row] floatValue],self.feeTokenName);
+            }
+                 
         }else {
             //
              cell.conLab.text = self.contentArray[indexPath.row];

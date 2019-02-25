@@ -118,6 +118,7 @@
             <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <connections>
                 <outlet property="bgView" destination="bd0-1s-mKA" id="BPo-oo-8Mo"/>
+                <outlet property="leftInfoLabel" destination="ssy-ec-BkE" id="33C-T7-Dbw"/>
                 <outlet property="leftLabel" destination="oyq-jv-u71" id="BW6-1x-EBT"/>
                 <outlet property="middleLabel" destination="Bck-jd-jrQ" id="hkl-H5-U3W"/>
                 <outlet property="productNameLabel" destination="OA8-iR-zLx" id="GTp-Nf-2k9"/>

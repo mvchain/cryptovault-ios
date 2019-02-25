@@ -111,7 +111,7 @@ yudef_lazyLoad(NSMutableArray<YUCellEntity*>, dataArray, _dataArray)
     _curPage = 0;
     TPInviteRegFirstPageTableViewCellEntity *entity = [[TPInviteRegFirstPageTableViewCellEntity alloc] init];
     entity.inviteCode = @"aabab";
-    entity.website = @"www.bzvp.net";
+    entity.website = @"https://www.bzvp.net";
    
     TPInviteRegSecondPageTableViewCellEntity *entity2 = [[TPInviteRegSecondPageTableViewCellEntity alloc] init];
     [self.dataArray addObject:entity]; // 邀请码界面加入

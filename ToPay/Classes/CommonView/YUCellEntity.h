@@ -46,6 +46,7 @@
  
  */
 @property (weak,nonatomic) Class yu_relativeClass ;
+@property (strong,nonatomic) NSIndexPath *indexpath ;
 
 @property (strong,nonatomic) id data ;
 

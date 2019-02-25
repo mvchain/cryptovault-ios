@@ -98,74 +98,99 @@ static NSString * typeRoomID = @"evn:r:";
 - (void)clickCloseButton {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    
+    NSString *type = [info objectForKey:UIImagePickerControllerMediaType];
+    if ([type isEqualToString:@"public.image"]) {
+        UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+        //process image
+        
+        [picker dismissViewControllerAnimated:YES completion:^{
+            [NIMScanner scaneImage:image completion:^(NSArray *values) {
+                NSLog(@"values.firstObject:%@",values.firstObject);
+                if (values.count > 0)
+                {
+                    [self selectNTESType:values.firstObject];
+                    
+                    [self dismissViewControllerAnimated:NO completion:^{
+                        [self clickCloseButton];
+                    }];
+                } else {
+                    self->tipLabel.text = @"没有识别到二维码，请选择其他照片";
+                    
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                }
+            }];
+        }];
+        
+       
+    }
+}
 
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
 /// 点击相册按钮
 - (void)clickAlbumButton
 {
-    TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc] initWithMaxImagesCount:1 delegate:nil];
-    [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto)
-    {
-        UIImage *image = [self resizeImage:photos[0]];
-        
-        [NIMScanner scaneImage:image completion:^(NSArray *values) {
-            NSLog(@"values.firstObject:%@",values.firstObject);
-            if (values.count > 0)
-            {
-                [self selectNTESType:values.firstObject];
-                
-                [self dismissViewControllerAnimated:NO completion:^{
-                    [self clickCloseButton];
-                }];
-            } else {
-                tipLabel.text = @"没有识别到二维码，请选择其他照片";
-                
-                [self dismissViewControllerAnimated:YES completion:nil];
-            }
-        }];
-    }];
     
-    
-    
-    [self presentViewController:imagePickerVc animated:YES completion:nil];
-//    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
+    UIImagePickerController *pickerCtr = [[UIImagePickerController alloc] init];
+    pickerCtr.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    pickerCtr.delegate = self;
+    [self presentViewController:pickerCtr animated:YES completion:nil];
+
+//    TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc] initWithMaxImagesCount:1 delegate:nil];
+//    [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto)
 //    {
-//        tipLabel.text = @"无法访问相册";
+//        UIImage *image = [self resizeImage:photos[0]];
 //
-//        return;
-//    }
+//        [NIMScanner scaneImage:image completion:^(NSArray *values) {
+//            NSLog(@"values.firstObject:%@",values.firstObject);
+//            if (values.count > 0)
+//            {
+//                [self selectNTESType:values.firstObject];
 //
-//    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+//                [self dismissViewControllerAnimated:NO completion:^{
+//                    [self clickCloseButton];
+//                }];
+//            } else {
+//                tipLabel.text = @"没有识别到二维码，请选择其他照片";
 //
-//    picker.view.backgroundColor = [UIColor whiteColor];
-//    picker.delegate = self;
+//                [self dismissViewControllerAnimated:YES completion:nil];
+//            }
+//        }];
+//    }];
 //
-//    [self showDetailViewController:picker sender:nil];
+//
+//
+//    [self presentViewController:imagePickerVc animated:YES completion:nil];
+
 }
 
 
 #pragma mark - UIImagePickerControllerDelegate
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-    
-    UIImage *image = [self resizeImage:info[UIImagePickerControllerOriginalImage]];
-    NSLog(@"%f %f",image.size.width,image.size.height);
-    // 扫描图像
-    [NIMScanner scaneImage:image completion:^(NSArray *values) {
-        NSLog(@"values.firstObject:%@",values.firstObject);
-        if (values.count > 0)
-        {
-            [self dismissViewControllerAnimated:YES completion:^{
-                [self selectNTESType:values.firstObject];
-            }];
-            
-            
-           
-        } else {
-            tipLabel.text = @"没有识别到二维码，请选择其他照片";
-            
-            [self dismissViewControllerAnimated:YES completion:nil];
-        }
-    }];
-}
+//- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+//
+//    UIImage *image = [self resizeImage:info[UIImagePickerControllerOriginalImage]];
+//    NSLog(@"%f %f",image.size.width,image.size.height);
+//    // 扫描图像
+//    [NIMScanner scaneImage:image completion:^(NSArray *values) {
+//        NSLog(@"values.firstObject:%@",values.firstObject);
+//        if (values.count > 0)
+//        {
+//            [self dismissViewControllerAnimated:YES completion:^{
+//                [self selectNTESType:values.firstObject];
+//            }];
+//
+//
+//
+//        } else {
+//            tipLabel.text = @"没有识别到二维码，请选择其他照片";
+//
+//            [self dismissViewControllerAnimated:YES completion:nil];
+//        }
+//    }];
+//}
 
 - (UIImage *)resizeImage:(UIImage *)image {
     
