@@ -76,7 +76,7 @@
     CGFloat limit = [QuickMaker makeFloatNumber:[transModel.limitValue floatValue] tailNum:4];
     CGFloat price = [QuickMaker makeFloatNumber:[transModel.price floatValue] tailNum:4];
     
-    self.publishArr[1].text = TPString(@"%.2f %@",limit,self.tokenName);
+    self.publishArr[1].text = TPString(@"%.4f %@",limit,self.tokenName);
     self.publishArr[2].text = TPString(@"%.4f %@",price,@"BZTB");
 
 }

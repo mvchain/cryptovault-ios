@@ -352,28 +352,39 @@
     transView.desc = @"总计需支付";
     transView.pvc = self;
     if (self.isPublish){
-        NSString *pix = self.transType == TPTransactionTypeTransfer ? @"BZTB":self.tokenName;// 单位
-        transView.Total = TPString(@"%.4f %@",[self.comText.comTextField.text floatValue],pix);
+      
+        if (self.transType == TPTransactionTypeTransfer ) {
+             //
+            NSString *pix = self.transType == TPTransactionTypeTransfer ? @"BZTB":self.tokenName;// 单位
+            transView.Total = TPString(@"%.4f %@",[self.comText.comTextField.text floatValue],pix);
+            
+            NSString * str = self.transType == TPTransactionTypeTransfer ? self.tokenName:@"BZTB";// 单位
+            transView.con1 = TPString(@"%.4f %@",[self.comText.comTextField.text floatValue] * [self.transInfo.price floatValue] * self.currentPrice,str);
+            
+        } else {
+            
+            NSString *pix = self.transType == TPTransactionTypeTransfer ? @"BZTB":self.tokenName;// 单位
+            transView.Total = TPString(@"%.4f %@",[self.comText.comTextField.text floatValue],pix);
+            
+            NSString * str = self.transType == TPTransactionTypeTransfer ? self.tokenName:@"BZTB";// 单位
+            transView.con1 = TPString(@"%.4f %@",[self.comText.comTextField.text floatValue] * [self.transInfo.price floatValue] * self.currentPrice,str);
+          
+        }
+        
+        
+           transView.con2 =  TPString(@"%.4f %@",[self.transInfo.price floatValue] *self.currentPrice,@"BZTB");
     }
-    else
-        transView.Total = self.conLab.text;
-    /*
-     * 数量
-     */
-    if (self.isPublish){
-        NSString * str = self.transType == TPTransactionTypeTransfer ? self.tokenName:@"BZTB";// 单位
-         transView.con1 = TPString(@"%.4f %@",[self.comText.comTextField.text floatValue] * [self.transInfo.price floatValue] * self.currentPrice,str);
+    else {
+        
+        
+         transView.Total = self.conLab.text;
+        
+         transView.con1 = TPString(@"%.4f %@",[self.comText.comTextField.text floatValue],@"BZTB");
+        
+        transView.con2 = TPString(@"%.4f %@",[self.transModel.price floatValue],@"BZTB");
     }
-    else
-        transView.con1 = TPString(@"%.2f %@",[self.comText.comTextField.text floatValue],@"BZTB");
-
-    /*
-     * 单价
-     */
-    if (self.isPublish)
-    transView.con2 =  TPString(@"%.4f %@",[self.transInfo.price floatValue] *self.currentPrice,@"BZTB");
-    else
-    transView.con2 = TPString(@"%.4f %@",[self.transModel.price floatValue],@"BZTB");
+    
+   
     
     [transView showMenuWithAlpha:YES];
 
