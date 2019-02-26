@@ -20,19 +20,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-      [self setUpNav];
+    [self setUpNav];
     self.view.backgroundColor = [UIColor colorWithHex:@"#F5F5F5"];
     [_submitButton gradualChangeStyle];
-    NSString *tipStr = TPString(@"产品限额：%.4f/%.4f",self.productModel.purchased,self.productModel.limitValue) ;
-    
+    NSString *tipStr = TPString(@"产品限额：%.4f/%.4f",self.productModel.purchased,self.productModel.userLimit);
     self.inputTextField.keyboardType = UIKeyboardTypeDecimalPad;
     [self.productNumberLabel setText:tipStr];
     [self.inputTextField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     [self setTipLabelDefault];
     self.atly_view_top.constant = self.customNavBar.height+12;
-    
-
 }
+
 - (void)setTipLabelDefault {
     NSString *balanceStr = TPString(@"可用%@:%.4lf",self.productModel.baseTokenName,self.productModel.balance);
     [self.tipLabel setText:balanceStr];
@@ -40,12 +38,14 @@
     self.submitButton.enabled = YES;
     
 }
+
 - (void)setTipLabelWaring {
     NSString *balanceStr = TPString(@"可用%@不足",self.productModel.baseTokenName);
     [self.tipLabel setText:balanceStr];
     [self.tipLabel setTextColor:[UIColor colorWithHex:@"#F33636"]];
     self.submitButton.enabled = NO;
 }
+
 - (void)textFieldDidChange:(id)sender {
     UITextField *senderText=(UITextField *)sender;
     if ([senderText.text floatValue] >self.productModel.balance) {
@@ -54,6 +54,7 @@
          [self setTipLabelDefault];
     }
 }
+
 - (IBAction)savInTap:(id)sender {
     TPTransView *transView = [TPTransView createTransferViewStyle:TPTransStyleTakeOut];
     transView.title = @"确认存入";
@@ -61,7 +62,6 @@
     transView.pvc = self;
     transView.Total = TPString(@"%@ %@",self.inputTextField.text,self.productModel.baseTokenName);
     [transView showMenuWithAlpha:YES];
-    
     __weak typeof (transView) w_tran = transView;
     [transView.pasView setEndEditBlock:^(NSString *text) {
         if (text.length == 6) {
@@ -70,11 +70,12 @@
         }
     }];
 }
+
 - (void)buyProduct:(NSString *)transPwd value:(CGFloat)num {
     ///financial/{id}
     
     NSDictionary *postDidct = @{@"transactionPassword":[QuickGet encryptPwd:transPwd email:nil],@"value":@(num)};
-    NSString *url = TPString(@"financial/%ld",self.productModel.idField);
+    NSString *url = TPString(@"financial/%ld",(long)self.productModel.idField);
     [[WYNetworkManager sharedManager] sendPostRequest:WYJSONRequestSerializer
                                                  url:url
                                           parameters:postDidct
@@ -91,9 +92,10 @@
                                                  [self showErrorText:@"网络错误"];
                                              } ];
 }
+
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
     [self.inputTextField becomeFirstResponder];
 }
 - (void)setUpNav {

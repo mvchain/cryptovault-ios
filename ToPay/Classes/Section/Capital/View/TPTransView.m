@@ -119,11 +119,24 @@
         
         
         TransTextView *transTextView;
+        _arr_transViews = [[NSMutableArray alloc]init];
+        //M_ model 不含UIKit
+        //MG_ manager 管理类
+        //V_ view
+        //VC_ viewController
+        //VM_ viewModel
+        //S_ server
+        //T_ tools
+        
+        //QuickDo
+        //QuickGet
+        //QuickJudge
+        
         for (int i = 0 ; i < titArray.count; i++)
         {
             transTextView = [[TransTextView alloc] initWithTitle:titArray[i] WithCon:@""];
             [_backView addSubview:transTextView];
-            
+            [_arr_transViews addObject:transTextView];
             if (i == 0) {
                 self.conLab1 = transTextView.conLab;
             }else if (i == 1)
@@ -175,10 +188,6 @@
         [self hideMenuWithAnimate:^{
              [QuickDo entoForgetPayPwd:self.pvc];
         }];
-        
-       
-        
-        
     }
 }
 
@@ -252,6 +261,8 @@
     if (self = [super init])
     {
         UILabel *titleLab = [YFactoryUI YLableWithText:title color:TP8EColor font:FONT(14)];
+        _titleLabel = titleLab;
+        
         [self addSubview:titleLab];
         
         [titleLab mas_makeConstraints:^(MASConstraintMaker *make)

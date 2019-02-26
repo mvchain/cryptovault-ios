@@ -81,7 +81,7 @@
 }
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-     [QuickDo checkShouldUpdateWithParentVC_onlyNotNewest:self];
+    // [QuickDo checkShouldUpdateWithParentVC_onlyNotNewest:self];
 }
 - (UIImage*)imageWithColor:(UIColor*)color size:(CGSize)size
 {

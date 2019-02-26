@@ -101,10 +101,10 @@
      {
          if ([responseObject[@"code"] isEqual:@200])
          {
+             NSDictionary *dic = responseObject[@"data"];
+             
              NSLog(@"%@",responseObject[@"data"]);
              NSArray<TPExchangeRate *> *exchanges = [TPExchangeRate mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
-             
-             
              NSLog(@"%@",responseObject[@"data"]);
              
              YYCache *listCache = [YYCache cacheWithName:TPCacheName];
@@ -115,6 +115,13 @@
                  TPExchangeRate *exRate = exchanges[i];
                  [listCache setObject:exRate.value forKey:exRate.name];
              }
+             TPExchangeRate *ratioM = exchanges[0];
+             [USER_DEFAULT setObject:ratioM.value forKey:TPNowLegalCurrencyKey];
+             [USER_DEFAULT setObject:[ratioM.name substringToIndex:1] forKey:TPNowLegalSymbolKey];
+             [USER_DEFAULT setObject:ratioM.name forKey:TPNowLegalNameKey];
+             
+             [TPNotificationCenter postNotificationName:TPLegalSwitchNotification object:nil];
+             
          }
      }
         failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)

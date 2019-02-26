@@ -251,6 +251,7 @@ static NSString  *TPReservationCellCellId = @"ReservationCell";
     TPCrowdfundCell *cell = [tableView dequeueReusableCellWithIdentifier:TPReservationCellCellId];
     if (!cell)
         cell = [[TPCrowdfundCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TPReservationCellCellId WithStyle:self.type countD:self.countD];
+    
     if (self.croTopic.count)
     {
         TPCrowdfundingModel *m = self.croTopic[indexPath.row];
@@ -271,12 +272,13 @@ static NSString  *TPReservationCellCellId = @"ReservationCell";
         cell.croRecordModel = self.croRecordTopic[indexPath.row];
        
     }
+        cell.comView.participateBlock =
+        ^{
+            TPBuyTokenViewController *buyTokenVC = [[TPBuyTokenViewController alloc] initWithCroModel:self.croTopic[indexPath.row]];
+            [self.navigationController pushViewController:buyTokenVC animated:YES];
+        };
+
     
-    cell.comView.participateBlock =
-    ^{
-        TPBuyTokenViewController *buyTokenVC = [[TPBuyTokenViewController alloc] initWithCroModel:self.croTopic[indexPath.row]];
-        [self.navigationController pushViewController:buyTokenVC animated:YES];
-    };
     
     cell.tag = indexPath.row;
     return cell;

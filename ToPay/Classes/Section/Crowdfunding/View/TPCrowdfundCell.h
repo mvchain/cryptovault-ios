@@ -18,6 +18,8 @@
 @property (nonatomic, strong) TPCrowdfundingModel *croModel;
 
 @property (nonatomic, strong) TPCroRecordModel *croRecordModel;
+@property (nonatomic, strong) NSMutableArray<UILabel *> *valueArray;
+
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier WithStyle:(TPCrowdfundStyle)crowdStyle countD:(CountDown *)countD;
 

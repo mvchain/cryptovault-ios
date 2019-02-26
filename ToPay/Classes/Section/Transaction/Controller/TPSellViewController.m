@@ -336,7 +336,7 @@
     {
         
         CGFloat com = [QuickMaker makeFloatNumber: [comText.text floatValue] tailNum:4];
-        CGFloat price = [QuickMaker makeFloatNumber:[self.transInfo.price floatValue] tailNum:4] ;
+        CGFloat price = [QuickMaker makeFloatNumber:[self.transModel.price floatValue] tailNum:4] ;
         CGFloat conLab_v_2 = com * price;
         conLab_v_2 = [QuickMaker makeFloatNumber:conLab_v_2 tailNum:4];
         self.conLab.text = TPString(@"%.4f %@",conLab_v_2,@"BZTB");
@@ -351,40 +351,53 @@
     transView.title = @"确认发布";
     transView.desc = @"总计需支付";
     transView.pvc = self;
+    NSMutableArray<TransTextView *> *arr_leftLabelViews = transView.arr_transViews;
+    NSString *totalPayStr ;
+    NSString *first_right_label_str ; // 支付界面-右侧第一个标签字符串
+    NSString *second_right_label_str ;// 支付界面-右侧第二个标签字符串
+    
+    NSString *first_left_label_str;
+    NSString *second_left_label_str;
+
+    first_left_label_str = self.transType == TPTransactionTypeTransfer?@"购买数量":@"总价" ; // 购买区块链货币的时候 显示数量，出售区块链货币的时候 显示总价
+    second_left_label_str = self.transType == TPTransactionTypeTransfer?@"购买单价":@"出售单价" ;
     if (self.isPublish){
-      
-        if (self.transType == TPTransactionTypeTransfer ) {
-             //
-            NSString *pix = self.transType == TPTransactionTypeTransfer ? @"BZTB":self.tokenName;// 单位
-            transView.Total = TPString(@"%.4f %@",[self.comText.comTextField.text floatValue],pix);
-            
-            NSString * str = self.transType == TPTransactionTypeTransfer ? self.tokenName:@"BZTB";// 单位
-            transView.con1 = TPString(@"%.4f %@",[self.comText.comTextField.text floatValue] * [self.transInfo.price floatValue] * self.currentPrice,str);
-            
-        } else {
-            
-            NSString *pix = self.transType == TPTransactionTypeTransfer ? @"BZTB":self.tokenName;// 单位
-            transView.Total = TPString(@"%.4f %@",[self.comText.comTextField.text floatValue],pix);
-            
-            NSString * str = self.transType == TPTransactionTypeTransfer ? self.tokenName:@"BZTB";// 单位
-            transView.con1 = TPString(@"%.4f %@",[self.comText.comTextField.text floatValue] * [self.transInfo.price floatValue] * self.currentPrice,str);
-          
+        // 发布的点进来，就是底下两个按钮
+        CGFloat total = [self.comText.comTextField.text floatValue] * [self.transInfo.price floatValue] * self.currentPrice;
+        CGFloat quantity = [self.comText.comTextField.text floatValue]; // 数量
+        NSString *unitPrice = TPString(@"%.4f %@",[self.transInfo.price floatValue] *self.currentPrice,@"BZTB"); // 单价
+        if (self.transType == TPTransactionTypeTransfer) {
+            // 购买区块链币，用btzb支付
+            totalPayStr = TPString(@"%.4f %@",total,@"BZTB");
+            first_right_label_str = TPString(@"%.4f %@",quantity,self.tokenName);
+        }else {
+            // 出售区块链币，用区块链币支付
+            totalPayStr = TPString(@"%.4f %@",quantity,self.tokenName);
+            first_right_label_str = TPString(@"%.4f %@",total,@"BZTB");
         }
-        
-        
-           transView.con2 =  TPString(@"%.4f %@",[self.transInfo.price floatValue] *self.currentPrice,@"BZTB");
+        second_right_label_str = unitPrice ;
     }
     else {
+        // 交易list中点进来
+        CGFloat quantity = [self.comText.comTextField.text floatValue]; // 数量
+        if (self.transType == TPTransactionTypeTransfer) {
+            // 购买区块链币，用btzb支付
+            totalPayStr = self.conLab.text;
+            first_right_label_str = TPString(@"%.4f %@",quantity,self.tokenName);
+        }else {
+            totalPayStr = TPString(@"%.4f %@",quantity,self.tokenName);
+            // 出售区块链币，用区块链币支付
+            first_right_label_str = self.conLab.text;
+           
+        }
+        second_right_label_str = TPString(@"%.4f %@",[self.transModel.price floatValue],@"BZTB");//单价
         
-        
-         transView.Total = self.conLab.text;
-        
-         transView.con1 = TPString(@"%.4f %@",[self.comText.comTextField.text floatValue],@"BZTB");
-        
-        transView.con2 = TPString(@"%.4f %@",[self.transModel.price floatValue],@"BZTB");
     }
-    
-   
+    transView.Total = totalPayStr;
+    transView.con1 = first_right_label_str;
+    transView.con2 = second_right_label_str;
+    arr_leftLabelViews[0].titleLabel.text = first_left_label_str;
+    arr_leftLabelViews[1].titleLabel.text = second_left_label_str;
     
     [transView showMenuWithAlpha:YES];
 

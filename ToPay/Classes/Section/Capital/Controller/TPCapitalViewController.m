@@ -100,15 +100,9 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     [self setNavgation];
-    
     [self setNavBackImage];
-    
     [self setUpTableView];
-    
-    
-    
     [self notificationRequest];
     
     [TPNotificationCenter addObserver:self selector:@selector(currencyNotification) name:TPPutCurrencyNotification object:nil];
@@ -155,6 +149,7 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
              if ([responseObject[@"code"] isEqual:@200])
              {
                  [USER_DEFAULT setObject:responseObject[@"data"] forKey:TPBalanceDefaultKey];
+                 
                  self.headerView.total = TPString(@"%@",responseObject[@"data"]);
              }
          }
@@ -247,12 +242,8 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
     [self.customNavBar wr_setBackgroundAlpha:0];
     [self.customNavBar wr_setLeftButtonWithImage:[UIImage imageNamed:@"note_icon"]];
     [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"add_icon_white"]];
-    
     TPWeakSelf;
-    
     [self wr_setStatusBarStyle:UIStatusBarStyleLightContent];
-    
-    
     [self.customNavBar setOnClickLeftButton:^
     {
         [weakSelf.customNavBar wr_setLeftButtonWithImage:[UIImage imageNamed:@"note_icon"]];

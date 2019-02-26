@@ -23,7 +23,6 @@
 
 @property (nonatomic, strong) NSMutableArray<UILabel *> *nameArray;
 
-@property (nonatomic, strong) NSMutableArray<UILabel *> *valueArray;
 
 @property (nonatomic) TPCrowdfundStyle crowdStyle;
 @property (nonatomic ,strong) CountDown *countD;

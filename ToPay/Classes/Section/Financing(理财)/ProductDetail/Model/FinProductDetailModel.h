@@ -107,7 +107,7 @@
 @property (nonatomic, assign) NSInteger times;
 @property (nonatomic, assign) NSInteger tokenId;
 @property (nonatomic, strong) NSString * tokenName;
-@property (nonatomic, assign) NSInteger userLimit;
+@property (nonatomic, assign) CGFloat userLimit;
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary;
 

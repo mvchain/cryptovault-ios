@@ -111,7 +111,7 @@ NSString *const kFinProductDetailModelUserLimit = @"userLimit";
         self.tokenName = dictionary[kFinProductDetailModelTokenName];
     }
     if(![dictionary[kFinProductDetailModelUserLimit] isKindOfClass:[NSNull class]]){
-        self.userLimit = [dictionary[kFinProductDetailModelUserLimit] integerValue];
+        self.userLimit = [dictionary[kFinProductDetailModelUserLimit] doubleValue];
     }
     
     return self;
@@ -207,7 +207,7 @@ NSString *const kFinProductDetailModelUserLimit = @"userLimit";
     self.times = [[aDecoder decodeObjectForKey:kFinProductDetailModelTimes] integerValue];
     self.tokenId = [[aDecoder decodeObjectForKey:kFinProductDetailModelTokenId] integerValue];
     self.tokenName = [aDecoder decodeObjectForKey:kFinProductDetailModelTokenName];
-    self.userLimit = [[aDecoder decodeObjectForKey:kFinProductDetailModelUserLimit] integerValue];
+    self.userLimit = [[aDecoder decodeObjectForKey:kFinProductDetailModelUserLimit] doubleValue];
     return self;
     
 }

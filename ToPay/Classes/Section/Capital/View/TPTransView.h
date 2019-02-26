@@ -44,12 +44,14 @@ typedef NS_ENUM(NSInteger, TPTransStyle)
 @property (nonatomic, strong) UIViewController *pvc;
 
 @property (nonatomic, strong) SYPasswordView * pasView;
-
+@property (nonatomic, strong) NSMutableArray<TransTextView *> *arr_transViews;
 @end
 
 
 @interface TransTextView : UIView
 
 @property (nonatomic, strong) UILabel *conLab;
+@property (nonatomic, strong) UILabel *titleLabel;
+
 -(instancetype)initWithTitle:(NSString *)title WithCon:(NSString *)con;
 @end
