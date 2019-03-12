@@ -80,7 +80,6 @@
     UIView *backView = [[UIView alloc] init];
     [backView setLayer:16 WithBackColor:[UIColor whiteColor]];
     [self.view addSubview:backView];
-    
     [backView mas_makeConstraints:^(MASConstraintMaker *make)
     {
         make.centerX.equalTo(self.view);
@@ -99,7 +98,6 @@
         make.size.equalTo(@56);
     }];
     
-    
     UILabel *descLab = [YFactoryUI YLableWithText:TPString(@"%@收款地址",self.assetModel.tokenName) color:TP59Color font:FONT(14)];
     self.descLab = descLab;
     [self.view addSubview:descLab];
@@ -110,7 +108,7 @@
         make.height.equalTo(@19);
     }];
     
-    UIButton *addressBtn = [YFactoryUI YButtonWithTitle:@"0x2051dd2b...a196ccc2448" Titcolor:TP8EColor font:FONT(13) Image:nil target:self action:@selector(copyClick)];
+    UIButton *addressBtn = [YFactoryUI YButtonWithTitle:@"获取中..." Titcolor:TP8EColor font:FONT(13) Image:nil target:self action:@selector(copyClick)];
     //[YFactoryUI YLableWithText:@"0x2051dd2b...a196ccc2448" color:TP8EColor font:FONT(13)];
     self.addressBtn = addressBtn;
     [self.view addSubview:addressBtn];

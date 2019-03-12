@@ -217,7 +217,7 @@
                 {
                     [self showSuccessText:@"操作成功"];
                     [TPTransV showMenuWithAlpha:NO];
-                    
+        
                     [TPNotificationCenter postNotificationName:TPTakeOutSuccessNotification object:nil];
                     for (UIViewController *controller in self.navigationController.viewControllers)
                     {

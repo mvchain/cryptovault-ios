@@ -97,27 +97,6 @@
 {
     NIMScannerViewController * scannerVC = [[NIMScannerViewController alloc] initWithCardName:@"hahaha" avatar:nil completion:^(NSString *stringValue)
     {
-//        if ([ self.assetModel.tokenId isEqualToString:@"4"])
-//        {
-//            //USDT BTC
-//            if ([self isBTC:stringValue])
-//            [self pushTransferClick:stringValue];
-//            else
-//            [self shwoErrorPopVC];
-//        }
-//            else if (![self.assetModel.tokenId isEqualToString:@"4"])
-//        {
-//            //ETH
-//            if([self isETH:stringValue])
-//            [self pushTransferClick:stringValue];
-//            else
-//            [self shwoErrorPopVC];
-//        }
-//            else
-//        {
-//            [self shwoErrorPopVC];
-//        }
-        
         [self pushTransferClick:stringValue];
         
     }];
@@ -217,11 +196,7 @@
         make.height.equalTo(@([QuickGet getWhiteBottomHeight]));
         make.bottom.equalTo(self.view);
     }];
-    [bottomView setChainTakeBlock:^
-    {
-        TPChainTakeViewController *takeOutVC = [[TPChainTakeViewController alloc] init];
-        [self.navigationController pushViewController:takeOutVC animated:YES];
-    }];
+   
     [bottomView setChainTransferBlock:^
      {
          TPChainTransferViewController *transferVC = [[TPChainTransferViewController alloc] init];

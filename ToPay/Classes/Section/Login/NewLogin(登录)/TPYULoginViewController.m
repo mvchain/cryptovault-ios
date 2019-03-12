@@ -323,7 +323,7 @@
     
     if (![result objectForKey:@"geetest_challenge"] && [result objectForKey:@"geetest_seccode"] && [result objectForKey:@"geetest_validate"])
         return;
-    
+     
     // 给api2用的 数据
     NSDictionary *post  = @{@"geetest_challenge":result[@"geetest_challenge"],
                   @"geetest_seccode":result[@"geetest_seccode"],

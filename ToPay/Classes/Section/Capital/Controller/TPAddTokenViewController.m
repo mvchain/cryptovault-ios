@@ -166,7 +166,6 @@ static NSString  *TPAddTokenCellId = @"addTokenCell";
         UIAlertAction *resetAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action)
           {
               cell.isRemoveToken = YES;
-              
               [self sendTokenClcikAdd:@"" removeToken:tokenId];
           }];
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
@@ -232,7 +231,6 @@ static NSString  *TPAddTokenCellId = @"addTokenCell";
                 return YES;
             }
             return  NO;
-            
         }];
         [wsf.searchResult filterUsingPredicate:pre];
         [wsf.baseTableView reloadData];
@@ -240,7 +238,6 @@ static NSString  *TPAddTokenCellId = @"addTokenCell";
     self.searchbar.onTextDidEndEditing = ^(id sender) {
         wsf.customNavBar.onClickRightButton(); // end editing , end searching ...
     };
-    
 }
 #pragma mark logic function
 - (void)reBackUpSearchResult {

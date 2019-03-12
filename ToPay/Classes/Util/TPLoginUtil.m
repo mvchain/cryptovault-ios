@@ -102,14 +102,12 @@
          if ([responseObject[@"code"] isEqual:@200])
          {
              NSDictionary *dic = responseObject[@"data"];
-             
              NSLog(@"%@",responseObject[@"data"]);
              NSArray<TPExchangeRate *> *exchanges = [TPExchangeRate mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
              NSLog(@"%@",responseObject[@"data"]);
-             
              YYCache *listCache = [YYCache cacheWithName:TPCacheName];
              [listCache setObject:exchanges forKey:TPLegalCurrencyListKey];
-             
+
              for (int i = 0 ; i <exchanges.count ; i++)
              {
                  TPExchangeRate *exRate = exchanges[i];
@@ -164,7 +162,6 @@
      {
          NSLog(@"刷新token失败");
      }];
-
 }
 
 + (void)loginInitSetting:(TPLoginModel *)model {
@@ -178,7 +175,6 @@
     [TPLoginUtil setRequestToken];
     [TPLoginUtil requestExchangeRate];
 }
-
 + (void)refreshToken_if_err_logout {
     
     NSInteger lastTime = 0 ;

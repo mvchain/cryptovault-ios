@@ -39,7 +39,7 @@
 
 - (void)checkoutWithVaildCode:(NSString *)vaildCode
                      complete:(void(^)(BOOL isVaild,NSString *token))complete {
-    NSDictionary *postDict = @{@"valiCode":vaildCode};
+    NSDictionary *postDict = @{@"validCode":vaildCode};
     
     [[WYNetworkManager sharedManager] sendPostRequest:WYJSONRequestSerializer url:@"user/email"
                                            parameters:postDict

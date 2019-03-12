@@ -16,7 +16,6 @@
 @property (strong, nonatomic) TPMyStoreTableViewController *tableVc0;
 @property (strong, nonatomic) TPMyStoreTableViewController *tableVc1;
 @property (strong, nonatomic) TPMyStoreTableViewController *tableVc2;
-
 @end
 
 @implementation TPMyStoreViewController
@@ -87,7 +86,6 @@
     configure.titleFont = FONT(15);
     configure.showBottomSeparator = NO;
     configure.needBounces = NO;
-  
     self.pageTitleView = [SGPageTitleView pageTitleViewWithFrame:CGRectMake(0, self.customNavBar.height, KWidth, 44) delegate:self titleNames:titleArr configure:configure];
 
     [self.view addSubview:_pageTitleView];

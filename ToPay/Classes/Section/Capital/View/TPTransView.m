@@ -50,7 +50,6 @@
             make.left.top.equalTo(@0);
             make.size.equalTo(@44);
         }];
-        
         UILabel *descLab = [YFactoryUI YLableWithText:@"确认转账" color:TP59Color font:FONT(15)];
         [_backView addSubview:descLab];
         self.descLab = descLab;

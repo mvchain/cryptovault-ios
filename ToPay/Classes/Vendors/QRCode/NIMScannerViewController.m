@@ -139,58 +139,13 @@ static NSString * typeRoomID = @"evn:r:";
     pickerCtr.delegate = self;
     [self presentViewController:pickerCtr animated:YES completion:nil];
 
-//    TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc] initWithMaxImagesCount:1 delegate:nil];
-//    [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto)
-//    {
-//        UIImage *image = [self resizeImage:photos[0]];
-//
-//        [NIMScanner scaneImage:image completion:^(NSArray *values) {
-//            NSLog(@"values.firstObject:%@",values.firstObject);
-//            if (values.count > 0)
-//            {
-//                [self selectNTESType:values.firstObject];
-//
-//                [self dismissViewControllerAnimated:NO completion:^{
-//                    [self clickCloseButton];
-//                }];
-//            } else {
-//                tipLabel.text = @"没有识别到二维码，请选择其他照片";
-//
-//                [self dismissViewControllerAnimated:YES completion:nil];
-//            }
-//        }];
-//    }];
-//
-//
-//
-//    [self presentViewController:imagePickerVc animated:YES completion:nil];
+
 
 }
 
 
 #pragma mark - UIImagePickerControllerDelegate
-//- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-//
-//    UIImage *image = [self resizeImage:info[UIImagePickerControllerOriginalImage]];
-//    NSLog(@"%f %f",image.size.width,image.size.height);
-//    // 扫描图像
-//    [NIMScanner scaneImage:image completion:^(NSArray *values) {
-//        NSLog(@"values.firstObject:%@",values.firstObject);
-//        if (values.count > 0)
-//        {
-//            [self dismissViewControllerAnimated:YES completion:^{
-//                [self selectNTESType:values.firstObject];
-//            }];
-//
-//
-//
-//        } else {
-//            tipLabel.text = @"没有识别到二维码，请选择其他照片";
-//
-//            [self dismissViewControllerAnimated:YES completion:nil];
-//        }
-//    }];
-//}
+
 
 - (UIImage *)resizeImage:(UIImage *)image {
     
@@ -219,11 +174,7 @@ static NSString * typeRoomID = @"evn:r:";
     
     if( ![JudegeCenter isVaildAddrWithTokenId:self.tokenid addr:stringValue] ) {
         
-//        if( [self.tokenid isEqualToString:@"4"]) {
-//            [self showInfoText:@"请扫描正确的BTC地址！"];
-//        }else {
-//            [self showInfoText:@"请扫描正确的ETH地址！"];
-//        }
+
         [self showInfoText:@"无效地址"];
         return NO ;
         

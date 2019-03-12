@@ -25,57 +25,31 @@
     }
     return self;
 }
--(void)createUI
+- (void)createUI
 {
-    if (_style == TPChainStyleDown)
-    {
-        UIButton *takeOutBtn = [YFactoryUI YButtonWithTitle:@"取出VP余额" Titcolor:[UIColor whiteColor] font:FONT(15) Image:nil target:self action:@selector(takeOutClcik)];
-        [takeOutBtn setLayer:20 WithBackColor:TPMainColor];
-        [self addSubview:takeOutBtn];
-        self.takeOutBtn = takeOutBtn;
-    }
-        else
-    {
+ 
         UIButton *transferBtn = [YFactoryUI YButtonWithTitle:@"转账" Titcolor:[UIColor whiteColor] font:FONT(15) Image:nil target:self action:@selector(transferClcik)];
         [transferBtn setLayerCornerRadius:20 WithColor:[UIColor clearColor] WithBorderWidth:1];
         [transferBtn setBackgroundColor:TP5856D6];
-        
         [self addSubview:transferBtn];
         self.transferBtn = transferBtn;
         UIButton *receiptBtn = [YFactoryUI YButtonWithTitle:@"收款" Titcolor:[UIColor whiteColor] font:FONT(15) Image:nil target:self action:@selector(receiptClcik)];
         [receiptBtn setLayer:20 WithBackColor:TPMainColor];
         [self addSubview:receiptBtn];
         self.receiptBtn = receiptBtn;
-    }
-}
-
--(void)layoutSubviews
-{
-    [super layoutSubviews];
-    if (_style == TPChainStyleDown)
-    {
-        [self.takeOutBtn mas_makeConstraints:^(MASConstraintMaker *make)
-        {
-            make.left.equalTo(@16);
-            make.right.equalTo(@(-16));
-            make.top.equalTo(@6);
-            make.height.equalTo(@40);
-        }];
-    }
-        else
-    {
         NSMutableArray *array = [NSMutableArray array];
         [array addObject:self.transferBtn];
         [array addObject:self.receiptBtn];
         [array mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:11 leadSpacing:16 tailSpacing:16];
         [array mas_makeConstraints:^(MASConstraintMaker *make)
-        {
-            make.top.equalTo(@6);
-            
-            make.height.equalTo(@40);
-        }];
-    }
+         {
+             make.top.equalTo(@6);
+             
+             make.height.equalTo(@40);
+         }];
+    
 }
+
 
 - (void)setTitleArray:(NSArray *)titleArray
 {
@@ -84,13 +58,7 @@
     [self.receiptBtn setTitle:titleArray[1] forState:UIControlStateNormal];
 }
 
-- (void)takeOutClcik
-{    
-    if (self.chainTakeBlock)
-    {
-        self.chainTakeBlock();
-    }
-}
+
 
 - (void)transferClcik
 {

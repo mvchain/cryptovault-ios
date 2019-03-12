@@ -28,11 +28,7 @@
 @interface QuickDo : NSObject
 + (void)shareToSystem:(NSArray *)items target:(id)target success:(void(^)(bool isok))successBlock ;
 + (void)setJPushAlians:(NSString *)aliansName ;
-/**
- * 美观cell的分割线
- * 去掉尾行分割线
- * 左右分割线有空隙
- */
+
 + (void)prettyTableViewCellSeparate:(NSArray<NSNumber *> *)hideIndexs cell:(UITableViewCell *)cell indexPath:(NSIndexPath *)indexPath;
 + (void)changeWindowKeyWindow:(UIViewController *)vc;
 + (void)swithchToMainTab;

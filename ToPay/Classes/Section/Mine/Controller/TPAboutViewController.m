@@ -22,7 +22,6 @@
     
     self.view.backgroundColor = TPF6Color;
     self.customNavBar.title  = @"关于";
-    
     [self showSystemNavgation:NO];
     [self setUpViews];
 }
@@ -31,7 +30,6 @@
 {
     UIImageView *iconImgV = [YFactoryUI YImageViewWithimage:[UIImage imageNamed:@"vp_Start icon"]];
     [self.view addSubview:iconImgV];
-    
     [iconImgV mas_makeConstraints:^(MASConstraintMaker *make)
     {
         make.centerX.equalTo(self.view);
@@ -58,7 +56,6 @@
         make.height.equalTo(@44);
     }];
     [btn addTarget:self action:@selector(updateNew:) forControlEvents:UIControlEventTouchUpInside];
-    
 }
 
 - (void)updateNew:(id)sender {

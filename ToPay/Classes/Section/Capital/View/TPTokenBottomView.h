@@ -18,10 +18,7 @@ typedef NS_ENUM(NSUInteger, TPChainStyle)
 
 @property (nonatomic) UIButton * transferBtn;
 @property (nonatomic) UIButton * receiptBtn;
-
 - (instancetype)initWithStyle:(TPChainStyle)style;
-/** 取出VP余额 */
-@property (copy, nonatomic) void (^chainTakeBlock)(void);
 /** 转账 */
 @property (copy, nonatomic) void (^chainTransferBlock)(void);
 /** 付款 */

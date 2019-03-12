@@ -12,15 +12,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="438" id="KGk-i7-Jjw" customClass="YUTMineCellTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="425" height="438"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="123" id="KGk-i7-Jjw" customClass="YUTMineCellTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="425" height="123"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="425" height="437.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="425" height="122.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2SS-OK-eRj">
-                        <rect key="frame" x="16" y="0.0" width="393" height="437.5"/>
+                        <rect key="frame" x="16" y="0.0" width="393" height="122.5"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pxl-Qy-3CG">
                                 <rect key="frame" x="24" y="16" width="24" height="24"/>
@@ -54,7 +54,7 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jnj-5d-w9I">
-                        <rect key="frame" x="16" y="432.5" width="393" height="5"/>
+                        <rect key="frame" x="16" y="117.5" width="393" height="5"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wrB-9T-iXN" userLabel="line">
                                 <rect key="frame" x="5" y="4.5" width="383" height="0.5"/>
@@ -85,7 +85,7 @@
                 <outlet property="leftIMageView" destination="Pxl-Qy-3CG" id="wcO-sY-Rzc"/>
                 <outlet property="midTitleLabel" destination="qrF-hE-46C" id="04c-b3-6Yx"/>
             </connections>
-            <point key="canvasLocation" x="192.80000000000001" y="352.62368815592208"/>
+            <point key="canvasLocation" x="192.80000000000001" y="210.94452773613196"/>
         </tableViewCell>
     </objects>
     <resources>

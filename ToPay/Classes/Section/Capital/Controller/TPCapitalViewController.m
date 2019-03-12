@@ -20,7 +20,7 @@
 #import "BCQMView.h"
 #import "TPCapitalCell.h"
 #import "TPCapitalHeaderView.h"
-
+#import "TPBrowserViewController.h"
 #define NAVBAR_COLORCHANGE_POINT (-IMAGE_HEIGHT + StatusBarAndNavigationBarHeight*2)
 
 #define IMAGE_HEIGHT 260
@@ -70,14 +70,12 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
         _qmView.layer.borderWidth = 1;
         _qmView.layer.borderColor = TPMainColor.CGColor;
         NSMutableArray *titArray = [NSMutableArray array];
-        
         for (int i = 0 ; i <listArr.count ; i++)
         {
             TPExchangeRate *ratio = listArr[i];
             [titArray addObject:ratio.name];
         }
         _qmView.titArr = titArray;
-        
         TPWeakSelf;
         [self.qmView setShowMenuBlock:^(NSInteger currentIndex)
         {
@@ -242,6 +240,17 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
     [self.customNavBar wr_setBackgroundAlpha:0];
     [self.customNavBar wr_setLeftButtonWithImage:[UIImage imageNamed:@"note_icon"]];
     [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"add_icon_white"]];
+    UIButton * btn = [[UIButton alloc] initWithFrame:CGRectMake(KWidth - 90, 0, 44, 44)];
+    [btn addTarget:self action:@selector(browsertap) forControlEvents:UIControlEventTouchUpInside];
+    
+    [btn setBackgroundImage:[UIImage imageNamed:@"browser"] forState:UIControlStateNormal];
+    if(iPhoneX) {
+        [btn setTop:45];
+    }else {
+        [btn setTop:22];
+    }
+    [self.customNavBar addSubview:btn];
+    
     TPWeakSelf;
     [self wr_setStatusBarStyle:UIStatusBarStyleLightContent];
     [self.customNavBar setOnClickLeftButton:^
@@ -258,7 +267,11 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
     }];
 }
 
-
+- (void)browsertap {
+    TPBrowserViewController *c = [[TPBrowserViewController alloc] init];
+    [self.navigationController pushViewController:c animated:YES];
+    
+}
 #pragma mark - UITableViewDelegate,UITableViewDataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
