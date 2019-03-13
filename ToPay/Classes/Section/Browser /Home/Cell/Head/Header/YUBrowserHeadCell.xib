@@ -142,6 +142,7 @@
             <connections>
                 <outlet property="blockHeightLabel" destination="Pdf-MY-MsJ" id="Num-0G-Wyp"/>
                 <outlet property="confirmTimeLabel" destination="oia-lV-Kek" id="yo7-9y-JBk"/>
+                <outlet property="stackView" destination="6Zw-jT-4HM" id="ahe-eZ-IbW"/>
                 <outlet property="transactionLabel" destination="46E-81-m5W" id="FRg-EG-XqY"/>
             </connections>
             <point key="canvasLocation" x="184" y="256.37181409295357"/>

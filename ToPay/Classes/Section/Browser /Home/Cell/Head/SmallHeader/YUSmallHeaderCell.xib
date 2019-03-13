@@ -25,13 +25,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="更多" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7P1-4N-RZd">
-                        <rect key="frame" x="378" y="31" width="27" height="16"/>
+                        <rect key="frame" x="378" y="19" width="27" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.34901960784313724" green="0.35294117647058826" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="next_icon_black" translatesAutoresizingMaskIntoConstraints="NO" id="Bpw-jU-jp3">
-                        <rect key="frame" x="410" y="27" width="24" height="24"/>
+                        <rect key="frame" x="410" y="15" width="24" height="24"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="24" id="XZ1-0W-88F"/>
                             <constraint firstAttribute="height" constant="24" id="vhe-To-fAa"/>
@@ -43,7 +43,7 @@
                     <constraint firstItem="Zvo-7G-FHs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="5Ds-q6-wut"/>
                     <constraint firstItem="Bpw-jU-jp3" firstAttribute="centerY" secondItem="7P1-4N-RZd" secondAttribute="centerY" id="6Ea-Nf-HPE"/>
                     <constraint firstItem="Bpw-jU-jp3" firstAttribute="leading" secondItem="7P1-4N-RZd" secondAttribute="trailing" constant="5" id="BeV-8m-rsE"/>
-                    <constraint firstItem="Bpw-jU-jp3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="27" id="ZBu-U7-ldu"/>
+                    <constraint firstItem="Bpw-jU-jp3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="ZBu-U7-ldu"/>
                     <constraint firstAttribute="trailing" secondItem="Bpw-jU-jp3" secondAttribute="trailing" constant="26" id="yBm-aD-2Uq"/>
                 </constraints>
             </tableViewCellContentView>

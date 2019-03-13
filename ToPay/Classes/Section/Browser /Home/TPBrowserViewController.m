@@ -16,21 +16,32 @@
 #import "YUSmallHeaderCellEntity.h"
 #import "YUTagLabel_TwoTagCellEntity.h"
 #import "YUItemImageCellEntity.h"
+#import "YUBlockDetailViewController.h"
+#import "YUBlockListViewController.h"
+#import "YUSearchBarView.h"
 @interface TPBrowserViewController ()
 @property (weak, nonatomic) IBOutlet YUPageListView *pageListView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *top;
+@property (assign, nonatomic) BOOL isSearchState;
 
+@property (nonatomic, strong) YUSearchBarView *searchbar;
 @end
 
 @implementation TPBrowserViewController
-
+- (YUSearchBarView *)searchbar {
+    if( !_searchbar ) {
+        _searchbar = [YUSearchBarView xib_loadUsingClassName];
+        _searchbar.placeholder = @"搜索币种";
+    }
+    return _searchbar;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setNav];
     [self configListView];
     [self.pageListView beginRefreshHeader];
     self.top.constant = self.customNavBar.bottom + 10 ;
-    
+    [self setEvent];
     
 }
 - (YUCellEntity *)blank {
@@ -63,8 +74,9 @@
         time.leftStr = @"最新时间";
         [listDatas addObject:time];
         [listDatas addObject:[self blank]];
-        
+
         YUSmallHeaderCellEntity *blockInfo = [[YUSmallHeaderCellEntity alloc] init];
+        [listDatas addObject:blockInfo];
         blockInfo.isShoMore = YES;
         blockInfo.title = @"区块信息";
         YUTagLabelCellEntity *blockInfoTag = [[YUTagLabelCellEntity alloc] init];
@@ -98,8 +110,6 @@
         
         [listDatas addObject:item2];
         [listDatas addObject: [self blank]];
-        
-        
         YUSmallHeaderCellEntity *nodeDistu= [[YUSmallHeaderCellEntity alloc] init];
         nodeDistu.title = @"节点分布图";
         [listDatas addObject:nodeDistu];
@@ -108,7 +118,53 @@
         complete(listDatas);
         
     };
-    
-    
 }
+- (void)setEvent {
+    yudef_weakSelf
+    self.pageListView.yu_didSelectRowAtIndexPath = ^(NSIndexPath * _Nonnull indexPath) {
+        YUCellEntity *thisEntity = (YUCellEntity *)weakSelf.pageListView.dataArrays[indexPath.row];
+        if ([thisEntity isKindOfClass:YUSmallHeaderCellEntity.class]) {
+            YUSmallHeaderCellEntity *head = (YUSmallHeaderCellEntity *)thisEntity;
+            if ([head.title isEqualToString:@"区块信息"]) {
+                YUBlockListViewController *blockInfo = [[YUBlockListViewController alloc] init];
+                [self.navigationController pushViewController:blockInfo animated:YES];
+            }
+        }
+    };
+    
+    __weak typeof (self) wsf = self;
+    [self.customNavBar setOnClickRightButton:^
+     {
+        // [wsf reBackUpSearchResult] ; // 重置搜索
+         YUSearchBarView * search  = wsf.searchbar;
+         if( !wsf.isSearchState ) {
+             //当前非搜索状态，点击后变成搜索状态
+             [wsf.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"cancel_icon_black"]];
+             [wsf.customNavBar addSubview:search];
+             search.searchTextfield.text = @"";
+             [search setHeight:36.0];
+             [search setWidth:wsf.customNavBar.width - 90];
+             [search setCenterY:wsf.customNavBar.leftButton.centerY];
+             [search setCenterX:wsf.customNavBar.centerX];
+             [search tobeCircle]; // 圆角
+             [search.searchTextfield becomeFirstResponder];
+             [search fadeIn:^{
+                 
+             }];
+         }else{
+             // 当前搜索状态，点击后变非搜索状态
+             [search.searchTextfield resignFirstResponder];
+             [search fadeOut:^{
+                 [wsf.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"serch_icon_black"]];
+                 [wsf.searchbar removeFromSuperview];
+             }];
+         }
+         wsf.isSearchState = !wsf.isSearchState; // 切换状态
+         
+     }];
+}
+
+
+
+
 @end

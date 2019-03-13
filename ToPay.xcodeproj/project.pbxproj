@@ -345,6 +345,13 @@
 		DDEFE3F72237D5C5003E3263 /* YUItemImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDEFE3F52237D5C5003E3263 /* YUItemImageCell.xib */; };
 		DDEFE3FA2237D5D6003E3263 /* YUItemImageCellEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEFE3F92237D5D6003E3263 /* YUItemImageCellEntity.m */; };
 		DDEFE3FD2237DEF6003E3263 /* YUItemLeftMidRightCellEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEFE3FC2237DEF6003E3263 /* YUItemLeftMidRightCellEntity.m */; };
+		DDEFE4022238B3DB003E3263 /* YUBlockDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEFE4002238B3DB003E3263 /* YUBlockDetailViewController.m */; };
+		DDEFE4032238B3DB003E3263 /* YUBlockDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDEFE4012238B3DB003E3263 /* YUBlockDetailViewController.xib */; };
+		DDEFE4082238DDA4003E3263 /* YUBlockListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEFE4062238DDA4003E3263 /* YUBlockListViewController.m */; };
+		DDEFE4092238DDA4003E3263 /* YUBlockListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDEFE4072238DDA4003E3263 /* YUBlockListViewController.xib */; };
+		DDEFE40F22390771003E3263 /* YUPublicKeySearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEFE40D22390771003E3263 /* YUPublicKeySearchResultCell.m */; };
+		DDEFE41022390771003E3263 /* YUPublicKeySearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDEFE40E22390771003E3263 /* YUPublicKeySearchResultCell.xib */; };
+		DDEFE41322390B5A003E3263 /* YUPublicKeySearchResultCellEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEFE41222390B5A003E3263 /* YUPublicKeySearchResultCellEntity.m */; };
 		DDF69FB521C0F42C006EE7A4 /* CountDown.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF69FB321C0F42C006EE7A4 /* CountDown.m */; };
 		DDF69FB821C12A35006EE7A4 /* TPCroRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF69FB721C12A35006EE7A4 /* TPCroRecordModel.m */; };
 		DDF69FBB21C26181006EE7A4 /* TPTransDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF69FB921C26181006EE7A4 /* TPTransDetailViewController.m */; };
@@ -1036,6 +1043,17 @@
 		DDEFE3F92237D5D6003E3263 /* YUItemImageCellEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YUItemImageCellEntity.m; sourceTree = "<group>"; };
 		DDEFE3FB2237DEF6003E3263 /* YUItemLeftMidRightCellEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YUItemLeftMidRightCellEntity.h; sourceTree = "<group>"; };
 		DDEFE3FC2237DEF6003E3263 /* YUItemLeftMidRightCellEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YUItemLeftMidRightCellEntity.m; sourceTree = "<group>"; };
+		DDEFE3FF2238B3DB003E3263 /* YUBlockDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YUBlockDetailViewController.h; sourceTree = "<group>"; };
+		DDEFE4002238B3DB003E3263 /* YUBlockDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YUBlockDetailViewController.m; sourceTree = "<group>"; };
+		DDEFE4012238B3DB003E3263 /* YUBlockDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YUBlockDetailViewController.xib; sourceTree = "<group>"; };
+		DDEFE4052238DDA4003E3263 /* YUBlockListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YUBlockListViewController.h; sourceTree = "<group>"; };
+		DDEFE4062238DDA4003E3263 /* YUBlockListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YUBlockListViewController.m; sourceTree = "<group>"; };
+		DDEFE4072238DDA4003E3263 /* YUBlockListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YUBlockListViewController.xib; sourceTree = "<group>"; };
+		DDEFE40C22390771003E3263 /* YUPublicKeySearchResultCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YUPublicKeySearchResultCell.h; sourceTree = "<group>"; };
+		DDEFE40D22390771003E3263 /* YUPublicKeySearchResultCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YUPublicKeySearchResultCell.m; sourceTree = "<group>"; };
+		DDEFE40E22390771003E3263 /* YUPublicKeySearchResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YUPublicKeySearchResultCell.xib; sourceTree = "<group>"; };
+		DDEFE41122390B5A003E3263 /* YUPublicKeySearchResultCellEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YUPublicKeySearchResultCellEntity.h; sourceTree = "<group>"; };
+		DDEFE41222390B5A003E3263 /* YUPublicKeySearchResultCellEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YUPublicKeySearchResultCellEntity.m; sourceTree = "<group>"; };
 		DDF69FB321C0F42C006EE7A4 /* CountDown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountDown.m; sourceTree = "<group>"; };
 		DDF69FB421C0F42C006EE7A4 /* CountDown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountDown.h; sourceTree = "<group>"; };
 		DDF69FB621C12A35006EE7A4 /* TPCroRecordModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPCroRecordModel.h; sourceTree = "<group>"; };
@@ -2565,10 +2583,9 @@
 		DDDDC37622379E91008BB491 /* Browser  */ = {
 			isa = PBXGroup;
 			children = (
-				DDDDC37C2237A7B9008BB491 /* Cell */,
-				DDDDC37722379EDB008BB491 /* TPBrowserViewController.h */,
-				DDDDC37822379EDB008BB491 /* TPBrowserViewController.m */,
-				DDDDC37922379EDB008BB491 /* TPBrowserViewController.xib */,
+				DDEFE40A2238EA64003E3263 /* Home */,
+				DDEFE4042238DD8A003E3263 /* Blocklist */,
+				DDEFE3FE2238B1C9003E3263 /* BlockDetail */,
 			);
 			path = "Browser ";
 			sourceTree = "<group>";
@@ -2576,6 +2593,7 @@
 		DDDDC37C2237A7B9008BB491 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				DDEFE40B22390350003E3263 /* SearchResult */,
 				DDEFE3E82237C2CD003E3263 /* Item */,
 				DDEFE3E72237C2BD003E3263 /* Head */,
 			);
@@ -2743,6 +2761,49 @@
 				DDEFE3F92237D5D6003E3263 /* YUItemImageCellEntity.m */,
 			);
 			path = Image;
+			sourceTree = "<group>";
+		};
+		DDEFE3FE2238B1C9003E3263 /* BlockDetail */ = {
+			isa = PBXGroup;
+			children = (
+				DDEFE3FF2238B3DB003E3263 /* YUBlockDetailViewController.h */,
+				DDEFE4002238B3DB003E3263 /* YUBlockDetailViewController.m */,
+				DDEFE4012238B3DB003E3263 /* YUBlockDetailViewController.xib */,
+			);
+			path = BlockDetail;
+			sourceTree = "<group>";
+		};
+		DDEFE4042238DD8A003E3263 /* Blocklist */ = {
+			isa = PBXGroup;
+			children = (
+				DDEFE4052238DDA4003E3263 /* YUBlockListViewController.h */,
+				DDEFE4062238DDA4003E3263 /* YUBlockListViewController.m */,
+				DDEFE4072238DDA4003E3263 /* YUBlockListViewController.xib */,
+			);
+			path = Blocklist;
+			sourceTree = "<group>";
+		};
+		DDEFE40A2238EA64003E3263 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				DDDDC37C2237A7B9008BB491 /* Cell */,
+				DDDDC37722379EDB008BB491 /* TPBrowserViewController.h */,
+				DDDDC37822379EDB008BB491 /* TPBrowserViewController.m */,
+				DDDDC37922379EDB008BB491 /* TPBrowserViewController.xib */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		DDEFE40B22390350003E3263 /* SearchResult */ = {
+			isa = PBXGroup;
+			children = (
+				DDEFE40C22390771003E3263 /* YUPublicKeySearchResultCell.h */,
+				DDEFE40D22390771003E3263 /* YUPublicKeySearchResultCell.m */,
+				DDEFE40E22390771003E3263 /* YUPublicKeySearchResultCell.xib */,
+				DDEFE41122390B5A003E3263 /* YUPublicKeySearchResultCellEntity.h */,
+				DDEFE41222390B5A003E3263 /* YUPublicKeySearchResultCellEntity.m */,
+			);
+			path = SearchResult;
 			sourceTree = "<group>";
 		};
 		DDFE5D9021CA1B93005D6D48 /* TPHUD */ = {
@@ -2979,6 +3040,7 @@
 				DD0A93F021F7446000D9E82E /* TPMyStoreTableViewController.xib in Resources */,
 				DD0A942821F897DB00D9E82E /* CheckSuccView.xib in Resources */,
 				DD23C29F21E9F623007727DA /* TPSetPasswordViewController.xib in Resources */,
+				DDEFE4032238B3DB003E3263 /* YUBlockDetailViewController.xib in Resources */,
 				DDFE5D9C21CA1BC0005D6D48 /* HUD_info@2x.png in Resources */,
 				DD0B452721F3228D00333016 /* TPInviteRegFirstPageTableViewCell.xib in Resources */,
 				DD0A93EA21F742AD00D9E82E /* TPMyStoreViewController.xib in Resources */,
@@ -2987,6 +3049,7 @@
 				DDFE5D9A21CA1BC0005D6D48 /* HUD_error@3x.png in Resources */,
 				DDDDC3942237A94A008BB491 /* YUNoDataCell.xib in Resources */,
 				DDBB4632221A922F0035CE07 /* TPReleaseProjectDetailVC.xib in Resources */,
+				DDEFE4092238DDA4003E3263 /* YUBlockListViewController.xib in Resources */,
 				DDFED6A421E0605300F2F354 /* TPNoMoreTableViewCell.xib in Resources */,
 				DD13CF3521EF5B3C0022EECC /* TPAccountSafeItemTableViewCell.xib in Resources */,
 				DDD211E521F1852F0029905C /* TPResetPassWordGuiderViewController.xib in Resources */,
@@ -2995,6 +3058,7 @@
 				DD374DA521C5228100093A0F /* AAJSFiles.bundle in Resources */,
 				DD10844921A001030087F244 /* BCScanQR1@2x.png in Resources */,
 				DD10844121A001030087F244 /* QRCodeScanLine@2x.png in Resources */,
+				DDEFE41022390771003E3263 /* YUPublicKeySearchResultCell.xib in Resources */,
 				DD4126AD21F9A9A800079538 /* YUTMineCellTableViewCell.xib in Resources */,
 				DD3E1CED221BF096007E8907 /* TPReleaseRecordNoDataCell.xib in Resources */,
 				DD0A940821F83E9D00D9E82E /* TPStoreDetailProductIntroCell.xib in Resources */,
@@ -3228,6 +3292,7 @@
 				DD13CF2D21EF59CF0022EECC /* TPAccountSafeViewController.m in Sources */,
 				DD374D6621C4B18F00093A0F /* TPRefreshFooter.m in Sources */,
 				DDDDC3972237A94A008BB491 /* YUBlankCellEntity.m in Sources */,
+				DDEFE41322390B5A003E3263 /* YUPublicKeySearchResultCellEntity.m in Sources */,
 				DD02399D21AF968E00333446 /* WYImageScaleTool.m in Sources */,
 				DDD211EA21F1A2520029905C /* TPRetPassWordByEmailViewController.m in Sources */,
 				DD0B453221F59FAF00333016 /* TPInviteRegSecondPageItemTableViewCellEntity.m in Sources */,
@@ -3259,6 +3324,7 @@
 				DDBB4631221A922F0035CE07 /* TPReleaseProjectDetailVC.m in Sources */,
 				DDFE5DD421CDF22E005D6D48 /* TPPublish.m in Sources */,
 				DD02399C21AF968E00333446 /* WYNetworkBaseEngine.m in Sources */,
+				DDEFE40F22390771003E3263 /* YUPublicKeySearchResultCell.m in Sources */,
 				DD374DAE21C5228100093A0F /* AASubtitle.m in Sources */,
 				DDDDFB7B219AB5560056FC57 /* TPVRPLabelCell.m in Sources */,
 				DD23C29E21E9F623007727DA /* TPSetPasswordViewController.m in Sources */,
@@ -3267,6 +3333,7 @@
 				DD374DB821C5228100093A0F /* AALegend.m in Sources */,
 				DD0239B221B10AC700333446 /* TPAssetModel.m in Sources */,
 				DD0D344621F5AFDE00ECEDF2 /* TPInviteRegSecondPageTableViewCell.m in Sources */,
+				DDEFE4022238B3DB003E3263 /* YUBlockDetailViewController.m in Sources */,
 				DD13CF4121F05BB20022EECC /* TPBindEmailViewController.m in Sources */,
 				DD13CF1721EED49A0022EECC /* YUTextViewXibContainer.m in Sources */,
 				DD02444F21992F09006A1390 /* UIColor+Additions.m in Sources */,
@@ -3321,6 +3388,7 @@
 				DDEFE3F62237D5C5003E3263 /* YUItemImageCell.m in Sources */,
 				DD0A941B21F85DE900D9E82E /* TPStoreEveryDayIncomeCellEntity.m in Sources */,
 				DD02393E21ACEBDA00333446 /* TPLoginViewController.m in Sources */,
+				DDEFE4082238DDA4003E3263 /* YUBlockListViewController.m in Sources */,
 				DD1083DF219D7AD10087F244 /* TPNotiViewController.m in Sources */,
 				DD0D344021F5AB1E00ECEDF2 /* TPRecommendedUserModel.m in Sources */,
 				DD02392421A6B83D00333446 /* TPUSDTCell.m in Sources */,

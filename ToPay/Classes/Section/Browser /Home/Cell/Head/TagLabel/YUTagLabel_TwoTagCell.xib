@@ -37,7 +37,7 @@
                         </subviews>
                     </stackView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ze4-zS-vlz">
-                        <rect key="frame" x="23" y="33" width="572" height="1"/>
+                        <rect key="frame" x="23" y="43" width="572" height="1"/>
                         <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="pu0-AT-7u9"/>
@@ -45,7 +45,7 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="ze4-zS-vlz" firstAttribute="top" secondItem="UMM-nd-gTA" secondAttribute="bottom" constant="7" id="8Nh-s4-sxO"/>
+                    <constraint firstItem="ze4-zS-vlz" firstAttribute="top" secondItem="UMM-nd-gTA" secondAttribute="bottom" constant="17" id="8Nh-s4-sxO"/>
                     <constraint firstItem="UMM-nd-gTA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="V7k-0S-dLj"/>
                     <constraint firstItem="ze4-zS-vlz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="23" id="aH3-S9-z4M"/>
                     <constraint firstItem="UMM-nd-gTA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="oLW-ZF-nw7"/>

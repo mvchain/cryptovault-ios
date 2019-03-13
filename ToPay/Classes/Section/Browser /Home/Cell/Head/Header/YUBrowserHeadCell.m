@@ -8,6 +8,7 @@
 
 #import "YUBrowserHeadCell.h"
 @interface YUBrowserHeadCell()
+@property (weak, nonatomic) IBOutlet UIStackView *stackView;
 @property (weak, nonatomic) IBOutlet UILabel *blockHeightLabel;
 @property (weak, nonatomic) IBOutlet UILabel *confirmTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *transactionLabel;
@@ -17,6 +18,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    [self.stackView yu_smallCircleStyle];
+    
     // Initialization code
 }
 

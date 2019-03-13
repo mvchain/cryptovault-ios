@@ -13,6 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface YUItemLeftRightCellEntity : YUCellEntity
 @property (copy,nonatomic) NSString *leftStr ;
 @property (copy,nonatomic) NSString *rightStr;
+@property (strong,nonatomic) UIFont *rightFont ;
+@property (strong,nonatomic) UIColor *rightColor;
+
 @property (assign,nonatomic) BOOL isAlignCenterStyle;
 @end
 
