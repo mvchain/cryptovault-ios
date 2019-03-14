@@ -14,7 +14,7 @@
 @property (nonatomic, strong) UIImageView *iconImgV;
 @property (nonatomic, strong) UILabel *nickLab;
 @property (nonatomic, strong) UILabel *mobLab;
-
+@property (nonatomic, strong) UILabel *privateKeyLabel;
 @end
 
 @implementation TPMeHeaderView
@@ -36,7 +36,13 @@
         [self addSubview:_nickLab];
         
         _mobLab = [YFactoryUI YLableWithText:@"" color:[UIColor whiteColor] font:FONT(13)];
+        
         [self addSubview:_mobLab];
+        _privateKeyLabel = [YFactoryUI YLableWithText:@"" color:[UIColor whiteColor] font:FONT(13)];
+        _privateKeyLabel.numberOfLines = 2;
+        
+        
+        [self addSubview:_privateKeyLabel];
     }
     return self;
 }
@@ -53,6 +59,9 @@
         [self.iconImgV setRectHeader:userInfo.headImage];
         self.nickLab.text = userInfo.nickname;
         self.mobLab.text = TPString(@"手机号：%@",userInfo.username);
+        TPLoginModel *loginM = [TPLoginUtil userInfo];
+        [self.privateKeyLabel setText:TPString(@"公钥：%@",loginM.publicKey)];
+        
     }
     [_backImgV mas_makeConstraints:^(MASConstraintMaker *make)
     {
@@ -79,5 +88,13 @@
         make.top.equalTo(self.nickLab.mas_bottom).with.offset(10);
         make.height.equalTo(@17);
     }];
+    [_privateKeyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(wsf.iconImgV.mas_trailing).with.offset(20);
+        make.top.equalTo(self.mobLab.mas_bottom).with.offset(10);
+        make.trailing.equalTo(@(-20));
+        
+        make.height.equalTo(@40);
+    }];
+    
 }
 @end

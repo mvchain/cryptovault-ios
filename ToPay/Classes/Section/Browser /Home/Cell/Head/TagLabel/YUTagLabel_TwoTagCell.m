@@ -25,6 +25,15 @@
     YUTagLabel_TwoTagCellEntity *myEn = (YUTagLabel_TwoTagCellEntity*)entity ;
     [self.leftLabel setText:myEn.leftStr];
     [self.rightLabel setText:myEn.rightStr];
+    if (myEn.isLabelAlginCenter) {
+        self.leftLabel.textAlignment = NSTextAlignmentCenter;
+        self.rightLabel.textAlignment = NSTextAlignmentCenter;
+    }else {
+        self.leftLabel.textAlignment = NSTextAlignmentLeft;
+        self.rightLabel.textAlignment = NSTextAlignmentRight;
+    }
+    
+   
     
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

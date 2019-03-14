@@ -19,19 +19,25 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    [@[_captialButton,_recordButton] bk_apply:^(id obj) {
-        UIButton *btn = (UIButton *)obj;
-        [btn setBackgroundColor:[UIColor colorWithHex:@"#EE6144"]];
-        [btn.titleLabel setTextColor:[UIColor whiteColor]];
-        [btn yu_circleStyle];
-    }];
-    // Initialization code
+    for(UIButton *btn  in @[_captialButton,_recordButton] ) {
+            [btn setBackgroundColor:[UIColor colorWithHex:@"#EE6144"]];
+            [btn.titleLabel setTextColor:[UIColor whiteColor]];
+            [btn yu_circleStyle];
+    }
 }
-
+- (void)setEntity:(YUCellEntity *)entity {
+    [super setEntity:entity];
+    YUPublicKeySearchResultCellEntity *myen = (YUPublicKeySearchResultCellEntity*)entity;
+    self.publicKeyContentLabel.text = myen.publicKey;
+}
+- (IBAction)captial_ta:(id)sender {
+    [self.yu_delegate yu_cellMessageNotify:@"cap" content:self.entity sender:nil];
+}
+- (IBAction)recordTap:(id)sender {
+     [self.yu_delegate yu_cellMessageNotify:@"rec" content:self.entity sender:nil];
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 @end

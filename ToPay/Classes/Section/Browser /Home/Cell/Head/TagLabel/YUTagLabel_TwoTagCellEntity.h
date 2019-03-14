@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface YUTagLabel_TwoTagCellEntity : YUCellEntity
 @property (copy,nonatomic) NSString *leftStr ;
 @property (copy,nonatomic) NSString *rightStr;
+@property (assign,nonatomic)BOOL isLabelAlginCenter;
+
 @end
 
 NS_ASSUME_NONNULL_END

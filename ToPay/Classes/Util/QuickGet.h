@@ -17,6 +17,7 @@
 + (NSString *)getCurBuildVersion;
 + (NSString *)getCurrentServerUrl ;
 + (NSString *)httpPathWithCurrentServerUrl:(NSString *)path;
++ (NSString *)getExplorerPath;
 
 @end
 

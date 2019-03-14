@@ -47,7 +47,12 @@
                             <constraint firstAttribute="width" constant="45" id="ZkC-62-sM0"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <state key="normal" title="查看"/>
+                        <state key="normal" title="查看">
+                            <color key="titleColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="captial_ta:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Mqg-gF-ibq"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="交易记录" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6yc-gg-f4a">
                         <rect key="frame" x="22" y="108" width="62" height="18"/>
@@ -62,7 +67,12 @@
                             <constraint firstAttribute="width" constant="45" id="pAW-3K-BrA"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <state key="normal" title="查看"/>
+                        <state key="normal" title="查看">
+                            <color key="titleColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="recordTap:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Xfy-If-IWP"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>

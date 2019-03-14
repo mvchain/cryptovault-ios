@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface YUPublicKeySearchResultCellEntity : YUCellEntity
+@property (copy,nonatomic) NSString *publicKey;
 
 @end
 

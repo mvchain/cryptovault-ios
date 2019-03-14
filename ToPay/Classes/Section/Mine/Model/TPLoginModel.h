@@ -14,7 +14,7 @@
 @property (nonatomic , copy) NSString         * token;
 @property (nonatomic , copy) NSString         * userId;
 @property (nonatomic ,copy) NSString * email;
-
+@property (nonatomic ,copy) NSString * publicKey;
 
 //  @property (nonatomic , copy) NSString         * nickname;
 //  @property (nonatomic , copy) NSString         * birthday;

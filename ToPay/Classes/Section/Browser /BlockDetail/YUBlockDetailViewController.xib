@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YUBlockDetailViewController">
             <connections>
+                <outlet property="atly_top" destination="OhD-uv-SjN" id="xTS-eE-qa4"/>
                 <outlet property="pageListView" destination="niw-Bt-0Dw" id="z9h-k9-MqG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

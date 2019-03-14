@@ -11,7 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface YUBrowserHeadCellEntity : YUCellEntity
-
+@property (assign,nonatomic) NSInteger blockHeight ;
+@property (assign,nonatomic) NSInteger transnum ;
+@property (assign,nonatomic) NSInteger confirmSecond ;
 @end
 
 NS_ASSUME_NONNULL_END

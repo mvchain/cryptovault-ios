@@ -9,5 +9,12 @@
 #import "YUPublicKeySearchResultCellEntity.h"
 
 @implementation YUPublicKeySearchResultCellEntity
-
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.yu_cellHeight = 140.0;
+    }
+    return self;
+}
 @end

@@ -77,6 +77,7 @@ static YUNetworkManager *networkManager = nil;
     
     
     NSString *requestPath = [serverUrl stringByAppendingPathComponent:apiPath];
+    
     // requestPath    NSPathStore2 *    @"http:/ream.miyauu.com/api/v1/bbs/list"    0x00000001c00a7320
     NSURLSessionDataTask * task = nil;
     [self updateToken];

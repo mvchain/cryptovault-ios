@@ -7,10 +7,12 @@
 //
 
 #import "YUBrowserHeadCell.h"
+#import "YUBrowserHeadCellEntity.h"
 @interface YUBrowserHeadCell()
 @property (weak, nonatomic) IBOutlet UIStackView *stackView;
 @property (weak, nonatomic) IBOutlet UILabel *blockHeightLabel;
 @property (weak, nonatomic) IBOutlet UILabel *confirmTimeLabel;
+@property (weak, nonatomic) IBOutlet UIView *bgView;
 @property (weak, nonatomic) IBOutlet UILabel *transactionLabel;
 @end
 
@@ -18,11 +20,16 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    [self.stackView yu_smallCircleStyle];
-    
-    // Initialization code
+    [self.bgView yu_smallCircleStyle];
+ 
 }
-
+- (void)setEntity:(YUCellEntity *)entity {
+    [super setEntity:entity];
+    YUBrowserHeadCellEntity* myEn = (YUBrowserHeadCellEntity *)entity;
+    [self.blockHeightLabel setText:@(myEn.blockHeight).stringValue];
+    [self.transactionLabel setText:@(myEn.transnum).stringValue];
+    [self.confirmTimeLabel setText:TPString(@"%@ S",@(myEn.confirmSecond).stringValue)];
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

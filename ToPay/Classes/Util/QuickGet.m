@@ -69,7 +69,13 @@
     NSString *this_cur = [JudegeCenter isReleaseVersion]?release_url:test_url;
     return this_cur;
 }
-
++ (NSString *)getExplorerPath {
+    //@"http://47.110.234.233/api/explorer";
+    //@"http://192.168.15.21:10081";
+    NSString *test =@"http://47.110.234.233/api/explorer";
+    return test;
+    
+}
 + (NSString *)httpPathWithCurrentServerUrl:(NSString *)path {
     return TPString(@"%@%@",[self getCurrentServerUrl],path);
 }

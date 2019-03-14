@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface YUBlockDetailViewController : TPBaseViewController
+@property (assign,nonatomic) NSInteger blockId;
 
 @end
 

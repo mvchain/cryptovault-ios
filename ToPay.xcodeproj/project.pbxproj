@@ -352,6 +352,33 @@
 		DDEFE40F22390771003E3263 /* YUPublicKeySearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEFE40D22390771003E3263 /* YUPublicKeySearchResultCell.m */; };
 		DDEFE41022390771003E3263 /* YUPublicKeySearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDEFE40E22390771003E3263 /* YUPublicKeySearchResultCell.xib */; };
 		DDEFE41322390B5A003E3263 /* YUPublicKeySearchResultCellEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEFE41222390B5A003E3263 /* YUPublicKeySearchResultCellEntity.m */; };
+		DDEFE4172239256F003E3263 /* API_GET_Block.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEFE4162239256F003E3263 /* API_GET_Block.m */; };
+		DDEFE41A22392689003E3263 /* API_GET_Block_Address_Balance.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEFE41922392689003E3263 /* API_GET_Block_Address_Balance.m */; };
+		DDEFE41D22392738003E3263 /* API_GET_Block_Address_Exist.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEFE41C22392738003E3263 /* API_GET_Block_Address_Exist.m */; };
+		DDEFE420223927E7003E3263 /* API_GET_Block_Address_Order.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEFE41F223927E7003E3263 /* API_GET_Block_Address_Order.m */; };
+		DDEFE42322392878003E3263 /* API_GET_Block_Address_Order_Id.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEFE42222392878003E3263 /* API_GET_Block_Address_Order_Id.m */; };
+		DDEFE42622392917003E3263 /* API_GET_Block_Last.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEFE42522392917003E3263 /* API_GET_Block_Last.m */; };
+		DDEFE42922392951003E3263 /* API_GET_Block_Transaction_Last.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEFE42822392951003E3263 /* API_GET_Block_Transaction_Last.m */; };
+		DDEFE42C22392992003E3263 /* API_GET_Block_Transaction_Tx_Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEFE42B22392992003E3263 /* API_GET_Block_Transaction_Tx_Hash.m */; };
+		DDEFE42F223929CA003E3263 /* API_GET_Block_Blockid.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEFE42E223929CA003E3263 /* API_GET_Block_Blockid.m */; };
+		DDEFE43222392A11003E3263 /* API_GET_Block_Blockid_Transactions.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEFE43122392A11003E3263 /* API_GET_Block_Blockid_Transactions.m */; };
+		DDEFE4362239FF66003E3263 /* BlockLastInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEFE4352239FF66003E3263 /* BlockLastInfo.m */; };
+		DDEFE439223A0402003E3263 /* BlockTransactionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEFE438223A0402003E3263 /* BlockTransactionInfo.m */; };
+		DDEFE43C223A045D003E3263 /* BlockListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEFE43B223A045D003E3263 /* BlockListItem.m */; };
+		DDEFE441223A3443003E3263 /* YUBrowserCaptialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEFE43F223A3443003E3263 /* YUBrowserCaptialViewController.m */; };
+		DDEFE442223A3443003E3263 /* YUBrowserCaptialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDEFE440223A3443003E3263 /* YUBrowserCaptialViewController.xib */; };
+		DDEFE446223A3563003E3263 /* BlockBrowserCaptialItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEFE445223A3563003E3263 /* BlockBrowserCaptialItem.m */; };
+		DDEFE44B223A4140003E3263 /* YUTransactionRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEFE449223A4140003E3263 /* YUTransactionRecordViewController.m */; };
+		DDEFE44C223A4140003E3263 /* YUTransactionRecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDEFE44A223A4140003E3263 /* YUTransactionRecordViewController.xib */; };
+		DDEFE450223A48FB003E3263 /* BlockTransactionRecordItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEFE44F223A48FB003E3263 /* BlockTransactionRecordItem.m */; };
+		DDEFE455223A4E19003E3263 /* TransactionRecordDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEFE453223A4E19003E3263 /* TransactionRecordDetailViewController.m */; };
+		DDEFE456223A4E19003E3263 /* TransactionRecordDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDEFE454223A4E19003E3263 /* TransactionRecordDetailViewController.xib */; };
+		DDEFE45C223A582E003E3263 /* BlockDetailInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEFE45B223A582E003E3263 /* BlockDetailInfo.m */; };
+		DDEFE460223A60F4003E3263 /* TransactionRecordDetailInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEFE45F223A60F4003E3263 /* TransactionRecordDetailInfo.m */; };
+		DDEFE463223A7DD4003E3263 /* BlockDetailItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEFE462223A7DD4003E3263 /* BlockDetailItem.m */; };
+		DDEFE468223A855F003E3263 /* YUTransactionInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEFE466223A855F003E3263 /* YUTransactionInfoViewController.m */; };
+		DDEFE469223A855F003E3263 /* YUTransactionInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDEFE467223A855F003E3263 /* YUTransactionInfoViewController.xib */; };
+		DDEFE46D223A86A3003E3263 /* BrowserTransactionInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEFE46C223A86A3003E3263 /* BrowserTransactionInfoModel.m */; };
 		DDF69FB521C0F42C006EE7A4 /* CountDown.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF69FB321C0F42C006EE7A4 /* CountDown.m */; };
 		DDF69FB821C12A35006EE7A4 /* TPCroRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF69FB721C12A35006EE7A4 /* TPCroRecordModel.m */; };
 		DDF69FBB21C26181006EE7A4 /* TPTransDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF69FB921C26181006EE7A4 /* TPTransDetailViewController.m */; };
@@ -1054,6 +1081,56 @@
 		DDEFE40E22390771003E3263 /* YUPublicKeySearchResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YUPublicKeySearchResultCell.xib; sourceTree = "<group>"; };
 		DDEFE41122390B5A003E3263 /* YUPublicKeySearchResultCellEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YUPublicKeySearchResultCellEntity.h; sourceTree = "<group>"; };
 		DDEFE41222390B5A003E3263 /* YUPublicKeySearchResultCellEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YUPublicKeySearchResultCellEntity.m; sourceTree = "<group>"; };
+		DDEFE4152239256F003E3263 /* API_GET_Block.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = API_GET_Block.h; sourceTree = "<group>"; };
+		DDEFE4162239256F003E3263 /* API_GET_Block.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = API_GET_Block.m; sourceTree = "<group>"; };
+		DDEFE41822392689003E3263 /* API_GET_Block_Address_Balance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = API_GET_Block_Address_Balance.h; sourceTree = "<group>"; };
+		DDEFE41922392689003E3263 /* API_GET_Block_Address_Balance.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = API_GET_Block_Address_Balance.m; sourceTree = "<group>"; };
+		DDEFE41B22392738003E3263 /* API_GET_Block_Address_Exist.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = API_GET_Block_Address_Exist.h; sourceTree = "<group>"; };
+		DDEFE41C22392738003E3263 /* API_GET_Block_Address_Exist.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = API_GET_Block_Address_Exist.m; sourceTree = "<group>"; };
+		DDEFE41E223927E7003E3263 /* API_GET_Block_Address_Order.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = API_GET_Block_Address_Order.h; sourceTree = "<group>"; };
+		DDEFE41F223927E7003E3263 /* API_GET_Block_Address_Order.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = API_GET_Block_Address_Order.m; sourceTree = "<group>"; };
+		DDEFE42122392878003E3263 /* API_GET_Block_Address_Order_Id.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = API_GET_Block_Address_Order_Id.h; sourceTree = "<group>"; };
+		DDEFE42222392878003E3263 /* API_GET_Block_Address_Order_Id.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = API_GET_Block_Address_Order_Id.m; sourceTree = "<group>"; };
+		DDEFE42422392917003E3263 /* API_GET_Block_Last.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = API_GET_Block_Last.h; sourceTree = "<group>"; };
+		DDEFE42522392917003E3263 /* API_GET_Block_Last.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = API_GET_Block_Last.m; sourceTree = "<group>"; };
+		DDEFE42722392951003E3263 /* API_GET_Block_Transaction_Last.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = API_GET_Block_Transaction_Last.h; sourceTree = "<group>"; };
+		DDEFE42822392951003E3263 /* API_GET_Block_Transaction_Last.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = API_GET_Block_Transaction_Last.m; sourceTree = "<group>"; };
+		DDEFE42A22392992003E3263 /* API_GET_Block_Transaction_Tx_Hash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = API_GET_Block_Transaction_Tx_Hash.h; sourceTree = "<group>"; };
+		DDEFE42B22392992003E3263 /* API_GET_Block_Transaction_Tx_Hash.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = API_GET_Block_Transaction_Tx_Hash.m; sourceTree = "<group>"; };
+		DDEFE42D223929CA003E3263 /* API_GET_Block_Blockid.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = API_GET_Block_Blockid.h; sourceTree = "<group>"; };
+		DDEFE42E223929CA003E3263 /* API_GET_Block_Blockid.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = API_GET_Block_Blockid.m; sourceTree = "<group>"; };
+		DDEFE43022392A11003E3263 /* API_GET_Block_Blockid_Transactions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = API_GET_Block_Blockid_Transactions.h; sourceTree = "<group>"; };
+		DDEFE43122392A11003E3263 /* API_GET_Block_Blockid_Transactions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = API_GET_Block_Blockid_Transactions.m; sourceTree = "<group>"; };
+		DDEFE4342239FF66003E3263 /* BlockLastInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlockLastInfo.h; sourceTree = "<group>"; };
+		DDEFE4352239FF66003E3263 /* BlockLastInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlockLastInfo.m; sourceTree = "<group>"; };
+		DDEFE437223A0402003E3263 /* BlockTransactionInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlockTransactionInfo.h; sourceTree = "<group>"; };
+		DDEFE438223A0402003E3263 /* BlockTransactionInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlockTransactionInfo.m; sourceTree = "<group>"; };
+		DDEFE43A223A045D003E3263 /* BlockListItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlockListItem.h; sourceTree = "<group>"; };
+		DDEFE43B223A045D003E3263 /* BlockListItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlockListItem.m; sourceTree = "<group>"; };
+		DDEFE43E223A3443003E3263 /* YUBrowserCaptialViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YUBrowserCaptialViewController.h; sourceTree = "<group>"; };
+		DDEFE43F223A3443003E3263 /* YUBrowserCaptialViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YUBrowserCaptialViewController.m; sourceTree = "<group>"; };
+		DDEFE440223A3443003E3263 /* YUBrowserCaptialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YUBrowserCaptialViewController.xib; sourceTree = "<group>"; };
+		DDEFE444223A3563003E3263 /* BlockBrowserCaptialItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlockBrowserCaptialItem.h; sourceTree = "<group>"; };
+		DDEFE445223A3563003E3263 /* BlockBrowserCaptialItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlockBrowserCaptialItem.m; sourceTree = "<group>"; };
+		DDEFE448223A4140003E3263 /* YUTransactionRecordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YUTransactionRecordViewController.h; sourceTree = "<group>"; };
+		DDEFE449223A4140003E3263 /* YUTransactionRecordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YUTransactionRecordViewController.m; sourceTree = "<group>"; };
+		DDEFE44A223A4140003E3263 /* YUTransactionRecordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YUTransactionRecordViewController.xib; sourceTree = "<group>"; };
+		DDEFE44E223A48FB003E3263 /* BlockTransactionRecordItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlockTransactionRecordItem.h; sourceTree = "<group>"; };
+		DDEFE44F223A48FB003E3263 /* BlockTransactionRecordItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlockTransactionRecordItem.m; sourceTree = "<group>"; };
+		DDEFE452223A4E19003E3263 /* TransactionRecordDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransactionRecordDetailViewController.h; sourceTree = "<group>"; };
+		DDEFE453223A4E19003E3263 /* TransactionRecordDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransactionRecordDetailViewController.m; sourceTree = "<group>"; };
+		DDEFE454223A4E19003E3263 /* TransactionRecordDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionRecordDetailViewController.xib; sourceTree = "<group>"; };
+		DDEFE45A223A582E003E3263 /* BlockDetailInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlockDetailInfo.h; sourceTree = "<group>"; };
+		DDEFE45B223A582E003E3263 /* BlockDetailInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlockDetailInfo.m; sourceTree = "<group>"; };
+		DDEFE45E223A60F4003E3263 /* TransactionRecordDetailInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransactionRecordDetailInfo.h; sourceTree = "<group>"; };
+		DDEFE45F223A60F4003E3263 /* TransactionRecordDetailInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransactionRecordDetailInfo.m; sourceTree = "<group>"; };
+		DDEFE461223A7DD4003E3263 /* BlockDetailItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlockDetailItem.h; sourceTree = "<group>"; };
+		DDEFE462223A7DD4003E3263 /* BlockDetailItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlockDetailItem.m; sourceTree = "<group>"; };
+		DDEFE465223A855F003E3263 /* YUTransactionInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YUTransactionInfoViewController.h; sourceTree = "<group>"; };
+		DDEFE466223A855F003E3263 /* YUTransactionInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YUTransactionInfoViewController.m; sourceTree = "<group>"; };
+		DDEFE467223A855F003E3263 /* YUTransactionInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YUTransactionInfoViewController.xib; sourceTree = "<group>"; };
+		DDEFE46B223A86A3003E3263 /* BrowserTransactionInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrowserTransactionInfoModel.h; sourceTree = "<group>"; };
+		DDEFE46C223A86A3003E3263 /* BrowserTransactionInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrowserTransactionInfoModel.m; sourceTree = "<group>"; };
 		DDF69FB321C0F42C006EE7A4 /* CountDown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountDown.m; sourceTree = "<group>"; };
 		DDF69FB421C0F42C006EE7A4 /* CountDown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountDown.h; sourceTree = "<group>"; };
 		DDF69FB621C12A35006EE7A4 /* TPCroRecordModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPCroRecordModel.h; sourceTree = "<group>"; };
@@ -2153,6 +2230,7 @@
 		DD23C29421E9BF71007727DA /* HttpService */ = {
 			isa = PBXGroup;
 			children = (
+				DDEFE4142239255A003E3263 /* API */,
 				DDDDC37122379AED008BB491 /* ServModel.h */,
 				DDDDC37022379AED008BB491 /* ServModel.m */,
 				DDDDC37322379AED008BB491 /* YUNetworkManager.h */,
@@ -2583,6 +2661,10 @@
 		DDDDC37622379E91008BB491 /* Browser  */ = {
 			isa = PBXGroup;
 			children = (
+				DDEFE464223A8530003E3263 /* TransactionInfo */,
+				DDEFE451223A4DDE003E3263 /* TransactionRecordDetail */,
+				DDEFE447223A40ED003E3263 /* TransactionRecord */,
+				DDEFE43D223A3424003E3263 /* Captial */,
 				DDEFE40A2238EA64003E3263 /* Home */,
 				DDEFE4042238DD8A003E3263 /* Blocklist */,
 				DDEFE3FE2238B1C9003E3263 /* BlockDetail */,
@@ -2766,6 +2848,7 @@
 		DDEFE3FE2238B1C9003E3263 /* BlockDetail */ = {
 			isa = PBXGroup;
 			children = (
+				DDEFE459223A57D3003E3263 /* Model */,
 				DDEFE3FF2238B3DB003E3263 /* YUBlockDetailViewController.h */,
 				DDEFE4002238B3DB003E3263 /* YUBlockDetailViewController.m */,
 				DDEFE4012238B3DB003E3263 /* YUBlockDetailViewController.xib */,
@@ -2786,6 +2869,7 @@
 		DDEFE40A2238EA64003E3263 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				DDEFE4332239FF39003E3263 /* Model */,
 				DDDDC37C2237A7B9008BB491 /* Cell */,
 				DDDDC37722379EDB008BB491 /* TPBrowserViewController.h */,
 				DDDDC37822379EDB008BB491 /* TPBrowserViewController.m */,
@@ -2804,6 +2888,137 @@
 				DDEFE41222390B5A003E3263 /* YUPublicKeySearchResultCellEntity.m */,
 			);
 			path = SearchResult;
+			sourceTree = "<group>";
+		};
+		DDEFE4142239255A003E3263 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				DDEFE4152239256F003E3263 /* API_GET_Block.h */,
+				DDEFE4162239256F003E3263 /* API_GET_Block.m */,
+				DDEFE41822392689003E3263 /* API_GET_Block_Address_Balance.h */,
+				DDEFE41922392689003E3263 /* API_GET_Block_Address_Balance.m */,
+				DDEFE41B22392738003E3263 /* API_GET_Block_Address_Exist.h */,
+				DDEFE41C22392738003E3263 /* API_GET_Block_Address_Exist.m */,
+				DDEFE41E223927E7003E3263 /* API_GET_Block_Address_Order.h */,
+				DDEFE41F223927E7003E3263 /* API_GET_Block_Address_Order.m */,
+				DDEFE42122392878003E3263 /* API_GET_Block_Address_Order_Id.h */,
+				DDEFE42222392878003E3263 /* API_GET_Block_Address_Order_Id.m */,
+				DDEFE42422392917003E3263 /* API_GET_Block_Last.h */,
+				DDEFE42522392917003E3263 /* API_GET_Block_Last.m */,
+				DDEFE42722392951003E3263 /* API_GET_Block_Transaction_Last.h */,
+				DDEFE42822392951003E3263 /* API_GET_Block_Transaction_Last.m */,
+				DDEFE42A22392992003E3263 /* API_GET_Block_Transaction_Tx_Hash.h */,
+				DDEFE42B22392992003E3263 /* API_GET_Block_Transaction_Tx_Hash.m */,
+				DDEFE42D223929CA003E3263 /* API_GET_Block_Blockid.h */,
+				DDEFE42E223929CA003E3263 /* API_GET_Block_Blockid.m */,
+				DDEFE43022392A11003E3263 /* API_GET_Block_Blockid_Transactions.h */,
+				DDEFE43122392A11003E3263 /* API_GET_Block_Blockid_Transactions.m */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		DDEFE4332239FF39003E3263 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DDEFE4342239FF66003E3263 /* BlockLastInfo.h */,
+				DDEFE4352239FF66003E3263 /* BlockLastInfo.m */,
+				DDEFE437223A0402003E3263 /* BlockTransactionInfo.h */,
+				DDEFE438223A0402003E3263 /* BlockTransactionInfo.m */,
+				DDEFE43A223A045D003E3263 /* BlockListItem.h */,
+				DDEFE43B223A045D003E3263 /* BlockListItem.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DDEFE43D223A3424003E3263 /* Captial */ = {
+			isa = PBXGroup;
+			children = (
+				DDEFE443223A3539003E3263 /* Model */,
+				DDEFE43E223A3443003E3263 /* YUBrowserCaptialViewController.h */,
+				DDEFE43F223A3443003E3263 /* YUBrowserCaptialViewController.m */,
+				DDEFE440223A3443003E3263 /* YUBrowserCaptialViewController.xib */,
+			);
+			path = Captial;
+			sourceTree = "<group>";
+		};
+		DDEFE443223A3539003E3263 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DDEFE444223A3563003E3263 /* BlockBrowserCaptialItem.h */,
+				DDEFE445223A3563003E3263 /* BlockBrowserCaptialItem.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DDEFE447223A40ED003E3263 /* TransactionRecord */ = {
+			isa = PBXGroup;
+			children = (
+				DDEFE44D223A4857003E3263 /* Model */,
+				DDEFE448223A4140003E3263 /* YUTransactionRecordViewController.h */,
+				DDEFE449223A4140003E3263 /* YUTransactionRecordViewController.m */,
+				DDEFE44A223A4140003E3263 /* YUTransactionRecordViewController.xib */,
+			);
+			path = TransactionRecord;
+			sourceTree = "<group>";
+		};
+		DDEFE44D223A4857003E3263 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DDEFE44E223A48FB003E3263 /* BlockTransactionRecordItem.h */,
+				DDEFE44F223A48FB003E3263 /* BlockTransactionRecordItem.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DDEFE451223A4DDE003E3263 /* TransactionRecordDetail */ = {
+			isa = PBXGroup;
+			children = (
+				DDEFE45D223A60C1003E3263 /* Model */,
+				DDEFE452223A4E19003E3263 /* TransactionRecordDetailViewController.h */,
+				DDEFE453223A4E19003E3263 /* TransactionRecordDetailViewController.m */,
+				DDEFE454223A4E19003E3263 /* TransactionRecordDetailViewController.xib */,
+			);
+			path = TransactionRecordDetail;
+			sourceTree = "<group>";
+		};
+		DDEFE459223A57D3003E3263 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DDEFE45A223A582E003E3263 /* BlockDetailInfo.h */,
+				DDEFE45B223A582E003E3263 /* BlockDetailInfo.m */,
+				DDEFE461223A7DD4003E3263 /* BlockDetailItem.h */,
+				DDEFE462223A7DD4003E3263 /* BlockDetailItem.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DDEFE45D223A60C1003E3263 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DDEFE45E223A60F4003E3263 /* TransactionRecordDetailInfo.h */,
+				DDEFE45F223A60F4003E3263 /* TransactionRecordDetailInfo.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DDEFE464223A8530003E3263 /* TransactionInfo */ = {
+			isa = PBXGroup;
+			children = (
+				DDEFE46A223A8697003E3263 /* Model */,
+				DDEFE465223A855F003E3263 /* YUTransactionInfoViewController.h */,
+				DDEFE466223A855F003E3263 /* YUTransactionInfoViewController.m */,
+				DDEFE467223A855F003E3263 /* YUTransactionInfoViewController.xib */,
+			);
+			path = TransactionInfo;
+			sourceTree = "<group>";
+		};
+		DDEFE46A223A8697003E3263 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DDEFE46B223A86A3003E3263 /* BrowserTransactionInfoModel.h */,
+				DDEFE46C223A86A3003E3263 /* BrowserTransactionInfoModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		DDFE5D9021CA1B93005D6D48 /* TPHUD */ = {
@@ -3025,7 +3240,9 @@
 				DDFE5D9921CA1BC0005D6D48 /* HUD_success@3x.png in Resources */,
 				DDE3EBB12237B70400001AC3 /* YUItemLeftRightCell.xib in Resources */,
 				DDFED68F21DC992B00F2F354 /* YUSearchBarView.xib in Resources */,
+				DDEFE44C223A4140003E3263 /* YUTransactionRecordViewController.xib in Resources */,
 				DDDDC3992237A94A008BB491 /* YUErrorCell.xib in Resources */,
+				DDEFE442223A3443003E3263 /* YUBrowserCaptialViewController.xib in Resources */,
 				DD23C28A21E8B6BA007727DA /* TPRegisterViewController.xib in Resources */,
 				DD0A93CE21F6F98100D9E82E /* TPFinancingProductDetailVC.xib in Resources */,
 				DDFE5D9821CA1BC0005D6D48 /* HUD_success@2x.png in Resources */,
@@ -3076,6 +3293,7 @@
 				DD0B44F821F1B8DE00333016 /* TPResetPwdOneTextFiledViewController.xib in Resources */,
 				DDDDC3962237A94A008BB491 /* YUBlankCell.xib in Resources */,
 				DDD211CE21F084A60029905C /* TPVerifyViewController.xib in Resources */,
+				DDEFE469223A855F003E3263 /* YUTransactionInfoViewController.xib in Resources */,
 				DD13CF0021ECB4C80022EECC /* TPMnemonicSettingViewController.xib in Resources */,
 				DDEFE3D22237B8FD003E3263 /* YUSmallHeaderCell.xib in Resources */,
 				DD0244002196C969006A1390 /* Main.storyboard in Resources */,
@@ -3087,6 +3305,7 @@
 				DDFED67C21D4CF8F00F2F354 /* shareImage.png in Resources */,
 				DD786989221AB9740027566E /* TPTitleCell.xib in Resources */,
 				DD13CF2E21EF59CF0022EECC /* TPAccountSafeViewController.xib in Resources */,
+				DDEFE456223A4E19003E3263 /* TransactionRecordDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3188,6 +3407,7 @@
 				DDD211DF21F171280029905C /* TPChangePassWordViewModel_PayPassWd.m in Sources */,
 				DD374DB321C5228100093A0F /* AAStyle.m in Sources */,
 				DD374DAC21C5228100093A0F /* AALine.m in Sources */,
+				DDEFE42C22392992003E3263 /* API_GET_Block_Transaction_Tx_Hash.m in Sources */,
 				DD374DAA21C5228100093A0F /* AAPlotOptions.m in Sources */,
 				DDF69FBB21C26181006EE7A4 /* TPTransDetailViewController.m in Sources */,
 				DDFED68D21DC98DF00F2F354 /* YUSearchBarView.m in Sources */,
@@ -3200,8 +3420,10 @@
 				DD72F42E219A7D7A004C0DAF /* TPVRTViewController.m in Sources */,
 				DD0239B821B1336000333446 /* BCQMView.m in Sources */,
 				DDDDC3802237A912008BB491 /* YUPageListView.m in Sources */,
+				DDEFE44B223A4140003E3263 /* YUTransactionRecordViewController.m in Sources */,
 				DDDDFBA6219C1FA40056FC57 /* TPRecordViewController.m in Sources */,
 				DD374DBC21C5228100093A0F /* AAPie.m in Sources */,
+				DDEFE439223A0402003E3263 /* BlockTransactionInfo.m in Sources */,
 				DDFED69E21DF67A200F2F354 /* TPFliterModel.m in Sources */,
 				DD13CF0721ED8A500022EECC /* TPMemonicStatusCollectionViewCell.m in Sources */,
 				DD23C28D21E8B6D6007727DA /* TPRgeisterViewModel.m in Sources */,
@@ -3236,6 +3458,7 @@
 				DD0A93DA21F703B400D9E82E /* TPProductIntroduceCellEntity.m in Sources */,
 				DD4126BD21F9B7F400079538 /* YUMineLoginOutCell.m in Sources */,
 				DD0239AF21AFF6ED00333446 /* TPCurrencyList.m in Sources */,
+				DDEFE43222392A11003E3263 /* API_GET_Block_Blockid_Transactions.m in Sources */,
 				DD374DAF21C5228100093A0F /* AAYAxis.m in Sources */,
 				DD13CF1421EED1FC0022EECC /* YUTextView.m in Sources */,
 				DDEFE3D12237B8FD003E3263 /* YUSmallHeaderCell.m in Sources */,
@@ -3255,6 +3478,7 @@
 				DD23C28921E8B6BA007727DA /* TPRegisterViewController.m in Sources */,
 				DD374DBD21C5228100093A0F /* AAChart.m in Sources */,
 				DDBB462A221A7C810035CE07 /* M_ReleaseProjectRecordItem.m in Sources */,
+				DDEFE42F223929CA003E3263 /* API_GET_Block_Blockid.m in Sources */,
 				DD0D344F21F5F75500ECEDF2 /* TPFinancingTotalCellView.m in Sources */,
 				DD10844621A001030087F244 /* NIMScannerMaskView.m in Sources */,
 				DD4126CA21FABC3400079538 /* TPInvitedNoDataCellEntity.m in Sources */,
@@ -3273,6 +3497,7 @@
 				DD0B450A21F2F78800333016 /* TPYULoginViewController.m in Sources */,
 				DD374DBF21C5228100093A0F /* AAChartModel.m in Sources */,
 				DD10844421A001030087F244 /* NIMScannerBorder.m in Sources */,
+				DDEFE4172239256F003E3263 /* API_GET_Block.m in Sources */,
 				DDBB4621221A74FD0035CE07 /* TPReleaseProjectCellEntity.m in Sources */,
 				DDDDC3982237A94A008BB491 /* YUBlankCell.m in Sources */,
 				DD2FD6B521C7A17000A28F78 /* YUTabBar.m in Sources */,
@@ -3285,6 +3510,7 @@
 				DDE1769521BD1EED00167EB1 /* TPRecordModel.m in Sources */,
 				DDDDFBAC219D5A110056FC57 /* TPCapitalHeaderView.m in Sources */,
 				DD02399821AF968E00333446 /* WYNetworkCacheManager.m in Sources */,
+				DDEFE42922392951003E3263 /* API_GET_Block_Transaction_Last.m in Sources */,
 				DD1083E2219D83C20087F244 /* TPNotiCell.m in Sources */,
 				DD0243FA2196C968006A1390 /* AppDelegate.m in Sources */,
 				DD02391821A50AC100333446 /* TPAddTokenCell.m in Sources */,
@@ -3292,6 +3518,7 @@
 				DD13CF2D21EF59CF0022EECC /* TPAccountSafeViewController.m in Sources */,
 				DD374D6621C4B18F00093A0F /* TPRefreshFooter.m in Sources */,
 				DDDDC3972237A94A008BB491 /* YUBlankCellEntity.m in Sources */,
+				DDEFE446223A3563003E3263 /* BlockBrowserCaptialItem.m in Sources */,
 				DDEFE41322390B5A003E3263 /* YUPublicKeySearchResultCellEntity.m in Sources */,
 				DD02399D21AF968E00333446 /* WYImageScaleTool.m in Sources */,
 				DDD211EA21F1A2520029905C /* TPRetPassWordByEmailViewController.m in Sources */,
@@ -3341,13 +3568,16 @@
 				DD108421219E9EC70087F244 /* TPMeCell.m in Sources */,
 				DDEFE3DA2237BF46003E3263 /* YUTagLabelCell.m in Sources */,
 				DD786980221AA4530027566E /* TPReleaseRecordItemCell.m in Sources */,
+				DDEFE463223A7DD4003E3263 /* BlockDetailItem.m in Sources */,
 				DDDDFB90219BE1820056FC57 /* TPHeaderComView.m in Sources */,
 				DD3E1CE4221BEAB5007E8907 /* TPReleasePrjNoMoreCell.m in Sources */,
 				DD13CF3821EF5B5A0022EECC /* TPAccountSafeItemTableViewCellEntity.m in Sources */,
 				DDFED6B121E065F100F2F354 /* UITableView+YUTableViewAddition.m in Sources */,
 				DD3E1CE8221BEB13007E8907 /* TPReleasePrjNoMoreCellEntity.m in Sources */,
 				DDEFE3E62237C253003E3263 /* YUTagLabel_TwoTagCellEntity.m in Sources */,
+				DDEFE455223A4E19003E3263 /* TransactionRecordDetailViewController.m in Sources */,
 				DD10842D219EB60F0087F244 /* TPAboutViewController.m in Sources */,
+				DDEFE4362239FF66003E3263 /* BlockLastInfo.m in Sources */,
 				DD72F435219A7F12004C0DAF /* TPBaseViewController.m in Sources */,
 				DDDDFB8A219AD0550056FC57 /* UIView+TPExtension.m in Sources */,
 				DDFED6B421E065F100F2F354 /* YUCellEntity.m in Sources */,
@@ -3356,6 +3586,7 @@
 				DDDDFB84219AB8C40056FC57 /* YFactoryUI.m in Sources */,
 				DD0239A921AFECEB00333446 /* NSObject+TPExtension.m in Sources */,
 				DD13CF3B21F04DB40022EECC /* TPAccountSafeViewModel.m in Sources */,
+				DDEFE468223A855F003E3263 /* YUTransactionInfoViewController.m in Sources */,
 				DD13CEFF21ECB4C80022EECC /* TPMnemonicSettingViewController.m in Sources */,
 				DD0A93F421F809B200D9E82E /* TPMyStoreItemCell.m in Sources */,
 				DD02399521AF968E00333446 /* WYNetworkCacheInfo.m in Sources */,
@@ -3368,8 +3599,11 @@
 				DD02399321AF968E00333446 /* WYNetworkRequestPool.m in Sources */,
 				DD374DC121C5228100093A0F /* AASeriesElement.m in Sources */,
 				DD0A942B21F8987A00D9E82E /* CheckSuccView.m in Sources */,
+				DDEFE420223927E7003E3263 /* API_GET_Block_Address_Order.m in Sources */,
 				DDDDC3952237A94A008BB491 /* YUNoDataCell.m in Sources */,
+				DDEFE441223A3443003E3263 /* YUBrowserCaptialViewController.m in Sources */,
 				DD0A940121F83CAD00D9E82E /* TPStoreDetailViewController.m in Sources */,
+				DDEFE41A22392689003E3263 /* API_GET_Block_Address_Balance.m in Sources */,
 				DDFE5DA621CA21F1005D6D48 /* NSObject+TPHUD.m in Sources */,
 				DDD211DC21F0A46F0029905C /* TPChangePassWordViewModel_LoginPassWd.m in Sources */,
 				DD2FD6B921C7A17000A28F78 /* YUTabBarController.m in Sources */,
@@ -3377,10 +3611,12 @@
 				DD1083DC219D76560087F244 /* TPTokenTopicViewController.m in Sources */,
 				DDEFE3D52237B90C003E3263 /* YUSmallHeaderCellEntity.m in Sources */,
 				DD108427219EAEB80087F244 /* TPLanguageViewController.m in Sources */,
+				DDEFE42322392878003E3263 /* API_GET_Block_Address_Order_Id.m in Sources */,
 				DD02391E21A5570B00333446 /* TPTranDetailViewController.m in Sources */,
 				DD0B44FE21F1BA8000333016 /* TPRestPasswordByPrivateKeyViewModel.m in Sources */,
 				DD10845C21A401560087F244 /* TPComTextView.m in Sources */,
 				DDBB4638221A9A810035CE07 /* TPReleaseDetailMainInfoCell.m in Sources */,
+				DDEFE450223A48FB003E3263 /* BlockTransactionRecordItem.m in Sources */,
 				DD374DB421C5228100093A0F /* AABar.m in Sources */,
 				DD23C29221E99E74007727DA /* TPGuiderViewController.m in Sources */,
 				DD0244442196DD39006A1390 /* TPTransactionViewController.m in Sources */,
@@ -3414,7 +3650,9 @@
 				DD374DB021C5228100093A0F /* AACrosshair.m in Sources */,
 				DD0A93DE21F7061F00D9E82E /* FinProductDetailModel.m in Sources */,
 				DD02399921AF968E00333446 /* WYNetworkRequestEngine.m in Sources */,
+				DDEFE41D22392738003E3263 /* API_GET_Block_Address_Exist.m in Sources */,
 				DD23C2B821EC98D3007727DA /* TPMnemonicDisplayViewModel.m in Sources */,
+				DDEFE46D223A86A3003E3263 /* BrowserTransactionInfoModel.m in Sources */,
 				DD02393721ABECD100333446 /* TPSellViewController.m in Sources */,
 				DDEFE3FA2237D5D6003E3263 /* YUItemImageCellEntity.m in Sources */,
 				DD78698C221ABA100027566E /* TPTitleCellEntity.m in Sources */,
@@ -3424,6 +3662,7 @@
 				DDFED6B321E065F100F2F354 /* UITableView+YUTableView.m in Sources */,
 				DDF69FB521C0F42C006EE7A4 /* CountDown.m in Sources */,
 				DD13CF3421EF5B3C0022EECC /* TPAccountSafeItemTableViewCell.m in Sources */,
+				DDEFE42622392917003E3263 /* API_GET_Block_Last.m in Sources */,
 				DDDDFB8D219AD92F0056FC57 /* TPCFTopicViewController.m in Sources */,
 				DDFBBA3D21B5317100BA09DE /* TPNotificationModel.m in Sources */,
 				DD02395421AE84CB00333446 /* SYPasswordView.m in Sources */,
@@ -3439,6 +3678,7 @@
 				DDFED69221DDA88500F2F354 /* PHJTransformPinyin.m in Sources */,
 				DDDDC3A02237ACD7008BB491 /* YUBrowserHeadCell.m in Sources */,
 				DD3E1CEC221BF096007E8907 /* TPReleaseRecordNoDataCell.m in Sources */,
+				DDEFE45C223A582E003E3263 /* BlockDetailInfo.m in Sources */,
 				DDF69FBE21C26B1E006EE7A4 /* TPTransDetailModel.m in Sources */,
 				DD0D344A21F5B06400ECEDF2 /* TPInviteRegSecondPageTableViewCellEntity.m in Sources */,
 				DDF7B9B621BBA25000BE35D6 /* TPExchangeRate.m in Sources */,
@@ -3460,6 +3700,7 @@
 				DD2FD6B621C7A17000A28F78 /* YUBadgeValue.m in Sources */,
 				DD0B451421F3085400333016 /* TPInvitedRegisterViewController.m in Sources */,
 				DD02394121ACF53E00333446 /* TPTransDetailCell.m in Sources */,
+				DDEFE460223A60F4003E3263 /* TransactionRecordDetailInfo.m in Sources */,
 				DD0A940F21F843AE00D9E82E /* TPStoreEveryDayIncomeCell.m in Sources */,
 				DD13CF0321ED893C0022EECC /* TPMnemonicSettingViewModel.m in Sources */,
 				DD23C28421E89FDC007727DA /* UIView+YUStyle.m in Sources */,
@@ -3480,6 +3721,7 @@
 				DD02399121AF968E00333446 /* WYNetworkRequestModel.m in Sources */,
 				DD0A93E921F742AD00D9E82E /* TPMyStoreViewController.m in Sources */,
 				DD374DAD21C5228100093A0F /* AATooltip.m in Sources */,
+				DDEFE43C223A045D003E3263 /* BlockListItem.m in Sources */,
 				DD0B452A21F3273000333016 /* TPInviteRegFirstPageTableViewCellEntity.m in Sources */,
 				DD13CF2121EF20180022EECC /* UIButton+YUButtonStyle.m in Sources */,
 				DD0D346021F6CC6F00ECEDF2 /* TPProductTableViewCellEntity.m in Sources */,
@@ -3738,7 +3980,7 @@
 					"\"UserNotifications\"",
 					"-all_load",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mvc.cryptovault;
+				PRODUCT_BUNDLE_IDENTIFIER = "N-NSTechnology.ToPay";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ToPay/ToPay-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -3825,7 +4067,7 @@
 					"\"UserNotifications\"",
 					"-all_load",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mvc.cryptovault;
+				PRODUCT_BUNDLE_IDENTIFIER = "N-NSTechnology.ToPay";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ToPay/ToPay-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
