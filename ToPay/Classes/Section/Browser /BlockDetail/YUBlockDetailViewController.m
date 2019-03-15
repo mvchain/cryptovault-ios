@@ -18,6 +18,7 @@
 #import "BlockDetailItem.h"
 #import "API_GET_Block_Blockid_Transactions.h"
 #import "YUSmallHeaderCellEntity.h"
+#import "YUTransactionInfoViewController.h"
 @interface YUBlockDetailViewController ()
 @property (weak, nonatomic) IBOutlet YUPageListView *pageListView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *atly_top;
@@ -34,6 +35,7 @@
    
 }
 - (void)configListView  {
+    yudef_weakSelf
     self.pageListView.firstPageBlock = ^(block_page_complete  _Nonnull complete) {
         API_GET_Block_Blockid *GET_Block_Blockid = [[API_GET_Block_Blockid alloc] init];
         NSMutableArray *listDatas = [[NSMutableArray alloc] init];
@@ -100,9 +102,9 @@
             for (BlockDetailItem *item in block_listArr) {
                 YUItemLeftMidRightCellEntity *itemInfo0 = [[YUItemLeftMidRightCellEntity alloc] init];
                 itemInfo0.data =item;
-                
                 itemInfo0.leftStr = item.yhash;
-                itemInfo0.mideStr = TPString(@"%ld个确认数",item.confirm);
+                if (item.confirm >12)item.confirm = 12;
+                itemInfo0.mideStr = TPString(@"%ld个确认数",(long)item.confirm);
                 itemInfo0.rightStr = [QuickMaker timeWithTimeIntervalString:item.createdAt];
                 [listDatas addObject:itemInfo0];
             }
@@ -122,6 +124,7 @@
                 YUItemLeftMidRightCellEntity *itemInfo0 = [[YUItemLeftMidRightCellEntity alloc] init];
                 itemInfo0.data = item;
                 itemInfo0.leftStr = item.yhash;
+                if (item.confirm >12)item.confirm = 12;
                 itemInfo0.mideStr = TPString(@"%ld个确认数",item.confirm);
                 itemInfo0.rightStr = [QuickMaker timeWithTimeIntervalString:item.createdAt];
                 [listDatas addObject:itemInfo0];
@@ -138,6 +141,17 @@
                                                       PageSize:@(10)
                                                  transactionId:@(lastItem.transactionId)];
         
+    };
+    
+    self.pageListView.yu_didSelectRowAtIndexPath = ^(NSIndexPath * _Nonnull indexPath) {
+        YUCellEntity *thisEntity = (YUCellEntity *)weakSelf.pageListView.dataArrays[indexPath.row];
+        if (![thisEntity.data isKindOfClass:BlockDetailItem.class]) {
+            return ;
+        }
+        BlockDetailItem *model = (BlockDetailItem*)thisEntity.data;
+        YUTransactionInfoViewController *viewControlerr =[[YUTransactionInfoViewController alloc] init];
+        viewControlerr.yhash = model.yhash;
+        [weakSelf.navigationController pushViewController:viewControlerr animated:YES];
     };
     
 }

@@ -12,6 +12,7 @@
 #import "YUPageListView.h"
 #import "API_GET_Block.h"
 #import "BlockListItem.h"
+#import "YUBlockDetailViewController.h"
 @interface YUBlockListViewController ()
 @property (weak, nonatomic) IBOutlet YUPageListView *pageListView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *atly_top;
@@ -29,6 +30,7 @@
 }
 
 - (void)configListView  {
+    yudef_weakSelf;
     self.pageListView.firstPageBlock = ^(block_page_complete  _Nonnull complete) {
         YUTagLabelCellEntity *tag = [[YUTagLabelCellEntity alloc] init];
         tag.leftStr = @"区块高度";
@@ -87,13 +89,20 @@
             
         };
         [GET_Block sendReuqestWithBlockId:@(lastItem.blockId) pageSize:@(10)];
+    };
+    
+    self.pageListView.yu_didSelectRowAtIndexPath = ^(NSIndexPath * _Nonnull indexPath) {
+        YUCellEntity *thisEntity = (YUCellEntity *)weakSelf.pageListView.dataArrays[indexPath.row];
+        YUBlockDetailViewController *detailViewController = [[YUBlockDetailViewController alloc] init];
+        BlockListItem *item = (BlockListItem*)thisEntity.data;
+        detailViewController.blockId = item.blockId;
         
-        
+        [weakSelf.navigationController pushViewController:detailViewController animated:YES];
     };
     
 }
 - (void)setNav {
-    self.customNavBar.title = @"资产";
+    self.customNavBar.title = @"区块列表";
     
 }
 

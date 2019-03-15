@@ -189,20 +189,26 @@
         itemInfo0.leftStr = @(itemModel.blockId).stringValue ;
         itemInfo0.mideStr = @(itemModel.transactions).stringValue;
         itemInfo0.rightStr = [QuickMaker timeWithTimeIntervalString:itemModel.createdAt];
+        itemInfo0.data = itemModel;
         [listDatas addObject:itemInfo0];
     }
     YUSmallHeaderCellEntity *recentTrans= [[YUSmallHeaderCellEntity alloc] init];
     recentTrans.isShoMore = NO;
     recentTrans.title = @"最新交易";
     [listDatas addObject:recentTrans];
-    YUTagLabelCellEntity *recentTransTag = [[YUTagLabelCellEntity alloc] init];
-    recentTransTag.leftStr = @"交易 Hash";recentTransTag.midStr = @"确认数";recentTransTag.rightStr= @"交易时间";
+    YUTagLabel_TwoTagCellEntity *recentTransTag =[[YUTagLabel_TwoTagCellEntity alloc]init];
+   
+    recentTransTag.leftStr = @"交易 Hash";recentTransTag.rightStr= @"交易时间";
+    recentTransTag.isLabelAlginCenter = YES;
+    
     [listDatas addObject:recentTransTag];
     
     for (BlockTransactionInfo *itemModel in  transactionList) {
-        YUItemLeftMidRightCellEntity *itemInfo1 = [[YUItemLeftMidRightCellEntity alloc] init];
+    
+        YUItemLeftRightCellEntity *itemInfo1 = [[YUItemLeftRightCellEntity alloc] init];
+       
+        
         itemInfo1.leftStr = itemModel.yhash;
-        itemInfo1.mideStr = TPString(@"%@个确认数",@(itemModel.confirm));
         itemInfo1.rightStr = [QuickMaker timeWithTimeIntervalString:itemModel.createdAt];
         itemInfo1.data = itemModel;
         
@@ -251,13 +257,19 @@
                 [self.navigationController pushViewController:blockInfo animated:YES];
             }
         }
+       
         if(thisEntity.data && [thisEntity.data isKindOfClass:BlockTransactionInfo.class]) {
             BlockTransactionInfo *model = (BlockTransactionInfo*)thisEntity.data;
             YUTransactionInfoViewController *viewControlerr =[[YUTransactionInfoViewController alloc] init];
             viewControlerr.yhash = model.yhash;
-            
             [weakSelf.navigationController pushViewController:viewControlerr animated:YES];
             
+        }
+        if(thisEntity.data && [thisEntity.data isKindOfClass:BlockListItem.class]) {
+            BlockListItem *model = (BlockListItem*)thisEntity.data;
+            YUBlockDetailViewController *detailViewController = [[YUBlockDetailViewController alloc] init];
+            detailViewController.blockId = model.blockId;
+            [weakSelf.navigationController pushViewController:detailViewController animated:YES];
         }
     };
     
