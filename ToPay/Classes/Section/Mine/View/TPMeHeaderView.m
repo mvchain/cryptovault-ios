@@ -71,7 +71,7 @@
         NSLog(@"headImage:%@",userInfo.headImage);
         [self.iconImgV setRectHeader:userInfo.headImage];
         self.nickLab.text = userInfo.nickname;
-        self.mobLab.text = TPString(@"手机号：%@",userInfo.username);
+        self.mobLab.text = TPString(@"邮箱：%@",userInfo.username);
         TPLoginModel *loginM = [TPLoginUtil userInfo];
         [self.privateKeyLabel setText:TPString(@"公钥：%@",loginM.publicKey)];
         

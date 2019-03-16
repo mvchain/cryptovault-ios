@@ -73,7 +73,10 @@
     //@"http://47.110.234.233/api/explorer";
     //@"http://192.168.15.21:10081";
     NSString *test =@"http://47.110.234.233/api/explorer";
-    return test;
+    NSString *release = @"https://www.bzvp.net/api/explorer";
+    NSString *this_cur = [JudegeCenter isReleaseVersion]?release:test;
+    return this_cur;
+    
     
 }
 + (NSString *)httpPathWithCurrentServerUrl:(NSString *)path {

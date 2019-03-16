@@ -3980,7 +3980,7 @@
 					"\"UserNotifications\"",
 					"-all_load",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "N-NSTechnology.ToPay";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mvc.cryptovault;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ToPay/ToPay-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -4067,7 +4067,7 @@
 					"\"UserNotifications\"",
 					"-all_load",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "N-NSTechnology.ToPay";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mvc.cryptovault;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ToPay/ToPay-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;

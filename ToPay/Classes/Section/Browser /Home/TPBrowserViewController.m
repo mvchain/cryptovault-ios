@@ -322,17 +322,18 @@
          }else{
              // 当前搜索状态，点击后变非搜索状态
              [search.searchTextfield resignFirstResponder];
+             wsf.isSearchState = NO;
+             YUSearchBarView * search  = wsf.searchbar;
+             [search fadeOut:^{
+                 [wsf.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"serch_icon_black"]];
+                 [wsf.searchbar removeFromSuperview];
+             }];
+             
+             [wsf.pageListView beginRefreshHeaderWithNoAnimate];
          }
      }];
     self.searchbar.onTextDidEndEditing = ^(id sender) {
-        wsf.isSearchState = NO;
-        YUSearchBarView * search  = wsf.searchbar;
-        [search fadeOut:^{
-            [wsf.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"serch_icon_black"]];
-            [wsf.searchbar removeFromSuperview];
-        }];
         
-        [wsf.pageListView beginRefreshHeaderWithNoAnimate];
     };
     
     self.pageListView.yu_eventProduceByInnerCellView = ^(NSString * _Nonnull idf, id  _Nonnull content, id  _Nonnull sender) {
