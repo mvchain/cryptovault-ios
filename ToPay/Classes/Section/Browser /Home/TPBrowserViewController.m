@@ -137,7 +137,6 @@
         dispatch_group_enter(netGroup);
         [GET_Block_Transaction_Last sendReuqestWithPageSize:@(10)];
         
-        
         dispatch_group_notify(netGroup, dispatch_get_main_queue(), ^{
             complete([self packetListDatas:block_last_info
                              blockInfoList:block_listArr
@@ -224,7 +223,8 @@
     nodeListTag.isLabelAlginCenter = YES;
     
     NSArray *regions = @[@"CN",@"US",@"HK",@"UK",@"JP"];
-    NSArray *heights = @[@"1546792",@"1546792",@"1546792",@"1546792",@"1546792"];
+    
+    NSArray *heights = @[@(blockLastInfo.blockId).stringValue,@(blockLastInfo.blockId).stringValue,@(blockLastInfo.blockId).stringValue,@(blockLastInfo.blockId).stringValue,@(blockLastInfo.blockId).stringValue];
     int i =0;
     
     for (NSString *region in regions) {
