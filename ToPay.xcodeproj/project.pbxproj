@@ -291,15 +291,6 @@
 		DDDDC37A22379EDB008BB491 /* TPBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDC37822379EDB008BB491 /* TPBrowserViewController.m */; };
 		DDDDC37B22379EDB008BB491 /* TPBrowserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDDDC37922379EDB008BB491 /* TPBrowserViewController.xib */; };
 		DDDDC3802237A912008BB491 /* YUPageListView.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDC37E2237A912008BB491 /* YUPageListView.m */; };
-		DDDDC3932237A94A008BB491 /* YUNoDataCellEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDC3822237A949008BB491 /* YUNoDataCellEntity.m */; };
-		DDDDC3942237A94A008BB491 /* YUNoDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDDDC3842237A949008BB491 /* YUNoDataCell.xib */; };
-		DDDDC3952237A94A008BB491 /* YUNoDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDC3862237A949008BB491 /* YUNoDataCell.m */; };
-		DDDDC3962237A94A008BB491 /* YUBlankCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDDDC3882237A94A008BB491 /* YUBlankCell.xib */; };
-		DDDDC3972237A94A008BB491 /* YUBlankCellEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDC3892237A94A008BB491 /* YUBlankCellEntity.m */; };
-		DDDDC3982237A94A008BB491 /* YUBlankCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDC38A2237A94A008BB491 /* YUBlankCell.m */; };
-		DDDDC3992237A94A008BB491 /* YUErrorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDDDC38E2237A94A008BB491 /* YUErrorCell.xib */; };
-		DDDDC39A2237A94A008BB491 /* YUErrorCellEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDC38F2237A94A008BB491 /* YUErrorCellEntity.m */; };
-		DDDDC39B2237A94A008BB491 /* YUErrorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDC3902237A94A008BB491 /* YUErrorCell.m */; };
 		DDDDC3A02237ACD7008BB491 /* YUBrowserHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDC39E2237ACD7008BB491 /* YUBrowserHeadCell.m */; };
 		DDDDC3A12237ACD7008BB491 /* YUBrowserHeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDDDC39F2237ACD7008BB491 /* YUBrowserHeadCell.xib */; };
 		DDDDC3A42237B037008BB491 /* YUBrowserHeadCellEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDDC3A32237B037008BB491 /* YUBrowserHeadCellEntity.m */; };
@@ -379,6 +370,15 @@
 		DDEFE468223A855F003E3263 /* YUTransactionInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEFE466223A855F003E3263 /* YUTransactionInfoViewController.m */; };
 		DDEFE469223A855F003E3263 /* YUTransactionInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDEFE467223A855F003E3263 /* YUTransactionInfoViewController.xib */; };
 		DDEFE46D223A86A3003E3263 /* BrowserTransactionInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEFE46C223A86A3003E3263 /* BrowserTransactionInfoModel.m */; };
+		DDEFE4C22240D919003E3263 /* YUBlankCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDEFE4B12240D919003E3263 /* YUBlankCell.xib */; };
+		DDEFE4C32240D919003E3263 /* YUBlankCellEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEFE4B22240D919003E3263 /* YUBlankCellEntity.m */; };
+		DDEFE4C42240D919003E3263 /* YUBlankCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEFE4B32240D919003E3263 /* YUBlankCell.m */; };
+		DDEFE4C52240D919003E3263 /* YUNoDataCellEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEFE4B72240D919003E3263 /* YUNoDataCellEntity.m */; };
+		DDEFE4C62240D919003E3263 /* YUNoDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDEFE4B92240D919003E3263 /* YUNoDataCell.xib */; };
+		DDEFE4C72240D919003E3263 /* YUNoDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEFE4BB2240D919003E3263 /* YUNoDataCell.m */; };
+		DDEFE4C82240D919003E3263 /* YUErrorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDEFE4BD2240D919003E3263 /* YUErrorCell.xib */; };
+		DDEFE4C92240D919003E3263 /* YUErrorCellEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEFE4BE2240D919003E3263 /* YUErrorCellEntity.m */; };
+		DDEFE4CA2240D919003E3263 /* YUErrorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEFE4BF2240D919003E3263 /* YUErrorCell.m */; };
 		DDF69FB521C0F42C006EE7A4 /* CountDown.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF69FB321C0F42C006EE7A4 /* CountDown.m */; };
 		DDF69FB821C12A35006EE7A4 /* TPCroRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF69FB721C12A35006EE7A4 /* TPCroRecordModel.m */; };
 		DDF69FBB21C26181006EE7A4 /* TPTransDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF69FB921C26181006EE7A4 /* TPTransDetailViewController.m */; };
@@ -971,21 +971,6 @@
 		DDDDC37922379EDB008BB491 /* TPBrowserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPBrowserViewController.xib; sourceTree = "<group>"; };
 		DDDDC37E2237A912008BB491 /* YUPageListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUPageListView.m; sourceTree = "<group>"; };
 		DDDDC37F2237A912008BB491 /* YUPageListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUPageListView.h; sourceTree = "<group>"; };
-		DDDDC3822237A949008BB491 /* YUNoDataCellEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUNoDataCellEntity.m; sourceTree = "<group>"; };
-		DDDDC3832237A949008BB491 /* YUNoDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUNoDataCell.h; sourceTree = "<group>"; };
-		DDDDC3842237A949008BB491 /* YUNoDataCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YUNoDataCell.xib; sourceTree = "<group>"; };
-		DDDDC3852237A949008BB491 /* YUNoDataCellEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUNoDataCellEntity.h; sourceTree = "<group>"; };
-		DDDDC3862237A949008BB491 /* YUNoDataCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUNoDataCell.m; sourceTree = "<group>"; };
-		DDDDC3882237A94A008BB491 /* YUBlankCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YUBlankCell.xib; sourceTree = "<group>"; };
-		DDDDC3892237A94A008BB491 /* YUBlankCellEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUBlankCellEntity.m; sourceTree = "<group>"; };
-		DDDDC38A2237A94A008BB491 /* YUBlankCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUBlankCell.m; sourceTree = "<group>"; };
-		DDDDC38B2237A94A008BB491 /* YUBlankCellEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUBlankCellEntity.h; sourceTree = "<group>"; };
-		DDDDC38C2237A94A008BB491 /* YUBlankCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUBlankCell.h; sourceTree = "<group>"; };
-		DDDDC38E2237A94A008BB491 /* YUErrorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YUErrorCell.xib; sourceTree = "<group>"; };
-		DDDDC38F2237A94A008BB491 /* YUErrorCellEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUErrorCellEntity.m; sourceTree = "<group>"; };
-		DDDDC3902237A94A008BB491 /* YUErrorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUErrorCell.m; sourceTree = "<group>"; };
-		DDDDC3912237A94A008BB491 /* YUErrorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUErrorCell.h; sourceTree = "<group>"; };
-		DDDDC3922237A94A008BB491 /* YUErrorCellEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUErrorCellEntity.h; sourceTree = "<group>"; };
 		DDDDC39D2237ACD7008BB491 /* YUBrowserHeadCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YUBrowserHeadCell.h; sourceTree = "<group>"; };
 		DDDDC39E2237ACD7008BB491 /* YUBrowserHeadCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YUBrowserHeadCell.m; sourceTree = "<group>"; };
 		DDDDC39F2237ACD7008BB491 /* YUBrowserHeadCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YUBrowserHeadCell.xib; sourceTree = "<group>"; };
@@ -1131,6 +1116,21 @@
 		DDEFE467223A855F003E3263 /* YUTransactionInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YUTransactionInfoViewController.xib; sourceTree = "<group>"; };
 		DDEFE46B223A86A3003E3263 /* BrowserTransactionInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrowserTransactionInfoModel.h; sourceTree = "<group>"; };
 		DDEFE46C223A86A3003E3263 /* BrowserTransactionInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrowserTransactionInfoModel.m; sourceTree = "<group>"; };
+		DDEFE4B12240D919003E3263 /* YUBlankCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YUBlankCell.xib; sourceTree = "<group>"; };
+		DDEFE4B22240D919003E3263 /* YUBlankCellEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUBlankCellEntity.m; sourceTree = "<group>"; };
+		DDEFE4B32240D919003E3263 /* YUBlankCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUBlankCell.m; sourceTree = "<group>"; };
+		DDEFE4B42240D919003E3263 /* YUBlankCellEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUBlankCellEntity.h; sourceTree = "<group>"; };
+		DDEFE4B52240D919003E3263 /* YUBlankCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUBlankCell.h; sourceTree = "<group>"; };
+		DDEFE4B72240D919003E3263 /* YUNoDataCellEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUNoDataCellEntity.m; sourceTree = "<group>"; };
+		DDEFE4B82240D919003E3263 /* YUNoDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUNoDataCell.h; sourceTree = "<group>"; };
+		DDEFE4B92240D919003E3263 /* YUNoDataCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YUNoDataCell.xib; sourceTree = "<group>"; };
+		DDEFE4BA2240D919003E3263 /* YUNoDataCellEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUNoDataCellEntity.h; sourceTree = "<group>"; };
+		DDEFE4BB2240D919003E3263 /* YUNoDataCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUNoDataCell.m; sourceTree = "<group>"; };
+		DDEFE4BD2240D919003E3263 /* YUErrorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YUErrorCell.xib; sourceTree = "<group>"; };
+		DDEFE4BE2240D919003E3263 /* YUErrorCellEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUErrorCellEntity.m; sourceTree = "<group>"; };
+		DDEFE4BF2240D919003E3263 /* YUErrorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUErrorCell.m; sourceTree = "<group>"; };
+		DDEFE4C02240D919003E3263 /* YUErrorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUErrorCell.h; sourceTree = "<group>"; };
+		DDEFE4C12240D919003E3263 /* YUErrorCellEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUErrorCellEntity.h; sourceTree = "<group>"; };
 		DDF69FB321C0F42C006EE7A4 /* CountDown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountDown.m; sourceTree = "<group>"; };
 		DDF69FB421C0F42C006EE7A4 /* CountDown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountDown.h; sourceTree = "<group>"; };
 		DDF69FB621C12A35006EE7A4 /* TPCroRecordModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPCroRecordModel.h; sourceTree = "<group>"; };
@@ -2685,52 +2685,13 @@
 		DDDDC37D2237A8EC008BB491 /* PageList */ = {
 			isa = PBXGroup;
 			children = (
-				DDDDC3812237A949008BB491 /* NoDataCell */,
-				DDDDC3872237A94A008BB491 /* BlankCell */,
-				DDDDC38D2237A94A008BB491 /* ErrorCell */,
+				DDEFE4B02240D919003E3263 /* BlankCell */,
+				DDEFE4BC2240D919003E3263 /* ErrorCell */,
+				DDEFE4B62240D919003E3263 /* NoDataCell */,
 				DDDDC37F2237A912008BB491 /* YUPageListView.h */,
 				DDDDC37E2237A912008BB491 /* YUPageListView.m */,
 			);
 			path = PageList;
-			sourceTree = "<group>";
-		};
-		DDDDC3812237A949008BB491 /* NoDataCell */ = {
-			isa = PBXGroup;
-			children = (
-				DDDDC3832237A949008BB491 /* YUNoDataCell.h */,
-				DDDDC3862237A949008BB491 /* YUNoDataCell.m */,
-				DDDDC3842237A949008BB491 /* YUNoDataCell.xib */,
-				DDDDC3852237A949008BB491 /* YUNoDataCellEntity.h */,
-				DDDDC3822237A949008BB491 /* YUNoDataCellEntity.m */,
-			);
-			name = NoDataCell;
-			path = ../../../../../New/ToPay/ToPay/Classes/Views/CommonViews/Cells/NoDataCell;
-			sourceTree = "<group>";
-		};
-		DDDDC3872237A94A008BB491 /* BlankCell */ = {
-			isa = PBXGroup;
-			children = (
-				DDDDC38C2237A94A008BB491 /* YUBlankCell.h */,
-				DDDDC38A2237A94A008BB491 /* YUBlankCell.m */,
-				DDDDC3882237A94A008BB491 /* YUBlankCell.xib */,
-				DDDDC38B2237A94A008BB491 /* YUBlankCellEntity.h */,
-				DDDDC3892237A94A008BB491 /* YUBlankCellEntity.m */,
-			);
-			name = BlankCell;
-			path = ../../../../../New/ToPay/ToPay/Classes/Views/CommonViews/Cells/BlankCell;
-			sourceTree = "<group>";
-		};
-		DDDDC38D2237A94A008BB491 /* ErrorCell */ = {
-			isa = PBXGroup;
-			children = (
-				DDDDC3912237A94A008BB491 /* YUErrorCell.h */,
-				DDDDC3902237A94A008BB491 /* YUErrorCell.m */,
-				DDDDC38E2237A94A008BB491 /* YUErrorCell.xib */,
-				DDDDC3922237A94A008BB491 /* YUErrorCellEntity.h */,
-				DDDDC38F2237A94A008BB491 /* YUErrorCellEntity.m */,
-			);
-			name = ErrorCell;
-			path = ../../../../../New/ToPay/ToPay/Classes/Views/CommonViews/Cells/ErrorCell;
 			sourceTree = "<group>";
 		};
 		DDDDC39C2237ACBA008BB491 /* Header */ = {
@@ -3021,6 +2982,42 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		DDEFE4B02240D919003E3263 /* BlankCell */ = {
+			isa = PBXGroup;
+			children = (
+				DDEFE4B12240D919003E3263 /* YUBlankCell.xib */,
+				DDEFE4B22240D919003E3263 /* YUBlankCellEntity.m */,
+				DDEFE4B32240D919003E3263 /* YUBlankCell.m */,
+				DDEFE4B42240D919003E3263 /* YUBlankCellEntity.h */,
+				DDEFE4B52240D919003E3263 /* YUBlankCell.h */,
+			);
+			path = BlankCell;
+			sourceTree = "<group>";
+		};
+		DDEFE4B62240D919003E3263 /* NoDataCell */ = {
+			isa = PBXGroup;
+			children = (
+				DDEFE4B72240D919003E3263 /* YUNoDataCellEntity.m */,
+				DDEFE4B82240D919003E3263 /* YUNoDataCell.h */,
+				DDEFE4B92240D919003E3263 /* YUNoDataCell.xib */,
+				DDEFE4BA2240D919003E3263 /* YUNoDataCellEntity.h */,
+				DDEFE4BB2240D919003E3263 /* YUNoDataCell.m */,
+			);
+			path = NoDataCell;
+			sourceTree = "<group>";
+		};
+		DDEFE4BC2240D919003E3263 /* ErrorCell */ = {
+			isa = PBXGroup;
+			children = (
+				DDEFE4BD2240D919003E3263 /* YUErrorCell.xib */,
+				DDEFE4BE2240D919003E3263 /* YUErrorCellEntity.m */,
+				DDEFE4BF2240D919003E3263 /* YUErrorCell.m */,
+				DDEFE4C02240D919003E3263 /* YUErrorCell.h */,
+				DDEFE4C12240D919003E3263 /* YUErrorCellEntity.h */,
+			);
+			path = ErrorCell;
+			sourceTree = "<group>";
+		};
 		DDFE5D9021CA1B93005D6D48 /* TPHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -3230,6 +3227,7 @@
 				DD0D344721F5AFDE00ECEDF2 /* TPInviteRegSecondPageTableViewCell.xib in Resources */,
 				DD0D345D21F6BEEC00ECEDF2 /* TPProductTableViewCell.xib in Resources */,
 				DDFED67B21D4CF8F00F2F354 /* custom.png in Resources */,
+				DDEFE4C22240D919003E3263 /* YUBlankCell.xib in Resources */,
 				DDEFE3DB2237BF46003E3263 /* YUTagLabelCell.xib in Resources */,
 				DD4126B621F9B09C00079538 /* YUSpaceTableViewCell.xib in Resources */,
 				DDFE5DB121CC9FA0005D6D48 /* shareImage.png in Resources */,
@@ -3238,10 +3236,10 @@
 				DD0A942321F8644000D9E82E /* TPEveryIncomeTitleDayCell.xib in Resources */,
 				DDBB4618221A60630035CE07 /* TPReleaseProjectViewController.xib in Resources */,
 				DDFE5D9921CA1BC0005D6D48 /* HUD_success@3x.png in Resources */,
+				DDEFE4C62240D919003E3263 /* YUNoDataCell.xib in Resources */,
 				DDE3EBB12237B70400001AC3 /* YUItemLeftRightCell.xib in Resources */,
 				DDFED68F21DC992B00F2F354 /* YUSearchBarView.xib in Resources */,
 				DDEFE44C223A4140003E3263 /* YUTransactionRecordViewController.xib in Resources */,
-				DDDDC3992237A94A008BB491 /* YUErrorCell.xib in Resources */,
 				DDEFE442223A3443003E3263 /* YUBrowserCaptialViewController.xib in Resources */,
 				DD23C28A21E8B6BA007727DA /* TPRegisterViewController.xib in Resources */,
 				DD0A93CE21F6F98100D9E82E /* TPFinancingProductDetailVC.xib in Resources */,
@@ -3264,12 +3262,12 @@
 				DDFE5D9D21CA1BC0005D6D48 /* HUD_error@2x.png in Resources */,
 				DD23C2BE21ECA892007727DA /* TPMemonicCollectionViewCell.xib in Resources */,
 				DDFE5D9A21CA1BC0005D6D48 /* HUD_error@3x.png in Resources */,
-				DDDDC3942237A94A008BB491 /* YUNoDataCell.xib in Resources */,
 				DDBB4632221A922F0035CE07 /* TPReleaseProjectDetailVC.xib in Resources */,
 				DDEFE4092238DDA4003E3263 /* YUBlockListViewController.xib in Resources */,
 				DDFED6A421E0605300F2F354 /* TPNoMoreTableViewCell.xib in Resources */,
 				DD13CF3521EF5B3C0022EECC /* TPAccountSafeItemTableViewCell.xib in Resources */,
 				DDD211E521F1852F0029905C /* TPResetPassWordGuiderViewController.xib in Resources */,
+				DDEFE4C82240D919003E3263 /* YUErrorCell.xib in Resources */,
 				DD0B452F21F59BAF00333016 /* TPInviteRegSecondPageItemTableViewCell.xib in Resources */,
 				DDEFE3E32237C17C003E3263 /* YUTagLabel_TwoTagCell.xib in Resources */,
 				DD374DA521C5228100093A0F /* AAJSFiles.bundle in Resources */,
@@ -3291,7 +3289,6 @@
 				DD13CF1121EECCCB0022EECC /* YUTextViewXibContainer.xib in Resources */,
 				DDEFE3F72237D5C5003E3263 /* YUItemImageCell.xib in Resources */,
 				DD0B44F821F1B8DE00333016 /* TPResetPwdOneTextFiledViewController.xib in Resources */,
-				DDDDC3962237A94A008BB491 /* YUBlankCell.xib in Resources */,
 				DDD211CE21F084A60029905C /* TPVerifyViewController.xib in Resources */,
 				DDEFE469223A855F003E3263 /* YUTransactionInfoViewController.xib in Resources */,
 				DD13CF0021ECB4C80022EECC /* TPMnemonicSettingViewController.xib in Resources */,
@@ -3444,11 +3441,11 @@
 				DD0D345321F6BCE200ECEDF2 /* TPFinancingTotalCellViewEntity.m in Sources */,
 				DD374DB521C5228100093A0F /* AATitle.m in Sources */,
 				DD02399221AF968E00333446 /* WYNetworkConfig.m in Sources */,
-				DDDDC39A2237A94A008BB491 /* YUErrorCellEntity.m in Sources */,
 				DDE176A121BE5C9500167EB1 /* SJCommonSlider.m in Sources */,
 				DDFFEEA721FED48300FE26C7 /* TPResetPasswordByPrivatekey_InputEmailVM.m in Sources */,
 				DD7046E421E5FE9500D02D7F /* QuickGet.m in Sources */,
 				DDF7B9B321BA65E200BE35D6 /* UIImageView+YUExtension.m in Sources */,
+				DDEFE4C52240D919003E3263 /* YUNoDataCellEntity.m in Sources */,
 				DD0D345C21F6BEEC00ECEDF2 /* TPProductTableViewCell.m in Sources */,
 				DD0239A021AFD6E800333446 /* TPLoginUtil.m in Sources */,
 				DD0A940721F83E9D00D9E82E /* TPStoreDetailProductIntroCell.m in Sources */,
@@ -3482,24 +3479,23 @@
 				DD0D344F21F5F75500ECEDF2 /* TPFinancingTotalCellView.m in Sources */,
 				DD10844621A001030087F244 /* NIMScannerMaskView.m in Sources */,
 				DD4126CA21FABC3400079538 /* TPInvitedNoDataCellEntity.m in Sources */,
-				DDDDC39B2237A94A008BB491 /* YUErrorCell.m in Sources */,
 				DD0A940B21F8429500D9E82E /* TPStoreDetailProductIntroCellEntity.m in Sources */,
 				DD72F42B21998491004C0DAF /* TPNavigationBarTitleView.m in Sources */,
 				DD4126AC21F9A9A800079538 /* YUTMineCellTableViewCell.m in Sources */,
 				DD02399B21AF968E00333446 /* WYNetworkUtils.m in Sources */,
 				DD0A941821F8534200D9E82E /* MyStoreDetailBigInfoModel.m in Sources */,
+				DDEFE4CA2240D919003E3263 /* YUErrorCell.m in Sources */,
 				DDFE5DAC21CA61D1005D6D48 /* TPTransferModel.m in Sources */,
 				DDD211E421F1852F0029905C /* TPResetPassWordGuiderViewController.m in Sources */,
 				DD374DB121C5228100093A0F /* AAColumn.m in Sources */,
-				DDDDC3932237A94A008BB491 /* YUNoDataCellEntity.m in Sources */,
 				DD0A93F821F810CA00D9E82E /* TPMyStoreItemCellEntity.m in Sources */,
+				DDEFE4C32240D919003E3263 /* YUBlankCellEntity.m in Sources */,
 				DDD211CD21F084A60029905C /* TPVerifyViewController.m in Sources */,
 				DD0B450A21F2F78800333016 /* TPYULoginViewController.m in Sources */,
 				DD374DBF21C5228100093A0F /* AAChartModel.m in Sources */,
 				DD10844421A001030087F244 /* NIMScannerBorder.m in Sources */,
 				DDEFE4172239256F003E3263 /* API_GET_Block.m in Sources */,
 				DDBB4621221A74FD0035CE07 /* TPReleaseProjectCellEntity.m in Sources */,
-				DDDDC3982237A94A008BB491 /* YUBlankCell.m in Sources */,
 				DD2FD6B521C7A17000A28F78 /* YUTabBar.m in Sources */,
 				DD0A93E321F71A8200D9E82E /* TPBuyProductViewController.m in Sources */,
 				DD0244082196C96B006A1390 /* main.m in Sources */,
@@ -3517,7 +3513,6 @@
 				DDEFE3ED2237C4B9003E3263 /* YUItemLeftMidRightCell.m in Sources */,
 				DD13CF2D21EF59CF0022EECC /* TPAccountSafeViewController.m in Sources */,
 				DD374D6621C4B18F00093A0F /* TPRefreshFooter.m in Sources */,
-				DDDDC3972237A94A008BB491 /* YUBlankCellEntity.m in Sources */,
 				DDEFE446223A3563003E3263 /* BlockBrowserCaptialItem.m in Sources */,
 				DDEFE41322390B5A003E3263 /* YUPublicKeySearchResultCellEntity.m in Sources */,
 				DD02399D21AF968E00333446 /* WYImageScaleTool.m in Sources */,
@@ -3538,6 +3533,7 @@
 				DD23C2A621E9FCA1007727DA /* TPSetPasswordViewModel.m in Sources */,
 				DD2FD6A921C7685F00A28F78 /* TPMSCell.m in Sources */,
 				DD108424219EA5570087F244 /* TPMeHeaderView.m in Sources */,
+				DDEFE4C92240D919003E3263 /* YUErrorCellEntity.m in Sources */,
 				DD0A93CD21F6F98100D9E82E /* TPFinancingProductDetailVC.m in Sources */,
 				DDBB462B221A7C810035CE07 /* ReleaseProjectItem.m in Sources */,
 				DD13CF0E21EDE9C10022EECC /* YURootViewController.m in Sources */,
@@ -3593,6 +3589,7 @@
 				DD0B452621F3228D00333016 /* TPInviteRegFirstPageTableViewCell.m in Sources */,
 				DD0244472196DD4E006A1390 /* TPCrowdfundingViewController.m in Sources */,
 				DD02392D21A7D6CA00333446 /* TPBuyTopicViewController.m in Sources */,
+				DDEFE4C42240D919003E3263 /* YUBlankCell.m in Sources */,
 				DDF69FB821C12A35006EE7A4 /* TPCroRecordModel.m in Sources */,
 				DD02392A21A7B1AC00333446 /* TPProcessingCell.m in Sources */,
 				DD0B451A21F309A600333016 /* TPFinancingViewController.m in Sources */,
@@ -3600,7 +3597,6 @@
 				DD374DC121C5228100093A0F /* AASeriesElement.m in Sources */,
 				DD0A942B21F8987A00D9E82E /* CheckSuccView.m in Sources */,
 				DDEFE420223927E7003E3263 /* API_GET_Block_Address_Order.m in Sources */,
-				DDDDC3952237A94A008BB491 /* YUNoDataCell.m in Sources */,
 				DDEFE441223A3443003E3263 /* YUBrowserCaptialViewController.m in Sources */,
 				DD0A940121F83CAD00D9E82E /* TPStoreDetailViewController.m in Sources */,
 				DDEFE41A22392689003E3263 /* API_GET_Block_Address_Balance.m in Sources */,
@@ -3612,6 +3608,7 @@
 				DDEFE3D52237B90C003E3263 /* YUSmallHeaderCellEntity.m in Sources */,
 				DD108427219EAEB80087F244 /* TPLanguageViewController.m in Sources */,
 				DDEFE42322392878003E3263 /* API_GET_Block_Address_Order_Id.m in Sources */,
+				DDEFE4C72240D919003E3263 /* YUNoDataCell.m in Sources */,
 				DD02391E21A5570B00333446 /* TPTranDetailViewController.m in Sources */,
 				DD0B44FE21F1BA8000333016 /* TPRestPasswordByPrivateKeyViewModel.m in Sources */,
 				DD10845C21A401560087F244 /* TPComTextView.m in Sources */,
