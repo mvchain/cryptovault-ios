@@ -19,9 +19,9 @@
 #import "Aspects.h"
 #endif
 
+
 @interface AppDelegate ()<JPUSHRegisterDelegate>
 @property (copy) NSMutableArray *arr ;
-
 @end
 
 @implementation AppDelegate
@@ -44,9 +44,9 @@
                           channel:nil
                  apsForProduction:YES
             advertisingIdentifier:nil];
-
+    
     return YES;
-
+    
 }
 - (void)aop_UIViewController {
     
@@ -55,7 +55,6 @@
              [TPLoginUtil refreshToken_if_err_logout ];
         
      } error:NULL];
-
 }
 - (void)setObserver {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(net_noti:) name:kNotiNetSucc object:nil];

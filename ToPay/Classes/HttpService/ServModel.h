@@ -28,7 +28,7 @@ typedef void(^errBlock)(NSString *reason ,NSInteger code  );
 // write code in this block when request  succ
 @property (copy,nonatomic) succBlock onSuccess ;
 // write code in this block when request  err
-@property (copy,nonatomic) errBlock onError ;
+@property (copy,nonatomic) errBlock onError;
 // write code in this block when http conn end 
 @property (copy,nonatomic) void(^onEndConnection)(void);
 // default request

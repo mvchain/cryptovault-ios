@@ -20,7 +20,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *nextStepButton;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *alyt_collect_height;
 
-
 @end
 
 @implementation TPMnemonicDisplayViewController
@@ -46,13 +45,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initUI];
-    
     // Do any additional setup after loading the view from its nib.
 }
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.viewModel.cacheRegisterResponseModel.mnemonics.count;
 }
-
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     TPMemonicCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:CELL_COLLECT_ID forIndexPath:indexPath];
@@ -84,6 +82,5 @@
     TPMnemonicSettingViewModel *model = [[TPMnemonicSettingViewModel alloc] init];
     mnemonicSetting.viewModel = model;
     [self.navigationController pushViewController:mnemonicSetting animated:YES];
-    
 }
 @end

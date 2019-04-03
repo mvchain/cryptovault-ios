@@ -23,7 +23,6 @@
 @property (weak, nonatomic) IBOutlet YUTextView *vaildCodeTextView; // 验证码文本框
 @property (weak, nonatomic) IBOutlet JKCountDownButton *sendVaildCodeButton; // 发送验证码按钮
 
-
 @property (strong,nonatomic) TPRgeisterViewModel *viewModel;
 @property (copy, nonatomic) NSString *invitedCodeStr; // 邀请码字符串
 @property (copy, nonatomic) NSString *nickNameStr; //昵称字符串
