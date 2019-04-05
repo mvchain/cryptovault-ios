@@ -13,7 +13,7 @@
 
 - (void)gradualChangeStyle {
     [self yu_circleStyle];
-    [self gradientButtonWithSize:self.bounds.size colorArray:@[[UIColor colorWithHex:@"#007AFF"],[UIColor colorWithHex:@"#5856D6"]] percentageArray:@[@0,@1] gradientType:GradientFromLeftToRight];
+    [self gradientButtonWithSize:self.bounds.size colorArray:@[[UIColor colorWithHex:@"#5A48FF"],[UIColor colorWithHex:@"#9752FF"]] percentageArray:@[@0,@1] gradientType:GradientFromLeftToRight];
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 }
 - (void)allWhiteStyle {

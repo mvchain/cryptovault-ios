@@ -249,6 +249,25 @@
 		DD4126C621FABC1F00079538 /* TPInvitedNoDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4126C421FABC1F00079538 /* TPInvitedNoDataCell.m */; };
 		DD4126C721FABC1F00079538 /* TPInvitedNoDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD4126C521FABC1F00079538 /* TPInvitedNoDataCell.xib */; };
 		DD4126CA21FABC3400079538 /* TPInvitedNoDataCellEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4126C921FABC3400079538 /* TPInvitedNoDataCellEntity.m */; };
+		DD45A1542254D76400D13839 /* TPMVCBankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD45A1522254D76400D13839 /* TPMVCBankViewController.m */; };
+		DD45A1552254D76400D13839 /* TPMVCBankViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD45A1532254D76400D13839 /* TPMVCBankViewController.xib */; };
+		DD45A15A2254E18200D13839 /* TPMVCBanTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD45A1582254E18200D13839 /* TPMVCBanTableViewController.m */; };
+		DD45A15B2254E18200D13839 /* TPMVCBanTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD45A1592254E18200D13839 /* TPMVCBanTableViewController.xib */; };
+		DD45A15E2255B65800D13839 /* API_GET_Transaction.m in Sources */ = {isa = PBXBuildFile; fileRef = DD45A15D2255B65800D13839 /* API_GET_Transaction.m */; };
+		DD45A1632255BB2F00D13839 /* API_GET_Transaction_Pair.m in Sources */ = {isa = PBXBuildFile; fileRef = DD45A1622255BB2F00D13839 /* API_GET_Transaction_Pair.m */; };
+		DD45A16A2255BEFB00D13839 /* TPPair.m in Sources */ = {isa = PBXBuildFile; fileRef = DD45A1692255BEFB00D13839 /* TPPair.m */; };
+		DD45A16F2255D40C00D13839 /* TPMVCBankItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD45A16D2255D40C00D13839 /* TPMVCBankItemCell.m */; };
+		DD45A1702255D40C00D13839 /* TPMVCBankItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD45A16E2255D40C00D13839 /* TPMVCBankItemCell.xib */; };
+		DD45A1732255D8D900D13839 /* TPMVCBankItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD45A1722255D8D900D13839 /* TPMVCBankItemModel.m */; };
+		DD45A1762255DF5000D13839 /* API_GET_Transaction_Pair_Tickers.m in Sources */ = {isa = PBXBuildFile; fileRef = DD45A1752255DF5000D13839 /* API_GET_Transaction_Pair_Tickers.m */; };
+		DD45A17A2255DF9600D13839 /* MVCBankCoinSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD45A1792255DF9600D13839 /* MVCBankCoinSelectView.m */; };
+		DD45A17C2255DFA400D13839 /* MVCBankCoinSelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD45A17B2255DFA400D13839 /* MVCBankCoinSelectView.xib */; };
+		DD45A1802255FADC00D13839 /* TPMVCBankSelectListView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD45A17F2255FADC00D13839 /* TPMVCBankSelectListView.m */; };
+		DD45A1822255FB1400D13839 /* TPMVCBankSelectListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD45A1812255FB1400D13839 /* TPMVCBankSelectListView.xib */; };
+		DD45A1862255FEB300D13839 /* MVCBankSelectListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD45A1842255FEB300D13839 /* MVCBankSelectListCell.m */; };
+		DD45A1872255FEB300D13839 /* MVCBankSelectListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD45A1852255FEB300D13839 /* MVCBankSelectListCell.xib */; };
+		DD45A18A2255FFB700D13839 /* MVCBankSelectListCellEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DD45A1892255FFB700D13839 /* MVCBankSelectListCellEntity.m */; };
+		DD45A18D2255FFC800D13839 /* TPMVCBankItemCellEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DD45A18C2255FFC800D13839 /* TPMVCBankItemCellEntity.m */; };
 		DD7046E421E5FE9500D02D7F /* QuickGet.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7046E321E5FE9500D02D7F /* QuickGet.m */; };
 		DD72F42B21998491004C0DAF /* TPNavigationBarTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD72F42A21998491004C0DAF /* TPNavigationBarTitleView.m */; };
 		DD72F42E219A7D7A004C0DAF /* TPVRTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD72F42D219A7D7A004C0DAF /* TPVRTViewController.m */; };
@@ -897,6 +916,38 @@
 		DD4126C521FABC1F00079538 /* TPInvitedNoDataCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPInvitedNoDataCell.xib; sourceTree = "<group>"; };
 		DD4126C821FABC3400079538 /* TPInvitedNoDataCellEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPInvitedNoDataCellEntity.h; sourceTree = "<group>"; };
 		DD4126C921FABC3400079538 /* TPInvitedNoDataCellEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPInvitedNoDataCellEntity.m; sourceTree = "<group>"; };
+		DD45A1512254D76400D13839 /* TPMVCBankViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPMVCBankViewController.h; sourceTree = "<group>"; };
+		DD45A1522254D76400D13839 /* TPMVCBankViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPMVCBankViewController.m; sourceTree = "<group>"; };
+		DD45A1532254D76400D13839 /* TPMVCBankViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPMVCBankViewController.xib; sourceTree = "<group>"; };
+		DD45A1572254E18200D13839 /* TPMVCBanTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPMVCBanTableViewController.h; sourceTree = "<group>"; };
+		DD45A1582254E18200D13839 /* TPMVCBanTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPMVCBanTableViewController.m; sourceTree = "<group>"; };
+		DD45A1592254E18200D13839 /* TPMVCBanTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPMVCBanTableViewController.xib; sourceTree = "<group>"; };
+		DD45A15C2255B65800D13839 /* API_GET_Transaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API_GET_Transaction.h; sourceTree = "<group>"; };
+		DD45A15D2255B65800D13839 /* API_GET_Transaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API_GET_Transaction.m; sourceTree = "<group>"; };
+		DD45A1612255BB2F00D13839 /* API_GET_Transaction_Pair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API_GET_Transaction_Pair.h; sourceTree = "<group>"; };
+		DD45A1622255BB2F00D13839 /* API_GET_Transaction_Pair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API_GET_Transaction_Pair.m; sourceTree = "<group>"; };
+		DD45A1682255BEFB00D13839 /* TPPair.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPPair.h; sourceTree = "<group>"; };
+		DD45A1692255BEFB00D13839 /* TPPair.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPPair.m; sourceTree = "<group>"; };
+		DD45A16C2255D40C00D13839 /* TPMVCBankItemCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPMVCBankItemCell.h; sourceTree = "<group>"; };
+		DD45A16D2255D40C00D13839 /* TPMVCBankItemCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPMVCBankItemCell.m; sourceTree = "<group>"; };
+		DD45A16E2255D40C00D13839 /* TPMVCBankItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPMVCBankItemCell.xib; sourceTree = "<group>"; };
+		DD45A1712255D8D900D13839 /* TPMVCBankItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPMVCBankItemModel.h; sourceTree = "<group>"; };
+		DD45A1722255D8D900D13839 /* TPMVCBankItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPMVCBankItemModel.m; sourceTree = "<group>"; };
+		DD45A1742255DF5000D13839 /* API_GET_Transaction_Pair_Tickers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API_GET_Transaction_Pair_Tickers.h; sourceTree = "<group>"; };
+		DD45A1752255DF5000D13839 /* API_GET_Transaction_Pair_Tickers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API_GET_Transaction_Pair_Tickers.m; sourceTree = "<group>"; };
+		DD45A1782255DF9600D13839 /* MVCBankCoinSelectView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVCBankCoinSelectView.h; sourceTree = "<group>"; };
+		DD45A1792255DF9600D13839 /* MVCBankCoinSelectView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVCBankCoinSelectView.m; sourceTree = "<group>"; };
+		DD45A17B2255DFA400D13839 /* MVCBankCoinSelectView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MVCBankCoinSelectView.xib; sourceTree = "<group>"; };
+		DD45A17E2255FADC00D13839 /* TPMVCBankSelectListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPMVCBankSelectListView.h; sourceTree = "<group>"; };
+		DD45A17F2255FADC00D13839 /* TPMVCBankSelectListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPMVCBankSelectListView.m; sourceTree = "<group>"; };
+		DD45A1812255FB1400D13839 /* TPMVCBankSelectListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPMVCBankSelectListView.xib; sourceTree = "<group>"; };
+		DD45A1832255FEB300D13839 /* MVCBankSelectListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVCBankSelectListCell.h; sourceTree = "<group>"; };
+		DD45A1842255FEB300D13839 /* MVCBankSelectListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVCBankSelectListCell.m; sourceTree = "<group>"; };
+		DD45A1852255FEB300D13839 /* MVCBankSelectListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MVCBankSelectListCell.xib; sourceTree = "<group>"; };
+		DD45A1882255FFB700D13839 /* MVCBankSelectListCellEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVCBankSelectListCellEntity.h; sourceTree = "<group>"; };
+		DD45A1892255FFB700D13839 /* MVCBankSelectListCellEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVCBankSelectListCellEntity.m; sourceTree = "<group>"; };
+		DD45A18B2255FFC800D13839 /* TPMVCBankItemCellEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPMVCBankItemCellEntity.h; sourceTree = "<group>"; };
+		DD45A18C2255FFC800D13839 /* TPMVCBankItemCellEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPMVCBankItemCellEntity.m; sourceTree = "<group>"; };
 		DD7046E021E33EDF00D02D7F /* ToPay.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ToPay.entitlements; sourceTree = "<group>"; };
 		DD7046E221E5FE9500D02D7F /* QuickGet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickGet.h; sourceTree = "<group>"; };
 		DD7046E321E5FE9500D02D7F /* QuickGet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickGet.m; sourceTree = "<group>"; };
@@ -1414,6 +1465,7 @@
 		DD02442C2196D1B8006A1390 /* Section */ = {
 			isa = PBXGroup;
 			children = (
+				DD45A1502254D0A800D13839 /* MVCBank */,
 				DDDDC37622379E91008BB491 /* Browser  */,
 				DDBB4613221A5FF80035CE07 /* ReleaseProject */,
 				DD0B451621F3094800333016 /* Financing(理财) */,
@@ -2477,6 +2529,111 @@
 			path = noDataCell;
 			sourceTree = "<group>";
 		};
+		DD45A1502254D0A800D13839 /* MVCBank */ = {
+			isa = PBXGroup;
+			children = (
+				DD45A1772255DF6B00D13839 /* View */,
+				DD45A16B2255D30700D13839 /* Cell */,
+				DD45A1642255BDB500D13839 /* Model */,
+				DD45A1562254E07600D13839 /* ChildTableViewController */,
+				DD45A1512254D76400D13839 /* TPMVCBankViewController.h */,
+				DD45A1522254D76400D13839 /* TPMVCBankViewController.m */,
+				DD45A1532254D76400D13839 /* TPMVCBankViewController.xib */,
+			);
+			path = MVCBank;
+			sourceTree = "<group>";
+		};
+		DD45A1562254E07600D13839 /* ChildTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DD45A1572254E18200D13839 /* TPMVCBanTableViewController.h */,
+				DD45A1582254E18200D13839 /* TPMVCBanTableViewController.m */,
+				DD45A1592254E18200D13839 /* TPMVCBanTableViewController.xib */,
+			);
+			path = ChildTableViewController;
+			sourceTree = "<group>";
+		};
+		DD45A15F2255B65B00D13839 /* Transaction */ = {
+			isa = PBXGroup;
+			children = (
+				DD45A1742255DF5000D13839 /* API_GET_Transaction_Pair_Tickers.h */,
+				DD45A1752255DF5000D13839 /* API_GET_Transaction_Pair_Tickers.m */,
+				DD45A1612255BB2F00D13839 /* API_GET_Transaction_Pair.h */,
+				DD45A1622255BB2F00D13839 /* API_GET_Transaction_Pair.m */,
+				DD45A15C2255B65800D13839 /* API_GET_Transaction.h */,
+				DD45A15D2255B65800D13839 /* API_GET_Transaction.m */,
+			);
+			path = Transaction;
+			sourceTree = "<group>";
+		};
+		DD45A1602255B66600D13839 /* BlockBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				DDEFE4152239256F003E3263 /* API_GET_Block.h */,
+				DDEFE4162239256F003E3263 /* API_GET_Block.m */,
+				DDEFE41822392689003E3263 /* API_GET_Block_Address_Balance.h */,
+				DDEFE41922392689003E3263 /* API_GET_Block_Address_Balance.m */,
+				DDEFE41B22392738003E3263 /* API_GET_Block_Address_Exist.h */,
+				DDEFE41C22392738003E3263 /* API_GET_Block_Address_Exist.m */,
+				DDEFE41E223927E7003E3263 /* API_GET_Block_Address_Order.h */,
+				DDEFE41F223927E7003E3263 /* API_GET_Block_Address_Order.m */,
+				DDEFE42122392878003E3263 /* API_GET_Block_Address_Order_Id.h */,
+				DDEFE42222392878003E3263 /* API_GET_Block_Address_Order_Id.m */,
+				DDEFE42422392917003E3263 /* API_GET_Block_Last.h */,
+				DDEFE42522392917003E3263 /* API_GET_Block_Last.m */,
+				DDEFE42722392951003E3263 /* API_GET_Block_Transaction_Last.h */,
+				DDEFE42822392951003E3263 /* API_GET_Block_Transaction_Last.m */,
+				DDEFE42A22392992003E3263 /* API_GET_Block_Transaction_Tx_Hash.h */,
+				DDEFE42B22392992003E3263 /* API_GET_Block_Transaction_Tx_Hash.m */,
+				DDEFE42D223929CA003E3263 /* API_GET_Block_Blockid.h */,
+				DDEFE42E223929CA003E3263 /* API_GET_Block_Blockid.m */,
+				DDEFE43022392A11003E3263 /* API_GET_Block_Blockid_Transactions.h */,
+				DDEFE43122392A11003E3263 /* API_GET_Block_Blockid_Transactions.m */,
+			);
+			path = BlockBrowser;
+			sourceTree = "<group>";
+		};
+		DD45A1642255BDB500D13839 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DD45A1682255BEFB00D13839 /* TPPair.h */,
+				DD45A1692255BEFB00D13839 /* TPPair.m */,
+				DD45A1712255D8D900D13839 /* TPMVCBankItemModel.h */,
+				DD45A1722255D8D900D13839 /* TPMVCBankItemModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DD45A16B2255D30700D13839 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DD45A16C2255D40C00D13839 /* TPMVCBankItemCell.h */,
+				DD45A16D2255D40C00D13839 /* TPMVCBankItemCell.m */,
+				DD45A16E2255D40C00D13839 /* TPMVCBankItemCell.xib */,
+				DD45A18B2255FFC800D13839 /* TPMVCBankItemCellEntity.h */,
+				DD45A18C2255FFC800D13839 /* TPMVCBankItemCellEntity.m */,
+				DD45A1832255FEB300D13839 /* MVCBankSelectListCell.h */,
+				DD45A1842255FEB300D13839 /* MVCBankSelectListCell.m */,
+				DD45A1852255FEB300D13839 /* MVCBankSelectListCell.xib */,
+				DD45A1882255FFB700D13839 /* MVCBankSelectListCellEntity.h */,
+				DD45A1892255FFB700D13839 /* MVCBankSelectListCellEntity.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		DD45A1772255DF6B00D13839 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DD45A1782255DF9600D13839 /* MVCBankCoinSelectView.h */,
+				DD45A1792255DF9600D13839 /* MVCBankCoinSelectView.m */,
+				DD45A17B2255DFA400D13839 /* MVCBankCoinSelectView.xib */,
+				DD45A17E2255FADC00D13839 /* TPMVCBankSelectListView.h */,
+				DD45A17F2255FADC00D13839 /* TPMVCBankSelectListView.m */,
+				DD45A1812255FB1400D13839 /* TPMVCBankSelectListView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		DD7046E121E3414800D02D7F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -2854,26 +3011,8 @@
 		DDEFE4142239255A003E3263 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				DDEFE4152239256F003E3263 /* API_GET_Block.h */,
-				DDEFE4162239256F003E3263 /* API_GET_Block.m */,
-				DDEFE41822392689003E3263 /* API_GET_Block_Address_Balance.h */,
-				DDEFE41922392689003E3263 /* API_GET_Block_Address_Balance.m */,
-				DDEFE41B22392738003E3263 /* API_GET_Block_Address_Exist.h */,
-				DDEFE41C22392738003E3263 /* API_GET_Block_Address_Exist.m */,
-				DDEFE41E223927E7003E3263 /* API_GET_Block_Address_Order.h */,
-				DDEFE41F223927E7003E3263 /* API_GET_Block_Address_Order.m */,
-				DDEFE42122392878003E3263 /* API_GET_Block_Address_Order_Id.h */,
-				DDEFE42222392878003E3263 /* API_GET_Block_Address_Order_Id.m */,
-				DDEFE42422392917003E3263 /* API_GET_Block_Last.h */,
-				DDEFE42522392917003E3263 /* API_GET_Block_Last.m */,
-				DDEFE42722392951003E3263 /* API_GET_Block_Transaction_Last.h */,
-				DDEFE42822392951003E3263 /* API_GET_Block_Transaction_Last.m */,
-				DDEFE42A22392992003E3263 /* API_GET_Block_Transaction_Tx_Hash.h */,
-				DDEFE42B22392992003E3263 /* API_GET_Block_Transaction_Tx_Hash.m */,
-				DDEFE42D223929CA003E3263 /* API_GET_Block_Blockid.h */,
-				DDEFE42E223929CA003E3263 /* API_GET_Block_Blockid.m */,
-				DDEFE43022392A11003E3263 /* API_GET_Block_Blockid_Transactions.h */,
-				DDEFE43122392A11003E3263 /* API_GET_Block_Blockid_Transactions.m */,
+				DD45A1602255B66600D13839 /* BlockBrowser */,
+				DD45A15F2255B65B00D13839 /* Transaction */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -3221,6 +3360,7 @@
 				DD10844221A001030087F244 /* BCScanQR2@2x.png in Resources */,
 				DD0A93D721F6FEE200D9E82E /* TPProductIntroduceCell.xib in Resources */,
 				DD3E1CF8221D0356007E8907 /* GT3Captcha.bundle in Resources */,
+				DD45A1872255FEB300D13839 /* MVCBankSelectListCell.xib in Resources */,
 				DD0A93F521F809B200D9E82E /* TPMyStoreItemCell.xib in Resources */,
 				DDEFE3EE2237C4B9003E3263 /* YUItemLeftMidRightCell.xib in Resources */,
 				DD13CF0821ED8A500022EECC /* TPMemonicStatusCollectionViewCell.xib in Resources */,
@@ -3230,6 +3370,7 @@
 				DDEFE4C22240D919003E3263 /* YUBlankCell.xib in Resources */,
 				DDEFE3DB2237BF46003E3263 /* YUTagLabelCell.xib in Resources */,
 				DD4126B621F9B09C00079538 /* YUSpaceTableViewCell.xib in Resources */,
+				DD45A1702255D40C00D13839 /* TPMVCBankItemCell.xib in Resources */,
 				DDFE5DB121CC9FA0005D6D48 /* shareImage.png in Resources */,
 				DD0A941021F843AE00D9E82E /* TPStoreEveryDayIncomeCell.xib in Resources */,
 				DD0B450B21F2F78800333016 /* TPYULoginViewController.xib in Resources */,
@@ -3260,6 +3401,7 @@
 				DD0B452721F3228D00333016 /* TPInviteRegFirstPageTableViewCell.xib in Resources */,
 				DD0A93EA21F742AD00D9E82E /* TPMyStoreViewController.xib in Resources */,
 				DDFE5D9D21CA1BC0005D6D48 /* HUD_error@2x.png in Resources */,
+				DD45A17C2255DFA400D13839 /* MVCBankCoinSelectView.xib in Resources */,
 				DD23C2BE21ECA892007727DA /* TPMemonicCollectionViewCell.xib in Resources */,
 				DDFE5D9A21CA1BC0005D6D48 /* HUD_error@3x.png in Resources */,
 				DDBB4632221A922F0035CE07 /* TPReleaseProjectDetailVC.xib in Resources */,
@@ -3276,6 +3418,8 @@
 				DDEFE41022390771003E3263 /* YUPublicKeySearchResultCell.xib in Resources */,
 				DD4126AD21F9A9A800079538 /* YUTMineCellTableViewCell.xib in Resources */,
 				DD3E1CED221BF096007E8907 /* TPReleaseRecordNoDataCell.xib in Resources */,
+				DD45A1822255FB1400D13839 /* TPMVCBankSelectListView.xib in Resources */,
+				DD45A1552254D76400D13839 /* TPMVCBankViewController.xib in Resources */,
 				DD0A940821F83E9D00D9E82E /* TPStoreDetailProductIntroCell.xib in Resources */,
 				DDBB4639221A9A810035CE07 /* TPReleaseDetailMainInfoCell.xib in Resources */,
 				DD10844021A001030087F244 /* BCScanQR4@2x.png in Resources */,
@@ -3290,6 +3434,7 @@
 				DDEFE3F72237D5C5003E3263 /* YUItemImageCell.xib in Resources */,
 				DD0B44F821F1B8DE00333016 /* TPResetPwdOneTextFiledViewController.xib in Resources */,
 				DDD211CE21F084A60029905C /* TPVerifyViewController.xib in Resources */,
+				DD45A15B2254E18200D13839 /* TPMVCBanTableViewController.xib in Resources */,
 				DDEFE469223A855F003E3263 /* YUTransactionInfoViewController.xib in Resources */,
 				DD13CF0021ECB4C80022EECC /* TPMnemonicSettingViewController.xib in Resources */,
 				DDEFE3D22237B8FD003E3263 /* YUSmallHeaderCell.xib in Resources */,
@@ -3414,6 +3559,7 @@
 				DD02394421AD2F4B00333446 /* UILabel+WLAttributedString.m in Sources */,
 				DDFE5DD721CDF273005D6D48 /* TPNonPublish.m in Sources */,
 				DDEFE3DE2237BF5C003E3263 /* YUTagLabelCellEntity.m in Sources */,
+				DD45A15A2254E18200D13839 /* TPMVCBanTableViewController.m in Sources */,
 				DD72F42E219A7D7A004C0DAF /* TPVRTViewController.m in Sources */,
 				DD0239B821B1336000333446 /* BCQMView.m in Sources */,
 				DDDDC3802237A912008BB491 /* YUPageListView.m in Sources */,
@@ -3434,6 +3580,7 @@
 				DD0A93EF21F7446000D9E82E /* TPMyStoreTableViewController.m in Sources */,
 				DD02399421AF968E00333446 /* WYNetworkManager.m in Sources */,
 				DDDDFBA0219C1AE90056FC57 /* TPEndViewController.m in Sources */,
+				DD45A18A2255FFB700D13839 /* MVCBankSelectListCellEntity.m in Sources */,
 				DDD211D621F09F090029905C /* TPChangePassWordViewController.m in Sources */,
 				DDF7B9B221BA65E200BE35D6 /* UIImage+YUExtension.m in Sources */,
 				DD02444A2196DD57006A1390 /* TPMeViewController.m in Sources */,
@@ -3505,6 +3652,7 @@
 				DD4126C621FABC1F00079538 /* TPInvitedNoDataCell.m in Sources */,
 				DDE1769521BD1EED00167EB1 /* TPRecordModel.m in Sources */,
 				DDDDFBAC219D5A110056FC57 /* TPCapitalHeaderView.m in Sources */,
+				DD45A17A2255DF9600D13839 /* MVCBankCoinSelectView.m in Sources */,
 				DD02399821AF968E00333446 /* WYNetworkCacheManager.m in Sources */,
 				DDEFE42922392951003E3263 /* API_GET_Block_Transaction_Last.m in Sources */,
 				DD1083E2219D83C20087F244 /* TPNotiCell.m in Sources */,
@@ -3533,8 +3681,10 @@
 				DD23C2A621E9FCA1007727DA /* TPSetPasswordViewModel.m in Sources */,
 				DD2FD6A921C7685F00A28F78 /* TPMSCell.m in Sources */,
 				DD108424219EA5570087F244 /* TPMeHeaderView.m in Sources */,
+				DD45A18D2255FFC800D13839 /* TPMVCBankItemCellEntity.m in Sources */,
 				DDEFE4C92240D919003E3263 /* YUErrorCellEntity.m in Sources */,
 				DD0A93CD21F6F98100D9E82E /* TPFinancingProductDetailVC.m in Sources */,
+				DD45A1732255D8D900D13839 /* TPMVCBankItemModel.m in Sources */,
 				DDBB462B221A7C810035CE07 /* ReleaseProjectItem.m in Sources */,
 				DD13CF0E21EDE9C10022EECC /* YURootViewController.m in Sources */,
 				DD4126B921F9B0CD00079538 /* YUSpaceTableViewCellEntity.m in Sources */,
@@ -3585,6 +3735,7 @@
 				DDEFE468223A855F003E3263 /* YUTransactionInfoViewController.m in Sources */,
 				DD13CEFF21ECB4C80022EECC /* TPMnemonicSettingViewController.m in Sources */,
 				DD0A93F421F809B200D9E82E /* TPMyStoreItemCell.m in Sources */,
+				DD45A1542254D76400D13839 /* TPMVCBankViewController.m in Sources */,
 				DD02399521AF968E00333446 /* WYNetworkCacheInfo.m in Sources */,
 				DD0B452621F3228D00333016 /* TPInviteRegFirstPageTableViewCell.m in Sources */,
 				DD0244472196DD4E006A1390 /* TPCrowdfundingViewController.m in Sources */,
@@ -3597,6 +3748,7 @@
 				DD374DC121C5228100093A0F /* AASeriesElement.m in Sources */,
 				DD0A942B21F8987A00D9E82E /* CheckSuccView.m in Sources */,
 				DDEFE420223927E7003E3263 /* API_GET_Block_Address_Order.m in Sources */,
+				DD45A15E2255B65800D13839 /* API_GET_Transaction.m in Sources */,
 				DDEFE441223A3443003E3263 /* YUBrowserCaptialViewController.m in Sources */,
 				DD0A940121F83CAD00D9E82E /* TPStoreDetailViewController.m in Sources */,
 				DDEFE41A22392689003E3263 /* API_GET_Block_Address_Balance.m in Sources */,
@@ -3607,6 +3759,7 @@
 				DD1083DC219D76560087F244 /* TPTokenTopicViewController.m in Sources */,
 				DDEFE3D52237B90C003E3263 /* YUSmallHeaderCellEntity.m in Sources */,
 				DD108427219EAEB80087F244 /* TPLanguageViewController.m in Sources */,
+				DD45A1862255FEB300D13839 /* MVCBankSelectListCell.m in Sources */,
 				DDEFE42322392878003E3263 /* API_GET_Block_Address_Order_Id.m in Sources */,
 				DDEFE4C72240D919003E3263 /* YUNoDataCell.m in Sources */,
 				DD02391E21A5570B00333446 /* TPTranDetailViewController.m in Sources */,
@@ -3647,6 +3800,7 @@
 				DD374DB021C5228100093A0F /* AACrosshair.m in Sources */,
 				DD0A93DE21F7061F00D9E82E /* FinProductDetailModel.m in Sources */,
 				DD02399921AF968E00333446 /* WYNetworkRequestEngine.m in Sources */,
+				DD45A16A2255BEFB00D13839 /* TPPair.m in Sources */,
 				DDEFE41D22392738003E3263 /* API_GET_Block_Address_Exist.m in Sources */,
 				DD23C2B821EC98D3007727DA /* TPMnemonicDisplayViewModel.m in Sources */,
 				DDEFE46D223A86A3003E3263 /* BrowserTransactionInfoModel.m in Sources */,
@@ -3655,6 +3809,7 @@
 				DD78698C221ABA100027566E /* TPTitleCellEntity.m in Sources */,
 				DD0239B521B1269E00333446 /* TPCurrencyRatio.m in Sources */,
 				DDBB4629221A7C810035CE07 /* M_ReleaseProjectJoinedDetail.m in Sources */,
+				DD45A16F2255D40C00D13839 /* TPMVCBankItemCell.m in Sources */,
 				DD10845021A2B4B60087F244 /* TPTokenBottomView.m in Sources */,
 				DDFED6B321E065F100F2F354 /* UITableView+YUTableView.m in Sources */,
 				DDF69FB521C0F42C006EE7A4 /* CountDown.m in Sources */,
@@ -3678,6 +3833,7 @@
 				DDEFE45C223A582E003E3263 /* BlockDetailInfo.m in Sources */,
 				DDF69FBE21C26B1E006EE7A4 /* TPTransDetailModel.m in Sources */,
 				DD0D344A21F5B06400ECEDF2 /* TPInviteRegSecondPageTableViewCellEntity.m in Sources */,
+				DD45A1802255FADC00D13839 /* TPMVCBankSelectListView.m in Sources */,
 				DDF7B9B621BBA25000BE35D6 /* TPExchangeRate.m in Sources */,
 				DDDDFB93219BE19B0056FC57 /* TPHeaderRecordView.m in Sources */,
 				DD0239A321AFD9CA00333446 /* TPLoginModel.m in Sources */,
@@ -3694,6 +3850,7 @@
 				DD374D6321C4B16700093A0F /* TPRefreshHeader.m in Sources */,
 				DDF7B9AD21BA4DA100BE35D6 /* TPUserInfo.m in Sources */,
 				DD374DBA21C5228100093A0F /* AASpline.m in Sources */,
+				DD45A1762255DF5000D13839 /* API_GET_Transaction_Pair_Tickers.m in Sources */,
 				DD2FD6B621C7A17000A28F78 /* YUBadgeValue.m in Sources */,
 				DD0B451421F3085400333016 /* TPInvitedRegisterViewController.m in Sources */,
 				DD02394121ACF53E00333446 /* TPTransDetailCell.m in Sources */,
@@ -3707,6 +3864,7 @@
 				DD374DA921C5228100093A0F /* AAXAxis.m in Sources */,
 				DD02393421ABD80600333446 /* TPFilterViewController.m in Sources */,
 				DD0A93D621F6FEE200D9E82E /* TPProductIntroduceCell.m in Sources */,
+				DD45A1632255BB2F00D13839 /* API_GET_Transaction_Pair.m in Sources */,
 				DD0A942221F8644000D9E82E /* TPEveryIncomeTitleDayCell.m in Sources */,
 				DD10844321A001030087F244 /* NIMScanerCardViewController.m in Sources */,
 				DD374DA721C5228100093A0F /* AALabels.m in Sources */,

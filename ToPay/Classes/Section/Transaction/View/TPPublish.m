@@ -7,16 +7,16 @@
 //
 
 #import "TPPublish.h"
-
+#import "YUTextView.h"
 @interface TPPublish ()
 
 @property (nonatomic, strong) UILabel *msLab;
 @property (nonatomic, strong) UILabel *currentLab;
-
 @property (nonatomic, copy) NSString *tokenName;
 @property (nonatomic, copy) NSString *currName;
 @property (nonatomic) TPTransactionType transType;
 @end
+
 
 @implementation TPPublish
 
@@ -27,7 +27,7 @@
     {
         self.currName = currName;
         self.tokenName = tokenName;
-        
+        yudef_weakSelf;
         self.transType = transType;
         UILabel *msLab = [YFactoryUI YLableWithText:@"" color:TP8EColor font:FONT(13)];
         [self addSubview:msLab];
@@ -46,31 +46,35 @@
         [sliderView mas_makeConstraints:^(MASConstraintMaker *make)
          {
              make.left.equalTo(@16);
-             make.right.equalTo(@(-14));
-             make.height.equalTo(@66);
+             make.right.equalTo(@(-16));
+             make.height.equalTo(@40);
              make.top.equalTo(msLab.mas_bottom).with.offset(8);
          }];
         
         
-        SJButtonSlider *comSlider = [SJButtonSlider new];
-        comSlider.rightText = @"＋";
-        comSlider.leftText = @"－";
-
-        [comSlider.slider setThumbCornerRadius:8 size:CGSizeMake(16, 16) thumbBackgroundColor:[UIColor whiteColor]];
-        comSlider.slider.trackImageView.backgroundColor = TPC1Color;
-        comSlider.slider.traceImageView.backgroundColor = TP59Color;
-        comSlider.slider.delegate = self;
+        YUTextView *comSlider = [YUTextView new];
+        [comSlider setPlaceHolder:@"输入价格"];
+        [comSlider.xibContainer.textField bk_addObserverForKeyPath:@"text" task:^(id target) {
+            NSLog(@"....");
+            NSString *v = comSlider.xibContainer.textField.text;
+            weakSelf.msLab.text = TPString(@"%@单价：%@ %@",weakSelf.transType == TPTransactionTypeTransfer ? @"购买":@"出售",v ,@"BZTB");
+            if (weakSelf.sliderBlock)
+            {
+                weakSelf.sliderBlock(comSlider);
+            }
+        }];
+        comSlider.xibContainer.textField.keyboardType = UIKeyboardTypeDecimalPad;
         [sliderView addSubview:comSlider];
         self.comSlider = comSlider;
         [comSlider mas_makeConstraints:^(MASConstraintMaker *make)
         {
-             make.left.equalTo(@20);
-             make.height.equalTo(@20);
+             make.left.equalTo(@0);
+             make.height.equalTo(sliderView);
              make.centerY.equalTo(sliderView);
-             make.width.equalTo(sliderView.mas_width).with.offset(-100);
+             make.width.equalTo(sliderView.mas_width).with.offset(0);
          }];
         
-        UILabel *floatLab = [YFactoryUI YLableWithText:@"100.00%" color:TP59Color font:FONT(15)];
+        UILabel *floatLab = [YFactoryUI YLableWithText:@"" color:TP59Color font:FONT(15)];
         self.floatLab = floatLab;
         [sliderView addSubview:floatLab];
         
@@ -101,22 +105,9 @@
     CGFloat msLab_v = [QuickMaker makeFloatNumber:[transModel.price floatValue] tailNum:4];
     self.msLab.text = TPString(@"%@单价: %.4f %@",self.transType == TPTransactionTypeTransfer ? @"购买":@"出售",msLab_v,@"BZTB");
     CGFloat currentLabv =  [QuickMaker makeFloatNumber:[transModel.price floatValue] tailNum:4];
-    self.currentLab.text = TPString(@"当前价格 %.4f %@",currentLabv,@"BZTB");
+    self.currentLab.text = TPString(@"当前价格 %.4f %@",currentLabv,self.tokenName);
 }
 
 #pragma mark - SJSliderDelegate
--(void)sliderDidDrag:(SJSlider *)slider
-{
-    self.floatLab.text = TPString(@"%.2f%%",slider.value);
-    CGFloat price = [self.transModel.price floatValue];
-    price = [QuickMaker makeFloatNumber:price tailNum:4];
-    CGFloat v = price * slider.value/100;
-    v = [QuickMaker makeFloatNumber:v tailNum:4];
-    self.msLab.text = TPString(@"%@单价：%.4f %@",self.transType == TPTransactionTypeTransfer ? @"购买":@"出售",v ,@"BZTB");
-    if (self.sliderBlock)
-    {
-        self.sliderBlock(slider);
-    }
-}
 
 @end

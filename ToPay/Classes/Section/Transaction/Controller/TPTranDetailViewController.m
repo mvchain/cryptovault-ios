@@ -179,11 +179,13 @@
     {
         make.left.equalTo(@0);
         make.top.equalTo(@( StatusBarAndNavigationBarHeight));
-        make.height.equalTo(@240);
+        make.height.equalTo(@40);
         make.width.equalTo(self.view.mas_width);
     }];
     
-    [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"transaction/pair/kline" parameters:@{@"pairId":self.vrtTopic.pairId} success:^(id responseObject, BOOL isCacheObject)
+    [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer
+                                                 url:@"transaction/pair/kline" parameters:@{@"pairId":self.vrtTopic.pairId}
+                                             success:^(id responseObject, BOOL isCacheObject)
     {
         NSLog(@"%@",responseObject[@"data"]);
         
@@ -198,7 +200,7 @@
     }];
 }
 
--(void)setPriceView
+- (void)setPriceView
 {
     /** 设置标题试图 */
     NSMutableArray *titleViews = [NSMutableArray array];
@@ -252,9 +254,8 @@
         make.left.equalTo(@0);
         make.top.equalTo(@59);
         make.width.equalTo(@(KWidth));
-        make.height.equalTo(@160);
+        make.height.equalTo(@0);
     }];
-    
     
     _chartView.delegate = self;
     [_chartView setViewPortOffsetsWithLeft:0.f top:20.f right:0.f bottom:0.f];

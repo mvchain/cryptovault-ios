@@ -10,10 +10,11 @@
 #import "TPTokenTopicViewController.h"
 #import "TPCurrencyList.h"
 #import "TPTransactionModel.h"
+@class TPPair;
 
 @class BalanceHeaderView;
 @interface TPSellViewController : TPStartViewController
-
+@property (strong,nonatomic) TPPair *curPair ;
 @property (nonatomic, strong) CLData *cData;
 @property (nonatomic, strong) NSString *currName;
 @property (nonatomic, strong) TPTransactionModel *transModel;

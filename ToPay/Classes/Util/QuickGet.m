@@ -76,8 +76,6 @@
     NSString *release = @"https://www.bzvp.net/api/explorer";
     NSString *this_cur = [JudegeCenter isReleaseVersion]?release:test;
     return this_cur;
-    
-    
 }
 + (NSString *)httpPathWithCurrentServerUrl:(NSString *)path {
     return TPString(@"%@%@",[self getCurrentServerUrl],path);

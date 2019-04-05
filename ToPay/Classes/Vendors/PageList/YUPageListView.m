@@ -184,6 +184,10 @@ yudef_lazyLoad(UITableView, tableView, _tableView);
     self.backUpDataArrays = nil; 
     [self reloadData];
 }
+- (void)setBackgroundColor:(UIColor *)backgroundColor {
+    [super setBackgroundColor:backgroundColor];
+    self.tableView.backgroundColor = backgroundColor;
+}
 #pragma mark - <tableView delegate >
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.dataArrays.count;

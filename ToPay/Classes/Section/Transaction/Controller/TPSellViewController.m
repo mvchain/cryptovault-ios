@@ -15,12 +15,11 @@
 
 #import "TPPublish.h"
 #import "TPNonPublish.h"
-
+#import "TPPair.h"
 
 @interface TPSellViewController ()<SJSliderDelegate>
 @property (nonatomic, strong) UIView *headerView;
 @property (nonatomic, strong) UIView *bottomView;
-
 @property (nonatomic, strong) NSMutableArray <UILabel *> *sellLabs;
 @property (nonatomic, strong) TPNonPublish * nonPublish;
 @property (nonatomic, strong) TPPublish * publishView;
@@ -28,9 +27,7 @@
 @property (nonatomic, strong) UILabel * conLab;
 @property (nonatomic, strong) UILabel * tsLab;
 @property (nonatomic, strong) TPComTextView *comText;
-
 @property (nonatomic, strong) TPTransInfoModel *transInfo;
-
 @property (nonatomic) TPTransactionType transType;
 @property (nonatomic, copy)   NSString *pairId;
 @property (nonatomic, copy)  NSString   * tokenName;
@@ -57,9 +54,9 @@
 {
     [super viewDidLoad];
     self.sellLabs = [NSMutableArray<UILabel *> array];
-    self.currentPrice = 1.0f;
-    self.tokenName = self.cData.tokenName;
-    self.customNavBar.title = TPString(@"%@%@",self.transType == TPTransactionTypeTransfer ? @"购买":@"出售",self.tokenName);
+    self.currentPrice = 0.0f;
+    self.tokenName = self.curPair.tokenName;
+    self.customNavBar.title = TPString(@"%@%@挂单",self.transType == TPTransactionTypeTransfer ? @"购买":@"出售",BASE_COIN);
     [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"list_icon_1"]];
     TPWeakSelf;
     [self.customNavBar setOnClickRightButton:^
@@ -75,7 +72,6 @@
             self.transInfo = [TPTransInfoModel mj_objectWithKeyValues:responseObject[@"data"]];
             CGFloat tkBalance = [QuickMaker makeFloatNumber:[self.transInfo.tokenBalance floatValue] tailNum:4];
             CGFloat blance = [QuickMaker makeFloatNumber:[self.transInfo.balance floatValue] tailNum:4];
-            
             self.sellLabs[0].text = TPString(@"%.4f",tkBalance);
             self.sellLabs[1].text = TPString(@"%.4f",blance);
             if (self.isPublish)
@@ -86,11 +82,6 @@
             CGFloat max = [self.transInfo.max floatValue];
             CGFloat silder_max_value = 100 + max;
             CGFloat silder_min_value = 100 + min;
-            self.publishView.comSlider.slider.maxValue = silder_max_value;
-            self.publishView.comSlider.slider.minValue = silder_min_value;
-            CGFloat curValue = (silder_min_value + silder_max_value) / 2.0 ;
-            self.publishView.comSlider.slider.value = curValue;
-            self.publishView.floatLab.text = TPString(@"%.2f%%",curValue);
 
         }
     }
@@ -116,7 +107,7 @@
          make.height.equalTo(@102);
          make.width.equalTo(@355);
      }];
-    NSArray *titArr = @[TPString(@"可用%@",self.tokenName),TPString(@"可用%@",@"BZTB")];
+    NSArray *titArr = @[TPString(@"可用%@",self.tokenName),TPString(@"可用%@",BASE_COIN)];
     NSMutableArray *balanceArr = [NSMutableArray array];
     for (int i = 0; i <titArr.count ; i++)
     {
@@ -167,7 +158,7 @@
 
     if (!self.isPublish)
     {
-        nonPublish = [[TPNonPublish alloc] initWithTransType:self.transType tokenName:self.cData.tokenName currName:self.currName];
+        nonPublish = [[TPNonPublish alloc] initWithTransType:self.transType tokenName:self.curPair.tokenName currName:self.currName];
         nonPublish.transModel = self.transModel;
         [_bottomView addSubview:nonPublish];
         self.nonPublish = nonPublish;
@@ -180,7 +171,7 @@
     }
         else
     {
-        publishView = [[TPPublish alloc]initWithTransType:self.transType tokenName:self.cData.tokenName currName:self.currName];
+        publishView = [[TPPublish alloc]initWithTransType:self.transType tokenName:self.curPair.tokenName currName:self.currName];
 
         [_bottomView addSubview:publishView];
         self.publishView = publishView;
@@ -188,20 +179,23 @@
         {
             make.left.top.equalTo(@0);
             make.width.equalTo(self.bottomView.mas_width);
-            make.height.equalTo(@153);
+            make.height.equalTo(@130);
         }];
-        publishView.sliderBlock = ^(SJSlider * _Nonnull slider)
+        publishView.sliderBlock = ^(YUTextView * _Nonnull slider)
         {
-            self.currentPrice = slider.value / 100;
-        
+            self.currentPrice = slider.text.doubleValue;
             if (self.comText.comTextField.text.length > 0)
             {
-                CGFloat com = [QuickMaker makeFloatNumber:[self.comText.comTextField.text floatValue] tailNum:4] ;
+                CGFloat quatity = [QuickMaker makeFloatNumber:[self.comText.comTextField.text floatValue] tailNum:4] ;
                 CGFloat price = [QuickMaker makeFloatNumber:[self.transInfo.price floatValue] tailNum:4] ;
-                CGFloat conLab_v = com * price * slider.value / 100;
+                CGFloat conLab_v;
+                if (self.currentPrice <=0) {
+                    self.currentPrice =price;
+                }
+                conLab_v = self.currentPrice *quatity;
                 conLab_v = [QuickMaker makeFloatNumber:conLab_v tailNum:4];
-                self.conLab.text = TPString(@"%.4f %@",conLab_v ,@"BZTB");
-                NSLog(@"dsjdkjsldjlsjdklsjdkjslkdjlsd");
+                self.conLab.text = TPString(@"%.4f %@",conLab_v ,BASE_COIN);
+                
                 
             }
         };
@@ -233,7 +227,7 @@
         [takeText mas_makeConstraints:^(MASConstraintMaker *make)
          {
              make.left.equalTo(@0);
-             make.top.equalTo(self.isPublish ? publishView.mas_bottom:nonPublish.mas_bottom).with.offset(self.isPublish?0:12);
+             make.top.equalTo(self.isPublish ? publishView.mas_bottom:nonPublish.mas_bottom).with.offset(self.isPublish?0:16);
              make.width.equalTo(self.bottomView.mas_width);
              make.height.equalTo(@71);
          }];
@@ -343,7 +337,6 @@
     }
 }
 
-
 -(void)reservationClick
 {
     NSLog(@"发布");
@@ -363,17 +356,21 @@
     second_left_label_str = self.transType == TPTransactionTypeTransfer?@"购买单价":@"出售单价" ;
     if (self.isPublish){
         // 发布的点进来，就是底下两个按钮
-        CGFloat total = [self.comText.comTextField.text floatValue] * [self.transInfo.price floatValue] * self.currentPrice;
-        CGFloat quantity = [self.comText.comTextField.text floatValue]; // 数量
-        NSString *unitPrice = TPString(@"%.4f %@",[self.transInfo.price floatValue] *self.currentPrice,@"BZTB"); // 单价
+        
+        CGFloat quantity = [self.comText.comTextField.text doubleValue]; // 数量
+        if (self.currentPrice<=0) {
+            self.currentPrice = [self.transInfo.price doubleValue];
+        }
+        CGFloat total =quantity * self.currentPrice;
+        NSString *unitPrice = TPString(@"%.4f %@",self.currentPrice,BASE_COIN); // 单价
         if (self.transType == TPTransactionTypeTransfer) {
             // 购买区块链币，用btzb支付
-            totalPayStr = TPString(@"%.4f %@",total,@"BZTB");
+            totalPayStr = TPString(@"%.4f %@",total,BASE_COIN);
             first_right_label_str = TPString(@"%.4f %@",quantity,self.tokenName);
         }else {
             // 出售区块链币，用区块链币支付
             totalPayStr = TPString(@"%.4f %@",quantity,self.tokenName);
-            first_right_label_str = TPString(@"%.4f %@",total,@"BZTB");
+            first_right_label_str = TPString(@"%.4f %@",total,BASE_COIN);
         }
         second_right_label_str = unitPrice ;
     }
@@ -449,8 +446,6 @@
     }];
     
 }
-
-
 
 @end
 

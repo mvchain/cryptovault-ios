@@ -19,6 +19,7 @@
 #import "YUTMineCellTableViewCellEntity.h"
 #import "YUSpaceTableViewCellEntity.h"
 #import "YUMineLoginOutCellEntity.h"
+#import "YUAlertViewController.h"
 @interface TPMeViewController ()
 @property (nonatomic, strong) NSArray *dataSource;
 @property (nonatomic, strong) NSArray *dataSourceImg;
@@ -35,9 +36,12 @@ yudef_lazyLoad(NSMutableArray<YUCellEntity*>, datarr, _datarr)
     [super viewDidLoad];
     self.customNavBar.title = @"我的";
     self.customNavBar.hidden = YES;
+    self.baseTableView.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor whiteColor];
+    
     [self showSystemNavgation:NO];
-    _dataSource = @[@"账户安全",@"邀请注册",@"语言",@"关于",];
-    _dataSourceImg = @[@"mine_safe_icon",@"mine_invite_icon",@"language_icon",@"about_icon"];
+    _dataSource = @[@"账户安全",@"语言",@"关于",];
+    _dataSourceImg = @[@"mine_safe_icon",@"language_icon",@"about_icon"];
     for(int i=0;i<_dataSource.count;i++){
         YUTMineCellTableViewCellEntity*en =  [[YUTMineCellTableViewCellEntity alloc ] init];
         en.title = _dataSource[i];
@@ -45,20 +49,21 @@ yudef_lazyLoad(NSMutableArray<YUCellEntity*>, datarr, _datarr)
         [self.datarr addObject:en];
     }
     YUSpaceTableViewCellEntity *en = [[YUSpaceTableViewCellEntity alloc]init];
-    en.yu_cellHeight =  23;
-    en.bgcolor = [UIColor colorWithHex:@"#F2F2F2"];
+    en.yu_cellHeight =  160;
+    en.bgcolor = [UIColor whiteColor];
     [self.datarr addObject:en];
     YUMineLoginOutCellEntity *en_c = [[YUMineLoginOutCellEntity alloc] init];
     [self.datarr addObject:en_c];
     TPMeHeaderView *headerView = [[TPMeHeaderView alloc] init];
     [self.view addSubview:headerView];
+    headerView.backgroundColor  = [UIColor whiteColor];
+    
     [headerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.equalTo(@0);
         make.width.equalTo(@(KWidth));
         make.height.equalTo(@(156+12+STATUS_BAR_HEIGHT));
     }];
     /*
-     
      
      */
     [self.baseTableView mas_makeConstraints:^(MASConstraintMaker *make)
@@ -97,22 +102,19 @@ yudef_lazyLoad(NSMutableArray<YUCellEntity*>, datarr, _datarr)
         [self.navigationController pushViewController:account animated:YES];
         
     }
-    if (indexPath.row == 1){
-        TPInvitedRegisterViewController *cv = [[TPInvitedRegisterViewController alloc] init];
-        [self.navigationController pushViewController:cv animated:YES];
-    }
-    if (indexPath.row == 2)
+
+    if (indexPath.row == 1)
     {
         TPLanguageViewController *languageVC = [[TPLanguageViewController alloc] init];
         [self.navigationController pushViewController:languageVC animated:YES];
     }
-        else if (indexPath.row == 3)
+        else if (indexPath.row == 2)
     {
         TPAboutViewController *aboutVC = [[TPAboutViewController alloc] init];
         [self.navigationController pushViewController:aboutVC animated:YES];
     }
     
-    if(indexPath.row == 5) {
+    if(indexPath.row == 4) {
         [self quitClcik];
         
     }
@@ -128,21 +130,33 @@ yudef_lazyLoad(NSMutableArray<YUCellEntity*>, datarr, _datarr)
 -(void)quitClcik
 {
     //    NSLog(@"退出登录");
+    YUAlertViewController *alert =[[YUAlertViewController alloc]init];
+    [alert yu_setting:^(YUAlertViewControllerCancelWithConfirmStyle *style) {
+        style.yu_alertTitle = @"确认要退出吗?";
+        style.yu_confirmButtonTitle = @"现在退出";
+        style.yu_cancleButtonTitle = @"取消";
+        style.yu_alertContent = @"";
+        
+    } confirmAction:^(id sender) {
+        if ([TPLoginUtil quitWithRemoveUserInfo])
+        {
+            [TPLoginUtil  quitWithRemoveUserInfo];
+            [QuickDo logout];
+        }
+    } cancleAction:^(id sender) {
+        
+    }];
     
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"退出登录" message:@"您确定要退出BZT吗？"preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *resetAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action)
-                                  {
-                                      if ([TPLoginUtil quitWithRemoveUserInfo])
-                                      {
-                                          [TPLoginUtil  quitWithRemoveUserInfo];
-                                          [QuickDo logout];
-                                      }
-                                  }];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-    //添加顺序和显示顺序相同
-    [alertController addAction:cancelAction];
-    [alertController addAction:resetAction];
-    [self presentViewController:alertController animated:YES completion:nil];
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.view.window.rootViewController  presentViewController:alert animated:YES completion:^{
+            
+        }];
+    });
+
+  
+    
+    
 
 }
 

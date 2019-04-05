@@ -70,3 +70,5 @@ typedef void(^bool_id_block)(BOOL isSucc,id data) ;
 #define yudef_weakSelf __weak typeof (self) weakSelf = self;
 
 #endif /* TP_pch */
+
+#define BASE_COIN @"MVC"

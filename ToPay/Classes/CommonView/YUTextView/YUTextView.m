@@ -34,6 +34,8 @@
 - (void)setUp {
     self.autoHideHint = YES;
     self.xibContainer = [YUTextViewXibContainer xib_loadUsingClassName];
+    [self.xibContainer yu_smallCircleStyle];
+    
     [self addSubview:self.xibContainer];
     [self.xibContainer.textField addTarget:self action:@selector(textFieldChanged:) forControlEvents:UIControlEventEditingChanged];
     [self hideHintLabelWithIsAnimate:NO];

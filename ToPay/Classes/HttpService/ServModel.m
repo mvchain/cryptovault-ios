@@ -15,7 +15,7 @@
     if(self){
         NSString *server_path = [QuickGet getCurrentServerUrl];
         
-        _apiDomainUrl = [QuickGet getExplorerPath] ;
+        _apiDomainUrl = server_path ;
     }
     return self;
 }

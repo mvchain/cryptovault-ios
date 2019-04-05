@@ -9,13 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "TPTransInfoModel.h"
 #import "SJButtonSlider.h"
+#import "YUTextView.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TPPublish : UIView <SJSliderDelegate>
 
-@property (nullable, copy) void (^sliderBlock)(SJSlider *slider);
+@property (nullable, copy) void (^sliderBlock)(YUTextView *slider);
 
-@property (nonatomic, strong) SJButtonSlider *comSlider;
+@property (nonatomic, strong) YUTextView *comSlider;
 
 @property (nonatomic, strong) TPTransInfoModel *transModel;
 @property (nonatomic, strong) UILabel *floatLab;

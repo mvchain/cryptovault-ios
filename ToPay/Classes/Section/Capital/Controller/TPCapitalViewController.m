@@ -235,7 +235,9 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
     [self showSystemNavgation:NO];
     self.customNavBar.title = @"BZT Wallet";
     self.customNavBar.titleLabelColor = [UIColor whiteColor];
-    self.customNavBar.barBackgroundColor = TPMainColor;
+    self.customNavBar.barBackgroundColor = [UIColor colorWithHex:@"#5A48FF"];
+    self.customNavBar.backgroundColor = [UIColor colorWithHex:@"#5A48FF"];
+    
     [self.customNavBar wr_setBottomLineHidden:YES];
     [self.customNavBar wr_setBackgroundAlpha:0];
     [self.customNavBar wr_setLeftButtonWithImage:[UIImage imageNamed:@"note_icon"]];
