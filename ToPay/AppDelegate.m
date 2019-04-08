@@ -75,6 +75,10 @@
             [[NSUserDefaults standardUserDefaults] setObject:@"en" forKey:@"appLanguage"];
         }
   }
+   
+    
+
+    
 }
 
 - (void)setUpJpush {
@@ -89,7 +93,16 @@
         // NSSet<UIUserNotificationCategory *> *categories for iOS8 and iOS9
     }
     [JPUSHService registerForRemoteNotificationConfig:entity delegate:self];
-    
+}
+
+- (int)sum:(int )a b:(int)b {
+    __block int sum = 0 ;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        sum = a +b;
+        NSLog(@"%@",[NSThread currentThread]);
+    });
+    sleep(2);
+    return sum;
 }
 
 -(void)setUpWindow

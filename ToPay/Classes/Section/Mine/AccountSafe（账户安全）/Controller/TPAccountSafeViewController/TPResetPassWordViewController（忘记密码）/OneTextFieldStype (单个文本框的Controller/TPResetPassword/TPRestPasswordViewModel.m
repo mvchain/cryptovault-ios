@@ -31,7 +31,7 @@
                complete:(void(^)(BOOL isSucc ,NSString *info,id data))complete {
     NSString *pwdtype = [[NSUserDefaults standardUserDefaults]objectForKey:kResetPwdType]; // 1 登录，2 支付
     NSString *email = [[NSUserDefaults standardUserDefaults] objectForKey:kForgetPwdEmail];
-    NSDictionary *postDict = @{@"password":[QuickGet encryptPwd:value email:email],@"token":self.onceToken,@"type":pwdtype};
+    NSDictionary *postDict = @{@"password":[QuickGet encryptPwd:value salt:nil],@"token":self.onceToken,@"type":pwdtype};
     [[WYNetworkManager sharedManager] sendPutRequest:WYJSONRequestSerializer
                                                  url:@"user/forget"
                                           parameters:postDict

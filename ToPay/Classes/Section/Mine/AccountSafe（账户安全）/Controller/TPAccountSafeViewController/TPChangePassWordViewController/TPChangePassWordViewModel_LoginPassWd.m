@@ -14,8 +14,8 @@
                         newPassWd:(NSString *)newPassWd
                          complete:(void (^)(BOOL isSucc, NSString *ifno))complete {
     
-    NSDictionary *postDict = @{@"password":[QuickGet encryptPwd:old email:nil],
-                               @"newPassword":[QuickGet encryptPwd:newPassWd email:nil]};
+    NSDictionary *postDict = @{@"password":[QuickGet encryptPwd:old salt:nil],
+                               @"newPassword":[QuickGet encryptPwd:newPassWd salt:nil]};
     [[WYNetworkManager sharedManager] sendPutRequest:WYJSONRequestSerializer
                                                  url:@"user/password"
                                           parameters:postDict

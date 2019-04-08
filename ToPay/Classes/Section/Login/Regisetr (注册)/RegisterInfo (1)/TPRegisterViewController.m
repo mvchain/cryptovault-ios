@@ -57,12 +57,12 @@
 #pragma mark initialize
 - (void)initUI {
     
-    NSArray<YUTextView *> *textViews = @[_invitedCodeTextView,_nickNameTextView,_emailTextView,_vaildCodeTextView];
-    NSArray *titles = @[@"邀请码",@"昵称",@"邮箱",@"验证码"];
-    NSArray *placeholders = @[@"注册邀请码",@"设置昵称",@"输入邮箱",@"输入验证码"];
+    NSArray<YUTextView *> *textViews = @[_nickNameTextView,_emailTextView,_vaildCodeTextView];
+    NSArray *titles = @[@"昵称",@"邮箱",@"验证码"];
+    NSArray *placeholders = @[@"设置昵称",@"输入邮箱",@"输入验证码"];
     NSInteger index = 0;
     
-    self.invitedCodeTextView.xibContainer.textField.keyboardType =  UIKeyboardTypeASCIICapable;
+
     self.emailTextView.xibContainer.textField.keyboardType = UIKeyboardTypeEmailAddress;
     self.vaildCodeTextView.xibContainer.textField.keyboardType = UIKeyboardTypeNumberPad;
     for( YUTextView *textView in textViews ) {
@@ -126,8 +126,7 @@
     self.viewModel.regInfoModel.email = self.emailStr;
     self.viewModel.regInfoModel.inviteCode = self.invitedCodeStr;
     self.viewModel.regInfoModel.nickname = self.nickNameStr;
-    
-    [self.viewModel isRegisterParameterCorrect:self.invitedCodeStr
+    [self.viewModel isRegisterParameterCorrect:@"0"
                                       nickName:self.nickNameStr
                                          email:self.emailStr
                                      vaildCode:self.vaildCodeStr
@@ -137,7 +136,7 @@
             // 输入内容格式合法
             [TProgressHUD showLoading];
             [self.viewModel userWithEmail:self.emailStr
-                               inviteCode:self.invitedCodeStr
+                               inviteCode:@""
                                 vaildCode:self.vaildCodeStr
                                  complete:^(BOOL isSucc, NSString *token, NSString *message)
             {

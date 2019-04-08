@@ -208,7 +208,7 @@
             
             [[WYNetworkManager sharedManager] sendPostRequest:WYJSONRequestSerializer url:@"asset/transaction" parameters:@{
                             @"address":self.textArray[0].comTextField.text,
-                            @"password":[QuickGet encryptPwd:text email:nil],
+                            @"password":[QuickGet encryptPwd:text salt:nil],
                             @"tokenId":self.assetModel.tokenId,
                             @"value":@([self.textArray[1].comTextField.text doubleValue])}
                 success:^(id responseObject, BOOL isCacheObject)

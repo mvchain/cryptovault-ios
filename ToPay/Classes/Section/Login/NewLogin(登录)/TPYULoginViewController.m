@@ -15,6 +15,7 @@
 #import "YUTabBarController.h"
 #import "TPResetPassWordGuiderViewController.h"
 #import "TPRgeisterViewModel.h"
+#import "API_POST_User_Salt.h"
 #import <GT3Captcha/GT3Captcha.h>
 //网站主部署的用于验证登录的接口 (api_1)
 #define api_1 @"http://192.168.15.21:10086/user/valid"
@@ -80,9 +81,9 @@
 - (NSArray<YUTextView*> *)textArr {
     return  @[_userNameTextView,_passWdTextView,_vaildCodeTextView];
 }
--(void)loginClcik
+- (void)loginClcik
 {
-    NSString * str = [QuickGet encryptPwd:self.textArr[1].text email:self. textArr[0].text];
+   
     //[SVProgressHUD show];
     [self showLoading];
     
@@ -97,31 +98,44 @@
         [self showInfoText:@"请输入正确的验证码"];
         return ;
     }
+    API_POST_User_Salt *getSalt = [[API_POST_User_Salt alloc] init];
+    getSalt.onSuccess = ^(id responseData) {
+        [self loginActionWithSalt:(NSString *)responseData];
+    };
+    getSalt.onError = ^(NSString *reason, NSInteger code) {
+        
+    };
+    getSalt.onEndConnection = ^{
+        
+    };
+    
+}
+- (void)loginActionWithSalt:(NSString *)salt {
     __weak typeof (self) wsf = self;
     //imageToken
     NSDictionary *postDic = @{@"username":self. textArr[0].text,
-                              @"password":[QuickGet encryptPwd:self.textArr[1].text email:self. textArr[0].text] ,
+                              @"password":[QuickGet encryptPwd:self.textArr[1].text salt:salt] ,
                               @"validCode":self.textArr[2].text,
                               } ;
     if (_hunmanToken)
         postDic =  @{@"username":self. textArr[0].text,
-                     @"password":[QuickGet encryptPwd:self.textArr[1].text email:self. textArr[0].text] ,
+                     @"password":[QuickGet encryptPwd:self.textArr[1].text salt:salt] ,
                      @"validCode":self.textArr[2].text,
                      @"imageToken":_hunmanToken
                      } ;
-        
+    
     [[WYNetworkManager sharedManager] sendPostRequest:WYJSONRequestSerializer url:@"user/login" parameters:postDic
-                                                                                    success:^(id responseObject, BOOL isCacheObject)
-    {
-        
-        NSDictionary *respObj = (NSDictionary *)responseObject;
-        
+                                              success:^(id responseObject, BOOL isCacheObject)
+     {
+         
+         NSDictionary *respObj = (NSDictionary *)responseObject;
+         
          if ([responseObject[@"code"] isEqual:@200])
          {
              NSLog(@"responseObject:%@",responseObject[@"data"]);
              TPLoginModel *loginM = [TPLoginModel mj_objectWithKeyValues:responseObject[@"data"]];
              // set Request token
-             [QuickDo setJPushAlians:loginM.userId];
+             [QuickDo setJPushAlians:@(loginM.userId).stringValue];
              [[WYNetworkConfig sharedConfig] addCustomHeader:@{@"Authorization":loginM.token,@"Accept-Language":@"zh-cn"}];
              // Store user information
              [TPLoginUtil saveUserInfo:loginM];
@@ -152,9 +166,7 @@
          NSLog(@"error = %@", error);
          [SVProgressHUD showSuccessWithStatus:@"登录失败"];
      }];
-    
 }
-
 
 - (void)startValidCodeButtonAnimate {
     [self.sendVaildCodeButton startCountDownWithSecond:60];

@@ -10,15 +10,13 @@
 
 @interface TPLoginModel : NSObject <NSCoding>
 
-@property (nonatomic , copy) NSString         * refreshToken;
-@property (nonatomic , copy) NSString         * token;
-@property (nonatomic , copy) NSString         * userId;
-@property (nonatomic ,copy) NSString * email;
-@property (nonatomic ,copy) NSString * publicKey;
+@property (nonatomic, strong) NSString * email;
+@property (nonatomic, assign) NSInteger googleCheck;
+@property (nonatomic, strong) NSString * publicKey;
+@property (nonatomic, strong) NSString * refreshToken;
+@property (nonatomic, strong) NSString * salt;
+@property (nonatomic, strong) NSString * token;
+@property (nonatomic, assign) NSInteger userId;
 
-//  @property (nonatomic , copy) NSString         * nickname;
-//  @property (nonatomic , copy) NSString         * birthday;
-//  @property (nonatomic , copy) NSString         * invite_code;
-//  @property (nonatomic , copy) NSString         * sex;
 
 @end

@@ -137,9 +137,7 @@
     }];
 }
 
-
-
--(void)setUpContentView
+- (void)setUpContentView
 {
     _bottomView = [[UIView alloc] init];
     [_bottomView setLayer:5 WithBackColor:[UIColor whiteColor]];
@@ -194,9 +192,7 @@
                 }
                 conLab_v = self.currentPrice *quatity;
                 conLab_v = [QuickMaker makeFloatNumber:conLab_v tailNum:4];
-                self.conLab.text = TPString(@"%.4f %@",conLab_v ,BASE_COIN);
-                
-                
+                self.conLab.text = TPString(@"%.4f %@",conLab_v ,self.tokenName);
             }
         };
     }
@@ -212,18 +208,15 @@
         titleArr = @[@"购买数量"];
         placeArr = @[@"输入购买数量"];
     }
-    
     TPComTextView *takeText;
     for (int i = 0 ; i < titleArr.count ; i++)
     {
         takeText = [[TPComTextView alloc] initWithTitle:titleArr[i] WithDesc:placeArr[i]];
         takeText.comTextField.keyboardType = UIKeyboardTypeDecimalPad;
         takeText.comTextField.secureTextEntry = NO;
-        
         [takeText.comTextField addTarget:self action:@selector(changeText:) forControlEvents:UIControlEventEditingChanged];
         [_bottomView addSubview:takeText];
         self.comText = takeText;
-        
         [takeText mas_makeConstraints:^(MASConstraintMaker *make)
          {
              make.left.equalTo(@0);
@@ -232,10 +225,8 @@
              make.height.equalTo(@71);
          }];
     }
-    
     self.tsLab = [YFactoryUI YLableWithText:@"" color:[UIColor colorWithHex:@"#F33636"] font:FONT(13)];
     [_bottomView addSubview:self.tsLab];
-    
     [self.tsLab mas_makeConstraints:^(MASConstraintMaker *make)
      {
          make.left.equalTo(takeText.comTitleLabel.mas_left);
@@ -250,8 +241,7 @@
         make.height.equalTo(@17);
         make.top.equalTo(takeText.mas_bottom).with.offset(24);
     }];
-
-    UILabel *conLab = [YFactoryUI YLableWithText:TPString(@"0 %@",@"BZTB") color:TPC1Color font:FONT(17)];
+    UILabel *conLab = [YFactoryUI YLableWithText:TPString(@"0 %@",self.tokenName) color:TPC1Color font:FONT(17)];
     [_bottomView addSubview:conLab];
     self.conLab = conLab;
     [conLab mas_makeConstraints:^(MASConstraintMaker *make)
@@ -260,9 +250,31 @@
          make.height.equalTo(@17);
          make.top.equalTo(proLab.mas_bottom).with.offset(6);
      }];
+    [self.view layoutIfNeeded];
+    if (self.isPublish) {
+        UILabel *tokenTipLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 40, 50)];
+        [tokenTipLabel setText:self.tokenName];
+        UILabel *MVCTipLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 40, 50)];
+        [MVCTipLabel setText:@"MVC"];
+        [self.publishView.comSlider addSubview:tokenTipLabel];
+        [self.comText addSubview:MVCTipLabel];
+        
+        [@[tokenTipLabel,MVCTipLabel] bk_each:^(id obj) {
+            UILabel *label = (UILabel *)obj;
+            [label setTextAlignment:NSTextAlignmentRight];
+        }];
+        [tokenTipLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(@-11);
+            make.centerY.equalTo(@0);
+        }];
+        [MVCTipLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(@-31);
+            make.centerY.equalTo(@15);
+        }];
+    }
 }
 
--(void)setUpbBottomBtn
+- (void)setUpbBottomBtn
 {
     NSString *title = @"立即发布";
     if( self.isFromTableView ) {
@@ -282,15 +294,14 @@
     [self reservationBtnUerEnabled:NO];
 }
 
--(void)reservationBtnUerEnabled:(BOOL)enabled
+- (void)reservationBtnUerEnabled:(BOOL)enabled
 {
     self.reservationBtn.userInteractionEnabled = enabled ? YES:NO;
     self.reservationBtn.backgroundColor = enabled ? TPMainColor:[UIColor colorWithHex:@"#EBF1FB"];
     [self.reservationBtn setTitleColor:enabled ? [UIColor whiteColor]:TPD5Color  forState:UIControlStateNormal];
 }
 
-
--(void)changeText:(UITextField *)comText
+- (void)changeText:(UITextField *)comText
 {
     if (comText.text.length > 0)
     {
@@ -318,25 +329,28 @@
 
     if (self.isPublish)
     {
-        CGFloat com = [QuickMaker makeFloatNumber: [comText.text floatValue] tailNum:4];
-        CGFloat price = [QuickMaker makeFloatNumber:[self.transInfo.price floatValue] tailNum:4] ;
-        CGFloat currentPrice = [QuickMaker makeFloatNumber:self.currentPrice tailNum:4];
-//        CGFloat conLab_v = [comText.text floatValue] * [self.transInfo.price floatValue] * self.currentPrice;
-        CGFloat conLab_v = com * price * currentPrice;
-        conLab_v = [QuickMaker makeFloatNumber:conLab_v tailNum:4];
-        self.conLab.text = TPString(@"%.4f %@",conLab_v,@"BZTB");
+        CGFloat conLab_v = [self pubish_totalPriceValue];
+        self.conLab.text = TPString(@"%.4f %@",conLab_v,self.tokenName);
     }
         else
     {
-        
         CGFloat com = [QuickMaker makeFloatNumber: [comText.text floatValue] tailNum:4];
         CGFloat price = [QuickMaker makeFloatNumber:[self.transModel.price floatValue] tailNum:4] ;
         CGFloat conLab_v_2 = com * price;
         conLab_v_2 = [QuickMaker makeFloatNumber:conLab_v_2 tailNum:4];
-        self.conLab.text = TPString(@"%.4f %@",conLab_v_2,@"BZTB");
+        self.conLab.text = TPString(@"%.4f %@",conLab_v_2,self.tokenName);
     }
 }
 
+- (CGFloat)pubish_totalPriceValue {
+    
+    CGFloat number = [QuickMaker makeFloatNumber: [self.comText.comTextField.text doubleValue] tailNum:4];
+    CGFloat currentPrice = [QuickMaker makeFloatNumber:self.currentPrice tailNum:4];
+    //        CGFloat conLab_v = [comText.text floatValue] * [self.transInfo.price floatValue] * self.currentPrice;
+    CGFloat conLab_v = number  * currentPrice;
+    return conLab_v;
+    
+}
 -(void)reservationClick
 {
     NSLog(@"发布");
@@ -361,16 +375,16 @@
         if (self.currentPrice<=0) {
             self.currentPrice = [self.transInfo.price doubleValue];
         }
-        CGFloat total =quantity * self.currentPrice;
-        NSString *unitPrice = TPString(@"%.4f %@",self.currentPrice,BASE_COIN); // 单价
+        CGFloat total = [self pubish_totalPriceValue];
+        NSString *unitPrice = TPString(@"%.4f %@",self.currentPrice,self.tokenName); // 单价
         if (self.transType == TPTransactionTypeTransfer) {
-            // 购买区块链币，用btzb支付
-            totalPayStr = TPString(@"%.4f %@",total,BASE_COIN);
-            first_right_label_str = TPString(@"%.4f %@",quantity,self.tokenName);
+            // 购买MVC
+            totalPayStr = TPString(@"%.4f %@",total,self.tokenName);
+            first_right_label_str = TPString(@"%.4f %@",quantity,BASE_COIN);
         }else {
-            // 出售区块链币，用区块链币支付
-            totalPayStr = TPString(@"%.4f %@",quantity,self.tokenName);
-            first_right_label_str = TPString(@"%.4f %@",total,BASE_COIN);
+            // 出售MVC
+            totalPayStr = TPString(@"%.4f %@",quantity,BASE_COIN);
+            first_right_label_str = TPString(@"%.4f %@",total,self.tokenName);
         }
         second_right_label_str = unitPrice ;
     }
@@ -378,16 +392,15 @@
         // 交易list中点进来
         CGFloat quantity = [self.comText.comTextField.text floatValue]; // 数量
         if (self.transType == TPTransactionTypeTransfer) {
-            // 购买区块链币，用btzb支付
+            // 购买MVC
             totalPayStr = self.conLab.text;
-            first_right_label_str = TPString(@"%.4f %@",quantity,self.tokenName);
+            first_right_label_str = TPString(@"%.4f %@",quantity,BASE_COIN);
         }else {
-            totalPayStr = TPString(@"%.4f %@",quantity,self.tokenName);
-            // 出售区块链币，用区块链币支付
+            totalPayStr = TPString(@"%.4f %@",quantity,BASE_COIN);
+            // 出售MVC
             first_right_label_str = self.conLab.text;
-           
         }
-        second_right_label_str = TPString(@"%.4f %@",[self.transModel.price floatValue],@"BZTB");//单价
+        second_right_label_str = TPString(@"%.4f %@",[self.transModel.price floatValue],self.tokenName);//单价
         
     }
     transView.Total = totalPayStr;
@@ -397,7 +410,7 @@
     arr_leftLabelViews[1].titleLabel.text = second_left_label_str;
     
     [transView showMenuWithAlpha:YES];
-
+    yudef_weakSelf;
     __block TPTransView *TPTransV = transView;
     [transView.pasView setEndEditBlock:^(NSString *text)
     {
@@ -405,13 +418,18 @@
         {
             CGFloat price = 0.0;
             if (self.isPublish)
-            price = [self.transInfo.price floatValue] * self.currentPrice;
-            [[WYNetworkManager sharedManager] sendPostRequest:WYJSONRequestSerializer url:@"transaction" parameters:@{ @"id":self.transModel ? self.transModel.id:@"0",
-                              @"pairId":self.pairId,
-                              @"password":[QuickGet encryptPwd:text email:nil],
-                              @"price":self.isPublish ? @(price):self.transModel.price,
-                              @"transactionType":self.transType == TPTransactionTypeTransfer ? @"1":@"2",
-                              @"value":self.comText.comTextField.text} success:^(id responseObject, BOOL isCacheObject)
+            price = weakSelf.currentPrice;
+            NSString *transType = self.transType == TPTransactionTypeTransfer ? @"2":@"1";
+            NSString *salt =[TPLoginUtil userInfo].salt;
+            NSDictionary *parameters = @{ @"id":self.transModel ? self.transModel.id:@"0",
+                                          @"pairId":self.pairId,
+                                          @"password":[QuickGet encryptPwd:text salt:salt],
+                                          @"price":self.isPublish ? @(price):self.transModel.price,
+                                          @"transactionType":transType,
+                                          @"value":self.comText.comTextField.text};
+            NSLog(@"%@",parameters);
+            
+            [[WYNetworkManager sharedManager] sendPostRequest:WYJSONRequestSerializer url:@"transaction" parameters:parameters success:^(id responseObject, BOOL isCacheObject)
             {
                 if ([responseObject[@"code"] isEqual:@200])
                 {

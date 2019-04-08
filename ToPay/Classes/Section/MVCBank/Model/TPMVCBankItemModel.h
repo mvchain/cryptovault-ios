@@ -13,7 +13,7 @@
 @property (nonatomic, assign) NSInteger idField;
 @property (nonatomic, assign) CGFloat limitValue;
 @property (nonatomic, strong) NSString * nickname;
-@property (nonatomic, assign) CGFloat price;
+@property (nonatomic, copy) NSDecimalNumber* price;
 @property (nonatomic, assign) CGFloat total;
 @property (nonatomic, assign) NSInteger transactionType;
 

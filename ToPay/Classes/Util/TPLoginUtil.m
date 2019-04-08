@@ -23,7 +23,7 @@
     [NSKeyedArchiver archiveRootObject:userInfo toFile:TPFilePathWithName(loginFileName)];
 }
 
-+ (TPLoginUtil *)userInfo
++ (TPLoginModel *)userInfo
 {
     return [NSKeyedUnarchiver unarchiveObjectWithFile:TPFilePathWithName(loginFileName)];
 }
@@ -165,7 +165,7 @@
 }
 
 + (void)loginInitSetting:(TPLoginModel *)model {
-    [QuickDo setJPushAlians:model.userId]; //极光的设置
+    [QuickDo setJPushAlians:@(model.userId).stringValue]; //极光的设置
     [[WYNetworkConfig sharedConfig] addCustomHeader:@{@"Authorization":model.token,@"Accept-Language":@"zh-cn"}];
     // Store user information
     [TPLoginUtil saveUserInfo:model];

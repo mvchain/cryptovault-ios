@@ -9,11 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "TPPair.h"
 NS_ASSUME_NONNULL_BEGIN
+@class TPTransactionModel;
 
 @interface TPMVCBanTableViewController : UIViewController
 @property (assign,nonatomic) NSInteger transactionType;
-
-@property (strong,nonatomic) TPPair *curPair ;
+@property (strong,nonatomic) void (^onListTap)(TPTransactionModel *transModel);
+@property (strong,nonatomic) TPPair *curPair;
 - (void)refresh ;
 
 @end

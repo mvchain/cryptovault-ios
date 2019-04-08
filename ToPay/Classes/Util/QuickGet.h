@@ -11,13 +11,15 @@
 + (NSString *)getLegalCurrency;
 + (CGFloat )getWhiteBottomHeight ;
 + (NSString *)getMd5:(NSString *)md5;
-+ (NSString *)encryptPwd:(NSString *)pwd email:(NSString *)m_email ;
++ (NSString *)encryptPwd:(NSString *)pwd salt:(NSString *)m_salt;
+
 + (NSString *)getCurVersion ;
 + (NSString *)getBundleIdStr ;
 + (NSString *)getCurBuildVersion;
 + (NSString *)getCurrentServerUrl ;
 + (NSString *)httpPathWithCurrentServerUrl:(NSString *)path;
 + (NSString *)getExplorerPath;
++ (NSString *)getUUID ;
 
 @end
 

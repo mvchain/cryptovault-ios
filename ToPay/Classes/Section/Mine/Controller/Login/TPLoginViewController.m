@@ -186,7 +186,7 @@
             NSLog(@"responseObject:%@",responseObject[@"data"]);
             TPLoginModel *loginM = [TPLoginModel mj_objectWithKeyValues:responseObject[@"data"]];
             // set Request token
-            [QuickDo setJPushAlians:loginM.userId];
+            [QuickDo setJPushAlians:@(loginM.userId).stringValue];
             [[WYNetworkConfig sharedConfig] addCustomHeader:@{@"Authorization":loginM.token,@"Accept-Language":@"zh-cn"}];
 
             // Store user information

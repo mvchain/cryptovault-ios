@@ -19,13 +19,16 @@
         [self addSubview:_comTitleLabel];
         
         
-        _comTextField = [YFactoryUI YTextFieldWithPlaceholder:[NSString stringWithFormat:@"%@",desc] color:TP8EColor font:FONT(15) secureTextEntry:YES delegate:nil];
+        _comTextField = [YFactoryUI YTextFieldWithPlaceholder:[NSString stringWithFormat:@"%@",desc]
+                                                        color:TP8EColor font:FONT(15)
+                                              secureTextEntry:YES
+                                                     delegate:nil];
         _comTextField.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 8, 0)];
         _comTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         _comTextField.leftView.userInteractionEnabled = NO;
 //        _comTextField.clearButtonMode = UITextFieldViewModeAlways;
         _comTextField.leftViewMode = UITextFieldViewModeAlways;
-        [_comTextField setLayer:5 WithBackColor:TPF6Color];
+        [_comTextField setLayer:5 WithBackColor:[UIColor colorWithHex:@"#F6F7FB"]];
         [self addSubview:_comTextField];
     }
     return self;

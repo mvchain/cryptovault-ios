@@ -218,8 +218,6 @@ static NSString  *TPBuyTopicCellId = @"buyTopicCell";
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
-    
-    
 }
 
 - (void)didReceiveMemoryWarning

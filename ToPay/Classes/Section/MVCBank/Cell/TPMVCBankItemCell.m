@@ -30,7 +30,7 @@
     TPMVCBankItemModel *model = (TPMVCBankItemModel *)entity.data;
     [self.mimageView sd_setImageWithURL:[NSURL URLWithString:model.headImage]];
     [self.leftLabel setText:model.nickname];
-    [self.rightLabel setText:TPString(@"%.6f %@",model.price,myEntity.tokenName)];
+    [self.rightLabel setText:TPString(@"%.6f %@",[model.price doubleValue],myEntity.tokenName)];
     [self.downLabel setText:TPString(@"剩余可购买：%.6f MVC",model.limitValue)];
 }
 

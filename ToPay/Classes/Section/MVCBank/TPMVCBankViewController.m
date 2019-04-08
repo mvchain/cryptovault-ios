@@ -129,6 +129,7 @@ yudef_lazyLoad(UIButton,black,_black);
 #pragma mark event
 - (void)setUpEvent {
     yudef_weakSelf;
+    // curPair change
     [self bk_addObserverForKeyPath:@"curPair" task:^(id target) {
         [weakSelf.coinSelectView.titleLabel setText:weakSelf.curPair.tokenName];
         
@@ -162,6 +163,7 @@ yudef_lazyLoad(UIButton,black,_black);
     }];
     
     [self.black addTarget:self action:@selector(blackTap:) forControlEvents:UIControlEventTouchUpInside];
+    // 切换货币类型 按下
     self.coinSelectView.tap = ^(id  _Nonnull sender)
     {
         weakSelf.isCoinSelectState = YES;
@@ -183,6 +185,8 @@ yudef_lazyLoad(UIButton,black,_black);
             [weakSelf.selectListView refresh];
         }
     };
+    
+    // 最顶上右边按钮按下
     [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"trade-mvc_icon"]];
     self.customNavBar.onClickRightButton = ^{
         weakSelf.isCoinSelectState = NO;
@@ -203,6 +207,8 @@ yudef_lazyLoad(UIButton,black,_black);
             [weakSelf.selectListView refresh];
         }
     };
+    
+    // 顶部弹出列表 按下
     self.selectListView.tap = ^(NSInteger index) {
          [weakSelf hideSelectView];
         if (weakSelf.isCoinSelectState) {
@@ -220,7 +226,9 @@ yudef_lazyLoad(UIButton,black,_black);
                     break;
                 case 1:
                 {
-                    
+                    TPSellViewController *sell = [[TPSellViewController alloc] initWithPairId:@(weakSelf.curPair.pairId).stringValue WithTransType:TPTransactionTypeTransferOut publish:YES];
+                    sell.curPair = weakSelf.curPair;
+                    [weakSelf.navigationController pushViewController:sell animated:YES];
                     
                 }
                      break;
@@ -236,6 +244,18 @@ yudef_lazyLoad(UIButton,black,_black);
         }
     };
     [self.switchView addTarget:self action:@selector(switchChange:) forControlEvents:UIControlEventValueChanged];
+    
+    [@[_buy,_sell] bk_each:^(id obj) {
+        ((TPMVCBanTableViewController *)obj).onListTap = ^(TPTransactionModel * _Nonnull transModel) {
+            int transType = obj == weakSelf.buy?1:2;
+            TPSellViewController *sellVC = [[TPSellViewController alloc] initWithPairId:TPString(@"%ld",(long)weakSelf.curPair.pairId)  WithTransType:transType publish:NO];
+            sellVC.currName = weakSelf.curPair.tokenName;
+            sellVC.curPair = weakSelf.curPair;
+            sellVC.transModel = transModel;
+            sellVC.isFromTableView = YES;
+            [self.navigationController pushViewController:sellVC animated:YES];
+        };
+    }];
     
 }
 

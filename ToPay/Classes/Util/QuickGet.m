@@ -30,11 +30,11 @@
         return 52;
     
 }
-+ (NSString *)encryptPwd:(NSString *)pwd email:(NSString *)m_email  {
++ (NSString *)encryptPwd:(NSString *)pwd salt:(NSString *)m_salt  {
     //Md5(“邮箱” + Md5(“密码/交易密码”))
-    NSString *email =   m_email?m_email:TPLoginUtil.userInfo.email;
+    NSString *salt =  m_salt?m_salt:TPLoginUtil.userInfo.salt;
     NSString *inMd5 = [self md5:pwd];
-    NSString *finalMd5 = [[self md5:TPString(@"%@%@",email,[inMd5 uppercaseString])] uppercaseString];
+    NSString *finalMd5 = [[self md5:TPString(@"%@%@",salt,[inMd5 uppercaseString])] uppercaseString];
     return finalMd5;
 
 }

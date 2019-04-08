@@ -46,7 +46,8 @@ NSString *const kTPMVCBankItemModelTransactionType = @"transactionType";
         self.nickname = dictionary[kTPMVCBankItemModelNickname];
     }
     if(![dictionary[kTPMVCBankItemModelPrice] isKindOfClass:[NSNull class]]){
-        self.price = [dictionary[kTPMVCBankItemModelPrice] doubleValue];
+        self.price = dictionary[kTPMVCBankItemModelPrice];
+        
     }
     
     if(![dictionary[kTPMVCBankItemModelTotal] isKindOfClass:[NSNull class]]){
@@ -75,7 +76,7 @@ NSString *const kTPMVCBankItemModelTransactionType = @"transactionType";
     if(self.nickname != nil){
         dictionary[kTPMVCBankItemModelNickname] = self.nickname;
     }
-    dictionary[kTPMVCBankItemModelPrice] = @(self.price);
+    dictionary[kTPMVCBankItemModelPrice] = self.price;
     dictionary[kTPMVCBankItemModelTotal] = @(self.total);
     dictionary[kTPMVCBankItemModelTransactionType] = @(self.transactionType);
     return dictionary;
@@ -95,7 +96,7 @@ NSString *const kTPMVCBankItemModelTransactionType = @"transactionType";
     [aCoder encodeObject:@(self.idField) forKey:kTPMVCBankItemModelIdField];    [aCoder encodeObject:@(self.limitValue) forKey:kTPMVCBankItemModelLimitValue];    if(self.nickname != nil){
         [aCoder encodeObject:self.nickname forKey:kTPMVCBankItemModelNickname];
     }
-    [aCoder encodeObject:@(self.price) forKey:kTPMVCBankItemModelPrice];    [aCoder encodeObject:@(self.total) forKey:kTPMVCBankItemModelTotal];    [aCoder encodeObject:@(self.transactionType) forKey:kTPMVCBankItemModelTransactionType];
+    [aCoder encodeObject:self.price forKey:kTPMVCBankItemModelPrice];    [aCoder encodeObject:@(self.total) forKey:kTPMVCBankItemModelTotal];    [aCoder encodeObject:@(self.transactionType) forKey:kTPMVCBankItemModelTransactionType];
 }
 
 /**
@@ -108,7 +109,7 @@ NSString *const kTPMVCBankItemModelTransactionType = @"transactionType";
     self.idField = [[aDecoder decodeObjectForKey:kTPMVCBankItemModelIdField] integerValue];
     self.limitValue = [[aDecoder decodeObjectForKey:kTPMVCBankItemModelLimitValue] doubleValue];
     self.nickname = [aDecoder decodeObjectForKey:kTPMVCBankItemModelNickname];
-    self.price = [[aDecoder decodeObjectForKey:kTPMVCBankItemModelPrice] doubleValue];
+    self.price = [aDecoder decodeObjectForKey:kTPMVCBankItemModelPrice] ;
     self.total = [[aDecoder decodeObjectForKey:kTPMVCBankItemModelTotal] doubleValue];
     self.transactionType = [[aDecoder decodeObjectForKey:kTPMVCBankItemModelTransactionType] integerValue];
     return self;

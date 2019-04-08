@@ -19,19 +19,23 @@
                         complete:(void(^)(BOOL isSucc,NSString *reasonInfo))complete {
     NSDictionary *postDict = [regInfoModel toDictionary];
     NSMutableDictionary *sendPostdic = [[NSMutableDictionary alloc] initWithDictionary:postDict];
-    sendPostdic[@"password"] = [QuickGet encryptPwd:postDict[@"password"] email:regInfoModel.email ];
-    sendPostdic[@"transactionPassword"] = [QuickGet encryptPwd:postDict[@"transactionPassword"] email:regInfoModel.email ];
+    NSString *salt = [QuickGet getUUID];
+    sendPostdic[@"password"] = [QuickGet encryptPwd:postDict[@"password"] salt:salt];
+    sendPostdic[@"transactionPassword"] = [QuickGet encryptPwd:postDict[@"transactionPassword"] salt:salt];
+    sendPostdic[@"salt"] = salt;
+    [TPLoginUtil userInfo];
     
     [[WYNetworkManager sharedManager] sendPostRequest:WYJSONRequestSerializer url:@"user/register"
                                            parameters:sendPostdic
                                               success:^(id responseObject, BOOL isCacheObject) {
                                                   
                                                   NSDictionary *res = (NSDictionary *)responseObject;
-                                            
+                                                  
                                                   if ([res[@"code"] intValue] == 200 ) {
-                                                      TPRegisterResponseModel *responseData = [[TPRegisterResponseModel alloc] initWithDictionary:res[@"data"]];
-                                                      [self setRegResponseToCache:responseData];
-                                                      [self setRegInfoModelToCache:self.regInfoModel];
+//                                                      TPRegisterResponseModel *responseData = [[TPRegisterResponseModel alloc] initWithDictionary:res[@"data"]];
+//                                                      [self setRegResponseToCache:responseData];
+//                                                      [self setRegInfoModelToCache:self.regInfoModel];
+                                                      TPLoginModel *loginM = [TPLoginModel mj_objectWithKeyValues:responseObject[@"data"]];
                                                      complete(YES,res[@"注册成功"]);
                                                   }else {
                                                     complete(NO,TPString(@"错误：%@",res[@"message"]));

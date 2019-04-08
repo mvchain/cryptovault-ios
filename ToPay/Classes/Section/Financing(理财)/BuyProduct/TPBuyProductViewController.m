@@ -74,7 +74,7 @@
 - (void)buyProduct:(NSString *)transPwd value:(CGFloat)num {
     ///financial/{id}
     
-    NSDictionary *postDidct = @{@"transactionPassword":[QuickGet encryptPwd:transPwd email:nil],@"value":@(num)};
+    NSDictionary *postDidct = @{@"transactionPassword":[QuickGet encryptPwd:transPwd salt:nil],@"value":@(num)};
     NSString *url = TPString(@"financial/%ld",(long)self.productModel.idField);
     [[WYNetworkManager sharedManager] sendPostRequest:WYJSONRequestSerializer
                                                  url:url

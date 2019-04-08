@@ -12,8 +12,9 @@
 - (void)changePassWdWithOldPassWd:(NSString *)old
                         newPassWd:(NSString *)newPassWd
                          complete:(void (^)(BOOL isSucc, NSString *ifno))complete {
-    NSDictionary *postDict = @{@"password":[QuickGet encryptPwd:old email:nil],
-                               @"newPassword":[QuickGet encryptPwd:newPassWd email:nil]};
+    NSString *salt =  [TPLoginUtil userInfo].salt;
+    NSDictionary *postDict = @{@"password":[QuickGet encryptPwd:old salt:salt],
+                               @"newPassword":[QuickGet encryptPwd:newPassWd salt:salt]};
     [[WYNetworkManager sharedManager] sendPutRequest:WYJSONRequestSerializer
                                                  url:@"user/transactionPassword"
                                           parameters:postDict

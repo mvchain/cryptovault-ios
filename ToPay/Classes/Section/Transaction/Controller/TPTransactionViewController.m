@@ -32,7 +32,6 @@
     [super viewDidLoad];
     [self.customNavBar wr_setBottomLineHidden:YES];
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(transRecord) image:[UIImage imageNamed:@"list_icon_black"] imageEdgeInsets:UIEdgeInsetsMake(0, 16, 0, -16)];
-    
     [self setNavTitleView];
     [self setNavConView];
     [self showSystemNavgation:YES];

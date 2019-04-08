@@ -11,6 +11,7 @@
 #import "TPMemonicCollectionViewCell.h"
 #import "TPMnemonicSettingViewController.h"
 #import "TPMnemonicSettingViewModel.h"
+#import "API_POST_User_Salt.h"
 #define CELL_COLLECT_ID @"CELL_COLLECT_ID"
 #define HEIGHT_CELL 30
 @interface TPMnemonicDisplayViewController ()<UICollectionViewDelegate,UICollectionViewDataSource ,UICollectionViewDelegateFlowLayout>
