@@ -45,9 +45,8 @@
     config.titleOffset = 0.1f;
     config.imageSize = CGSizeMake(23, 23);
 
-    return [self initWithTabBarControllers:@[navC,navC_1,navC1,navC3] NorImageArr:@[@"assets_unselected_icon",@"financial_unselected",@"trand_unselected_icon",@"mine_unselected_icon"] SelImageArr:@[@"assets_selected_icon",@"financial_selected",@"trand_selected_icon",@"mine_selected_icon"] TitleArr:@[@"资产",@"理财",@"交易",@"我的"] Config:config];
+    return [self initWithTabBarControllers:@[navC,navC_1,navC1,navC3] NorImageArr:@[@"wallet",@"Financial",@"trade",@"mine"] SelImageArr:@[@"wallet-1",@"financial-1",@"trade-1",@"mine-1"] TitleArr:@[@"资产",@"理财",@"交易",@"我的"] Config:config];
 }
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];

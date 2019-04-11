@@ -14,4 +14,6 @@
 
 - (void)registerHeaderFooter:(Class )cls;
 
+- (void)setRefreshBackGroundColor:(UIColor *)color ;
+
 @end

@@ -9,15 +9,17 @@
 #import "TPProductTableViewCell.h"
 #import "TPProductTableViewCellEntity.h"
 #import "FinancialProductModel.h"
+#import "ProgressView.h"
 @interface TPProductTableViewCell()
 @property (weak, nonatomic) IBOutlet UILabel *rightSmall0Label;
 @property (weak, nonatomic) IBOutlet UILabel *rightSmall1Label;
 @property (weak, nonatomic) IBOutlet UIView *bgView;
-
+@property (weak, nonatomic) IBOutlet UILabel *remainingLabel;
 @property (weak, nonatomic) IBOutlet UIView *rightSmall0BgView;
 @property (weak, nonatomic) IBOutlet UIView *rightSmall1BgView;
 @property (weak, nonatomic) IBOutlet UILabel *productTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *orderTimeLabel;
+@property (weak, nonatomic) IBOutlet ProgressView *progressView;
 @property (weak, nonatomic) IBOutlet UILabel *persentLabel;
 @end
 
@@ -42,7 +44,9 @@
     [_orderTimeLabel setText:TPString(@"下线时间：%@",[QuickMaker timeWithTimeIntervalString:model.stopAt])];
     [_rightSmall1Label setText:[NSString stringWithFormat:@"签到%ld天",(long)model.times]];
     [_rightSmall0Label setText:[NSString stringWithFormat:@"%.f %@起投",model.minValue,model.baseTokenName]];
-    
+    CGFloat remaining = model.limitValue - model.sold;
+    [self.remainingLabel setText:TPString(@"产品剩余额度：%.4f %@",remaining,model.baseTokenName)];
+    [self.progressView setPersent:remaining / model.limitValue];
     
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

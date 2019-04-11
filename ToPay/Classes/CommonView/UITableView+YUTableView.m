@@ -57,9 +57,15 @@
 - (void)addHeaderWithBlock:(void(^)(MJRefreshHeader *footer))block{
     
     __weak typeof (self) wsf = self;
-    self.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    MJRefreshNormalHeader *normalHeader = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         block(wsf.mj_header);
     }];
+    normalHeader.lastUpdatedTimeLabel.hidden = YES;
+    normalHeader.stateLabel.hidden = YES;
+    normalHeader.arrowView.hidden = YES;
+    
+    self.mj_header = normalHeader;
+
 
 }
 @end

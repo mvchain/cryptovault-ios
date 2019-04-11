@@ -52,7 +52,7 @@
 /* set newst token  */
 - (void)updateHttpHeadTokenForEachAPI
 {
-    NSString *authToken = [TPLoginUtil userInfo].token;
+    NSString *authToken = self.token ?self.token:[TPLoginUtil userInfo].token;
     if (!authToken) return; // no token exit
     YUNetworkManager *manager = [YUNetworkManager defaultManager];
     // token ,for every connect

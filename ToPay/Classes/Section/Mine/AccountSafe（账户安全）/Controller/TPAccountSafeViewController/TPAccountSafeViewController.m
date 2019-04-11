@@ -13,10 +13,13 @@
 #import "TPVerifyViewController.h"
 #import "TPChangePassWordViewModel_LoginPassWd.h"
 #import "TPChangePassWordViewModel_PayPassWd.h"
+#import "TPGoogleSecurityValidViewController.h"
+#import "TPEnableGoogleValidViewController.h"
 @interface TPAccountSafeViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) TPAccountSafeViewModel *viewModel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *atly_tableview_top;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewHeight;
 
 @end
 
@@ -36,6 +39,8 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.view.backgroundColor = [UIColor colorWithHex:@"#F2F2F2"];
     self.tableView.scrollEnabled = NO;
+    self.tableViewHeight.constant = 4 * 56.0;
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -48,7 +53,7 @@
     return 56.0;
 }
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    [QuickDo prettyTableViewCellSeparate:@[@2] cell:cell indexPath:indexPath];
+    [QuickDo prettyTableViewCellSeparate:@[@3] cell:cell indexPath:indexPath];
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
@@ -65,6 +70,18 @@
         TPChangePassWordViewController *change = [[TPChangePassWordViewController alloc] init];
         change.viewModel = [[TPChangePassWordViewModel_PayPassWd alloc] init];
         [self.navigationController pushViewController:change animated:YES];
+    }
+    if (indexPath.row == 3) {
+        if (TPLoginUtil.userInfo.googleCheck == 1) {
+            TPEnableGoogleValidViewController *enable = [[TPEnableGoogleValidViewController alloc]init];
+            enable.status = 0 ;
+            enable.googleSecret = @"";
+            [self.navigationController pushViewController:enable animated:YES];
+            
+        }else {
+            TPGoogleSecurityValidViewController *googleSecurity = [[TPGoogleSecurityValidViewController alloc] init];
+            [self.navigationController pushViewController:googleSecurity animated:YES];
+        }
     }
 }
 

@@ -85,6 +85,8 @@
     UIApplication *app = [UIApplication sharedApplication];
     AppDelegate *dele = (AppDelegate*)app.delegate;
     dele.window.rootViewController = vc;
+   
+    
 }
 
 + (void)switchToGuiderPage {
@@ -97,7 +99,8 @@
 }
 
 + (void)swithchToMainTab {
-    YUTabBarController *tab =[[YUTabBarController alloc]init];
+
+    YUTabBarController *tab =[[YUTabBarController alloc]config];
     [self changeWindowKeyWindow:tab];
 }
 

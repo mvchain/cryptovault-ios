@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -92,7 +92,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.21568627450980393" green="0.41176470588235292" blue="0.88627450980392153" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.3881533145904541" green="0.29558327794075012" blue="0.96476072072982788" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="z79-kr-aeF" firstAttribute="centerY" secondItem="H6x-96-44o" secondAttribute="centerY" id="1qV-1Y-CWf"/>
                             <constraint firstItem="CMP-Vn-Qhl" firstAttribute="leading" secondItem="yrr-jm-tD0" secondAttribute="leading" constant="16" id="5kl-QK-uF0"/>
@@ -123,6 +123,7 @@
                     <constraint firstAttribute="trailing" secondItem="yrr-jm-tD0" secondAttribute="trailing" constant="16" id="zK8-Xs-PvO"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" red="0.38815331460000002" green="0.2955832779" blue="0.96476072069999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <connections>
                 <outlet property="bgView" destination="yrr-jm-tD0" id="IGZ-MO-cdB"/>
                 <outlet property="bottom_left_labe" destination="qJC-Df-zZt" id="lyJ-tR-mcb"/>
@@ -132,7 +133,7 @@
                 <outlet property="productNameLabel" destination="QIh-iN-FBn" id="ZMC-nD-t6x"/>
                 <outlet property="revuneLabel" destination="yiR-YS-Z4n" id="Tjl-Yv-pyv"/>
             </connections>
-            <point key="canvasLocation" x="570.39999999999998" y="278.86056971514245"/>
+            <point key="canvasLocation" x="95" y="145"/>
         </tableViewCell>
     </objects>
 </document>

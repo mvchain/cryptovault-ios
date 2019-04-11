@@ -17,6 +17,7 @@
 #import "TPRgeisterViewModel.h"
 #import "API_POST_User_Salt.h"
 #import <GT3Captcha/GT3Captcha.h>
+#import "TPLoginGoogleValidViewController.h"
 //网站主部署的用于验证登录的接口 (api_1)
 #define api_1 @"http://192.168.15.21:10086/user/valid"
 //网站主部署的二次验证的接口 (api_2)
@@ -108,12 +109,13 @@
     getSalt.onEndConnection = ^{
         
     };
+    [getSalt sendRequestWithEmail:self.textArr[0].text];
     
 }
 - (void)loginActionWithSalt:(NSString *)salt {
     __weak typeof (self) wsf = self;
     //imageToken
-    NSDictionary *postDic = @{@"username":self. textArr[0].text,
+    NSDictionary *postDic = @{@"username":self.textArr[0].text,
                               @"password":[QuickGet encryptPwd:self.textArr[1].text salt:salt] ,
                               @"validCode":self.textArr[2].text,
                               } ;
@@ -129,26 +131,25 @@
      {
          
          NSDictionary *respObj = (NSDictionary *)responseObject;
-         
+         [self dismissLoading];
          if ([responseObject[@"code"] isEqual:@200])
          {
              NSLog(@"responseObject:%@",responseObject[@"data"]);
              TPLoginModel *loginM = [TPLoginModel mj_objectWithKeyValues:responseObject[@"data"]];
-             // set Request token
-             [QuickDo setJPushAlians:@(loginM.userId).stringValue];
+            
              [[WYNetworkConfig sharedConfig] addCustomHeader:@{@"Authorization":loginM.token,@"Accept-Language":@"zh-cn"}];
              // Store user information
-             [TPLoginUtil saveUserInfo:loginM];
-             // Basic user information
-             [TPLoginUtil setRequestInfo];
-             // Get currency list
-             [TPLoginUtil setRequestToken];
-             [TPLoginUtil requestExchangeRate];
-             [self showSuccessText:@"登录成功"];
-             [SVProgressHUD showSuccessWithStatus:@"登录成功"];
-             UIApplication *app = [UIApplication sharedApplication];
-             AppDelegate *dele = (AppDelegate*)app.delegate;
-             dele.window.rootViewController = [[YUTabBarController alloc] config];
+             
+             if (loginM.googleCheck == 1) {
+                 // 已经开启Google验证
+                 TPLoginGoogleValidViewController *googleVc = [[TPLoginGoogleValidViewController alloc]init];
+                 googleVc.loginModel = loginM;
+                 [self.navigationController pushViewController:googleVc animated:YES];
+             }else {
+                 [self showSuccessText:@"登录成功"];
+                 [TPLoginUtil loginInitSetting:loginM];
+                 [QuickDo swithchToMainTab];
+             }
          } else if([responseObject[@"code"] isEqual:@402]) {
              [self api_1_request:^{
                  [self startCaptcha];
@@ -159,7 +160,7 @@
              [self showErrorText:responseObject[@"message"]];
              [self dismissLoading];
          }
-         [self dismissLoading];
+         
      }
                                               failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
      {

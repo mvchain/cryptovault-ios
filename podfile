@@ -25,6 +25,9 @@ pod 'BlocksKit'
 pod 'TZImagePickerController' #iOS8 and later
 pod 'TZImagePickerController', '2.2.6' #iOS6、iOS7
 pod 'Aspects'
+pod 'UMCCommon'
+pod 'UMCSecurityPlugins'
+pod 'UMCAnalytics'
 # pod 'ChartsRealm'
 # pod 'TZImagePickerController' 
 

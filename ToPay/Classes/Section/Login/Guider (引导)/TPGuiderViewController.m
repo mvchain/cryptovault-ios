@@ -48,6 +48,9 @@
     [super viewWillAppear:animated];
     [self.loginButton allWhiteStyle];
     [self.registerButton whiteBorderStyle];
+    [self.loginButton yu_smallCircleStyle];
+    [self.registerButton yu_smallCircleStyle];
+    
     
 }
 #pragma mark local method

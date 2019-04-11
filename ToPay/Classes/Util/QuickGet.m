@@ -80,4 +80,11 @@
 + (NSString *)httpPathWithCurrentServerUrl:(NSString *)path {
     return TPString(@"%@%@",[self getCurrentServerUrl],path);
 }
++ (NSString *)getUUID {
+    CFUUIDRef puuid = CFUUIDCreate( nil );
+    CFStringRef uuidString = CFUUIDCreateString(nil, puuid);
+    NSString *result = (NSString *)CFBridgingRelease(CFStringCreateCopy( NULL, uuidString));
+    return [result stringByReplacingOccurrencesOfString:@"-" withString:@""];
+}
+
 @end

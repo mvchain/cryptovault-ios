@@ -31,10 +31,7 @@
 }
 - (void)getTotalBlanceHttpData {
     // 获取余额度
-    
-
     __weak typeof (self) wsf = self;
-    
     [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer
                                                  url:@"financial/balance"
                                           parameters:nil
@@ -44,13 +41,13 @@
                                                      [wsf setUpData];
                                                      BlanaceResponse *resp = [[BlanaceResponse alloc] initWithDictionary:res[@"data"]];
                                                      self.dataArray[0].data = resp;
+                                                     [wsf.tableView reloadData];
                                                      [wsf getFinancialProductListHttp:0]; // 开始读取列表
                                                  }else {
                                                      [self showErrorText:TPString(@"错误:%@",res[@"message"])];
                                                  }
                                                  [self.tableView.mj_header endRefreshing];
                                              }
-     
                                              failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
                                                 [self.tableView.mj_header endRefreshing];
                                              } ];
@@ -105,23 +102,29 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self setUpRefresh];
     [self.tableView.mj_header beginRefreshing];
-    
+   
    
 }
 
 - (void)setUpNav {
-    self.customNavBar.title = @"理财";
+    self.customNavBar.title = @"BTC 理财";
+     self.customNavBar.backgroundView.backgroundColor = [UIColor colorWithHex:@"#674aff"];
+    self.customNavBar.titleLable.textColor = [UIColor whiteColor];
+    [self.customNavBar wr_setBottomLineHidden:YES];
+    
+    
     [self.customNavBar.rightButton.titleLabel setFont:[UIFont systemFontOfSize:12]];
-    [self.customNavBar wr_setRightButtonWithTitle:@"我的持仓" titleColor:[UIColor colorWithHex:@"#595971"]];
+    [self.customNavBar wr_setRightButtonWithTitle:@"我的持仓" titleColor:[UIColor whiteColor]];
     [self.customNavBar.rightButton y_setWidth:self.customNavBar.rightButton.y_Width +10];
     [self.customNavBar.rightButton y_setLeft:self.customNavBar.rightButton.y_LeftX -15];
     __weak typeof (self) wsf =self;
-    
     [self.customNavBar setOnClickRightButton:^{
         TPMyStoreViewController *my = [[TPMyStoreViewController alloc]init];
         [wsf.navigationController pushViewController:my animated:YES];
         
     }];
+    
+    [self.tableView setRefreshBackGroundColor:[UIColor colorWithHex:@"#674aff"]];
     
 }
 

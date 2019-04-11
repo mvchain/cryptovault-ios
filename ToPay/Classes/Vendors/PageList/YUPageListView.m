@@ -7,13 +7,13 @@
 //
 
 #import "YUPageListView.h"
-#import "MJRefresh.h"
+
 #import "YUNoDataCellEntity.h"
 
 #define DEFAULT_PAGE_SIZE 10
 
 @interface YUPageListView() <UITableViewDelegate,
-    UITableViewDataSource,YUCellDelegate>
+UITableViewDataSource,YUCellDelegate>
 
 
 @property (strong,nonatomic) NSMutableArray<YUCellEntity *> * backUpDataArrays;
@@ -60,7 +60,7 @@ yudef_lazyLoad(UITableView, tableView, _tableView);
 
 - (void)priavte_initData {
     self.dataArrays = [[NSMutableArray<YUCellEntity *> alloc] init];
-   
+    
 }
 
 - (void)addHeaderRefresh {
@@ -81,11 +81,10 @@ yudef_lazyLoad(UITableView, tableView, _tableView);
 {
     yudef_weakSelf;
     [self.tableView.mj_footer endRefreshing];
-    [self.tableView.mj_header endRefreshing];
     self.firstPageBlock(^(NSArray<YUCellEntity *> * _Nonnull data) {
         [weakSelf priavte_initData];
         if (data==nil || data.count ==0) {
-            YUCellEntity *noDataEntity = [YUNoDataCellEntity quickInit:@"暂无数据"];
+            YUCellEntity *noDataEntity = [YUNoDataCellEntity quickInit:Localized(@"No data")];
             if (self.noDataEntity){
                 noDataEntity = self.noDataEntity();
             }
@@ -106,17 +105,18 @@ yudef_lazyLoad(UITableView, tableView, _tableView);
 - (void)nextPage
 {
     yudef_weakSelf;
+    [self.tableView.mj_header endRefreshing];
     self.nextPageBlock(^(NSArray<YUCellEntity *> * _Nonnull data)
-    {
-        [weakSelf.dataArrays addObjectsFromArray:data];
-        [weakSelf reloadData];
-        if (data == nil || data.count < weakSelf.pageSize) {
-            [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
-        }else {
-            [weakSelf.tableView.mj_footer endRefreshing];
-        }
-        
-    }, self);
+                       {
+                           [weakSelf.dataArrays addObjectsFromArray:data];
+                           [weakSelf reloadData];
+                           if (data == nil || data.count < weakSelf.pageSize) {
+                               [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
+                           }else {
+                               [weakSelf.tableView.mj_footer endRefreshing];
+                           }
+                           
+                       }, self);
 }
 #pragma mark public method
 - (void)reloadData {
@@ -168,7 +168,7 @@ yudef_lazyLoad(UITableView, tableView, _tableView);
 }
 - (void)searchUsingKeyWord:(NSString *)keyword
                 matchBlock:(BOOL(^)(id obj))matchBlock {
- 
+    
     if (self.backUpDataArrays == nil) return;
     self.dataArrays = [[NSMutableArray<YUCellEntity *> alloc] init];
     [self.dataArrays addObjectsFromArray:self.backUpDataArrays];
@@ -181,7 +181,7 @@ yudef_lazyLoad(UITableView, tableView, _tableView);
 - (void)exitSearchingStatus {
     if (self.backUpDataArrays == nil) return;
     self.dataArrays = self.backUpDataArrays;
-    self.backUpDataArrays = nil; 
+    self.backUpDataArrays = nil;
     [self reloadData];
 }
 - (void)setBackgroundColor:(UIColor *)backgroundColor {

@@ -41,7 +41,7 @@ yudef_lazyLoad(NSMutableArray<YUCellEntity*>, datarr, _datarr)
     
     [self showSystemNavgation:NO];
     _dataSource = @[@"账户安全",@"语言",@"关于",];
-    _dataSourceImg = @[@"mine_safe_icon",@"language_icon",@"about_icon"];
+    _dataSourceImg = @[@"mine_safe_icon",@"mine_language_icon",@"mine_about_coin"];
     for(int i=0;i<_dataSource.count;i++){
         YUTMineCellTableViewCellEntity*en =  [[YUTMineCellTableViewCellEntity alloc ] init];
         en.title = _dataSource[i];

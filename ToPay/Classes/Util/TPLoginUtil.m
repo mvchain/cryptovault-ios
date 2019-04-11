@@ -18,20 +18,28 @@
 
 @implementation TPLoginUtil
 
-+(void)saveUserInfo:(TPLoginUtil *)userInfo
++(void)saveUserInfo:(TPLoginModel *)userInfo
 {
-    [NSKeyedArchiver archiveRootObject:userInfo toFile:TPFilePathWithName(loginFileName)];
+ 
+    YYCache *cache = [YYCache cacheWithName:@"userInfo"];
+    [cache setObject:userInfo forKey:@"user_info"];
+    
 }
 
 + (TPLoginModel *)userInfo
 {
-    return [NSKeyedUnarchiver unarchiveObjectWithFile:TPFilePathWithName(loginFileName)];
+    YYCache *cache = [YYCache cacheWithName:@"userInfo"];
+    return (TPLoginModel *)[cache objectForKey:@"user_info"];
+    
+  
 }
 
 +(BOOL)quitWithRemoveUserInfo
 {
-    NSFileManager *manager = [NSFileManager defaultManager];
-    return [manager removeItemAtPath:TPFilePathWithName(loginFileName) error:nil];
+    YYCache *cache = [YYCache cacheWithName:@"userInfo"];
+    [cache removeAllObjects];
+    return YES;
+    
 }
 
 +(BOOL)isLogin
@@ -45,14 +53,11 @@
     [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"token" success:^(id responseObject, BOOL isCacheObject)
     {
         TPCurrencyList *currencyList = [TPCurrencyList mj_objectWithKeyValues:responseObject];
-        
         YYCache *listCache = [YYCache cacheWithName:TPCacheName];
-       
         [listCache setObject:currencyList forKey:TPCurrencyListKey];
         for (int i = 0 ; i <currencyList.data.count ; i++)
         {
             CLData *clData = currencyList.data[i];
-            
             [listCache setObject:clData forKey:currencyList.data[i].tokenId];
         }
     }

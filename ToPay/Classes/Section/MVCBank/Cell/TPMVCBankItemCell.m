@@ -28,7 +28,8 @@
     [super setEntity:entity];
     TPMVCBankItemCellEntity *myEntity = (TPMVCBankItemCellEntity *)entity ;
     TPMVCBankItemModel *model = (TPMVCBankItemModel *)entity.data;
-    [self.mimageView sd_setImageWithURL:[NSURL URLWithString:model.headImage]];
+    
+    [self.mimageView sd_setImageWithURL:[NSURL URLWithString:model.headImage] placeholderImage:[UIImage imageNamed:@"portrait_icon"]];
     [self.leftLabel setText:model.nickname];
     [self.rightLabel setText:TPString(@"%.6f %@",[model.price doubleValue],myEntity.tokenName)];
     [self.downLabel setText:TPString(@"剩余可购买：%.6f MVC",model.limitValue)];

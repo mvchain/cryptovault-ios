@@ -36,7 +36,8 @@
 //                                                      [self setRegResponseToCache:responseData];
 //                                                      [self setRegInfoModelToCache:self.regInfoModel];
                                                       TPLoginModel *loginM = [TPLoginModel mj_objectWithKeyValues:responseObject[@"data"]];
-                                                     complete(YES,res[@"注册成功"]);
+                                                      [TPLoginUtil loginInitSetting:loginM];
+                                                     complete(YES,nil);
                                                   }else {
                                                     complete(NO,TPString(@"错误：%@",res[@"message"]));
                                                   }

@@ -33,8 +33,6 @@
     self.pageListView.firstPageBlock = ^(block_page_complete  _Nonnull complete) {
         API_GET_Block_Address_Order_Id *GET_Block_Address_Order_Id = [[API_GET_Block_Address_Order_Id alloc] init];
         GET_Block_Address_Order_Id.onSuccess = ^(id responseData) {
-            
-            
             TransactionRecordDetailInfo *info  = [[TransactionRecordDetailInfo alloc] initWithDictionary:(NSDictionary *)responseData];
             if (info.classify == 0) {
                 // 转账
@@ -73,8 +71,6 @@
             
         };
         [GET_Block_Address_Order_Id sendReuqestWithId:@(weakSelf.transactionId).stringValue];
-        
-        
     };
 }
 - (void)setNav {

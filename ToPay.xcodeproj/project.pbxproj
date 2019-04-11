@@ -281,6 +281,20 @@
 		DD7B75E8225B675800C9B729 /* TPGoogleSecurityValidViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7B75E6225B675800C9B729 /* TPGoogleSecurityValidViewController.m */; };
 		DD7B75E9225B675800C9B729 /* TPGoogleSecurityValidViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD7B75E7225B675800C9B729 /* TPGoogleSecurityValidViewController.xib */; };
 		DD7B75ED225B72CB00C9B729 /* API_POST_User_Salt.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7B75EC225B72CB00C9B729 /* API_POST_User_Salt.m */; };
+		DD7B75F2225C431C00C9B729 /* TPGoogleValidWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7B75F0225C431C00C9B729 /* TPGoogleValidWelcomeViewController.m */; };
+		DD7B75F3225C431C00C9B729 /* TPGoogleValidWelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD7B75F1225C431C00C9B729 /* TPGoogleValidWelcomeViewController.xib */; };
+		DD7B75FF225C606300C9B729 /* API_POST_User_Google.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7B75F9225C606200C9B729 /* API_POST_User_Google.m */; };
+		DD7B7601225C606300C9B729 /* API_GET_User_Google.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7B75FE225C606300C9B729 /* API_GET_User_Google.m */; };
+		DD7B7606225C671A00C9B729 /* TPEnableGoogleValidViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7B7604225C671A00C9B729 /* TPEnableGoogleValidViewController.m */; };
+		DD7B7607225C671A00C9B729 /* TPEnableGoogleValidViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD7B7605225C671A00C9B729 /* TPEnableGoogleValidViewController.xib */; };
+		DD7B760B225C8DE200C9B729 /* TPLoginGoogleValidViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7B7609225C8DE200C9B729 /* TPLoginGoogleValidViewController.m */; };
+		DD7B760C225C8DE200C9B729 /* TPLoginGoogleValidViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD7B760A225C8DE200C9B729 /* TPLoginGoogleValidViewController.xib */; };
+		DD7B7611225CCB8700C9B729 /* ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7B7610225CCB8700C9B729 /* ProgressView.m */; };
+		DD7B7615225DC8A000C9B729 /* TPFinancingProductDetailTotalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7B7613225DC8A000C9B729 /* TPFinancingProductDetailTotalCell.m */; };
+		DD7B7616225DC8A000C9B729 /* TPFinancingProductDetailTotalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD7B7614225DC8A000C9B729 /* TPFinancingProductDetailTotalCell.xib */; };
+		DD7B7619225DC8BA00C9B729 /* TPFinancingProductDetailTotalCellEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7B7618225DC8BA00C9B729 /* TPFinancingProductDetailTotalCellEntity.m */; };
+		DD7B761C225DDE7400C9B729 /* API_GET_Financial_Id.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7B761A225DDE7400C9B729 /* API_GET_Financial_Id.m */; };
+		DD7B7622225DFB2500C9B729 /* API_PUT_User_Google.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7B7621225DFB2400C9B729 /* API_PUT_User_Google.m */; };
 		DDAA117721E72BD800F5D184 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAA117621E72BD800F5D184 /* MBProgressHUD+Add.m */; };
 		DDBB4617221A60630035CE07 /* TPReleaseProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDBB4615221A60630035CE07 /* TPReleaseProjectViewController.m */; };
 		DDBB4618221A60630035CE07 /* TPReleaseProjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDBB4616221A60630035CE07 /* TPReleaseProjectViewController.xib */; };
@@ -975,6 +989,30 @@
 		DD7B75E7225B675800C9B729 /* TPGoogleSecurityValidViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPGoogleSecurityValidViewController.xib; sourceTree = "<group>"; };
 		DD7B75EB225B72CB00C9B729 /* API_POST_User_Salt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API_POST_User_Salt.h; sourceTree = "<group>"; };
 		DD7B75EC225B72CB00C9B729 /* API_POST_User_Salt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API_POST_User_Salt.m; sourceTree = "<group>"; };
+		DD7B75EF225C431C00C9B729 /* TPGoogleValidWelcomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPGoogleValidWelcomeViewController.h; sourceTree = "<group>"; };
+		DD7B75F0225C431C00C9B729 /* TPGoogleValidWelcomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPGoogleValidWelcomeViewController.m; sourceTree = "<group>"; };
+		DD7B75F1225C431C00C9B729 /* TPGoogleValidWelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPGoogleValidWelcomeViewController.xib; sourceTree = "<group>"; };
+		DD7B75F9225C606200C9B729 /* API_POST_User_Google.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = API_POST_User_Google.m; path = ../API_POST_User_Google.m; sourceTree = "<group>"; };
+		DD7B75FB225C606200C9B729 /* API_GET_User_Google.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = API_GET_User_Google.h; path = ../API_GET_User_Google.h; sourceTree = "<group>"; };
+		DD7B75FD225C606300C9B729 /* API_POST_User_Google.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = API_POST_User_Google.h; path = ../API_POST_User_Google.h; sourceTree = "<group>"; };
+		DD7B75FE225C606300C9B729 /* API_GET_User_Google.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = API_GET_User_Google.m; path = ../API_GET_User_Google.m; sourceTree = "<group>"; };
+		DD7B7603225C671A00C9B729 /* TPEnableGoogleValidViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPEnableGoogleValidViewController.h; sourceTree = "<group>"; };
+		DD7B7604225C671A00C9B729 /* TPEnableGoogleValidViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPEnableGoogleValidViewController.m; sourceTree = "<group>"; };
+		DD7B7605225C671A00C9B729 /* TPEnableGoogleValidViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPEnableGoogleValidViewController.xib; sourceTree = "<group>"; };
+		DD7B7608225C8DE200C9B729 /* TPLoginGoogleValidViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPLoginGoogleValidViewController.h; sourceTree = "<group>"; };
+		DD7B7609225C8DE200C9B729 /* TPLoginGoogleValidViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPLoginGoogleValidViewController.m; sourceTree = "<group>"; };
+		DD7B760A225C8DE200C9B729 /* TPLoginGoogleValidViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPLoginGoogleValidViewController.xib; sourceTree = "<group>"; };
+		DD7B760F225CCB8700C9B729 /* ProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgressView.h; sourceTree = "<group>"; };
+		DD7B7610225CCB8700C9B729 /* ProgressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProgressView.m; sourceTree = "<group>"; };
+		DD7B7612225DC8A000C9B729 /* TPFinancingProductDetailTotalCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPFinancingProductDetailTotalCell.h; sourceTree = "<group>"; };
+		DD7B7613225DC8A000C9B729 /* TPFinancingProductDetailTotalCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPFinancingProductDetailTotalCell.m; sourceTree = "<group>"; };
+		DD7B7614225DC8A000C9B729 /* TPFinancingProductDetailTotalCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPFinancingProductDetailTotalCell.xib; sourceTree = "<group>"; };
+		DD7B7617225DC8BA00C9B729 /* TPFinancingProductDetailTotalCellEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPFinancingProductDetailTotalCellEntity.h; sourceTree = "<group>"; };
+		DD7B7618225DC8BA00C9B729 /* TPFinancingProductDetailTotalCellEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPFinancingProductDetailTotalCellEntity.m; sourceTree = "<group>"; };
+		DD7B761A225DDE7400C9B729 /* API_GET_Financial_Id.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API_GET_Financial_Id.m; sourceTree = "<group>"; };
+		DD7B761B225DDE7400C9B729 /* API_GET_Financial_Id.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API_GET_Financial_Id.h; sourceTree = "<group>"; };
+		DD7B7620225DFB2400C9B729 /* API_PUT_User_Google.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API_PUT_User_Google.h; sourceTree = "<group>"; };
+		DD7B7621225DFB2400C9B729 /* API_PUT_User_Google.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API_PUT_User_Google.m; sourceTree = "<group>"; };
 		DDAA117521E72BD800F5D184 /* MBProgressHUD+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Add.h"; sourceTree = "<group>"; };
 		DDAA117621E72BD800F5D184 /* MBProgressHUD+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Add.m"; sourceTree = "<group>"; };
 		DDBB4614221A60630035CE07 /* TPReleaseProjectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPReleaseProjectViewController.h; sourceTree = "<group>"; };
@@ -1863,6 +1901,11 @@
 				DD0A93D521F6FEE200D9E82E /* TPProductIntroduceCell.xib */,
 				DD0A93D821F703B400D9E82E /* TPProductIntroduceCellEntity.h */,
 				DD0A93D921F703B400D9E82E /* TPProductIntroduceCellEntity.m */,
+				DD7B7612225DC8A000C9B729 /* TPFinancingProductDetailTotalCell.h */,
+				DD7B7613225DC8A000C9B729 /* TPFinancingProductDetailTotalCell.m */,
+				DD7B7614225DC8A000C9B729 /* TPFinancingProductDetailTotalCell.xib */,
+				DD7B7617225DC8BA00C9B729 /* TPFinancingProductDetailTotalCellEntity.h */,
+				DD7B7618225DC8BA00C9B729 /* TPFinancingProductDetailTotalCellEntity.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -2053,6 +2096,7 @@
 		DD0B451621F3094800333016 /* Financing(理财) */ = {
 			isa = PBXGroup;
 			children = (
+				DD7B760E225CCB7100C9B729 /* PublicView */,
 				DD0A93FD21F83BA600D9E82E /* StoreDetail(持仓详情) */,
 				DD0A93E521F7424100D9E82E /* StoreRecord(持仓) */,
 				DD0A93DF21F71A1900D9E82E /* BuyProduct */,
@@ -2672,9 +2716,10 @@
 		DD7B75E4225B66F400C9B729 /* GoogleValid */ = {
 			isa = PBXGroup;
 			children = (
-				DD7B75E5225B675800C9B729 /* TPGoogleSecurityValidViewController.h */,
-				DD7B75E6225B675800C9B729 /* TPGoogleSecurityValidViewController.m */,
-				DD7B75E7225B675800C9B729 /* TPGoogleSecurityValidViewController.xib */,
+				DD7B760D225C8DE900C9B729 /* TPLoginGoogleValidViewController */,
+				DD7B75EE225C42A800C9B729 /* TPGoogleValidWelcomeViewController(引导) */,
+				DD7B75F4225C5F5B00C9B729 /* TPGoogleSecurityValidViewController */,
+				DD7B7602225C66EA00C9B729 /* TPEnableGoogleValidViewController(开启验证) */,
 			);
 			path = GoogleValid;
 			sourceTree = "<group>";
@@ -2686,6 +2731,68 @@
 				DD7B75EC225B72CB00C9B729 /* API_POST_User_Salt.m */,
 			);
 			path = Salt;
+			sourceTree = "<group>";
+		};
+		DD7B75EE225C42A800C9B729 /* TPGoogleValidWelcomeViewController(引导) */ = {
+			isa = PBXGroup;
+			children = (
+				DD7B75EF225C431C00C9B729 /* TPGoogleValidWelcomeViewController.h */,
+				DD7B75F0225C431C00C9B729 /* TPGoogleValidWelcomeViewController.m */,
+				DD7B75F1225C431C00C9B729 /* TPGoogleValidWelcomeViewController.xib */,
+			);
+			path = "TPGoogleValidWelcomeViewController(引导)";
+			sourceTree = "<group>";
+		};
+		DD7B75F4225C5F5B00C9B729 /* TPGoogleSecurityValidViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DD7B75E5225B675800C9B729 /* TPGoogleSecurityValidViewController.h */,
+				DD7B75E6225B675800C9B729 /* TPGoogleSecurityValidViewController.m */,
+				DD7B75E7225B675800C9B729 /* TPGoogleSecurityValidViewController.xib */,
+			);
+			path = TPGoogleSecurityValidViewController;
+			sourceTree = "<group>";
+		};
+		DD7B75F5225C603600C9B729 /* Google */ = {
+			isa = PBXGroup;
+			children = (
+				DD7B7620225DFB2400C9B729 /* API_PUT_User_Google.h */,
+				DD7B7621225DFB2400C9B729 /* API_PUT_User_Google.m */,
+				DD7B75FB225C606200C9B729 /* API_GET_User_Google.h */,
+				DD7B75FE225C606300C9B729 /* API_GET_User_Google.m */,
+				DD7B75FD225C606300C9B729 /* API_POST_User_Google.h */,
+				DD7B75F9225C606200C9B729 /* API_POST_User_Google.m */,
+			);
+			path = Google;
+			sourceTree = "<group>";
+		};
+		DD7B7602225C66EA00C9B729 /* TPEnableGoogleValidViewController(开启验证) */ = {
+			isa = PBXGroup;
+			children = (
+				DD7B7603225C671A00C9B729 /* TPEnableGoogleValidViewController.h */,
+				DD7B7604225C671A00C9B729 /* TPEnableGoogleValidViewController.m */,
+				DD7B7605225C671A00C9B729 /* TPEnableGoogleValidViewController.xib */,
+			);
+			path = "TPEnableGoogleValidViewController(开启验证)";
+			sourceTree = "<group>";
+		};
+		DD7B760D225C8DE900C9B729 /* TPLoginGoogleValidViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DD7B7608225C8DE200C9B729 /* TPLoginGoogleValidViewController.h */,
+				DD7B7609225C8DE200C9B729 /* TPLoginGoogleValidViewController.m */,
+				DD7B760A225C8DE200C9B729 /* TPLoginGoogleValidViewController.xib */,
+			);
+			path = TPLoginGoogleValidViewController;
+			sourceTree = "<group>";
+		};
+		DD7B760E225CCB7100C9B729 /* PublicView */ = {
+			isa = PBXGroup;
+			children = (
+				DD7B760F225CCB8700C9B729 /* ProgressView.h */,
+				DD7B7610225CCB8700C9B729 /* ProgressView.m */,
+			);
+			path = PublicView;
 			sourceTree = "<group>";
 		};
 		DDBB4613221A5FF80035CE07 /* ReleaseProject */ = {
@@ -3039,6 +3146,9 @@
 		DDEFE4142239255A003E3263 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				DD7B761B225DDE7400C9B729 /* API_GET_Financial_Id.h */,
+				DD7B761A225DDE7400C9B729 /* API_GET_Financial_Id.m */,
+				DD7B75F5225C603600C9B729 /* Google */,
 				DD7B75EA225B72BC00C9B729 /* Salt */,
 				DD45A1602255B66600D13839 /* BlockBrowser */,
 				DD45A15F2255B65B00D13839 /* Transaction */,
@@ -3273,8 +3383,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DD0244212196C96C006A1390 /* Build configuration list for PBXNativeTarget "ToPay" */;
 			buildPhases = (
-				DD0243F12196C968006A1390 /* Sources */,
 				C05E2E5552709001A9AF335A /* [CP] Check Pods Manifest.lock */,
+				DD0243F12196C968006A1390 /* Sources */,
 				DD0243F22196C968006A1390 /* Frameworks */,
 				DD0243F32196C968006A1390 /* Resources */,
 				6D583708732D01269518249B /* [CP] Embed Pods Frameworks */,
@@ -3389,6 +3499,7 @@
 				DD0B451B21F309A600333016 /* TPFinancingViewController.xib in Resources */,
 				DD10844221A001030087F244 /* BCScanQR2@2x.png in Resources */,
 				DD0A93D721F6FEE200D9E82E /* TPProductIntroduceCell.xib in Resources */,
+				DD7B75F3225C431C00C9B729 /* TPGoogleValidWelcomeViewController.xib in Resources */,
 				DD3E1CF8221D0356007E8907 /* GT3Captcha.bundle in Resources */,
 				DD45A1872255FEB300D13839 /* MVCBankSelectListCell.xib in Resources */,
 				DD0A93F521F809B200D9E82E /* TPMyStoreItemCell.xib in Resources */,
@@ -3401,6 +3512,7 @@
 				DDEFE3DB2237BF46003E3263 /* YUTagLabelCell.xib in Resources */,
 				DD4126B621F9B09C00079538 /* YUSpaceTableViewCell.xib in Resources */,
 				DD45A1702255D40C00D13839 /* TPMVCBankItemCell.xib in Resources */,
+				DD7B7607225C671A00C9B729 /* TPEnableGoogleValidViewController.xib in Resources */,
 				DDFE5DB121CC9FA0005D6D48 /* shareImage.png in Resources */,
 				DD0A941021F843AE00D9E82E /* TPStoreEveryDayIncomeCell.xib in Resources */,
 				DD0B450B21F2F78800333016 /* TPYULoginViewController.xib in Resources */,
@@ -3459,6 +3571,7 @@
 				DDDDC37B22379EDB008BB491 /* TPBrowserViewController.xib in Resources */,
 				DD0A93E421F71A8200D9E82E /* TPBuyProductViewController.xib in Resources */,
 				DD23C29321E99E74007727DA /* TPGuiderViewController.xib in Resources */,
+				DD7B7616225DC8A000C9B729 /* TPFinancingProductDetailTotalCell.xib in Resources */,
 				DD786981221AA4530027566E /* TPReleaseRecordItemCell.xib in Resources */,
 				DD13CF1121EECCCB0022EECC /* YUTextViewXibContainer.xib in Resources */,
 				DDEFE3F72237D5C5003E3263 /* YUItemImageCell.xib in Resources */,
@@ -3470,6 +3583,7 @@
 				DD13CF0021ECB4C80022EECC /* TPMnemonicSettingViewController.xib in Resources */,
 				DDEFE3D22237B8FD003E3263 /* YUSmallHeaderCell.xib in Resources */,
 				DD0244002196C969006A1390 /* Main.storyboard in Resources */,
+				DD7B760C225C8DE200C9B729 /* TPLoginGoogleValidViewController.xib in Resources */,
 				DDD211D721F09F090029905C /* TPChangePassWordViewController.xib in Resources */,
 				DD23C2AF21EC8E32007727DA /* TPMnemonicDisplayViewController.xib in Resources */,
 				DD4126BE21F9B7F400079538 /* YUMineLoginOutCell.xib in Resources */,
@@ -3620,6 +3734,7 @@
 				DD0D345321F6BCE200ECEDF2 /* TPFinancingTotalCellViewEntity.m in Sources */,
 				DD374DB521C5228100093A0F /* AATitle.m in Sources */,
 				DD02399221AF968E00333446 /* WYNetworkConfig.m in Sources */,
+				DD7B7619225DC8BA00C9B729 /* TPFinancingProductDetailTotalCellEntity.m in Sources */,
 				DDE176A121BE5C9500167EB1 /* SJCommonSlider.m in Sources */,
 				DDFFEEA721FED48300FE26C7 /* TPResetPasswordByPrivatekey_InputEmailVM.m in Sources */,
 				DD7046E421E5FE9500D02D7F /* QuickGet.m in Sources */,
@@ -3693,6 +3808,7 @@
 				DDEFE3ED2237C4B9003E3263 /* YUItemLeftMidRightCell.m in Sources */,
 				DD13CF2D21EF59CF0022EECC /* TPAccountSafeViewController.m in Sources */,
 				DD374D6621C4B18F00093A0F /* TPRefreshFooter.m in Sources */,
+				DD7B761C225DDE7400C9B729 /* API_GET_Financial_Id.m in Sources */,
 				DDEFE446223A3563003E3263 /* BlockBrowserCaptialItem.m in Sources */,
 				DDEFE41322390B5A003E3263 /* YUPublicKeySearchResultCellEntity.m in Sources */,
 				DD02399D21AF968E00333446 /* WYImageScaleTool.m in Sources */,
@@ -3702,6 +3818,7 @@
 				DDDDFBAF219D60BC0056FC57 /* UIViewExt.m in Sources */,
 				DD0A942621F8682600D9E82E /* TPEveryIncomeTitleDayCellEntity.m in Sources */,
 				DD786984221AA9010027566E /* TPReleaseRecordItemCellEntity.m in Sources */,
+				DD7B760B225C8DE200C9B729 /* TPLoginGoogleValidViewController.m in Sources */,
 				DDE176A521BE74D700167EB1 /* TPTransInfoModel.m in Sources */,
 				DDFED69B21DEFDE500F2F354 /* QuickDo.m in Sources */,
 				DD374DC421C559AD00093A0F /* TPDetailTitleView.m in Sources */,
@@ -3717,6 +3834,7 @@
 				DDEFE4C92240D919003E3263 /* YUErrorCellEntity.m in Sources */,
 				DD0A93CD21F6F98100D9E82E /* TPFinancingProductDetailVC.m in Sources */,
 				DD45A1732255D8D900D13839 /* TPMVCBankItemModel.m in Sources */,
+				DD7B7622225DFB2500C9B729 /* API_PUT_User_Google.m in Sources */,
 				DDBB462B221A7C810035CE07 /* ReleaseProjectItem.m in Sources */,
 				DD13CF0E21EDE9C10022EECC /* YURootViewController.m in Sources */,
 				DD4126B921F9B0CD00079538 /* YUSpaceTableViewCellEntity.m in Sources */,
@@ -3725,6 +3843,7 @@
 				DDAA117721E72BD800F5D184 /* MBProgressHUD+Add.m in Sources */,
 				DD0B44F021F1A7FE00333016 /* TPResetPassWordByEmailViewModel.m in Sources */,
 				DDDDC37A22379EDB008BB491 /* TPBrowserViewController.m in Sources */,
+				DD7B7615225DC8A000C9B729 /* TPFinancingProductDetailTotalCell.m in Sources */,
 				DDDDFB87219ACC310056FC57 /* TPCrowdfundCell.m in Sources */,
 				DDBB4631221A922F0035CE07 /* TPReleaseProjectDetailVC.m in Sources */,
 				DDFE5DD421CDF22E005D6D48 /* TPPublish.m in Sources */,
@@ -3779,6 +3898,7 @@
 				DD02399321AF968E00333446 /* WYNetworkRequestPool.m in Sources */,
 				DD374DC121C5228100093A0F /* AASeriesElement.m in Sources */,
 				DD0A942B21F8987A00D9E82E /* CheckSuccView.m in Sources */,
+				DD7B7611225CCB8700C9B729 /* ProgressView.m in Sources */,
 				DDEFE420223927E7003E3263 /* API_GET_Block_Address_Order.m in Sources */,
 				DD45A15E2255B65800D13839 /* API_GET_Transaction.m in Sources */,
 				DDEFE441223A3443003E3263 /* YUBrowserCaptialViewController.m in Sources */,
@@ -3796,6 +3916,7 @@
 				DD7B75ED225B72CB00C9B729 /* API_POST_User_Salt.m in Sources */,
 				DDEFE4C72240D919003E3263 /* YUNoDataCell.m in Sources */,
 				DD02391E21A5570B00333446 /* TPTranDetailViewController.m in Sources */,
+				DD7B7606225C671A00C9B729 /* TPEnableGoogleValidViewController.m in Sources */,
 				DD0B44FE21F1BA8000333016 /* TPRestPasswordByPrivateKeyViewModel.m in Sources */,
 				DD10845C21A401560087F244 /* TPComTextView.m in Sources */,
 				DDBB4638221A9A810035CE07 /* TPReleaseDetailMainInfoCell.m in Sources */,
@@ -3808,6 +3929,7 @@
 				DD0A941B21F85DE900D9E82E /* TPStoreEveryDayIncomeCellEntity.m in Sources */,
 				DD02393E21ACEBDA00333446 /* TPLoginViewController.m in Sources */,
 				DDEFE4082238DDA4003E3263 /* YUBlockListViewController.m in Sources */,
+				DD7B75FF225C606300C9B729 /* API_POST_User_Google.m in Sources */,
 				DD1083DF219D7AD10087F244 /* TPNotiViewController.m in Sources */,
 				DD0D344021F5AB1E00ECEDF2 /* TPRecommendedUserModel.m in Sources */,
 				DD02392421A6B83D00333446 /* TPUSDTCell.m in Sources */,
@@ -3821,6 +3943,7 @@
 				DD13CF2821EF33D90022EECC /* UIImage+Gradient.m in Sources */,
 				DD02391521A50A0A00333446 /* TPAddTokenViewController.m in Sources */,
 				DD23C2B521EC8F9A007727DA /* TPRegisterResponseModel.m in Sources */,
+				DD7B7601225C606300C9B729 /* API_GET_User_Google.m in Sources */,
 				DD1083D6219D67800087F244 /* TPTokenHeaderView.m in Sources */,
 				DD10844821A001030087F244 /* NIMScannerViewController.m in Sources */,
 				DDDDC3A42237B037008BB491 /* YUBrowserHeadCellEntity.m in Sources */,
@@ -3887,6 +4010,7 @@
 				DD2FD6B621C7A17000A28F78 /* YUBadgeValue.m in Sources */,
 				DD0B451421F3085400333016 /* TPInvitedRegisterViewController.m in Sources */,
 				DD02394121ACF53E00333446 /* TPTransDetailCell.m in Sources */,
+				DD7B75F2225C431C00C9B729 /* TPGoogleValidWelcomeViewController.m in Sources */,
 				DDEFE460223A60F4003E3263 /* TransactionRecordDetailInfo.m in Sources */,
 				DD0A940F21F843AE00D9E82E /* TPStoreEveryDayIncomeCell.m in Sources */,
 				DD13CF0321ED893C0022EECC /* TPMnemonicSettingViewModel.m in Sources */,

@@ -1,7 +1,7 @@
 //
 //    FinProductDetailModel.m
 //
-//    Create by 蒲公英 on 22/1/2019
+//    Create by 蒲公英 on 10/4/2019
 //    Copyright © 2019. All rights reserved.
 //    Model file generated using JSONExport: https://github.com/Ahmed-Ali/JSONExport
 
@@ -22,6 +22,7 @@ NSString *const kFinProductDetailModelName = @"name";
 NSString *const kFinProductDetailModelPurchased = @"purchased";
 NSString *const kFinProductDetailModelRatio = @"ratio";
 NSString *const kFinProductDetailModelRule = @"rule";
+NSString *const kFinProductDetailModelSold = @"sold";
 NSString *const kFinProductDetailModelStartAt = @"startAt";
 NSString *const kFinProductDetailModelStopAt = @"stopAt";
 NSString *const kFinProductDetailModelTimes = @"times";
@@ -91,6 +92,10 @@ NSString *const kFinProductDetailModelUserLimit = @"userLimit";
     if(![dictionary[kFinProductDetailModelRule] isKindOfClass:[NSNull class]]){
         self.rule = dictionary[kFinProductDetailModelRule];
     }
+    if(![dictionary[kFinProductDetailModelSold] isKindOfClass:[NSNull class]]){
+        self.sold = [dictionary[kFinProductDetailModelSold] floatValue];
+    }
+    
     if(![dictionary[kFinProductDetailModelStartAt] isKindOfClass:[NSNull class]]){
         self.startAt = [dictionary[kFinProductDetailModelStartAt] integerValue];
     }
@@ -111,7 +116,7 @@ NSString *const kFinProductDetailModelUserLimit = @"userLimit";
         self.tokenName = dictionary[kFinProductDetailModelTokenName];
     }
     if(![dictionary[kFinProductDetailModelUserLimit] isKindOfClass:[NSNull class]]){
-        self.userLimit = [dictionary[kFinProductDetailModelUserLimit] doubleValue];
+        self.userLimit = [dictionary[kFinProductDetailModelUserLimit] floatValue];
     }
     
     return self;
@@ -145,6 +150,7 @@ NSString *const kFinProductDetailModelUserLimit = @"userLimit";
     if(self.rule != nil){
         dictionary[kFinProductDetailModelRule] = self.rule;
     }
+    dictionary[kFinProductDetailModelSold] = @(self.sold);
     dictionary[kFinProductDetailModelStartAt] = @(self.startAt);
     dictionary[kFinProductDetailModelStopAt] = @(self.stopAt);
     dictionary[kFinProductDetailModelTimes] = @(self.times);
@@ -177,7 +183,7 @@ NSString *const kFinProductDetailModelUserLimit = @"userLimit";
     [aCoder encodeObject:@(self.purchased) forKey:kFinProductDetailModelPurchased];    [aCoder encodeObject:@(self.ratio) forKey:kFinProductDetailModelRatio];    if(self.rule != nil){
         [aCoder encodeObject:self.rule forKey:kFinProductDetailModelRule];
     }
-    [aCoder encodeObject:@(self.startAt) forKey:kFinProductDetailModelStartAt];    [aCoder encodeObject:@(self.stopAt) forKey:kFinProductDetailModelStopAt];    [aCoder encodeObject:@(self.times) forKey:kFinProductDetailModelTimes];    [aCoder encodeObject:@(self.tokenId) forKey:kFinProductDetailModelTokenId];    if(self.tokenName != nil){
+    [aCoder encodeObject:@(self.sold) forKey:kFinProductDetailModelSold];    [aCoder encodeObject:@(self.startAt) forKey:kFinProductDetailModelStartAt];    [aCoder encodeObject:@(self.stopAt) forKey:kFinProductDetailModelStopAt];    [aCoder encodeObject:@(self.times) forKey:kFinProductDetailModelTimes];    [aCoder encodeObject:@(self.tokenId) forKey:kFinProductDetailModelTokenId];    if(self.tokenName != nil){
         [aCoder encodeObject:self.tokenName forKey:kFinProductDetailModelTokenName];
     }
     [aCoder encodeObject:@(self.userLimit) forKey:kFinProductDetailModelUserLimit];
@@ -202,12 +208,13 @@ NSString *const kFinProductDetailModelUserLimit = @"userLimit";
     self.purchased = [[aDecoder decodeObjectForKey:kFinProductDetailModelPurchased] floatValue];
     self.ratio = [[aDecoder decodeObjectForKey:kFinProductDetailModelRatio] floatValue];
     self.rule = [aDecoder decodeObjectForKey:kFinProductDetailModelRule];
+    self.sold = [[aDecoder decodeObjectForKey:kFinProductDetailModelSold] floatValue];
     self.startAt = [[aDecoder decodeObjectForKey:kFinProductDetailModelStartAt] integerValue];
     self.stopAt = [[aDecoder decodeObjectForKey:kFinProductDetailModelStopAt] integerValue];
     self.times = [[aDecoder decodeObjectForKey:kFinProductDetailModelTimes] integerValue];
     self.tokenId = [[aDecoder decodeObjectForKey:kFinProductDetailModelTokenId] integerValue];
     self.tokenName = [aDecoder decodeObjectForKey:kFinProductDetailModelTokenName];
-    self.userLimit = [[aDecoder decodeObjectForKey:kFinProductDetailModelUserLimit] doubleValue];
+    self.userLimit = [[aDecoder decodeObjectForKey:kFinProductDetailModelUserLimit] floatValue];
     return self;
     
 }
@@ -232,6 +239,7 @@ NSString *const kFinProductDetailModelUserLimit = @"userLimit";
     copy.purchased = self.purchased;
     copy.ratio = self.ratio;
     copy.rule = [self.rule copy];
+    copy.sold = self.sold;
     copy.startAt = self.startAt;
     copy.stopAt = self.stopAt;
     copy.times = self.times;

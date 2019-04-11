@@ -73,13 +73,13 @@
     {
         [_operatingBtn setTitle:@"移除" forState:UIControlStateNormal];
         _operatingBtn.selected = NO;
-        _operatingBtn.backgroundColor = [UIColor colorWithHex:@"#0AA8A5"];
+        _operatingBtn.backgroundColor = [UIColor colorWithHex:@"#E86636"];
     }
         else
     {
         [_operatingBtn setTitle:@"添加" forState:UIControlStateNormal];
         _operatingBtn.selected = YES;
-        _operatingBtn.backgroundColor = [UIColor colorWithHex:@"#E86636"];
+        _operatingBtn.backgroundColor = [UIColor colorWithHex:@"#0AA8A5"];
     }
 
     _numLab.text = TPString(@"%@/%@",clData.tokenCnName,clData.tokenEnName);
@@ -94,22 +94,20 @@
         self.operatingBlock(sender.selected, _clData.tokenId, _clData.tokenName);
     }
     
-    
     sender.selected = !sender.selected;
     if (sender.selected == NO)
     {
         [sender setTitle:@"移除" forState:UIControlStateNormal];
-        sender.backgroundColor = [UIColor colorWithHex:@"#0AA8A5"];
+        sender.backgroundColor = [UIColor colorWithHex:@"#E86636"];
     }
 }
 
 -(void)setIsRemoveToken:(BOOL)isRemoveToken
 {
     _isRemoveToken = isRemoveToken;
-    
     self.operatingBtn.selected = YES;
     [self.operatingBtn setTitle:@"添加" forState:UIControlStateNormal];
-    self.operatingBtn.backgroundColor = [UIColor colorWithHex:@"#E86636"];
+    self.operatingBtn.backgroundColor = [UIColor colorWithHex:@"#0AA8A5"];
 }
 
 

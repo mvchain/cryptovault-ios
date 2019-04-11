@@ -8,9 +8,11 @@
 
 #import "TPBuyProductViewController.h"
 #import "TPTransView.h"
+#import "ProgressView.h"
 @interface TPBuyProductViewController ()
+@property (weak, nonatomic) IBOutlet ProgressView *progressView;
+@property (weak, nonatomic) IBOutlet UILabel *remainLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *atly_view_top;
-
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
 @property (weak, nonatomic) IBOutlet UILabel *tipLabel;
 @property (weak, nonatomic) IBOutlet UITextField *inputTextField;
@@ -29,6 +31,20 @@
     [self.inputTextField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     [self setTipLabelDefault];
     self.atly_view_top.constant = self.customNavBar.height+12;
+    CGFloat remain = self.productModel.limitValue - self.productModel.sold;
+    [self.remainLabel setText:TPString(@"剩余总额度 %.4f %@",remain,self.productModel.baseTokenName)];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    CGFloat remain = self.productModel.limitValue - self.productModel.sold;
+    CGFloat persent = remain / self.productModel.limitValue;
+    [self.progressView setPersent:persent];
+    [self.inputTextField becomeFirstResponder];
+}
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+   
 }
 
 - (void)setTipLabelDefault {
@@ -73,7 +89,6 @@
 
 - (void)buyProduct:(NSString *)transPwd value:(CGFloat)num {
     ///financial/{id}
-    
     NSDictionary *postDidct = @{@"transactionPassword":[QuickGet encryptPwd:transPwd salt:nil],@"value":@(num)};
     NSString *url = TPString(@"financial/%ld",(long)self.productModel.idField);
     [[WYNetworkManager sharedManager] sendPostRequest:WYJSONRequestSerializer
@@ -94,10 +109,6 @@
 }
 
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.inputTextField becomeFirstResponder];
-}
 - (void)setUpNav {
     self.customNavBar.title = TPString(@"%@ 存入",self.productModel.name);
 }

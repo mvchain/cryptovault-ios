@@ -51,6 +51,7 @@
         _tranBtn = [YFactoryUI YButtonWithTitle:self.isProcessing ? @"撤单" : @"已成交" Titcolor:self.isProcessing ? [UIColor whiteColor]:TPD5Color font:FONT(13) Image:nil target:self action:@selector(transClick)];
         [_tranBtn setLayer:18 WithBackColor:self.isProcessing ? TPMainColor:[UIColor colorWithHex:@"#ECEEF1"]];
         [_backView addSubview:_tranBtn];
+        [_tranBtn gradualChangeStyle];
         
         _sepView = [[UIView alloc] init];
         _sepView.backgroundColor = [UIColor colorWithHex:@"#F2F2F2"];

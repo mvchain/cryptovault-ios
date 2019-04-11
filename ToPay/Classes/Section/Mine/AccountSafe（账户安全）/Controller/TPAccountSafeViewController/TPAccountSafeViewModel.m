@@ -14,7 +14,11 @@
 - (NSMutableArray <TPAccountSafeItemTableViewCellEntity *> *)dataArrays {
     if (!_dataArrays) {
          _dataArrays = [[NSMutableArray<TPAccountSafeItemTableViewCellEntity *> alloc] init];
-        NSArray *titles = @[@"修改邮箱",@"修改登录密码",@"修改支付密码"];
+        NSString *googleStr = @"关闭Google验证";
+        if ( (TPLoginUtil.userInfo.googleCheck == 0)) {
+            googleStr = @"开启Google验证";
+        }
+        NSArray *titles = @[@"修改邮箱",@"修改登录密码",@"修改支付密码",googleStr];
         for (NSString *title in titles ) {
             TPAccountSafeItemTableViewCellEntity *entity = [[TPAccountSafeItemTableViewCellEntity alloc] init];
             entity.title = title;

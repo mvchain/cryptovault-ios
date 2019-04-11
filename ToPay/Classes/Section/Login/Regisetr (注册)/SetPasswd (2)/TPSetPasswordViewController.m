@@ -11,6 +11,7 @@
 #import "YUTextView.h"
 #import "TPMnemonicSettingViewModel.h"
 #import "TPMnemonicDisplayViewController.h"
+#import "TPGoogleValidWelcomeViewController.h"
 @interface TPSetPasswordViewController ()
 @property (weak, nonatomic) IBOutlet YUTextView *passWordTextView;
 @property (weak, nonatomic) IBOutlet YUTextView *payPassWordTextView;
@@ -69,10 +70,10 @@
                                           // 开始向服务器注册
                                           [self.viewModel registerWithRegInfoModel:self.viewModel.regInfoModel complete:^(BOOL isSucc, NSString *_reasonInfo) {
                                               if (isSucc) {
-                                                  [self showSuccessText:@"注册成功"];
-                                                  TPMnemonicDisplayViewController *mn = [[TPMnemonicDisplayViewController alloc]init];
+                                               
+                                                  TPGoogleValidWelcomeViewController *welcome = [[TPGoogleValidWelcomeViewController alloc] init];
+                                                  [self.navigationController pushViewController:welcome animated:YES];
                                                   
-                                                  [self.navigationController pushViewController:mn animated:YES];
                                               }else {
                                                   [self showErrorText:_reasonInfo];
                                               }

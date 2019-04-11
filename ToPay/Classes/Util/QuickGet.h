@@ -12,11 +12,10 @@
 + (CGFloat )getWhiteBottomHeight ;
 + (NSString *)getMd5:(NSString *)md5;
 + (NSString *)encryptPwd:(NSString *)pwd salt:(NSString *)m_salt;
-
-+ (NSString *)getCurVersion ;
-+ (NSString *)getBundleIdStr ;
++ (NSString *)getCurVersion;
++ (NSString *)getBundleIdStr;
 + (NSString *)getCurBuildVersion;
-+ (NSString *)getCurrentServerUrl ;
++ (NSString *)getCurrentServerUrl;
 + (NSString *)httpPathWithCurrentServerUrl:(NSString *)path;
 + (NSString *)getExplorerPath;
 + (NSString *)getUUID ;

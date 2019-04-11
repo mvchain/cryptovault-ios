@@ -77,7 +77,12 @@ yudef_lazyLoad(UIButton,black,_black);
     [self.switchBgView yu_smallCircleStyle];
     [self.headerBgView yu_smallCircleStyle];
     _coinSelectView = [MVCBankCoinSelectView xib_loadUsingClassName];
-    [_coinSelectView setFrame:CGRectMake(0, 20, 75, 44)];
+    if (iPhoneX) {
+         [_coinSelectView setFrame:CGRectMake(0, 45, 75, 44)];
+    }else {
+         [_coinSelectView setFrame:CGRectMake(0, 20, 75, 44)];
+    }
+   
     [self.customNavBar addSubview:_coinSelectView];
     _selectListView = [TPMVCBankSelectListView xib_loadUsingClassName];
     
@@ -134,22 +139,24 @@ yudef_lazyLoad(UIButton,black,_black);
         [weakSelf.coinSelectView.titleLabel setText:weakSelf.curPair.tokenName];
         
        [ @[weakSelf.buy,weakSelf.sell] bk_each:^(id obj) {
+           
           TPMVCBanTableViewController *tableVc = (TPMVCBanTableViewController *)obj;
            tableVc.curPair = weakSelf.curPair;
            [tableVc refresh];
            
         }];
-        
         // 24h 信息
         API_GET_Transaction_Pair_Tickers *getTicker = [[API_GET_Transaction_Pair_Tickers alloc]init];
         getTicker.onSuccess = ^(id responseData) {
+            
+            if ([responseData isKindOfClass:[NSNull class]]) return ;
             NSDictionary *dict = (NSDictionary *)responseData;
             CGFloat high = [dict[@"high"] doubleValue];
             CGFloat low = [dict[@"low"] doubleValue];
             CGFloat cur = [dict[@"price"] doubleValue];
-            [self.highPriceLabel setText:TPString(@"%.2f",high)];
-            [self.lowPriceLabel setText:TPString(@"%.2f",low)];
-            [self.curPriceLabel setText:TPString(@"%.2f",cur)];
+            [self.highPriceLabel setText:TPString(@"%.8f",high)];
+            [self.lowPriceLabel setText:TPString(@"%.8f",low)];
+            [self.curPriceLabel setText:TPString(@"%.8f",cur)];
             
         };
         getTicker.onError = ^(NSString *reason, NSInteger code) {

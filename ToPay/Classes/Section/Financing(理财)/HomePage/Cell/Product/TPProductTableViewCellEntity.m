@@ -11,6 +11,6 @@
 @implementation TPProductTableViewCellEntity
 - (CGFloat)yu_cellHeight {
     
-    return 160;
+    return 200;
 }
 @end

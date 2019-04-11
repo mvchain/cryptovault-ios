@@ -142,13 +142,7 @@ static NSString  *TPAddTokenCellId = @"addTokenCell";
     {
         [self operatingCurrencyIsAdd:isAdd WithTokenId:tokenId WithName:tokenName WithSelectCell:addTokenCell];
     };
-    if(indexPath.row==0) {
-        cell.operatingBtn.hidden = YES;
-        
-    }else {
-        
-        cell.operatingBtn.hidden =  NO;
-    }
+  
     return cell;
 }
 

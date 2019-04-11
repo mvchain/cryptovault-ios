@@ -11,6 +11,8 @@
 #import "TPFinancingTotalCellViewEntity.h"
 #import "FinProductDetailModel.h"
 #import "TPBuyProductViewController.h"
+#import "TPFinancingProductDetailTotalCellEntity.h"
+#import "API_GET_Financial_Id.h"
 @interface TPFinancingProductDetailVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -23,7 +25,7 @@ yudef_property_strong(NSMutableArray<YUCellEntity *>, dataArrays)
 @implementation TPFinancingProductDetailVC
 #pragma mark getData
 - (void)initData {
-    TPFinancingTotalCellViewEntity *entity0 = [[TPFinancingTotalCellViewEntity alloc] init];
+    TPFinancingProductDetailTotalCellEntity *entity0 = [[TPFinancingProductDetailTotalCellEntity alloc] init];
     TPProductIntroduceCellEntity *entity1 = [[TPProductIntroduceCellEntity alloc] init];
     TPProductIntroduceCellEntity *entity2 = [[TPProductIntroduceCellEntity alloc] init];
     entity1.title = @"产品介绍";
@@ -36,28 +38,29 @@ yudef_property_strong(NSMutableArray<YUCellEntity *>, dataArrays)
 - (void)getDataFromHttp {
     __weak typeof (self) wsf = self;
     NSString *url = TPString(@"financial/%ld",(long)self.finModel.idField);
+    NSLog(@"%@",[TPLoginUtil userInfo].token);
+    
     [self yu_showLoading];
-    [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer
-                                                 url:url
-                                          parameters:nil
-                                             success:^(id responseObject, BOOL isCacheObject) {
-                                                 NSDictionary *res = (NSDictionary *)responseObject;
-                                                 if ([res[@"code"] intValue] == 200) {
-                                                     
-                                                     FinProductDetailModel *model = [[FinProductDetailModel alloc]initWithDictionary:res[@"data"]];
-                                                     wsf.detailModel = model;
-                                                     [wsf updateView];
-                                                     
-                                                 }else {
-                                                     [self showErrorText:TPString(@"错误:%@",res[@"message"])];
-                                                 }
-                                                 [self yu_dismissLoading];
-                                             }
-                                             failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
-                                                  [self showErrorText:@"网络错误"];
-                                                 [self yu_dismissLoading];
-                                             } ];
+    yudef_weakSelf;
+    
+    API_GET_Financial_Id *getDetail = [[API_GET_Financial_Id alloc] init];
+    getDetail.onSuccess = ^(id responseData) {
+        FinProductDetailModel *model = [[FinProductDetailModel alloc]initWithDictionary:responseData];
+        NSLog(@"%@",responseData);
+        
+        weakSelf.detailModel = model;
+        [weakSelf updateView];
+    };
+    getDetail.onError = ^(NSString *reason, NSInteger code) {
+        [self showErrorText:reason];
+       
+    };
+    getDetail.onEndConnection = ^{
+        [self yu_dismissLoading];
+    };
+    [getDetail sendRequestWithIdField:@(self.finModel.idField)];
 }
+
 - (void)updateView {
     self.dataArrays[0].data = self.detailModel;
     TPProductIntroduceCellEntity *en0 = (TPProductIntroduceCellEntity *) self.dataArrays[1];

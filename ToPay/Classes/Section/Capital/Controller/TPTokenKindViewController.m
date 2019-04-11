@@ -150,7 +150,7 @@
 }
 -(void)setupPageView
 {
-    NSArray *titleArr = @[@"转账", @"理财", @"交易",@"众筹"];
+    NSArray *titleArr = @[@"转账", @"理财", @"交易"];
     SGPageTitleViewConfigure *configure = [SGPageTitleViewConfigure pageTitleViewConfigure];
     configure.titleGradientEffect = YES;
     configure.titleColor = TP8EColor;
@@ -168,10 +168,9 @@
     transferVC.classfiy = 4;
     TPTokenTopicViewController *transfer2VC = [[TPTokenTopicViewController alloc] initWithTokenId:self.assetModel.tokenId WithTransactionType:1];
     transfer2VC.classfiy = 1;
-    TPTokenTopicViewController *transfer3VC = [[TPTokenTopicViewController alloc] initWithTokenId:self.assetModel.tokenId WithTransactionType:2];
-    transfer3VC.classfiy = 2;
+
     
-    NSArray *childArr = @[allVC,transferVC,transfer2VC,transfer3VC];
+    NSArray *childArr = @[allVC,transferVC,transfer2VC];
     CGFloat height = KHeight - CGRectGetMaxY(_pageTitleView.frame);
     if (![self.clData.tokenType isEqualToString:@"1"])
     {

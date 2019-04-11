@@ -26,11 +26,14 @@ typedef void(^errBlock)(NSString *reason ,NSInteger code  );
 // api body reuqst url
 @property (strong,nonatomic) NSMutableDictionary * requestDict ;
 // write code in this block when request  succ
-@property (copy,nonatomic) succBlock onSuccess ;
+@property (copy,nonatomic) succBlock onSuccess;
 // write code in this block when request  err
 @property (copy,nonatomic) errBlock onError;
 // write code in this block when http conn end 
 @property (copy,nonatomic) void(^onEndConnection)(void);
+
+@property (copy,nonatomic) NSString *token;
+
 // default request
 - (void)connectWithRquestMethod:(HTTPMethod)rquestMethod;
 @end

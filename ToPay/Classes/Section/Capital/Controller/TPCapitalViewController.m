@@ -233,7 +233,7 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
 -(void)setNavgation
 {
     [self showSystemNavgation:NO];
-    self.customNavBar.title = @"BZT Wallet";
+    self.customNavBar.title = @"TTPay";
     self.customNavBar.titleLabelColor = [UIColor whiteColor];
     self.customNavBar.barBackgroundColor = [UIColor colorWithHex:@"#5A48FF"];
     self.customNavBar.backgroundColor = [UIColor colorWithHex:@"#5A48FF"];
@@ -336,17 +336,7 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
 #pragma mark http
 // 判断是否签到
 - (void)paddingIsChecked {
-    [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"user/sign" success:^(id responseObject, BOOL isCacheObject) {
-        NSDictionary *res = (NSDictionary *)responseObject;
-        if([res[@"data"] boolValue] ) {
-            self.headerView.checkButton.hidden = YES;
-        }
-        else {
-            self.headerView.checkButton.hidden = NO;
-        }
-    } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
-        
-    }];
+    self.headerView.checkButton.hidden = YES;
 }
 // 签到     check-in_success_img
 - (void)checkSign {

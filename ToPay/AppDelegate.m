@@ -18,8 +18,9 @@
 #import "TPGuiderViewController.h"
 #import "Aspects.h"
 #endif
-
-
+#import <UMCommon/UMCommon.h>           // 公共组件是所有友盟产品的基础组件，必选
+#import <UMAnalytics/MobClick.h>
+#define UM_KEY @"5ca41bbc20365710df000d29"
 @interface AppDelegate ()<JPUSHRegisterDelegate>
 @property (copy) NSMutableArray *arr ;
 @end
@@ -30,6 +31,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self setLanguage];
+    [self setUpUM];
     [self aop_UIViewController];
     [self setUpNetWorkManager];
     [self setNavBarAppearence];
@@ -37,6 +39,10 @@
     [self setUpJpush];
     [self setObserver];
     [self setUpWindow];
+    
+   NSString *str =  [QuickGet encryptPwd:@"123456" salt:@"TZImagePickerController"];
+    NSLog(@"%@",str);
+    
     
     [WRNavigationBar wr_setBlacklist:@[@"TZImagePickerController"]];
    // NSString *str = Localized(@"capital");
@@ -47,6 +53,9 @@
     
     return YES;
     
+}
+- (void)setUpUM{
+    [UMConfigure initWithAppkey:UM_KEY channel:@"App Store"];
 }
 - (void)aop_UIViewController {
     

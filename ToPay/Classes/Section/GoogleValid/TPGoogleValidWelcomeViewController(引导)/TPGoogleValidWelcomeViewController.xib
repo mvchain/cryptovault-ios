@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TPGoogleValidWelcomeViewController">
+            <connections>
+                <outlet property="startButton" destination="jcU-LQ-PE4" id="05M-G3-5Ik"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="是否开启Google验证，进一步确保账户安全？" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIq-uW-6IU">
+                    <rect key="frame" x="57" y="123" width="300" height="41"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.60000425577163696" green="0.59999257326126099" blue="0.60000050067901611" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jcU-LQ-PE4">
+                    <rect key="frame" x="63.5" y="787" width="287" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="0Kn-AE-oVs"/>
+                        <constraint firstAttribute="width" constant="287" id="zDc-gO-esr"/>
+                    </constraints>
+                    <state key="normal" title="马上开启"/>
+                    <connections>
+                        <action selector="enableNow:" destination="-1" eventType="touchUpInside" id="cKw-cU-6sP"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="jcU-LQ-PE4" secondAttribute="bottom" constant="65" id="NNs-Or-vOL"/>
+                <constraint firstAttribute="trailing" secondItem="aIq-uW-6IU" secondAttribute="trailing" constant="57" id="cQi-cO-IQU"/>
+                <constraint firstItem="aIq-uW-6IU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="57" id="eZe-uP-fhm"/>
+                <constraint firstItem="aIq-uW-6IU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="123" id="gkn-ka-U9Q"/>
+                <constraint firstItem="aIq-uW-6IU" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hYx-M9-WZQ"/>
+                <constraint firstItem="jcU-LQ-PE4" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="khG-xL-6tb"/>
+            </constraints>
+        </view>
+    </objects>
+</document>
