@@ -32,7 +32,7 @@
 {
     [self setLanguage];
     [self setUpUM];
-    [self aop_UIViewController];
+    [self aop_Setting];
     [self setUpNetWorkManager];
     [self setNavBarAppearence];
     [self setUpIQKeyBoardManager];
@@ -57,12 +57,42 @@
 - (void)setUpUM{
     [UMConfigure initWithAppkey:UM_KEY channel:@"App Store"];
 }
-- (void)aop_UIViewController {
+- (void)aop_Setting {
     
     [UIViewController aspect_hookSelector:@selector(viewWillAppear:) withOptions:AspectPositionAfter usingBlock:^(id<AspectInfo> aspectInfo)
      {
              [TPLoginUtil refreshToken_if_err_logout ];
         
+     } error:NULL];
+    
+    [UILabel aspect_hookSelector:@selector(setText:) withOptions:AspectPositionAfter usingBlock:^(id<AspectInfo> aspectInfo)
+     {
+         UILabel *label =   aspectInfo.instance;
+         NSString *text = label.text;
+         if (![text containsString:@"."]) return ;
+         int dotIndex = (int)[text rangeOfString:@"."].location;
+         if (!(dotIndex-1>=0 && dotIndex+1<text.length) )return ;
+         NSMutableString *mText = [[NSMutableString alloc]initWithString:text];
+         BOOL firstZero = YES;
+         int from=1,to=0;
+         for (int i = (int)mText.length-1;i>=0;i--) {
+             if ([[mText substringWithRange:NSMakeRange(i, 1)] isEqualToString:@"0"]) {
+                 if (firstZero ) {
+                     to = (int)i;
+                     firstZero = NO;
+                 }
+             }else {
+                 if(!firstZero) {
+                     from = (int)i+2;
+                     break;
+                 }
+             }
+         }
+         if (from>to)return;
+         [mText deleteCharactersInRange:NSMakeRange(from, to-from+1)];
+         [label setText:mText];
+         
+         
      } error:NULL];
 }
 - (void)setObserver {

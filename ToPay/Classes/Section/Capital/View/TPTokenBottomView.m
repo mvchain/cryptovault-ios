@@ -30,11 +30,11 @@
  
         UIButton *transferBtn = [YFactoryUI YButtonWithTitle:@"转账" Titcolor:[UIColor whiteColor] font:FONT(15) Image:nil target:self action:@selector(transferClcik)];
         [transferBtn setLayerCornerRadius:20 WithColor:[UIColor clearColor] WithBorderWidth:1];
-        [transferBtn setBackgroundColor:TP5856D6];
+        [transferBtn setBackgroundColor:[UIColor colorWithHex:@"#6A4AFF"]];
         [self addSubview:transferBtn];
         self.transferBtn = transferBtn;
         UIButton *receiptBtn = [YFactoryUI YButtonWithTitle:@"收款" Titcolor:[UIColor whiteColor] font:FONT(15) Image:nil target:self action:@selector(receiptClcik)];
-        [receiptBtn setLayer:20 WithBackColor:TPMainColor];
+        [receiptBtn setLayer:20 WithBackColor:[UIColor colorWithHex:@"#824EFF"]];
         [self addSubview:receiptBtn];
         self.receiptBtn = receiptBtn;
         NSMutableArray *array = [NSMutableArray array];

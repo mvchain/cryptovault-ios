@@ -12,14 +12,16 @@
 #import "TPTransferModel.h"
 #import "TPTokenKindViewController.h"
 #import "NIMScannerViewController.h"
+#import "API_GET_Asset_inner.h"
 @interface TPChainTransferViewController ()
-
 @property (nonatomic, strong) UILabel *formalitiesLab;
 @property (nonatomic, strong) UILabel *balanceLab;
 @property (nonatomic, strong) NSDictionary *DataSources;
 @property (nonatomic, strong) NSMutableArray <TPComTextView *> *textArray;
 @property (nonatomic, strong) UIButton *confirmBtn;
 @property (nonatomic, copy) NSString *balance ;
+@property (nonatomic, strong) TPTransferModel *transferModel ;
+
 @end
 @implementation TPChainTransferViewController
 - (void)viewDidLoad
@@ -57,6 +59,7 @@
              self.balanceLab.text = TPString(@"可用 %@：%.4f",self.assetModel.tokenName,balance);
              self.balance = self.DataSources[@"balance"];
              self.formalitiesLab.text = TPString(@"%.5f %@",transfer.fee,self.DataSources[@"feeTokenName"]);
+             self.transferModel = transfer;
          }
      }
         failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode)
@@ -102,6 +105,11 @@
         }];
         if (i == 1) {
             textView.comTextField.keyboardType = UIKeyboardTypeDecimalPad;
+        } else if (i == 0) {
+            [textView.comTextField addTarget:self action:@selector(didTextEditingEnd:) forControlEvents:UIControlEventEditingDidEnd];
+            
+            
+            
         }
     }
     UILabel *balanceLab = [YFactoryUI YLableWithText:@"余额：1236.1234" color:TP8EColor font:FONT(13)];
@@ -143,13 +151,44 @@
         make.height.equalTo(@44);
         make.width.equalTo(@343);
     }];
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectZero];
+    label.text = @"TTPay 用户之间转账/收款无需手续费";
+    [label setFont:[UIFont systemFontOfSize:13 weight:UIFontWeightLight]];
+    
+    [self.view addSubview:label];
+    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view);
+        make.top.equalTo(backView.mas_bottom).with.offset(25);
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     
 }
+- (void)didTextEditingEnd:(UITextField *)textField {
+    yudef_weakSelf;
+    NSString *addr = textField.text;
+    API_GET_Asset_inner *GET_Asset_inner = [[API_GET_Asset_inner alloc] init];
+    GET_Asset_inner.onSuccess = ^(id responseData) {
+        BOOL isInneAddr =  [responseData boolValue];
+//        weakSelf.isInnerUserAddr = isInneAddr;
+        if (isInneAddr) {
+            weakSelf.formalitiesLab.text = TPString(@"%.6f %@",0.0 ,self.DataSources[@"feeTokenName"]);
+        }else {
+            weakSelf.formalitiesLab.text = TPString(@"%.6f %@",[QuickMaker makeFloatNumber:weakSelf.transferModel.fee tailNum:6] ,self.DataSources[@"feeTokenName"]);
+        }
+    };
+    GET_Asset_inner.onError = ^(NSString *reason, NSInteger code) {
+        
+    };
+    GET_Asset_inner.onEndConnection = ^{
+        
+    };
+    [GET_Asset_inner sendRequestWithAddress:addr];
 
+}
 -(void)didChangeText:(UITextField *)textF
 {
     if (self.textArray[0].comTextField.text.length > 0 &&
@@ -163,8 +202,6 @@
         self.balanceLab.text = TPString(@"可用 %@：%.4f",self.assetModel.tokenName,balance);
     }else {
         [self invaildButton];
-        
-       
         
         if(  [self.textArray[1].comTextField.text floatValue] > [self.balance floatValue] ) {
             [self.balanceLab setText:TPString(@"可用 %@不足",self.assetModel.tokenName)];
@@ -217,7 +254,7 @@
                 {
                     [self showSuccessText:@"操作成功"];
                     [TPTransV showMenuWithAlpha:NO];
-        
+
                     [TPNotificationCenter postNotificationName:TPTakeOutSuccessNotification object:nil];
                     for (UIViewController *controller in self.navigationController.viewControllers)
                     {

@@ -28,7 +28,7 @@
 {
     [super viewDidLoad];
     
-    self.view.backgroundColor = TPF6Color;
+    self.view.backgroundColor = [UIColor whiteColor];
 
     YYCache *listCache = [YYCache cacheWithName:TPCacheName];
     self.clData =  (CLData *)[listCache objectForKey:self.assetModel.tokenId];
@@ -124,7 +124,7 @@
 
 - (void)setUpHeaderView
 {
-    UIImageView *headImgV = [YFactoryUI YImageViewWithimage:[UIImage imageNamed:@"X_nextpage_bg"]];
+    UIImageView *headImgV = [YFactoryUI YImageViewWithimage:[UIImage imageNamed:@"X_homepage_bg"]];
     [self.view addSubview:headImgV];
     [self.view sendSubviewToBack:headImgV];
     [headImgV mas_makeConstraints:^(MASConstraintMaker *make)

@@ -16,7 +16,7 @@
 #import "TPExchangeRate.h"
 #import "TPNotificationModel.h"
 #import "TPAssetModel.h"
-
+#import "UIView+AZGradient.h"
 #import "BCQMView.h"
 #import "TPCapitalCell.h"
 #import "TPCapitalHeaderView.h"
@@ -105,11 +105,8 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
     
     [TPNotificationCenter addObserver:self selector:@selector(currencyNotification) name:TPPutCurrencyNotification object:nil];
     [TPNotificationCenter addObserver:self selector:@selector(notificationRequest) name:TPAssetRedNotification object:nil];
-    
-    
     [self setupRefreshWithShowFooter:NO];
     [self setEvent];
-    
 }
 
 -(void)currencyNotification
@@ -203,6 +200,8 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
     self.baseTableView.tableHeaderView = headerView;
     self.baseTableView.backgroundColor = [UIColor colorWithHex:@"#F2F2F2"];
     self.baseTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.baseTableView setRefreshBackGroundColor:[UIColor colorWithHex:@"#6649ff"]];
+    
     [self.baseTableView mas_makeConstraints:^(MASConstraintMaker *make)
      {
          make.top.equalTo(@(StatusBarAndNavigationBarHeight));
@@ -235,9 +234,13 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
     [self showSystemNavgation:NO];
     self.customNavBar.title = @"TTPay";
     self.customNavBar.titleLabelColor = [UIColor whiteColor];
-    self.customNavBar.barBackgroundColor = [UIColor colorWithHex:@"#5A48FF"];
-    self.customNavBar.backgroundColor = [UIColor colorWithHex:@"#5A48FF"];
+
+    //UIView+AZGradient
+    UIColor *fromColor = [UIColor colorWithHex:@"#5A48FF"];
+    UIColor *toColor = [UIColor colorWithHex:@"#9752FF"];
+    [self.customNavBar.backgroundView az_setGradientBackgroundWithColors:@[fromColor,toColor] locations:nil startPoint:CGPointMake(0, 0) endPoint:CGPointMake(1, 0)];
     
+     [self.customNavBar az_setGradientBackgroundWithColors:@[fromColor,toColor] locations:nil startPoint:CGPointMake(0, 0) endPoint:CGPointMake(1, 0)];
     [self.customNavBar wr_setBottomLineHidden:YES];
     [self.customNavBar wr_setBackgroundAlpha:0];
     [self.customNavBar wr_setLeftButtonWithImage:[UIImage imageNamed:@"note_icon"]];
@@ -331,12 +334,21 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
     self.headerView.checkTap = ^{
         [wsf checkSign];
     };
-    
 }
 #pragma mark http
 // 判断是否签到
 - (void)paddingIsChecked {
-    self.headerView.checkButton.hidden = YES;
+    [[WYNetworkManager sharedManager] sendGetRequest:WYJSONRequestSerializer url:@"user/sign" success:^(id responseObject, BOOL isCacheObject) {
+        NSDictionary *res = (NSDictionary *)responseObject;
+        if([res[@"data"] boolValue] ) {
+            self.headerView.checkButton.hidden = YES;
+        }
+        else {
+            self.headerView.checkButton.hidden = NO;
+        }
+    } failure:^(NSURLSessionTask *task, NSError *error, NSInteger statusCode) {
+        
+    }];
 }
 // 签到     check-in_success_img
 - (void)checkSign {

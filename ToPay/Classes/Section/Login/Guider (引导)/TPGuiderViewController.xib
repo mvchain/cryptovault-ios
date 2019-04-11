@@ -26,15 +26,15 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ywv-aA-Ddj">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vp_Start icon" translatesAutoresizingMaskIntoConstraints="NO" id="WD3-pE-bcL" colorLabel="IBBuiltInLabel-Yellow">
-                            <rect key="frame" x="155.5" y="65" width="64" height="64"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tttpay" translatesAutoresizingMaskIntoConstraints="NO" id="WD3-pE-bcL" colorLabel="IBBuiltInLabel-Yellow">
+                            <rect key="frame" x="141" y="65" width="93" height="106"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="64" id="FEB-RN-yCp"/>
-                                <constraint firstAttribute="height" constant="64" id="i6n-67-RMu"/>
+                                <constraint firstAttribute="width" constant="93" id="FEB-RN-yCp"/>
+                                <constraint firstAttribute="height" constant="106" id="i6n-67-RMu"/>
                             </constraints>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A1y-QR-jw6">
-                            <rect key="frame" x="32" y="252" width="311" height="44"/>
+                            <rect key="frame" x="32" y="294" width="311" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="9jx-K9-bba"/>
                                 <constraint firstAttribute="width" constant="311" id="QYE-By-G7u"/>
@@ -47,7 +47,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CuC-r8-Upk">
-                            <rect key="frame" x="32" y="314" width="311" height="44"/>
+                            <rect key="frame" x="32" y="356" width="311" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="cqR-LC-v7w"/>
                                 <constraint firstAttribute="width" constant="311" id="tAx-k5-ca3"/>
@@ -60,26 +60,18 @@
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QOi-4H-Ezh">
-                            <rect key="frame" x="0.0" y="490" width="375" height="0.0"/>
+                            <rect key="frame" x="0.0" y="532" width="375" height="0.0"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" id="uSR-Od-5cd"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BZT Wallet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBq-J8-g2J">
-                            <rect key="frame" x="150" y="141" width="75" height="18"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                     </subviews>
                     <color key="backgroundColor" red="0.38815331460000002" green="0.2955832779" blue="0.96476072069999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
-                        <constraint firstItem="cBq-J8-g2J" firstAttribute="centerX" secondItem="ywv-aA-Ddj" secondAttribute="centerX" id="0AW-Aa-EgZ"/>
                         <constraint firstAttribute="bottom" secondItem="CuC-r8-Upk" secondAttribute="bottom" constant="132" id="4Nw-a6-kHP"/>
                         <constraint firstItem="WD3-pE-bcL" firstAttribute="top" secondItem="ywv-aA-Ddj" secondAttribute="top" constant="65" id="A9S-kX-aHq"/>
                         <constraint firstItem="A1y-QR-jw6" firstAttribute="top" secondItem="WD3-pE-bcL" secondAttribute="bottom" constant="123" id="ET9-Pf-daQ"/>
-                        <constraint firstItem="cBq-J8-g2J" firstAttribute="top" secondItem="WD3-pE-bcL" secondAttribute="bottom" constant="12" id="Lzx-Ap-Dem"/>
                         <constraint firstItem="WD3-pE-bcL" firstAttribute="centerX" secondItem="ywv-aA-Ddj" secondAttribute="centerX" id="PHc-kH-pjX"/>
                         <constraint firstItem="QOi-4H-Ezh" firstAttribute="leading" secondItem="ywv-aA-Ddj" secondAttribute="leading" id="PqK-Os-8Yh"/>
                         <constraint firstItem="CuC-r8-Upk" firstAttribute="centerX" secondItem="WD3-pE-bcL" secondAttribute="centerX" id="apG-d3-rGt"/>
@@ -104,6 +96,6 @@
         </view>
     </objects>
     <resources>
-        <image name="vp_Start icon" width="20" height="20"/>
+        <image name="tttpay" width="93" height="105.5"/>
     </resources>
 </document>

@@ -119,13 +119,17 @@
 
 - (void)setupRefreshWithShowFooter:(BOOL)isShowFooter
 {
-    self.baseTableView.mj_header = [TPRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewTopics)];
+    TPRefreshHeader *header = [TPRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewTopics)];
+    header.stateLabel.hidden = YES;
+    header.lastUpdatedTimeLabel.hidden = YES;
+    header.arrowView.hidden=  YES;
+    
+    self.baseTableView.mj_header = header;
     [self.baseTableView.mj_header beginRefreshing];
     if (isShowFooter == YES)
     {
         MJRefreshAutoNormalFooter *au =[MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
-        
-        
+      
         self.baseTableView.mj_footer = au;
         
         

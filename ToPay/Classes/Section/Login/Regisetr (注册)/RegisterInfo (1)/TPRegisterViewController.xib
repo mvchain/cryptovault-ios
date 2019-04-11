@@ -56,9 +56,9 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mEn-j1-2sd">
-                            <rect key="frame" x="375" y="361" width="144" height="44"/>
+                            <rect key="frame" x="303.5" y="361" width="287" height="44"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="144" id="4yX-EZ-PK5"/>
+                                <constraint firstAttribute="width" constant="287" id="4yX-EZ-PK5"/>
                                 <constraint firstAttribute="height" constant="44" id="f0G-Vb-k3s"/>
                             </constraints>
                             <state key="normal" title="下一步"/>

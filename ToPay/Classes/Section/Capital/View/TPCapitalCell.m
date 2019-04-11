@@ -44,8 +44,8 @@
         [self addSubview:_backView];
         _iconImgV = [YFactoryUI YImageViewWithimage:nil];
         _backView.layer.shadowColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.15].CGColor;
-        _backView.layer.shadowOffset = CGSizeMake(0,3);
-        _backView.layer.shadowRadius = 6;
+        _backView.layer.shadowOffset = CGSizeMake(0,1);
+        _backView.layer.shadowRadius = 2;
         _backView.layer.shadowOpacity = 1;
         [_iconImgV setLayer:14.5 WithBackColor:[UIColor clearColor]];
         [_backView addSubview:_iconImgV];

@@ -295,6 +295,8 @@
 		DD7B7619225DC8BA00C9B729 /* TPFinancingProductDetailTotalCellEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7B7618225DC8BA00C9B729 /* TPFinancingProductDetailTotalCellEntity.m */; };
 		DD7B761C225DDE7400C9B729 /* API_GET_Financial_Id.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7B761A225DDE7400C9B729 /* API_GET_Financial_Id.m */; };
 		DD7B7622225DFB2500C9B729 /* API_PUT_User_Google.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7B7621225DFB2400C9B729 /* API_PUT_User_Google.m */; };
+		DD93CB25225F2892007E4562 /* UIView+AZGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = DD93CB23225F2892007E4562 /* UIView+AZGradient.m */; };
+		DD93CB28225F5541007E4562 /* API_GET_Asset_inner.m in Sources */ = {isa = PBXBuildFile; fileRef = DD93CB27225F5541007E4562 /* API_GET_Asset_inner.m */; };
 		DDAA117721E72BD800F5D184 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAA117621E72BD800F5D184 /* MBProgressHUD+Add.m */; };
 		DDBB4617221A60630035CE07 /* TPReleaseProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDBB4615221A60630035CE07 /* TPReleaseProjectViewController.m */; };
 		DDBB4618221A60630035CE07 /* TPReleaseProjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDBB4616221A60630035CE07 /* TPReleaseProjectViewController.xib */; };
@@ -1013,6 +1015,10 @@
 		DD7B761B225DDE7400C9B729 /* API_GET_Financial_Id.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API_GET_Financial_Id.h; sourceTree = "<group>"; };
 		DD7B7620225DFB2400C9B729 /* API_PUT_User_Google.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API_PUT_User_Google.h; sourceTree = "<group>"; };
 		DD7B7621225DFB2400C9B729 /* API_PUT_User_Google.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API_PUT_User_Google.m; sourceTree = "<group>"; };
+		DD93CB23225F2892007E4562 /* UIView+AZGradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AZGradient.m"; sourceTree = "<group>"; };
+		DD93CB24225F2892007E4562 /* UIView+AZGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AZGradient.h"; sourceTree = "<group>"; };
+		DD93CB26225F5540007E4562 /* API_GET_Asset_inner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API_GET_Asset_inner.h; sourceTree = "<group>"; };
+		DD93CB27225F5541007E4562 /* API_GET_Asset_inner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API_GET_Asset_inner.m; sourceTree = "<group>"; };
 		DDAA117521E72BD800F5D184 /* MBProgressHUD+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Add.h"; sourceTree = "<group>"; };
 		DDAA117621E72BD800F5D184 /* MBProgressHUD+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Add.m"; sourceTree = "<group>"; };
 		DDBB4614221A60630035CE07 /* TPReleaseProjectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPReleaseProjectViewController.h; sourceTree = "<group>"; };
@@ -2697,6 +2703,8 @@
 		DD72F432219A7EF2004C0DAF /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				DD93CB24225F2892007E4562 /* UIView+AZGradient.h */,
+				DD93CB23225F2892007E4562 /* UIView+AZGradient.m */,
 				DD0239AA21AFF2F500333446 /* TPConstant.h */,
 				DD0239AB21AFF2F500333446 /* TPConstant.m */,
 				DD72F433219A7F12004C0DAF /* TPBaseViewController.h */,
@@ -3146,6 +3154,8 @@
 		DDEFE4142239255A003E3263 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				DD93CB26225F5540007E4562 /* API_GET_Asset_inner.h */,
+				DD93CB27225F5541007E4562 /* API_GET_Asset_inner.m */,
 				DD7B761B225DDE7400C9B729 /* API_GET_Financial_Id.h */,
 				DD7B761A225DDE7400C9B729 /* API_GET_Financial_Id.m */,
 				DD7B75F5225C603600C9B729 /* Google */,
@@ -3841,6 +3851,7 @@
 				DD02399A21AF968E00333446 /* WYNetworkDownloadEngine.m in Sources */,
 				DDDDFB9D219C1AC00056FC57 /* TPComingSoonViewController.m in Sources */,
 				DDAA117721E72BD800F5D184 /* MBProgressHUD+Add.m in Sources */,
+				DD93CB25225F2892007E4562 /* UIView+AZGradient.m in Sources */,
 				DD0B44F021F1A7FE00333016 /* TPResetPassWordByEmailViewModel.m in Sources */,
 				DDDDC37A22379EDB008BB491 /* TPBrowserViewController.m in Sources */,
 				DD7B7615225DC8A000C9B729 /* TPFinancingProductDetailTotalCell.m in Sources */,
@@ -3909,6 +3920,7 @@
 				DD2FD6B921C7A17000A28F78 /* YUTabBarController.m in Sources */,
 				DDFED6B521E065F100F2F354 /* YUCollectionViewCell.m in Sources */,
 				DD1083DC219D76560087F244 /* TPTokenTopicViewController.m in Sources */,
+				DD93CB28225F5541007E4562 /* API_GET_Asset_inner.m in Sources */,
 				DDEFE3D52237B90C003E3263 /* YUSmallHeaderCellEntity.m in Sources */,
 				DD108427219EAEB80087F244 /* TPLanguageViewController.m in Sources */,
 				DD45A1862255FEB300D13839 /* MVCBankSelectListCell.m in Sources */,
