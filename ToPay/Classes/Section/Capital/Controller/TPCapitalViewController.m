@@ -325,8 +325,7 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
 
 - (void)setEvent {
     __weak typeof (self) wsf =self;
-    
-    self.headerView.checkTap = ^{
+        self.headerView.checkTap = ^{
         [wsf checkSign];
     };
     
