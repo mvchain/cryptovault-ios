@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "TPAnnouncementView.h"
 @interface TPCapitalHeaderView : UIView
 
 @property (nonatomic, copy) NSString  *total;
@@ -16,4 +16,9 @@
 @property (strong,nonatomic) UIButton *checkButton; //签到
 @property (nullable, copy) void (^chooseCurrencyBlock)(void);
 @property (nullable, copy) void (^checkTap)(void);
+@property (strong,nonatomic) NSArray *announcements;
+
+@property (strong,nonatomic) TPAnnouncementView *announcementView;
+
+
 @end

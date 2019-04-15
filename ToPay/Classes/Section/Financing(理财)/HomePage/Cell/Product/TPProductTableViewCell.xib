@@ -94,6 +94,13 @@
                                     <constraint firstAttribute="height" constant="3" id="7rI-ry-bSw"/>
                                 </constraints>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sign-1" translatesAutoresizingMaskIntoConstraints="NO" id="sK4-GQ-wHm">
+                                <rect key="frame" x="335" y="5" width="37" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="37" id="dp1-dx-x4a"/>
+                                    <constraint firstAttribute="height" constant="22" id="z5N-V9-lre"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -127,6 +134,8 @@
                             <constraint firstItem="brW-h9-szF" firstAttribute="leading" secondItem="uD1-Uz-tGr" secondAttribute="leading" constant="16" id="pE1-so-blP"/>
                             <constraint firstItem="wdv-M0-o5M" firstAttribute="leading" secondItem="9t2-oY-gWF" secondAttribute="leading" id="smD-Fs-h0D"/>
                             <constraint firstAttribute="trailing" secondItem="t2w-oB-mX2" secondAttribute="trailing" constant="11" id="tu7-cI-8jT"/>
+                            <constraint firstItem="sK4-GQ-wHm" firstAttribute="top" secondItem="uD1-Uz-tGr" secondAttribute="top" constant="5" id="uwh-J4-NBS"/>
+                            <constraint firstAttribute="trailing" secondItem="sK4-GQ-wHm" secondAttribute="trailing" constant="5" id="vwC-dK-xvX"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -150,8 +159,12 @@
                 <outlet property="rightSmall0Label" destination="OJq-NT-Dnb" id="ckb-aH-Tos"/>
                 <outlet property="rightSmall1BgView" destination="Vsk-S9-6ie" id="UbJ-Cx-hSl"/>
                 <outlet property="rightSmall1Label" destination="Ne1-Rm-A4V" id="IG5-ok-veg"/>
+                <outlet property="signImageView" destination="sK4-GQ-wHm" id="vXU-JA-g6e"/>
             </connections>
             <point key="canvasLocation" x="52" y="173.16341829085459"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="sign-1" width="37" height="22"/>
+    </resources>
 </document>

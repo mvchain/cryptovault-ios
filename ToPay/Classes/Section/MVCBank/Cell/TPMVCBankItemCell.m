@@ -22,17 +22,22 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    [self.mimageView yu_circleStyle];
+    
     // Initialization code
 }
 - (void)setEntity:(YUCellEntity *)entity {
     [super setEntity:entity];
     TPMVCBankItemCellEntity *myEntity = (TPMVCBankItemCellEntity *)entity ;
     TPMVCBankItemModel *model = (TPMVCBankItemModel *)entity.data;
-    
     [self.mimageView sd_setImageWithURL:[NSURL URLWithString:model.headImage] placeholderImage:[UIImage imageNamed:@"portrait_icon"]];
     [self.leftLabel setText:model.nickname];
     [self.rightLabel setText:TPString(@"%.6f %@",[model.price doubleValue],myEntity.tokenName)];
-    [self.downLabel setText:TPString(@"剩余可购买：%.6f MVC",model.limitValue)];
+    if (model.transactionType == 1) {
+         [self.downLabel setText:TPString(@"剩余可购买：%.6f MVC",model.limitValue)];
+    }else {
+        [self.downLabel setText:TPString(@"剩余可出售：%.6f MVC",model.limitValue)];
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

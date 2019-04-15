@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *productTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *orderTimeLabel;
 @property (weak, nonatomic) IBOutlet ProgressView *progressView;
+@property (weak, nonatomic) IBOutlet UIImageView *signImageView;
 @property (weak, nonatomic) IBOutlet UILabel *persentLabel;
 @end
 
@@ -47,6 +48,7 @@
     CGFloat remaining = model.limitValue - model.sold;
     [self.remainingLabel setText:TPString(@"产品剩余额度：%.4f %@",remaining,model.baseTokenName)];
     [self.progressView setPersent:remaining / model.limitValue];
+    self.signImageView.hidden = !model.needSign;
     
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

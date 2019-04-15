@@ -297,6 +297,16 @@
 		DD7B7622225DFB2500C9B729 /* API_PUT_User_Google.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7B7621225DFB2400C9B729 /* API_PUT_User_Google.m */; };
 		DD93CB25225F2892007E4562 /* UIView+AZGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = DD93CB23225F2892007E4562 /* UIView+AZGradient.m */; };
 		DD93CB28225F5541007E4562 /* API_GET_Asset_inner.m in Sources */ = {isa = PBXBuildFile; fileRef = DD93CB27225F5541007E4562 /* API_GET_Asset_inner.m */; };
+		DD93CB2B226070A4007E4562 /* TPSwiftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD93CB29226070A4007E4562 /* TPSwiftTableViewCell.swift */; };
+		DD93CB2C226070A4007E4562 /* TPSwiftTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD93CB2A226070A4007E4562 /* TPSwiftTableViewCell.xib */; };
+		DD93CB302260839B007E4562 /* TPProductDetailWebContainerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD93CB2E2260839B007E4562 /* TPProductDetailWebContainerCell.m */; };
+		DD93CB312260839B007E4562 /* TPProductDetailWebContainerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD93CB2F2260839B007E4562 /* TPProductDetailWebContainerCell.xib */; };
+		DD93CB3422608555007E4562 /* TPProductDetailWebContainerCellEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = DD93CB3322608555007E4562 /* TPProductDetailWebContainerCellEntity.m */; };
+		DD93CB3722609E15007E4562 /* API_GET_View_Banner.m in Sources */ = {isa = PBXBuildFile; fileRef = DD93CB3622609E15007E4562 /* API_GET_View_Banner.m */; };
+		DD93CB3A22609FDB007E4562 /* AnnouncementModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD93CB3922609FDB007E4562 /* AnnouncementModel.m */; };
+		DD93CB402260A2A6007E4562 /* TPAnnouncementView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD93CB3F2260A2A6007E4562 /* TPAnnouncementView.m */; };
+		DD93CB452260C294007E4562 /* TPWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD93CB432260C294007E4562 /* TPWebViewController.m */; };
+		DD93CB462260C294007E4562 /* TPWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD93CB442260C294007E4562 /* TPWebViewController.xib */; };
 		DDAA117721E72BD800F5D184 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAA117621E72BD800F5D184 /* MBProgressHUD+Add.m */; };
 		DDBB4617221A60630035CE07 /* TPReleaseProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDBB4615221A60630035CE07 /* TPReleaseProjectViewController.m */; };
 		DDBB4618221A60630035CE07 /* TPReleaseProjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDBB4616221A60630035CE07 /* TPReleaseProjectViewController.xib */; };
@@ -1019,6 +1029,22 @@
 		DD93CB24225F2892007E4562 /* UIView+AZGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AZGradient.h"; sourceTree = "<group>"; };
 		DD93CB26225F5540007E4562 /* API_GET_Asset_inner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API_GET_Asset_inner.h; sourceTree = "<group>"; };
 		DD93CB27225F5541007E4562 /* API_GET_Asset_inner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API_GET_Asset_inner.m; sourceTree = "<group>"; };
+		DD93CB29226070A4007E4562 /* TPSwiftTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPSwiftTableViewCell.swift; sourceTree = "<group>"; };
+		DD93CB2A226070A4007E4562 /* TPSwiftTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPSwiftTableViewCell.xib; sourceTree = "<group>"; };
+		DD93CB2D2260839B007E4562 /* TPProductDetailWebContainerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPProductDetailWebContainerCell.h; sourceTree = "<group>"; };
+		DD93CB2E2260839B007E4562 /* TPProductDetailWebContainerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPProductDetailWebContainerCell.m; sourceTree = "<group>"; };
+		DD93CB2F2260839B007E4562 /* TPProductDetailWebContainerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPProductDetailWebContainerCell.xib; sourceTree = "<group>"; };
+		DD93CB3222608555007E4562 /* TPProductDetailWebContainerCellEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPProductDetailWebContainerCellEntity.h; sourceTree = "<group>"; };
+		DD93CB3322608555007E4562 /* TPProductDetailWebContainerCellEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPProductDetailWebContainerCellEntity.m; sourceTree = "<group>"; };
+		DD93CB3522609E15007E4562 /* API_GET_View_Banner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API_GET_View_Banner.h; sourceTree = "<group>"; };
+		DD93CB3622609E15007E4562 /* API_GET_View_Banner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API_GET_View_Banner.m; sourceTree = "<group>"; };
+		DD93CB3822609FDB007E4562 /* AnnouncementModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnnouncementModel.h; sourceTree = "<group>"; };
+		DD93CB3922609FDB007E4562 /* AnnouncementModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnnouncementModel.m; sourceTree = "<group>"; };
+		DD93CB3E2260A2A6007E4562 /* TPAnnouncementView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAnnouncementView.h; sourceTree = "<group>"; };
+		DD93CB3F2260A2A6007E4562 /* TPAnnouncementView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAnnouncementView.m; sourceTree = "<group>"; };
+		DD93CB422260C294007E4562 /* TPWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPWebViewController.h; sourceTree = "<group>"; };
+		DD93CB432260C294007E4562 /* TPWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPWebViewController.m; sourceTree = "<group>"; };
+		DD93CB442260C294007E4562 /* TPWebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPWebViewController.xib; sourceTree = "<group>"; };
 		DDAA117521E72BD800F5D184 /* MBProgressHUD+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Add.h"; sourceTree = "<group>"; };
 		DDAA117621E72BD800F5D184 /* MBProgressHUD+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Add.m"; sourceTree = "<group>"; };
 		DDBB4614221A60630035CE07 /* TPReleaseProjectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPReleaseProjectViewController.h; sourceTree = "<group>"; };
@@ -1517,6 +1543,7 @@
 		DD02442C2196D1B8006A1390 /* Section */ = {
 			isa = PBXGroup;
 			children = (
+				DD93CB412260C27C007E4562 /* WebView */,
 				DD7B75E4225B66F400C9B729 /* GoogleValid */,
 				DD45A1502254D0A800D13839 /* MVCBank */,
 				DDDDC37622379E91008BB491 /* Browser  */,
@@ -1660,6 +1687,8 @@
 				DDF69FBD21C26B1E006EE7A4 /* TPTransDetailModel.m */,
 				DDFE5DAA21CA61D1005D6D48 /* TPTransferModel.h */,
 				DDFE5DAB21CA61D1005D6D48 /* TPTransferModel.m */,
+				DD93CB3822609FDB007E4562 /* AnnouncementModel.h */,
+				DD93CB3922609FDB007E4562 /* AnnouncementModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1697,6 +1726,8 @@
 				DD0A942721F897DB00D9E82E /* CheckSuccView.xib */,
 				DD0A942921F8987A00D9E82E /* CheckSuccView.h */,
 				DD0A942A21F8987A00D9E82E /* CheckSuccView.m */,
+				DD93CB3E2260A2A6007E4562 /* TPAnnouncementView.h */,
+				DD93CB3F2260A2A6007E4562 /* TPAnnouncementView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1887,7 +1918,7 @@
 			path = HomePage;
 			sourceTree = "<group>";
 		};
-		DD0A93C921F6F92400D9E82E /* ProductDetail */ = {
+		DD0A93C921F6F92400D9E82E /* ProductDetail(产品详情) */ = {
 			isa = PBXGroup;
 			children = (
 				DD0A93DB21F705CD00D9E82E /* Model */,
@@ -1896,7 +1927,7 @@
 				DD0A93CB21F6F98100D9E82E /* TPFinancingProductDetailVC.m */,
 				DD0A93CC21F6F98100D9E82E /* TPFinancingProductDetailVC.xib */,
 			);
-			path = ProductDetail;
+			path = "ProductDetail(产品详情)";
 			sourceTree = "<group>";
 		};
 		DD0A93D221F6FEA600D9E82E /* Cell */ = {
@@ -1912,6 +1943,11 @@
 				DD7B7614225DC8A000C9B729 /* TPFinancingProductDetailTotalCell.xib */,
 				DD7B7617225DC8BA00C9B729 /* TPFinancingProductDetailTotalCellEntity.h */,
 				DD7B7618225DC8BA00C9B729 /* TPFinancingProductDetailTotalCellEntity.m */,
+				DD93CB2D2260839B007E4562 /* TPProductDetailWebContainerCell.h */,
+				DD93CB2E2260839B007E4562 /* TPProductDetailWebContainerCell.m */,
+				DD93CB2F2260839B007E4562 /* TPProductDetailWebContainerCell.xib */,
+				DD93CB3222608555007E4562 /* TPProductDetailWebContainerCellEntity.h */,
+				DD93CB3322608555007E4562 /* TPProductDetailWebContainerCellEntity.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -2106,7 +2142,7 @@
 				DD0A93FD21F83BA600D9E82E /* StoreDetail(持仓详情) */,
 				DD0A93E521F7424100D9E82E /* StoreRecord(持仓) */,
 				DD0A93DF21F71A1900D9E82E /* BuyProduct */,
-				DD0A93C921F6F92400D9E82E /* ProductDetail */,
+				DD0A93C921F6F92400D9E82E /* ProductDetail(产品详情) */,
 				DD0A93C821F6F91100D9E82E /* HomePage */,
 			);
 			path = "Financing(理财)";
@@ -2598,6 +2634,8 @@
 				DD45A1512254D76400D13839 /* TPMVCBankViewController.h */,
 				DD45A1522254D76400D13839 /* TPMVCBankViewController.m */,
 				DD45A1532254D76400D13839 /* TPMVCBankViewController.xib */,
+				DD93CB29226070A4007E4562 /* TPSwiftTableViewCell.swift */,
+				DD93CB2A226070A4007E4562 /* TPSwiftTableViewCell.xib */,
 			);
 			path = MVCBank;
 			sourceTree = "<group>";
@@ -2801,6 +2839,16 @@
 				DD7B7610225CCB8700C9B729 /* ProgressView.m */,
 			);
 			path = PublicView;
+			sourceTree = "<group>";
+		};
+		DD93CB412260C27C007E4562 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				DD93CB422260C294007E4562 /* TPWebViewController.h */,
+				DD93CB432260C294007E4562 /* TPWebViewController.m */,
+				DD93CB442260C294007E4562 /* TPWebViewController.xib */,
+			);
+			path = WebView;
 			sourceTree = "<group>";
 		};
 		DDBB4613221A5FF80035CE07 /* ReleaseProject */ = {
@@ -3154,6 +3202,8 @@
 		DDEFE4142239255A003E3263 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				DD93CB3522609E15007E4562 /* API_GET_View_Banner.h */,
+				DD93CB3622609E15007E4562 /* API_GET_View_Banner.m */,
 				DD93CB26225F5540007E4562 /* API_GET_Asset_inner.h */,
 				DD93CB27225F5541007E4562 /* API_GET_Asset_inner.m */,
 				DD7B761B225DDE7400C9B729 /* API_GET_Financial_Id.h */,
@@ -3503,6 +3553,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDDDC3A12237ACD7008BB491 /* YUBrowserHeadCell.xib in Resources */,
+				DD93CB2C226070A4007E4562 /* TPSwiftTableViewCell.xib in Resources */,
 				DD13CF4221F05BB20022EECC /* TPBindEmailViewController.xib in Resources */,
 				DDBB461E221A74AA0035CE07 /* TPReleaseProjectCell.xib in Resources */,
 				DDD211EB21F1A2520029905C /* TPRetPassWordByEmailViewController.xib in Resources */,
@@ -3574,6 +3625,7 @@
 				DD45A1552254D76400D13839 /* TPMVCBankViewController.xib in Resources */,
 				DD0A940821F83E9D00D9E82E /* TPStoreDetailProductIntroCell.xib in Resources */,
 				DDBB4639221A9A810035CE07 /* TPReleaseDetailMainInfoCell.xib in Resources */,
+				DD93CB462260C294007E4562 /* TPWebViewController.xib in Resources */,
 				DD10844021A001030087F244 /* BCScanQR4@2x.png in Resources */,
 				DD1F511F22151B4900DB5442 /* YUAlertViewController.xib in Resources */,
 				DD0A940221F83CAD00D9E82E /* TPStoreDetailViewController.xib in Resources */,
@@ -3590,6 +3642,7 @@
 				DD7B75E9225B675800C9B729 /* TPGoogleSecurityValidViewController.xib in Resources */,
 				DD45A15B2254E18200D13839 /* TPMVCBanTableViewController.xib in Resources */,
 				DDEFE469223A855F003E3263 /* YUTransactionInfoViewController.xib in Resources */,
+				DD93CB312260839B007E4562 /* TPProductDetailWebContainerCell.xib in Resources */,
 				DD13CF0021ECB4C80022EECC /* TPMnemonicSettingViewController.xib in Resources */,
 				DDEFE3D22237B8FD003E3263 /* YUSmallHeaderCell.xib in Resources */,
 				DD0244002196C969006A1390 /* Main.storyboard in Resources */,
@@ -3735,6 +3788,7 @@
 				DDD211D121F087E20029905C /* TPBindEmailViewModel.m in Sources */,
 				DD0A93EF21F7446000D9E82E /* TPMyStoreTableViewController.m in Sources */,
 				DD02399421AF968E00333446 /* WYNetworkManager.m in Sources */,
+				DD93CB2B226070A4007E4562 /* TPSwiftTableViewCell.swift in Sources */,
 				DDDDFBA0219C1AE90056FC57 /* TPEndViewController.m in Sources */,
 				DD45A18A2255FFB700D13839 /* MVCBankSelectListCellEntity.m in Sources */,
 				DDD211D621F09F090029905C /* TPChangePassWordViewController.m in Sources */,
@@ -3751,6 +3805,7 @@
 				DDF7B9B321BA65E200BE35D6 /* UIImageView+YUExtension.m in Sources */,
 				DDEFE4C52240D919003E3263 /* YUNoDataCellEntity.m in Sources */,
 				DD0D345C21F6BEEC00ECEDF2 /* TPProductTableViewCell.m in Sources */,
+				DD93CB3722609E15007E4562 /* API_GET_View_Banner.m in Sources */,
 				DD0239A021AFD6E800333446 /* TPLoginUtil.m in Sources */,
 				DD0A940721F83E9D00D9E82E /* TPStoreDetailProductIntroCell.m in Sources */,
 				DD0A941E21F85E7700D9E82E /* MyEveryDayIncomItemModel.m in Sources */,
@@ -3767,6 +3822,7 @@
 				DDC5927F21D0B44C00CE8D3C /* TPKLineModel.m in Sources */,
 				DDDDC37422379AED008BB491 /* ServModel.m in Sources */,
 				DD23C29721E9BFF5007727DA /* UserHttpService.m in Sources */,
+				DD93CB452260C294007E4562 /* TPWebViewController.m in Sources */,
 				DD2FD6C621C7AD3000A28F78 /* TPNavigationController.m in Sources */,
 				DD02392721A7AC8400333446 /* TPBuyRecordViewController.m in Sources */,
 				DD0B451E21F31ADE00333016 /* TPInvitedRegisterViewModel.m in Sources */,
@@ -3822,6 +3878,7 @@
 				DDEFE446223A3563003E3263 /* BlockBrowserCaptialItem.m in Sources */,
 				DDEFE41322390B5A003E3263 /* YUPublicKeySearchResultCellEntity.m in Sources */,
 				DD02399D21AF968E00333446 /* WYImageScaleTool.m in Sources */,
+				DD93CB302260839B007E4562 /* TPProductDetailWebContainerCell.m in Sources */,
 				DDD211EA21F1A2520029905C /* TPRetPassWordByEmailViewController.m in Sources */,
 				DD0B453221F59FAF00333016 /* TPInviteRegSecondPageItemTableViewCellEntity.m in Sources */,
 				DD374DAB21C5228100093A0F /* AADataLabels.m in Sources */,
@@ -3889,6 +3946,7 @@
 				DD72F435219A7F12004C0DAF /* TPBaseViewController.m in Sources */,
 				DDDDFB8A219AD0550056FC57 /* UIView+TPExtension.m in Sources */,
 				DDFED6B421E065F100F2F354 /* YUCellEntity.m in Sources */,
+				DD93CB3A22609FDB007E4562 /* AnnouncementModel.m in Sources */,
 				DD0B44FB21F1B9FE00333016 /* TPRestPasswordByMnmonicViewModel.m in Sources */,
 				DDFED69821DEFC9800F2F354 /* QuickMaker.m in Sources */,
 				DDDDFB84219AB8C40056FC57 /* YFactoryUI.m in Sources */,
@@ -4002,6 +4060,7 @@
 				DDF69FBE21C26B1E006EE7A4 /* TPTransDetailModel.m in Sources */,
 				DD0D344A21F5B06400ECEDF2 /* TPInviteRegSecondPageTableViewCellEntity.m in Sources */,
 				DD45A1802255FADC00D13839 /* TPMVCBankSelectListView.m in Sources */,
+				DD93CB3422608555007E4562 /* TPProductDetailWebContainerCellEntity.m in Sources */,
 				DDF7B9B621BBA25000BE35D6 /* TPExchangeRate.m in Sources */,
 				DDDDFB93219BE19B0056FC57 /* TPHeaderRecordView.m in Sources */,
 				DD0239A321AFD9CA00333446 /* TPLoginModel.m in Sources */,
@@ -4037,6 +4096,7 @@
 				DD0A942221F8644000D9E82E /* TPEveryIncomeTitleDayCell.m in Sources */,
 				DD10844321A001030087F244 /* NIMScanerCardViewController.m in Sources */,
 				DD374DA721C5228100093A0F /* AALabels.m in Sources */,
+				DD93CB402260A2A6007E4562 /* TPAnnouncementView.m in Sources */,
 				DD02394A21AE408000333446 /* TPTransView.m in Sources */,
 				DD0A93FC21F8126900D9E82E /* MyStoreItemModel.m in Sources */,
 				DD786988221AB9740027566E /* TPTitleCell.m in Sources */,
@@ -4234,6 +4294,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ToPay/ToPay.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = SXV4N6YG2P;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4304,7 +4365,7 @@
 					"\"UserNotifications\"",
 					"-all_load",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = test.mvc.cryptovault;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mvc.cryptovault;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ToPay/ToPay-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -4321,6 +4382,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ToPay/ToPay.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = SXV4N6YG2P;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4391,7 +4453,7 @@
 					"\"UserNotifications\"",
 					"-all_load",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = test.mvc.cryptovault;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mvc.cryptovault;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ToPay/ToPay-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;

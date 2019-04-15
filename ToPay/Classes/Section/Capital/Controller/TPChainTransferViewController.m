@@ -214,11 +214,12 @@
         }
     }
 }
--(void)confirClcik
+- (void)confirClcik
 {
 //    3 ETH
 //    4 BTC
-    if( ![JudegeCenter isVaildAddrWithTokenId:self.assetModel.tokenId addr:self.textArray[0].comTextField.text] ) {
+    NSString *address = self.textArray[0].comTextField.text;
+    if( ![JudegeCenter isVaildAddrWithTokenId:self.assetModel.tokenId addr:self.textArray[0].comTextField.text] && ![JudegeCenter isAvailableEmail:address] ) {
          [self showInfoText:TPString(@"请输入正确的%@地址",self.assetModel.tokenName)];
         return;
     }

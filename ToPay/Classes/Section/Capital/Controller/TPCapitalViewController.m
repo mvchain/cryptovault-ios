@@ -21,6 +21,9 @@
 #import "TPCapitalCell.h"
 #import "TPCapitalHeaderView.h"
 #import "TPBrowserViewController.h"
+#import "API_GET_View_Banner.h"
+#import "AnnouncementModel.h"
+#import "TPWebViewController.h"
 #define NAVBAR_COLORCHANGE_POINT (-IMAGE_HEIGHT + StatusBarAndNavigationBarHeight*2)
 
 #define IMAGE_HEIGHT 260
@@ -102,11 +105,13 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
     [self setNavBackImage];
     [self setUpTableView];
     [self notificationRequest];
-    
+    [self requestAnnouncement];
     [TPNotificationCenter addObserver:self selector:@selector(currencyNotification) name:TPPutCurrencyNotification object:nil];
     [TPNotificationCenter addObserver:self selector:@selector(notificationRequest) name:TPAssetRedNotification object:nil];
     [self setupRefreshWithShowFooter:NO];
     [self setEvent];
+
+    
 }
 
 -(void)currencyNotification
@@ -115,6 +120,36 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
 }
 
 #pragma mark - 网络请求
+
+- (void)requestAnnouncement{
+    API_GET_View_Banner *getAnnouncement = [[API_GET_View_Banner alloc] init];
+    getAnnouncement.onSuccess = ^(id responseData) {
+        NSArray *arrays = (NSArray *)responseData;
+        NSMutableArray *models = [[NSMutableArray alloc]init];
+        for (NSDictionary *dict in arrays) {
+            AnnouncementModel *model = [[AnnouncementModel alloc]initWithDictionary:dict];
+            [models addObject:model];
+        }
+        if (models.count == 0) {
+            AnnouncementModel *model0 = [[AnnouncementModel alloc]init];
+            AnnouncementModel *model1 = [[AnnouncementModel alloc]init];
+            model0.content = @"暂时没有通知";
+            model1.content = @"暂时没有通知";
+            [models addObjectsFromArray:@[model0,model1]];
+        }
+        self.headerView.announcements = models;
+        
+    };
+    getAnnouncement.onError = ^(NSString *reason, NSInteger code) {
+        
+    };
+    getAnnouncement.onEndConnection = ^{
+        
+    };
+    [getAnnouncement sendRequest];
+    
+
+}
 
 -(void)loadNewTopics
 {
@@ -195,13 +230,12 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
 {
     TPCapitalHeaderView *headerView = [[TPCapitalHeaderView alloc] init];
     headerView.backgroundColor = [UIColor clearColor];
-    headerView.height = 140; 
+    headerView.height = 170;
     self.headerView = headerView;
     self.baseTableView.tableHeaderView = headerView;
     self.baseTableView.backgroundColor = [UIColor colorWithHex:@"#F2F2F2"];
     self.baseTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.baseTableView setRefreshBackGroundColor:[UIColor colorWithHex:@"#6649ff"]];
-    
     [self.baseTableView mas_makeConstraints:^(MASConstraintMaker *make)
      {
          make.top.equalTo(@(StatusBarAndNavigationBarHeight));
@@ -225,7 +259,12 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
         make.width.equalTo(@(KWidth));
         make.height.equalTo(@(StatusBarAndNavigationBarHeight));
     }];
+    
+    
     [self.view sendSubviewToBack:navBack];
+    
+    
+    
 }
 
 
@@ -334,6 +373,15 @@ static NSString  *TPCapitalCellCellId = @"CapitalCell";
     self.headerView.checkTap = ^{
         [wsf checkSign];
     };
+    self.headerView.announcementView.tap = ^(int index) {
+        AnnouncementModel *model = wsf.headerView.announcements[index];
+        NSString *domain = [QuickGet getFinancingProductDetailWebDomainUrl];
+        TPWebViewController *web = [[TPWebViewController alloc]init];
+        web.url = [NSString stringWithFormat:@"%@?type=1&id=%ld",domain,(long)model.idField];
+        [wsf.navigationController pushViewController:web animated:YES];
+        
+    };
+    
 }
 #pragma mark http
 // 判断是否签到

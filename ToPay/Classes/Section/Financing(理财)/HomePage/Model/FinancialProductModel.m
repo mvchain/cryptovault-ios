@@ -19,11 +19,10 @@ NSString *const kFinancialProductModelName = @"name";
 NSString *const kFinancialProductModelSold = @"sold";
 NSString *const kFinancialProductModelStopAt = @"stopAt";
 NSString *const kFinancialProductModelTimes = @"times";
-
+NSString *const kFinancialProductModelNeedSign = @"needSign";
 @interface FinancialProductModel ()
 @end
 @implementation FinancialProductModel
-
 
 
 
@@ -71,7 +70,9 @@ NSString *const kFinancialProductModelTimes = @"times";
     if(![dictionary[kFinancialProductModelTimes] isKindOfClass:[NSNull class]]){
         self.times = [dictionary[kFinancialProductModelTimes] integerValue];
     }
-    
+    if(![dictionary[kFinancialProductModelNeedSign] isKindOfClass:[NSNull class]]){
+        self.needSign = [dictionary[kFinancialProductModelNeedSign] integerValue];
+    }
     return self;
 }
 
@@ -96,6 +97,7 @@ NSString *const kFinancialProductModelTimes = @"times";
     dictionary[kFinancialProductModelSold] = @(self.sold);
     dictionary[kFinancialProductModelStopAt] = @(self.stopAt);
     dictionary[kFinancialProductModelTimes] = @(self.times);
+    dictionary[kFinancialProductModelNeedSign] = @(self.needSign);
     return dictionary;
     
 }
@@ -115,6 +117,8 @@ NSString *const kFinancialProductModelTimes = @"times";
         [aCoder encodeObject:self.name forKey:kFinancialProductModelName];
     }
     [aCoder encodeObject:@(self.sold) forKey:kFinancialProductModelSold];    [aCoder encodeObject:@(self.stopAt) forKey:kFinancialProductModelStopAt];    [aCoder encodeObject:@(self.times) forKey:kFinancialProductModelTimes];
+    [aCoder encodeObject:@(self.needSign) forKey:kFinancialProductModelNeedSign];
+    
 }
 
 /**
@@ -133,6 +137,7 @@ NSString *const kFinancialProductModelTimes = @"times";
     self.sold = [[aDecoder decodeObjectForKey:kFinancialProductModelSold] doubleValue];
     self.stopAt = [[aDecoder decodeObjectForKey:kFinancialProductModelStopAt] integerValue];
     self.times = [[aDecoder decodeObjectForKey:kFinancialProductModelTimes] integerValue];
+    self.needSign = [[aDecoder decodeObjectForKey:kFinancialProductModelNeedSign] integerValue];
     return self;
     
 }

@@ -62,18 +62,27 @@
 + (NSString *)getBundleIdStr {
     return [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIdentifier"];
 }
-
+// 服务器
 + (NSString *)getCurrentServerUrl {
-    NSString *release_url = @"https://www.bzvp.net/api/app/";
+    //https://www.ttpay-tech.com/api/app
+    NSString *release_url = @"https://www.ttpay-tech.com/api/app/";
     NSString *test_url = @"http://47.110.234.233:10086/";
     NSString *this_cur = [JudegeCenter isReleaseVersion]?release_url:test_url;
     return this_cur;
 }
+// 理财网页
++ (NSString *)getFinancingProductDetailWebDomainUrl {
+    NSString *release_url = @"http://47.110.234.233/wv/";
+    NSString *test_url = @"http://47.110.234.233/wv/";
+    NSString *this_cur = [JudegeCenter isReleaseVersion]?release_url:test_url;
+    return this_cur;
+}
+// 区块链浏览器
 + (NSString *)getExplorerPath {
     //@"http://47.110.234.233/api/explorer";
     //@"http://192.168.15.21:10081";
     NSString *test =@"http://47.110.234.233/api/explorer";
-    NSString *release = @"https://www.bzvp.net/api/explorer";
+    NSString *release = @"https://www.ttpay-tech.com/api/explorer";
     NSString *this_cur = [JudegeCenter isReleaseVersion]?release:test;
     return this_cur;
 }

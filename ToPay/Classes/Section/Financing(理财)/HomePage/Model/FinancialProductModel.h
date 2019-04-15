@@ -56,7 +56,7 @@
 @property (nonatomic, assign) CGFloat sold;
 @property (nonatomic, assign) NSInteger stopAt;
 @property (nonatomic, assign) NSInteger times;
-
+@property (nonatomic, assign) NSInteger needSign;
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 -(NSDictionary *)toDictionary;

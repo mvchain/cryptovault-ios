@@ -16,6 +16,7 @@
 + (NSString *)getBundleIdStr;
 + (NSString *)getCurBuildVersion;
 + (NSString *)getCurrentServerUrl;
++ (NSString *)getFinancingProductDetailWebDomainUrl;
 + (NSString *)httpPathWithCurrentServerUrl:(NSString *)path;
 + (NSString *)getExplorerPath;
 + (NSString *)getUUID ;

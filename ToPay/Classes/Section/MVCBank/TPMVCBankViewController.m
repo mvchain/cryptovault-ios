@@ -50,25 +50,6 @@ yudef_lazyLoad(UIButton,black,_black);
     [self refreshData] ;
 }
 
-- (void)setUpPageContentView
-{
-    _buy = [[TPMVCBanTableViewController alloc] init];
-    _sell = [[TPMVCBanTableViewController alloc] init];
-    NSArray *childArr = @[_buy, _sell];
-    [self.view layoutIfNeeded];
-    self.pageContentScrollView = [[SGPageContentScrollView alloc]initWithFrame:CGRectMake(0, _switchBgView.bottom , KWidth, KHeight -_switchBgView.bottom)
-                                                                      parentVC:self
-                                                                    childVCs:childArr];
-    _buy.transactionType = 1;
-    _sell.transactionType = 2;
-    
-    self.pageContentScrollView.delegatePageContentScrollView = self;
-    [self.pageContentScrollView setPageContentScrollViewCurrentIndex:0];
-    [self.view addSubview:_pageContentScrollView];
-   
-    
-}
-
 - (void)setUp {
     self.customNavBar.title =@"MVC交易";
     [self.top setConstant:self.customNavBar.height+5];
@@ -87,7 +68,24 @@ yudef_lazyLoad(UIButton,black,_black);
     _selectListView = [TPMVCBankSelectListView xib_loadUsingClassName];
     
 }
-
+- (void)setUpPageContentView
+{
+    _buy = [[TPMVCBanTableViewController alloc] init];
+    _sell = [[TPMVCBanTableViewController alloc] init];
+    NSArray *childArr = @[_buy, _sell];
+    [self.view layoutIfNeeded];
+    self.pageContentScrollView = [[SGPageContentScrollView alloc]initWithFrame:CGRectMake(0, _switchBgView.bottom , KWidth, KHeight -_switchBgView.bottom)
+                                                                      parentVC:self
+                                                                      childVCs:childArr];
+    _buy.transactionType = 1;
+    _sell.transactionType = 2;
+    
+    self.pageContentScrollView.delegatePageContentScrollView = self;
+    [self.pageContentScrollView setPageContentScrollViewCurrentIndex:0];
+    [self.view addSubview:_pageContentScrollView];
+    
+    
+}
 - (void)refreshData {
     API_GET_Transaction_Pair *getTransatcionPair  = [[API_GET_Transaction_Pair alloc] init];
     getTransatcionPair.onSuccess = ^(id responseData) {

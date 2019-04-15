@@ -28,6 +28,8 @@ pod 'Aspects'
 pod 'UMCCommon'
 pod 'UMCSecurityPlugins'
 pod 'UMCAnalytics'
+
+
 # pod 'ChartsRealm'
 # pod 'TZImagePickerController' 
 

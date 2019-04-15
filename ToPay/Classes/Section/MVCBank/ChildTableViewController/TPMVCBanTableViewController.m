@@ -48,12 +48,11 @@
             for (NSDictionary *dict in arrays) {
                 TPMVCBankItemModel *model = [[TPMVCBankItemModel alloc] initWithDictionary:dict];
                 [models addObject:model];
-                
                 TPMVCBankItemCellEntity *entity = [[TPMVCBankItemCellEntity alloc]init];
                 entity.tokenName = weakSelf.curPair.tokenName;
+                entity.transType = weakSelf.transactionType;
                 entity.data = model;
                 [listDatas addObject:entity];
-                
             }
             complete(listDatas);
             
@@ -103,7 +102,7 @@
     };
     self.pageListView.yu_didSelectRowAtIndexPath = ^(NSIndexPath * _Nonnull indexPath) {
         TPMVCBankItemModel *model =  weakSelf.pageListView.dataArrays[indexPath.row].data;
-        NSDictionary *dict = model.toDictionary;
+   
         TPTransactionModel *backModel = [TPTransactionModel  mj_objectWithKeyValues:model.toDictionary];
         backModel.limitValue = [[NSDecimalNumber alloc] initWithDouble:model.limitValue];
         backModel.price  =model.price;

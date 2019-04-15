@@ -56,7 +56,12 @@
     self.sellLabs = [NSMutableArray<UILabel *> array];
     self.currentPrice = 0.0f;
     self.tokenName = self.curPair.tokenName;
-    self.customNavBar.title = TPString(@"%@%@挂单",self.transType == TPTransactionTypeTransfer ? @"购买":@"出售",BASE_COIN);
+    if(self.isPublish) {
+         self.customNavBar.title = TPString(@"%@%@挂单",self.transType == TPTransactionTypeTransfer ? @"购买":@"出售",BASE_COIN);
+    }else {
+        self.customNavBar.title = TPString(@"%@%@",self.transType == TPTransactionTypeTransfer ? @"购买":@"出售",BASE_COIN);
+    }
+   
     [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"list_icon_1"]];
     TPWeakSelf;
     [self.customNavBar setOnClickRightButton:^

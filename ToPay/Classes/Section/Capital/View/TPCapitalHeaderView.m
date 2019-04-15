@@ -8,6 +8,7 @@
 
 #import "TPCapitalHeaderView.h"
 #import "TPExchangeRate.h"
+#import "AnnouncementModel.h"
 @interface TPCapitalHeaderView ()
 @property (nonatomic, strong) UILabel *totalLab;
 
@@ -60,6 +61,8 @@
         [_checkButton setBackgroundImage:[UIImage imageNamed:@"home_check-in_img"] forState:UIControlStateNormal];
         [_checkButton addTarget:self action:@selector(check:) forControlEvents:UIControlEventTouchUpInside];
         _checkButton.hidden = YES;
+        _announcementView = [[TPAnnouncementView alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+        [self addSubview:_announcementView];
         
         [self addSubview:_checkButton];
         
@@ -67,6 +70,8 @@
     }
     return self;
 }
+
+
 - (void)check :(id)sender{
     // 签到
     if(_checkTap){
@@ -78,7 +83,7 @@
      {
          make.left.top.equalTo(@0);
          make.width.equalTo(@(KWidth));
-         make.height.equalTo(self.mas_height).with.offset(-6);
+         make.height.equalTo(self.mas_height).with.offset(-36);
      }];
     [_totalLab mas_makeConstraints:^(MASConstraintMaker *make)
      {
@@ -106,6 +111,14 @@
         make.trailing.equalTo(self.mas_trailing);
         make.top.equalTo(self.mas_top).with.offset(20);
     }];
+    
+    [_announcementView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(self.mas_width).with.offset(-34);
+        make.height.equalTo(@24);
+        make.bottom.equalTo(self.mas_bottom).with.offset(0);
+        make.centerX.equalTo(self);
+
+    }];
 }
 - (void)setTotal:(NSString *)total
 {
@@ -125,7 +138,17 @@
     NSString *name = [_nickName substringFromIndex:1];
     [_chooseBtn setTitle:name forState:UIControlStateNormal];
 }
-
+- (void)setAnnouncements:(NSArray *)announcements {
+    _announcements = announcements;
+    NSMutableArray *arr =[[NSMutableArray alloc]init];
+    for (AnnouncementModel *model in _announcements) {
+        [arr addObject:model.content];
+        
+    }
+    self.announcementView.titles = arr;
+   
+    
+}
 - (void)chooseToken
 {
 //    NSLog(@"选择token");
