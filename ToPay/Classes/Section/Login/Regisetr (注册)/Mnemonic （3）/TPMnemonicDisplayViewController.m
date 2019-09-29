@@ -34,6 +34,7 @@
 }
 
 #pragma mark initialize
+
 - (void)initUI {
     NSString *privateKey = self.viewModel.cacheRegisterResponseModel.privateKey;
     [self.privateKeyLabel setText:privateKey];
@@ -43,6 +44,7 @@
     [self.collectionView yu_smallCircleStyle];
 }
 #pragma mark system method
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initUI];
@@ -60,14 +62,17 @@
     [cell setTitle:title];
     return cell;
 }
+
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat ew =  collectionView.width / 3.0;
     return CGSizeMake(ew, HEIGHT_CELL);
 }
+
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
 {
     return 0;
 }
+
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 {
     return 0;
@@ -84,6 +89,5 @@
     TPMnemonicSettingViewModel *model = [[TPMnemonicSettingViewModel alloc] init];
     mnemonicSetting.viewModel = model;
     [self.navigationController pushViewController:mnemonicSetting animated:YES];
-    
 }
 @end
