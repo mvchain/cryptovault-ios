@@ -1,0 +1,64 @@
+<div id="article_content" class="article_content clearfix">
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/ck_htmledit_views-833878f763.css">
+                                        <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/ck_htmledit_views-833878f763.css">
+                <div class="htmledit_views" id="content_views">
+                                            <p>1.vim .git/config&nbsp; 更改项目地址&nbsp;</p>
+
+<p>2.&nbsp;git status</p>
+
+<p>3.git pull</p>
+
+<p>4.history 查看历史</p>
+
+<p>5.git status</p>
+
+<p>6.git log&nbsp; 查看上次提交</p>
+
+<p>7.git status&nbsp;</p>
+
+<p>8.git push&nbsp; 提交上去</p>                                    </div>
+                                                <div class="more-toolbox">
+                <div class="left-toolbox">
+                    <ul class="toolbox-list">
+                        
+                        <li class="tool-item tool-active is-like "><a href="javascript:;"><svg class="icon" aria-hidden="true">
+                            <use xlink:href="#csdnc-thumbsup"></use>
+                        </svg><span class="name">点赞</span>
+                        <span class="count"></span>
+                        </a></li>
+                        <li class="tool-item tool-active is-collection "><a href="javascript:;" data-report-click="{&quot;mod&quot;:&quot;popu_824&quot;}"><svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-csdnc-Collection-G"></use>
+                        </svg><span class="name">收藏</span></a></li>
+                        <li class="tool-item tool-active is-share"><a href="javascript:;"><svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-csdnc-fenxiang"></use>
+                        </svg>分享</a></li>
+                        <!--打赏开始-->
+                                                <!--打赏结束-->
+                                                <li class="tool-item tool-more">
+                            <a>
+                            <svg t="1575545411852" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5717" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><defs><style type="text/css"></style></defs><path d="M179.176 499.222m-113.245 0a113.245 113.245 0 1 0 226.49 0 113.245 113.245 0 1 0-226.49 0Z" p-id="5718"></path><path d="M509.684 499.222m-113.245 0a113.245 113.245 0 1 0 226.49 0 113.245 113.245 0 1 0-226.49 0Z" p-id="5719"></path><path d="M846.175 499.222m-113.245 0a113.245 113.245 0 1 0 226.49 0 113.245 113.245 0 1 0-226.49 0Z" p-id="5720"></path></svg>
+                            </a>
+                            <ul class="more-box">
+                                <li class="item"><a class="article-report">文章举报</a></li>
+                            </ul>
+                        </li>
+                                            </ul>
+                </div>
+                            </div>
+            <div class="person-messagebox">
+                <div class="left-message"><a href="https://blog.csdn.net/YYT_0109">
+                    <img src="https://profile.csdnimg.cn/F/C/A/3_yyt_0109" class="avatar_pic" username="YYT_0109">
+                                            <img src="https://g.csdnimg.cn/static/user-reg-year/2x/3.png" class="user-years">
+                                    </a></div>
+                <div class="middle-message">
+                                        <div class="title"><span class="tit"><a href="https://blog.csdn.net/YYT_0109" data-report-click="{&quot;mod&quot;:&quot;popu_379&quot;}" target="_blank">YYT_0109</a></span>
+                                            </div>
+                    <div class="text"><span>发布了20 篇原创文章</span> · <span>获赞 0</span> · <span>访问量 3691</span></div>
+                </div>
+                                <div class="right-message">
+                                            <a href="https://im.csdn.net/im/main.html?userName=YYT_0109" target="_blank" class="btn btn-sm btn-red-hollow bt-button personal-letter">私信
+                        </a>
+                                                            <a class="btn btn-sm  bt-button personal-watch" data-report-click="{&quot;mod&quot;:&quot;popu_379&quot;}">关注</a>
+                                    </div>
+                            </div>
+                    </div>
