@@ -30,7 +30,51 @@
     
 <!DOCTYPE html>
 <!--STATUS OK-->
-
+#import "AppDelegate.h"
+#import "TPLoginViewController.h"
+#import "YUTabBarController.h"
+#import <WRNavigationBar/WRNavigationBar.h>
+// 引入 JPush 功能所需头文件
+#import "JPUSHService.h"
+// iOS10 注册 APNs 所需头文件
+#ifdef NSFoundationVersionNumber_iOS_9_x_Max
+#import <UserNotifications/UserNotifications.h>
+#import "TPGuiderViewController.h"
+#import "Aspects.h"
+#endif#import "AppDelegate.h"
+#import "TPLoginViewController.h"
+#import "YUTabBarController.h"
+#import <WRNavigationBar/WRNavigationBar.h>
+// 引入 JPush 功能所需头文件
+#import "JPUSHService.h"
+// iOS10 注册 APNs 所需头文件
+#ifdef NSFoundationVersionNumber_iOS_9_x_Max
+#import <UserNotifications/UserNotifications.h>
+#import "TPGuiderViewController.h"
+#import "Aspects.h"
+#endif#import "AppDelegate.h"
+#import "TPLoginViewController.h"
+#import "YUTabBarController.h"
+#import <WRNavigationBar/WRNavigationBar.h>
+// 引入 JPush 功能所需头文件
+#import "JPUSHService.h"
+// iOS10 注册 APNs 所需头文件
+#ifdef NSFoundationVersionNumber_iOS_9_x_Max
+#import <UserNotifications/UserNotifications.h>
+#import "TPGuiderViewController.h"
+#import "Aspects.h"
+#endif#import "AppDelegate.h"
+#import "TPLoginViewController.h"
+#import "YUTabBarController.h"
+#import <WRNavigationBar/WRNavigationBar.h>
+// 引入 JPush 功能所需头文件
+#import "JPUSHService.h"
+// iOS10 注册 APNs 所需头文件
+#ifdef NSFoundationVersionNumber_iOS_9_x_Max
+#import <UserNotifications/UserNotifications.h>
+#import "TPGuiderViewController.h"
+#import "Aspects.h"
+#endif
 
 
 
